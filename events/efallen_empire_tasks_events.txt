@@ -1,0 +1,481 @@
+namespace = fallen_empires_tasks
+
+#圣母地联要求解放AI
+country_event = {
+	id = fallen_empires_tasks.25
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	
+	mean_time_to_happen = {
+		years = 500	
+		modifier = {
+			factor = 0.01
+			has_global_flag = fallen_empire_task_debug
+		}		
+		
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_policy_flag = ai_full_rights
+			}				
+		}
+
+		modifier = {
+			factor = 0.5
+			
+			any_country = {
+				root = { is_rival = prev }
+				has_policy_flag = ai_full_rights
+				NOT = { has_country_flag = synthetic_empire }
+				has_technology = tech_synthetic_workers
+				has_communications = prev
+			}			
+		}
+	
+		modifier = {
+			factor = 0.5
+			
+			any_country = {
+				root = { is_rival = prev }
+				has_country_flag = synthetic_empire
+				has_communications = prev
+			}			
+		}
+	}
+	
+	trigger = {
+		is_ai = no
+		is_country_type = default	
+		NOR = {
+			has_valid_civic = civic_machine_terminator
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_fanatic_purifiers
+		}		
+		NOT = { has_authority = auth_machine_intelligence }
+		NOT = { has_authority = auth_hive_mind }
+		NOT = { has_country_flag = fe_task_given }
+		NOT = { has_global_flag = fe_task_liberate_robots }	
+		is_at_war = no
+		
+		NOT = { has_policy_flag = no_wars }
+
+		NOR = {
+			has_policy_flag = ai_servitude
+			has_policy_flag = ai_outlawed
+			has_policy_flag = robots_outlawed
+		}
+		
+		any_country = {
+			is_valid_fallen_empire_for_task = yes
+			has_ethic = ethic_fanatic_egalitarian
+			has_country_flag = fallen_empire_6
+			OR = {
+				is_patronizing_to = root
+				is_dismissive_to = root
+			}
+			has_communications = root		
+			NOT = { has_opinion_modifier = { who = prev modifier = opinion_refused_fallen_empire_task } }
+			NOT = { has_opinion_modifier = { who = prev modifier = opinion_failed_fallen_empire_task } }
+			NOT = { has_opinion_modifier = { who = prev modifier = opinion_majorly_failed_fallen_empire_task } }
+			
+			any_country = {
+				root = { is_rival = prev }
+				any_owned_pop = { 
+					is_robot_pop = yes
+				}
+				OR = {
+					has_policy_flag = ai_outlawed
+					has_policy_flag = ai_servitude
+				}
+				has_technology = tech_synthetic_workers
+				has_communications = prev
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = fe_task_given
+	
+		random_country = {
+			limit = { 
+				is_valid_fallen_empire_for_task = yes
+				has_ethic = ethic_fanatic_egalitarian
+				OR = {
+					is_patronizing_to = root
+					is_dismissive_to = root
+				}
+				has_communications = root		
+				NOT = { has_opinion_modifier = { who = prev modifier = opinion_refused_fallen_empire_task } }
+				
+				any_country = {
+					root = { is_rival = prev }
+					any_owned_pop = { 
+						is_robot_pop = yes
+					}
+					OR = {
+						has_policy_flag = ai_outlawed
+						has_policy_flag = ai_servitude
+					}
+					NOT = { has_country_flag = synthetic_empire }
+					has_technology = tech_synthetic_workers
+					has_communications = prev
+				}
+			}
+			
+			random_country = {
+				limit = {
+					root = { is_rival = prev }
+					any_owned_pop = { 
+						is_robot_pop = yes
+					}
+					OR = {
+						has_policy_flag = ai_outlawed
+						has_policy_flag = ai_servitude
+					}
+					NOT = { has_country_flag = synthetic_empire }
+					has_technology = tech_synthetic_workers
+					has_communications = prev			
+				}
+				
+				set_global_flag = fe_librobot_task_event_target_set
+				save_event_target_as = FallenEmpireTaskTarget
+			}
+
+			random_country = {	
+				limit = {
+					NOT = { has_global_flag = fe_librobot_task_event_target_set }
+					root = { is_rival = prev }
+					any_owned_pop = { 
+						is_robot_pop = yes
+					}
+					OR = {
+						has_policy_flag = ai_outlawed
+						has_policy_flag = ai_servitude
+					}
+					NOT = { has_country_flag = synthetic_empire }
+					has_technology = tech_synthetic_workers
+					has_communications = prev			
+				}
+				
+				set_global_flag = fe_librobot_task_event_target_set
+				save_event_target_as = FallenEmpireTaskTarget
+			}				
+			
+			remove_global_flag = fe_librobot_task_event_target_set
+			save_event_target_as = FallenEmpireTaskOrigin
+			root = { country_event = { id = fallen_empires_tasks.26 } }
+		}
+	}
+}
+
+country_event = {
+	id = fallen_empires_tasks.26
+	title = fallen_empires_tasks.26.name
+	desc = fallen_empires_tasks.26.desc
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:FallenEmpireTaskOrigin
+		planet_background = event_target:FallenEmpireTaskOrigin
+		graphical_culture = event_target:FallenEmpireTaskOrigin
+		city_level = event_target:FallenEmpireTaskOrigin
+		room = event_target:FallenEmpireTaskOrigin
+	}
+	
+	option = {
+		name = fallen_empires_tasks.26.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 5
+				has_policy_flag = ai_full_rights
+			}			
+			modifier = {
+				factor = 10
+				has_country_flag = synthetic_empire
+			}					
+		}		
+		
+		begin_event_chain = {
+			event_chain = fe_librobot_task_chain
+			target = root
+		}
+		
+		hidden_effect = {
+			set_global_flag = fe_task_liberate_robots
+			set_country_flag = fallen_task_liberate_robots
+			set_timed_country_flag = { flag = fe_task_liberate_robots_timer days = 7300 }
+			event_target:FallenEmpireTaskOrigin = { set_country_flag = fallen_task_liberate_robots_origin }
+			event_target:FallenEmpireTaskTarget = { set_country_flag = fallen_task_liberate_robots_target }
+		}
+		hidden_effect = { remove_country_flag = fe_task_given }
+	}
+	option = {
+		name = fallen_empires_tasks.26.b
+		ai_chance = {
+			factor = 10
+		}		
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_task } } }
+		hidden_effect = { remove_country_flag = fe_task_given }
+	}
+}
+
+# Success
+country_event = {
+	id = fallen_empires_tasks.27
+	title = fallen_empires_tasks.27.name
+	desc = fallen_empires_tasks.27.desc
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_global_flag = fe_task_liberate_robots
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_origin }
+			save_event_target_as = FallenEmpireTaskOrigin
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_target }
+			save_event_target_as = FallenEmpireTaskTarget
+		}	
+		end_event_chain = fe_librobot_task_chain
+	}
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:FallenEmpireTaskOrigin
+		planet_background = event_target:FallenEmpireTaskOrigin
+		graphical_culture = event_target:FallenEmpireTaskOrigin
+		city_level = event_target:FallenEmpireTaskOrigin
+		room = event_target:FallenEmpireTaskOrigin
+	}
+	
+	option = {
+		name = fallen_empires_tasks.27.a
+		custom_tooltip = fallen_empire_happy_tooltip
+		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_completed_fallen_empire_task } } }		
+		hidden_effect = {
+			every_country = {
+				remove_country_flag = fallen_task_liberate_robots
+				remove_country_flag = fallen_task_liberate_robots_origin
+				remove_country_flag = fallen_task_liberate_robots_target
+			}
+		}
+	}
+}
+
+# Failure - timer ran out
+country_event = {
+	id = fallen_empires_tasks.28
+	title = fallen_empires_tasks.28.name
+	desc = fallen_empires_tasks.28.desc
+	
+	trigger = {
+		has_global_flag = fe_task_liberate_robots
+		has_country_flag = fallen_task_liberate_robots
+		NOT = { has_country_flag = fe_task_liberate_robots_timer }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		remove_global_flag = fe_task_liberate_robots
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_origin }
+			save_event_target_as = FallenEmpireTaskOrigin
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_target }
+			save_event_target_as = FallenEmpireTaskTarget
+		}	
+		end_event_chain = fe_librobot_task_chain
+	}
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:FallenEmpireTaskOrigin
+		planet_background = event_target:FallenEmpireTaskOrigin
+		graphical_culture = event_target:FallenEmpireTaskOrigin
+		city_level = event_target:FallenEmpireTaskOrigin
+		room = event_target:FallenEmpireTaskOrigin
+	}
+	
+	option = {
+		name = fallen_empires_tasks.28.a
+		custom_tooltip = fallen_empire_unhappy_tooltip
+		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_task } } }		
+		hidden_effect = {
+			remove_global_flag = fe_task_liberate_robots
+			every_country = {
+				remove_country_flag = fallen_task_liberate_robots
+				remove_country_flag = fallen_task_liberate_robots_origin
+				remove_country_flag = fallen_task_liberate_robots_target
+			}
+		}
+	}
+}
+
+# Failure - they're no longer roboting it up
+country_event = {
+	id = fallen_empires_tasks.29
+	title = fallen_empires_tasks.29.name
+	desc = fallen_empires_tasks.29.desc
+	
+	trigger = {
+		has_global_flag = fe_task_liberate_robots
+		has_country_flag = fallen_task_liberate_robots
+		any_country = {
+			has_country_flag = fallen_task_liberate_robots_target
+			has_policy_flag = ai_outlawed
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_global_flag = fe_task_liberate_robots
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_origin }
+			save_event_target_as = FallenEmpireTaskOrigin
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_target }
+			save_event_target_as = FallenEmpireTaskTarget
+		}	
+		end_event_chain = fe_librobot_task_chain
+	}
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:FallenEmpireTaskOrigin
+		planet_background = event_target:FallenEmpireTaskOrigin
+		graphical_culture = event_target:FallenEmpireTaskOrigin
+		city_level = event_target:FallenEmpireTaskOrigin
+		room = event_target:FallenEmpireTaskOrigin
+	}
+	
+	option = {
+		name = fallen_empires_tasks.29.a
+		hidden_effect = {
+			remove_global_flag = fe_task_liberate_robots
+			every_country = {
+				remove_country_flag = fallen_task_liberate_robots
+				remove_country_flag = fallen_task_liberate_robots_origin
+				remove_country_flag = fallen_task_liberate_robots_target
+			}
+		}
+	}
+}
+
+# Failure - a country involved is no longer valid
+country_event = {
+	id = fallen_empires_tasks.30	
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	
+	trigger = {
+		has_global_flag = fe_task_liberate_robots
+		OR = {
+			NOT = { any_country = { has_country_flag = fallen_task_liberate_robots } }
+			NOT = { any_country = { has_country_flag = fallen_task_liberate_robots_origin } }
+			NOT = { any_country = { has_country_flag = fallen_task_liberate_robots_target } }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_global_flag = fe_task_liberate_robots
+		hidden_effect = {
+			remove_global_flag = fe_task_liberate_robots
+			every_country = {
+				if = {
+					limit = { has_country_flag = fallen_task_liberate_robots }
+					end_event_chain = fe_librobot_task_chain
+				}
+				remove_country_flag = fallen_task_liberate_robots
+				remove_country_flag = fallen_task_liberate_robots_origin
+				remove_country_flag = fallen_task_liberate_robots_target
+			}
+		}
+	}
+}
+
+# Failure - the country who got the task decided to robot it up
+country_event = {
+	id = fallen_empires_tasks.31
+	title = fallen_empires_tasks.31.name
+	desc = fallen_empires_tasks.31.desc
+	
+	trigger = {
+		has_global_flag = fe_task_liberate_robots
+		has_country_flag = fallen_task_liberate_robots
+		OR = {
+			has_policy_flag = ai_outlawed
+			has_policy_flag = ai_servitude
+		}
+		has_technology = tech_synthetic_workers
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_global_flag = fe_task_liberate_robots
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_origin }
+			save_event_target_as = FallenEmpireTaskOrigin
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_task_liberate_robots_target }
+			save_event_target_as = FallenEmpireTaskTarget
+		}	
+		end_event_chain = fe_librobot_task_chain
+	}
+	
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:FallenEmpireTaskOrigin
+		planet_background = event_target:FallenEmpireTaskOrigin
+		graphical_culture = event_target:FallenEmpireTaskOrigin
+		city_level = event_target:FallenEmpireTaskOrigin
+		room = event_target:FallenEmpireTaskOrigin
+	}
+	
+	option = {
+		name = fallen_empires_tasks.31.a
+		custom_tooltip = fallen_empire_angry_tooltip
+		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_majorly_failed_fallen_empire_task } } }			
+		hidden_effect = {
+			remove_global_flag = fe_task_liberate_robots
+			every_country = {
+				remove_country_flag = fallen_task_liberate_robots
+				remove_country_flag = fallen_task_liberate_robots_origin
+				remove_country_flag = fallen_task_liberate_robots_target
+			}
+		}
+	}
+}

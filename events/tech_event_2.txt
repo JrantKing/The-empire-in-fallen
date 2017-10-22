@@ -1,0 +1,320 @@
+namespace = techfound
+
+country_event = {
+	id = techfound.33
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		ROOT = {
+			if = {
+				limit = {
+					ROOT = {
+						species = { is_species_class = ROBOT }
+					}
+				}
+				every_owned_planet = {
+					limit = { is_capital = yes }
+					every_tile = {
+						limit = { has_building = building_hydroponics_farm_1 }
+						clear_deposits = yes
+						set_building = "building_dark_matter_power_plant"
+						set_deposit = d_immense_energy_deposit	
+					}
+					every_tile = {
+						limit = {
+							OR = {
+								has_deposit = d_farmland_deposit
+								has_deposit = d_rich_farmland_deposit
+								has_deposit = d_vast_farmland_deposit
+								has_deposit = d_immense_farmland_deposit
+							}
+						}
+						clear_deposits = yes
+						set_deposit = d_immense_energy_deposit	
+					}
+					every_tile = {
+						limit = {
+							OR = {
+								has_deposit = d_mineral_food_deposit
+								has_deposit = d_rich_food_mineral_deposit
+							}
+						}
+						switch = {
+							trigger = has_deposit
+							d_mineral_food_deposit = {
+								clear_deposits = yes
+								set_deposit = d_mineral_deposit
+							}
+							d_rich_food_mineral_deposit = {
+								clear_deposits = yes
+								set_deposit = d_rich_mineral_deposit
+							}
+						}
+					}
+					every_tile = {
+						limit = { has_building = building_mining_network_1 }
+						set_building = "building_ancient_factory"
+					}
+					every_tile = {
+						limit = { has_building = building_basic_science_lab_1 }
+						set_building = "building_ancient_archives"
+					}
+					every_tile = {
+						limit = { has_building = building_power_plant_1 }
+						set_building = "building_dark_matter_power_plant"
+					}
+					every_tile = {
+						limit = { has_building = building_capital_1 }
+						set_building = "building_capital_3"
+					}
+				}
+			}
+			#add_influence = 600
+		}
+	}
+}
+
+country_event = {
+	id = techfound.34
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		ROOT = {
+			create_ship_design = { design = "NAME_Alpha" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Savant" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Eternal" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Imperium" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Keeper" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Liberty" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Stellar" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Liberation" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Flare" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Beta" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Scholar" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Avatar" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Supremacy" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Custodian" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Freedom" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Planedo" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Freeborn" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Pianeta" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Gamma" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Sage" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Zealot" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Glory" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Warden" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Equality" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Moon" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Equalities" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Selina" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Omega" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Obscurer" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Bulwark" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Reaper" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Sentinel" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Harmony" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Giant" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Sigma" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Cloaker" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Faith" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Devastator" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Watcher" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Bright" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_Dwarf" }
+			add_ship_design = last_created_design
+		}
+	}
+}
+
+country_event = {
+	id = techfound.35
+	hide_window = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	immediate = {
+		every_planet = {
+			limit = { has_modifier = capital }
+			remove_modifier = "hazardous_weather"
+			remove_modifier = "dangerous_wildlife"
+			remove_modifier = "weak_magnetic_field"
+			remove_modifier = "strong_magnetic_field"
+			remove_modifier = "unstable_tectonics"
+			remove_modifier = "tidal_locked"
+			remove_modifier = "chthonian_planet"
+			remove_modifier = "asteroid_impacts"
+			remove_modifier = "extensive_moon_system"
+			remove_modifier = "carbon_world"
+			remove_modifier = "wild_storms"
+			remove_modifier = "mineral_rich"
+			remove_modifier = "ultra_rich"
+			remove_modifier = "mineral_poor"
+			remove_modifier = "titanic_life"
+			remove_modifier = "eat_the_titans"
+			remove_modifier = "asteroid_belt"
+			remove_modifier = "natural_beauty"
+			remove_modifier = "atmospheric_aphrodisiac"
+			remove_modifier = "atmospheric_hallucinogen"
+			remove_modifier = "atmospheric_hallucinogen_good"
+			remove_modifier = "lush_planet"
+			remove_modifier = "bleak_planet"
+			remove_modifier = "irradiated_planet"
+			remove_modifier = "low_gravity"
+			remove_modifier = "high_gravity"
+		}
+	}
+}
+
+country_event = {
+	id = techfound.36
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		every_country = {
+			limit = {
+				is_country_type = fallen_empire
+				is_ai = yes
+			}
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_materialist = { 
+					create_ship_design = { design = "NAME_Savant" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Scholar" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Sage" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Obscurer" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Cloaker" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Librarian" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Seeker" }
+					add_ship_design = last_created_design
+				}
+				ethic_fanatic_spiritualist = { 
+					create_ship_design = { design = "NAME_Eternal" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Avatar" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Zealot" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Penitent" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Bulwark" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Faith" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Pilgrim" }
+					add_ship_design = last_created_design
+				}
+				ethic_fanatic_xenophile = { 
+					create_ship_design = { design = "NAME_Keeper" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Custodian" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Warden" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Watcher" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Sentinel" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Seeder" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Builder" }
+					add_ship_design = last_created_design
+				}
+				ethic_fanatic_xenophobe = { 
+					create_ship_design = { design = "NAME_Imperium" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Supremacy" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Glory" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Reaper" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Devastator" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Servitor" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Destiny" }
+					add_ship_design = last_created_design
+				}
+				ethic_fanatic_authoritarian = { 
+					create_ship_design = { design = "NAME_Stellar" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Planedo" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Moon" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Giant" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Dwarf" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Meteorite" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Comet" }
+					add_ship_design = last_created_design
+				}
+				ethic_fanatic_egalitarian = { 
+					create_ship_design = { design = "NAME_Liberty" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Freedom" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Equality" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Harmony" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Bright" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Justice" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Law" }
+					add_ship_design = last_created_design
+				}
+			}
+		}
+	}
+}

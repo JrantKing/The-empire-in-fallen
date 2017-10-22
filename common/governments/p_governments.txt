@@ -1,0 +1,29 @@
+gov_representative_democracy_democratic = {
+	ruler_title = RT_PRESIDENT
+	ruler_title_female = RT_PRESIDENT_FEMALE
+
+	possible = {
+		has_authority = auth_democratic
+		has_valid_civic = civic_lethargic_leadership
+		has_valid_civic = civic_empire_in_decline
+	}
+
+	weight = {
+		base = 1000000
+	}
+}
+
+gov_awakened_ascendancy_democratic = {
+	ruler_title = RT_PRESIDENT
+	ruler_title_female = RT_PRESIDENT_FEMALE
+
+	possible = {
+		has_authority = auth_democratic
+		has_valid_civic = civic_revanchist_fervor
+		has_valid_civic = civic_ancient_caches_of_technology
+	}
+
+	weight = {
+		base = 1000000
+	}
+}

@@ -1,0 +1,14 @@
+###############EVENT SOUND######################
+sound =
+{
+	name = "event_stability_decrease"
+	file = "event/stability_decrease.wav"
+	volume = 0.8
+}
+
+sound =
+{
+	name = "event_stability_increase"
+	file = "event/stability_increase.wav"
+	volume = 0.8
+}

@@ -1,0 +1,336 @@
+greetings = {
+	09_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = { species_portrait = human }
+		}
+	}
+	10_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = { 
+				species_portrait = human
+				is_species_class = HUM
+				has_country_flag = human_2
+			}
+		}
+	}
+	11_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+		}
+	}
+	12_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = {
+				species_portrait = human
+				is_species_class = HUM
+			}
+		}
+	}
+	09_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+			FROM = {
+				NOT = {
+					species_portrait = human
+					is_species_class = HUM
+				}
+			}
+		}
+	}
+# Benevolent Interventionists
+	BI_ARROGANT_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	BI_BELLIGERENT_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}		
+	BI_CUSTODIAL_GREETING_03 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			is_in_federation_with = FROM
+		}
+	}
+	BI_CUSTODIAL_GREETING_04 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			NOT = { is_in_federation_with = FROM }
+		}
+	}
+	BI_OVERLORD_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian_1
+			}
+			is_overlord_to = FROM
+		}
+	}
+	
+	JR_ARROGANT_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_authoritarian
+				has_ai_personality = awakened_fallen_empire_authoritarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	JR_BELLIGERENT_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_authoritarian
+				has_ai_personality = awakened_fallen_empire_authoritarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}	
+	JR_OVERLORD_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_authoritarian
+				has_ai_personality = awakened_fallen_empire_authoritarian_1
+			}
+			is_overlord_to = FROM
+		}
+	}
+	WR_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_materialist
+				has_ai_personality = awakened_fallen_empire_materialist_1
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	WR_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_materialist
+				has_ai_personality = awakened_fallen_empire_materialist_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}		
+	WR_CUSTODIAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_materialist
+				has_ai_personality = awakened_fallen_empire_materialist_1
+				has_ai_personality = awakened_fallen_empire_authoritarian
+				has_ai_personality = awakened_fallen_empire_authoritarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			is_in_federation_with = FROM
+		}
+	}
+	WR_CUSTODIAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_materialist
+				has_ai_personality = awakened_fallen_empire_materialist_1
+				has_ai_personality = awakened_fallen_empire_authoritarian
+				has_ai_personality = awakened_fallen_empire_authoritarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			NOT = { is_in_federation_with = FROM }
+		}
+	}
+	WR_OVERLORD_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_materialist
+				has_ai_personality = awakened_fallen_empire_materialist_1
+			}
+			is_overlord_to = FROM
+		}
+	}	
+
+	# Benevolent Interventionists
+	BI_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_xenophile
+				has_ai_personality = awakened_fallen_empire_xenophile_1
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	BI_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_xenophile
+				has_ai_personality = awakened_fallen_empire_xenophile_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}		
+	BI_CUSTODIAL_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_xenophile
+				has_ai_personality = awakened_fallen_empire_xenophile_1
+				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			is_in_federation_with = FROM
+		}
+	}
+	BI_CUSTODIAL_GREETING_02 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_xenophile
+				has_ai_personality = awakened_fallen_empire_xenophile_1
+				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian_1
+			}
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			NOT = { is_in_federation_with = FROM }
+		}
+	}
+	BI_OVERLORD_GREETING_01 = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_ai_personality = awakened_fallen_empire_xenophile
+				has_ai_personality = awakened_fallen_empire_xenophile_1
+			}
+			is_overlord_to = FROM
+		}
+	}
+}

@@ -1,0 +1,9 @@
+NGameplay = {
+		ASCENSION_PERKS_SLOTS = 18
+}
+NGraphics = {
+		NAVIGATION_ARROW_FONT = "Chinese_normal"
+}
+NSpecies = {
+		HOMEWORLD_HABITABILITY				= 0.0		# Habitability on homeworld is increased by this value
+	}

@@ -1,0 +1,12 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_ap_rw_awakening"
+		texturefile = "gfx\interface\icons\ascension_perks\ap_reach_for_the_stars.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_ap_crisis_fighter"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_defender_of_the_galaxy.dds"
+		alwaystransparent = yes
+	}
+}

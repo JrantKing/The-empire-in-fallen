@@ -1,0 +1,5 @@
+﻿l_default:
+ format.fallen.5: "[This.GetSpeciesName]<fallen_empire_names_5>"
+ format.fallen.6: "地球<fallen_empire_names_6>"
+ format.awakened.5: "[This.GetSpeciesName]<awakened_fallen_empire_names_5>"
+ format.awakened.6: "银河<awakened_fallen_empire_names_6>"

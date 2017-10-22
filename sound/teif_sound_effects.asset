@@ -1,0 +1,19 @@
+soundeffect = {
+	name = event_stability_increase
+	sounds = {
+		sound = event_stability_increase
+	} 
+	volume = 0.6
+	max_audible = 1
+	max_audible_behaviour = fail	
+}
+
+soundeffect = {
+	name = event_stability_decrease
+	sounds = {
+		sound = event_stability_decrease
+	} 
+	volume = 0.6
+	max_audible = 1
+	max_audible_behaviour = fail	
+}

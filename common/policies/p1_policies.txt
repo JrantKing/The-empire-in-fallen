@@ -1,0 +1,303 @@
+slavery = {
+	potential = {
+		NOT = { has_ethic = "ethic_gestalt_consciousness" }
+	}
+	
+	option = {
+		name = "slavery_not_allowed"
+		
+		policy_flags = {
+			slavery_not_allowed
+		}
+	}
+	
+	option = {
+		name = "slavery_allowed"
+		
+		valid = {
+			NOT = { is_subject_type = signatory }
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		
+		policy_flags = {
+			slavery_allowed
+		}
+		modifier = {}
+		
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_valid_ai_personality = yes
+				NOT = { has_ai_personality_behaviour = slaver }
+			}
+			modifier = {
+				factor = 0
+				has_valid_ai_personality = no
+				NOR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+			# special case for harmonious collectives
+			modifier = {
+				factor = 0
+				has_valid_ai_personality = no
+				is_ai = yes
+				NOR = {
+					has_ethic = "ethic_xenophobe"
+					has_ethic = "ethic_fanatic_xenophobe"
+					has_ethic = "ethic_militarist"
+					has_ethic = "ethic_fanatic_militarist"	
+				}
+				OR = {
+					has_ethic = "ethic_pacifist"
+					has_ethic = "ethic_fanatic_pacifist"
+					has_ethic = "ethic_xenophile"
+					has_ethic = "ethic_fanatic_xenophile"
+				}
+				OR = {
+					has_ethic = "ethic_authoritarian"
+					has_ethic = "ethic_fanatic_authoritarian"
+				}
+				NOR = {
+					has_valid_civic = "civic_slaver_guilds"
+					has_trait = "trait_decadent"
+				}				
+			}
+		}
+	}
+}
+
+purge = {
+	potential = {
+		NOT = { has_ethic = "ethic_gestalt_consciousness" }
+	}
+	
+	option = {
+		name = "purge_not_allowed"
+		
+		valid = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		
+		policy_flags = {
+			purge_not_allowed
+		}
+	}
+	
+	option = {
+		name = "purge_displacement_only"
+		
+		policy_flags = {
+			purge_displacement_only
+		}
+		modifier = {}
+		
+		valid = {
+			OR = {
+				NOR = { 
+					is_subject_type = signatory
+					has_ethic = ethic_gestalt_consciousness
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		
+		AI_weight = {
+			factor = 5
+			modifier = {
+				factor = 0
+				has_valid_ai_personality = yes
+				has_ai_personality_behaviour = multispecies
+			}
+		}
+	}	
+	
+	option = {
+		name = "purge_allowed"
+		
+		policy_flags = {
+			purge_allowed
+		}
+		modifier = {}
+		
+		valid = {		
+			NOT = { is_subject_type = signatory }
+			OR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 50
+				has_ethic = ethic_gestalt_consciousness
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			modifier = {
+				factor = 0
+				has_valid_ai_personality = yes
+				NOT = { has_ai_personality_behaviour = purger }
+			}
+		}
+	}
+}
+
+robot_living_standard = {
+	potential = {
+		OR = {
+			AND = {
+				has_technology = tech_synthetic_workers
+				NOT = { has_policy_flag = ai_outlawed }
+				NOT = { has_policy_flag = ai_servitude }
+			}
+			is_mechanical_empire = yes
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_1"
+		
+		policy_flags = {}
+		modifier = {
+			#pop_robot_upkeep_mult = 0.1
+		}
+		
+		valid = {
+			NOT = { has_policy_flag = ai_outlawed }
+			NOT = { has_policy_flag = ai_servitude }
+		}
+		
+		AI_weight = {
+			factor = 10
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_2"
+		
+		policy_flags = {}
+		modifier = {
+			pop_robot_upkeep_mult = -0.2
+			pop_happiness = -0.20
+			biological_pop_happiness = 0.20
+			pop_robot_production_output = -0.10
+		}
+		
+		valid = {
+			NOT = { has_policy_flag = ai_outlawed }
+			NOT = { has_policy_flag = ai_servitude }
+		}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_3"
+		
+		policy_flags = {}
+		modifier = {
+			pop_robot_upkeep_mult = -0.1
+			pop_happiness = -0.10
+			biological_pop_happiness = 0.10
+			pop_robot_production_output = -0.05
+		}
+		
+		valid = {
+			NOT = { has_policy_flag = ai_outlawed }
+			NOT = { has_policy_flag = ai_servitude }
+		}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}	
+	
+	option = {
+		name = "robot_living_standard_4"
+		
+		policy_flags = {}
+		modifier = {
+			pop_robot_upkeep_mult = 0.05
+			pop_happiness = 0.10
+			biological_pop_happiness = -0.10
+			pop_robot_production_output = 0.10
+		}
+		
+		valid = {
+			NOT = { has_policy_flag = ai_outlawed }
+			NOT = { has_policy_flag = ai_servitude }
+		}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_5"
+		
+		policy_flags = {}
+		modifier = {
+			pop_robot_upkeep_mult = 0.1
+			pop_happiness = 0.20
+			biological_pop_happiness = -0.20
+			pop_robot_production_output = 0.20
+		}
+		
+		valid = {
+			NOT = { has_policy_flag = ai_outlawed }
+			NOT = { has_policy_flag = ai_servitude }
+		}
+		
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 20
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					AND = {
+						OR = {
+							is_country_type = fallen_empire
+							is_country_type = awakened_fallen_empire
+						}
+						has_ethic = ethic_fanatic_egalitarian
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = allows_ai_fallen
+			}
+		}
+	}
+}

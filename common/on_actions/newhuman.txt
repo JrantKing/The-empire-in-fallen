@@ -1,0 +1,61 @@
+on_press_begin = {
+	events = {
+		sdefine.0
+		sdefine.1
+		begindefine.1
+		startdefine.1
+		unitydefine.1
+		sdefine.3
+		techfound.6
+		techfound.28
+		techfound.36
+	}
+}
+empire_init_create_ships = {
+	events = {
+	}
+}
+on_ship_built = {
+	events = {
+		techfound.16
+		techfound.22
+	}
+}
+on_entering_system = {
+	events = {
+		crisisf.3
+	}
+	random_events = {
+		100 = 0
+	}
+}
+on_tech_increased = {
+	events = {
+		techfound.26
+		techfound.27
+	}
+}
+on_game_start_country = {
+	events = {
+		techfound.30
+	}
+}
+on_uplift_completion = {
+	events = {
+	}
+}
+empire_init_create_capital_pops = {
+	events = {
+		techfound.33
+	}
+}
+on_war_beginning = {
+	events = {
+		
+	}
+}
+on_war_ended = {
+	events = {
+		
+	}
+}

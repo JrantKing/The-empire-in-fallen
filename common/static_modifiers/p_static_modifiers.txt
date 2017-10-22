@@ -1,0 +1,17 @@
+communist_society = {
+	pop_happiness = 0.3
+	leader_skill_levels = 5
+	damage_vs_country_type_default_mult = 1
+	damage_vs_country_type_ai_empire_mult = 5
+	damage_vs_country_type_fallen_empire_mult = 2
+	damage_vs_country_type_awakened_fallen_empire_mult = 2
+	country_border_mult = 0.4
+}
+fallen_human_humiliated = {
+	pop_happiness = 0.2
+	biological_pop_happiness = -0.25
+	pop_robot_production_output = 0.10
+}
+too_many_titans = {
+	shipsize_massive_ship_fallen_empire_upkeep_mult = 1000
+}

@@ -1,0 +1,103 @@
+namespace = fallentrade
+
+country_event = {
+	id = fallentrade.0
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		ROOT = { save_event_target_as = buyer }
+		if = {
+			limit = {
+				has_country_flag = has_contacted
+			}
+			country_event = { id = fallentrade.1 }
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = has_contacted }
+			}
+			country_event = { id = fallentrade.2 }
+		}
+	}
+}
+
+country_event = {
+	id = fallentrade.1
+	title = "fallentrade.1.name"
+	desc = "fallentrade.1.desc"
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+
+	is_triggered_only = yes
+	
+	immediate = {
+		random_country = {
+			limit = {
+				NOT = { has_country_flag = timed_slc }
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				has_communications = event_target:buyer
+			}
+			save_event_target_as = fallen_buy
+			set_country_flag = timed_slc
+		}
+	}
+	
+	option = {
+		name = "fallentrade.1.a"
+		trigger = {
+			has_communications = event_target:fallen_buy
+		}
+		hidden_effect ={
+			country_event = { id = fallentrade.3 }
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				remove_country_flag = timed_slc
+			}
+		}
+	}
+	option = {
+		name = "fallentrade.1.b"
+		hidden_effect ={
+			country_event = { id = fallentrade.1 }
+		}
+	}
+	option = {
+		name = "fallentrade.1.c"
+		hidden_effect ={
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				remove_country_flag = timed_slc
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fallentrade.2
+	title = "fallentrade.2.name"
+	desc = "fallentrade.2.desc"
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+		
+	}
+}

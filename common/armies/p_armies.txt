@@ -1,0 +1,19 @@
+#sbt_army = {
+#	damage = 2
+#	health = 3
+#	morale = 10
+#	assault = yes
+#	time = 120
+#	maintenance = 1.0
+#	icon_frame = 8
+#	cost = {
+#		minerals = 50
+#		energy = 250
+#	}
+#	potential = {
+#		owner = { has_country_flag = Seibertron }
+#		from = {
+#			is_species = 赛博坦
+#		}
+#	}
+#}

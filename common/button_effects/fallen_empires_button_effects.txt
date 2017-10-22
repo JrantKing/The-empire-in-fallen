@@ -1,0 +1,34 @@
+tech_view_research_new_select_button_effect = {
+	potential = {
+		#from = {
+			is_country_type = fallen_empire
+		#}
+		#log = "[This.GetName]"
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = fallen_empires_technology_button_disable
+			always = no
+		}
+	}
+
+	effect = {
+		log = ""
+	}
+}
+
+fe_buy_fleet_button_effect = {
+	potential = {
+		is_country_type = default
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			country_event = { id = fallentrade.0 }
+		}
+	}
+}

@@ -1,0 +1,223 @@
+namespace = stability
+country_event = {
+	id = stability.1000
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		every_country = {
+			country_event = { id = stability.1001 }
+		}
+	}
+}
+
+country_event = {
+	id = stability.1001
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		change_variable = {
+			which = stability_num
+			value = 3
+		}
+	}
+}
+
+country_event = {
+	id = stability.1002
+	title = "stability.1002.name"
+	desc = "stability.1002.desc"
+	picture = GFX_evt_atmospheric_entry
+	is_triggered_only = yes
+	show_sound = event_stability_increase
+	immediate = {
+		change_variable = {
+			which = stability_num
+			value = 1
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value > 6 
+				}
+			}
+			set_variable = {
+				which = "stability_num"
+				value = 6
+			}
+		}
+		country_event = { id = stability.1005 }
+	}
+	option = {
+	    name = "GOOD"
+	}
+	option = {
+	    name = "MARVELOUS"
+	}
+	option = {
+	    name = "EXCELLENT"
+	}
+}
+
+country_event = {
+	id = stability.1003
+	title = "stability.1003.name"
+	desc = "stability.1003.desc"
+	picture = GFX_evt_atmospheric_entry
+	is_triggered_only = yes
+	show_sound = event_stability_decrease
+	immediate = {
+		change_variable = {
+			which = stability_num
+			value = -1
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value < 0 
+				}
+			}
+			set_variable = {
+				which = "stability_num"
+				value = 0
+			}
+		}
+		country_event = { id = stability.1005 }
+	}
+	option = {
+	    name = "UNFORTUNATE"
+	}
+	option = {
+	    name = "WORRYING"
+	}
+	option = {
+	    name = "DISCONCERTING"
+	}
+}
+
+country_event = {
+    id = stability.1004
+	title = "country.999.name"
+	desc = "stability.1004.1"
+	picture = GFX_evt_atmospheric_entry
+	show_sound = event_mystic_reveal
+	trigger = { 
+		NOT = { has_country_flag = huixingguance }
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+	
+	immediate = {
+		set_country_flag = huixingguance
+	}
+	
+	option = {
+	    name = "stability.1004.a"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+	option = {
+	    name = "stability.1004.b"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+	option = {
+	    name = "stability.1004.c"
+		hidden_effect = {
+			country_event = { id = stability.1002 }
+		}
+	}
+	option = {
+	    name = "stability.1004.d"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+	option = {
+	    name = "stability.1004.e"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+	option = {
+	    name = "stability.1004.f"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+}
+
+country_event = {
+	id = stability.1005
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value = 0 
+				}
+			}
+			set_0_stability = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value = 1 
+				}
+			}
+			set_1_stability = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value = 2 
+				}
+			}
+			set_2_stability = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value = 3 
+				}
+			}
+			set_3_stability = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value = 4 
+				}
+			}
+			set_4_stability = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value = 5 
+				}
+			}
+			set_5_stability = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value = 6 
+				}
+			}
+			set_6_stability = yes
+		}
+	}
+}

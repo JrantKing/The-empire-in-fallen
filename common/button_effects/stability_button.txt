@@ -1,0 +1,129 @@
+stability_button_effect = {
+	allow = {
+		if = {
+			limit = {
+				has_ethic = ethic_gestalt_consciousness
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability_button
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability_button_fallen_empire
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_ethic = ethic_gestalt_consciousness
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability_button_fallen_empire
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ai = no
+				NOR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability
+				always = no
+			}
+		}
+	}
+
+	effect = {
+		if = {
+			limit = { 
+				check_variable = {
+					which = stability_num
+					value = 6
+				}
+			}
+			custom_tooltip = stability_button6
+		}
+		if = {
+			limit = { 
+				check_variable = {
+					which = stability_num
+					value = 5
+				}
+			}
+			custom_tooltip = stability_button5
+		}
+		if = {
+			limit = { 
+				check_variable = {
+					which = stability_num
+					value = 4
+				}
+			}
+			custom_tooltip = stability_button4
+		}
+		if = {
+			limit = { 
+				check_variable = {
+					which = stability_num
+					value = 3
+				}
+			}
+			custom_tooltip = stability_button3
+		}
+		if = {
+			limit = { 
+				check_variable = {
+					which = stability_num
+					value = 2
+				}
+			}
+			custom_tooltip = stability_button2
+		}
+		if = {
+			limit = { 
+				check_variable = {
+					which = stability_num
+					value = 1
+				}
+			}
+			custom_tooltip = stability_button1
+		}
+		if = {
+			limit = { 
+				check_variable = {
+					which = stability_num
+					value = 0
+				}
+			}
+			custom_tooltip = stability_button0
+		}
+	}
+}

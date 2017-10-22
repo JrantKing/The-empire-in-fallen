@@ -1,0 +1,13 @@
+objectTypes = {
+	pdxmesh = {
+		name = "pstar_mesh"
+		file = "gfx/models/planets/base_star.mesh"
+		animation = { id = "idle"	type = "base_star_idle_animation" }
+		animation = { id = "moving"	type = "base_star_idle_animation" }
+		animation = { id = "death"	type = "extra_dimensional_ship_frame_death_animation" }
+		animation = { id = "attack"	type = "base_star_idle_animation" }
+		scale = 1.0
+		cull_distance = 99999999.0f
+	}
+	
+}

@@ -1,0 +1,119 @@
+tech_lost = {
+	cost = 20000
+	area = physics
+	tier = 3
+	category = { voidcraft }
+	ai_update_type = all
+	weight = 0
+	is_rare = yes
+	is_dangerous = yes
+	is_reverse_engineerable = no
+	
+	weight_modifier = {
+		factor = 0
+	}
+}
+
+tech_lostbuild = {
+	cost = 20000
+	area = engineering
+	tier = 3
+	category = { industry }
+	ai_update_type = all
+	weight = 0
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	weight_modifier = {
+		factor = 0
+	}
+}
+
+tech_reachtoUtopia = {
+	cost = 8000
+	area = society
+	tier = 2
+	category = { statecraft }
+	ai_update_type = all
+	weight = 20
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	modifier = {
+		max_energy = 20000
+		max_minerals = 40000
+		max_food = 5000
+		max_influence = 1000
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_ethic = ethic_gestalt_consciousness
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			NOR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		modifier = {
+			factor = 0.01
+			has_ethic = ethic_fanatic_spiritualist
+			has_ethic = ethic_egalitarian
+		}
+		modifier = {
+			factor = 0.02
+			has_ethic = ethic_spiritualist
+			has_ethic = ethic_egalitarian
+		}
+		modifier = {
+			factor = 0.03
+			has_ethic = ethic_spiritualist
+			has_ethic = ethic_fanatic_egalitarian
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_egalitarian
+		}
+		modifier = {
+			factor = 4
+			has_ethic = ethic_fanatic_egalitarian
+		}
+		modifier = {
+			factor = 5
+			years_passed > 50
+		}
+		modifier = {
+			factor = 10
+			years_passed > 60
+		}
+		modifier = {
+			factor = 20
+			years_passed > 100
+		}
+	}
+}
+
+tech_planet_traits = {
+	cost = 0
+	area = society
+	tier = 4
+	category = { new_worlds }
+	ai_update_type = all
+	weight = 0
+	is_reverse_engineerable = no
+	is_rare = yes
+	is_dangerous = yes
+	modifier = {
+	}
+	
+	weight_modifier = {
+		factor = 0
+	}
+}

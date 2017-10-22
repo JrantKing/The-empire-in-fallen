@@ -1,0 +1,914 @@
+namespace = begindefine
+
+country_event = {
+	id = begindefine.1
+	title = ""
+	desc = ""	
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		random_planet = {
+			limit = {
+				has_planet_flag = planet_earth_nuke
+			}
+			save_event_target_as = cmearth
+		}
+		every_country = {
+			limit = {
+				species_portrait = "human"
+				any_owned_planet = {
+					has_planet_flag = pringworld_1
+					is_capital = yes
+				}
+			}
+			save_event_target_as = cmearthhuman
+			create_species = {
+				name = 人类
+				plural = 人类
+				class = "HUM"
+				portrait = "human"
+				homeworld = event_target:cmearth
+				traits = {}	
+			}
+			owner_species = { save_event_target_as = diqiuren }
+			every_owned_pop = {
+				change_species = last_created
+			}
+			every_owned_army = {
+				limit = {
+					exists = species
+					exists = planet
+				}
+				planet = {
+					create_army = {
+						name = random
+						owner = event_target:cmearthhuman
+						type = "defense_army"
+						species = last_created
+					}
+				}
+				remove_army = yes
+			}
+			change_dominant_species = { species = last_created }
+			modify_species = {
+					species = this
+					remove_trait = "trait_pc_continental_preference"
+				}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_desert_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_desert_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_arid_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_arid_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_savannah_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_savannah_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_tropical_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_tropical_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_continental_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_continental_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_ocean_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_ocean_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_arctic_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_arctic_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_tundra_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_tundra_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_alpine_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_alpine_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_nuked_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_nuked_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_pc_gaia_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_gaia_preference"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_rapid_breeders }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_rapid_breeders"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_slow_breeders }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_slow_breeders"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_delicious }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_delicious"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_nerve_stapled }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_nerve_stapled"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_fertile }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_fertile"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_erudite }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_erudite"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_robust }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_robust"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_charismatic }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_charismatic"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_repugnant }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_repugnant"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_talented }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_talented"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_strong }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_strong"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_very_strong }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_very_strong"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_weak }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_weak"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_tough }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_tough"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_frail }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_frail"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_stoic }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_stoic"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_timid }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_timid"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_indolent }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_indolent"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_communal }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_communal"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_solitary }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_solitary"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_adaptive }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_adaptive"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_extremely_adaptive }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_extremely_adaptive"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_nonadaptive }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_nonadaptive"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_nomadic }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_nomadic"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_sedentary }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_sedentary"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_thrifty }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_thrifty"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_industrious }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_industrious"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_natural_engineers }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_natural_engineers"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_poor_engineers }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_poor_engineers"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_natural_physicists }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_natural_physicists"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_poor_physicists }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_poor_physicists"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_natural_sociologists }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_natural_sociologists"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_poor_sociologists }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_poor_sociologists"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_quick_learners }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_quick_learners"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_slow_learners }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_slow_learners"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_long_lifespans }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_long_lifespans"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_short_lifespans }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_short_lifespans"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_uplifted }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_uplifted"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_presentient_starborn }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_presentient_starborn"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_presentient_earthbound }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_presentient_earthbound"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_presentient_natural_intellectuals }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_presentient_natural_intellectuals"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_presentient_proles }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_presentient_proles"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_presentient_conservative }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_presentient_conservative"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_presentient_irradiated }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_presentient_irradiated"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_persistent }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_persistent"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_conformists }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_conformists"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_deviants }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_deviants"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_enduring }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_enduring"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_venerable }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_venerable"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_fleeting }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_fleeting"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_diverse }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_diverse"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_decadent }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_decadent"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_intelligent }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_intelligent"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_agrarian }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_agrarian"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_resilient }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_resilient"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_mechanical }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_mechanical"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_robotic_1 }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_robotic_1"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_robotic_2 }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_robotic_2"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_robotic_3 }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_robotic_3"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_conservational }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_conservational"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_wasteful }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_wasteful"
+				}
+			}
+			if = {
+				limit = {
+					event_target:diqiuren = { has_trait = trait_hive_mind }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_hive_mind"
+				}
+			}
+			every_pool_leader = {
+				change_species = last_created
+			}
+			every_owned_leader = {
+				change_species = last_created
+			}
+		}
+		random_planet = {
+			limit = {
+				has_planet_flag = planet_mars
+			}
+			init_effect = {
+				random_list = {
+					100 = {
+						create_species = {
+							name = 人类
+							plural = 人类
+							class = "HUM"
+							portrait = "human"
+							homeworld = event_target:cmearth
+							traits = {
+								trait = "trait_adaptive"
+								trait = "trait_nomadic"
+								trait = "trait_communal"
+							}
+						}
+						create_country = {
+							name = 火星殖民地
+							authority = random
+							civics = {
+								civic = civic_increasing_urbanization
+								civic = civic_atmospheric_pollution
+							}
+							species = last_created
+							ethos = {
+								ethic = "ethic_pacifist"
+								ethic = "ethic_fanatic_materialist"	
+							}
+							flag = {
+								icon = {
+									category = "human"
+									file = "flag_human_8.dds"
+								}
+								background = {
+									category = "backgrounds"
+									file = "00_solid.dds"
+								}
+								colors={
+									"blue"
+									"black"
+									"null"
+									"null"
+								}
+							}
+							type = primitive
+						}
+						last_created_country = {
+							set_graphical_culture = industrial_01
+							set_country_flag = early_space_age
+							set_country_flag = humans_early_space_age
+							set_primitive_age = early_space_age
+						}
+						create_colony = {
+							owner = last_created_country
+							species = last_created
+							ethos = {
+								ethic = "ethic_pacifist"
+								ethic = "ethic_fanatic_materialist"			
+							}
+						}
+						every_tile = {
+							limit = {
+								has_blocker = yes
+							}
+							remove_blocker = yes
+						}
+						random_tile = {
+							limit = { has_building = "building_colony_shelter" }
+							remove_building = yes
+							kill_pop = yes
+						}
+						while = {
+							count = 3			
+							random_tile = {
+								limit = {
+									has_blocker = no
+									has_building = no
+									has_grown_pop = no
+								}
+								set_blocker = tb_decrepit_dwellings
+							}
+							random_tile = {
+								limit = {
+									has_blocker = no
+									has_building = no
+									has_grown_pop = no
+								}
+								set_blocker = tb_failing_infrastructure		
+							}				
+						}
+						create_army = {
+							name = "美利坚殖民军"
+							owner = last_created
+							species = last_created
+							type = "postatomic_army"
+						}
+						create_army = {
+							name = "中国殖民军"
+							owner = last_created
+							species = last_created
+							type = "postatomic_army"
+						}
+						create_army = {
+							name = "英国殖民军"
+							owner = last_created
+							species = last_created
+							type = "postatomic_army"
+						}
+						create_army = {
+							name = "俄罗斯联邦殖民军"
+							owner = last_created
+							species = last_created
+							type = "postatomic_army"
+						}
+						create_army = {
+							name = "日本殖民军"
+							owner = last_created
+							species = last_created
+							type = "postatomic_army"
+						}
+						create_army = {
+							name = "法国殖民军"
+							owner = last_created
+							species = last_created
+							type = "postatomic_army"
+						}
+						create_army = {
+							name = "德国殖民军"
+							owner = last_created
+							species = last_created
+							type = "postatomic_army"
+						}
+						create_fleet = {
+							name = "国际空间站 III" 
+							effect = {
+								set_owner = last_created_country
+								create_ship = {
+									name = "NAME_Space_Station"
+									design = "NAME_Space_Station"
+								}
+								set_location = PREV
+							}
+						}
+						while = {
+							count = 8
+							random_tile = {
+								limit = {
+									has_blocker = no
+									has_grown_pop = no
+									has_growing_pop = no
+								}
+								create_pop = {
+									species = last_created
+								}
+							}
+						}
+						while = {
+							count = 4
+							random_tile = {
+								limit = { 
+									has_blocker = no 
+									has_building = no 
+									has_grown_pop = yes
+								}
+								set_building = "building_primitive_factory"
+								set_deposit = d_mineral_deposit					
+							}
+						}
+						while = {
+							count = 4
+							random_tile = {
+								limit = { 
+									has_blocker = no 
+									has_building = no 
+									has_grown_pop = yes
+								}
+								set_building = "building_primitive_farm"
+								set_deposit = d_farmland_deposit				
+							}
+						}
+						last_created_country = {
+							capital_scope = { set_name = "火星" }
+							save_event_target_as = humanmars
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+sr_betharian = {
+	is_rare = yes
+	is_planet_local = yes
+	AI_category = food
+}

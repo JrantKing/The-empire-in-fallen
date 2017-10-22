@@ -1,0 +1,2730 @@
+#
+@distance = 50
+@orbit_distance = 20
+@orbit_distance_mercury = 40
+@orbit_distance_gas_giant = 30
+@asteroid_distance = 120
+@base_moon_distance = 10
+
+
+sol_fallen = {
+	name = "NAME_Sol"
+	class = "sc_g"
+	asteroids_distance = 120
+	usage = fallen_empire_init
+	flags = { sol sol_system fallen_empire_sol }
+	
+	planet = {
+		name = "NAME_Sol"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+	
+	planet = {
+		name = "NAME_Mercury"
+		class = "pc_molten"
+		orbit_distance = @orbit_distance_mercury
+		orbit_angle = 15
+		size = 10
+		has_ring = no
+		entity = "cold_barren_planet_09_entity"
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+	
+	planet = {
+		name = "NAME_Venus"
+		class = "pc_toxic"
+		orbit_distance = @orbit_distance
+		orbit_angle = 125
+		size = 20
+		has_ring = no
+		entity = "greenhouse_planet_04_entity"
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+	
+	planet = {
+		name = "NAME_Earth"
+		class = "pc_continental"
+		orbit_distance = 20
+		orbit_angle = 120
+		size = 25
+		has_ring = no
+		entity = "continental_planet_earth_entity"
+		tile_blockers = none
+		modifiers = none
+		flags = { planet_earth_fallen }
+		init_effect = {
+
+			create_cluster = {
+				id = fe6_cluster
+				radius = 500
+				center = this.solar_system
+			}
+
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			set_capital = yes
+			random_tile = {
+				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
+				set_building = "building_capital_3"
+				set_deposit = d_energy_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_mineral_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit
+			}
+			while = {
+				count = 8
+				random_tile = {
+					limit = {
+						has_building = building_ancient_factory
+						has_pop = no
+					}
+					build_pop = {
+						name = buildable_robot_pop_3
+					}
+				}
+			}
+			every_tile = {
+				limit = {
+					NOT = { has_building = building_ancient_factory }
+					has_pop = no
+				}
+				create_pop = { 
+					species = owner_main_species
+				}
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "gene_warrior_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "gene_warrior_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "gene_warrior_army"
+			}			
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "gene_warrior_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "gene_warrior_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "gene_warrior_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_spaceport = {
+				owner = ROOT
+				initial_module = "fallen_empire_weapon"
+			}
+			spaceport = {
+				set_spaceport_level = 6		
+				set_spaceport_module = {
+					slot = 1
+					module = "crew_quarters"
+				}	
+				set_spaceport_module = {
+					slot = 2
+					module = "fleet_academy"
+				}
+				set_spaceport_module = {
+					slot = 3
+					module = "synchronized_defenses"
+				}
+				set_spaceport_module = {
+					slot = 4
+					module = "engineering_bay"
+				}					
+			}
+			create_sol_fallen_empire_starting_navy = yes
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 180
+					}
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 0
+					}
+				}
+			}
+		}
+		
+		moon = {
+			name = "NAME_Luna"
+			class = "pc_barren_cold"
+			size = 5
+			orbit_distance = 12
+			orbit_angle = 40
+			has_ring = no
+			entity = "cold_barren_planet_luna_entity"
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+	}
+	
+	planet = {
+		name = "NAME_Mars"
+		class = "pc_gaia"
+		orbit_distance = @orbit_distance
+		orbit_angle = 60
+		size = 25 
+		has_ring = no
+		modifiers = none
+		tile_blockers = none
+		entity = "gaia_planet_mars_entity"
+		flags = { planet_mars_fallen }
+		
+		init_effect = {
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			random_tile = {
+				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
+				set_building = "building_capital_3"
+				set_deposit = d_energy_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_mineral_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			while = {
+				count = 8
+				random_tile = {
+					limit = {
+						has_building = building_ancient_factory
+						has_pop = no
+					}
+					build_pop = {
+						name = buildable_robot_pop_3
+					}
+				}
+			}
+			every_tile = {
+				limit = {
+					NOT = { has_building = building_ancient_factory }
+					has_pop = no
+				}
+				create_pop = { 
+					species = owner_main_species
+				}
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_spaceport = {
+				owner = ROOT
+				initial_module = "fallen_empire_weapon"
+			}
+			spaceport = {
+				set_spaceport_level = 6		
+				set_spaceport_module = {
+					slot = 1
+					module = "crew_quarters"
+				}	
+				set_spaceport_module = {
+					slot = 2
+					module = "fleet_academy"
+				}
+				set_spaceport_module = {
+					slot = 3
+					module = "synchronized_defenses"
+				}
+				set_spaceport_module = {
+					slot = 4
+					module = "engineering_bay"
+				}					
+			}									
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 180
+					}
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 0
+					}
+				}
+			}	
+		}
+	}
+	
+	planet = {
+		name = "NAME_1_Ceres"
+		class = "pc_asteroid"
+		orbit_distance = @orbit_distance
+		orbit_angle = -210
+		size = 5
+		has_ring = no
+		entity = "cold_barren_planet_10_entity"
+	}
+	
+	planet = {
+		name = "NAME_2_Pallas"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -95
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_3_Juno"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = 285
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_4_Vesta"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -80
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Jupiter"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = -160
+		size = 35
+		has_ring = no
+		entity = "gas_giant_jupiter_entity"
+		change_orbit = 6
+		init_effect = {
+			prevent_anomaly = yes
+			save_event_target_as = thinktank_muxing
+		}
+		
+		moon = {
+			name = "NAME_Io"
+			class = "pc_molten"
+			size = 6
+			orbit_distance = 10
+			orbit_angle = 110
+			has_ring = no
+			entity = "cold_barren_planet_11_entity"
+		}
+		moon = {
+			name = "NAME_Europa"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 2.5
+			orbit_angle = 10
+			has_ring = no
+		}
+		moon = {
+			name = "NAME_Ganymede"
+			class = "pc_frozen"
+			size = 9
+			orbit_distance = 2.5
+			orbit_angle = 80
+			has_ring = no
+		}
+		moon = {
+			name = "NAME_Callisto"
+			class = "pc_frozen"
+			size = 7
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+			entity = "cold_barren_planet_08_entity"
+		}
+	}
+	
+	planet = {
+		name = "NAME_Saturn"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = 170
+		size = 30
+		has_ring = yes
+		entity = "gas_giant_08_entity"
+		change_orbit = 7
+		init_effect = {
+			prevent_anomaly = yes
+			save_event_target_as = thinktank_tuxing
+		}
+		
+		moon = {
+			name = "NAME_Enceladus"
+			class = "pc_frozen"
+			size = 3
+			orbit_distance = 10
+			orbit_angle = 320
+			has_ring = no
+			init_effect = {
+				orbital_deposit_tile = {
+					hidden_effect = { clear_deposits = yes }
+					add_deposit = d_living_metal_deposit
+				}
+			}
+		}
+		
+		moon = {
+			name = "NAME_Tethys"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 320
+			has_ring = no
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+		
+		moon = {
+			name = "NAME_Dione"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 30
+			has_ring = no
+		}
+		
+		moon = {
+			name = "NAME_Rhea"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 60
+			has_ring = no
+		}
+		
+		moon = {
+			name = "NAME_Rhea"
+			class = "pc_frozen"
+			size = 8
+			orbit_distance = 2.5
+			orbit_angle = 90
+			has_ring = no
+			entity = "greenhouse_planet_02_entity"
+		}
+		
+		moon = {
+			name = "NAME_Iapetus"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 120
+			has_ring = no
+			entity = "iapetus_entity"
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+	}
+	
+	planet = {
+		name = "NAME_Uranus"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = 125
+		size = 20
+		has_ring = no
+		entity = "ice_giant_02_entity"
+		change_orbit = 4
+		init_effect = {
+			prevent_anomaly = yes
+			save_event_target_as = thinktank_tianwang
+		}
+		
+		moon = {
+			name = "NAME_Ariel"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 12
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+		
+		moon = {
+			name = "NAME_Umbriel"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 30
+			has_ring = no
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+		
+		moon = {
+			name = "NAME_Titania"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 60
+			has_ring = no
+		}
+		
+		moon = {
+			name = "NAME_Oberon"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 90
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "NAME_Neptune"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = -195
+		size = 20
+		has_ring = no
+		entity = "ice_giant_01_entity"
+		change_orbit = 4
+		
+		init_effect = {
+			save_event_target_as = thinktank_haiwang
+		}
+		
+		moon = {
+			name = "NAME_Triton"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 7
+			orbit_angle = 115
+			has_ring = no
+		}
+	}
+
+	planet = {
+		name = "NAME_Pluto"
+		class = "pc_barren"
+		orbit_distance = @orbit_distance
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "pluto_entity"
+		change_orbit = 4
+		
+		moon = {
+			name = "NAME_Charon"
+			class = "pc_frozen"
+			size = 3
+			orbit_distance = 3
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "NAME_Makemake"
+		class = "pc_barren_cold"
+		orbit_distance = @orbit_distance
+		orbit_angle = { min = 60 max = 180 }
+		size = 3
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Haumea"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 60 max = 180 }
+		size = 3
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_50000_Quaoar"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 60 max = 180 }
+		size = 3
+		has_ring = no
+	}
+		
+	planet = {
+		name = "NAME_Eris"
+		class = "pc_barren_cold"
+		orbit_distance = @orbit_distance
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_225088"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		size = 3
+		has_ring = no
+	}
+		
+	planet = {
+		name = "NAME_Planet_Nine"
+		orbit_distance = @orbit_distance
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		init_effect = {
+			save_event_target_as = thinktank
+		}
+	}
+	
+	init_effect = {
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_haiwang
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_muxing
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_tianwang
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_tuxing
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_bnd_fallen"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_nme_fallen"
+	}
+	neighbor_system = {
+		distance = { min = 120 max = 250 }
+		initializer = "sanctuary_system"
+	}
+}
+
+
+sol_bnd_fallen = {
+	name = "NAME_Barnard's_Star"
+	class = sc_m
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		class = rl_unhabitable_planets
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			class = rl_unhabitable_planets
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		class = rl_unhabitable_planets
+		count = { min = 2 max = 5 }
+		orbit_distance = 20
+	}
+
+	init_effect = {
+		spawn_megastructure = { 
+			type = "dyson_sphere_5"
+			graphical_culture = fallen_empire_03
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_tlx_fallen"
+	}
+}
+
+# Neighbor Tier 1 First Colony
+sol_nme_fallen = {	
+	name = "NAME_Alpha_Centauri"
+	class = sc_g
+
+	planet = {
+		name = "NAME_Alpha_Centauri_A"
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = pc_gaia
+		tile_blockers = none
+		modifiers = none
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		init_effect = {
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			random_tile = {
+				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
+				set_building = "building_capital_3"
+				set_deposit = d_energy_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_mineral_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			while = {
+				count = 8
+				random_tile = {
+					limit = {
+						has_building = building_ancient_factory
+						has_pop = no
+					}
+					build_pop = {
+						name = buildable_robot_pop_3
+					}
+				}
+			}
+			every_tile = {
+				limit = {
+					NOT = { has_building = building_ancient_factory }
+					has_pop = no
+				}
+				create_pop = { 
+					species = owner_main_species
+				}
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_spaceport = {
+				owner = ROOT
+				initial_module = "fallen_empire_weapon"
+			}
+			spaceport = {
+				set_spaceport_level = 6		
+				set_spaceport_module = {
+					slot = 1
+					module = "crew_quarters"
+				}	
+				set_spaceport_module = {
+					slot = 2
+					module = "fleet_academy"
+				}
+				set_spaceport_module = {
+					slot = 3
+					module = "synchronized_defenses"
+				}
+				set_spaceport_module = {
+					slot = 4
+					module = "engineering_bay"
+				}					
+			}
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 180
+					}
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 0
+					}
+				}
+			}
+		}
+	}
+	planet = {
+		orbit_distance = 25
+		size = 25
+		change_orbit = @base_moon_distance
+	}
+	planet = {
+		count = { min = 2 max = 5 }
+		orbit_distance = 25
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {			
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		name = "NAME_Alpha_Centauri_C"
+		class = pc_m_star
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		has_ring = no
+		change_orbit = @base_moon_distance
+		moon = {
+			name = "NAME_Alpha_Centauri_C_b"
+			class = pc_gaia
+			size = 25
+			tile_blockers = none
+			modifiers = none
+			init_effect = {
+				set_planet_flag = fallen_empire_world
+				prevent_anomaly = yes
+				set_owner = ROOT
+				random_tile = {
+					limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
+					set_building = "building_capital_3"
+					set_deposit = d_energy_deposit			
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_agri_processing_complex"
+					set_deposit = d_farmland_deposit				
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_agri_processing_complex"
+					set_deposit = d_farmland_deposit			
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_ancient_factory"
+					set_deposit = d_mineral_deposit				
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_ancient_factory"
+					set_deposit = d_mineral_deposit			
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_mineral_deposit	
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit	
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit	
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit
+				}			
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit	
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit	
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit	
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit	
+				}			
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit	
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_dark_matter_power_plant"
+					set_deposit = d_energy_deposit
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_ancient_factory"
+					set_deposit = d_mineral_deposit					
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_ancient_factory"
+					set_deposit = d_mineral_deposit				
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_ancient_factory"
+					set_deposit = d_mineral_deposit					
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_ancient_factory"
+					set_deposit = d_mineral_deposit					
+				}
+				random_tile = {
+					limit = { has_building = no has_blocker = no }
+					set_building = "building_ancient_factory"
+					set_deposit = d_mineral_deposit					
+				}
+				while = {
+					count = 8
+					random_tile = {
+						limit = {
+							has_building = building_ancient_factory
+							has_pop = no
+						}
+						build_pop = {
+							name = buildable_robot_pop_3
+						}
+					}
+				}
+				every_tile = {
+					limit = {
+						NOT = { has_building = building_ancient_factory }
+						has_pop = no
+					}
+					create_pop = { 
+						species = owner_main_species
+					}
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "defense_army"
+				}
+				create_spaceport = {
+					owner = ROOT
+					initial_module = "fallen_empire_weapon"
+				}
+				spaceport = {
+					set_spaceport_level = 6		
+					set_spaceport_module = {
+						slot = 1
+						module = "crew_quarters"
+					}	
+					set_spaceport_module = {
+						slot = 2
+						module = "fleet_academy"
+					}
+					set_spaceport_module = {
+						slot = 3
+						module = "synchronized_defenses"
+					}
+					set_spaceport_module = {
+						slot = 4
+						module = "engineering_bay"
+					}					
+				}	
+				create_fleet = {
+					effect = {
+						set_owner = ROOT
+						create_fallen_empire_large_station = yes
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = 180
+						}
+					}
+				}
+				create_fleet = {
+					effect = {
+						set_owner = ROOT
+						create_fallen_empire_large_station = yes
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = 0
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "NAME_Alpha_Centauri_B"
+		class = pc_k_star
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 28
+		has_ring = no
+		init_effect = {
+			save_event_target_as = dsloc_mby
+		}
+	}
+	
+	init_effect = {
+		spawn_megastructure = {
+			type = dyson_sphere_5
+			graphical_culture = fallen_empire_04
+			location = event_target:dsloc_mby
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_nhs_fallen"
+	}
+}
+
+
+# Sol Neighbor Tier 2
+sol_nhs_fallen = {
+	name = "NAME_Procyon"
+	class = sc_f
+
+	planet = {
+		name = "NAME_Procyon_A"
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+		init_effect = {
+			create_fleet = {
+				name = "NAME_Sanctuary_Core"
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 25
+						angle = random 
+					}
+					save_event_target_as = sanctuary_core
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 90
+					}
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 180
+					}
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 270
+					}
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 0
+					}
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 45
+					}
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 135
+					}
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 225
+					}
+				}
+			}
+			create_fleet = {
+				settings = { spawn_debris = no }
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = event_target:sanctuary_core
+						distance = 50
+						angle = 315
+					}
+				}
+			}
+		}
+	}
+	change_orbit = 45
+	planet = {
+		class = "pc_ringworld_habitable"
+		name = "NAME_Observation_A"
+		size = 25
+		orbit_angle = 30
+		orbit_distance = 0
+		tile_blockers = none
+		modifiers = none
+		has_ring = no
+		flags = { megastructure experiment1 }
+		init_effect = {
+			trigger_megastructure_icon = yes
+		}
+	}
+	planet = {
+		class = "pc_ringworld_tech"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_habitable"
+		name = "NAME_Observation_B"
+		size = 25
+		orbit_angle = 30
+		orbit_distance = 0
+		tile_blockers = none
+		modifiers = none
+		has_ring = no
+		flags = { megastructure experiment2 }
+		init_effect = {
+			trigger_megastructure_icon = yes
+			prevent_anomaly = yes
+		}
+	}
+	planet = {
+		class = "pc_ringworld_tech"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_habitable"
+		name = "NAME_Observation_C"
+		size = 25
+		orbit_angle = 30
+		orbit_distance = 0
+		tile_blockers = none
+		modifiers = none
+		has_ring = no
+		flags = { megastructure experiment3 }
+		init_effect = {
+			trigger_megastructure_icon = yes
+			prevent_anomaly = yes
+		}
+	}
+	planet = {
+		class = "pc_ringworld_tech"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_habitable"
+		name = "NAME_Observation_D"
+		size = 25
+		orbit_angle = 30
+		orbit_distance = 0
+		tile_blockers = none
+		modifiers = none
+		has_ring = no
+		flags = { megastructure experiment4 }
+		init_effect = {
+			trigger_megastructure_icon = yes
+			prevent_anomaly = yes
+		}
+	}
+	planet = {
+		class = "pc_ringworld_tech"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	planet = {
+		class = "pc_ringworld_seam"
+		name = "NAME_Ring_Section_Procyon"
+		orbit_angle = 30
+		orbit_distance = 0
+	}
+	 
+	 planet = {
+		 name = "NAME_Procyon_B"
+		 class = pc_f_star
+		 orbit_distance = 130
+		 orbit_angle = 1
+		 size = { min = 20 max = 30 }
+		 has_ring = no
+		 init_effect = {
+			save_event_target_as = dsloc_nhs
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 180
+					}
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 0
+					}
+				}
+			}
+		}
+	 }
+	init_effect = {
+		spawn_megastructure = {
+			type = dyson_sphere_5
+			graphical_culture = fallen_empire_04
+			location = event_target:dsloc_nhs
+		}
+	}
+}
+
+# Sol Neighbor Tier 2 Second Colony
+sol_tlx_fallen = {
+	name = "NAME_Sirius"
+	class = sc_a
+
+	planet = {
+		name = "NAME_Sirius_A"
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 25
+	
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = pc_gaia
+		tile_blockers = none
+		modifiers = none
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		
+		init_effect = {
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			random_tile = {
+				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
+				set_building = "building_capital_3"
+				set_deposit = d_energy_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_agri_processing_complex"
+				set_deposit = d_farmland_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit			
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_mineral_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}			
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit	
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_dark_matter_power_plant"
+				set_deposit = d_energy_deposit
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit				
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			random_tile = {
+				limit = { has_building = no has_blocker = no }
+				set_building = "building_ancient_factory"
+				set_deposit = d_mineral_deposit					
+			}
+			while = {
+				count = 8
+				random_tile = {
+					limit = {
+						has_building = building_ancient_factory
+						has_pop = no
+					}
+					build_pop = {
+						name = buildable_robot_pop_3
+					}
+				}
+			}
+			every_tile = {
+				limit = {
+					NOT = { has_building = building_ancient_factory }
+					has_pop = no
+				}
+				create_pop = { 
+					species = owner_main_species
+				}
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_army = {
+				name = random
+				owner = ROOT
+				species = ROOT
+				type = "defense_army"
+			}
+			create_spaceport = {
+				owner = ROOT
+				initial_module = "fallen_empire_weapon"
+			}
+			spaceport = {
+				set_spaceport_level = 6		
+				set_spaceport_module = {
+					slot = 1
+					module = "crew_quarters"
+				}	
+				set_spaceport_module = {
+					slot = 2
+					module = "fleet_academy"
+				}
+				set_spaceport_module = {
+					slot = 3
+					module = "synchronized_defenses"
+				}
+				set_spaceport_module = {
+					slot = 4
+					module = "engineering_bay"
+				}					
+			}	
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 180
+					}
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 0
+					}
+				}
+			}
+		}
+		
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+	
+	 planet = {
+		 name = "NAME_Sirius_B"
+		 class = pc_f_star
+		 orbit_distance = 90
+		 orbit_angle = 1
+		 size = 30
+		 has_ring = no
+		 init_effect = {
+			save_event_target_as = dsloc
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 180
+					}
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = ROOT
+					create_fallen_empire_large_station = yes
+					set_location = {
+						target = PREV
+						distance = 20
+						angle = 0
+					}
+				}
+			}
+		}
+	 }
+	 init_effect = {
+		spawn_megastructure = { 
+			type = "dyson_sphere_5"
+			location = event_target:dsloc
+			graphical_culture = fallen_empire_01
+		}
+	}
+}

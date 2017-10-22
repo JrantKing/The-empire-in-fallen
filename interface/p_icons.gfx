@@ -1,0 +1,32 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_sector_type_fe_military"
+		texturefile = "gfx/interface/buttons/sector_military.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_type_fe_military_selected"
+		texturefile = "gfx/interface/buttons/sector_military_selected.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_jump_drive_2"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_jump_drive_2.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_jump_drive_3"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_jump_drive_3.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_stability_icon"
+		texturefile = "gfx/interface/icons/icon_stability.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_p_selection_planet"
+		texturefile = "gfx/interface/frontend/p_selection_planet.dds"
+	}
+}

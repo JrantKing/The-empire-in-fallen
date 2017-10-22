@@ -1,0 +1,71 @@
+utility_component_template = {
+	key = "JUMP_DRIVE_1"
+	size = small
+	icon = "GFX_ship_part_jump_drive_1"
+	icon_frame = 1
+	power = -10
+	cost = 30
+	ftl = jumpdrive
+	
+	ai_weight = {
+		weight = 4
+	}
+
+	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport }
+	prerequisites = { "tech_jump_drive_1" }
+	component_set = "ftl_components"
+	upgrades_to = "JUMP_DRIVE_2"
+}
+
+utility_component_template = {
+	key = "JUMP_DRIVE_2"
+	size = small
+	icon = "GFX_ship_part_jump_drive_1"
+	icon_frame = 1
+	power = -10
+	cost = 40
+	ftl = jumpdrive
+	
+	ai_weight = {
+		weight = 6
+	}
+	
+	ship_modifier = {
+		ship_speed_mult = 0.05
+		ship_ftl_jumpdrive_range_mult = 0.45
+		ship_interstellar_speed_mult = 10
+		ship_winddown_mult = -0.10
+		ship_windup_mult = -0.10
+	}
+
+	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport }
+	prerequisites = { "tech_jump_drive_2" }
+	component_set = "ftl_components"
+	upgrades_to = "JUMP_DRIVE_3"
+}
+
+utility_component_template = {
+	key = "JUMP_DRIVE_3"
+	size = small
+	icon = "GFX_ship_part_jump_drive_1"
+	icon_frame = 1
+	power = -5
+	cost = 40
+	ftl = jumpdrive
+	
+	ai_weight = {
+		weight = 7
+	}
+	
+	ship_modifier = {
+		ship_speed_mult = 0.1
+		ship_ftl_jumpdrive_range_mult = 0.60
+		ship_interstellar_speed_mult = 10
+		ship_winddown_mult = -0.15
+		ship_windup_mult = -0.15
+	}
+
+	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport }
+	prerequisites = { "tech_jump_drive_3" }
+	component_set = "ftl_components"
+}

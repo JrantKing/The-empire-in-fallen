@@ -1,0 +1,205 @@
+ap_crisis_fighter = {
+	on_enabled = {
+		set_country_type = awakened_fallen_empire
+		hidden_effect = {
+			set_country_flag = guardians_of_the_galaxy
+			every_country = {
+				limit = {
+					is_country_type = default
+				}
+				random_list = {
+					100 = { add_opinion_modifier = { who = root modifier = opinion_crisis_fighter } }
+				}
+			}
+			set_country_flag = sleepers_awake_first_sleeper
+			change_government = {
+				civics = {
+					civic = civic_revanchist_fervor
+					civic = civic_ancient_caches_of_technology
+				}
+			}
+			add_minerals = 20000
+			add_energy = 5000
+			add_influence = 1000
+			country_event = { id = fallen_empires.13 }
+			if = {
+				limit = {
+					any_country = {
+						is_country_type = default
+						fleet_power > 50000
+					}
+				}
+				country_event = { id = fallen_empires.13 }
+			}
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_country_type = fallen_empire
+					}
+					NOT = { has_communications = root }
+				}
+
+				establish_communications_no_message = root
+				root = { save_event_target_as = contact_empire }
+				country_event = { id = action.1 }
+			}
+			#country_event = { id = fallen_empires_awakening.7 }
+			if = {
+				limit = { is_overlord = yes }
+				country_event = { id = fallen_empires_awakening.8 }
+			}
+			country_event = { id = fallen_empires_awakening.9 }
+			set_policy = {
+				policy = food_stockpiling
+				option = food_stockpiling_3
+				cooldown = yes
+			}
+			every_planet = {
+				limit = { 	
+					is_surveyed = {
+						who = ROOT
+						status = no
+					}
+				}
+				surveyed = {
+					set_surveyed = yes
+					surveyor = ROOT
+				}
+			}
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				country_event = { id = fallen_empires_awakening.5 }
+			}
+		}
+	}
+	possible = {	
+		has_global_flag = galactic_crisis_happened
+		is_country_type = fallen_empire
+		OR = {
+			has_ethic = ethic_fanatic_materialist
+			has_ethic = ethic_fanatic_xenophile
+			has_ethic = ethic_fanatic_egalitarian
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+	modifier = {
+		description = ap_defender_of_the_galaxy_modifier_desc 
+		damage_vs_country_type_swarm_mult = 0.5
+		damage_vs_country_type_extradimensional_mult = 0.5
+		damage_vs_country_type_extradimensional_2_mult = 0.5
+		damage_vs_country_type_extradimensional_3_mult = 0.5
+		damage_vs_country_type_ai_empire_mult = 0.5
+	}
+	
+	potential = {
+		is_ai = no
+		is_country_type = fallen_empire
+		NOT = {
+			has_ascension_perk = ap_crisis_fighter
+			has_ascension_perk = ap_rw_awakening
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+ap_rw_awakening = {
+	on_enabled = {
+		set_country_type = awakened_fallen_empire
+		hidden_effect = {
+			set_country_flag = sleepers_awake_first_sleeper
+			change_government = {
+				civics = {
+					civic = civic_revanchist_fervor
+					civic = civic_ancient_caches_of_technology
+				}
+			}
+			add_minerals = 20000
+			add_energy = 5000
+			add_influence = 1000
+			country_event = { id = fallen_empires.13 }
+			leave_alliance = yes
+			if = {
+				limit = {
+					any_country = {
+						is_country_type = default
+						fleet_power > 50000
+					}
+				}
+				country_event = { id = fallen_empires.13 }
+			}
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_country_type = fallen_empire
+					}
+					NOT = { has_communications = root }
+				}
+
+				establish_communications_no_message = root
+				root = { save_event_target_as = contact_empire }
+				country_event = { id = action.1 }
+			}
+			country_event = { id = fallen_empires_awakening.6 }
+			country_event = { id = fallen_empires_awakening.7 }
+			if = {
+				limit = { is_overlord = yes }
+				country_event = { id = fallen_empires_awakening.8 }
+			}
+			country_event = { id = fallen_empires_awakening.9 }
+			set_policy = {
+				policy = food_stockpiling
+				option = food_stockpiling_3
+				cooldown = yes
+			}
+			every_planet = {
+				limit = { 	
+					is_surveyed = {
+						who = ROOT
+						status = no
+					}
+				}
+				surveyed = {
+					set_surveyed = yes
+					surveyor = ROOT
+				}
+			}
+		}
+	}
+	possible = {	
+		years_passed > 100
+		is_country_type = fallen_empire
+		is_at_war = no
+		fleet_power > 40000
+		any_country = {
+			is_country_type = default
+			OR = {
+				fleet_power > 70000
+				any_owned_planet = {
+					has_planet_flag = fallen_empire_world
+				}
+			}
+		}
+	}
+	modifier = {
+	}
+	
+	potential = {
+		is_ai = no
+		is_country_type = fallen_empire
+		NOT = {
+			has_ascension_perk = ap_rw_awakening
+			has_ascension_perk = ap_crisis_fighter
+		}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}

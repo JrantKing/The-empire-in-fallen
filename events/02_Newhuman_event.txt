@@ -1,0 +1,146 @@
+namespace = sdefine
+
+country_event = {
+	id = sdefine.0
+	title = ""
+	desc = ""	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	immediate = {
+		random_planet = {
+			limit = {
+				has_planet_flag = planet_earth_fallen
+			}
+			change_pc = pc_continental
+		}
+		every_planet = {
+			limit = {
+				has_planet_flag = pringworld_1
+			}
+			change_pc = "pc_ringworld_habitable"
+			clear_blockers = yes
+			while = {
+				count = 15
+				random_tile = {
+					limit = { has_building = no has_blocker = no has_pop = no }			
+					set_blocker = tb_ancient_ruins
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = sdefine.1
+	title = ""
+	desc = ""	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	immediate = {
+		every_planet = {
+			limit = {
+				has_planet_flag = pringworld_2
+			}
+			change_pc = "pc_ringworld_habitable"
+			clear_blockers = yes
+			while = {
+				count = 15
+				random_tile = {
+					limit = { has_building = no has_blocker = no has_pop = no }			
+					set_blocker = tb_ancient_ruins
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = sdefine.2
+	title = ""
+	desc = ""	
+	hide_window = yes
+	fire_only_once = yes
+
+	immediate = {
+		
+	}
+}
+country_event = {
+	id = sdefine.3
+	title = ""
+	desc = ""	
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_planet = {
+			limit = {
+				has_planet_flag = planet_earth_nuke
+			}
+			change_pc = pc_nuked 
+			set_planet_entity = {
+				entity = "nuked_planet_earth_entity"
+			}
+			init_effect = {
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_radioactive_wasteland"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_radioactive_wasteland"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_radioactive_wasteland"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_radioactive_wasteland"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_radioactive_wasteland"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_bomb_crater"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_bomb_crater"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_bomb_crater"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_bomb_crater"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_city_ruins"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_city_ruins"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_mountain_range"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_massive_glacier"				
+				}
+				random_tile = {
+					limit = { has_blocker = no has_building = no }
+					set_blocker = "tb_massive_glacier"				
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,296 @@
+namespace = techfound
+country_event = {
+	id = techfound.25
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { }
+}
+
+country_event = {
+	id = techfound.26
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		last_increased_tech = tech_jump_drive_1
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_spiritualist
+				}
+			}
+			add_research_option = tech_jump_drive_2
+		}
+	}
+}
+
+country_event = {
+	id = techfound.27
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		last_increased_tech = tech_jump_drive_2
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_spiritualist
+				}
+			}
+			add_research_option = tech_jump_drive_3
+		}
+	}
+}
+
+country_event = {
+	id = techfound.28
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				is_country_type = fallen_empire
+				OR = {
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			give_technology = { message = no tech = tech_jump_drive_2 }
+			give_technology = { message = no tech = tech_jump_drive_3 }
+		}
+		every_country = {
+			limit = {
+				is_country_type = fallen_empire
+				OR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+			give_technology = { message = no tech = tech_jump_drive_2 }
+		}
+	}
+}
+
+country_event = {
+	id = techfound.29
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_country = {
+			if = {
+				limit = {
+					is_country_type = default
+					has_technology = tech_jump_drive_1
+					NOR = {
+						has_ethic = ethic_fanatic_spiritualist
+						has_ethic = ethic_spiritualist
+					}
+				}
+				add_research_option = tech_jump_drive_2
+				give_technology = { message = no tech = tech_warp_drive_1 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = techfound.30
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+		every_country = {
+			if = {
+				limit = {
+					has_country_flag = advanced_empire
+				}
+				every_owned_pop = {
+					create_start_species_mod = yes
+				}
+				every_owned_leader = {
+					if = {
+						limit = { leader_class = ruler }
+						add_trait = leader_trait_ruler_cyborg
+						add_trait = leader_trait_ruler_synthetic
+						add_trait = leader_trait_ruler_psionic
+						}
+					if = {
+						limit = { leader_class = admiral }
+						add_trait = leader_trait_admiral_cyborg
+						add_trait = leader_trait_admiral_synthetic
+						add_trait = leader_trait_admiral_psionic
+					}
+					if = {
+						limit = { leader_class = general }
+						add_trait = leader_trait_general_cyborg
+						add_trait = leader_trait_general_synthetic
+						add_trait = leader_trait_general_psionic
+					}
+					if = {
+						limit = { leader_class = governor }
+						add_trait = leader_trait_governor_cyborg
+						add_trait = leader_trait_governor_synthetic
+						add_trait = leader_trait_governor_psionic
+					}
+					if = {
+						limit = { leader_class = scientist }
+						add_trait = leader_trait_scientist_cyborg
+						add_trait = leader_trait_scientist_synthetic
+						add_trait = leader_trait_scientist_psionic
+					}
+					create_start_species_mod = yes
+				}
+				every_owned_army = {
+					create_start_species_mod = yes
+				}
+				every_pool_leader = {
+					if = {
+						limit = { leader_class = ruler }
+						add_trait = leader_trait_ruler_cyborg
+						add_trait = leader_trait_ruler_synthetic
+						add_trait = leader_trait_ruler_psionic
+						}
+					if = {
+						limit = { leader_class = admiral }
+						add_trait = leader_trait_admiral_cyborg
+						add_trait = leader_trait_admiral_synthetic
+						add_trait = leader_trait_admiral_psionic
+					}
+					if = {
+						limit = { leader_class = general }
+						add_trait = leader_trait_general_cyborg
+						add_trait = leader_trait_general_synthetic
+						add_trait = leader_trait_general_psionic
+					}
+					if = {
+						limit = { leader_class = governor }
+						add_trait = leader_trait_governor_cyborg
+						add_trait = leader_trait_governor_synthetic
+						add_trait = leader_trait_governor_psionic
+					}
+					if = {
+						limit = { leader_class = scientist }
+						add_trait = leader_trait_scientist_cyborg
+						add_trait = leader_trait_scientist_synthetic
+						add_trait = leader_trait_scientist_psionic
+					}
+					create_start_species_mod = yes
+				}
+				change_dominant_species = { species = last_created }
+				every_owned_army = {
+					limit = {
+						exists = species
+						exists = planet
+					}
+					planet = {
+						create_army = {
+							name = random
+							owner = root
+							type = "android_army"
+							species = none
+						}
+					}
+					remove_army = yes
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = techfound.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = { }
+}
+
+country_event = {
+	id = techfound.32
+	hide_window = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = { has_country_flag = advanced_empire }
+	immediate = {
+		every_planet_within_border = {
+			limit = {
+				OR = {
+					has_planet_flag = advanced_empire_planet
+					is_planet_class = "pc_nuked"
+					is_planet_class = "pc_desert"
+					is_planet_class = "pc_tropical"
+					is_planet_class = "pc_arid"
+					is_planet_class = "pc_ocean"
+					is_planet_class = "pc_tundra"
+					is_planet_class = "pc_arctic"
+					is_planet_class = "pc_continental"
+					is_planet_class = "pc_alpine"
+					is_planet_class = "pc_savannah"
+					is_planet_class = "pc_gaia"
+				}
+			}
+			while = {
+				limit = { planet_size < 25 }
+				change_planet_size = 1
+			}
+		}
+		every_planet = {
+			limit = {
+				has_planet_flag = advanced_empire_planet
+				OR = {
+					is_planet_class = pc_nuked
+					is_planet_class = pc_gaia
+				}
+			}
+			while = {
+				limit = { planet_size < 25 }
+				change_planet_size = 1
+			}
+			reroll_planet = yes
+			change_pc = pc_gaia
+		}
+		every_planet = {
+			limit = { has_planet_flag = advanced_empire_planet }
+			remove_planet_flag = advanced_empire_planet
+		}
+		every_owned_planet = {
+			limit = {
+				is_capital = yes
+			}
+			while = {
+				limit = { planet_size < 25 }
+				change_planet_size = 1
+			}
+			#preset_planet = yes
+			every_owned_pop = { kill_pop = yes }
+			every_tile = {
+				remove_building = yes
+			}
+			generate_start_buildings_and_blockers = yes
+			every_tile = {
+				limit = { has_building = yes }
+				create_pop = { species = owner_main_species }
+			}
+			clear_planet_modifiers = yes
+			set_planet_entity = {
+				entity = "continental_planet_earth_entity"
+			}
+		}
+		add_influence = 600
+		add_food = -100
+		country_event = { id = techfound.33 }
+	}
+}

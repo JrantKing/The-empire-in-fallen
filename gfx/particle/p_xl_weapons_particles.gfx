@@ -1,0 +1,97 @@
+objectTypes = {
+
+####################
+#	WINDUP
+####################
+	pdxparticle = {
+		name = "fe05_titan_laser_windup_effect"
+		type = "fe05_titan_laser_windup_effect"
+		
+		scale = 1.5
+	}
+	
+	pdxparticle = {
+		name = "fe06_titan_laser_windup_effect"
+		type = "fe06_titan_laser_windup_effect"
+		
+		scale = 1.5
+	}
+	
+	pdxparticle = {
+		name = "fe07_titan_laser_windup_effect"
+		type = "fe07_titan_laser_windup_effect"
+		
+		scale = 1.5
+	}
+	
+	pdxparticle = {
+		name = "fe05_titan_laser_muzzle_windup"
+		type = "fe05_titan_laser_muzzle_windup"
+		
+		scale = 1.5
+	}
+	
+	pdxparticle = {
+		name = "fe06_titan_laser_muzzle_windup"
+		type = "fe06_titan_laser_muzzle_windup"
+		
+		scale = 1.5
+	}
+	
+	pdxparticle = {
+		name = "fe07_titan_laser_muzzle_windup"
+		type = "fe07_titan_laser_muzzle_windup"
+		
+		scale = 1.5
+	}
+
+
+####################
+#	MUZZLE FLASHES
+####################
+	pdxparticle = {
+		name = "fe05_titan_laser_muzzle_particle"
+		type = "fe05_titan_laser_muzzle_file"
+		
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "fe06_titan_laser_muzzle_particle"
+		type = "fe06_titan_laser_muzzle_file"
+		
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "fe07_titan_laser_muzzle_particle"
+		type = "fe07_titan_laser_muzzle_file"
+		
+		scale = 1.0
+	}
+	
+####################
+#	HIT EFFECTS
+####################
+	pdxparticle = {
+		name = "fe05_titan_laser_hit_effect"
+		type = "fe05_titan_laser_hit_effect"
+		
+		scale = 3.0
+	}
+	
+	pdxparticle = {
+		name = "fe06_titan_laser_hit_effect"
+		type = "fe06_titan_laser_hit_effect"
+		
+		scale = 3.0
+	}
+	
+	pdxparticle = {
+		name = "fe07_titan_laser_hit_effect"
+		type = "fe07_titan_laser_hit_effect"
+		
+		scale = 3.0
+	}
+	
+}

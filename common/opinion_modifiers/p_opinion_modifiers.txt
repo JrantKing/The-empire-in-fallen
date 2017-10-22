@@ -1,0 +1,242 @@
+p_opinion_same_species = {
+	trigger = {
+		FROM = {
+			species_portrait = human
+			NOT = { has_authority = auth_hive_mind }
+		}
+		ROOT = {
+			species_portrait = human
+			NOT = { has_authority = auth_hive_mind }
+		}
+	}
+
+	opinion = {
+		base = 100
+	}
+}
+p_opinion_same_species_hive_mind = {
+	trigger = {
+		FROM = {
+			species_portrait = human
+			has_authority = auth_hive_mind
+		}
+		ROOT = {
+			species_portrait = human
+			NOT = { has_authority = auth_hive_mind }
+		}
+	}
+
+	opinion = {
+		base = -100
+	}
+}
+opinion_encroaching_borders = {
+	opinion = {
+		modifier = {
+			add = -200
+			has_ai_personality_behaviour = demands_clear_borders
+			from = {
+				is_country_type = default
+				OR = {
+					any_owned_planet = {
+						is_capital = no
+						is_neighbor_of = root
+					}
+					any_owned_fleet = {
+						is_ship_class = shipclass_outpost_station
+						distance_to_empire = {
+							who = root
+							distance = 75
+						}									
+					}	
+				}	
+			}
+		}
+	}
+}
+opinion_feifa_ai = {
+	trigger = {
+		FROM = {
+			is_country_type = default
+			has_technology = tech_synthetic_workers
+			any_owned_pop = { 
+				is_robot_pop = yes
+			}
+			OR = {
+				has_policy_flag = ai_outlawed
+				has_policy_flag = ai_servitude
+			}
+		}
+		ROOT = {
+			OR = {
+				has_ai_personality = fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian
+			}
+		}
+	}
+	opinion = {
+		modifier = {
+			add = -40
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes }
+					count > 5
+				}
+			}
+		}
+		modifier = {
+			add = -10
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes }
+					count > 10
+				}
+			}
+		}
+		modifier = {
+			add = -10
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes }
+					count > 15
+				}
+			}
+		}
+		modifier = {
+			add = -50
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes }
+					count > 16
+				}
+			}
+		}
+		modifier = {
+			add = -100
+			ROOT = {
+				has_ai_personality = awakened_fallen_empire_egalitarian
+			}
+		}
+		base = -40
+	}
+}
+opinion_hefa_ai = {
+	trigger = {
+		FROM = {
+			has_technology = tech_synthetic_workers
+			NOT = { has_authority = auth_machine_intelligence }
+			NOT = { has_ascension_perk = ap_synthetic_evolution }
+			any_owned_pop = { 
+				is_robot_pop = yes
+			}
+			has_policy_flag = ai_full_rights
+		}
+		ROOT = {
+			OR = {
+				has_ai_personality = fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian
+			}
+		}
+	}
+	opinion = {
+		base = 50
+	}
+}
+opinion_p_swarm = {	
+	trigger = {
+		FROM = {
+			is_country_type = default
+			has_authority = auth_hive_mind
+		}
+		ROOT = {
+			OR = {
+				has_ai_personality = fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian
+			}
+		}
+	}
+	opinion = {
+		modifier = {
+			add = -60	
+		}
+		modifier = {
+			add = -40
+			from = { has_valid_civic = "civic_hive_devouring_swarm" }
+		}
+	}
+}
+opinion_d_swarm = {	
+	trigger = {
+		FROM = {
+			is_country_type = default
+			has_authority = auth_hive_mind
+			has_valid_civic = "civic_hive_devouring_swarm"
+		}
+		ROOT = {
+			OR = {
+				has_ai_personality = fallen_empire_egalitarian
+				has_ai_personality = awakened_fallen_empire_egalitarian
+			}
+		}
+	}
+	opinion = {
+		modifier = {
+			add = -100
+			from = { has_valid_civic = "civic_hive_devouring_swarm" }
+		}
+	}
+}
+opinion_mind_liberator = {
+	opinion = {
+		base = 50
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 5
+	}
+}
+opinion_mind_liberator_country = {
+	opinion = {
+		base = 200
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 5
+	}
+}
+opinion_mind_liberator_country_mind = {
+	opinion = {
+		base = -1000
+	}
+	decay = {
+		base = 5
+	}
+}
+opinion_destroyed_the_doomed = {
+	opinion = {
+		base = 200
+	}
+}
+opinion_destroyed_the_godliness = {
+	opinion = {
+		base = -1000
+	}
+}
+opinion_closed_borders = {
+	opinion = {
+		modifier = {
+			add = 20
+			FROM = {
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		base = -20
+	}
+}

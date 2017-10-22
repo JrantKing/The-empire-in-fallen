@@ -1,0 +1,134 @@
+# Generated species derive their names from here
+
+### MACHINES
+
+MACHINE = {
+	xt-489 = {
+		name = XT-489
+		plural = XT-489s
+		home_planet = X-01
+		home_system = VX-2291
+		name_list = "MACHINE1"
+	}
+
+	shazarak = {
+		name = Shazarak
+		plural = Shazaraks
+		home_planet = 夏祖
+		home_system = 夏祖卡
+		name_list = "MACHINE2"
+	}
+
+	mechazur = {
+		name = Mechazur
+		plural = Mechazurs
+		home_planet = "米查兹主星"
+		home_system = 米查兹
+		name_list = "MACHINE1"
+	}
+
+	zero-zero-one = {
+		name = Zero-Zero-One
+		plural = Zero-Zero-Ones
+		home_planet = 0-1
+		home_system = 0
+		name_list = "MACHINE3"
+	}
+
+	prime = {
+		name = Prime
+		plural = Primes
+		home_planet = "长老一号"
+		home_system = "基础星团"
+		name_list = "MACHINE3"
+	}
+
+	zenak = {
+		name = Zenak
+		plural = Zenaki
+		home_planet = 禅纳-仆
+		home_system = 禅纳孔
+		name_list = "MACHINE2"
+	}
+
+	omni = {
+		name = Omni
+		plural = Omni
+		home_planet = "阿尔发阵列"
+		home_system = 奥那可
+		name_list = "MACHINE1"
+	}
+
+	daar = {
+		name = DAAR
+		plural = DAAR
+		home_planet = 达-1
+		home_system = 达鲁兹
+		name_list = "MACHINE2"
+	}
+
+	tronzaru = {
+		name = Tronzaru
+		plural = Tronzaru
+		home_planet = 多尔
+		home_system = "多尔卡拉"
+		name_list = "MACHINE1"
+	}
+
+	techarus = {
+		name = Techarus
+		plural = Techarusi
+		home_planet = 技吾
+		home_system = "技吾-霸斯"
+		name_list = "MACHINE3"
+	}
+
+	jonus = {
+		name = Jonus
+		plural = Jonusi
+		home_planet = 爪拉
+		home_system = 爪尼莎
+		name_list = "MACHINE3"
+	}
+
+	iribot = {
+		name = Iribot
+		plural = Iribots
+		home_planet = 爱尔
+		home_system = 爱莉
+		name_list = "MACHINE2"
+	}
+
+	silicron = {
+		name = Silicron
+		plural = Silicrons
+		home_planet = 大通
+		home_system = 矽-1
+		name_list = "MACHINE1"
+	}
+
+	dekron = {
+		name = Dekron
+		plural = Dekrons
+		home_planet = 达扩尼亚
+		home_system = 达库鲁
+		name_list = "MACHINE3"
+	}
+
+	tebrid = {
+		name = Tebrid
+		plural = Tebrids
+		home_planet = 虚无
+		home_system = 提伯雅
+		name_list = "MACHINE2"
+	}
+
+	synthoid = {
+		name = Synthoid
+		plural = Synthoids
+		home_planet = 同步星
+		home_system = 协调星系
+		name_list = "MACHINE2"
+	}
+
+}

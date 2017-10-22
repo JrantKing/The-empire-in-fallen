@@ -1,0 +1,8 @@
+anomaly = {
+	event = techfound.18
+	category = "the_upper_mesage_category"
+	
+	potential = {
+		always = yes
+	}
+}

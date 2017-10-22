@@ -1,0 +1,453 @@
+weapon_component_template = {
+	key = "pTITAN_LASER_R"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = no
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_red"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 0.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 4000 max = 6000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 1.00
+	shield_damage = 0.00
+	shield_penetration = 1.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	power = 238
+	
+	component_set = "pTITAN_LASER_R"
+	projectile_gfx = "ptitan_laser_Red"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000
+	}
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_O"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = no
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_orange"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 0.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 4000 max = 6000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 1.00
+	shield_damage = 0.00
+	shield_penetration = 1.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	power = 238
+	
+	component_set = "pTITAN_LASER_O"
+	projectile_gfx = "ptitan_laser_Orange"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000
+	}
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_Y"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = no
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_yellow"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 0.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 4000 max = 6000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 1.00
+	shield_damage = 0.00
+	shield_penetration = 1.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	power = 238
+	
+	component_set = "pTITAN_LASER_Y"
+	projectile_gfx = "ptitan_laser_Yellow"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000
+	}
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_G"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = no
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_green"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 0.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 4000 max = 6000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 1.00
+	shield_damage = 0.00
+	shield_penetration = 1.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	power = 238
+	
+	component_set = "pTITAN_LASER_G"
+	projectile_gfx = "ptitan_laser_Green"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000		
+	}
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_B"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = no
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_blue"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 0.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 4000 max = 6000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 1.00
+	shield_damage = 0.00
+	shield_penetration = 1.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	power = 238
+	
+	component_set = "pTITAN_LASER_B"
+	projectile_gfx = "ptitan_laser_Blue"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000
+	}
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_P"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = no
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_purple"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 0.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 4000 max = 6000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 1.00
+	shield_damage = 0.00
+	shield_penetration = 1.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	power = 238
+	
+	component_set = "pTITAN_LASER_P"
+	projectile_gfx = "ptitan_laser_Purple"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000
+	}
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_W"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = no
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_white"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 0.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 4000 max = 6000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 150.0
+	accuracy = 1.00
+	shield_damage = 0.00
+	shield_penetration = 1.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	power = 238
+	
+	component_set = "pTITAN_LASER_W"
+	projectile_gfx = "ptitan_laser_White"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000
+	}
+	ai_weight = {
+		weight = 1
+	}
+}
+
+# ###################################
+# Fallen Empire Spaceport Lance
+# ###################################
+
+# ## Fallen Empire Energy Lance
+weapon_component_template = {
+	key = "SMALL_FALLEN_EMPIRE_SPACEPORT_LANCE"
+	size = small
+	entity = "large_laser_gun_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_energy_lance_2"
+	icon_frame = 1
+	#color = { 0.1 1.0 0.1 1 }
+	
+	damage = { min = 90 max = 250 }
+	windup = { min = 2 max = 25 }
+	total_fire_time = 100
+	range = 140.0
+	accuracy = 0.90
+	shield_damage = 0.80
+	armor_penetration = 0.90
+	
+	hidden = yes
+	component_set = "FALLEN_EMPIRE_SPACEPORT_LANCE"
+	projectile_gfx = "tachyon_lance"
+	tags = { weapon_type_energy }
+}
+
+weapon_component_template = {
+	key = "MEDIUM_FALLEN_EMPIRE_SPACEPORT_LANCE"
+	size = medium
+	entity = "large_laser_gun_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_energy_lance_2"
+	icon_frame = 1
+	#color = { 0.1 1.0 0.1 1 }
+	
+	damage = { min = 90 max = 250 }
+	windup = { min = 2 max = 25 }
+	total_fire_time = 100
+	range = 140.0
+	accuracy = 0.90
+	shield_damage = 0.80
+	armor_penetration = 0.90
+	
+	hidden = yes
+	component_set = "FALLEN_EMPIRE_SPACEPORT_LANCE"
+	projectile_gfx = "tachyon_lance"
+	tags = { weapon_type_energy }
+}
+
+weapon_component_template = {
+	key = "THE_UPPER_TEARER"
+	size = extra_large
+	entity = "invisible_turret_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_arc_emitter_2"
+	icon_frame = 1
+	
+	hidden = yes
+	
+	#firing_arc = 360.0
+	min_range = 0
+	#static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 6000 max = 10000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 90
+	range = 250.0
+	accuracy = 1.00
+	shield_damage = 1.00
+	shield_penetration = 0.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	
+	component_set = "THE_UPPER_TEARER"
+	projectile_gfx = "focused_arc_emitter"
+	tags = { weapon_type_energy }
+
+	
+	target_weights = {
+		npc_warship_01 = 5000
+		space_dragon_baby = 5000	
+		massive_ship_fallen_empire = 5000
+		large_ship_fallen_empire = 5000	
+		battleship = 5000
+		cruiser = 2500
+		destroyer = 1000
+		small_ship_fallen_empire = 1000	
+	}
+}

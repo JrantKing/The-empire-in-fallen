@@ -1,0 +1,74 @@
+set_6_stability = {
+	remove_modifier = 5_stability
+	remove_modifier = 4_stability
+	remove_modifier = 2_stability
+	remove_modifier = 1_stability
+	remove_modifier = 0_stability
+	add_modifier = {
+	    modifier = 6_stability
+		days = -1
+    }
+}
+set_5_stability = {
+    remove_modifier = 6_stability
+	remove_modifier = 4_stability
+	remove_modifier = 2_stability
+	remove_modifier = 1_stability
+	remove_modifier = 0_stability
+	add_modifier = {
+	    modifier = 5_stability
+		days = -1
+    }
+}
+set_4_stability= {
+    remove_modifier = 6_stability
+	remove_modifier = 5_stability
+	remove_modifier = 2_stability
+	remove_modifier = 1_stability
+	remove_modifier = 0_stability
+	add_modifier = {
+	    modifier = 4_stability
+		days = -1
+    }
+}
+set_2_stability = {
+    remove_modifier = 6_stability
+	remove_modifier = 5_stability
+	remove_modifier = 4_stability
+	remove_modifier = 1_stability
+	remove_modifier = 0_stability
+	add_modifier = {
+	    modifier = 2_stability
+		days = -1
+    }
+}
+set_1_stability = {
+    remove_modifier = 6_stability
+	remove_modifier = 5_stability
+	remove_modifier = 4_stability
+	remove_modifier = 2_stability
+	remove_modifier = 0_stability
+	add_modifier = {
+	    modifier = 1_stability
+		days = -1
+    }
+}
+set_0_stability = {
+    remove_modifier = 6_stability
+	remove_modifier = 5_stability
+	remove_modifier = 4_stability
+	remove_modifier = 2_stability
+	remove_modifier = 1_stability
+	add_modifier = {
+	    modifier = 0_stability
+		days = -1
+    }
+}
+set_3_stability = {
+    remove_modifier = 6_stability
+	remove_modifier = 5_stability
+	remove_modifier = 4_stability
+	remove_modifier = 2_stability
+	remove_modifier = 1_stability
+	remove_modifier = 0_stability
+}

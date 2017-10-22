@@ -1,0 +1,996 @@
+create_start_species_mod = {
+	species = {
+		save_event_target_as = changing_species
+
+		create_species = {
+			#is_mod = yes
+			name = this
+			plural = this
+			#class = MACHINE
+			class = ROBOT
+			portrait = this
+			traits = {
+				trait = "trait_pc_nuked_preference"
+				#trait = "trait_robot_awoken_01"
+				#trait = "trait_cybernetic"
+				trait = "trait_robotic_3"
+				trait = "trait_psionic"
+				#trait = "trait_robot_logic_engines"
+				#trait = "trait_robot_superconductive"
+				trait = "trait_robot_mass_produced"
+				trait = "trait_robot_loyalty_circuits"
+			}
+			#traits = this
+			homeworld = this
+			new_pop_resource_requirement = {
+				type = food_surplus
+				value = 25.0
+			}
+			pops_auto_growth = 1.33
+			pops_can_be_colonizers = yes
+			pops_can_migrate = yes
+			pops_can_reproduce = no
+			pops_can_join_factions = yes
+			pop_maintenance = 0.5
+			can_generate_leaders = yes
+			pops_can_be_slaves = yes
+			pops_have_happiness = yes
+			immortal = yes
+			pop_ethics = random
+		}
+	}
+
+	owner = {
+		every_owned_pop = {
+			limit = { is_same_species = event_target:changing_species }
+			change_species = last_created
+		}
+		every_owned_leader = {
+			limit = { is_same_species = event_target:changing_species }
+			change_species = last_created
+		}
+		every_pool_leader = {
+			limit = { is_same_species = event_target:changing_species }
+			change_species = last_created
+		}
+		every_owned_army = {
+			limit = {
+				exists = species
+				is_same_species = event_target:changing_species
+			}
+			change_species = last_created
+		}
+		every_owned_ship = {
+			limit = {
+				is_ship_class = shipclass_colonizer
+				is_same_species = event_target:changing_species
+			}
+			change_species = last_created
+		}
+	}
+}
+
+preset_planet = {
+	reroll_deposits = yes
+	reroll_blockers = yes
+	clear_planet_modifiers = yes
+}
+
+awaken_guardians_of_the_galaxy = {
+	random_list = {
+		20 = { # Awaken 1
+			random_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = fallen_empire
+					NOT = { set_country_flag = guardians_of_the_galaxy }
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_authoritarian
+					}
+					fleet_power > 40000
+				}
+				set_country_flag = guardians_of_the_galaxy
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy days = 1825 }
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
+			}
+		}
+		20 = { # Awaken 2
+			random_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = fallen_empire
+					NOT = { set_country_flag = guardians_of_the_galaxy }
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_authoritarian
+					}
+					fleet_power > 40000
+				}
+				set_country_flag = guardians_of_the_galaxy
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy days = 1825 }
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
+			}
+			random_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = fallen_empire
+					NOT = { set_country_flag = guardians_of_the_galaxy }
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_authoritarian
+					}
+					fleet_power > 40000
+				}
+				set_country_flag = guardians_of_the_galaxy
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy days = 1825 }
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
+			}
+		}
+		20 = { # Awaken 3
+			random_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = fallen_empire
+					NOT = { set_country_flag = guardians_of_the_galaxy }
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_authoritarian
+					}
+					fleet_power > 40000
+				}
+				set_country_flag = guardians_of_the_galaxy
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy days = 1825 }
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
+			}
+			random_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = fallen_empire
+					NOT = { set_country_flag = guardians_of_the_galaxy }
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_authoritarian
+					}
+					fleet_power > 40000
+				}
+				set_country_flag = guardians_of_the_galaxy
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy days = 1825 }
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
+			}
+			random_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = fallen_empire
+					NOT = { set_country_flag = guardians_of_the_galaxy }
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_authoritarian
+					}
+					fleet_power > 40000
+				}
+				set_country_flag = guardians_of_the_galaxy
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy days = 1825 }
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
+			}
+		}
+		20 = { # Awaken both!
+			every_country = {
+				limit = {
+					is_ai = yes
+					is_country_type = fallen_empire
+					NOT = { set_country_flag = guardians_of_the_galaxy }
+					OR = {
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_authoritarian
+					}
+					fleet_power > 40000
+				}
+				set_country_flag = guardians_of_the_galaxy
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy days = 1825 }
+				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
+			}
+		}
+		20 = {} # No awakening
+	}
+}
+
+create_sol_fallen_empire_starting_navy = {
+	create_fallen_empire_fleet = yes
+	create_fallen_empire_fleet = yes		
+	create_fallen_empire_fleet = yes
+	if = {
+		limit = { is_difficulty = 0 }
+		random_list = {
+			33 = {
+				create_fleet = {
+					name = "自由舰队"
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = "戴高乐号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = random 
+						}					
+					}
+				}
+			}
+			33 = {
+				create_fleet = {
+					name = "自由舰队"
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = "尼米兹号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = random 
+						}					
+					}
+				}
+			}
+			33 = {
+				create_fleet = {
+					name = "自由舰队"
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = "辽宁号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = random 
+						}					
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { is_difficulty = 1 }
+		random_list = {
+			33 = {
+				create_fleet = {
+					name = "自由舰队"
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = "尼米兹号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						create_ship = {
+							name = "戴高乐号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = random 
+						}					
+					}
+				}
+			}
+			33 = {
+				create_fleet = {
+					name = "自由舰队"
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = "辽宁号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						create_ship = {
+							name = "戴高乐号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = random 
+						}					
+					}
+				}
+			}
+			33 = {
+				create_fleet = {
+					name = "自由舰队"
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = "尼米兹号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						create_ship = {
+							name = "辽宁号"
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						set_location = {
+							target = PREV
+							distance = 20
+							angle = random 
+						}					
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { is_difficulty = 2 }
+		create_fleet = {
+			name = "自由舰队"
+			effect = {
+				set_owner = prev.owner
+				create_ship = {
+					name = "辽宁号"
+					design = "NAME_Liberty"
+					graphical_culture = owner
+				}
+				create_ship = {
+					name = "尼米兹号"
+					design = "NAME_Liberty"
+					graphical_culture = owner
+				}
+				create_ship = {
+					name = "戴高乐号"
+					design = "NAME_Liberty"
+					graphical_culture = owner
+				}
+				set_location = {
+					target = PREV
+					distance = 20
+					angle = random 
+				}					
+			}
+		}
+	}
+	if = {
+		limit = { is_difficulty = 3 }
+		create_fleet = {
+			name = "自由舰队"
+			effect = {
+				set_owner = prev.owner
+				create_ship = {
+					name = "辽宁号"
+					design = "NAME_Liberty"
+					graphical_culture = owner
+				}
+				create_ship = {
+					name = "信浓号"
+					design = "NAME_Liberty"
+					graphical_culture = owner
+				}
+				create_ship = {
+					name = "尼米兹号"
+					design = "NAME_Liberty"
+					graphical_culture = owner
+				}
+				create_ship = {
+					name = "戴高乐号"
+					design = "NAME_Liberty"
+					graphical_culture = owner
+				}
+				set_location = {
+					target = PREV
+					distance = 20
+					angle = random 
+				}					
+			}
+		}
+		create_fleet = {
+			effect = {
+				set_owner = prev.owner
+				create_fallen_empire_construction_ship = yes
+				set_location = {
+					target = prev
+					distance = 60
+					angle = random 
+				}				
+			}
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			create_fallen_empire_construction_ship = yes
+			set_location = {
+				target = prev
+				distance = 60
+				angle = random 
+			}				
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			create_fallen_empire_construction_ship = yes
+			set_location = {
+				target = prev
+				distance = 80
+				angle = random 
+			}				
+		}
+	}				
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			create_fallen_empire_construction_ship = yes
+			set_location = {
+				target = prev
+				distance = 100
+				angle = random 
+			}				
+		}
+	}
+}
+
+create_fallen_empire_large_station = {
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Omega"
+			graphical_culture = owner
+		}						
+	}					
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_materialist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Obscurer"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_spiritualist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Bulwark"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophobe }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Reaper"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophile }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Sentinel"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_authoritarian }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Giant"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_egalitarian }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Harmony"
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_small_station = {
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Sigma"
+			graphical_culture = owner
+		}						
+	}					
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_materialist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Cloaker"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_spiritualist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Faith"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophobe }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Devastator"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophile }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Watcher"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_authoritarian }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Dwarf"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_egalitarian }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Bright"
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_titan = {
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Alpha"
+			graphical_culture = owner
+		}						
+	}					
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_materialist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Savant"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_spiritualist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Eternal"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophobe }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Imperium"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophile }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Keeper"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Stellar"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Liberty"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Liberation"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Flare"
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_large_ship = {
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Beta"
+			graphical_culture = owner
+		}						
+	}					
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_materialist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Scholar"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_spiritualist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Avatar"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophobe }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Supremacy"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophile }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Custodian"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Planedo"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Freedom"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Pianeta"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Freeborn"
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_small_ship = {
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Gamma"
+			graphical_culture = owner
+		}						
+	}					
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_materialist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Sage"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_spiritualist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Zealot"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophobe }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Glory"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophile }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Warden"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Moon"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Equality"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Selina"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Equalities"
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_construction_ship = {
+	if = {
+		limit = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Theta"
+			graphical_culture = owner
+		}						
+	}					
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_materialist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Librarian"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_spiritualist }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Penitent"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophobe }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Servitor"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { has_ethic = ethic_fanatic_xenophile }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Builder"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Meteorite"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Justice"
+			graphical_culture = owner
+		}						
+	}
+}

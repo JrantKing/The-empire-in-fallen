@@ -1,0 +1,42 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_red"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_red.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_green"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_green.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_blue"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_blue.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_yellow"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_yellow.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_purple"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_purple.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_white"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_white.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_orange"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_orange.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_titan_lance_indigo"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_indigo.dds"
+	}
+}

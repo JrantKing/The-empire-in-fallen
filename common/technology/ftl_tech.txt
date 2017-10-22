@@ -1,0 +1,47 @@
+tech_jump_drive_2 = {
+	cost = 4000
+	area = physics
+	tier = 3
+	category = { field_manipulation }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	is_dangerous = yes
+	weight = 0
+	prerequisites = { "tech_jump_drive_1" }
+	
+	weight_modifier = {
+		factor = 0
+	}
+	
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_JUMPDRIVE_2_TITLE"
+			desc = "TECH_UNLOCK_JUMPDRIVE_2_DESC"
+		}
+	}
+}
+
+tech_jump_drive_3 = {
+	cost = 5000
+	area = physics
+	tier = 3
+	category = { field_manipulation }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	is_dangerous = yes
+	weight = 0
+	prerequisites = { "tech_jump_drive_2" }
+	
+	weight_modifier = {
+		factor = 0
+	}
+	
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_JUMPDRIVE_3_TITLE"
+			desc = "TECH_UNLOCK_JUMPDRIVE_3_DESC"
+		}
+	}
+}

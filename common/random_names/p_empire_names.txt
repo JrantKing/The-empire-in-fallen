@@ -1,0 +1,93 @@
+### FALLEN EMPIRE NAMES
+
+empire_name_parts_list = {
+	key = "fallen_empire_names_5"
+	parts = {
+		"沉寂皇族" = 10
+		"僻静皇族" = 10
+		"边陲皇族" = 10
+	}
+}
+
+empire_name_parts_list = {
+	key = "fallen_empire_names_6"
+	parts = {		
+		"联合国" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = fallen_empire
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+	format = "format.fallen.5"
+	noun = "[This.GetSpeciesName]"
+	# Human Core Worlds
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = fallen_empire
+			has_ethic = ethic_fanatic_egalitarian
+		}
+	}
+	format = "format.fallen.6"
+	noun = "[This.GetSpeciesName]"
+	# Human Ancients
+}
+
+### AWAKENED FALLEN EMPIRES
+
+empire_name_parts_list = {
+	key = "awakened_fallen_empire_names_5"
+	parts = {
+		"振兴文明" = 10
+		"觉醒文明" = 10
+		"复兴文明" = 10
+	}
+}
+
+empire_name_parts_list = {
+	key = "awakened_fallen_empire_names_6"
+	parts = {		
+		"联合国" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = awakened_fallen_empire
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+	format = "format.awakened.5"
+	noun = "[This.GetSpeciesName]"
+	# Human Core Worlds
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = awakened_fallen_empire
+			has_ethic = ethic_fanatic_egalitarian
+		}
+	}
+	format = "format.awakened.6"
+	noun = "[This.GetSpeciesName]"
+	# Human Ancients
+}
+
+############################## Radical Cult ##############################
