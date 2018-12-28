@@ -1,12 +1,10 @@
-﻿### Human 2
-HUM2 = {
-	### SHIPS
-	alias = "MAM1"	#Game will find the real MAM1 before it finds HUM2 via alias, so this line is pointless unless the other MAM1 gets removed
+﻿### Humanoid 2
 
+HUM2 = {
 	ship_names = {
 
 		generic = {
-		"木蛟" "金龙" "土貉" "日兔"	"月狐" "火虎" "水豹" "木獬" "金牛" "土蝠" "日鼠" "月燕" "火猪" "水貐" "木狼" "金狗" "土雉" "日鸡" "月乌" "火猴" "水猿" "木犴" "金羊" "土獐" "日马" "月鹿" "火蛇" "水蚓" "角宿" "亢宿" "氐宿" "房宿" "心宿" "尾宿" "箕宿" "斗宿" "牛宿" "女宿" "虚宿" "危宿" "室宿" "壁宿" "奎宿" "娄宿" "胃宿" "昴宿" "毕宿" "觜宿" "参宿" "井宿" "鬼宿" "柳宿" "星宿" "张宿" "翼宿" "轸宿"
+			"木蛟" "金龙" "土貉" "日兔"	"月狐" "火虎" "水豹" "木獬" "金牛" "土蝠" "日鼠" "月燕" "火猪" "水貐" "木狼" "金狗" "土雉" "日鸡" "月乌" "火猴" "水猿" "木犴" "金羊" "土獐" "日马" "月鹿" "火蛇" "水蚓" "角宿" "亢宿" "氐宿" "房宿" "心宿" "尾宿" "箕宿" "斗宿" "牛宿" "女宿" "虚宿" "危宿" "室宿" "壁宿" "奎宿" "娄宿" "胃宿" "昴宿" "毕宿" "觜宿" "参宿" "井宿" "鬼宿" "柳宿" "星宿" "张宿" "翼宿" "轸宿" "谏议大夫" "御史中丞" "国子博士" "事中" "舍人" "都水使者" "亲勋翊卫" "羽林郎将" "护府长史" "典军" "侍中" "中书令" "六部尚书" "太子宾客" "太常卿" "太子詹事" "都督" "上都护" "太师" "太傅" "太保" "太尉" "司徒" "司空" "天策上将"
 		}
 
 		corvette = {
@@ -20,6 +18,12 @@ HUM2 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
 		}
@@ -29,26 +33,15 @@ HUM2 = {
 		
 		constructor = {
 		}
-
-  
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-		}
 		
-		military_station_small = {
-				"谏议大夫" "御史中丞" "国子博士" "事中" "舍人" "都水使者" "亲勋翊卫" "羽林郎将" "护府长史" "典军"
+		transport = {
 		}
-		military_station_medium = {
-				"侍中" "中书令" "六部尚书" "太子宾客" "太常卿" "太子詹事" "都督" "上都护"
+	
+		military_station_small = {
 		}
 
-		military_station_large = {
-				"太师" "太傅" "太保" "太尉" "司徒" "司空" "天策上将"
-		}	
+		ion_cannon = {
+		}
 	}
 
 	fleet_names = {
@@ -79,11 +72,19 @@ HUM2 = {
 		robotic_army = {
 			sequential_name = "%O%机人军"
 		}
+
+		robotic_defense_army = {
+			sequential_name = "%O%机人护军"
+		}
 		
 		android_army = {
 			sequential_name = "%O%智人军"
 		}
 		
+		android_defense_army = {
+			sequential_name = "%O%智人护军"
+		}
+
 		psionic_army = { 
 			sequential_name = "%O%灵能军"
 		}
@@ -95,34 +96,42 @@ HUM2 = {
 		gene_warrior_army = {
 			sequential_name = "%O%基因军"
 		}
-	}
-		
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
 
-	### PLANETS
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
+		}
+	}
 
 	planet_names = {
 
 		generic = {
 			names = {
-			"勾龙" "白龙" "石夷" "戎民" "方氏" "夸父" "奄兹" "乌孙" "大月" "大夏" "大蒙" "羯克" "鬼戎" "无怀" "白马" "大穆" "沃民" "祝栗" "赫胥" "寿麻" "不周" "伯服" "不死" "丹穴" "虾夷" "文身" "汉大" "昧谷" "后照" "匈犁" "奢比" "人方" "白民" "季狸" "汤谷" "於菟" "胡余" "不庭" "轩辕" "罴氏"
+			 "勾龙" "白龙" "石夷" "戎民" "方氏" "夸父" "奄兹" "乌孙" "大月" "大夏" "大蒙" "羯克" "鬼戎" "无怀" "白马" "大穆" "沃民" "祝栗" "赫胥" "寿麻" "不周" "伯服" "不死" "丹穴" "虾夷" "文身" "汉大" "昧谷" "后照" "匈犁" "奢比" "人方" "白民" "季狸" "汤谷" "於菟" "胡余" "不庭" "轩辕" "罴氏" 
 			}
 		}
 		
 		pc_desert = {
 			names = {
-																																																																															  
+
 			}
 		}
 		
 		pc_tropical = {
 			names = {
-																																																																	
+
 			}
 		}
 		
 		pc_arid = {
 			names = {
-																																																																										 
+
 			}
 		}
 		
@@ -157,8 +166,6 @@ HUM2 = {
 		}
 		
 	}
-
-	### CHARACTERS
 
 	character_names = {
 		default = {

@@ -83,7 +83,6 @@ pop_faction_name_parts_list = {
 		"非干预者" = 1
 		"拒绝纠缠" = 1
 		"守护优先" = 1
-		"内部繁荣" = 1
 		"国家防备" = 1
 		"防御准备" = 1
 		"中立主义" = 1
@@ -96,7 +95,7 @@ pop_faction_name_parts_list = {
 pop_faction_name_parts_list = {
 	key = "isolationist_names_2"
 	parts = {
-		"联盟" = 1
+		"结盟" = 1
 		"议会" = 1
 		"委员会" = 1
 		"中心" = 1
@@ -104,7 +103,7 @@ pop_faction_name_parts_list = {
 		"倡议" = 1
 		"社会" = 1
 		"守望者" = 1
-		"联盟" = 1
+		"同盟" = 1
 		"运动" = 1
 		"群体" = 1
 		"组织" = 1
@@ -112,6 +111,7 @@ pop_faction_name_parts_list = {
 		"论坛" = 1
 		"协会" = 1
 		"联盟" = 1
+		"政党" = 1 
 	}
 }
 

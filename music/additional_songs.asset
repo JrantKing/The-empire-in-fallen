@@ -1,0 +1,47 @@
+music = {
+	name = "foraslongasishalllive_apocalypsetrailerscore"
+	file = "foraslongasishalllive_apocalypsetrailerscore.ogg"
+	volume = 0.6
+}
+
+music = {
+	name = "distantstarstrailertheme"
+	file = "distantstarstrailertheme.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "distantstarsofficialreleasetrailerscore"
+	file = "distantstarsofficialreleasetrailerscore.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "fasterthanlightbonusfeaturingmiastegmar"
+	file = "fasterthanlight_bonus_featuringmiastegmar.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "distantnebulabonusfeaturingmiastegmar"
+	file = "distantnebula_bonus_featuringmiastegmar.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "battleforsupremacybonus"
+	file = "battleforsupremacy_bonus.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "infinitebeingadditionaltake"
+	file = "infinitebeing_additionaltake.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "totheendsofthegalaxyadditionaltake"
+	file = "totheendsofthegalaxy_additionaltake.ogg"
+	volume = 0.80
+}

@@ -1,0 +1,69 @@
+urras = {
+	name = "urras"
+	adjective = "PRESCRIPTED_adjective_urras"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_urras"
+	
+	species = {
+		class = "MAM"
+		portrait = "mam13"
+		name = "PRESCRIPTED_species_name_urras"
+		plural = "PRESCRIPTED_species_plural_urras"
+		adjective = "PRESCRIPTED_species_adjective_urras"
+		name_list = "MAM3"
+		trait="trait_communal"
+		trait="trait_very_strong"
+		trait="trait_resilient"
+		trait="trait_wasteful"
+		trait="trait_nonadaptive"
+	}
+	
+	room = "personality_spiritual_seekers_room"
+	
+	authority="auth_democratic"
+	civics={ "civic_beacon_of_liberty" "civic_life_seeded" }
+	government="gov_theocratic_republic"
+	
+	ethic="ethic_fanatic_egalitarian"
+	ethic="ethic_spiritualist"
+	
+	flags = { urras_orangutan }
+	
+	planet_name = "PRESCRIPTED_planet_name_urras"
+	planet_class = "pc_gaia"
+	initializer = "tauceti_system"
+	system_name = "NAME_TauCeti"
+
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+
+	empire_flag={
+		icon={
+			category="human"
+			file="flag_human_15.dds"
+		}
+		background={
+			category="backgrounds"
+			file="00_solid.dds"
+		}
+		colors={
+			"blue"
+			"red"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name="PRESCRIPTED_ruler_name_urras"
+		ruler_title = "PRESCRIPTED_ruler_title_urras"
+		gender=male
+		portrait="mam13"
+		texture=0
+		hair=0
+		clothes=0
+		leader_class = ruler
+	}
+}

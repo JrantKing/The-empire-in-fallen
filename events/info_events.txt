@@ -1,0 +1,16 @@
+namespace = exdiplomacy
+
+country_event = {
+	id = exdiplomacy.3
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "stability_window"
+	title = ""
+	desc =  ""
+	immediate = {
+		
+	}
+	option = {
+		name = "count_stability"
+	}
+}

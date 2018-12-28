@@ -17,12 +17,6 @@ Extradimensional = {
 		
 		mining_station = { }
 		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-			sequential_name = "%O%前哨基地"
-		}
 
 		military_station_small = {}
 		military_station_medium = {}
@@ -32,7 +26,7 @@ Extradimensional = {
 	fleet_names = {
 		sequential_name = "异次元侵略军第%CC%舰队"
 	}
-	
+
 	### CHARACTERS
 
 	character_names = {

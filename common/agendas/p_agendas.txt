@@ -19,12 +19,7 @@ agenda_science = {
 		}
 		modifier = {
 			factor = 99
-			from = {
-				OR= {
-					has_country_flag = select_science
-					has_country_flag = select_science_p
-				}
-			}
+			from = { has_country_flag = select_science }
 		}
 	}
 	

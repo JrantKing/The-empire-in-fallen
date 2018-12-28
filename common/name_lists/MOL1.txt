@@ -1,18 +1,14 @@
 ﻿### Molluscoid 1
-MOL1 = {
-	### SHIPS
+### Created by Henrik Eklund
 
+MOL1 = {
 	ship_names = {
 
 		generic = {
-				"毛伊" "唐加罗瓦" "缅干陶托" "恩惠因" "希娜" "天草" "塔法基" "赫马" "哈帕" "拉达" "布凯奥阿伯基" "波索波鲁伊夫"
+			"毛伊" "唐加罗瓦" "缅干陶托" "恩惠因" "希娜" "天草" "塔法基" "赫马" "哈帕" "拉达" "布凯奥阿伯基" "波索波鲁伊夫"
 				"穆罗茨哈乌" "纳纳威" "卡莫霍阿里" "迪尔凯雷尔" "马塔欧" "米兰德" "乌切尔" "凯塔冈塔" "雷弗阿" "乌海塔里"
 				"库贝" "菲格" "奥罗法特" "鲁卡伊兰" "西培拉普" "塔恩" "廷蒂亚" "塞玛尔" "巴塔拉古鲁" "布拉玛" "巴塔拉卡拉"
-				"安塔博加" "贝塔旺" "塞泰苏伊亚拉" "巴苏基" "朗达" "巴龙" "巴塔拉因陀罗" "迈亚达纳瓦" "梅苏拉" "梅苏利"
-																										   
-																										  
-																										
-																										  
+				"安塔博加" "贝塔旺" "塞泰苏伊亚拉" "巴苏基" "朗达" "巴龙" "巴塔拉因陀罗" "迈亚达纳瓦" "梅苏拉" "梅苏利" "石神之眼" "流亡圣者" "晨星" "拜艾梅" "希内努蒂布" "池水之血" "星之血" "太阳之血" "月之血" "神之血" "布努伊" "利瓦尔" "卡布路克" "马塔霍路亚" "石之巨人"
 		}
 
 		corvette = {
@@ -26,38 +22,30 @@ MOL1 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
-				"石神之眼" "流亡圣者" "晨星" "拜艾梅" "希内努蒂布"
 		}
 		
 		colonizer = {
-				"池水之血" "星之血" "太阳之血" "月之血" "神之血"
 		}
 		
 		constructor = {
-				"布努伊" "利瓦尔" "卡布路克" "马塔霍路亚" "石之巨人"
 		}
 		
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-					  
-											
+		transport = {
 		}
-		
+	
 		military_station_small = {
-				"本古达加" "那摩加" "卡纳洛阿" "佩雷" "哈乌美亚"
 		}
-		military_station_medium = {
-				"克恩" "帕帕" "罗诺" "波利亚胡" "库乌"
+
+		ion_cannon = {
 		}
-		military_station_large = {
-				"维洛" "马亚里" "阿尼图恩" "阿米汗" "阿波拉基"
-		}	
 	}
 
 	fleet_names = {
@@ -67,9 +55,7 @@ MOL1 = {
 		sequential_name = "星海%O%触手群"
 	}
 	
-	### ARMIES
 	army_names = {
-	
 		defense_army = {
 			sequential_name = "%O%守备师团"
 		}
@@ -89,9 +75,17 @@ MOL1 = {
 		robotic_army = {
 			sequential_name = "%O%机器人师团"
 		}
+
+		robotic_defense_army = {
+			sequential_name = "%O%机器人防卫队"
+		}
 		
 		android_army = {
 			sequential_name = "%O%智能人师团"
+		}
+
+		android_defense_army = {
+			sequential_name = "%O%智能人防卫队"
 		}
 		
 		psionic_army = { 
@@ -105,9 +99,18 @@ MOL1 = {
 		gene_warrior_army = {
 			sequential_name = "%O%基因武士师团"
 		}
-	}
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
 
-	### PLANETS
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
+		}
+	}
 
 	planet_names = {
 
@@ -167,27 +170,22 @@ MOL1 = {
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
 			full_names = {
-																																									  
-			}
-			
-			# Always combined with a second name
-			first_names = {
 				"毛伊" "唐加罗瓦" "缅干陶托" "恩惠因" "希娜" "天草" "塔法基" "赫马" "哈帕" "拉达" "布凯奥阿伯基" "波索波鲁伊夫"
 				"穆罗茨哈乌" "纳纳威" "卡莫霍阿里" "迪尔凯雷尔" "马塔欧" "米兰德" "乌切尔" "凯塔冈塔" "雷弗阿" "乌海塔里"
 				"库贝" "菲格" "奥罗法特" "鲁卡伊兰" "西培拉普" "塔恩" "廷蒂亚" "塞玛尔" "巴塔拉古鲁" "布拉玛" "巴塔拉卡拉"
 				"安塔博加" "贝塔旺" "塞泰苏伊亚拉" "巴苏基" "朗达" "巴龙" "巴塔拉因陀罗" "迈亚达纳瓦" "梅苏拉" "梅苏利"
-				
+			}
+			
+			# Always combined with a second name
+			first_names = {
 			}
 			
 			# Always combined with a first name
 			second_names = {
-				"太巴朗" "普图鲁" "沃卡巴巴" "阿库伯伊" "海尔普" "缪灵" "瑙摩"
 			}
 			
 			regnal_first_names = {
@@ -198,7 +196,7 @@ MOL1 = {
 			}
 			
 			regnal_second_names = {
-				"太巴朗"
+				 "太巴朗" "普图鲁" "沃卡巴巴" "阿库伯伊" "海尔普" "缪灵" "瑙摩"
 			}
 		}
 	}

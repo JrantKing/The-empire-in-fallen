@@ -1,0 +1,143 @@
+### FALLEN EMPIRE NAMES
+
+empire_name_parts_list = {
+	key = "fallen_empire_names_5"
+	parts = {
+		"沉寂皇族" = 10
+		"僻静皇族" = 10
+		"边陲皇族" = 10
+	}
+}
+
+empire_name_parts_list = {
+	key = "fallen_empire_names_6"
+	parts = {		
+		"自由邦" = 10
+		"乌托邦" = 10
+		"文明邦" = 10
+	}
+}
+
+empire_name_parts_list = {
+	key = "fallen_empire_names_7"
+	parts = {		
+		"自由邦" = 10
+		"乌托邦" = 10
+		"文明邦" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = fallen_empire
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+	format = "format.fallen.5"
+	noun = "[This.GetSpeciesName]"
+	# Human Core Worlds
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			is_country_type = fallen_empire
+			has_government = gov_representative_democracy_democratic_une
+		}
+	}
+	format = "format.fallen.6"
+	noun = "[This.GetSpeciesName]"
+	# Human Ancients
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = fallen_empire
+			has_government = gov_representative_democracy_democratic_n
+		}
+	}
+	format = "format.fallen.7"
+	noun = "[This.GetSpeciesName]"
+	# Human Ancients
+}
+
+### AWAKENED FALLEN EMPIRES
+
+empire_name_parts_list = {
+	key = "awakened_fallen_empire_names_5"
+	parts = {
+		"振兴帝国" = 10
+		"觉醒帝国" = 10
+		"复兴帝国" = 10
+	}
+}
+
+empire_name_parts_list = {
+	key = "awakened_fallen_empire_names_6"
+	parts = {		
+		"防卫者" = 10
+		"解放者" = 10
+		"领导者" = 10
+	}
+}
+
+empire_name_parts_list = {
+	key = "awakened_fallen_empire_names_7"
+	parts = {		
+		"防卫者" = 10
+		"解放者" = 10
+		"领导者" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = awakened_fallen_empire
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+	format = "format.awakened.5"
+	noun = "[This.GetSpeciesName]"
+	# Human Core Worlds
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			is_country_type = awakened_fallen_empire
+			has_government = gov_awakened_ascendancy_democratic_une
+		}
+	}
+	format = "format.awakened.6"
+	noun = "[This.GetSpeciesName]"
+	# Human Ancients
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_country_type = awakened_fallen_empire
+			has_government = gov_awakened_ascendancy_democratic_n
+		}
+	}
+	format = "format.awakened.7"
+	noun = "[This.GetSpeciesName]"
+	# Human Ancients
+}
+
+############################## Radical Cult ##############################

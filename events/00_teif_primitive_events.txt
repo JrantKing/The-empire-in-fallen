@@ -1,0 +1,829 @@
+namespace = primitive
+
+### Industrial Technology Progress Events
+
+# Radio Signals (HIDDEN)
+country_event = {
+	id = primitive.10
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = industrial_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 100
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = industrial_age
+		set_country_flag = machine_age
+		set_primitive_age = machine_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"yellow"
+				"orange"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.11 }
+			}
+		}
+	}
+}
+
+# Splitting the Atom (HIDDEN)
+country_event = {
+	id = primitive.12
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = machine_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			factor = 0.6
+			has_country_flag = acquired_tech
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = machine_age
+		set_country_flag = atomic_age
+		set_primitive_age = atomic_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"beige"
+				"brown"
+				"null"
+				"null"
+			}
+		}
+			
+		capital_scope = {
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.13 }
+			}
+		}
+	}
+}
+
+# Splitting the Atom (HIDDEN)
+country_event = {
+	id = primitive.12
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = machine_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			factor = 0.6
+			has_country_flag = acquired_tech
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = machine_age
+		set_country_flag = atomic_age
+		set_primitive_age = atomic_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"beige"
+				"brown"
+				"null"
+				"null"
+			}
+		}
+			
+		capital_scope = {
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.13 }
+			}
+		}
+	}
+}
+
+# First Satellite (HIDDEN)
+country_event = {
+	id = primitive.14
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = atomic_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			factor = 0.6
+			has_country_flag = acquired_tech
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = atomic_age
+		set_country_flag = early_space_age
+		set_primitive_age = early_space_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"grey"
+				"dark_grey"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			create_fleet = {
+				name = "NAME_Space_Station"
+				effect = {
+					set_owner = root
+					create_ship = {
+						name = "NAME_Space_Station"
+						design = "NAME_Space_Station"
+					}
+					set_location = PREV
+				}
+			}
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.15 }
+			}
+		}
+	}
+}
+
+# Space Station (HIDDEN)
+country_event = {
+	id = primitive.18
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = early_space_age
+		exists = capital_scope
+		capital_scope = {
+			has_observation_outpost = yes
+		}
+		NOR = {
+			any_owned_ship = {
+				is_ship_size = primitive_space_station
+			}
+			has_country_flag = recently_advanced
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 60
+
+		modifier = {
+			factor = 0.6
+			has_country_flag = acquired_tech
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		capital_scope = {
+			create_fleet = {
+				name = "NAME_Space_Station"
+				effect = {
+					set_owner = ROOT
+					create_ship = {
+						name = "NAME_Space_Station"
+						design = "NAME_Space_Station"
+					}
+					set_location = PREV
+				}
+			}
+			observation_outpost_owner = {
+				country_event = { id = primitive.19 }
+			}
+		}
+	}
+}
+
+# Entering Space Age (HIDDEN)
+country_event = {
+	id = primitive.16
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = early_space_age
+		OR = {
+			AND = {
+				exists = from
+				from = {
+					OR = {
+						is_country_type = default
+						is_country_type = awakened_fallen_empire
+					}
+				}
+			}
+			AND = {
+				NOT = { has_country_flag = recently_advanced }
+				years_passed > 25
+				exists = capital_scope
+				capital_scope = { has_observation_outpost = no }			
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 100
+
+		modifier = {
+			factor = 0.6
+			has_country_flag = acquired_tech
+		}
+	}
+
+	immediate = {
+		remove_country_flag = early_space_age
+		set_country_flag = primitives_can_into_space
+		set_country_type = default
+		change_country_flag = random
+		if = {
+			limit = { is_species_class = MAM }
+			set_graphical_culture = mammalian_01
+		}
+		if = {
+			limit = { is_species_class = REP }
+			set_graphical_culture = reptilian_01
+		}
+		if = {
+			limit = { is_species_class = AVI }
+			set_graphical_culture = avian_01
+		}
+		if = {
+			limit = { is_species_class = ART }
+			set_graphical_culture = arthropoid_01
+		}
+		if = {
+			limit = { is_species_class = MOL }
+			set_graphical_culture = molluscoid_01
+		}
+		if = {
+			limit = { is_species_class = FUN }
+			set_graphical_culture = fungoid_01
+		}
+		if = {
+			limit = { is_species_class = PLANT }
+			set_graphical_culture = plantoid_01
+		}		
+		change_government = {
+			authority = random
+			civics = random
+		}
+		set_name = random
+		if = {
+			limit = {
+				capital_scope = {
+					has_observation_outpost = yes
+				}
+			}
+			capital_scope = {
+				observation_outpost_owner = {
+					country_event = { id = primitive.17 }
+				}
+			}
+		}
+		add_resource = {
+			energy = 500
+			minerals = 1000 # enough for a spaceport and then some
+		}
+		add_resource = { influence = 300 }
+		capital_scope = {
+			clear_blockers = yes
+			while = {
+				limit = { 
+					num_pops < 8
+					#free_housing > 0
+				}
+				create_pop = {
+					species = owner
+				}
+			}
+			remove_building = building_primitive_farm
+			remove_building = building_primitive_factory
+			remove_building = building_primitive_capital
+			remove_building = building_urban_dwellings
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_mining
+			add_district = district_mining
+			add_district = district_generator
+			add_district = district_generator
+			add_building = building_capital
+			add_building = building_research_lab_1
+			add_building = building_foundry_1
+			add_building = building_factory_1
+			
+			remove_all_armies = yes
+			solar_system = {
+				if = {
+					limit = {
+						NOT = { exists = starbase }
+					}
+					create_starbase = {
+						size = starbase_outpost
+						owner = root
+					}
+				}
+				else_if = {
+					limit = {
+						starbase = {
+							NOT = { owner = { is_same_value = root } }
+						}
+					}	
+					starbase = {
+						owner = { country_event = { id = primitive.180 days = 10 } }
+					}
+				}
+			}				
+		}
+		random_owned_ship = {
+			limit = { is_ship_size = primitive_space_station }
+			fleet = { destroy_fleet = THIS }
+		}
+	}
+}
+
+# Entering Space Age
+country_event = {
+	id = primitive.17
+	title = "primitive.17.name"
+	desc = "primitive.17.desc"
+	picture = GFX_evt_satellite_in_orbit
+	location = FROM
+
+	is_triggered_only = yes
+
+
+	immediate = {
+		FROM = {
+			capital_scope = {
+				observation_outpost = {
+					dismantle = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = primitive.15.a
+	}
+}
+
+### Medieval Technology Progress Events
+
+# Iron Age (HIDDEN)
+country_event = {
+	id = primitive.20
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = bronze_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 160
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_owned_planet = {
+					has_observation_outpost = yes
+					observation_outpost_owner = {
+						is_country_type = default
+					}
+					observation_outpost = {
+						OR = {
+							has_mission = technological_enlightenment_1
+							has_mission = technological_enlightenment_2
+							has_mission = technological_enlightenment_3
+							has_mission = technological_enlightenment_4
+							has_mission = technological_enlightenment_5
+							has_mission = technological_enlightenment_6
+							has_mission = technological_enlightenment_7
+							has_mission = technological_enlightenment_8
+							has_mission = technological_enlightenment_9
+						}
+					}
+				}
+			}
+			set_country_flag = was_bronze
+		}
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = bronze_age
+		change_government = {
+			civics = {
+				civic = civic_landed_nobility
+				civic = civic_flat_world_theory
+			}
+		}
+		set_country_flag = iron_age
+		set_primitive_age = iron_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"purple"
+				"dark_purple"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.21 }
+			}
+		}
+	}
+}
+
+# Printing Press (HIDDEN)
+country_event = {
+	id = primitive.22
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = iron_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 160
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = iron_age
+		set_country_flag = late_medieval_age
+		set_primitive_age = late_medieval_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"light_blue"
+				"blue"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			add_building = building_primitive_dwellings
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.23 }
+			}
+		}
+	}
+}
+
+# Gunpowder (HIDDEN)
+country_event = {
+	id = primitive.24
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = late_medieval_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 160
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = late_medieval_age
+		set_country_flag = renaissance_age
+		set_primitive_age = renaissance_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"pink"
+				"burgundy"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.25 }
+			}
+		}
+	}
+}
+
+# Steam Engine (HIDDEN)
+country_event = {
+	id = primitive.26
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = renaissance_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 160
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = renaissance_age
+		set_country_flag = steam_age
+		set_primitive_age = steam_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"orange"
+				"red"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			remove_building = building_primitive_dwellings
+			add_building = building_primitive_factory
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.27 }
+			}
+		}
+	}
+}
+
+# Entering Industrial Age (HIDDEN)
+country_event = {
+	id = primitive.28
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = steam_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 100
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = steam_age
+		change_government = {
+			civics = {
+				civic = civic_increasing_urbanization
+				civic = civic_atmospheric_pollution
+			}
+		}
+		set_country_flag = industrial_age
+		set_primitive_age = industrial_age
+		set_graphical_culture = industrial_01
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"beige"
+				"yellow"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			clear_blockers = yes
+			add_deposit = d_decrepit_dwellings
+			add_deposit = d_failing_infrastructure
+			remove_building = building_stone_palace
+			remove_building = building_primitive_dwellings
+			add_building = building_primitive_capital
+			add_building = building_urban_dwellings
+			add_building = building_primitive_farm
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.29 }
+			}
+		}
+	}
+}
+
+# Bronze Age (HIDDEN)
+country_event = {
+	id = primitive.30
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		has_country_flag = stone_age
+		NOT = { has_country_flag = recently_advanced }
+	}
+
+	mean_time_to_happen = {
+		years = 160
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_owned_planet = {
+					has_observation_outpost = yes
+					observation_outpost_owner = {
+						is_country_type = default
+					}
+					observation_outpost = {
+						OR = {
+							has_mission = technological_enlightenment_1
+							has_mission = technological_enlightenment_2
+							has_mission = technological_enlightenment_3
+							has_mission = technological_enlightenment_4
+							has_mission = technological_enlightenment_5
+							has_mission = technological_enlightenment_6
+							has_mission = technological_enlightenment_7
+							has_mission = technological_enlightenment_8
+							has_mission = technological_enlightenment_9
+						}
+					}
+				}
+			}
+			set_country_flag = was_stone
+		}
+		set_timed_country_flag = {
+			flag = recently_advanced
+			days = 2160 #60yrs
+		}
+		remove_country_flag = stone_age
+		set_country_flag = bronze_age
+		set_primitive_age = bronze_age
+		change_country_flag = {
+			icon = {
+				category = "special"
+				file = "primitive.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "new_dawn.dds"
+			}
+			colors={
+				"green"
+				"dark_green"
+				"null"
+				"null"
+			}
+		}
+		capital_scope = {
+			remove_building = building_crude_huts
+			add_building = building_primitive_dwellings
+			add_building = building_stone_palace
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
+			observation_outpost_owner = {
+				country_event = { id = primitive.31 }
+			}
+		}
+	}
+}

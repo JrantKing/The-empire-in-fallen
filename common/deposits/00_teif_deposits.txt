@@ -1,0 +1,54 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# blocked_modifier - applied to planet
+# constant_modifier - applied to planet always
+# station = station class in orbit to gather
+# blocker_swap_types = {}
+# all_blocker_swap_types = yes/no
+# use_weights_for_blocker_swap_types = yes/no
+# terraforming_swap_types = { }
+# should_swap_deposit_on_terraforming = yes/no
+# all_terraforming_swap_types = yes/no
+# use_weights_for_terraforming_swap_types = yes/no
+
+d_meteorite_crater = {
+	is_for_colonizeable = yes
+	use_for_min_max_adjustments = yes
+	time = 360
+	#category = deposit_cat_minerals
+	category = deposit_cat_blockers
+	
+	planet_modifier = { 
+		district_mining_ringworld_max = 6
+		planet_max_districts_add = -25
+	}
+	
+	potential = { always = no }
+	
+	#triggered_planet_modifier = {
+	#	potential = {
+	#		exists = owner
+	#		owner = {
+	#			has_valid_civic = civic_ringworld_start
+	#		}
+	#	}
+	#	modifier = {
+	#		planet_max_districts_add = -25
+	#	}
+	#}
+	
+	on_cleared = {
+		while = {
+			count = 6
+			remove_district = district_mining_ringworld
+		}
+	}
+	
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 1000
+		}
+	}
+}

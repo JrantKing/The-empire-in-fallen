@@ -1,0 +1,22 @@
+trait_robotic_machine = {
+	cost = 0
+	sorting_priority = 10
+	
+	initial = no
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { MACHINE ROBOT }
+	
+	modifier = {
+		planet_jobs_physics_research_produces_mult = -0.5
+		planet_jobs_society_research_produces_mult = -0.5
+		planet_jobs_engineering_research_produces_mult = -0.5
+		planet_jobs_unity_produces_mult = -0.5
+		planet_jobs_energy_produces_mult = -0.5
+		planet_jobs_minerals_produces_mult = 0.35
+		pop_assembly_speed = 0.25
+	}
+	
+	#prerequisites = {  }
+}

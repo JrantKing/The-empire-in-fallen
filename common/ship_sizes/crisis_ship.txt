@@ -5,12 +5,11 @@ collapsar = {
 	max_speed = 10
 	acceleration = 0.9
 	rotation_speed = 5.0
-	combat_max_speed = 10.00
-	combat_rotation_speed = 2.00
+	max_speed = 10.00
+	rotation_speed = 2.00
 	collision_radius = 20
 	modifier = {
 		ship_evasion_add = 90
-		ship_shield_hp_add = 20000
 		ship_upkeep_mult = -1
 		ship_fire_rate_mult = 1
 	}

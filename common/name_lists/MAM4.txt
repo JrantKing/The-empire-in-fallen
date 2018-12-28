@@ -1,0 +1,211 @@
+﻿### Mammalian 4
+
+
+MAM4 = {
+	ship_names = {
+
+		generic = {
+			土豚 鸣禽 蝰蛇 信天翁 短吻鳄 水蟒 羚羊 犰狳 毒蛇 獾 鲈鱼 猎兔犬 警犬 野牛 斗牛狗 秃鹫 骆驼 猎豹 眼镜蛇 草原狼 野狗 海豚 蜻蜓 单峰骆驼 雕 大象 隼 雪貂 萤火虫 
+			狐狸 羚羊  萤火虫 苍狼 灵犭是 黑线鳕 鹰 豺 寒鸦 美洲虎 袋鼠 茶隼  眼镜王蛇   石首鱼  瓢虫 豹 狮 蜥蜴 猞猁 荡妇 猫鼬 蚊子 独角鲸 夜鹰 豹猫 逆戟鲸 鹗 黑豹 孔雀 
+			鹈鹕 企鹅 海燕 鸭嘴兽 臭鼬 豪猪 美洲狮 巨蟒 响尾蛇 渡鸦 蝾螈 沙丁鱼 蝎 鲨鱼 伯劳鸟 云雀 麻雀 蜘蛛 海星 黄貂鱼 鹳 鲟鱼 箭鱼 貘 虎  虎鲨  秃鹫 海象 狼獾 科迪亚克熊 水虎鱼 野猫 地狱猫 熊猫 汤姆猫 翠鸟 美洲狮 莫霍克 黑鹰 流星 反嘴鹊 雀鹰 贼鸥
+		}
+
+		corvette = {
+		}
+		
+		destroyer = {
+		}
+		
+		cruiser = {
+		}
+		
+		battleship = {
+		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
+		
+		science = {
+			大角星 五车二 南河三 牵牛星 参宿四 心大星 水委一 毕宿五 北河三 天津四 轩辕十四 比邻星 南门二 角宿一 勾陈一 参宿五											 
+		}
+		
+		colonizer = {
+			大角星 五车二 南河三 牵牛星 参宿四 心大星 水委一 毕宿五 北河三 天津四 轩辕十四 比邻星 南门二 角宿一 勾陈一 参宿五	
+		}
+		
+		constructor = {
+			大角星 五车二 南河三 牵牛星 参宿四 心大星 水委一 毕宿五 北河三 天津四 轩辕十四 比邻星 南门二 角宿一 勾陈一 参宿五																			  
+		}
+		
+		transport = {
+		}
+	
+		military_station_small = {
+			流星 反嘴鹊 雀鹰 贼鸥 火冠戴菊 管鼻藿 箭镟 秃鹫 苍鹰 尼卡特 武士 剑齿虎 惠比特犬 鸬鹚 拉其普特 林蛙 斗牛士
+		}
+
+		ion_cannon = {
+			斩马刀 短剑 双刃剑 逆刃刀 土耳其剑 赛施尔长刀 苏丹长剑 穆斯林弯刀 印度软剑 
+			柳叶刀 太刀 坎达长剑 倭刀 长刀 雁翎刀 苗刀 直刃刀
+		}
+	}
+
+	fleet_names = {
+		random_names = {
+			"星海第一舰队" "星海第二舰队" "星海第三舰队"
+		}
+		sequential_name = "星海%O%舰队"
+	}
+		
+	army_names = {
+	
+		defense_army = {
+			sequential_name = "%O%行星卫队"
+		}
+
+		assault_army = {
+			sequential_name = "%O%远征军"
+		}
+		
+		slave_army = {
+			sequential_name = "%O%奴仆军"
+		}
+		
+		clone_army = { 
+			sequential_name = "%O%克隆军"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O%猎杀者军"
+		}
+
+		robotic_defense_army = {
+			sequential_name = "%O%猎杀者警备军"
+		}
+		
+		android_army = {
+			sequential_name = "%O%合成人游奕军"
+		}
+
+		android_defense_army = {
+			sequential_name = "%O%合成人警备军"
+		}
+		
+		psionic_army = { 
+			sequential_name = "%O%超能突击队"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O%异形师团"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O%基因战士中队"
+		}
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
+		}
+	}
+
+	planet_names = {
+
+		generic = {
+			names = {
+				"阿尔斯特" "康诺特" "伦斯特" "芒斯特" "米斯" "弗莫尔" "费伯格" "马格特瑞德" "梅利西安" "恩格纳特" "米利都"
+				"加费特" "塞西亚" "克里" "塔拉" "伊塞尼" "威克洛" "加拉提亚" "加洛尔" "利菲" "卡曼" "布莱吉亚" "巴斯金" "摩那"
+				"阿瓦隆" "贝尔比克兰特" "巴多尔阿克斯" "乌涅蒂采" "乌恩菲德" "哈尔斯塔特" "拉丹" "阿洛布罗基" "阿维尔尼" "桑东" 
+				"马尔萨克" "内尔维" "布里甘特" "莫贡蒂亚克" "布雷努斯"
+			}
+		}
+		
+		pc_desert = {
+			names = {
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+			}
+		}
+		
+		pc_arid = {
+			names = {
+			}
+		}
+		
+		pc_continental = {
+			names = {
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+			}
+		}
+
+		pc_savannah = {
+			names = {
+			}
+		}
+
+		pc_alpine = {
+			names = {
+			}
+		}
+		
+	}
+
+	character_names = {
+		default = {
+			# A complete name
+			full_names = {
+			}
+			
+			# Always combined with a second name
+			first_names_male = {
+				阿拉夫 维维安 阿迪蒂亚 阿琼 纳伦德拉 阿尔纳芙 基斯拉 伊萨汗 迪让 加拉瓦 卡皮尔 杰定 库纳勒 拉哈尔 萨米特 华伦 维卡斯 阿布舍克 乌玛 尼汀
+				沙阿 拉杰纳特 穆克吉 奥斯卡 希斯 乔希 阿贾伊 苏什马
+			}
+			first_names_female = {
+				希玛妮 南德娜 鲁绮卡 希玛 妮哈 西瓦尼 苏尔碧 希尔帕 卡特莉娜 阿卡纳 卡琳娜 艾西瓦娅 朴雅卡 维迪雅 玛杜丽 汉西卡 阿辛 安努舒卡 莎玛 娅 伊利亚娜
+				阿耶莎 迪皮卡 索尼娅 
+			}
+			
+			# Always combined with a first name
+			second_names = {
+				马丁 伯兰德 迪布瓦 杜兰德 勒罗伊 莫罗 兰伯特 杜邦 勒克莱尔 劳伦 雷纳 特朗布莱 加尼翁 罗伊 布沙尔 高蒂尔
+				莫林 拉沃伊 福廷 加涅 杜瓦尔 埃贝尔 勒高 勒鲁 德维尔 杰拉德 佩蒂特 加西亚 吉尔伯托 伯杰龙 帕克特
+				佩尔蒂埃 雷米 吉鲁 德尚 "德 卡斯特诺" "德 蒙特涅克" 拉博夫 佩兰 克莱蒙
+			}
+			
+			regnal_first_names = {
+				达戈贝尔塔 丕平 克洛塔尔 希尔佩里克 卡洛曼 洛泰尔 腓力 查理
+			}
+			
+			regnal_second_names = {
+				瓦卢瓦 卡佩 加洛林 墨洛温 奥尔良 昂古莱姆 波旁
+			}
+		}
+	}
+}

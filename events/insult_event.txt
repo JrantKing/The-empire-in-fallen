@@ -1,0 +1,1283 @@
+namespace = exdiplomacy
+
+country_event = {
+	id = exdiplomacy.1
+	is_triggered_only = yes
+	title = " "
+	desc = {
+		text = "01_INSULT_PROPOSE"
+		trigger = {
+			NOT = {
+				FROM = {
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_gestalt_consciousness
+					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
+				}
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE"
+		trigger = {
+			NOT = {
+				FROM = {
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_gestalt_consciousness
+					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE"
+		trigger = {
+			NOT = {
+				FROM = {
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_gestalt_consciousness
+					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE"
+		trigger = {
+			NOT = {
+				FROM = {
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_gestalt_consciousness
+					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "05_INSULT_PROPOSE"
+		trigger = {
+			NOT = {
+				FROM = {
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_gestalt_consciousness
+					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "06_INSULT_PROPOSE"
+		trigger = {
+			NOT = {
+				FROM = {
+					OR = {
+						has_ethic = ethic_xenophobe
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_gestalt_consciousness
+					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_XENOPHOBE"
+		trigger = {
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				NOT = { is_same_species = ROOT }
+				NOT = { is_subspecies = ROOT }
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_XENOPHOBE"
+		trigger = {
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				NOT = { is_same_species_class = ROOT }
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_XENOPHOBE"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				NOT = { is_same_species = ROOT }
+				NOT = { is_subspecies = ROOT }
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_XENOPHOBE"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				NOT = { is_same_species = ROOT }
+				NOT = { is_subspecies = ROOT }
+			}
+		}
+	}
+	desc = {
+		text = "05_INSULT_PROPOSE_XENOPHOBE"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				NOT = { is_same_species_class = ROOT }
+			}
+		}
+	}
+	desc = {
+		text = "06_INSULT_PROPOSE_XENOPHOBE"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				NOT = { is_same_species_class = ROOT }
+			}
+		}
+	}
+	desc = {
+		text = "07_INSULT_PROPOSE_XENOPHOBE"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				NOT = { is_same_species = ROOT }
+				is_subspecies = ROOT
+			}
+			NOT = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_PAC_MIL"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_PAC_MIL"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_PAC_MIL"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_PAC_MIL"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MIL_PAC"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_MIL_PAC"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+			NOT = { is_species_class = ROBOT }
+			FROM = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_MIL_PAC"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_MIL_PAC"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAT_SPI"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_MAT_SPI"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_MAT_SPI"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_MAT_SPI"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_SPI_MAT"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_SPI_MAT"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_SPI_MAT"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_SPI_MAT"
+		trigger = {
+			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_COL_IND"
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_COL_IND"
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_COL_IND"
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_COL_IND"
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_IND_COL"
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_IND_COL"
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_IND_COL"
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_IND_COL"
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_PHO_PHI"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_PHO_PHI"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_PHO_PHI"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_PHO_PHI"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_PHI_PHO"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_PHI_PHO"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+	}
+	desc = {
+		text = "03_INSULT_PROPOSE_PHI_PHO"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+	}
+	desc = {
+		text = "04_INSULT_PROPOSE_PHI_PHO"
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+			FROM = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+	}
+	desc = {
+		text = "HM_INSULT_PROPOSE_01"
+		trigger = {
+			FROM = {
+				has_ethic = ethic_gestalt_consciousness
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = "HM_INSULT_PROPOSE_02"
+		trigger = {
+			FROM = {
+				has_ethic = ethic_gestalt_consciousness
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+	}
+	desc = {
+		text = "S_INSULT_PROPOSE_01"
+		trigger = {
+			FROM = { has_ai_personality = servitors }
+		}
+	}
+	desc = {
+		text = "S_INSULT_PROPOSE_02"
+		trigger = {
+			FROM = { has_ai_personality = servitors }
+			OR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "S_INSULT_PROPOSE_03"
+		trigger = {
+			FROM = { has_ai_personality = servitors }
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "E_INSULT_PROPOSE"
+		trigger = {
+			FROM = { has_ai_personality = exterminators }
+			has_authority = auth_machine_intelligence
+		}
+	}
+	desc = {
+		text = "E_INSULT_PROPOSE_02"
+		trigger = {
+			FROM = { has_ai_personality = exterminators }
+			OR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "E_INSULT_PROPOSE_03"
+		trigger = {
+			FROM = { has_ai_personality = exterminators }
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "E_INSULT_PROPOSE_04"
+		trigger = {
+			FROM = { has_ai_personality = exterminators }
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "E_INSULT_PROPOSE_05"
+		trigger = {
+			FROM = { has_ai_personality = exterminators }
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "E_INSULT_PROPOSE_06"
+		trigger = {
+			FROM = { has_ai_personality = exterminators }
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "E_INSULT_PROPOSE_07"
+		trigger = {
+			FROM = { has_ai_personality = exterminators }
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "A_INSULT_PROPOSE_01"
+		trigger = {
+			FROM = { has_ai_personality = assimilators }
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "A_INSULT_PROPOSE_02"
+		trigger = {
+			FROM = { has_ai_personality = assimilators }
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_01"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_02"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_03"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+			NOT = {	has_authority = auth_machine_intelligence }
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_04"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_05"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_06"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+			OR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "MECH_ORG_INSULT_PROPOSE_01"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "MECH_ORG_INSULT_PROPOSE_02"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "MECH_ORG_INSULT_PROPOSE_03"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "MECH_ORG_INSULT_PROPOSE_04"
+		trigger = {
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+		}
+	}
+	desc = {
+		text = "ORG_TO_MECH_INSULT_PROPOSE_01"
+		trigger = {
+			has_authority = auth_machine_intelligence
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = "ORG_TO_MECH_INSULT_PROPOSE_02"
+		trigger = {
+			has_authority = auth_machine_intelligence
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = "ORG_TO_MECH_INSULT_PROPOSE_03"
+		trigger = {
+			has_authority = auth_machine_intelligence
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = "ORG_TO_MECH_INSULT_PROPOSE_04"
+		trigger = {
+			has_authority = auth_machine_intelligence
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = "ORG_TO_MECH_INSULT_PROPOSE_05"
+		trigger = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+			FROM = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = "KET_INSULT_PROPOSE_01"
+		trigger = {
+			exists = event_target:ratling_country
+			FROM = {
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	desc = {
+		text = "KET_INSULT_PROPOSE_02"
+		trigger = {
+			exists = event_target:ratling_country
+			FROM = {
+				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_CLOTHES"
+		trigger = {
+			wears_clothes = yes
+			FROM = { 
+				wears_clothes = no
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				} 
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_CLOTHES"
+		trigger = {
+			wears_clothes = yes
+			FROM = {
+				wears_clothes = no
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				} 
+			}
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_CLOTHES"
+		trigger = {
+			wears_clothes = no
+			NOT = { has_authority = auth_machine_intelligence }
+			FROM = {
+				has_authority = auth_machine_intelligence 
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_HUMAN"
+		trigger = {
+			species_portrait = human
+			FROM = { 
+				NOR = { 
+					species_portrait = human
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = "02_INSULT_PROPOSE_HUMAN"
+	trigger = {
+			species_portrait = human
+			FROM = {
+				OR = {
+					species_portrait = mam5
+					species_portrait = mam13
+					species_portrait = mam10
+					species_portrait = mam14
+					species_portrait = mam9
+					species_portrait = mam11
+					species_portrait = mam6
+					species_portrait = mam3
+					species_portrait = mam12
+					species_portrait = mam7
+					species_portrait = mam15
+					species_portrait = mam2
+					species_portrait = mam1
+					species_portrait = mam16
+					species_portrait = mam17
+				}
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
+				} 
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM10"
+		trigger = {
+			species_portrait = mam10
+			FROM = { NOT = { species_portrait = mam10 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM9"
+		trigger = {
+			species_portrait = mam9
+			FROM = { NOT = { species_portrait = mam9 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM11"
+		trigger = {
+			species_portrait = mam11
+			FROM = {
+				NOT = { species_portrait = mam11 }
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM6"
+		trigger = {
+			species_portrait = mam6
+			FROM = { NOT = { species_portrait = mam6 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM3"
+		trigger = {
+			species_portrait = mam3
+			FROM = { NOT = { species_portrait = mam3 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM12"
+		trigger = {
+			species_portrait = mam12
+			FROM = { NOT = { species_portrait = mam12 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM7"
+		trigger = {
+			species_portrait = mam7
+			FROM = { NOT = { species_portrait = mam7 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM15"
+		trigger = {
+			species_portrait = mam15
+			FROM = { NOT = { species_portrait = mam15 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM2"
+		trigger = {
+			species_portrait = mam2
+			FROM = { NOT = { species_portrait = mam2 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM8"
+		trigger = {
+			species_portrait = mam8
+			FROM = { NOT = { species_portrait = mam8 } }
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM16"
+		trigger = {
+			species_portrait = mam16
+			FROM = {
+				NOT = { species_portrait = mam16 }
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+	}
+	desc = {
+		text = "01_INSULT_PROPOSE_MAM17"
+		trigger = {
+			species_portrait = mam17
+			FROM = { NOT = { species_portrait = mam17 } }
+		}
+	}
+	desc = {
+		text = "DS_INSULT_PROPOSE_MECH_01"
+		trigger = {
+			has_authority = auth_machine_intelligence
+			FROM = {
+				has_ai_personality = devouring_swarm
+			}
+		}
+	}
+	desc = {
+		text = "DS_INSULT_PROPOSE_MECH_02"
+		trigger = {
+			OR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+			}
+			FROM = {
+				has_ai_personality = devouring_swarm
+			}
+		}
+	}
+	desc = {
+		text = "INSULT_PROPOSE_DS"
+		trigger = {
+			has_ai_personality = devouring_swarm
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_DS_01"
+		trigger = {
+			has_ai_personality = devouring_swarm
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	desc = {
+		text = "MECH_INSULT_PROPOSE_DS_02"
+		trigger = {
+			has_ai_personality = devouring_swarm
+			FROM = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:actor
+		planet_background = event_target:actor
+		graphical_culture = event_target:actor
+		city_level = event_target:actor
+		room = event_target:actor.ruler
+	}
+	
+	immediate = {
+		if = {
+			limit = { event_target:recipient = { is_fallen_machine_empire = yes } }
+			event_target:recipient = {
+				add_opinion_modifier = {
+					who = event_target:actor
+					modifier = opinion_angered_fallen_machine_empire
+				}
+			}
+		}
+		else = {
+			event_target:recipient = {
+				add_opinion_modifier = {
+					who = event_target:actor
+					modifier = p_opinion_insult
+				}
+			}
+		}
+		create_message = { 
+			type = DIPLO_ACTION_INSULT
+			localization = MESSAGE_ACTION_INSULT_TITLE
+			days = 30 
+			target = root
+			variable = {
+				type = name
+				localization = COUNTRY
+				scope = event_target:actor
+			}
+		}
+	}
+	
+	option = {
+		name = "exdiplomacy.1.a"
+		hidden_effect ={
+			remove_country_flag = ex_diplomacy
+		}
+	}
+}

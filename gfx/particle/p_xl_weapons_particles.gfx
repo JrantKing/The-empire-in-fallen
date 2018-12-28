@@ -1,97 +1,201 @@
 objectTypes = {
-
-####################
-#	WINDUP
-####################
 	pdxparticle = {
-		name = "fe05_titan_laser_windup_effect"
-		type = "fe05_titan_laser_windup_effect"
+		name = "white_titan_laser_windup_effect"
+		type = "white_titan_laser_windup_effect"
 		
 		scale = 1.5
 	}
-	
 	pdxparticle = {
-		name = "fe06_titan_laser_windup_effect"
-		type = "fe06_titan_laser_windup_effect"
+		name = "white_titan_laser_muzzle_windup"
+		type = "white_titan_laser_muzzle_windup"
 		
 		scale = 1.5
 	}
-	
 	pdxparticle = {
-		name = "fe07_titan_laser_windup_effect"
-		type = "fe07_titan_laser_windup_effect"
-		
-		scale = 1.5
-	}
-	
-	pdxparticle = {
-		name = "fe05_titan_laser_muzzle_windup"
-		type = "fe05_titan_laser_muzzle_windup"
-		
-		scale = 1.5
-	}
-	
-	pdxparticle = {
-		name = "fe06_titan_laser_muzzle_windup"
-		type = "fe06_titan_laser_muzzle_windup"
-		
-		scale = 1.5
-	}
-	
-	pdxparticle = {
-		name = "fe07_titan_laser_muzzle_windup"
-		type = "fe07_titan_laser_muzzle_windup"
-		
-		scale = 1.5
-	}
-
-
-####################
-#	MUZZLE FLASHES
-####################
-	pdxparticle = {
-		name = "fe05_titan_laser_muzzle_particle"
-		type = "fe05_titan_laser_muzzle_file"
+		name = "white_titan_laser_muzzle_particle"
+		type = "white_titan_laser_muzzle_file"
 		
 		scale = 1.0
 	}
-	
 	pdxparticle = {
-		name = "fe06_titan_laser_muzzle_particle"
-		type = "fe06_titan_laser_muzzle_file"
-		
-		scale = 1.0
-	}
-	
-	pdxparticle = {
-		name = "fe07_titan_laser_muzzle_particle"
-		type = "fe07_titan_laser_muzzle_file"
-		
-		scale = 1.0
-	}
-	
-####################
-#	HIT EFFECTS
-####################
-	pdxparticle = {
-		name = "fe05_titan_laser_hit_effect"
-		type = "fe05_titan_laser_hit_effect"
+		name = "white_titan_laser_hit_effect"
+		type = "white_titan_laser_hit_effect"
 		
 		scale = 3.0
 	}
 	
 	pdxparticle = {
-		name = "fe06_titan_laser_hit_effect"
-		type = "fe06_titan_laser_hit_effect"
+		name = "blue_titan_laser_windup_effect"
+		type = "blue_titan_laser_windup_effect"
+		
+		scale = 1.5
+	}
+	pdxparticle = {
+		name = "blue_titan_laser_muzzle_windup"
+		type = "blue_titan_laser_muzzle_windup"
+		
+		scale = 1.5
+	}
+	pdxparticle = {
+		name = "blue_titan_laser_muzzle_particle"
+		type = "blue_titan_laser_muzzle_file"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "blue_titan_laser_hit_effect"
+		type = "blue_titan_laser_hit_effect"
 		
 		scale = 3.0
 	}
 	
 	pdxparticle = {
-		name = "fe07_titan_laser_hit_effect"
-		type = "fe07_titan_laser_hit_effect"
+		name = "purple_titan_laser_windup_effect"
+		type = "purple_titan_laser_windup_effect"
+		
+		scale = 1.5
+	}
+	pdxparticle = {
+		name = "purple_titan_laser_muzzle_windup"
+		type = "purple_titan_laser_muzzle_windup"
+		
+		scale = 1.5
+	}
+	pdxparticle = {
+		name = "purple_titan_laser_muzzle_particle"
+		type = "purple_titan_laser_muzzle_file"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "purple_titan_laser_hit_effect"
+		type = "purple_titan_laser_hit_effect"
 		
 		scale = 3.0
 	}
 	
+	pdxparticle = {
+		name = "yellow_titan_laser_windup_effect"
+		type = "yellow_titan_laser_windup_effect"
+		
+		scale = 1.5
+	}
+	pdxparticle = {
+		name = "yellow_titan_laser_muzzle_windup"
+		type = "yellow_titan_laser_muzzle_windup"
+		
+		scale = 1.5
+	}
+	pdxparticle = {
+		name = "yellow_titan_laser_muzzle_particle"
+		type = "yellow_titan_laser_muzzle_file"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "yellow_titan_laser_hit_effect"
+		type = "yellow_titan_laser_hit_effect"
+		
+		scale = 3.0
+	}
+	##############
+	pdxparticle = {
+		name = "purple_colossus_core_effect"
+		type = "purple_colossus_core_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "purple_colossus_energy_effect"
+		type = "purple_colossus_energy_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "purple_colossus_energy_start_effect"
+		type = "purple_colossus_energy_start_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "purple_colossus_shield_effect"
+		type = "purple_colossus_shield_effect"
+		
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "yellow_colossus_core_effect"
+		type = "yellow_colossus_core_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "yellow_colossus_energy_effect"
+		type = "yellow_colossus_energy_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "yellow_colossus_energy_start_effect"
+		type = "yellow_colossus_energy_start_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "yellow_colossus_shield_effect"
+		type = "yellow_colossus_shield_effect"
+		
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "white_colossus_core_effect"
+		type = "white_colossus_core_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "white_colossus_energy_effect"
+		type = "white_colossus_energy_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "white_colossus_energy_start_effect"
+		type = "white_colossus_energy_start_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "white_colossus_shield_effect"
+		type = "white_colossus_shield_effect"
+		
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "blue_colossus_core_effect"
+		type = "blue_colossus_core_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "blue_colossus_energy_effect"
+		type = "blue_colossus_energy_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "blue_colossus_energy_start_effect"
+		type = "blue_colossus_energy_start_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "blue_colossus_shield_effect"
+		type = "blue_colossus_shield_effect"
+		
+		scale = 1.0
+	}
 }

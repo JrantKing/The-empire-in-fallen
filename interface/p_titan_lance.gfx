@@ -34,9 +34,4 @@ spriteTypes = {
 		name = "GFX_ship_part_titan_lance_orange"
 		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_orange.dds"
 	}
-	
-	spriteType = {
-		name = "GFX_ship_part_titan_lance_indigo"
-		texturefile = "gfx/interface/icons/ship_parts/ship_part_titan_lance_indigo.dds"
-	}
 }

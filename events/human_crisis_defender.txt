@@ -1,0 +1,44 @@
+namespace = human_crisis_defender
+
+country_event = {
+	id = human_crisis_defender.0
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		create_country = {
+			name = "NAME_awakened_fallen_empire_humans2"
+			auto_delete = no
+			type = awakened_fallen_empire
+			ship_prefix = "PRESCRIPTED_ship_prefix_humans2"
+			name_list = "HUMAN2"
+			ethos = { ethic = ethic_fanatic_militarist }
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+			}
+			species = event_target:fallen_empire_6
+			flag = {
+				icon = {
+					category = "human"
+					file = "flag_human_4.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "stripe.dds"
+				}
+				colors={
+					"red"
+					"black"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				set_country_flag = human_2
+				set_country_flag = guardians_of_the_galaxy
+				set_graphical_culture = "fallen_empire_04"
+				set_city_graphical_culture "fallen_empire_04"
+			}
+		}
+	}
+}

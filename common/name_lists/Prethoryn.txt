@@ -38,8 +38,6 @@ Prethoryn = {
 		
 		mining_station = { }
 		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
 		observation_station = { }
 
 		military_station_small = {}
@@ -68,7 +66,6 @@ Prethoryn = {
 				"曼度陀里" "玛尼本陀罗" "摩罗" "摩里" "玛耶" "弥加那陀" "穆伽" "穆恩陀" "加巴罗摩林" "穆罗" "那加"
 				"那罗伽" "尼加沙" "尼昆巴" "尼昆毗罗" "尼苏姆巴" "帕尼" "帕罗昆巴" "普雷塔" "普卢曼" "普苏巴提加达"
 				"布陀那" "罗波那" "罗陀罗尼" "阿林毗" "巴卡" "巴罗荷罗" "加多罗比罗瓦" "卡拉斯雷基" "罗图雷达诺"
-																							  
 			}
 			
 		}

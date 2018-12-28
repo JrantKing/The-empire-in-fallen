@@ -1,4 +1,6 @@
 ﻿### Machine 3
+### Written by Dee Majek
+
 MACHINE3 = {
 	should_name_home_system_planets = no
 	
@@ -8,52 +10,64 @@ MACHINE3 = {
 		}
 
 		corvette = {
-			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Overseer"
-			"Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer"
+			"钢铁应答者" "钢铁卫兵" "艾恩赛德应答者" "铬保持者" "钢铁骑士" "钢铁冠军" "钢铁伙伴" "钢铁枪兵" "铬战士" "钢铁游侠" "钢铁枪手" "铬警长" "锻铁守护者" "钢铁卫士" "铬守卫" "钢铁治安官" "钢铁哨兵" "锻铁看守" "铬守门者" "钢铁了望者" "铬管理者" "钢铁保护者" "铬守卫者" "钢铁保存者" "铬巡警" "锻铁盾牌" "钢铁薛普少校" "铬神盾" "锻铁护者" "铬看管" "钢铁 监督" "锻铁高管" "锻铁斗志" "钢铁精神" "智械应答者" "电气卫兵" "电镀保持者" "电镀骑士" "电镀冠军" "银色伙伴" "银色枪兵" "电流战士" "自控游侠" "电镀枪手" "银色警长" "电镀守护者" "同步卫士" "机械守卫" "网控治安官" "同步哨兵" "电压看守" "连线守门者" "银质了望者" "机械保护者" "连线守卫者" "同步保存者" "连线巡警" "电镀盾牌" "网控薛普少校" "银质神盾" "电镀护者" "同步监督" "机甲高管" "钢铁堡垒" "锻铁要塞" "银色堡垒" "银色要塞"
 
 		}	
 	
 		destroyer = {
-			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Shelter" "Steel Fortitude" "Iron Overseer" "Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer" "Steel Bastion" "Iron Mantle" "Silver Bastion" "Silver Mantle"
+			"钢铁应答者" "钢铁卫兵" "艾恩赛德应答者" "铬保持者" "钢铁骑士" "钢铁冠军" "钢铁伙伴" "钢铁枪兵" "铬战士" "钢铁游侠" "钢铁枪手" "铬警长" "锻铁守护者" "钢铁卫士" "铬守卫" "钢铁治安官" "钢铁哨兵" "锻铁看守" "铬守门者" "钢铁了望者" "铬管理者" "钢铁保护者" "铬守卫者" "钢铁保存者" "铬巡警" "锻铁盾牌" "钢铁薛普少校" "铬神盾" "锻铁护者" "铬看管" "钢铁 监督" "锻铁高管" "锻铁斗志" "钢铁精神" "智械应答者" "电气卫兵" "电镀保持者" "电镀骑士" "电镀冠军" "银色伙伴" "银色枪兵" "电流战士" "自控游侠" "电镀枪手" "银色警长" "电镀守护者" "同步卫士" "机械守卫" "网控治安官" "同步哨兵" "电压看守" "连线守门者" "银质了望者" "机械保护者" "连线守卫者" "同步保存者" "连线巡警" "电镀盾牌" "网控薛普少校" "银质神盾" "电镀护者" "同步监督" "机甲高管" "钢铁堡垒" "锻铁要塞" "银色堡垒" "银色要塞"
 		}
 		
 		cruiser = {
-			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Shelter" "Steel Fortitude" "Iron Overseer" "Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer" "Steel Bastion" "Iron Mantle" "Silver Bastion" "Silver Mantle"
+			"钢铁应答者" "钢铁卫兵" "艾恩赛德应答者" "铬保持者" "钢铁骑士" "钢铁冠军" "钢铁伙伴" "钢铁枪兵" "铬战士" "钢铁游侠" "钢铁枪手" "铬警长" "锻铁守护者" "钢铁卫士" "铬守卫" "钢铁治安官" "钢铁哨兵" "锻铁看守" "铬守门者" "钢铁了望者" "铬管理者" "钢铁保护者" "铬守卫者" "钢铁保存者" "铬巡警" "锻铁盾牌" "钢铁薛普少校" "铬神盾" "锻铁护者" "铬看管" "钢铁 监督" "锻铁高管" "锻铁斗志" "钢铁精神" "智械应答者" "电气卫兵" "电镀保持者" "电镀骑士" "电镀冠军" "银色伙伴" "银色枪兵" "电流战士" "自控游侠" "电镀枪手" "银色警长" "电镀守护者" "同步卫士" "机械守卫" "网控治安官" "同步哨兵" "电压看守" "连线守门者" "银质了望者" "机械保护者" "连线守卫者" "同步保存者" "连线巡警" "电镀盾牌" "网控薛普少校" "银质神盾" "电镀护者" "同步监督" "机甲高管" "钢铁堡垒" "锻铁要塞" "银色堡垒" "银色要塞"
 		}
 		
 		battleship = {
-			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Shelter" "Steel Fortitude" "Iron Overseer" "Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer" "Steel Bastion" "Iron Mantle" "Silver Bastion" "Silver Mantle"
+			"钢铁应答者" "钢铁卫兵" "艾恩赛德应答者" "铬保持者" "钢铁骑士" "钢铁冠军" "钢铁伙伴" "钢铁枪兵" "铬战士" "钢铁游侠" "钢铁枪手" "铬警长" "锻铁守护者" "钢铁卫士" "铬守卫" "钢铁治安官" "钢铁哨兵" "锻铁看守" "铬守门者" "钢铁了望者" "铬管理者" "钢铁保护者" "铬守卫者" "钢铁保存者" "铬巡警" "锻铁盾牌" "钢铁薛普少校" "铬神盾" "锻铁护者" "铬看管" "钢铁 监督" "锻铁高管" "锻铁斗志" "钢铁精神" "智械应答者" "电气卫兵" "电镀保持者" "电镀骑士" "电镀冠军" "银色伙伴" "银色枪兵" "电流战士" "自控游侠" "电镀枪手" "银色警长" "电镀守护者" "同步卫士" "机械守卫" "网控治安官" "同步哨兵" "电压看守" "连线守门者" "银质了望者" "机械保护者" "连线守卫者" "同步保存者" "连线巡警" "电镀盾牌" "网控薛普少校" "银质神盾" "电镀护者" "同步监督" "机甲高管" "钢铁堡垒" "锻铁要塞" "银色堡垒" "银色要塞"
+		}
+
+		titan = {
+			"钢铁应答者" "钢铁卫兵" "艾恩赛德应答者" "铬保持者" "钢铁骑士" "钢铁冠军" "钢铁伙伴" "钢铁枪兵" "铬战士" "钢铁游侠" "钢铁枪手" "铬警长" "锻铁守护者" "钢铁卫士" "铬守卫" "钢铁治安官" "钢铁哨兵" "锻铁看守" "铬守门者" "钢铁了望者" "铬管理者" "钢铁保护者" "铬守卫者" "钢铁保存者" "铬巡警" "锻铁盾牌" "钢铁薛普少校" "铬神盾" "锻铁护者" "铬看管" "钢铁 监督" "锻铁高管" "锻铁斗志" "钢铁精神" "智械应答者" "电气卫兵" "电镀保持者" "电镀骑士" "电镀冠军" "银色伙伴" "银色枪兵" "电流战士" "自控游侠" "电镀枪手" "银色警长" "电镀守护者" "同步卫士" "机械守卫" "网控治安官" "同步哨兵" "电压看守" "连线守门者" "银质了望者" "机械保护者" "连线守卫者" "同步保存者" "连线巡警" "电镀盾牌" "网控薛普少校" "银质神盾" "电镀护者" "同步监督" "机甲高管" "钢铁堡垒" "锻铁要塞" "银色堡垒" "银色要塞"
+		}
+
+		colossus = {
+			"钢铁应答者" "钢铁卫兵" "艾恩赛德应答者" "铬保持者" "钢铁骑士" "钢铁冠军" "钢铁伙伴" "钢铁枪兵" "铬战士" "钢铁游侠" "钢铁枪手" "铬警长" "锻铁守护者" "钢铁卫士" "铬守卫" "钢铁治安官" "钢铁哨兵" "锻铁看守" "铬守门者" "钢铁了望者" "铬管理者" "钢铁保护者" "铬守卫者" "钢铁保存者" "铬巡警" "锻铁盾牌" "钢铁薛普少校" "铬神盾" "锻铁护者" "铬看管" "钢铁 监督" "锻铁高管" "锻铁斗志" "钢铁精神" "智械应答者" "电气卫兵" "电镀保持者" "电镀骑士" "电镀冠军" "银色伙伴" "银色枪兵" "电流战士" "自控游侠" "电镀枪手" "银色警长" "电镀守护者" "同步卫士" "机械守卫" "网控治安官" "同步哨兵" "电压看守" "连线守门者" "银质了望者" "机械保护者" "连线守卫者" "同步保存者" "连线巡警" "电镀盾牌" "网控薛普少校" "银质神盾" "电镀护者" "同步监督" "机甲高管" "钢铁堡垒" "锻铁要塞" "银色堡垒" "银色要塞"
 		}
 		
 		science = { 
-			"Scientific Module"
+			"科学模组"
 		}
 		
 		colonizer = {
-			"Replication Module"
+			"复制模组"
 		}
 		
 		constructor = { 
-			"Construction Module"
+			"建构模组"
 		}
 
 		transport = { 
-			"Transport Module"
-		}
-		
-
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = { 
-			#random_names = { }
+			"运送模组"
 		}
 
-		military_station_small = { "Iron Redoubt" }
-		military_station_medium = { "Steel Bulwark" }
-		military_station_large = { "Chrome Keep" }
+		military_station_small = {
+			"锻铁哨所" "钢铁据点"
+		}
+
+		ion_cannon = {
+			"重铬要塞"
+		}
+
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			艾尔 艾德 特尔 那夫 爱斯 伊司 塔尔 拉尔 欧特 安姆 夏 索尔 多尔 海尔 破 卢姆 科 法尔 蓝姆 普尔 乌姆 马尔 伊司特 古尔 伐克斯 欧姆 罗 瑟 贝 乔 查姆 萨德
+		}
+		large_ship_fallen_empire = {
+			艾尔 艾德 特尔 那夫 爱斯 伊司 塔尔 拉尔 欧特 安姆 夏 索尔 多尔 海尔 破 卢姆 科 法尔 蓝姆 普尔 乌姆 马尔 伊司特 古尔 伐克斯 欧姆 罗 瑟 贝 乔 查姆 萨德
+		}
+		massive_ship_fallen_empire = {
+			艾尔 艾德 特尔 那夫 爱斯 伊司 塔尔 拉尔 欧特 安姆 夏 索尔 多尔 海尔 破 卢姆 科 法尔 蓝姆 普尔 乌姆 马尔 伊司特 古尔 伐克斯 欧姆 罗 瑟 贝 乔 查姆 萨德
+		}
 	}
 
 	ship_class_names = {
@@ -64,33 +78,44 @@ MACHINE3 = {
 
 	fleet_names = {
 		random_names = {
-		"第一安检梯队" "第二安检梯队" "第三安检梯队"
+			"第一安检机队" "第二安检机队" "第三安检机队"													
 		}
-		sequential_name = "%O% 安检梯队"
+		sequential_name = "%O%安检机队"
 	}
 	
 	army_names = {
 		
 		machine_assault_1 = {
-			sequential_name = "%O% 前处理管理小队"
+			sequential_name = "%O%前处理执行队"
 		}
 
-		machine_defense_1 = {
-			sequential_name = "%O% 防御管理队"
+		machine_defense = {
+			sequential_name = "%O%防御管理队"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% 超处理管理小队"
-		}
-
-		machine_defense_2 = {
-			sequential_name = "%O% 不可知管理队"
+			sequential_name = "%O%超处理执行队"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% 管理巨像"
+			sequential_name = "%O%执行巨像"
 		}
-	}
+		
+		defense_army = {
+			sequential_name = "%O%生体防卫队"
+		}
+			
+		assault_army = {
+			sequential_name = "%O%生体破坏执行队"
+		}
+		
+		clone_army = {
+			sequential_name = "%O%生体破坏复制队"
+		}
+		machine_occupation_army = {
+				sequential_name = "%O%机甲占领军"
+		}	
+	}	
 		
 
 	### PLANETS
@@ -99,12 +124,7 @@ MACHINE3 = {
 
 		generic = {
 			names = {
-				
-				 "Habitat Kzzt" "Habitat Bwok" "Habitat Blip" "Habitat Koaxi" "Habitat Dwook" "Habitat Kwok" "Habitat Vworp" "Habitat Trock" "Habitat Clanck" "Habitat Qwert" "Habitat Zyzzyx" "Habitat Blixt" "Habitat Dwoop" "Habitat Bleep" "Habitat Fzzz" "Habitat Thwock" "Habitat Zonk" "Habitat Tessel" "Habitat Vrrr" "Habitat Whirr" "Habitat Flik" "Habitat Clack" "Habitat Nzzz" "Habitat Vizz" "Habitat Klonk" "Habitat Zap" "Habitat Plonk" "Habitat Krank" "Habitat Vert" "Habitat Pix" "Habitat Plink" "Habitat Zzt" "Habitat Bolt" "Habitat Klink" "Habitat Zpark" "Habitat Bzzt" "Habitat Cyl" "Habitat Axl" "Habitat Ovv" "Habitat Klik" "Habitat Mekk" "Habitat Brrow"
-
-				#"Habitat 1-8X" "Habitat 2-0Y" "Habitat 3-K3" "Habitat 4-7Z" "Habitat 5-0J" "Habitat 9-1V" "Habitat 7-5I" "Habitat 0-2M" "Habitat X-5X" "Habitat O-9T" "Habitat 6-G6" "Habitat B-X8" "Habitat I-39" "Habitat 8-0C" "Habitat 4-JH" "Habitat 0-VT" "Habitat Y-7N" "Habitat E-35" "Habitat 5-I5" "Habitat U-84" "Habitat T-14" "Habitat E-4N" "Habitat F-01" "Habitat 9-6L" "Habitat W-54" "Habitat K-06" "Habitat 3-J1" "Habitat 8-U7" "Habitat A-26" "Habitat R-49"
-
-				#"Biodome Alpha" "Biodome Beta" "Biodome Gamma" "Biodome Delta" "Biodome Epsilon" "Biodome Zeta" "Biodome Eta" "Biodome Theta" "Biodome Iota" "Biodome Kappa" "Biodome Lambda" "Biodome Mu" "Biodome Nu" "Biodome Xi" "Biodome Omikron" "Biodome Pi" "Biodome Rho" "Biodome Tau" "Biodome Upsilon" "Biodome Phi" "Biodome Khi" "Biodome Psi" "Biodome Omega"
+				"居住地Kzzt" "居住地Bwok" "居住地Blip" "居住地Koaxi" "居住地Dwook" "居住地Kwok" "居住地Vworp" "居住地Trock" "居住地Clanck" "居住地Qwert" "居住地Zyzzyx" "居住地Blixt" "居住地Dwoop" "居住地Bleep" "居住地Fzzz" "居住地Thwock" "居住地Zonk" "居住地Tessel" "居住地Vrrr" "居住地Whirr" "居住地Flik" "居住地Clack" "居住地Nzzz" "居住地Vizz" "居住地Klonk" "居住地Zap" "居住地Plonk" "居住地Krank" "居住地Vert" "居住地Pix" "居住地Plink" "居住地Zzt" "居住地Bolt" "居住地Klink" "居住地Zpark" "居住地Bzzt" "居住地Cyl" "居住地Axl" "居住地Ovv" "居住地Klik" "居住地Mekk" "居住地Brrow" "居住地1-8X" "居住地2-0Y" "居住地3-K3" "居住地4-7Z" "居住地5-0J" "居住地9-1V" "居住地7-5I" "居住地0-2M" "居住地X-5X" "居住地O-9T" "居住地6-G6" "居住地B-X8" "居住地I-39" "居住地8-0C" "居住地4-JH" "居住地0-VT" "居住地Y-7N" "居住地E-35" "居住地5-I5" "居住地U-84" "居住地T-14" "居住地E-4N" "居住地F-01" "居住地9-6L" "居住地W-54" "居住地K-06" "居住地3-J1" "居住地8-U7" "居住地A-26" "居住地R-49" "机械都市Alpha" "机械都市Beta" "机械都市Gamma" "机械都市Delta" "机械都市Epsilon" "机械都市Zeta" "机械都市Eta" "机械都市Theta" "机械都市Iota" "机械都市Kappa" "机械都市Lambda" "机械都市Mu" "机械都市Nu" "机械都市Xi" "机械都市Omikron" "机械都市Pi" "机械都市Rho" "机械都市Tau" "机械都市Upsilon" "机械都市Phi" "机械都市Khi" "机械都市Psi" "机械都市Omega"
 			}
 		}
 		
@@ -170,11 +190,8 @@ MACHINE3 = {
 		default = {
 			# A complete name
 			full_names = { 
-
-				"Helperbot A9" "Helperbot B8" "Helperbot C7" "Helperbot D6" "Helperbot E5" "Helperbot F4" "Helperbot G3" "Helperbot H2" "Helperbot I1" "Helperbot J0" "Helperbot K1" "Helperbot L2" "Helperbot M3" "Helperbot N4" "Helperbot O5" "Helperbot P6" "Helperbot Q7" "Helperbot R8" "Helperbot S9" "Helperbot T0" "Helperbot U1" "Helperbot V2" "Helperbot W3" "Helperbot X4" "Helperbot Y5" "Helperbot Z6"
-				"Assistomaton 4A" "Assistomaton 5B" "Assistomaton 6C" "Assistomaton 7D" "Assistomaton 8E" "Assistomaton 9F" "Assistomaton 1G" "Assistomaton 2H" "Assistomaton 3I" "Assistomaton 4J" "Assistomaton 5K" "Assistomaton 6L" "Assistomaton 7M" "Assistomaton 8N" "Assistomaton 9O" "Assistomaton 0P" "Assistomaton 1Q" "Assistomaton 2R" "Assistomaton 3S" "Assistomaton 4T" "Assistomaton 5U" "Assistomaton 6V" "Assistomaton 7W" "Assistomaton 1X" "Assistomaton 2Y" "Assistomaton 3Z"
-				"Coadjutron XA" "Coadjutron XE" "Coadjutron XO" "Coadjutron XI" "Coadjutron XY" "Coadjutron XU" "Coadjutron VR" "Coadjutron VH" "Coadjutron VN" "Coadjutron VC" "Coadjutron VT" "Coadjutron VQ" "Coadjutron NA" "Coadjutron NE" "Coadjutron NO" "Coadjutron NI" "Coadjutron NY" "Coadjutron NU" "Coadjutron ZF" "Coadjutron ZG" "Coadjutron ZJ" "Coadjutron ZP" "Coadjutron ZM" "Coadjutron ZB" "Coadjutron RA" "Coadjutron RE" "Coadjutron RO" "Coadjutron RI" "Coadjutron RY" "Coadjutron RU"
-				
+				"奇叶 A9" "奇叶 B8" "奇叶 C7" "奇叶 D6" "奇叶 E5" "奇叶 F4" "奇叶 G3" "奇叶 H2" "奇叶 I1" "奇叶 J0" "奇叶 K1" "奇叶 L2" "奇叶 M3" "奇叶 N4" "奇叶 O5" "奇叶 P6" "奇叶 Q7" "奇叶 R8" "奇叶 S9" "奇叶 T0" "奇叶 U1" "奇叶 V2" "奇叶 W3" "奇叶 X4" "奇叶 Y5" "奇叶 Z6" "自动人形 4A" "自动人形 2B" "自动人形 6C" "自动人形 7D" "自动人形 8E" "自动人形 9F" "自动人形 1G" "自动人形 2H" "自动人形 3I" "自动人形 4J" "自动人形 5K" "自动人形 6L" "自动人形 7M" "自动人形 8N" "自动人形 9S" "自动人形 0P" "自动人形 1Q" "自动人形 2R" "自动人形 3S" "自动人形 4T" "自动人形 5U" "自动人形 6V" "自动人形 7W" "自动人形 1X" "自动人形 2Y" "自动人形 3Z" "协调者 XA" "协调者 XE" "协调者 XO" "协调者 XI" "协调者 XY" "协调者 XU" "协调者 VR" "协调者 VH" "协调者 VN" "协调者 VC" "协调者 VT" "协调者 VQ" "协调者 NA" "协调者 NE" "协调者 NO" "协调者 NI" "协调者 NY" "协调者 NU" "协调者 ZF" "协调者 ZG" "协调者 ZJ" "协调者 ZP" "协调者 ZM" "协调者 ZB" "协调者 RA" "协调者 RE" "协调者 RO" "协调者 RI" "协调者 RY" "协调者 RU" "自律个体 0X1" "自律个体 A02" "自律个体 0E35" "自律个体 04Y" "自律个体 B05" "自律个体 V06" "自律个体 C07" "自律个体 0Z8" "自律个体 0E9" "自律个体 Q10" "自律个体 1P1" "自律个体 W12" "自律个体 1U3" "自律个体 R14" "自律个体 1K5" "自律个体 E16" "自律个体 1A7" "自律个体 1V8" "自律个体 19D" "自律个体 L20" "自律个体 2O1" "自律个体 F22" "自律个体 2GA" "自律个体 2E4" "自律个体 Q25" "自律个体 26R4" "自律个体 2H7" "自律个体 CT8" "自律个体 Y9R" "自律个体 M3N" "自律个体 3X1" "自律个体 Z3T" "自律个体 K68" "自律个体 1U5" "自律个体 A75" "自律个体 TX8" "自律个体 H57" "自律个体 IB8" "自律个体 3RO" "自律个体 M40" "自律个体 CL9" "自律个体 X2A" "自律个体 T7B" "自律个体 49A" "自律个体 O4D" "安卓 A1" "安卓 A2" "安卓 A3" "安卓 A4" "安卓 A5" "安卓 A6" "安卓 A7" "安卓 A8" "安卓 A9" "安卓 B1" "安卓 B2" "安卓 B3" "安卓 B4" "安卓 B5" "安卓 B6" "安卓 B7" "安卓 B8" "安卓 B9" "安卓 C1" "安卓 C2" "安卓 C3" "安卓 C4" "安卓 C5" "安卓 C6" "安卓 C7" "安卓 C8" "安卓 C9" "安卓 D1" "安卓 D2" "安卓 D3" "安卓 D4" "安卓 D5" "安卓 D6" "安卓 D7" "安卓 D8" "安卓 D9" "安卓 E1" "安卓 E2" "安卓 E3" "安卓 E4" "安卓 E5" "安卓 E6" "安卓 E7" "安卓 E8" "安卓 E9" "安卓 F1" "安卓 F2" "安卓 F3" "安卓 F4" "安卓 F5" "安卓 F6" "安卓 F7" "安卓 F8" "安卓 F9" "安卓 G1" "安卓 G2" "安卓 G3" "安卓 G4" "安卓 G5" "安卓 G6" "安卓 G7" "安卓 G8" "安卓 G9" "安卓 H1" "安卓 H2" "安卓 H3" "安卓 H4" "安卓 H5" "安卓 H6" "安卓 H7" "安卓 H8" "安卓 H9" "安卓 I1" "安卓 I2" "安卓 I3" "安卓 I4" "安卓 I5" "安卓 I6" "安卓 I7" "安卓 I8" "安卓 I9" "安卓 J1" "安卓 J2" "安卓 J3" "安卓 J4" "安卓 J5" "安卓 J6" "安卓 J7" "安卓 J8" "安卓 J9" "安卓 K1" "安卓 K2" "安卓 K3" "安卓 K4" "安卓 K5" "安卓 K6" "安卓 K7" "安卓 K8" "安卓 K9" "安卓 L1" "安卓 L2" "安卓 L3" "安卓 L4" "安卓 L5" "安卓 L6" "安卓 L7" "安卓 L8" "安卓 L9" "安卓 M1" "安卓 M2" "安卓 M3" "安卓 M4" "安卓 M5" "安卓 M6" "安卓 M7" "安卓 M8" "安卓 M9" "安卓 N1" "安卓 N2" "安卓 N3" "安卓 N4" "安卓 N5" "安卓 N6" "安卓 N7" "安卓 N8" "安卓 N9" "安卓 O1" "安卓 O2" "安卓 O3" "安卓 O4" "安卓 O5" "安卓 O6" "安卓 O7" "安卓 O8" "安卓 O9" "安卓 P1" "安卓 P2" "安卓 P3" "安卓 P4" "安卓 P5" "安卓 P6" "安卓 P7" "安卓 P8" "安卓 P9"
+				"安卓 Q1" "安卓 Q2" "安卓 Q3" "安卓 Q4" "安卓 Q5" "安卓 Q6" "安卓 Q7" "安卓 Q8" "安卓 Q9" "安卓 R1" "安卓 R2" "安卓 R3" "安卓 R4" "安卓 R5" "安卓 R6" "安卓 R7" "安卓 R8" "安卓 R9" "安卓 S1" "安卓 S2" "安卓 S3" "安卓 S4" "安卓 S5" "安卓 S6" "安卓 S7" "安卓 S8" "安卓 S9" "安卓 T1" "安卓 T2" "安卓 T3" "安卓 T4" "安卓 T5" "安卓 T6" "安卓 T7" "安卓 T8" "安卓 T9" "安卓 U1" "安卓 U2" "安卓 U3" "安卓 U4" "安卓 U5" "安卓 U6" "安卓 U7" "安卓 U8" "安卓 U9" "安卓 V1" "安卓 V2" "安卓 V3" "安卓 V4" "安卓 V5" "安卓 V6" "安卓 V7" "安卓 V8" "安卓 V9" "安卓 W1" "安卓 W2" "安卓 W3" "安卓 W4" "安卓 W5" "安卓 W6" "安卓 W7" "安卓 W8" "安卓 W9" "安卓 X1" "安卓 X2" "安卓 X3" "安卓 X4" "安卓 X5" "安卓 X6" "安卓 X7" "安卓 X8" "安卓 X9" "安卓 Y1" "安卓 Y2" "安卓 Y3" "安卓 Y4" "安卓 Y5" "安卓 Y6" "安卓 Y7" "安卓 Y8" "安卓 Y9" "安卓 Z1" "安卓 Z2" "安卓 Z3" "安卓 Z4" "安卓 Z5" "安卓 Z6" "安卓 Z7" "安卓 Z8" "安卓 Z9"
 			}
 			
 			# Always combined with a second name
@@ -198,7 +215,7 @@ MACHINE3 = {
 	ruler_names = {
 		default = {
 			full_names = {
-				Affinitor Blip Qube 看守模组
+				点对点拓扑 总线拓扑 星状拓扑 环状拓扑 网状拓扑 树状拓扑 混合式拓扑 菊花链拓扑 线形拓扑 哈默尔恩
 			}
 		}
 	}

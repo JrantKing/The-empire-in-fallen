@@ -1,0 +1,3 @@
+﻿l_simp_chinese:
+ tds_requires_no_existing_dyson_sphere:0 "$TRIGGER_FAIL$戴森球只能建造三个。"
+ tds_requires_no_black_hole_neutron_star_pulsar:0 "$TRIGGER_FAIL$不能在黑洞，中子星，褐矮星或者脉冲星周围建造戴森球。"

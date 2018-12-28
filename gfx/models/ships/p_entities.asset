@@ -1,4 +1,132 @@
 entity = {
+	name = "unoe_ancient_battlefield_entity"
+	
+		locator = { name = "debris_large"			position = { 0 30 0 } } # X Y Z, Y = depth
+		
+		locator = { name = "ship_7" 			position = { -40 0 -30 } rotation = { 64 23 16 } }
+		locator = { name = "debris_medium_01"		position = { 50 25 30 } }
+		
+		locator = { name = "ship_6"			position = { 20 20 30 } rotation = { 60 10 -130 } }
+		locator = { name = "debris_medium_02"		position = { -10 -15 -10 } }
+		
+		locator = { name = "ship_5"			position = { -40 -25 -40 } rotation = { 56 1 25 } }
+		locator = { name = "debris_large"			position = { 0 0 0 } }
+		
+		locator = { name = "ship_4"			position = { 60 30 30 } rotation = { 165 6 18 } }
+		locator = { name = "debris_small"			position = { -60 -5 -60 } }
+		
+		locator = { name = "ship_3"			position = { -60 -30 -25 } rotation = { 20 -10 80 } }
+		locator = { name = "debris_medium_01"		position = { 90 15 50 } }
+		
+		locator = { name = "ship_2"			position = { 10 5 40 } rotation = { 19 63 175 } }
+		locator = { name = "debris_medium_02"		position = { -30 -25 -45 } }
+		
+		locator = { name = "ship_1"			position = { 4 -30 15 } rotation = { 184 27 18 } }
+		locator = { name = "debris_large"			position = { 0 -30 0 } }
+		
+		attach = { debris_small			= "unoe_debris_small_01_entity" }
+		attach = { debris_medium_01		= "unoe_debris_medium_01_entity" }
+		attach = { debris_medium_02		= "unoe_debris_medium_02_entity" }
+		attach = { debris_large			= "unoe_debris_large_01_entity" }
+		attach = { ship_7			= "unoe_debris_entity" }
+		attach = { ship_6			= "unoe_abandoned_ship_destroyed_entity" }
+		attach = { ship_4			= "unoe_debris_entity" }
+		attach = { ship_3			= "unoe_abandoned_ship_destroyed_entity" }
+		attach = { ship_1			= "unoe_debris_entity" }
+		
+	cull_radius = 1000
+	scale = 1.0	
+}
+
+entity = {
+	name = "unoe_debris_entity"	#required by the game
+	pdxmesh = "shipwreck_01_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle"
+	}
+	
+	scale = 1.0
+}
+
+
+entity = {
+	name = "unoe_debris_large_01_entity"
+	pdxmesh = "debris_large_01_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" 
+		event = { time = 0 particle = "debris_large_dust_effect" keep_particle = yes trigger_once = yes }
+	}
+	scale = 1.5
+}
+
+entity = {
+	name = "unoe_debris_medium_01_entity"
+	pdxmesh = "debris_medium_01_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" 
+		event = { time = 0 node = "dust_locator" particle = "debris_medium_dust_effect" keep_particle = yes trigger_once = yes }
+	}
+	scale = 1.5
+}
+
+entity = {
+	name = "unoe_debris_medium_02_entity"
+	pdxmesh = "debris_medium_02_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" 
+		event = { time = 0 node = "dust_locator" particle = "debris_medium_dust_effect" keep_particle = yes trigger_once = yes }
+	}
+	scale = 1.5
+}
+
+entity = {
+	name = "unoe_debris_small_01_entity"
+	pdxmesh = "debris_small_01_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle"  
+		event = { time = 0 node = "dust_locator" particle = "debris_small_dust_effect" keep_particle = yes trigger_once = yes }
+	}
+	scale = 1.5
+}
+
+entity = {
+	name = "unoe_abandoned_ship_destroyed_entity"
+	pdxmesh = "abandoned_ship_destroyed_mesh"
+		default_state = "idle"
+	state = { name = "idle" state_time = 5
+	}
+	scale = 0.4
+}
+
+entity = {
+	name = "UNE_starbase_citadel_destroyed_entity"
+	cull_radius = 1000
+
+	locator = { name = "slot1"				position = { 0 -10 0 } rotation = { 45 15 5 } }
+
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+	}
+	attach = { "slot1" = "UNE_starbase_citadel_section_entity"}
+}
+
+entity = {
+	name = "UNE_starbase_citadel_section_entity"
+	pdxmesh = "mammalian_01_citadel_mesh"
+
+	#locator = { name = "slot1"				position = { 0	0  0 } }
+
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+	}
+}
+
+entity = {
 	name = "collapsar_12x_entity"
 	pdxmesh = "fallen_empire_01_warship_large_mesh"
 

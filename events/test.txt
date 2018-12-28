@@ -1,0 +1,52 @@
+namespace = teif_test
+
+country_event = {
+	id = teif_test.0
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		capital_scope = {
+			create_species = {
+				name = random
+				plural = random
+				portrait = random
+				class = NEWMAN
+				homeworld = this
+				trait = random
+			}
+			random_owned_pop = { change_species = last_created }
+		}
+	}
+}
+
+country_event = {
+	id = teif_test.1
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+	}
+}
+
+planet_event = {
+	id = teif_test.2
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		create_message = { 
+			type = MEDIUM_REVOLT_RISK_MESSAGE_TYPE
+			localization = MESSAGE_MEDIUM_REVOLT_RISK
+			days = 30 
+			target = root
+			variable = { type = name localization = PLANET scope = root }
+		}
+	}
+}
+
+country_event = {
+	id = teif_test.3
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		every_owned_pop = { set_pop_faction =  }
+	}
+}

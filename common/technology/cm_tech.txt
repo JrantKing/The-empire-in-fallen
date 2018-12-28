@@ -14,20 +14,20 @@ tech_lost = {
 	}
 }
 
-tech_lostbuild = {
-	cost = 20000
-	area = engineering
-	tier = 3
-	category = { industry }
-	ai_update_type = all
-	weight = 0
-	is_rare = yes
-	is_reverse_engineerable = no
-	
-	weight_modifier = {
-		factor = 0
-	}
-}
+#tech_lostbuild = {
+#	cost = 20000
+#	area = engineering
+#	tier = 3
+#	category = { industry }
+#	ai_update_type = all
+#	weight = 0
+#	is_rare = yes
+#	is_reverse_engineerable = no
+#	
+#	weight_modifier = {
+#		factor = 0
+#	}
+#}
 
 tech_reachtoUtopia = {
 	cost = 8000
@@ -45,7 +45,20 @@ tech_reachtoUtopia = {
 		max_food = 5000
 		max_influence = 1000
 	}
-	
+	potential = {
+		OR = {
+			NOT = {
+				AND = {
+					has_authority = auth_machine_intelligence
+					is_country_type = default
+				}
+			}
+			AND = {
+				is_authoritarian = no
+				is_country_type = default
+			}
+		}
+	}
 	weight_modifier = {
 		modifier = {
 			factor = 0
@@ -112,7 +125,9 @@ tech_planet_traits = {
 	is_dangerous = yes
 	modifier = {
 	}
-	
+	potential = {
+		always = no
+	}
 	weight_modifier = {
 		factor = 0
 	}

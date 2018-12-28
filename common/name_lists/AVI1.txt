@@ -1,34 +1,10 @@
-﻿### Template
-AVI1 = {
-	### SHIPS
+﻿### Avian 1
 
+AVI1 = {
 	ship_names = {
 
 		generic = {
-				"伊特萨姆纳" "恰克" "尤姆卡克斯" "伊斯塔布" "阿普切" "科卡塔" "萨曼埃克" "伊斯切尔" "库库尔坎" "德斯特里波卡"
-				"盖特萨尔科阿特尔" "特拉洛克" "卡尔齐特里" "德多纳齐" "科阿尔蒂圭" "维拉科查" "曼科卡帕克" "辛齐罗卡" "利奥克"
-				"马伊塔卡帕克" "卡帕克" "罗卡" "亚瓦尔瓦卡克" "帕查库" "托帕" "帕查库蒂" "瓦伊帕克" "瓦斯卡尔" "阿塔瓦尔"
-				"莫克特祖马" "莫西" "特洛齐" "库奥特莫克"
-																													 
-																																	  
-																																	
-																																 
-																														   
-																																  
-																																	  
-																																 
-																																 
-																															  
-																																   
-																																  
-																															   
-																															
-																															   
-																														  
-																													   
-																														  
-																																   
-																
+			"伊特萨姆纳" "恰克" "尤姆卡克斯" "伊斯塔布" "阿普切" "科卡塔" "萨曼埃克" "伊斯切尔" "库库尔坎" "德斯特里波卡" "盖特萨尔科阿特尔" "特拉洛克" "卡尔齐特里" "德多纳齐" "科阿尔蒂圭" "维拉科查" "曼科卡帕克" "辛齐罗卡" "利奥克" "马伊塔卡帕克" "卡帕克" "罗卡" "亚瓦尔瓦卡克" "帕查库" "托帕" "帕查库蒂" "瓦伊帕克" "瓦斯卡尔" "阿塔瓦尔" "莫克特祖马" 
 		}
 
 		corvette = {
@@ -42,48 +18,36 @@ AVI1 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
-				"阿波卡特奎尔" "阿塔古丘" "卡特基尔" "考伊纳" "查斯卡"
 		}
 		
 		colonizer = {
-				"科卡玛玛" "孔蒂拉雅" "科帕卡提" "埃凯科" "尤拉帕"
 		}
 		
 		constructor = {
-				"因蒂" "玛玛奥帕" "科查玛玛" "帕查玛玛" "玛玛基利亚"
 		}
 		
-		
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-					
-																																					  
-	 
-											
+		transport = {
 		}
-
+	
 		military_station_small = {
-				"帕查卡马克" "伊科纳" "齐利比亚"
 		}
-		
-		military_station_medium = {
-				"波克夫" "丘兹库特" "欧米图齐特利"
-		}
-		
-		military_station_large = {
-				"图拉索图尔特" "休普齐特利" "埃斯图亚克"
 
-					 
-			 
-																								  
-		}	
+		ion_cannon = {
+		}
+	}
+
+	ship_class_names = {
+		generic = {
+			"莫西" "特洛齐" "库奥特莫克" "阿波卡特奎尔" "阿塔古丘" "卡特基尔" "考伊纳" "查斯卡" "科卡玛玛" "孔蒂拉雅" "科帕卡提" "埃凯科" "尤拉帕" "因蒂" "玛玛奥帕" "科查玛玛" "帕查玛玛" "玛玛基利亚"
+		}		
 	}
 
 	fleet_names = {
@@ -115,8 +79,16 @@ AVI1 = {
 			sequential_name = "%O%机器人师团"
 		}
 		
+		robotic_defense_army = {
+			sequential_name = "%O%无人机守备师团"
+		}
+
 		android_army = {
 			sequential_name = "%O%智能人师团"
+		}
+		
+		android_defense_army = {
+			sequential_name = "%O%智能人守备师团"
 		}
 		
 		psionic_army = { 
@@ -130,11 +102,20 @@ AVI1 = {
 		gene_warrior_army = {
 			sequential_name = "%O%基因武士师团"
 		}
-	}
 		
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
 
-	### PLANETS
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
 
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
+		}
+	}
+	
 	planet_names = {
 
 		generic = {
@@ -192,8 +173,6 @@ AVI1 = {
 		}
 		
 	}
-
-	### CHARACTERS
 
 	character_names = {
 		default = {

@@ -1,7 +1,8 @@
 tech_view_research_new_select_button_effect = {
 	potential = {
 		#from = {
-			is_country_type = fallen_empire
+			exists = root
+			ROOT = { is_country_type = fallen_empire }
 		#}
 		#log = "[This.GetName]"
 	}
@@ -17,18 +18,10 @@ tech_view_research_new_select_button_effect = {
 	}
 }
 
-fe_buy_fleet_button_effect = {
-	potential = {
-		is_country_type = default
-	}
-
-	allow = {
-		always = yes
-	}
-
+disband_megastructure_effect = {
 	effect = {
-		hidden_effect = {
-			country_event = { id = fallentrade.0 }
-		}
+		#this = {
+			set_megastructure_flag = 123
+		#}
 	}
 }

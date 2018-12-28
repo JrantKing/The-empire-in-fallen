@@ -1,0 +1,8 @@
+﻿l_simp_chinese:
+RELATIVE_POWER_NEEDS_DESC:0 "§R$TRIGGER_FAIL$§!我们的力量必须比他们强才行。"
+INVALID_RIVAL_DESC:0 "§R$TRIGGER_FAIL$§!只有§Y实力相近§!的帝国可被视为宿敌。"
+ACTION_INSULT_TITLE:0 "更多外交选项"
+ACTION_INSULT_DESC:0 "向§H[Recipient.GetName]§!发起其他的外交要求。"
+MORE_INSULT_SELECT:0 "什么事？"
+MORE_INSULT_PROPOSE:0 "我们希望和你们商讨一些其他的事情。"
+MORE_INSULT_ACCEPT:0 "什么事？"

@@ -1,0 +1,128 @@
+#Defensive armies can't transport of the planet
+#maintenance is directly scripted here. 0.25 translates to 0.25 monthly cost (excluding other upkeep modifiers)
+#morale_damage = 1		# average morale damage of the army, default: auto (calculated from morale * MORALE_DAMAGE_MULT)
+
+# Synthetic Armies
+synthetic_occupation_army = {
+	defensive = yes
+	occupation = yes
+	damage = 2.25
+	health = 2.50
+	has_morale = no
+	morale_damage = 1.50
+	collateral_damage = 1.0
+	war_exhaustion = 0.0 # No WE from defense armies
+	icon_frame = 4
+	has_species = yes
+
+	potential = {
+		from = { has_trait = "trait_mechanical" }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+			has_country_flag = synthetic_age
+		}
+	}
+}
+
+# Synthetic Armies
+synthetic_defense_army = {
+	defensive = yes
+	is_pop_spawned = yes
+	damage = 2.25
+	health = 2.50
+	has_morale = no
+	morale_damage = 1.50
+	collateral_damage = 1.0
+	war_exhaustion = 0.0 # No WE from defense armies
+	icon_frame = 4
+	has_species = yes
+
+	potential = {
+		from = { has_trait = "trait_mechanical" }
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+			has_country_flag = synthetic_age
+		}
+	}
+}
+
+# Synthetic Armies
+synthetic_army = {
+	damage = 3.00
+	health = 3.00
+	has_morale = no
+	morale_damage = 1.50
+	collateral_damage = 1.5
+	war_exhaustion = 1.00
+	time = 120
+	icon_frame = 4
+	has_species = yes
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 300
+		}
+
+		upkeep = {
+			energy = 3
+		}
+	}
+	
+	potential = {
+		from = {
+			has_trait = "trait_mechanical"
+			NOR = {
+				has_trait = trait_machine_unit
+				is_sapient = no
+			}
+		}
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+			has_country_flag = synthetic_age
+		}
+	}
+	
+	prerequisites = { "tech_synthetic_workers" }
+
+}
+
+# Psionic Armies
+synthetic_psionic_army = {
+	damage = 5.0
+	morale_damage = 3.0
+	health = 6.0
+	has_morale = no
+	collateral_damage = 1.5
+	war_exhaustion = 2.0
+	time = 180
+	icon_frame = 9
+	has_species = yes
+	
+	resources = {
+		category = armies
+		cost = {
+			minerals = 600
+		}
+
+		upkeep = {
+			energy = 2.5
+		}
+	}
+	
+	potential = {
+		from = {
+			has_trait = trait_mechanical
+			has_trait = trait_psionic
+			NOR = {
+				has_trait = trait_machine_unit
+				is_sapient = no
+			}
+		}
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+			has_country_flag = synthetic_age
+			has_country_flag = researched_tech_telepathy
+		}
+	}
+}

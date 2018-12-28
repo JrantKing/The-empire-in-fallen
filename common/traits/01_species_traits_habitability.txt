@@ -217,7 +217,7 @@ trait_pc_nuked_preference = {
 	modification = yes
 	prerequisites = { "tech_tomb_world_adaption" "tech_planet_traits" }
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT }
-	sorting_priority = yes
+	sorting_priority = 30
 	modifier = {
 		pc_nuked_habitability = @primary
 		pc_desert_habitability = @secondary
@@ -277,6 +277,19 @@ trait_pc_habitat_preference = {
 }
 
 trait_pc_machine_preference = {
+	icon = "gfx/interface/icons/traits/trait_pc_ring_preference.dds"
+	modification = no
+	allowed_archetypes = { BIOLOGICAL PRESAPIENT }
+	sorting_priority = 30
+	modifier = {
+		pc_machine_habitability = 1.0
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+trait_pc_hive_preference = {
 	icon = "gfx/interface/icons/traits/trait_pc_ring_preference.dds"
 	modification = no
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT }

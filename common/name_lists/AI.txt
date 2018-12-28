@@ -49,10 +49,20 @@ AI = {
 		
 		mining_station = { }
 		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
 		observation_station = { }
-		outpost_station = {
+		starbase_outpost = {
+			sequential_name = "%O%前哨基地"
+		}
+		starbase_starport = {
+			sequential_name = "%O%前哨基地"
+		}
+		starbase_starhold = {
+			sequential_name = "%O%前哨基地"
+		}
+		starbase_starfortress = {
+			sequential_name = "%O%前哨基地"
+		}
+		starbase_citadel = {
 			sequential_name = "%O%前哨基地"
 		}
 		
@@ -67,6 +77,15 @@ AI = {
 
 	fleet_names = {
 		sequential_name = "人工智能第%CCC%模块"
+	}
+
+	army_names = {
+		android_army = {
+			sequential_name = "%O%扫除卫士"
+		}
+		android_defense_army = {
+			sequential_name = "%O%守护卫士"
+		}
 	}
 		
 

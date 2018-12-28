@@ -1,0 +1,116 @@
+decision_planet_size = {
+	#name = "planet_tile_remove"
+	owned_planets_only = yes
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+			energy = 1000
+			minerals = 5000
+		}
+	}
+	modifier = {
+		
+	}
+	
+	potential = {	
+		is_ringworld = no
+		NOT = { is_planet_class = pc_habitat }
+	}
+	
+	allow = {
+		OR = {
+			AND = {
+				is_capital = yes
+				planet_size > 1
+			}
+			is_capital = no
+		}
+	}
+	effect = {
+		tooltip = { this = { change_planet_size = -1 } }
+		hidden_effect = {
+			owner = {
+				add_energy = -1000
+				add_minerals = -5000
+			}
+			if = {
+				limit = { planet_size = 1 }
+				owner = {
+					change_variable = {
+						which = planet_size_num
+						value = 1
+					}
+				}
+				planet_event = {
+					id = planetboom.0
+				}
+			}
+			if = {
+				limit = { planet_size > 1 }
+				change_planet_size = -1
+				owner = {
+					change_variable = {
+						which = planet_size_num
+						value = 1
+					}
+				}
+			}
+		}
+	}
+	ai_weight = {
+		weight = 0
+	}	
+	prerequisites = { 
+		"tech_terrestrial_sculpting"
+	}
+}
+
+decision_planet_size_add = {
+	#name = "planet_tile_add"
+	owned_planets_only = yes
+	resources = {
+		category = decisions
+		cost = {
+			energy = 1000
+		}
+	}
+	
+	modifier = {
+		
+	}
+	
+	potential = {	
+		is_ringworld = no
+		NOT = { is_planet_class = pc_habitat }
+		planet_size < 25
+		owner = {
+			check_variable = {
+				which = planet_size_num
+				value > 0 
+			}
+		}
+	}
+	
+	effect = {
+		tooltip = { this = { change_planet_size = 1 } }
+		hidden_effect = {
+			owner = {
+				add_energy = -1000
+			}
+			change_planet_size = 1
+			owner = {
+				change_variable = {
+					which = planet_size_num
+					value = -1
+				}
+			}
+		}
+	}
+	ai_weight = {
+		weight = 0
+	}	
+	prerequisites = { 
+		"tech_terrestrial_sculpting"
+	}
+}

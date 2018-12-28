@@ -1,0 +1,225 @@
+namespace = fallentrade
+
+country_event = {
+	id = fallentrade.3
+	title = "fallentrade.2.name"
+	desc = "fallentrade.3.desc"
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:recipient
+		planet_background = event_target:recipient
+		graphical_culture = event_target:recipient
+		city_level = event_target:recipient
+		room = event_target:recipient.ruler
+	}
+	is_triggered_only = yes
+	
+	immediate = {
+		set_timed_country_flag = {
+			flag = timed_buy
+			days = 365
+		}
+	}
+	
+	option = {
+		name = "fallentrade.3.a"
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
+		trigger = {
+			minerals > 4999
+		}
+		ai_chance = {
+			factor = 10
+		}
+		name = "fallentrade.3.b"
+		event_target:actor = {
+			add_minerals = -5000
+			event_target:recipient = {
+				add_minerals = 5000
+			}
+			capital_scope = {
+				create_fleet = {
+					settings = {
+						spawn_debris = no
+					}
+					effect = {
+						set_owner = event_target:actor
+						if = {
+							limit = { event_target:recipient = { has_ethic = ethic_fanatic_materialist } }
+							while = {
+								count = 1
+								create_ship = {
+									design = "NAME_Scholar"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+							while = {
+								count = 2
+								create_ship = {
+									design = "NAME_Sage"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+						}
+						if = {
+							limit = { event_target:recipient = { has_ethic = ethic_gestalt_consciousness } }
+							while = {
+								count = 1
+								create_ship = {
+									design = "NAME_Beta"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+							while = {
+								count = 2
+								create_ship = {
+									design = "NAME_Gamma"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+						}
+						if = {
+							limit = { event_target:recipient = { has_ethic = ethic_fanatic_spiritualist } }
+							while = {
+								count = 1
+								create_ship = {
+									design = "NAME_Avatar"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+							while = {
+								count = 2
+								create_ship = {
+									design = "NAME_Zealot"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+						}
+						if = {
+							limit = { event_target:recipient = { has_ethic = ethic_fanatic_xenophile } }
+							while = {
+								count = 1
+								create_ship = {
+									design = "NAME_Custodian"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+							while = {
+								count = 2
+								create_ship = {
+									design = "NAME_Warden"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+						}
+						if = {
+							limit = { event_target:recipient = { has_ethic = ethic_fanatic_xenophobe } }
+							while = {
+								count = 1
+								create_ship = {
+									design = "NAME_Supremacy"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+							while = {
+								count = 2
+								create_ship = {
+									design = "NAME_Glory"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+						}
+						if = {
+							limit = { event_target:recipient = { has_ethic = ethic_fanatic_authoritarian } }
+							while = {
+								count = 1
+								create_ship = {
+									design = "NAME_Pianeta"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+							while = {
+								count = 2
+								create_ship = {
+									design = "NAME_Selina"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+						}
+						if = {
+							limit = { event_target:recipient = { has_ethic = ethic_fanatic_egalitarian } }
+							while = {
+								count = 1
+								create_ship = {
+									design = "NAME_Freeborn"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+							while = {
+								count = 2
+								create_ship = {
+									design = "NAME_Equalities"
+									graphical_culture = event_target:recipient
+									upgradable = no
+								}
+							}
+						}
+						set_location = PREV
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fallentrade.5
+	title = "fallentrade.5.name"
+	desc = "fallentrade.5.desc"
+	
+	show_sound = event_alien_signal
+	is_triggered_only = yes
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:recipient
+		planet_background = event_target:recipient
+		graphical_culture = event_target:recipient
+		city_level = event_target:recipient
+		room = event_target:recipient.ruler
+	}
+	immediate = {
+		set_timed_country_flag = {
+			flag = timed_buy
+			days = 365
+		}
+	}
+	option = {
+		name = "fallentrade.5.a"
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+				}
+				country_event = { id = stability.1003 }
+			}
+		}
+	}
+}

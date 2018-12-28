@@ -1,7 +1,7 @@
 spriteTypes = {
 	spriteType = {
 		name = "GFX_ap_rw_awakening"
-		texturefile = "gfx\interface\icons\ascension_perks\ap_reach_for_the_stars.dds"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_grasp_the_void.dds"
 		alwaystransparent = yes
 	}
 	spriteType = {

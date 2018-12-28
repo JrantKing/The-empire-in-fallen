@@ -1,0 +1,19 @@
+open_more_diplomacy = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = ex_diplomacy }
+		}
+		FROM = { save_event_target_as = recipient }
+		ROOT = { save_event_target_as = actor }
+		set_country_flag = ex_diplomacy
+		country_event = { id = exdiplomacy.0 }
+	}
+}
+
+open_more_diplomacy_ai = {
+	FROM = { save_event_target_as = recipient }
+	ROOT = { save_event_target_as = actor }
+	event_target:recipient = {
+		country_event = { id = exdiplomacy.1 }
+	}
+}

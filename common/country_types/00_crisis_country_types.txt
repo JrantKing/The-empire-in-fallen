@@ -1,5 +1,7 @@
 crisis_collapsar = {
-	has_leaders = no
+	attack_unarmed_orbital_stations = yes
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}

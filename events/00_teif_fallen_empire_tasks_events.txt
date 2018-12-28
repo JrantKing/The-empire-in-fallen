@@ -1,0 +1,515 @@
+namespace = fallen_empires_tasks
+
+country_event = {
+	id = fallen_empires_tasks.2
+	title = fallen_empires_tasks.2.name
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:FallenEmpireTaskOrigin
+		planet_background = event_target:FallenEmpireTaskOrigin
+		graphical_culture = event_target:FallenEmpireTaskOrigin
+		city_level = event_target:FallenEmpireTaskOrigin
+		room = event_target:FallenEmpireTaskOrigin.ruler
+	}
+		
+	desc = {
+		text = fallen_empires_tasks.2.desc.a.materialist
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_resources_small
+				has_country_flag = fe_gift_resources_large
+			}
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.a.xenophile
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_resources_small
+				has_country_flag = fe_gift_resources_large
+			}
+			event_target:FallenEmpireTaskOrigin = {
+				OR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.a.spiritualist
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_resources_small
+				has_country_flag = fe_gift_resources_large
+			}
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
+		}
+	}	
+	desc = {
+		text = fallen_empires_tasks.2.desc.a.machine.o
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_resources_small
+				has_country_flag = fe_gift_resources_large
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence 
+				has_country_flag = synthetic_empire				
+			}
+			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
+		}
+	}	
+	desc = {
+		text = fallen_empires_tasks.2.desc.a.machine.s
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_resources_small
+				has_country_flag = fe_gift_resources_large
+			}
+			OR = {
+				has_authority = auth_machine_intelligence 
+				has_country_flag = synthetic_empire				
+			}			
+			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
+		}
+	}		
+	desc = {
+		text = fallen_empires_tasks.2.desc.b.materialist
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_databanks
+				has_country_flag = fe_gift_rare_tech
+			}
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.b.xenophile
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_databanks
+				has_country_flag = fe_gift_rare_tech
+			}
+			event_target:FallenEmpireTaskOrigin = {
+				OR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.b.spiritualist
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_databanks
+				has_country_flag = fe_gift_rare_tech
+			}
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
+		}
+	}	
+	desc = {
+		text = fallen_empires_tasks.2.desc.b.machine.o
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_databanks
+				has_country_flag = fe_gift_rare_tech
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence 
+				has_country_flag = synthetic_empire				
+			}			
+			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.b.machine.s
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_databanks
+				has_country_flag = fe_gift_rare_tech
+			}
+			OR = {
+				has_authority = auth_machine_intelligence 
+				has_country_flag = synthetic_empire				
+			}			
+			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
+		}
+	}		
+	desc = {
+		text = fallen_empires_tasks.2.desc.c.materialist
+		trigger = {
+			has_country_flag = fe_gift_escorts
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.c.xenophile
+		trigger = {
+			has_country_flag = fe_gift_escorts
+			event_target:FallenEmpireTaskOrigin = {
+				OR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.c.spiritualist
+		trigger = {
+			has_country_flag = fe_gift_escorts
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
+		}
+	}	
+	desc = {
+		text = fallen_empires_tasks.2.desc.c.machine.o
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_escorts
+				has_country_flag = fe_gift_battlecruiser
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence 
+				has_country_flag = synthetic_empire				
+			}			
+			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
+		}			
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.c.machine.s
+		trigger = {
+			OR = {
+				has_country_flag = fe_gift_escorts
+				has_country_flag = fe_gift_battlecruiser
+			}
+			OR = {
+				has_authority = auth_machine_intelligence 
+				has_country_flag = synthetic_empire				
+			}				
+			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
+		}		
+	}	
+	desc = {
+		text = fallen_empires_tasks.2.desc.d.materialist
+		trigger = {
+			has_country_flag = fe_gift_battlecruiser
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
+		}
+	}	
+	desc = {
+		text = fallen_empires_tasks.2.desc.d.xenophile
+		trigger = {
+			has_country_flag = fe_gift_battlecruiser
+			event_target:FallenEmpireTaskOrigin = {
+				OR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+	}
+	desc = {
+		text = fallen_empires_tasks.2.desc.d.spiritualist
+		trigger = {
+			has_country_flag = fe_gift_battlecruiser
+			event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
+		}
+	}		
+	
+	option = {
+		name = fallen_empires_tasks.2.a	
+		hidden_effect = { set_country_flag = fe_gift_received }
+		if = {
+			limit = { has_country_flag = fe_gift_resources_small }
+			add_resource = { minerals = 1500 }
+			add_resource = { energy = 500 }
+		}
+		if = {
+			limit = { has_country_flag = fe_gift_resources_large }
+			add_resource = { minerals = 3000 }
+			add_resource = { energy = 1000 }
+		}
+		if = {
+			limit = { has_country_flag = fe_gift_databanks }
+			add_modifier = {
+				modifier = fallen_empire_gift_databanks
+				days = 3600
+			}
+		}
+		if = {
+			limit = { has_country_flag = fe_gift_rare_tech }
+			if = {
+				limit = {
+					NOT = { has_technology = tech_planetary_shield_generator }
+				}
+				give_technology = { tech = tech_planetary_shield_generator }
+				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
+				break = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_technology = tech_synchronized_defences }
+				}
+				give_technology = { tech = tech_synchronized_defences }
+				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
+				break = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_technology = tech_selected_lineages }
+				}
+				give_technology = { tech = tech_selected_lineages }
+				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
+				break = yes
+			}				
+			if = {
+				limit = {
+					NOT = { has_technology = tech_space_defense_station_improvement }
+				}
+				give_technology = { tech = tech_space_defense_station_improvement }
+				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
+				break = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_technology = tech_gene_banks }
+				}
+				give_technology = { tech = tech_gene_banks }
+				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
+				break = yes
+			}
+
+			# Just give databanks instead
+			add_modifier = {
+				modifier = fallen_empire_gift_databanks
+				days = 3600
+			}
+		}
+		if = {
+			limit = { has_country_flag = fe_gift_escorts }
+			custom_tooltip = fallen_empires_tasks.2.escorts_tooltip
+			hidden_effect = {
+				capital_scope = {
+					create_fleet = {
+						settings = {
+							spawn_debris = no
+						}
+						effect = {
+							set_owner = ROOT
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = {
+										OR = {
+											has_authority = auth_machine_intelligence
+											has_ethic = ethic_fanatic_egalitarian
+										}
+									}
+								}
+								create_ship = {
+									name = "NAME_Surplus_I"
+									design = "NAME_Surplus_Gamma"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_II"
+									design = "NAME_Surplus_Gamma"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_III"
+									design = "NAME_Surplus_Gamma"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
+								}
+								create_ship = {
+									name = "NAME_Surplus_I"
+									design = "NAME_Surplus_Sage"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_II"
+									design = "NAME_Surplus_Sage"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_III"
+									design = "NAME_Surplus_Sage"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
+								}
+								create_ship = {
+									name = "NAME_Surplus_I"
+									design = "NAME_Surplus_Warden"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_II"
+									design = "NAME_Surplus_Warden"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_III"
+									design = "NAME_Surplus_Warden"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
+								}
+								create_ship = {
+									name = "NAME_Surplus_I"
+									design = "NAME_Surplus_Zealot"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_II"
+									design = "NAME_Surplus_Zealot"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+								create_ship = {
+									name = "NAME_Surplus_III"
+									design = "NAME_Surplus_Zealot"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							add_modifier = {
+								modifier = fe_gift_ship
+								days = -1
+							}
+							set_location = PREV
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = fe_gift_battlecruiser }
+			custom_tooltip = fallen_empires_tasks.2.battlecruiser_tooltip
+			hidden_effect = {
+				capital_scope = {
+					create_fleet = {
+						settings = {
+							spawn_debris = no
+						}
+						effect = {
+							set_owner = ROOT
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = {
+										OR = {
+											has_authority = auth_machine_intelligence
+											has_ethic = ethic_fanatic_egalitarian
+										}
+									}
+								}
+								create_ship = {
+									name = "NAME_Progress"
+									design = "NAME_Surplus_Beta"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
+								}
+								create_ship = {
+									name = "NAME_Progress"
+									design = "NAME_Surplus_Scholar"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
+								}
+								create_ship = {
+									name = "NAME_Benevolence"
+									design = "NAME_Surplus_Custodian"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							if = {
+								limit = {
+									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
+								}
+								create_ship = {
+									name = "NAME_Benevolence"
+									design = "NAME_Surplus_Avatar"
+									graphical_culture = event_target:FallenEmpireTaskOrigin
+									upgradable = no
+								}
+							}
+							add_modifier = {
+								modifier = fe_gift_ship
+								days = -1
+							}
+							set_location = PREV
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			remove_country_flag = fe_gift_escorts
+			remove_country_flag = fe_gift_resources_small
+			remove_country_flag = fe_gift_battlecruiser
+			remove_country_flag = fe_gift_resources_large
+			remove_country_flag = fe_gift_databanks
+			remove_country_flag = fe_gift_rare_tech
+		}
+	}
+	option = {
+		name = fallen_empires_tasks.2.b
+		ai_chance = { factor = 0 }
+		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_spurned_fallen_empire_gift } }	}
+		if = {
+			limit = {
+				event_target:FallenEmpireTaskOrigin = { 
+					is_enigmatic_to = root
+				}
+			}
+			custom_tooltip = fallen_empire_enigmatic_tooltip
+		}
+		else = {
+			custom_tooltip = fallen_empire_unhappy_tooltip
+		}
+		hidden_effect = {
+			remove_country_flag = fe_gift_escorts
+			remove_country_flag = fe_gift_resources_small
+			remove_country_flag = fe_gift_battlecruiser
+			remove_country_flag = fe_gift_resources_large
+			remove_country_flag = fe_gift_databanks
+			remove_country_flag = fe_gift_rare_tech
+		}
+	}
+}

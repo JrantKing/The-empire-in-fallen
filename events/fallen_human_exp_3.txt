@@ -84,11 +84,6 @@ country_event = {
 			while = {
 				count = 3
 				best_tile_for_pop = {
-					limit = {
-						has_blocker = no
-						has_grown_pop = no
-						has_growing_pop = no
-					}
 					create_pop = {
 						species = event_target:experimentC
 					}
@@ -126,20 +121,6 @@ country_event = {
 			surveyed = {
 				set_surveyed = yes
 				surveyor = event_target:fallen_human_obs
-			}
-			create_fleet = {
-				effect = {
-					set_owner = event_target:fallen_human_obs
-					create_ship = {
-						name = "实验区-C 观测站"
-						random_existing_design = observation_station
-					}
-					set_location = {
-						target = this
-						distance = 0
-						angle = 0
-					}
-				}
 			}
 		}
 	}

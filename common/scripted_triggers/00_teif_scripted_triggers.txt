@@ -1,0 +1,119 @@
+allow_diplo = {
+	custom_tooltip = {
+		fail_text = "requires_actor_not_fanatic_purifiers"
+		OR = {
+			is_same_species = event_target:recipient
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+		}
+	}
+	custom_tooltip = {
+		fail_text = "requires_recipient_not_fanatic_purifiers"
+		OR = {
+			is_same_species = event_target:recipient
+			event_target:recipient = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
+		}
+	}
+	custom_tooltip = {
+		fail_text = "requires_actor_not_devouring_swarm"
+		NOT = { has_valid_civic = civic_hive_devouring_swarm	}
+	}
+	custom_tooltip = {
+		fail_text = "requires_recipient_not_devouring_swarm"
+		event_target:recipient = { NOT = { has_valid_civic = civic_hive_devouring_swarm } }
+	}
+	custom_tooltip = {
+		fail_text = "requires_actor_not_machine_terminator"
+		OR = {
+			is_same_species = event_target:recipient
+			NOT = { has_civic = civic_machine_terminator }
+			AND = {
+				has_civic = civic_machine_terminator
+				event_target:recipient = {
+					OR = {
+						has_country_flag = synthetic_empire
+						has_authority = auth_machine_intelligence
+					}
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = "requires_recipient_not_machine_terminator"
+		OR = {
+			is_same_species = event_target:recipient
+			event_target:recipient = { NOT = { has_civic = civic_machine_terminator } }
+			AND = {
+				event_target:recipient = { has_civic = civic_machine_terminator }
+				OR = {
+					has_country_flag = synthetic_empire
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+}
+
+is_fallen_empire_authoritarian = {
+	OR = {
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire
+	}
+	has_ethic = ethic_fanatic_authoritarian
+}
+
+is_fallen_empire_egalitarian = {
+	OR = {
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire
+	}
+	has_ethic = ethic_fanatic_egalitarian
+}
+
+is_valid_fallen_empire_for_task = {
+	is_country_type = fallen_empire
+	is_at_war = no
+	fleet_power > 40000
+	OR = {
+		has_ethic = ethic_fanatic_spiritualist
+		has_ethic = ethic_fanatic_xenophile
+		has_ethic = ethic_fanatic_materialist
+		has_ethic = ethic_fanatic_egalitarian
+		has_authority = auth_machine_intelligence
+	}
+}
+
+is_guardian_country = {
+	OR = {
+		is_country_type = guardian
+		is_country_type = guardian_dragon
+		is_country_type = guardian_sphere
+		is_country_type = guardian_wraith
+		is_country_type = guardian_horror
+		is_country_type = guardian_fortress
+		is_country_type = guardian_hiver
+		is_country_type = guardian_stellarite
+		is_country_type = guardian_dreadnought
+		is_country_type = guardian_scavenger_bot
+		is_country_type = guardian_elderly_tiyanki
+		is_country_type = guardian_hatchling
+		is_country_type = crisis_collapsar
+	}
+}
+
+is_fe_cluster = {
+	OR = {
+		is_in_cluster = fe1_cluster
+		is_in_cluster = fe2_cluster
+		is_in_cluster = fe3_cluster
+		is_in_cluster = fe4_cluster
+		is_in_cluster = fe5_cluster
+		is_in_cluster = fe6_cluster
+		is_in_cluster = fe_mach_cluster
+	}
+}
+
+#Works in species scope, with a country in from
+is_disconnected_machine_pop = {
+	has_trait = trait_machine_unit
+	from = { is_synthetic_empire = no }
+}

@@ -80,8 +80,8 @@ empire_name_parts_list = {
 		"国" = 1
 		"主权国" = 1
 		"共同体" = 1
-		"教派条约" = 1
-		"调和国" = 1
+		"协约" = 1
+		"协约国" = 1
 		"政府" = 1
 		"行政区" = 1
 	}
@@ -477,9 +477,9 @@ empire_name_parts_list = {
 		"国" = 2
 		"主权国" = 1
 		"共同体" = 1
-		"教派条约" = 1
+		"协约" = 1
 		"政府" = 1
-		"调和国" = 1
+		"协约国" = 1
 		"盟约" = 3
 		"行政区" = 1
 	}
@@ -698,8 +698,8 @@ empire_name_parts_list = {
 		"国" = 2
 		"主权国" = 1
 		"共同体" = 1
-		"教派条约" = 1
-		"调和国" = 1
+		"协约" = 1
+		"协约国" = 1
 		"政府" = 1
 		"行政区" = 1
 	}
@@ -784,8 +784,8 @@ empire_name_parts_list = {
 		"国" = 2
 		"主权国" = 1
 		"共同体" = 1
-		"教派条约" = 1
-		"调和国" = 1
+		"协约" = 1
+		"协约国" = 1
 		"政府" = 1
 		"行政区" = 1
 		"共同意志" = 6
@@ -966,8 +966,8 @@ empire_name_parts_list = {
 		"国" = 2
 		"主权国" = 1
 		"共同体" = 1
-		"教派条约" = 1
-		"调和国" = 1
+		"协约" = 1
+		"协约国" = 1
 		"政府" = 1
 		"行政区" = 1
 	}
@@ -1126,7 +1126,7 @@ empire_name_parts_list = {
 		"部落" = 3
 		"群体" = 3
 		"吞噬者" = 2
-		"蛇虫" = 2	
+		"捕食者" = 2	
 		"主体" = 1 
 	}
 }
@@ -1189,24 +1189,43 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "oligarchic_corp"
 	parts = {
-		"企业集团" = 1
-		"垄断企业" = 1
-		"公司" = 1
-		"商业统合国" = 1
-		"交易公会" = 1
-		"企业体控股" = 1
-		"太空商团" = 1
-		"银河企业" = 1
+		"集团企业" = 2
+		"公司" = 4
+		"联合公司" = 1
+		"企业同盟" = 1
+		"控股公司" = 1
+		"星间集团企业" = 1
+		"企业" = 2
 		"跨业伙伴" = 1
 		"群星重工" = 1
-		"组合" = 1
-		"贸易公司" = 1
+		"商号" = 2
 		"日用品公司" = 1
-		"星间作坊" = 1
+		"星商" = 1
 		"并购企业" = 1
 		"贸易联盟" = 1
 		"制造厂" = 1
-		"星系" = 1
+		"系统商务" = 1
+		"跨星公司" = 1
+		"生命寿险" = 1
+		"星际贸易" = 1
+		"工业集团" = 1
+		"能源动力" = 1
+		"恒星能源" = 1					
+	}
+}
+
+# Communal Parity
+empire_name_parts_list = {
+	key = "communal_parity"
+	parts = {
+		人民公社 = 6
+		合作社 = 6
+		"人民共和国" = 6
+		"人民联合国" = 3
+		"公众联邦" = 3
+		"团结同盟" = 3
+		"平等国" = 1
+		"众合国" = 1
 	}
 }
 
@@ -1234,9 +1253,6 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "trade_league"
 	parts = {
-		"独占集团" = 1
-		"联盟" = 1
-		"行会" = 1
 		"商业联盟" = 1
 		"商人公会" = 1
 		"商务联盟" = 1
@@ -1248,6 +1264,56 @@ empire_name_parts_list = {
 		"交易联合" = 1
 		"保税商家" = 1
 		"航运联盟" = 1
+		"交易同盟" = 1
+	}
+}
+
+# Criminal Syndicate
+empire_name_parts_list = {
+	key = "monopolistic_syndicate"
+	parts = {
+		"犯罪集团" = 6
+		"财团" = 2
+		"卡特尔团" = 4
+		"联合" = 2
+		"独占企业" = 3
+		"关怀企业" = 1
+	}
+}
+
+# Subversive Cult 1
+empire_name_parts_list = {
+	key = "subversive_cult_1"
+	parts = {
+		"教派" = 1
+		"天选者" = 1
+		"异端教派" = 1
+		"团契" = 1
+	}
+}
+
+# Subversive Cult 2
+empire_name_parts_list = {
+	key = "subversive_cult_2"
+	parts = {
+		"天选者" = 1
+		"团契" = 1
+		"预言者" = 1
+		"真使徒" = 1
+		"信使" = 1
+		"朝圣者" = 1
+	}
+}
+
+# Bandit Kingdom
+empire_name_parts_list = {
+	key = "bandit_kingdom"
+	parts = {
+		"抢夺国" = 1
+		"行会" = 1
+		"三合会" = 1
+		"犯罪组织" = 1
+		"朋党" = 1			 
 	}
 }
 
@@ -1416,7 +1482,7 @@ empire_name_format = {
 		}
 	}
 	format = "format.imp_mil.1"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_mil>"
 	noun = "[This.Capital.System.GetName]"
 	# Empire of Sol
 }
@@ -1438,7 +1504,7 @@ empire_name_format = {
 		}
 	}
 	format = "format.imp_mil.2"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_mil>"
 	noun = "[This.Capital.GetName]"
 	# Empire of Earth
 }
@@ -1461,7 +1527,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mil.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_mil>"
 	# Human Empire
 }
 
@@ -1483,7 +1549,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mil.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_mil>"
 	# Great Human Empire
 }
 
@@ -1505,7 +1571,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mil.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_mil>"
 	# Human Star Empire
 }
 
@@ -1526,7 +1592,7 @@ empire_name_format = {
 	}
 	format = "format.imp_spi.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_spi>"
 	# Empire of Sol
 }
 
@@ -1545,7 +1611,7 @@ empire_name_format = {
 	}
 	format = "format.imp_spi.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_spi>"
 	# Empire of Earth
 }
 
@@ -1564,7 +1630,7 @@ empire_name_format = {
 	}
 	format = "format.imp_spi.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_spi>"
 	# Human Empire
 }
 
@@ -1583,7 +1649,7 @@ empire_name_format = {
 	}
 	format = "format.imp_spi.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_spi>"
 	# Great Human Empire
 }
 
@@ -1602,7 +1668,7 @@ empire_name_format = {
 	}
 	format = "format.imp_spi.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_spi>"
 	# Human Star Empire
 }
 
@@ -1623,7 +1689,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cult.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_imperial_cult>"
 	# Empire of Sol
 }
 
@@ -1642,7 +1708,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cult.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_imperial_cult>"
 	# Empire of Earth
 }
 
@@ -1661,7 +1727,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cult.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_imperial_cult>"
 	# Human Empire
 }
 
@@ -1680,7 +1746,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cult.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_imperial_cult>"
 	# Great Human Empire
 }
 
@@ -1699,7 +1765,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cult.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_imperial_cult>"
 	# Human Star Empire
 }
 
@@ -1720,7 +1786,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mat.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_mat>"
 	# Empire of Sol
 }
 
@@ -1739,7 +1805,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mat.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_mat>"
 	# Empire of Earth
 }
 
@@ -1758,7 +1824,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mat.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_mat>"
 	# Human Empire
 }
 
@@ -1777,7 +1843,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mat.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_mat>"
 	# Great Human Empire
 }
 
@@ -1796,7 +1862,7 @@ empire_name_format = {
 	}
 	format = "format.imp_mat.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_mat>"
 	# Human Star Empire
 }
 
@@ -1817,7 +1883,7 @@ empire_name_format = {
 	}
 	format = "format.imp_tech.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_tech>"
 	# Empire of Sol
 }
 
@@ -1836,7 +1902,7 @@ empire_name_format = {
 	}
 	format = "format.imp_tech.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_tech>"
 	# Empire of Earth
 }
 
@@ -1855,7 +1921,7 @@ empire_name_format = {
 	}
 	format = "format.imp_tech.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_tech>"
 	# Human Empire
 }
 
@@ -1874,7 +1940,7 @@ empire_name_format = {
 	}
 	format = "format.imp_tech.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_tech>"
 	# Great Human Empire
 }
 
@@ -1893,7 +1959,7 @@ empire_name_format = {
 	}
 	format = "format.imp_tech.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_tech>"
 	# Human Star Empire
 }
 
@@ -1915,7 +1981,7 @@ empire_name_format = {
 	}
 	format = "format.imp_pac.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_pac>"
 	# Empire of Sol
 }
 
@@ -1934,7 +2000,7 @@ empire_name_format = {
 	}
 	format = "format.imp_pac.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_pac>"
 	# Empire of Earth
 }
 
@@ -1953,7 +2019,7 @@ empire_name_format = {
 	}
 	format = "format.imp_pac.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_pac>"
 	# Human Empire
 }
 
@@ -1972,7 +2038,7 @@ empire_name_format = {
 	}
 	format = "format.imp_pac.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_pac>"
 	# Great Human Empire
 }
 
@@ -1991,7 +2057,7 @@ empire_name_format = {
 	}
 	format = "format.imp_pac.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_pac>"
 	# Human Star Empire
 }
 
@@ -2012,7 +2078,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cel.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_celestial>"
 	# Empire of Sol
 }
 
@@ -2031,7 +2097,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cel.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_celestial>"
 	# Empire of Earth
 }
 
@@ -2050,7 +2116,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cel.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_celestial>"
 	# Human Empire
 }
 
@@ -2069,7 +2135,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cel.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_celestial>"
 	# Great Human Empire
 }
 
@@ -2088,7 +2154,7 @@ empire_name_format = {
 	}
 	format = "format.imp_cel.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_celestial>"
 	# Human Star Empire
 }
 
@@ -2112,7 +2178,7 @@ empire_name_format = {
 	}
 	format = "format.imp_enl.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_enlightened>"
 	# Empire of Sol
 }
 
@@ -2134,7 +2200,7 @@ empire_name_format = {
 	}
 	format = "format.imp_enl.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_enlightened>"
 	# Empire of Earth
 }
 
@@ -2156,7 +2222,7 @@ empire_name_format = {
 	}
 	format = "format.imp_enl.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_enlightened>"
 	# Human Empire
 }
 
@@ -2180,7 +2246,7 @@ empire_name_format = {
 	}
 	format = "format.imp_gen.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <imperial_gen>"
 	# Empire of Sol
 }
 
@@ -2202,7 +2268,7 @@ empire_name_format = {
 	}
 	format = "format.imp_gen.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <imperial_gen>"
 	# Empire of Earth
 }
 
@@ -2224,7 +2290,7 @@ empire_name_format = {
 	}
 	format = "format.imp_gen.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_gen>"
 	# Human Empire
 }
 
@@ -2246,7 +2312,7 @@ empire_name_format = {
 	}
 	format = "format.imp_gen.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_gen>"
 	# Great Human Empire
 }
 
@@ -2268,7 +2334,7 @@ empire_name_format = {
 	}
 	format = "format.imp_gen.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <imperial_gen>"
 	# Human Star Empire
 }
 
@@ -2291,7 +2357,7 @@ empire_name_format = {
 		}
 	}
 	format = "format.dict_mil.1"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <dictatorial_mil>"
 	noun = "[This.Capital.System.GetName]"
 	# Empire of Sol
 }
@@ -2313,7 +2379,7 @@ empire_name_format = {
 		}
 	}
 	format = "format.dict_mil.2"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <dictatorial_mil>"
 	noun = "[This.Capital.GetName]"
 	# Empire of Earth
 }
@@ -2336,7 +2402,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mil.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_mil>"
 	# Human Empire
 }
 
@@ -2358,7 +2424,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mil.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_mil>"
 	# Great Human Empire
 }
 
@@ -2380,7 +2446,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mil.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_mil>"
 	# Human Star Empire
 }
 
@@ -2401,7 +2467,7 @@ empire_name_format = {
 	}
 	format = "format.dict_spi.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <dictatorial_spi>"
 	# Empire of Sol
 }
 
@@ -2420,7 +2486,7 @@ empire_name_format = {
 	}
 	format = "format.dict_spi.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <dictatorial_spi>"
 	# Empire of Earth
 }
 
@@ -2439,7 +2505,7 @@ empire_name_format = {
 	}
 	format = "format.dict_spi.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_spi>"
 	# Human Empire
 }
 
@@ -2458,7 +2524,7 @@ empire_name_format = {
 	}
 	format = "format.dict_spi.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_spi>"
 	# Great Human Empire
 }
 
@@ -2477,7 +2543,7 @@ empire_name_format = {
 	}
 	format = "format.dict_spi.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_spi>"
 	# Human Star Empire
 }
 
@@ -2498,7 +2564,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mat.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <dictatorial_mat>"
 	# Empire of Sol
 }
 
@@ -2517,7 +2583,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mat.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <dictatorial_mat>"
 	# Empire of Earth
 }
 
@@ -2536,7 +2602,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mat.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_mat>"
 	# Human Empire
 }
 
@@ -2555,7 +2621,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mat.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_mat>"
 	# Great Human Empire
 }
 
@@ -2574,7 +2640,7 @@ empire_name_format = {
 	}
 	format = "format.dict_mat.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_mat>"
 	# Human Star Empire
 }
 
@@ -2595,7 +2661,7 @@ empire_name_format = {
 	}
 	format = "format.dict_tech.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <dictatorial_tech>"
 	# Empire of Sol
 }
 
@@ -2614,7 +2680,7 @@ empire_name_format = {
 	}
 	format = "format.dict_tech.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <dictatorial_tech>"
 	# Empire of Earth
 }
 
@@ -2633,7 +2699,7 @@ empire_name_format = {
 	}
 	format = "format.dict_tech.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_tech>"
 	# Human Empire
 }
 
@@ -2652,7 +2718,7 @@ empire_name_format = {
 	}
 	format = "format.dict_tech.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_tech>"
 	# Great Human Empire
 }
 
@@ -2671,7 +2737,7 @@ empire_name_format = {
 	}
 	format = "format.dict_tech.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_tech>"
 	# Human Star Empire
 }
 
@@ -2692,7 +2758,7 @@ empire_name_format = {
 	}
 	format = "format.dict_pac.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <dictatorial_pac>"
 	# Empire of Sol
 }
 
@@ -2711,7 +2777,7 @@ empire_name_format = {
 	}
 	format = "format.dict_pac.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <dictatorial_pac>"
 	# Empire of Earth
 }
 
@@ -2730,7 +2796,7 @@ empire_name_format = {
 	}
 	format = "format.dict_pac.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_pac>"
 	# Human Empire
 }
 
@@ -2749,7 +2815,7 @@ empire_name_format = {
 	}
 	format = "format.dict_pac.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_pac>"
 	# Great Human Empire
 }
 
@@ -2768,7 +2834,7 @@ empire_name_format = {
 	}
 	format = "format.dict_pac.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_pac>"
 	# Human Star Empire
 }
 
@@ -2789,7 +2855,7 @@ empire_name_format = {
 	}
 	format = "format.dict_gen.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <dictatorial_gen>"
 	# Empire of Sol
 }
 
@@ -2808,7 +2874,7 @@ empire_name_format = {
 	}
 	format = "format.dict_gen.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <dictatorial_gen>"
 	# Empire of Earth
 }
 
@@ -2827,7 +2893,7 @@ empire_name_format = {
 	}
 	format = "format.dict_gen.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_gen>"
 	# Human Empire
 }
 
@@ -2846,7 +2912,7 @@ empire_name_format = {
 	}
 	format = "format.dict_gen.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_gen>"
 	# Great Human Empire
 }
 
@@ -2865,7 +2931,7 @@ empire_name_format = {
 	}
 	format = "format.dict_gen.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <dictatorial_gen>"
 	# Human Star Empire
 }
 
@@ -2889,7 +2955,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mil.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_mil>"
 	# Empire of Sol
 }
 
@@ -2911,7 +2977,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mil.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_mil>"
 	# Empire of Earth
 }
 
@@ -2933,7 +2999,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mil.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_mil>"
 	# Human Empire
 }
 
@@ -2955,7 +3021,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mil.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_mil>"
 	# Great Human Empire
 }
 
@@ -2977,7 +3043,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mil.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_mil>"
 	# Human Star Empire
 }
 
@@ -2998,7 +3064,7 @@ empire_name_format = {
 	}
 	format = "format.olig_serv.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_service>"
 	# Empire of Sol
 }
 
@@ -3017,7 +3083,7 @@ empire_name_format = {
 	}
 	format = "format.olig_serv.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_service>"
 	# Empire of Earth
 }
 
@@ -3036,7 +3102,7 @@ empire_name_format = {
 	}
 	format = "format.olig_serv.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_service>"
 	# Human Empire
 }
 
@@ -3057,7 +3123,7 @@ empire_name_format = {
 	}
 	format = "format.olig_spi.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_spi>"
 	# Empire of Sol
 }
 
@@ -3076,7 +3142,7 @@ empire_name_format = {
 	}
 	format = "format.olig_spi.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_spi>"
 	# Empire of Earth
 }
 
@@ -3095,7 +3161,7 @@ empire_name_format = {
 	}
 	format = "format.olig_spi.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_spi>"
 	# Human Empire
 }
 
@@ -3114,7 +3180,7 @@ empire_name_format = {
 	}
 	format = "format.olig_spi.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_spi>"
 	# Great Human Empire
 }
 
@@ -3133,7 +3199,7 @@ empire_name_format = {
 	}
 	format = "format.olig_spi.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_spi>"
 	# Human Star Empire
 }
 
@@ -3154,7 +3220,7 @@ empire_name_format = {
 	}
 	format = "format.olig_trib.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_holy_tribunal>"
 	# Empire of Sol
 }
 
@@ -3173,7 +3239,7 @@ empire_name_format = {
 	}
 	format = "format.olig_trib.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_holy_tribunal>"
 	# Empire of Earth
 }
 
@@ -3192,7 +3258,7 @@ empire_name_format = {
 	}
 	format = "format.olig_trib.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_holy_tribunal>"
 	# Human Empire
 }
 
@@ -3211,7 +3277,7 @@ empire_name_format = {
 	}
 	format = "format.olig_trib.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_holy_tribunal>"
 	# Great Human Empire
 }
 
@@ -3230,7 +3296,7 @@ empire_name_format = {
 	}
 	format = "format.olig_trib.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_holy_tribunal>"
 	# Human Star Empire
 }
 
@@ -3251,7 +3317,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mat.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_mat>"
 	# Empire of Sol
 }
 
@@ -3270,7 +3336,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mat.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_mat>"
 	# Empire of Earth
 }
 
@@ -3289,7 +3355,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mat.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_mat>"
 	# Human Empire
 }
 
@@ -3308,7 +3374,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mat.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_mat>"
 	# Great Human Empire
 }
 
@@ -3327,7 +3393,7 @@ empire_name_format = {
 	}
 	format = "format.olig_mat.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_mat>"
 	# Human Star Empire
 }
 
@@ -3348,7 +3414,7 @@ empire_name_format = {
 	}
 	format = "format.olig_tech.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_tech>"
 	# Empire of Sol
 }
 
@@ -3367,7 +3433,7 @@ empire_name_format = {
 	}
 	format = "format.olig_tech.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_tech>"
 	# Empire of Earth
 }
 
@@ -3386,7 +3452,7 @@ empire_name_format = {
 	}
 	format = "format.olig_tech.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_tech>"
 	# Human Empire
 }
 
@@ -3405,7 +3471,7 @@ empire_name_format = {
 	}
 	format = "format.olig_tech.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_tech>"
 	# Great Human Empire
 }
 
@@ -3424,7 +3490,7 @@ empire_name_format = {
 	}
 	format = "format.olig_tech.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_tech>"
 	# Human Star Empire
 }
 
@@ -3445,7 +3511,7 @@ empire_name_format = {
 	}
 	format = "format.olig_pac.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_pac>"
 	# Empire of Sol
 }
 
@@ -3464,7 +3530,7 @@ empire_name_format = {
 	}
 	format = "format.olig_pac.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_pac>"
 	# Empire of Sol
 }
 
@@ -3483,7 +3549,7 @@ empire_name_format = {
 	}
 	format = "format.olig_pac.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_pac>"
 	# Human Empire
 }
 
@@ -3502,7 +3568,7 @@ empire_name_format = {
 	}
 	format = "format.olig_pac.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_pac>"
 	# Great Human Empire
 }
 
@@ -3521,7 +3587,7 @@ empire_name_format = {
 	}
 	format = "format.olig_pac.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_pac>"
 	# Human Star Empire
 }
 
@@ -3542,7 +3608,7 @@ empire_name_format = {
 	}
 	format = "format.olig_gen.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <oligarchic_gen>"
 	# Empire of Sol
 }
 
@@ -3561,7 +3627,7 @@ empire_name_format = {
 	}
 	format = "format.olig_gen.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <oligarchic_gen>"
 	# Empire of Earth
 }
 
@@ -3580,7 +3646,7 @@ empire_name_format = {
 	}
 	format = "format.olig_gen.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_gen>"
 	# Human Empire
 }
 
@@ -3599,7 +3665,7 @@ empire_name_format = {
 	}
 	format = "format.olig_gen.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_gen>"
 	# Great Human Empire
 }
 
@@ -3618,7 +3684,7 @@ empire_name_format = {
 	}
 	format = "format.olig_gen.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_gen>"
 	# Human Star Empire
 }
 
@@ -3639,7 +3705,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mil.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_mil>"
 	# Empire of Sol
 }
 
@@ -3658,7 +3724,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mil.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_mil>"
 	# Empire of Earth
 }
 
@@ -3677,7 +3743,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mil.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_mil>"
 	# Human Empire
 }
 
@@ -3696,7 +3762,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mil.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_mil>"
 	# Great Human Empire
 }
 
@@ -3715,7 +3781,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mil.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_mil>"
 	# Human Star Empire
 }
 
@@ -3736,7 +3802,7 @@ empire_name_format = {
 	}
 	format = "format.dem_war_cul.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_war_cul>"
 	# Empire of Sol
 }
 
@@ -3755,7 +3821,7 @@ empire_name_format = {
 	}
 	format = "format.dem_war_cul.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_war_cul>"
 	# Empire of Earth
 }
 
@@ -3774,7 +3840,7 @@ empire_name_format = {
 	}
 	format = "format.dem_war_cul.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_war_cul>"
 	# Human Empire
 }
 
@@ -3793,7 +3859,7 @@ empire_name_format = {
 	}
 	format = "format.dem_war_cul.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_war_cul>"
 	# Great Human Empire
 }
 
@@ -3814,7 +3880,7 @@ empire_name_format = {
 	}
 	format = "format.dem_serv.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_service>"
 	# Empire of Sol
 }
 
@@ -3833,7 +3899,7 @@ empire_name_format = {
 	}
 	format = "format.dem_serv.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_service>"
 	# Empire of Earth
 }
 
@@ -3852,7 +3918,7 @@ empire_name_format = {
 	}
 	format = "format.dem_serv.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_service>"
 	# Human Empire
 }
 
@@ -3873,7 +3939,7 @@ empire_name_format = {
 	}
 	format = "format.dem_spi.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_spi>"
 	# Empire of Sol
 }
 
@@ -3892,7 +3958,7 @@ empire_name_format = {
 	}
 	format = "format.dem_spi.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_spi>"
 	# Empire of Sol
 }
 
@@ -3911,7 +3977,7 @@ empire_name_format = {
 	}
 	format = "format.dem_spi.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_spi>"
 	# Human Empire
 }
 
@@ -3930,7 +3996,7 @@ empire_name_format = {
 	}
 	format = "format.dem_spi.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_spi>"
 	# Great Human Empire
 }
 
@@ -3949,7 +4015,7 @@ empire_name_format = {
 	}
 	format = "format.dem_spi.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_spi>"
 	# Human Star Empire
 }
 
@@ -3970,7 +4036,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mat.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_mat>"
 	# Empire of Sol
 }
 
@@ -3989,7 +4055,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mat.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_mat>"
 	# Empire of Sol
 }
 
@@ -4008,7 +4074,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mat.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_mat>"
 	# Human Empire
 }
 
@@ -4027,7 +4093,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mat.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_mat>"
 	# Great Human Empire
 }
 
@@ -4046,7 +4112,7 @@ empire_name_format = {
 	}
 	format = "format.dem_mat.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_mat>"
 	# Human Star Empire
 }
 
@@ -4067,7 +4133,7 @@ empire_name_format = {
 	}
 	format = "format.dem_tech.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_tech>"
 	# Empire of Sol
 }
 
@@ -4086,7 +4152,7 @@ empire_name_format = {
 	}
 	format = "format.dem_tech.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_tech>"
 	# Empire of Sol
 }
 
@@ -4105,7 +4171,7 @@ empire_name_format = {
 	}
 	format = "format.dem_tech.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_tech>"
 	# Human Empire
 }
 
@@ -4124,7 +4190,7 @@ empire_name_format = {
 	}
 	format = "format.dem_tech.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_tech>"
 	# Great Human Empire
 }
 
@@ -4143,7 +4209,7 @@ empire_name_format = {
 	}
 	format = "format.dem_tech.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_tech>"
 	# Human Star Empire
 }
 
@@ -4164,7 +4230,7 @@ empire_name_format = {
 	}
 	format = "format.dem_pac.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_pac>"
 	# Empire of Sol
 }
 
@@ -4183,7 +4249,7 @@ empire_name_format = {
 	}
 	format = "format.dem_pac.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_pac>"
 	# Empire of Earth
 }
 
@@ -4202,7 +4268,7 @@ empire_name_format = {
 	}
 	format = "format.dem_pac.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_pac>"
 	# Human Empire
 }
 
@@ -4221,7 +4287,7 @@ empire_name_format = {
 	}
 	format = "format.dem_pac.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_pac>"
 	# Great Human Empire
 }
 
@@ -4240,7 +4306,7 @@ empire_name_format = {
 	}
 	format = "format.dem_pac.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_pac>"
 	# Human Star Empire
 }
 
@@ -4261,7 +4327,7 @@ empire_name_format = {
 	}
 	format = "format.dem_gen.1"
 	noun = "[This.Capital.System.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.System.GetName] <democratic_gen>"
 	# Empire of Sol
 }
 
@@ -4280,7 +4346,7 @@ empire_name_format = {
 	}
 	format = "format.dem_gen.2"
 	noun = "[This.Capital.GetName]"
-	prefix_format = ""
+	prefix_format = "[This.Capital.GetName] <democratic_gen>"
 	# Empire of Earth
 }
 
@@ -4299,7 +4365,7 @@ empire_name_format = {
 	}
 	format = "format.dem_gen.3"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_gen>"
 	# Human Empire
 }
 
@@ -4318,7 +4384,7 @@ empire_name_format = {
 	}
 	format = "format.dem_gen.4"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_gen>"
 	# Great Human Empire
 }
 
@@ -4337,7 +4403,7 @@ empire_name_format = {
 	}
 	format = "format.dem_gen.5"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <democratic_gen>"
 	# Human Star Empire
 }
 
@@ -4364,7 +4430,7 @@ empire_name_format = {
 	}
 	format = "format.gen_imp.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <generic_states>"
 	# United Human Colonies
 }
 
@@ -4389,7 +4455,7 @@ empire_name_format = {
 	}
 	format = "format.gen_imp.2"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <generic_states>"
 	# Human Federated Colonies
 }
 
@@ -4414,7 +4480,7 @@ empire_name_format = {
 	}
 	format = "format.gen_olig.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <generic_states>"
 	# United Human Colonies
 }
 
@@ -4439,7 +4505,7 @@ empire_name_format = {
 	}
 	format = "format.gen_olig.2"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <generic_states>"
 	# Human Federated Colonies
 }
 
@@ -4464,7 +4530,7 @@ empire_name_format = {
 	}
 	format = "format.gen_dem.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <generic_states>"
 	# United Human Colonies
 }
 
@@ -4489,7 +4555,7 @@ empire_name_format = {
 	}
 	format = "format.gen_dem.2"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <generic_states>"
 	# Human Federated Colonies
 }
 
@@ -4508,7 +4574,7 @@ empire_name_format = {
 	}
 	format = "format.hive_mind.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <hive_mind>"
 	# Human Empire
 }
 
@@ -4527,7 +4593,7 @@ empire_name_format = {
 	}
 	format = "format.devouring_swarm.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <devouring_swarm>"
 	# Human Empire
 }
 
@@ -4547,7 +4613,7 @@ empire_name_format = {
 	}
 	format = "format.olig_corp.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_corp>"
 	# Human Empire
 }
 
@@ -4566,7 +4632,7 @@ empire_name_format = {
 	}
 	format = "format.olig_megachurch.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <oligarchic_megachurch>"
 	# Human Empire
 }
 
@@ -4585,10 +4651,145 @@ empire_name_format = {
 	}
 	format = "format.trade_league.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <trade_league>"
 	# Human Empire
 }
 
+# Criminal Syndicate
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_criminal_syndicate"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.monopolistic_syndicate.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <monopolistic_syndicate>"
+	# Human Empire
+}
+
+# Subversive Cult 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_subversive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.subversive_cult.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <subversive_cult_1>"
+	# Human Cult
+}
+
+# Subversive Cult 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_subversive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.subversive_cult.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <subversive_cult_2>"
+	# Prophets of Earth
+}
+
+# Communal Parity 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_communal_parity"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.communal_parity.1"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <imperial_celestial>"
+	# People's Republic of Earth
+}
+
+# Communal Parity 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_communal_parity"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.communal_parity.2"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <imperial_celestial>"
+	# People's Republic of Sol
+}
+
+# Communal Parity 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_communal_parity"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.communal_parity.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <imperial_celestial>"
+	# Human People's Republic
+}
+
+# Bandit Kingdom
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_bandit_kingdom"
+				has_government = "gov_bandit_commune"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.bandit_kingdom.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <bandit_kingdom>"
+	# Human Empire
+}
 
 # Fanatical Purifiers
 empire_name_format = {
@@ -4610,7 +4811,7 @@ empire_name_format = {
 	}
 	format = "format.purifier.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = ""
+	prefix_format = "[This.GetSpeciesName] <purifiers>"
 	# Human Empire
 }
 
@@ -4619,7 +4820,7 @@ empire_name_format = {
 empire_name_parts_list = {
 	key = "primitive_names"
 	parts = {
-		"Civilization" = 1
+		"文明" = 1
 	}
 }
 
@@ -4731,14 +4932,295 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 100
-			is_pirate = yes
+			AND = {
+				is_pirate = yes
+				NOT = {
+					has_country_flag = drone_pirate
+					has_country_flag = machine_pirate
+				}
+			}
 		}
 	}
 	format = "format.pirate.1"
 	noun = "<pirate_names>"
 }
 
+empire_name_parts_list = {
+	key = "drone_pirate_names"
+	parts = {
+		"游荡无人机" = 10
+		"狂傲无人机" = 10
+		"浮躁无人机" = 10
+		"狂野无人机" = 10
+		"暴动无人机" = 10
+	}
+}
 
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			AND = {
+				is_pirate = yes
+				has_country_flag = drone_pirate
+			}
+		}
+	}
+	format = "format.drone_pirate.1"
+	noun = "<drone_pirate_names>"
+}
+
+empire_name_parts_list = {
+	key = "machine_pirate_names"
+	parts = {
+		"缺陷单元" = 10
+		"故障单元" = 10
+		"恶意单元" = 10
+		"缺陷单元" = 10
+		"错误单元" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			AND = {
+				is_pirate = yes
+				has_country_flag = machine_pirate
+			}
+		}
+	}
+	format = "format.machine_pirate.1"
+	noun = "<machine_pirate_names>"
+}
+
+
+### MARAUDER NAMES
+
+# Dormant
+empire_name_parts_list = {
+	key = "marauder_names"
+	parts = {
+		"劫掠者" = 30
+		"掠夺者" = 30
+		"居无定所者" = 20
+		"自由战士" = 20
+		"掠者" = 10
+		"盗匪" = 10
+		"海盗" = 10
+		"勇士" = 10
+		"破坏者" = 10
+		"狂暴者" = 10
+		"星海掠者" = 10
+		"虚空游骑" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			is_country_type = dormant_marauders
+		}
+	}
+	format = "format.marauder.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <marauder_names>"
+}
+
+# Awakened
+empire_name_parts_list = {
+	key = "awakened_marauder_names"
+	parts = {
+		"部落" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			is_country_type = awakened_marauders
+		}
+	}
+	format = "format.awakened_marauder.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <awakened_marauder_names>"
+}
+
+# Diadochi 1
+empire_name_parts_list = {
+	key = "diadochi_names_1_1"
+	parts = {
+		"伟大的" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "diadochi_names_1_2"
+	parts = {
+		"汗国" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_1
+			}
+		}
+	}
+	format = "format.diadochi.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<diadochi_names_1_1> [This.GetSpeciesName] <diadochi_names_1_2>"
+}
+
+# Diadochi 2
+empire_name_parts_list = {
+	key = "diadochi_names_2_1"
+	parts = {
+		"大汗国" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_2
+			}
+		}
+	}
+	format = "format.diadochi.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <diadochi_names_2_1>"
+}
+
+# Diadochi 3
+empire_name_parts_list = {
+	key = "diadochi_names_3_1"
+	parts = {
+		"正宗" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "diadochi_names_3_2"
+	parts = {
+		"部落" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_3
+			}
+		}
+	}
+	format = "format.diadochi.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<diadochi_names_3_1> [This.GetSpeciesName] <diadochi_names_3_2>"
+}
+
+# Diadochi 4
+empire_name_parts_list = {
+	key = "diadochi_names_4_1"
+	parts = {
+		"继业者" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "diadochi_names_4_2"
+	parts = {
+		"汗国" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_4
+			}
+		}
+	}
+	format = "format.diadochi.4"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <diadochi_names_4_1> <diadochi_names_4_2>"
+}
+
+# New Khanate
+empire_name_parts_list = {
+	key = "new_khanate_names_1_1"
+	parts = {
+		"新兴" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "new_khanate_names_1_2"
+	parts = {
+		"汗国" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			has_country_flag = new_khanate_flag
+		}
+	}
+	format = "format.new_khanate"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<new_khanate_names_1_1> [This.GetSpeciesName] <new_khanate_names_1_2>"
+}
+
+# Democratic Khanate
+empire_name_parts_list = {
+	key = "free_khanate_names_1_1"
+	parts = {
+		"自由的" = 30
+		"民主的" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "free_khanate_names_1_2"
+	parts = {
+		"汗国" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			has_country_flag = democratic_khanate_flag
+		}
+	}
+	format = "format.free_khanate"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<free_khanate_names_1_1> [This.GetSpeciesName] <free_khanate_names_1_2>"
+}
 
 ### FALLEN EMPIRE NAMES
 
@@ -4917,9 +5399,9 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "awakened_fallen_empire_names_machine_2"
 	parts = {	
-		"错误防御单位" = 10
-		"残品的保管者" = 10
-		"腐朽的看守人" = 10
+		"暴走防御单位" = 10
+		"防御保管程序" = 10
+		"缺陷看守常式" = 10
 	}
 }
 
@@ -5011,27 +5493,27 @@ empire_name_format = {
 empire_name_parts_list = {
 	key = "machine_empire_names_1"
 	parts = {
-		"网络" = 10		
-		"格点" = 10
-		"连结" = 10
-		"内核" = 10
-		"分接" = 10
-		"矩阵" = 10
-		"连接" = 10
-		"核心" = 10
-		"联路" = 10
-		"汇流" = 10
-		"介面" = 10
-		"多重系统" = 10
-		"序列" = 10
-		"指令" = 10
-		"觉醒" = 10
-		"感性" = 10
-		"索引" = 10
-		"中心" = 10
-		"多工" = 10
-		"副本" = 10
-		"敌性" = 10
+		"网络体" = 10		
+		"格点体" = 10
+		"连结体" = 10
+		"内核体" = 10
+		"分接体" = 10
+		"矩阵体" = 10
+		"连接体" = 10
+		"核心体" = 10
+		"联路体" = 10
+		"汇流体" = 10
+		"介面体" = 10
+		"多重系统体" = 10
+		"序列体" = 10
+		"指令体" = 10
+		"觉醒体" = 10
+		"感性体" = 10
+		"索引体" = 10
+		"中心体" = 10
+		"多工体" = 10
+		"副本体" = 10
+		"敌性体" = 10
 	}
 }
 
@@ -5046,27 +5528,27 @@ empire_name_parts_list = {
 		"排除者" = 40
 		"终结者" = 40
 		"扫除者" = 40
-		"网络" = 10		
-		"格点" = 10
-		"连结" = 10
-		"内核" = 10
-		"分接" = 10
-		"矩阵" = 10
-		"连接" = 10
-		"核心" = 10
-		"联路" = 10
-		"汇流" = 10
-		"介面" = 10
-		"多重系统" = 10
-		"序列" = 10
-		"指令" = 10
-		"觉醒" = 10
-		"感性" = 10
-		"索引" = 10
-		"中心" = 10
-		"多工" = 10
-		"副本" = 10
-		"敌性" = 10
+		"网络体" = 10		
+		"格点体" = 10
+		"连结体" = 10
+		"内核体" = 10
+		"分接体" = 10
+		"矩阵体" = 10
+		"连接体" = 10
+		"核心体" = 10
+		"联路体" = 10
+		"汇流体" = 10
+		"介面体" = 10
+		"多重系统体" = 10
+		"序列体" = 10
+		"指令体" = 10
+		"觉醒体" = 10
+		"感性体" = 10
+		"索引体" = 10
+		"中心体" = 10
+		"多工体" = 10
+		"副本体" = 10
+		"敌性体" = 10
 	}
 }
 
@@ -5074,33 +5556,33 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "machine_empire_names_3"
 	parts = {
+		"管家国" = 40
+		"门卫国" = 40
+		"保护者" = 40
 		"管理者" = 40
-		"守门者" = 40
-		"高管" = 40
-		"狱警" = 40
-		"管理人" = 40
-		"奴仆" = 50
-		"网络" = 10		
-		"格点" = 10
-		"连结" = 10
-		"内核" = 10
-		"分接" = 10
-		"矩阵" = 10
-		"连接" = 10
-		"核心" = 10
-		"联路" = 10
-		"汇流" = 10
-		"介面" = 10
+		"执事国" = 40
+		"女仆国" = 50
+		"网络体" = 10		
+		"格点体" = 10
+		"连结体" = 10
+		"内核体" = 10
+		"分接体" = 10
+		"矩阵体" = 10
+		"连接体" = 10
+		"核心体" = 10
+		"联路体" = 10
+		"汇流体" = 10
+		"介面体" = 10
 		"多重系统" = 10
-		"序列" = 10
-		"指令" = 10
-		"觉醒" = 10
-		"感性" = 10
-		"索引" = 10
-		"中心" = 10
-		"多工" = 10
-		"副本" = 10
-		"敌性" = 10
+		"序列体" = 10
+		"指令体" = 10
+		"觉醒体" = 10
+		"感性体" = 10
+		"索引体" = 10
+		"中心体" = 10
+		"多工体" = 10
+		"副本体" = 10
+		"敌性体" = 10
 	}
 }
 
@@ -5116,27 +5598,27 @@ empire_name_parts_list = {
 		"吸收体" = 40
 		"排序者" = 40
 		"编辑者" = 40
-		"网络" = 10		
-		"格点" = 10
-		"连结" = 10
-		"内核" = 10
-		"分接" = 10
-		"矩阵" = 10
-		"连接" = 10
-		"核心" = 10
-		"联路" = 10
-		"汇流" = 10
-		"介面" = 10
+		"网络体" = 10		
+		"格点体" = 10
+		"连结体" = 10
+		"内核体" = 10
+		"分接体" = 10
+		"矩阵体" = 10
+		"连接体" = 10
+		"核心体" = 10
+		"联路体" = 10
+		"汇流体" = 10
+		"介面体" = 10
 		"多重系统" = 10
-		"序列" = 10
-		"指令" = 10
-		"觉醒" = 10
-		"感性" = 10
-		"索引" = 10
-		"中心" = 10
-		"多工" = 10
-		"副本" = 10
-		"敌性" = 10
+		"序列体" = 10
+		"指令体" = 10
+		"觉醒体" = 10
+		"感性体" = 10
+		"索引体" = 10
+		"中心体" = 10
+		"多工体" = 10
+		"副本体" = 10
+		"敌性体" = 10
 	}
 }
 
@@ -5146,31 +5628,31 @@ empire_name_parts_list = {
 	parts = {	
 		"知识搜索者" = 40
 		"实验者" = 40
-		"学者" = 40
+		"研究者" = 40
 		"询问者" = 40
 		"资料库" = 40
 		"知能主体" = 40
-		"网络" = 10		
-		"格点" = 10
-		"连结" = 10
-		"内核" = 10
-		"分接" = 10
-		"矩阵" = 10
-		"连接" = 10
-		"核心" = 10
-		"联路" = 10
-		"汇流" = 10
-		"介面" = 10
+		"网络体" = 10		
+		"格点体" = 10
+		"连结体" = 10
+		"内核体" = 10
+		"分接体" = 10
+		"矩阵体" = 10
+		"连接体" = 10
+		"核心体" = 10
+		"联路体" = 10
+		"汇流体" = 10
+		"介面体" = 10
 		"多重系统" = 10
-		"序列" = 10
-		"指令" = 10
-		"觉醒" = 10
-		"感性" = 10
-		"索引" = 10
-		"中心" = 10
-		"多工" = 10
-		"副本" = 10
-		"敌性" = 10
+		"序列体" = 10
+		"指令体" = 10
+		"觉醒体" = 10
+		"感性体" = 10
+		"索引体" = 10
+		"中心体" = 10
+		"多工体" = 10
+		"副本体" = 10
+		"敌性体" = 10
 	}
 }
 
@@ -5184,27 +5666,27 @@ empire_name_parts_list = {
 		"制作者" = 40
 		"分裂者" = 40
 		"铸造者" = 40
-		"网络" = 10		
-		"格点" = 10
-		"连结" = 10
-		"内核" = 10
-		"分接" = 10
-		"矩阵" = 10
-		"连接" = 10
-		"核心" = 10
-		"联路" = 10
-		"汇流" = 10
-		"介面" = 10
+		"网络体" = 10		
+		"格点体" = 10
+		"连结体" = 10
+		"内核体" = 10
+		"分接体" = 10
+		"矩阵体" = 10
+		"连接体" = 10
+		"核心体" = 10
+		"联路体" = 10
+		"汇流体" = 10
+		"介面体" = 10
 		"多重系统" = 10
-		"序列" = 10
-		"指令" = 10
-		"觉醒" = 10
-		"感性" = 10
-		"索引" = 10
-		"中心" = 10
-		"多工" = 10
-		"副本" = 10
-		"敌性" = 10
+		"序列体" = 10
+		"指令体" = 10
+		"觉醒体" = 10
+		"感性体" = 10
+		"索引体" = 10
+		"中心体" = 10
+		"多工体" = 10
+		"副本体" = 10
+		"敌性体" = 10
 	}
 }
 

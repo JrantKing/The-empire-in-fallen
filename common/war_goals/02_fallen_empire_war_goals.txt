@@ -1,0 +1,89 @@
+wg_fe_stop_atrocities_ai = {
+	casus_belli = cb_fe_punishment
+	
+	hide_if_no_cb = yes
+	threat_multiplier = 0
+	surrender_acceptance = 20
+	potential = {
+		always = yes
+	}
+	possible = {
+		has_ethic = ethic_fanatic_egalitarian
+		from = {
+			any_owned_pop = {
+				is_robot_pop = yes
+				has_trait = trait_robotic_3
+			}
+			can_set_robot_policy = yes
+			OR = {
+				has_policy_flag = ai_outlawed
+				has_policy_flag = ai_servitude
+			}
+			has_technology = tech_synthetic_workers
+		}
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		custom_tooltip = wg_stop_atrocities_ai_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_stop_atrocities_ai = yes		
+			fallen_empire_humiliate_effect = yes		
+		}
+	}
+	on_status_quo = {
+		custom_tooltip = wg_humiliation_fe_accept
+		custom_tooltip = wg_stop_atrocities_ai_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_stop_atrocities_ai = yes		
+			fallen_empire_humiliate_effect = yes		
+		}
+	}
+	ai_weight = {
+		weight = 20
+	}
+}
+
+wg_fe_hive_mind = {
+	casus_belli = cb_fe_punishment
+	
+	hide_if_no_cb = yes
+	threat_multiplier = 0
+	surrender_acceptance = -50
+	potential = {
+		from = {
+			has_authority = auth_hive_mind
+		}
+	}
+	possible = {
+		has_ethic = ethic_fanatic_egalitarian
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		custom_tooltip = wg_hive_mind_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			save_event_target_as = hive_mind
+			fallen_empire_free_hive_mind = yes		
+			fallen_empire_humiliate_effect = yes		
+		}
+	}
+	on_status_quo = {
+		custom_tooltip = wg_humiliation_fe_accept
+		custom_tooltip = wg_hive_mind_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			save_event_target_as = hive_mind
+			fallen_empire_free_hive_mind = yes		
+			fallen_empire_humiliate_effect = yes		
+		}
+	}
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 0.1
+			from = { NOT = { has_civic = civic_hive_devouring_swarm } }
+		}
+	}
+}

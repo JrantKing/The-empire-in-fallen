@@ -1,0 +1,35 @@
+ship_design = {
+	name = "NAME_Null"
+	ship_size = null
+	section = {
+		template = "SHIP_NULL_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_NEUTRON"
+		}		
+	}
+	
+	# For special buildable
+	is_special_buildable = yes
+	allow_buildable_trigger =  is_fallen_empire
+}
+
+ship_design = {
+	name = "NAME_Null_station"
+	ship_size = nullstaion
+	section = {
+		template = "SHIP_NULL_staion_SECTION"
+		slot = "mid"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_NEUTRON"
+		}	
+	}
+	
+	# For special buildable
+	is_special_buildable = yes
+	allow_buildable_trigger =  is_fallen_empire
+}

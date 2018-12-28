@@ -1,172 +1,176 @@
 ﻿### Machine 2
+### Written by Dee Majek
+
 MACHINE2 = {
 	should_name_home_system_planets = no
 	
 	ship_names = {
 
 		generic = {
-			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+			与门 天线 直流电源 同轴电缆 二极管 整流桥 缓冲器 蜂鸣器 电容 熔断丝 晶体整荡器 并行插口 稳压二极管 变容二极管 电解电容 熔断器 电感 铁芯电感 可调电感 场效应管 灯泡 起辉器 发光二极管 麦克风 交流电机 伺服电机 与非门 或非门 非门 三极管 感光三极管 运放 或门 感光二极管 三极管 滑线变阻器 双刀双掷继电器 电阻 可变电阻 桥式电阻 晶闸管 插头 三相交流插头 插座 电流源 电压源 扬声器 开关 双刀双掷开关 单刀单掷开关 按钮 电热调节器 变压器 可调变压器 三端双向可控硅 三极真空管 变阻器 齐纳二极管 数码管 艾尔 艾德 特尔 那夫 爱斯 伊司 塔尔 拉尔 欧特 安姆 夏 索尔 多尔 海尔 破 卢姆 科 法尔 蓝姆 普尔 乌姆 马尔 伊司特 古尔 伐克斯 欧姆 罗 瑟 贝 乔 查姆 萨德
 		}
 
 		corvette = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			
 		}
 		
 		destroyer = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			
 		}
 		
 		cruiser = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			
 		}
 		
 		battleship = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			
+		}
+
+		titan = {
+			
+		}
+
+		colossus = {
+			
 		}
 		
 		science = { 
-			#"Voidborne Researcher"
+			"虚空漫步者"
 		}
 		
-		colonizer = { 
-			"Colonization Carrier"
+		colonizer = {  
+			"星河殖民者"
 		}
 		
 		constructor = { 
-			#"Voidborne Constructor"
+			"虚空构成者"
 		}
 
 		transport = { 
-			"Machine Transport"
+			"机械运送舰"
 		}
 		
-
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = { 
-			#random_names = { }
+		military_station_small = {
+			"入侵反制集成"
 		}
 
-		military_station_small = { "Anti-Invasion Simplex" }
-		military_station_medium = { "Anti-Invasion Complex" }
-		military_station_large = { "Anti-Invasion Suplex" }
-	}
+		ion_cannon = {
+			"入侵反制终结器"
+		}
 
-	ship_class_names = {
-		generic = {
-			
-		}		
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			艾尔 艾德 特尔 那夫 爱斯 伊司 塔尔 拉尔 欧特 安姆 夏 索尔 多尔 海尔 破 卢姆 科 法尔 蓝姆 普尔 乌姆 马尔 伊司特 古尔 伐克斯 欧姆 罗 瑟 贝 乔 查姆 萨德
+		}
+		large_ship_fallen_empire = {
+			艾尔 艾德 特尔 那夫 爱斯 伊司 塔尔 拉尔 欧特 安姆 夏 索尔 多尔 海尔 破 卢姆 科 法尔 蓝姆 普尔 乌姆 马尔 伊司特 古尔 伐克斯 欧姆 罗 瑟 贝 乔 查姆 萨德
+		}
+		massive_ship_fallen_empire = {
+			艾尔 艾德 特尔 那夫 爱斯 伊司 塔尔 拉尔 欧特 安姆 夏 索尔 多尔 海尔 破 卢姆 科 法尔 蓝姆 普尔 乌姆 马尔 伊司特 古尔 伐克斯 欧姆 罗 瑟 贝 乔 查姆 萨德
+		}
 	}
 
 	fleet_names = {
 		random_names = { 
-		"第一机械舰队" "第二机械舰队" "第三机械舰队"
+			"第一机械舰队" "第二机械舰队" "第三机械舰队"
 		}
-		sequential_name = "%O% 机械舰队"
+		sequential_name = "%O%机械舰队"
 	}
 	
 	army_names = {
 		
 		machine_assault_1 = {
-			sequential_name = "%O% 突击机人"
+			sequential_name = "%O%突击机人"
 		}
 
-		machine_defense_1 = {
-			sequential_name = "%O% 防卫体"
+		machine_defense = {
+			sequential_name = "%O%防卫体"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% 先进突击机人"
-		}
-
-		machine_defense_2 = {
-			sequential_name = "%O% vu0 先进防卫体"
+			sequential_name = "%O%先进突击机人"
 		}
 		
 		machine_assault_3 = {
-			sequential_name = "%O% 超次元机械巨兽"
+			sequential_name = "%O%超次元机械巨兽"
 		}
-	}
 		
-
-	### PLANETS
-
+		defense_army = {
+			sequential_name = "%O%超次元捍卫体"
+		}
+			
+		assault_army = {
+			sequential_name =  "%O%机甲军"
+		}
+		
+		clone_army = {
+			sequential_name = "%O%复制机甲军"
+		}
+		machine_occupation_army = {
+				sequential_name = "%O%机甲占领军"
+		}	
+	}	
+		
 	planet_names = {
 
 		generic = {
 			names = {
-
-				Cylex Nanex Voltra Ionus Hydrex Vertron Polybit Cubicub Toroidus Icosidon Maniflex Multiplus Cebrenus Tribon Ozonex Nitron Mechus Protus Omnius Trion Omicron Ultrus Isotoxon Xubix Cybrus Cybroid Machinus Prismus Robonus Integron Tessellon Protron Strobus Mechanex Zoplex Retrion Cyphorex Robex Robitron Combinus Arcus Fluxitron Magnetron Positrex Negabit Antiplex Technus Synthon Datus Maxus Gyricon Nega Lazerex Radex Radion Teslus Voxus Voxon Plexon Itron Techron Extron Terminex Valicron Quatron Helixon Leptonex Nucleux Cybro Solaron Spectron Enertron Kaonus Negitron Atomiton Positrus Symmetrus Qubex
-
+				奥德兰 贝斯平 卡得米姆 卡萨 科瑞利亚 科洛桑 达哥巴 丹图因 艾斯勒斯 恩多 方铎 基欧诺西斯 霍斯 依鲁 贾库 卡米诺 卡须克 科瑞班 玛拉卓 曼德洛 穆斯塔法 纳布星 诺哈塔 那沙达 曼特尔 达克 柏拉古 魁什 塔里斯 塔图因 泰桑 尤塔帕 沃斯 雅汶 欲战达
 			}
 		}
 		
 		pc_desert = {
 			names = { 
-				
 			}
 		}
 		
 		pc_tropical = {
 			names = { 
-				
 			}
 		}
 		
 		pc_arid = {
 			names = { 
-				
 			}
 		}
 		
 		pc_continental = {
 			names = { 
-				
 			}
 		}
 		
 		pc_ocean = {
 			names = { 
-				
 			}
 		}
 		
 		pc_tundra = {
 			names = { 
-				
 			}
 		}
 		
 		pc_arctic = {
 			names = { 
-				
 			}
 		}
 
 		pc_savannah = {
 			names = { 
-				
 			}
 		}
 
 		pc_alpine = {
 			names = { 
-				
 			}
 		}
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
 			full_names = { 
-			"Sophont 0X1" "Sophont A02" "Sophont 0E35" "Sophont 04Y" "Sophont B05" "Sophont V06" "Sophont C07" "Sophont 0Z8" "Sophont 0E9" "Sophont Q10" "Sophont 1P1" "Sophont W12" "Sophont 1U3" "Sophont R14" "Sophont 1K5" "Sophont E16" "Sophont 1A7" "Sophont 1V8" "Sophont 19D" "Sophont L20" "Sophont 2O1" "Sophont F22" "Sophont 2GA" "Sophont 2E4" "Sophont Q25" "Sophont 26R4" "Sophont 2H7" "Sophont CT8" "Sophont Y9R" "Sophont M3N" "Sophont 3X1" "Sophont Z3T" "Sophont K68" "Sophont 1U5" "Sophont A75" "Sophont TX8" "Sophont H57" "Sophont IB8" "Sophont 3RO" "Sophont M40" "Sophont CL9" "Sophont X2A" "Sophont T7B" "Sophont 49A" "Sophont O4D"
+			"智人 0X1" "智人 A02" "智人 0E35" "智人 04Y" "智人 B05" "智人 V06" "智人 C07" "智人 0Z8" "智人 0E9" "智人 Q10" "智人 1P1" "智人 W12" "智人 1U3" "智人 R14" "智人 1K5" "智人 E16" "智人 1A7" "智人 1V8" "智人 19D" "智人 L20" "智人 2O1" "智人 F22" "智人 2GA" "智人 2E4" "智人 Q25" "智人 26R4" "智人 2H7" "智人 CT8" "智人 Y9R" "智人 M3N" "智人 3X1" "智人 Z3T" "智人 K68" "智人 1U5" "智人 A75" "智人 TX8" "智人 H57" "智人 IB8" "智人 3RO" "智人 M40" "智人 CL9" "智人 X2A" "智人 T7B" "智人 49A" "智人 O4D"
 			}
 			
 			# Always combined with a second name
@@ -190,7 +194,7 @@ MACHINE2 = {
 	ruler_names = {
 		default = {
 			full_names = {
-				计算处理元 海神普罗透亚
+				戴克斯特拉 克魯斯卡爾 普里姆 拓撲排序 關鍵路徑 廣度優先 深度優先
 			}
 		}
 	}

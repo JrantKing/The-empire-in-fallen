@@ -1,7 +1,98 @@
 ap_crisis_fighter = {
+	potential = {
+		is_ai = no
+		is_country_type = fallen_empire
+		NOT = {
+			has_ascension_perk = ap_crisis_fighter
+			has_ascension_perk = ap_rw_awakening
+		}
+	}
+	
+	possible = {	
+		has_global_flag = galactic_crisis_happened
+		is_country_type = fallen_empire
+		OR = {
+			has_ethic = ethic_fanatic_materialist
+			has_ethic = ethic_fanatic_xenophile
+			has_ethic = ethic_fanatic_egalitarian
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+	
 	on_enabled = {
 		set_country_type = awakened_fallen_empire
 		hidden_effect = {
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_materialist = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]调整会" }
+						10 = { set_name = "[This.GetSpeciesName]执法会" }
+						10 = { set_name = "[This.GetSpeciesName]监督会" }
+					}
+					#create_ship_design = { design = "NAME_Enforcer" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Savant" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Scholar" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Sage" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Cloaker" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_xenophile = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]维和星族" }
+						10 = { set_name = "[This.GetSpeciesName]仲裁星族" }
+						10 = { set_name = "[This.GetSpeciesName]先知星族" }
+					}
+					#create_ship_design = { design = "NAME_Adjuster" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Keeper" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Custodian" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Warden" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Watcher" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_egalitarian = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]防卫者" }
+						10 = { set_name = "[This.GetSpeciesName]解放者" }
+						10 = { set_name = "[This.GetSpeciesName]领导者" }
+					}
+					#create_ship_design = { design = "NAME_Justice" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Liberation" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Freeborn" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Equalities" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Shininess" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_authoritarian = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]振兴文明" }
+						10 = { set_name = "[This.GetSpeciesName]觉醒文明" }
+						10 = { set_name = "[This.GetSpeciesName]复兴文明" }
+					}
+					#create_ship_design = { design = "NAME_Giant" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Flare" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Pianeta" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Selina" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Dwarf" }
+					#add_ship_design = last_created_design
+				}
+			}
 			set_country_flag = guardians_of_the_galaxy
 			every_country = {
 				limit = {
@@ -49,7 +140,6 @@ ap_crisis_fighter = {
 				limit = { is_overlord = yes }
 				country_event = { id = fallen_empires_awakening.8 }
 			}
-			country_event = { id = fallen_empires_awakening.9 }
 			set_policy = {
 				policy = food_stockpiling
 				option = food_stockpiling_3
@@ -75,16 +165,7 @@ ap_crisis_fighter = {
 			}
 		}
 	}
-	possible = {	
-		has_global_flag = galactic_crisis_happened
-		is_country_type = fallen_empire
-		OR = {
-			has_ethic = ethic_fanatic_materialist
-			has_ethic = ethic_fanatic_xenophile
-			has_ethic = ethic_fanatic_egalitarian
-			has_ethic = ethic_fanatic_authoritarian
-		}
-	}
+	
 	modifier = {
 		description = ap_defender_of_the_galaxy_modifier_desc 
 		damage_vs_country_type_swarm_mult = 0.5
@@ -94,24 +175,145 @@ ap_crisis_fighter = {
 		damage_vs_country_type_ai_empire_mult = 0.5
 	}
 	
-	potential = {
-		is_ai = no
-		is_country_type = fallen_empire
-		NOT = {
-			has_ascension_perk = ap_crisis_fighter
-			has_ascension_perk = ap_rw_awakening
-		}
-	}
-	
 	ai_weight = {
 		factor = 0
 	}
 }
 
 ap_rw_awakening = {
+	potential = {
+		is_ai = no
+		is_country_type = fallen_empire
+		NOT = {
+			has_ascension_perk = ap_rw_awakening
+			has_ascension_perk = ap_crisis_fighter
+		}
+	}
+	
+	possible = {	
+		years_passed > 100
+		is_country_type = fallen_empire
+		is_at_war = no
+		fleet_power > 40000
+		any_country = {
+			is_country_type = default
+			OR = {
+				fleet_power > 70000
+				any_owned_planet = {
+					has_planet_flag = fallen_empire_world
+				}
+			}
+		}
+	}
+	
 	on_enabled = {
 		set_country_type = awakened_fallen_empire
 		hidden_effect = {
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_materialist = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]调整会" }
+						10 = { set_name = "[This.GetSpeciesName]执法会" }
+						10 = { set_name = "[This.GetSpeciesName]监督会" }
+					}
+					#create_ship_design = { design = "NAME_Enforcer" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Savant" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Scholar" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Sage" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Cloaker" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_spiritualist = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]圣战者" }
+						10 = { set_name = "[This.GetSpeciesName]狂信者" }
+						10 = { set_name = "[This.GetSpeciesName]狂热者" }
+					}
+					#create_ship_design = { design = "NAME_Cleanser" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Eternal" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Avatar" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Zealot" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Faith" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_xenophile = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]维和星族" }
+						10 = { set_name = "[This.GetSpeciesName]仲裁星族" }
+						10 = { set_name = "[This.GetSpeciesName]先知星族" }
+					}
+					#create_ship_design = { design = "NAME_Adjuster" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Keeper" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Custodian" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Warden" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Watcher" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_xenophobe = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]再生文明" }
+						10 = { set_name = "[This.GetSpeciesName]中兴文明" }
+						10 = { set_name = "[This.GetSpeciesName]复兴文明" }
+					}
+					#create_ship_design = { design = "NAME_Reaper" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Imperium" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Supremacy" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Glory" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Devastator" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_egalitarian = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]防卫者" }
+						10 = { set_name = "[This.GetSpeciesName]解放者" }
+						10 = { set_name = "[This.GetSpeciesName]领导者" }
+					}
+					#create_ship_design = { design = "NAME_Justice" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Liberation" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Freeborn" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Equalities" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Shininess" }
+					#add_ship_design = last_created_design
+				}
+				ethic_fanatic_authoritarian = {
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]振兴帝国" }
+						10 = { set_name = "[This.GetSpeciesName]觉醒帝国" }
+						10 = { set_name = "[This.GetSpeciesName]复兴帝国" }
+					}
+					#create_ship_design = { design = "NAME_Giant" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Flare" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Pianeta" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Selina" }
+					#add_ship_design = last_created_design
+					#create_ship_design = { design = "NAME_Dwarf" }
+					#add_ship_design = last_created_design
+				}
+			}
 			set_country_flag = sleepers_awake_first_sleeper
 			change_government = {
 				civics = {
@@ -123,7 +325,7 @@ ap_rw_awakening = {
 			add_energy = 5000
 			add_influence = 1000
 			country_event = { id = fallen_empires.13 }
-			leave_alliance = yes
+			leave_alliance = { override_requirements = yes }
 			if = {
 				limit = {
 					any_country = {
@@ -152,7 +354,6 @@ ap_rw_awakening = {
 				limit = { is_overlord = yes }
 				country_event = { id = fallen_empires_awakening.8 }
 			}
-			country_event = { id = fallen_empires_awakening.9 }
 			set_policy = {
 				policy = food_stockpiling
 				option = food_stockpiling_3
@@ -172,31 +373,7 @@ ap_rw_awakening = {
 			}
 		}
 	}
-	possible = {	
-		years_passed > 100
-		is_country_type = fallen_empire
-		is_at_war = no
-		fleet_power > 40000
-		any_country = {
-			is_country_type = default
-			OR = {
-				fleet_power > 70000
-				any_owned_planet = {
-					has_planet_flag = fallen_empire_world
-				}
-			}
-		}
-	}
 	modifier = {
-	}
-	
-	potential = {
-		is_ai = no
-		is_country_type = fallen_empire
-		NOT = {
-			has_ascension_perk = ap_rw_awakening
-			has_ascension_perk = ap_crisis_fighter
-		}
 	}
 	
 	ai_weight = {

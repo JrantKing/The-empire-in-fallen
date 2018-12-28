@@ -1,0 +1,409 @@
+example_button_effect_energy = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = energy
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_minerals = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = minerals
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_food = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = food
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_physics_research = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = physics_research
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_society_research = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_engineering_research = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_influence = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = influence
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_unity = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = unity
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_alloys = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = alloys
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_consumer_goods = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = consumer_goods
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_volatile_motes = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = volatile_motes
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_exotic_gases = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = exotic_gases
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_rare_crystals = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = rare_crystals
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_sr_living_metal = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = sr_living_metal
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_sr_zro = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = sr_zro
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_sr_dark_matter = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = sr_dark_matter
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_nanites = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		add_monthly_resource_mult = {
+			resource = nanites
+			value = 5
+			min = 5
+			max = 500
+		}		
+	}
+}
+
+example_button_effect_shift_ethic_authoritarian = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_authoritarian		
+	}
+}
+
+example_button_effect_shift_ethic_egalitarian = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_egalitarian		
+	}
+}
+
+example_button_effect_shift_ethic_xenophobe = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_xenophobe		
+	}
+}
+
+example_button_effect_shift_ethic_xenophile = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_xenophile		
+	}
+}
+
+example_button_effect_shift_ethic_militarist = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_militarist		
+	}
+}
+
+example_button_effect_shift_ethic_pacifist = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_pacifist		
+	}
+}
+
+example_button_effect_shift_ethic_spiritualist = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_spiritualist		
+	}
+}
+
+example_button_effect_shift_ethic_materialist = {
+	potential = {
+		always = yes
+	}
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		shift_ethic = ethic_materialist		
+	}
+}

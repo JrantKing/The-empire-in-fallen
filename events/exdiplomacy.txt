@@ -1,0 +1,499 @@
+namespace = exdiplomacy
+
+country_event = {
+	id = exdiplomacy.0
+	is_triggered_only = yes
+	title = "exdiplomacy.0.name"
+	desc = {
+		text = "exdiplomacy.0.desc.a"
+	}
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:recipient
+		planet_background = event_target:recipient
+		graphical_culture = event_target:recipient
+		city_level = event_target:recipient
+		room = event_target:recipient.ruler
+	}
+	immediate = {
+		random_planet = {
+			limit = { has_planet_flag = europa7 }
+			save_event_target_as = europa
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_machine }
+			save_event_target_as = fallen_machine
+		}
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_none"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+				check_variable = {
+					which = stability_num
+					value = 0
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_0"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+				check_variable = {
+					which = stability_num
+					value = 1
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_num_count_stability_num_p_1"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+				check_variable = {
+					which = stability_num
+					value = 2
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_num_count_stability_num_p_2"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+				check_variable = {
+					which = stability_num
+					value = 3
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_num_count_stability_num_p_3"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+				check_variable = {
+					which = stability_num
+					value = -1
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_num_count_stability_num_m_1"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+				check_variable = {
+					which = stability_num
+					value = -2
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_num_count_stability_num_m_2"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	option = {
+		trigger = {
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_gestalt_consciousness
+				}
+				check_variable = {
+					which = stability_num
+					value = -3
+				}
+			}
+		}
+		custom_gui = "dipo_Stability_option"
+		name = "recipient_stability_num_count_stability_num_m_3"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	#点错
+	option = {
+		name = "exdiplomacy.0.a"
+		hidden_effect ={ remove_country_flag = ex_diplomacy }
+	}
+	#侮辱
+	option = {
+		name = "exdiplomacy.0.b"
+		trigger = {
+			NOT = { is_country_type = fallen_empire }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = "exdiplomacy_INSULT_TOO_SOON"
+				event_target:recipient = { NOT = { has_relation_flag = { who = event_target:actor flag = timed_insult } } }
+			}
+		}
+		custom_tooltip = exdiplomacy.0.b.tooltip
+		hidden_effect ={
+			remove_country_flag = ex_diplomacy
+			event_target:recipient = {
+				set_timed_relation_flag = { flag = timed_insult who = event_target:actor days = 30 }
+				country_event = { id = exdiplomacy.1 }
+			}
+		}
+	}
+	#买船
+	option = {
+		name = "exdiplomacy.0.c"
+		allow = {
+			allow_diplo = yes
+		}
+		trigger = {
+			event_target:recipient = {
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				NOT = { is_berserker_to = root }
+			}
+			NOR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		custom_tooltip = exdiplomacy.0.c.tooltip
+		hidden_effect ={
+			remove_country_flag = ex_diplomacy
+			event_target:recipient = {
+				set_timed_relation_flag = { flag = timed_buy who = event_target:actor days = 360 }
+				country_event = { id = fallentrade.2 }
+			}
+		}
+	}
+	############################
+	option = {
+		name = "exdiplomacy.0.d"
+		allow = {
+			custom_tooltip = {
+				fail_text = "exdiplomacy.0.d.task"
+				always = no
+			}
+		}
+		trigger = {
+			is_country_type = fallen_empire
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		custom_tooltip = exdiplomacy.0.d.tooltip
+		hidden_effect ={
+			remove_country_flag = ex_diplomacy
+			event_target:recipient = {
+				set_country_flag = testtask
+			}
+		}
+	}
+	option = {
+		name = "exdiplomacy.0.e"
+		allow = {
+			custom_tooltip = {
+				fail_text = "exdiplomacy.0.d.task"
+				always = no
+			}
+		}
+		trigger = {
+			is_country_type = fallen_empire
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		custom_tooltip = exdiplomacy.0.e.tooltip
+		hidden_effect ={
+			remove_country_flag = ex_diplomacy
+			event_target:recipient = {
+				
+			}
+		}
+	}
+	option = {
+		name = "exdiplomacy.0.f"
+		allow = {
+			custom_tooltip = {
+				fail_text = "exdiplomacy.0.d.task"
+				always = no
+			}
+		}
+		trigger = {
+			is_country_type = fallen_empire
+			event_target:recipient = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		custom_tooltip = exdiplomacy.0.f.tooltip
+		hidden_effect ={
+			remove_country_flag = ex_diplomacy
+			event_target:recipient = {
+				
+			}
+		}
+	}
+	############################
+	#加入战争
+	option = {
+		name = "exdiplomacy.0.g"
+		trigger = {
+			event_target:recipient = {
+				NOT = { is_country_type = fallen_empire }
+			}
+		}
+		allow = {
+			allow_diplo = yes
+			event_target:recipient = {
+				is_at_war = yes
+				is_war_leader = yes
+				has_federation = no
+				NOT = {
+					is_at_war_with = ROOT
+					is_rival = event_target:actor
+				}
+			}
+			has_federation = no
+			custom_tooltip = {
+				fail_text = "exdiplomacy_war_desc"
+				event_target:actor = {
+					count_country = {
+						count = 0
+						limit = {
+							AND = {
+								is_war_leader = yes
+								is_at_war_with = event_target:recipient
+								OR = {
+									has_truce = event_target:actor
+									is_at_war_with = event_target:actor
+									has_defensive_pact = event_target:actor
+									is_in_federation_with = event_target:actor
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = exdiplomacy.0.g.tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					event_target:recipient = { is_ai = yes }
+				}
+				join_war = event_target:recipient
+				every_subject = { limit = { is_subject_type = vassal } join_war = root }
+				event_target:recipient = {
+					add_opinion_modifier = {
+						who = event_target:actor
+						modifier = opinion_war_helper
+					}
+				}
+				every_country = {
+					limit = {
+						is_war_leader = yes
+						is_at_war_with = event_target:recipient
+					}
+					add_opinion_modifier = {
+						who = event_target:actor
+						modifier = opinion_war_accomplices
+					}
+				}
+				remove_country_flag = ex_diplomacy
+			}
+			else = {
+				event_target:recipient = {
+					country_event = { id = exdiplomacy.2 }
+				}
+			}
+		}
+	}
+	#看守者项目
+	option = {
+		name = "exdiplomacy.0.h"
+		allow = {
+			allow_diplo = yes
+		}
+		trigger = {
+			NOT = { is_at_war_with = event_target:recipient }
+			event_target:recipient = {
+				OR = {
+					has_ai_personality = fallen_empire_machine
+					has_ai_personality = awakened_fallen_empire_machine
+				}
+				NOT = { is_angry_to = event_target:actor }
+			}
+		}
+		custom_tooltip = exdiplomacy.0.h.tooltip
+		hidden_effect ={
+			event_target:actor = {
+				country_event = { id = pioneer_describe.0 }
+			}
+		}
+	}
+	#历史项目
+	option = {
+		name = "exdiplomacy.0.i"
+		allow = {
+			allow_diplo = yes
+		}
+		trigger = {
+			exists = event_target:fallen_machine
+			NOT = { is_at_war_with = event_target:recipient }
+			event_target:recipient = {
+				has_country_flag = fallen_empire_6
+				NOR = {
+					is_angry_to = event_target:actor
+					is_imperious_to = event_target:actor
+					is_belligerent_to = event_target:actor
+				}
+			}
+		}
+		custom_tooltip = exdiplomacy.0.i.tooltip
+		hidden_effect ={
+			event_target:actor = {
+				country_event = { id = pioneer_describe.1 }
+			}
+		}
+	}
+	#欧罗巴7
+	option = {
+		name = "exdiplomacy.0.j"
+		allow = {
+			allow_diplo = yes
+		}
+		trigger = {
+			exists = event_target:europa
+			NOT = { is_at_war_with = event_target:recipient }
+			event_target:recipient = {
+				has_country_flag = fallen_empire_6
+				NOR = {
+					is_angry_to = event_target:actor
+					is_imperious_to = event_target:actor
+					is_belligerent_to = event_target:actor
+				}
+			}
+		}
+		custom_tooltip = exdiplomacy.0.j.tooltip
+		hidden_effect ={
+			event_target:actor = {
+				country_event = { id = pioneer_describe.2 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = exdiplomacy.2
+	is_triggered_only = yes
+	title = " "
+	desc = {
+		text = "exdiplomacy.2.desc.a"
+	}
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:actor
+		planet_background = event_target:actor
+		graphical_culture = event_target:actor
+		city_level = event_target:actor
+		room = event_target:actor.ruler
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "exdiplomacy.2.a"
+		hidden_effect ={
+			event_target:actor = {
+				remove_country_flag = ex_diplomacy
+				join_war = event_target:recipient
+				every_subject = { limit = { is_subject_type = vassal } join_war = event_target:actor }
+			}
+			add_opinion_modifier = {
+				who = event_target:actor
+				modifier = opinion_war_helper
+			}
+			every_country = {
+				limit = {
+					is_war_leader = yes
+					is_at_war_with = event_target:recipient
+				}
+				add_opinion_modifier = {
+					who = event_target:actor
+					modifier = opinion_war_accomplices
+				}
+			}
+		}
+	}
+	option = {
+		name = "exdiplomacy.2.b"
+		hidden_effect ={
+			remove_country_flag = ex_diplomacy
+		}
+	}
+}

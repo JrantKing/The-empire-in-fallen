@@ -1,0 +1,401 @@
+weapon_component_template = {
+	key = "TITAN_LASER"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_energy_lance_2"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+	
+	component_set = "TITAN_LASER"
+	projectile_gfx = "titan_laser"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_R"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_red"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+	
+	component_set = "pTITAN_LASER_R"
+	projectile_gfx = "ptitan_laser_Red"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_O"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_orange"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+
+	component_set = "pTITAN_LASER_O"
+	projectile_gfx = "ptitan_laser_Orange"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_Y"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_yellow"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+	
+	component_set = "pTITAN_LASER_Y"
+	projectile_gfx = "ptitan_laser_Yellow"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_G"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_green"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+
+	component_set = "pTITAN_LASER_G"
+	projectile_gfx = "ptitan_laser_Green"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_B"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_blue"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+
+	component_set = "pTITAN_LASER_B"
+	projectile_gfx = "ptitan_laser_Blue"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_P"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_white"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+	
+	component_set = "pTITAN_LASER_W"
+	projectile_gfx = "ptitan_laser_White"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+}
+
+weapon_component_template = {
+	key = "pTITAN_LASER_W"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	
+	icon = "GFX_ship_part_titan_lance_white"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	#cost = 500.0
+	power = -500.0
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+	
+	component_set = "pTITAN_LASER_W"
+	projectile_gfx = "ptitan_laser_White"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military }
+	size_restriction = { massive_ship_fallen_empire }
+}
+
+######################################
+
+weapon_component_template = {
+	key = "THE_UPPER_TEARER"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_arc_emitter_2"
+	icon_frame = 1
+	
+	hidden = yes
+	
+	#firing_arc = 360.0
+	min_range = 0
+	#static_rotation = yes
+	use_ship_kill_target = no
+	
+	damage = { min = 6000 max = 10000 }
+	windup = { min = 30 max = 45 }
+	total_fire_time = 90
+	range = 250.0
+	accuracy = 1.00
+	shield_damage = 1.00
+	shield_penetration = 0.00
+	armor_penetration = 1.00
+	tracking = 1.00
+	cost = 300
+	
+	component_set = "THE_UPPER_TEARER"
+	projectile_gfx = "focused_arc_emitter"
+}

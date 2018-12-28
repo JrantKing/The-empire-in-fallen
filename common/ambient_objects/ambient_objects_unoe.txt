@@ -1,0 +1,23 @@
+# broken unoe outpost
+ambient_object = {
+	name = "broken_UNE_outpost"
+	entity = "UNE_starbase_citadel_destroyed_entity"
+	selectable = yes
+	show_name = yes
+	tooltip = "derelict_starbase_citadel_desc"
+	description = "derelict_starbase_citadel_desc"
+}
+# Ancient Battlefield
+ambient_object = {
+	name = "unoe_ancient_battlefield_object"
+	entity = "unoe_ancient_battlefield_entity"
+	selectable = no
+	show_name = yes
+}
+
+ambient_object = {
+	name = "planet_shield"
+	entity = "planet_gaia_shield_effect_entity"
+	selectable = no
+	show_name = no
+}

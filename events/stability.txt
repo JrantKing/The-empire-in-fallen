@@ -1,10 +1,143 @@
 namespace = stability
+
+country_event = {
+	id = stability.996
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "spy_orb_window"
+	title = ""
+	desc =  ""
+	immediate = {
+		
+	}
+	option = {
+		name = "stability.996.escape"
+		custom_gui = "spy_orb_option"
+	}
+	option = {
+		custom_gui = "spy_orb_option"
+		trigger = {
+			NOT = { has_country_flag = had_closed_spy_orb }
+		}
+		name = "stability.996.close"
+		hidden_effect = {
+			set_country_flag = had_closed_spy_orb
+		}
+	}
+	option = {
+		custom_gui = "spy_orb_option"
+		trigger = {
+			has_country_flag = had_closed_spy_orb
+		}
+		name = "stability.996.open"
+		hidden_effect = {
+			remove_country_flag = had_closed_spy_orb
+		}
+	}
+	after = {
+		hidden_effect = { remove_country_flag = had_spy_orb_enter }
+	}
+}
+
+country_event = {
+	id = stability.997
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "planettile_window"
+	title = ""
+	desc =  ""
+	immediate = {
+		
+	}
+	option = {
+		trigger = {
+			check_variable = {
+				which = planet_size_num
+				value = 0
+			}
+		}
+		custom_gui = "Stability_option"
+		name = "0"
+		hidden_effect = {
+			remove_country_flag = had_tile_enter
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = planet_size_num
+					value = 0
+				}
+			}
+		}
+		custom_gui = "Stability_option"
+		name = "have_planet_tile"
+		hidden_effect = {
+			remove_country_flag = had_tile_enter
+		}
+	}
+}
+
+country_event = {
+	id = stability.998
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "stability_window"
+	title = ""
+	desc =  ""
+	immediate = {}
+	after = { remove_country_flag = stability_enter }
+}
+
+event = {
+	id = stability.999
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { 
+		any_country = {
+			is_country_type = default
+			has_ethic = ethic_gestalt_consciousness
+			OR = {
+				has_modifier = 6_stability
+				has_modifier = 5_stability
+				has_modifier = 4_stability
+				has_modifier = 2_stability
+				has_modifier = 1_stability
+				has_modifier = 0_stability
+			}
+		}
+	}
+	immediate = {
+		every_country = {
+			limit = {
+				is_country_type = default
+				has_ethic = ethic_gestalt_consciousness
+				OR = {
+					has_modifier = 6_stability
+					has_modifier = 5_stability
+					has_modifier = 4_stability
+					has_modifier = 2_stability
+					has_modifier = 1_stability
+					has_modifier = 0_stability
+				}
+			}
+			set_variable = {
+				which = stability_num
+				value = 0
+			}
+			country_event = { id = stability.1005 }
+		}
+	}
+}
+
 country_event = {
 	id = stability.1000
 	hide_window = yes
 	is_triggered_only = yes
 	fire_only_once = yes
 	immediate = {
+		set_global_flag = stability_MOD_installed
 		every_country = {
 			country_event = { id = stability.1001 }
 		}
@@ -16,9 +149,13 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	immediate = {
-		change_variable = {
+		set_variable = {
 			which = stability_num
-			value = 3
+			value = 0
+		}
+		set_variable = {
+			which = planet_size_num
+			value = 0
 		}
 	}
 }
@@ -39,24 +176,18 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value > 6 
+					value > 3 
 				}
 			}
 			set_variable = {
 				which = "stability_num"
-				value = 6
+				value = 3
 			}
 		}
 		country_event = { id = stability.1005 }
 	}
 	option = {
-	    name = "GOOD"
-	}
-	option = {
-	    name = "MARVELOUS"
-	}
-	option = {
-	    name = "EXCELLENT"
+		name = "OK"
 	}
 }
 
@@ -76,31 +207,44 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value < 0 
+					value < -3 
 				}
 			}
 			set_variable = {
 				which = "stability_num"
-				value = 0
+				value = -3
 			}
 		}
 		country_event = { id = stability.1005 }
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value < -1 
+				}
+				check_variable = {
+					which = stability_num
+					value > -3 
+				}
+			}
+			create_message = { 
+				type = LOW_STABILITY_MESSAGE_TYPE
+				localization = MESSAGE_LOW_STABILITY
+				days = 30 
+				target = root
+				variable = { type = name localization = CONTRTY scope = root }
+			}
+		}
 	}
 	option = {
-	    name = "UNFORTUNATE"
-	}
-	option = {
-	    name = "WORRYING"
-	}
-	option = {
-	    name = "DISCONCERTING"
+		name = "OK"
 	}
 }
 
 country_event = {
     id = stability.1004
 	title = "country.999.name"
-	desc = "stability.1004.1"
+	desc = "stability.1004.desc"
 	picture = GFX_evt_atmospheric_entry
 	show_sound = event_mystic_reveal
 	trigger = { 
@@ -108,43 +252,65 @@ country_event = {
 		is_country_type = default
 		NOT = { has_ethic = ethic_gestalt_consciousness }
 	}
-	
+	mean_time_to_happen = { months = 12 }
 	immediate = {
 		set_country_flag = huixingguance
 	}
 	
 	option = {
 	    name = "stability.1004.a"
+		trigger = { has_ethic = ethic_fanatic_materialist }
 		hidden_effect = {
 			country_event = { id = stability.1003 }
 		}
 	}
 	option = {
 	    name = "stability.1004.b"
+		trigger = { has_ethic = ethic_fanatic_spiritualist }
 		hidden_effect = {
 			country_event = { id = stability.1003 }
 		}
 	}
 	option = {
 	    name = "stability.1004.c"
+		trigger = { has_ethic = ethic_fanatic_authoritarian }
 		hidden_effect = {
-			country_event = { id = stability.1002 }
+			country_event = { id = stability.1003 }
 		}
 	}
 	option = {
 	    name = "stability.1004.d"
+		trigger = { has_ethic = ethic_fanatic_xenophobe }
 		hidden_effect = {
 			country_event = { id = stability.1003 }
 		}
 	}
 	option = {
 	    name = "stability.1004.e"
+		trigger = { has_ethic = ethic_fanatic_egalitarian }
 		hidden_effect = {
 			country_event = { id = stability.1003 }
 		}
 	}
 	option = {
 	    name = "stability.1004.f"
+		trigger = { has_ethic = ethic_fanatic_pacifist }
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+	option = {
+	    name = "stability.1004.g"
+		trigger = {
+			NOR = {
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
 		hidden_effect = {
 			country_event = { id = stability.1003 }
 		}
@@ -160,7 +326,7 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value = 0 
+					value = -3
 				}
 			}
 			set_0_stability = yes
@@ -169,7 +335,7 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value = 1 
+					value = -2 
 				}
 			}
 			set_1_stability = yes
@@ -178,7 +344,7 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value = 2 
+					value = -1
 				}
 			}
 			set_2_stability = yes
@@ -187,7 +353,7 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value = 3 
+					value = 0
 				}
 			}
 			set_3_stability = yes
@@ -196,7 +362,7 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value = 4 
+					value = 1 
 				}
 			}
 			set_4_stability = yes
@@ -205,7 +371,7 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value = 5 
+					value = 2 
 				}
 			}
 			set_5_stability = yes
@@ -214,10 +380,453 @@ country_event = {
 			limit = {
 				check_variable = {
 					which = stability_num
-					value = 6 
+					value = 3 
 				}
 			}
 			set_6_stability = yes
 		}
 	}
+}
+
+country_event = {
+	id = stability.1006
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		from = {
+			OR = {
+				is_same_value = root.ruler
+				is_same_value = root.heir
+			}
+		}
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+	
+	immediate = {
+		country_event = { id = stability.1003 }
+	}
+}
+
+country_event = {              ###战胜利维坦+1稳定###
+    id = stability.1007
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_country_flag = killed_guardian        ###击败野爹###
+		NOT = { has_country_flag = recent_killed_guardian }
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		from = { is_guardian_country = yes }
+	}
+	immediate = {
+		country_event = { id = stability.1002 }
+		set_timed_country_flag = { flag = recent_killed_guardian days = 7200 }
+	}
+}
+
+country_event = {              ###天灾入侵掉稳定###
+    id = stability.1008
+	title = "stability.1008.name"
+	picture = GFX_evt_news_room
+	desc = {
+		text = stability.1008.desc.a
+		trigger = {
+			NOT = { has_ethic = ethic_fanatic_militarist }
+		}
+	}
+	desc = {
+		text = stability.1008.desc.b
+		trigger = {
+			has_ethic = ethic_fanatic_militarist
+		}
+	}
+	trigger = {
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		NOT = { has_country_flag = crisis_minus_stability }
+	    OR = {
+			has_global_flag = prethoryn_invasion_happened
+			has_global_flag = extradimensional_invasion_happened
+			has_global_flag = ai_invasion_happened
+		}
+	}
+	mean_time_to_happen = { months = 1 }
+	immediate = {
+		set_country_flag = crisis_minus_stability
+	}
+	option = {
+		name = "stability.1008.a"
+		trigger = {
+			NOT = { has_ethic = ethic_fanatic_militarist }
+		}
+		hidden_effect ={
+			country_event = {id = stability.1009}
+	    }
+	}
+	option = {
+	    name = "stability.1008.b"
+		trigger = {
+			has_ethic = ethic_fanatic_militarist
+		}
+		hidden_effect = {
+		    country_event = { id = stability.1002 }
+		}
+	}
+}
+
+country_event = {             ###掉3稳定###
+	id = stability.1009
+	title = "stability.1003.name"
+	desc = "stability.1003.desc"
+	picture = GFX_evt_atmospheric_entry
+	is_triggered_only = yes
+	show_sound = event_stability_decrease
+	immediate = {
+		change_variable = {
+			which = stability_num
+			value = -3
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value < -3 
+				}
+			}
+			set_variable = {
+				which = "stability_num"
+				value = -3
+			}
+		}
+		country_event = { id = stability.1005 }
+		if = {
+			limit = {
+				check_variable = {
+					which = stability_num
+					value < -1 
+				}
+			}
+			create_message = { 
+				type = LOW_STABILITY_MESSAGE_TYPE
+				localization = MESSAGE_LOW_STABILITY
+				days = 30 
+				target = root
+				variable = { type = name localization = CONTRTY scope = root }
+			}
+		}
+	}
+	option = {
+		name = "OK"
+	}
+}
+
+country_event = {
+    id = stability.1010
+	title = "stability.1010.name"
+	trigger = {
+		is_country_type = default
+		OR = {
+			has_ethic = ethic_fanatic_egalitarian
+			has_ethic = ethic_fanatic_authoritarian
+		}
+	}
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_egalitarian = { text = country.1010.desc.ind }
+				ethic_fanatic_authoritarian = { text = country.1010.desc.coll }
+			}
+		}
+	}
+	picture = GFX_evt_news_room
+	show_sound = event_mystic_reveal
+	
+	mean_time_to_happen = { months = 2400 }
+	
+	option = {
+		name = "stability.1010.a"
+		trigger = { has_ethic = ethic_fanatic_authoritarian } 
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+	
+	option = {
+	    name = "stability.1010.a"
+		trigger = { has_ethic = ethic_fanatic_egalitarian }
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+}
+
+country_event = {             #贪污
+    id = stability.1011
+    title = "stability.1011.name"
+	desc = "stability.1011.desc"
+	picture = "GFX_evt_news_room"
+	trigger = {
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+	mean_time_to_happen = { months = 3000 }
+	option = {
+		name =  "WORRYING"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+}
+
+country_event = {#选票造假
+    id = stability.1012
+	title = "stability.1012.name"
+	desc = "stability.1012.desc"
+	picture = GFX_evt_news_room
+	trigger = {
+		is_country_type = default
+	    has_ethic = ethic_fanatic_egalitarian
+	}
+	mean_time_to_happen = { months = 3000 }
+	option = {
+	    name = "DISCONCERTING"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+}
+
+country_event = {#议会丑闻
+    id = stability.1013
+	title = "stability.1013.name"
+	desc = "stability.1013.desc"
+	picture = GFX_evt_news_room
+	trigger = {
+		is_country_type = default
+	    has_ethic = ethic_fanatic_egalitarian
+	}
+	mean_time_to_happen = { months = 3000}
+	option = {
+		name = "DISCONCERTING"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+}
+
+country_event = {#神启
+    id = stability.1014
+	title = "stability.1014.name"
+	desc = "stability.1014.desc"
+	picture = GFX_evt_news_room
+	trigger = {
+		is_country_type = default
+		has_ethic = ethic_fanatic_spiritualist
+	}
+	mean_time_to_happen = { months = 3000}
+	option = {
+		name = "stability.1014.a"
+		hidden_effect = {
+			country_event = { id = stability.1002 }
+		}
+	}
+}
+
+country_event = {#军队待遇
+    id = stability.1015
+	title = "stability.1015.name"
+	desc = "stability.1015.desc"
+	picture = GFX_evt_news_room
+	trigger = {
+		is_country_type = default
+		has_ethic = ethic_fanatic_militarist
+	}
+	mean_time_to_happen = { months = 3000}
+	option = {
+	   name = "DISCONCERTING"
+	   hidden_effect = {
+	       country_event = { id = stability.1003 }
+		}
+	}
+}
+
+country_event = {#异教徒
+    id = stability.1016
+	title = "stability.1016.name"
+	desc = "stability.1016.desc"
+	picture = GFX_evt_news_room
+	trigger = {
+		is_country_type = default
+		has_ethic = ethic_fanatic_spiritualist
+	}
+	mean_time_to_happen = { months = 3000}
+	option = {
+		name = "DISCONCERTING"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+}
+
+country_event = {#战败
+    id = stability.1017
+	title = "stability.1003.name"
+	desc = "stability.1003.desc"
+	picture = GFX_evt_atmospheric_entry
+	is_triggered_only = yes
+	show_sound = event_stability_decrease
+	trigger = {
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+	option = {
+		name = "DISCONCERTING"
+		hidden_effect = {
+			country_event = { id = stability.1003 }
+		}
+	}
+}
+
+# 训练有素的医生
+country_event = {
+	id = stability.1018
+	title = "stability.1018.name"
+	desc = "stability.1018.desc"
+	picture = GFX_evt_alien_propaganda
+	
+	trigger = {
+		has_authority = auth_imperial
+		exists = heir
+	}
+	mean_time_to_happen = {
+		months = 2400
+	}
+	immediate = {
+		add_monthly_resource_mult = {
+			resource = energy
+			value = -2.4
+		}
+	}
+	option = {
+		name = "stability.1018.a"
+		trigger = {
+			energy > 0
+		}
+		hidden_effect = {
+			add_monthly_resource_mult = {
+				resource = energy
+				value = 2.4
+			}
+		}
+		add_monthly_resource_mult = {
+			resource = energy
+			value = -2.4
+		}
+		random_list = {
+			50 = {
+				kill_leader = { type = ruler show_notification = yes heir = yes }
+			}
+			50 = {
+				custom_tooltip = "stability.1018.a.tooltip"
+				#add_legitimacy = 5 正统
+				#add_horde_unity = 5
+			}
+		}
+	}
+	
+	option = {
+		name = "stability.1018.b"
+		hidden_effect = {
+			add_monthly_resource_mult = {
+				resource = energy
+				value = 2.4
+			}
+		}
+		random_list = {
+			75 = {
+				kill_leader = { type = ruler show_notification = yes heir = yes }
+				#hidden_effect = { country_event = { id = stability.1003 } }
+			}
+			25 = {
+				custom_tooltip = "stability.1018.b.tooltip"
+				#add_legitimacy = 30 正统
+				#add_horde_unity = 30
+			}
+		}
+	}
+}
+
+country_event = {
+    id = stability.1019
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		
+	}
+}
+
+country_event = {             ###虫族事件1-捕获女王+稳定### 
+    id = stability.1020
+	hide_window = yes
+	title = ""
+	desc = ""
+	picture = GFX_evt_atmospheric_entry
+    trigger = {
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		always = no
+	}
+	immediate = {}
+	#option = {}
+}
+
+##拔除纬度矛+稳定
+country_event = {
+    id = stability.1021
+	hide_window = yes
+	title = ""
+	desc = ""
+	picture = GFX_evt_atmospheric_entry
+	trigger = {
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		always = no
+	}
+	immediate = {}
+	#option = {}
+}
+
+###绿恶魔入侵-稳定	
+country_event = {
+	id = stability.1022
+	hide_window = yes
+	title = ""
+	desc = ""
+	trigger = {
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		always = no
+	}
+	immediate = {}
+	#option = {}
+}     
+ 
+###黄恶魔入侵-稳定 
+country_event =  {
+	id = stability.1023
+	hide_window = yes
+	title = ""
+	desc = ""
+	picture = GFX_evt_atmospheric_entry
+	trigger = {
+		is_country_type = default
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		always = no
+	}
+	immediate = {}
+	#option = {}
 }

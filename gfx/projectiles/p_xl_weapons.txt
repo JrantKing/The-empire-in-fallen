@@ -93,10 +93,10 @@ projectile_gfx_beam = {
 	#common for all types of projectiles
 	name = "ptitan_laser_Yellow"
 	color = { 0.75 	 0.75 	0.05 	1.0 }
-	hit_entity = "fe05_titan_laser_hit_entity"
-	shield_hit_entity = "fe05_titan_laser_shield_hit_entity"
-	muzzle_flash_entity = "fe05_titan_laser_muzzle_entity"
-	windup_entity = "fe05_titan_laser_windup_entity"
+	hit_entity = "yellow_titan_laser_hit_entity"
+	shield_hit_entity = "yellow_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "yellow_titan_laser_muzzle_entity"
+	windup_entity = "yellow_titan_laser_windup_entity"
 	
 	#beam specific data
 	width = 30.0
@@ -183,10 +183,10 @@ projectile_gfx_beam = {
 	#common for all types of projectiles
 	name = "ptitan_laser_Blue"
 	color = { 0.12 	 0.30 	0.64 	1.0 }
-	hit_entity = "fe03_titan_laser_hit_entity"
-	shield_hit_entity = "fe03_titan_laser_shield_hit_entity"
-	muzzle_flash_entity = "fe03_titan_laser_muzzle_entity"
-	windup_entity = "fe03_titan_laser_windup_entity"
+	hit_entity = "blue_titan_laser_hit_entity"
+	shield_hit_entity = "blue_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "blue_titan_laser_muzzle_entity"
+	windup_entity = "blue_titan_laser_windup_entity"
 	
 	#beam specific data
 	width = 30.0
@@ -228,10 +228,10 @@ projectile_gfx_beam = {
 	#common for all types of projectiles
 	name = "ptitan_laser_Purple"
 	color = { 0.55 	 0.3 	1.00 	1.0 }
-	hit_entity = "fe06_titan_laser_hit_entity"
-	shield_hit_entity = "fe06_titan_laser_shield_hit_entity"
-	muzzle_flash_entity = "fe06_titan_laser_muzzle_entity"
-	windup_entity = "fe06_titan_laser_windup_entity"
+	hit_entity = "purple_titan_laser_hit_entity"
+	shield_hit_entity = "purple_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "purple_titan_laser_muzzle_entity"
+	windup_entity = "purple_titan_laser_windup_entity"
 	
 	#beam specific data
 	width = 30.0
@@ -273,10 +273,10 @@ projectile_gfx_beam = {
 	#common for all types of projectiles
 	name = "ptitan_laser_White"
 	color = { 0.50 	 0.50 	0.50 	1.00 }
-	hit_entity = "fe07_titan_laser_hit_entity"
-	shield_hit_entity = "fe07_titan_laser_shield_hit_entity"
-	muzzle_flash_entity = "fe07_titan_laser_muzzle_entity"
-	windup_entity = "fe07_titan_laser_windup_entity"
+	hit_entity = "white_titan_laser_hit_entity"
+	shield_hit_entity = "white_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "white_titan_laser_muzzle_entity"
+	windup_entity = "white_titan_laser_windup_entity"
 	
 	#beam specific data
 	width = 30.0
@@ -314,18 +314,20 @@ projectile_gfx_beam = {
 	}
 }
 
+##########################################
+# TITAN LASER
 projectile_gfx_beam = {
 	#common for all types of projectiles
-	name = "tachyon_lance"
-	color = { 0.2 	 0.5 	1.0 	1.0 }
+	name = "titan_laser"
+	color = { 0.19 	 0.74 	1.0 	1.0 }
 	hit_entity = "titan_laser_hit_entity"
 	shield_hit_entity = "titan_laser_shield_hit_entity"
 	muzzle_flash_entity = "titan_laser_muzzle_entity"
 	windup_entity = "titan_laser_windup_entity"
 	
 	#beam specific data
-	width = 5.0
-	texture_scroll_speed = 1.5
+	width = 10.0
+	texture_scroll_speed = 1.0
 	texture_tiling = 5.5
 	
 	hit = {
@@ -355,6 +357,635 @@ projectile_gfx_beam = {
 	shield_impact = {
 		size = large
 		loop_duration = 0.5
-		delay = 0.1
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_01_titan_laser"
+	color = { 0.55 	 0.3 	1.00 	1.0 }
+	hit_entity = "purple_titan_laser_hit_entity"
+	shield_hit_entity = "purple_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "purple_titan_laser_muzzle_entity"
+	windup_entity = "purple_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_02_titan_laser"
+	color = { 0.2 	 0.7 	0.3 	1.0 }
+	hit_entity = "fe02_titan_laser_hit_entity"
+	shield_hit_entity = "fe02_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "fe02_titan_laser_muzzle_entity"
+	windup_entity = "fe02_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_03_titan_laser"
+	color = { 0.75 	 0.75 	0.05 	1.0 }
+	hit_entity = "yellow_titan_laser_hit_entity"
+	shield_hit_entity = "yellow_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "yellow_titan_laser_muzzle_entity"
+	windup_entity = "yellow_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_04_titan_laser"
+	color = { 1.0 	 0.58 	0.58 	0.4 }
+	hit_entity = "fe04_titan_laser_hit_entity"
+	shield_hit_entity = "fe04_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "fe04_titan_laser_muzzle_entity"
+	windup_entity = "fe04_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_05_titan_laser"
+	color = { 0.50 	 0.50 	0.50 	1.00 }
+	hit_entity = "white_titan_laser_hit_entity"
+	shield_hit_entity = "white_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "white_titan_laser_muzzle_entity"
+	windup_entity = "white_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_06_titan_laser"
+	color = { 0.12 	 0.30 	0.64 	1.0 }
+	hit_entity = "blue_titan_laser_hit_entity"
+	shield_hit_entity = "blue_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "blue_titan_laser_muzzle_entity"
+	windup_entity = "blue_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_07_titan_laser"
+	color = { 0.55 	 0.3 	1.00 	1.0 }
+	hit_entity = "purple_titan_laser_hit_entity"
+	shield_hit_entity = "purple_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "purple_titan_laser_muzzle_entity"
+	windup_entity = "purple_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_08_titan_laser"
+	color = { 0.2 	 0.7 	0.3 	1.0 }
+	hit_entity = "fe02_titan_laser_hit_entity"
+	shield_hit_entity = "fe02_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "fe02_titan_laser_muzzle_entity"
+	windup_entity = "fe02_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_09_titan_laser"
+	color = { 0.75 	 0.75 	0.05 	1.0 }
+	hit_entity = "yellow_titan_laser_hit_entity"
+	shield_hit_entity = "yellow_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "yellow_titan_laser_muzzle_entity"
+	windup_entity = "yellow_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_10_titan_laser"
+	color = { 1.0 	 0.58 	0.58 	0.4 }
+	hit_entity = "fe04_titan_laser_hit_entity"
+	shield_hit_entity = "fe04_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "fe04_titan_laser_muzzle_entity"
+	windup_entity = "fe04_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_11_titan_laser"
+	color = { 0.50 	 0.50 	0.50 	1.00 }
+	hit_entity = "white_titan_laser_hit_entity"
+	shield_hit_entity = "white_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "white_titan_laser_muzzle_entity"
+	windup_entity = "white_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_empire_12_titan_laser"
+	color = { 0.12 	 0.30 	0.64 	1.0 }
+	hit_entity = "blue_titan_laser_hit_entity"
+	shield_hit_entity = "blue_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "blue_titan_laser_muzzle_entity"
+	windup_entity = "blue_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_machine_empire_01_titan_laser"
+	color = { 1.0 	 0.6 	0.3 	0.4 }
+	hit_entity = "fme01_titan_laser_hit_entity"
+	shield_hit_entity = "fme01_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "fme01_titan_laser_muzzle_entity"
+	windup_entity = "fme01_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
+	}
+}
+projectile_gfx_beam = {
+	#common for all types of projectiles
+	name = "fallen_machine_empire_02_titan_laser"
+	color = { 1.0 	 0.6 	0.3 	0.4 }
+	hit_entity = "fme01_titan_laser_hit_entity"
+	shield_hit_entity = "fme01_titan_laser_shield_hit_entity"
+	muzzle_flash_entity = "fme01_titan_laser_muzzle_entity"
+	windup_entity = "fme01_titan_laser_windup_entity"
+	
+	#beam specific data
+	width = 10.0
+	texture_scroll_speed = 1.0
+	texture_tiling = 5.5
+	
+	hit = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.7		5.0
+			0.9		0.0
+			1.0 	0.0
+		}
+		duration = 3.0
+	}
+	miss = {
+		alpha_curve = { 
+			0.0 	0.0
+			0.05	0.0
+			0.1		40.0
+			0.4		5.0
+			0.6		0.0
+			1.0 	0.0
+		}
+		duration = 1.5
+	}
+	texture = "gfx/models/combat_items/titan_laser_diffuse.dds"
+	
+	shield_impact = {
+		size = large
+		loop_duration = 0.5
+		delay = 0.2
 	}
 }

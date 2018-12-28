@@ -1,0 +1,31 @@
+song = {
+	name = "foraslongasishalllive_apocalypsetrailerscore"
+}
+
+song = {
+	name = "distantstarstrailertheme"
+}
+
+song = {
+	name = "distantstarsofficialreleasetrailerscore"
+}
+
+song = {
+	name = "fasterthanlightbonusfeaturingmiastegmar"
+}
+
+song = {
+	name = "distantnebulabonusfeaturingmiastegmar"
+}
+
+song = {
+	name = "battleforsupremacybonus"
+}
+
+song = {
+	name = "infinitebeingadditionaltake"
+}
+
+song = {
+	name = "totheendsofthegalaxyadditionaltake"
+}

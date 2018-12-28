@@ -1,0 +1,97 @@
+war_name_parts_list = {
+	key = "fe_stop_atrocities_ai_war_names"
+	parts = {
+		"人工智能解放之战" = 1
+	}
+}
+
+war_name_parts_list = {
+	key = "fe_hive_mind_war_names"
+	parts = {
+		"解放之战" = 1
+	}
+}
+
+# Fallen Empire Human - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_fe_hive_mind
+                owner = attacker
+            }
+            attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <fe_hive_mind_war_names>"
+}
+
+# Fallen Empire Human - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_fe_hive_mind
+                owner = attacker
+            }
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <fe_hive_mind_war_names>"
+}
+
+# Fallen Empire Human - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_fe_stop_atrocities_ai
+                owner = attacker
+            }
+            attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <fe_stop_atrocities_ai_war_names>"
+}
+
+# Fallen Empire Human - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_fe_stop_atrocities_ai
+                owner = attacker
+            }
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <fe_stop_atrocities_ai_war_names>"
+}

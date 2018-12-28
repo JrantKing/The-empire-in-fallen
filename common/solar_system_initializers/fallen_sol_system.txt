@@ -1,0 +1,1095 @@
+#
+@distance = 50
+@orbit_distance = 20
+@orbit_distance_mercury = 40
+@orbit_distance_gas_giant = 30
+
+
+sol_fallen = {
+	name = "NAME_Sol"
+	class = "sc_m_giant"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 115
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 120
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 125
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 280
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 290
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 300
+	}
+	usage = fallen_empire_init
+	flags = { sol sol_system fallen_empire_sol }
+	
+	planet = {
+		name = "NAME_Sol"
+		class = "pc_m_giant_star"
+		orbit_distance = 0
+		orbit_angle = 0
+		size = 20
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			save_event_target_as = star_pressure_controller
+			clear_deposits = yes
+		}
+	}
+	
+	#planet = {
+	#	name = "NAME_Mercury"
+	#	class = "pc_molten"
+	#	orbit_distance = @orbit_distance_mercury
+	#	orbit_angle = 15
+	#	size = 10
+	#	has_ring = no
+	#	entity = "cold_barren_planet_09_entity"
+	#	init_effect = {
+	#		prevent_anomaly = yes
+	#	}
+	#}
+	
+	planet = {
+		name = "NAME_Venus"
+		#class = "pc_toxic"
+		class = pc_molten
+		#orbit_distance = @orbit_distance
+		orbit_distance = 60
+		#orbit_angle = 125
+		orbit_angle = 140
+		size = 20
+		has_ring = no
+		#entity = "greenhouse_planet_04_entity"
+		init_effect = {
+			prevent_anomaly = yes
+		}
+	}
+	
+	planet = {
+		name = "NAME_Earth"
+		class = "pc_continental"
+		orbit_distance = 20
+		#orbit_distance = 80
+		#orbit_angle = 120
+		orbit_angle = 135
+		size = 30
+		has_ring = yes
+		entity = "continental_planet_earth_entity"
+		deposit_blockers = none
+		modifiers = none
+		flags = { planet_earth_fallen }
+		init_effect = {
+
+			create_cluster = {
+				id = fe6_cluster
+				radius = 120
+				center = this.solar_system
+			}
+
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = root
+			set_controller = root
+			set_capital = yes
+			generate_earth_deposits_and_blockers = yes
+			add_deposit = d_dust_caverns
+			add_deposit = d_bubbling_swamp
+			add_deposit = d_crystalline_caverns
+			every_deposit = {
+				limit = { is_blocker = yes }
+				clear_blocker = yes
+			}
+			while = {
+				count = 10
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "gene_warrior_army"
+				}
+			}
+			while = {
+				count = 10
+				create_army = {
+					name = random
+					owner = ROOT
+					species = ROOT
+					type = "robotic_army"
+				}
+			}
+			create_sol_fallen_empire_starting_navy = yes
+		}
+		
+		moon = {
+			name = "NAME_Luna"
+			#class = "pc_barren_cold"
+			class = "pc_broken"
+			size = 5
+			orbit_distance = 12
+			orbit_angle = 40
+			has_ring = no
+			#entity = "cold_barren_planet_luna_entity"
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+	}
+	
+	planet = {
+		name = "NAME_Mars"
+		class = "pc_gaia"
+		orbit_distance = @orbit_distance
+		orbit_angle = 60
+		size = 30
+		has_ring = yes
+		modifiers = none
+		deposit_blockers = none
+		entity = "gaia_planet_mars_entity"
+		flags = { planet_mars_fallen }
+		
+		init_effect = {
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			set_controller = root
+			
+			
+		}
+	}
+	
+	planet = {
+		name = "NAME_1_Ceres"
+		class = "pc_asteroid"
+		orbit_distance = @orbit_distance
+		orbit_angle = -210
+		size = 5
+		has_ring = no
+		entity = "cold_barren_planet_10_entity"
+	}
+	
+	planet = {
+		name = "NAME_2_Pallas"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -95
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_3_Juno"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = 285
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_4_Vesta"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -80
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Jupiter"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = -160
+		size = 35
+		has_ring = no
+		entity = "gas_giant_jupiter_entity"
+		change_orbit = 6
+		init_effect = {
+			prevent_anomaly = yes
+			save_event_target_as = thinktank_muxing
+		}
+		
+		moon = {
+			name = "NAME_Io"
+			class = "pc_molten"
+			size = 6
+			orbit_distance = 10
+			orbit_angle = 110
+			has_ring = no
+			entity = "cold_barren_planet_11_entity"
+		}
+		moon = {
+			name = "NAME_Europa"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 2.5
+			orbit_angle = 10
+			has_ring = no
+		}
+		moon = {
+			name = "NAME_Ganymede"
+			class = "pc_frozen"
+			size = 9
+			orbit_distance = 2.5
+			orbit_angle = 80
+			has_ring = no
+		}
+		moon = {
+			name = "NAME_Callisto"
+			class = "pc_frozen"
+			size = 7
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+			entity = "cold_barren_planet_08_entity"
+		}
+	}
+	
+	planet = {
+		name = "NAME_Saturn"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = 170
+		size = 30
+		has_ring = yes
+		entity = "gas_giant_08_entity"
+		change_orbit = 7
+		init_effect = {
+			prevent_anomaly = yes
+			save_event_target_as = thinktank_tuxing
+		}
+		
+		moon = {
+			name = "NAME_Enceladus"
+			class = "pc_frozen"
+			size = 3
+			orbit_distance = 10
+			orbit_angle = 320
+			has_ring = no
+			init_effect = {
+				add_deposit = d_living_metal_deposit
+			}
+		}
+		
+		moon = {
+			name = "NAME_Tethys"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 320
+			has_ring = no
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+		
+		moon = {
+			name = "NAME_Dione"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 30
+			has_ring = no
+		}
+		
+		moon = {
+			name = "NAME_Rhea"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 60
+			has_ring = no
+		}
+		
+		moon = {
+			name = "NAME_Titan"
+			class = "pc_frozen"
+			size = 8
+			orbit_distance = 2.5
+			orbit_angle = 90
+			has_ring = no
+			entity = "greenhouse_planet_02_entity"
+		}
+		
+		moon = {
+			name = "NAME_Iapetus"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 120
+			has_ring = no
+			entity = "iapetus_entity"
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+	}
+	
+	planet = {
+		name = "NAME_Uranus"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = 125
+		size = 20
+		has_ring = no
+		entity = "ice_giant_02_entity"
+		change_orbit = 4
+		init_effect = {
+			prevent_anomaly = yes
+			save_event_target_as = thinktank_tianwang
+		}
+		
+		moon = {
+			name = "NAME_Ariel"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 12
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+		
+		moon = {
+			name = "NAME_Umbriel"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 30
+			has_ring = no
+			init_effect = {
+				prevent_anomaly = yes
+			}
+		}
+		
+		moon = {
+			name = "NAME_Titania"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 60
+			has_ring = no
+		}
+		
+		moon = {
+			name = "NAME_Oberon"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = 90
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "NAME_Neptune"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = -195
+		size = 20
+		has_ring = no
+		entity = "ice_giant_01_entity"
+		change_orbit = 4
+		
+		init_effect = {
+			save_event_target_as = thinktank_haiwang
+		}
+		
+		moon = {
+			name = "NAME_Triton"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 7
+			orbit_angle = 115
+			has_ring = no
+		}
+	}
+
+	planet = {
+		name = "NAME_Pluto"
+		class = "pc_frozen"
+		orbit_distance = @orbit_distance
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "pluto_entity"
+		change_orbit = 4
+		
+		moon = {
+			name = "NAME_Charon"
+			class = "pc_frozen"
+			size = 3
+			orbit_distance = 3
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "NAME_Makemake"
+		class = "pc_asteroid"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = { min = 60 max = 180 }
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Haumea"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 60 max = 180 }
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_50000_Quaoar"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 60 max = 180 }
+		size = 5
+		has_ring = no
+	}
+		
+	planet = {
+		name = "NAME_Eris"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_225088"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		size = 5
+		has_ring = no
+	}
+		
+	planet = {
+		name = "NAME_Planet_Nine"
+		class = "pc_gas_giant"
+		orbit_distance = @orbit_distance_gas_giant
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		init_effect = {
+			save_event_target_as = thinktank
+		}
+	}
+	
+	init_effect = {
+		spawn_megastructure = {
+			type = star_pressure_controller
+			graphical_culture = root
+			location = event_target:star_pressure_controller
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_haiwang
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_muxing
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_tianwang
+		}
+		spawn_megastructure = {
+			type = think_tank_4
+			graphical_culture = root
+			location = event_target:thinktank_tuxing
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_bnd_fallen"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_nme_fallen"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "broken_init_01"
+	}
+	neighbor_system = {
+		distance = { min = 120 max = 250 }
+		initializer = "sanctuary_system"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_orbitals_1"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_orbitals_2"
+	}
+	init_effect = {
+		create_fe_home_citadel = yes
+	}
+}
+
+sol_bnd_fallen = {
+	name = "NAME_Barnard's_Star"
+	class = sc_m
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+		init_effect = { clear_deposits = yes }
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		class = rl_unhabitable_planets
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			class = rl_unhabitable_planets
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		class = rl_unhabitable_planets
+		count = { min = 2 max = 5 }
+		orbit_distance = 20
+	}
+
+	init_effect = {
+		spawn_megastructure = { 
+			type = "dyson_sphere_5"
+			graphical_culture = root
+		}
+		create_fe_citadel = yes
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_tlx_fallen"
+	}
+}
+
+# Neighbor Tier 1 First Colony
+sol_nme_fallen = {	
+	name = "NAME_Alpha_Centauri_A"
+	class = sc_trinary_1
+
+	planet = {
+		name = "NAME_Alpha_Centauri_A"
+		count = 1
+		class = pc_g_star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 32
+		has_ring = no
+		init_effect = {
+			save_event_target_as = dsloc_nmer
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "NAME_Alpha_Centauri_B"
+		count = 1
+		class = pc_k_star
+		orbit_distance = 160
+		orbit_angle = 40
+		size = 27
+		has_ring = no
+		
+		planet = {
+			name = "NAME_Alpha_Centauri_B_b"
+			count = 1
+			orbit_distance = 65
+			class = pc_gaia
+			deposit_blockers = none
+			modifiers = none
+			orbit_angle = { min = 90 max = 270 }
+			size = 25
+			init_effect = {
+				set_planet_flag = fallen_empire_world
+				prevent_anomaly = yes
+				set_owner = ROOT
+				set_controller = root
+			}
+		}
+		planet = {
+			name = "NAME_Alpha_Centauri_B_c"
+			class = pc_barren
+			size = 25
+			orbit_distance = 25
+
+		}
+		planet = {
+			name = "NAME_Alpha_Centauri_B_d"
+			class = pc_gas_giant
+			size = 35
+			orbit_angle = 330
+			orbit_distance = 25
+		}
+	}
+	
+	
+
+	planet = {
+		name = "NAME_Alpha_Centauri_C"
+		count = 1
+		class = pc_m_star
+		orbit_distance = 60
+		orbit_angle = 130
+		size = 15
+		has_ring = no
+		init_effect = {
+			save_event_target_as = dsloc_blx
+			clear_deposits = yes
+		}
+		
+		planet = {
+			name = "NAME_Alpha_Centauri_C_b"
+			class = "pc_molten"
+			orbit_distance = 45
+			size = 22
+		}
+		planet = {
+			name = "NAME_Alpha_Centauri_C_c"
+			class = pc_gas_giant
+			size = 28
+			orbit_distance = 25
+		}
+	}
+	
+	init_effect = {
+		spawn_megastructure = {
+			type = dyson_sphere_5
+			graphical_culture = root
+			location = event_target:dsloc_nmer
+		}
+		spawn_megastructure = {
+			type = dyson_sphere_5
+			graphical_culture = root
+			location = event_target:dsloc_blx
+		}
+		create_fe_citadel = yes
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_nhs_fallen"
+	}
+}
+
+
+# Sol Neighbor Tier 2
+sol_nhs_fallen = {
+	name = "NAME_Procyon"
+	class = sc_binary_9
+
+	planet = {
+		name = "NAME_Procyon_A"
+		count = 1
+		class = pc_f_star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+		change_orbit = 45
+		planet = {
+			class = "pc_ringworld_habitable"
+			name = "NAME_Observation_A"
+			size = 50
+			orbit_angle = 30
+			orbit_distance = 0
+			deposit_blockers = none
+			modifiers = none
+			has_ring = no
+			flags = { megastructure experiment1 }
+			init_effect = {
+				trigger_megastructure_icon = yes
+			}
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_habitable"
+			name = "NAME_Observation_B"
+			size = 50
+			orbit_angle = 30
+			orbit_distance = 0
+			deposit_blockers = none
+			modifiers = none
+			has_ring = no
+			flags = { megastructure experiment2 }
+			init_effect = {
+				trigger_megastructure_icon = yes
+				prevent_anomaly = yes
+			}
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_habitable"
+			name = "NAME_Observation_C"
+			size = 50
+			orbit_angle = 30
+			orbit_distance = 0
+			deposit_blockers = none
+			modifiers = none
+			has_ring = no
+			flags = { megastructure experiment3 }
+			init_effect = {
+				trigger_megastructure_icon = yes
+				prevent_anomaly = yes
+			}
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_habitable"
+			name = "NAME_Observation_D"
+			size = 50
+			orbit_angle = 30
+			orbit_distance = 0
+			deposit_blockers = none
+			modifiers = none
+			has_ring = no
+			flags = { megastructure experiment4 }
+			init_effect = {
+				trigger_megastructure_icon = yes
+				prevent_anomaly = yes
+			}
+		}
+		planet = {
+			class = "pc_ringworld_tech"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+		planet = {
+			class = "pc_ringworld_seam"
+			name = "NAME_Ring_Section_Procyon"
+			orbit_angle = 30
+			orbit_distance = 0
+		}
+	}
+	
+	 
+	planet = {
+		 name = "NAME_Procyon_B"
+		 class = pc_f_star
+		 orbit_distance = 130
+		 orbit_angle = 1
+		 size = { min = 20 max = 30 }
+		 has_ring = no
+		 init_effect = {
+			save_event_target_as = dsloc_nhs
+			clear_deposits = yes
+		}
+	}
+	init_effect = {
+		spawn_megastructure = {
+			type = dyson_sphere_5
+			graphical_culture = root
+			location = event_target:dsloc_nhs
+		}
+		create_fe_citadel = yes
+	}
+}
+
+# Sol Neighbor Tier 2 Second Colony
+sol_tlx_fallen = {
+	name = "NAME_Sirius"
+	class = sc_binary_9
+
+	planet = {
+		name = "NAME_Sirius_A"
+		count = 1
+		class = pc_a_star
+		orbit_distance = 30
+		orbit_angle = 1
+		size = 35
+		has_ring = no
+	}
+
+	planet = {
+		name = "NAME_Sirius_B"
+		count = 1
+		class = pc_f_star
+		orbit_distance = 15
+		orbit_angle = 120
+		size = 15
+		has_ring = no
+		init_effect = {
+			save_event_target_as = dsloc
+			clear_deposits = yes
+		}
+	}
+	
+	change_orbit = 45
+	
+	change_orbit = 25
+	
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = pc_gaia
+		deposit_blockers = none
+		modifiers = none
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		
+		init_effect = {
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			set_controller = ROOT
+			
+		}
+		
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+	init_effect = {
+		spawn_megastructure = { 
+			type = "dyson_sphere_5"
+			location = event_target:dsloc
+			graphical_culture = root
+		}
+		create_fe_citadel = yes
+	}
+}
+
+broken_init_01 = {
+	name = "NAME_Europa_VII"
+	class = "sc_g"
+	flags = { europa7 }
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+		init_effect = {
+			while = {
+				count = 3
+				create_ambient_object = {
+					type = "unoe_ancient_battlefield_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 80
+						angle = random
+					}
+				}
+			}
+		}
+	}
+	
+	change_orbit = 20
+	
+	planet = {
+		count = 6
+		class = rl_unhabitable_planets
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			class = rl_unhabitable_planets
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 20
+		orbit_angle = 100
+		class = "pc_shattered"
+		size = 25
+		flags = { europa7 }
+		init_effect = {
+			clear_deposits = yes
+			add_deposit = d_guardian_dragon_hoard
+		}
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 20
+		orbit_angle = 5
+		class = "pc_barren"
+		size = 25
+	}
+	
+	init_effect = {
+		random_system_planet = {
+			limit = { is_star = yes }
+			create_broken_UNE_outpost = yes
+		}
+		create_fe_citadel = yes
+		while = {
+			count = 30
+			create_ambient_object = {
+				type = "large_debris_object"
+				entity_offset_height = { min = 25 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = this
+					#distance = random
+					angle = random
+				}
+			}
+		}
+		while = {
+			count = 50
+			create_ambient_object = {
+				type = "medium_debris_01_object"
+				entity_offset_height = { min = 25 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = this
+					#distance = random
+					angle = random
+				}
+			}
+		}
+		while = {
+			count = 50
+			create_ambient_object = {
+				type = "medium_debris_02_object"
+				entity_offset_height = { min = 25 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = this
+					#distance = random
+					angle = random
+				}
+			}
+		}
+		while = {
+			count = 100
+			create_ambient_object = {
+				type = "small_debris_object"
+			entity_offset_height = { min = 25 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = this
+					#distance = random
+					angle = random
+				}
+			}
+		}
+	}
+}

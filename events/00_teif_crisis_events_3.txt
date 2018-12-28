@@ -1,0 +1,536 @@
+############################
+#
+# Crisis Events III
+#
+# Written by Henrik Eklund and Miranda van den Brink
+#
+############################
+
+namespace = crisis
+
+# The Arrival
+country_event = {
+	id = crisis.2001
+	title = "crisis.2022.name"
+	desc = {
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		text = crisis.2022.desc
+	}
+	desc = {
+		trigger = {
+			has_authority = auth_machine_intelligence	
+		}
+		text = crisis.2022.desc.b
+	}
+	picture = GFX_evt_machine_sapience
+	show_sound = event_ai_started
+	trackable = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		observer_event = { id = observer.44 }
+		end_event_chain = "ghost_signal_chain"	
+		begin_event_chain = {
+			event_chain = "ai_crisis_chain"
+			target = ROOT
+		}
+	}
+	
+	option = {
+		name = ONSCREEN
+		hidden_effect = {
+			country_event = { id = crisis.2023 }
+		}
+	}
+}
+
+# Crisis Initiated
+country_event = {
+	id = crisis.2005
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = ai_invasion_happened
+		set_global_flag = ai_ghost_signal
+		endgame_telemetry = ai_revolt
+
+		observer_event = { id = observer.41 }
+		# The Ghost Signal
+		every_country = {
+			limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.2010 }
+		}
+		# Synths Act Strange
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = crisis.2006 days = 100 random = 200 }
+		}
+		# Machine Empire Pops Act Strange
+		every_country = {
+			limit = { has_authority = auth_machine_intelligence }
+			country_event = { id = crisis.2500 days = 100 random = 200 }
+		}
+		# Synths Disappear
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = crisis.2007 days = 400 random = 200 }
+		}
+		# Synthetic Disappearances
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = crisis.2020 days = 700 random = 200 }
+		}
+		# The Summons
+		every_country = {
+			limit = { 
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.2021 days = 1000 random = 200 }
+		}
+		# The Arrival
+		every_country = {
+			limit = { is_country_type = default }
+			country_event = { id = crisis.2022 days = 1400 }
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.2001 days = 1400 }
+		}
+		# First Machine World
+		random_planet = {
+			limit = { has_planet_flag = machine_world_1 }
+			planet_event = { id = crisis.2025 days = 1450 random = 10 }
+		}
+		# Second Machine World
+		random_planet = {
+			limit = { has_planet_flag = machine_world_2 }
+			planet_event = { id = crisis.2026 days = 1500 random = 10 }
+		}
+		# Third Machine World
+		random_planet = {
+			limit = { has_planet_flag = machine_world_3 }
+			planet_event = { id = crisis.2027 days = 1550 random = 10 }
+		}
+		# Fourth Machine World
+		random_planet = {
+			limit = { has_planet_flag = machine_world_4 }
+			planet_event = { id = crisis.2028 days = 1600 random = 10 }
+		}
+		# Synth Infiltration
+		every_country = { 
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			if = {
+				limit = {
+					NOR = { 
+						has_authority = auth_hive_mind
+						has_authority = auth_machine_intelligence
+						owner_species = { has_trait = trait_psionic }
+					}
+				}
+				country_event = { id = crisis.2085 days = 1800 random = 100 }
+			}
+			if = {
+				limit = { has_authority = auth_hive_mind }
+				country_event = { id = crisis.2086 days = 1800 random = 100 }
+			}
+			if = {
+				limit = { owner_species = { has_trait = trait_psionic } }
+				country_event = { id = crisis.2087 days = 1800 random = 100 }
+			}
+			if = {
+				limit = { has_authority = auth_machine_intelligence }
+				country_event = { id = crisis.2313 days = 1800 random = 100 }
+			}
+		}
+	}
+}
+
+# First Machine World (HIDDEN)
+planet_event = {
+	id = crisis.2025
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {	
+		set_crisis_sound = ai_empire_ambient_stage_1
+		set_crisis_stage_1 = yes	
+		create_species = {
+			name = "NAME_Custodian_Bot"
+			class = "ROBOT"
+			portrait = "hum_robot_red"
+			traits = {
+				trait = "trait_mechanical"
+			}
+			effect = { save_global_event_target_as = custodian_bot }
+		}
+		create_species = {
+			name = "NAME_Contingency"
+			class = "ROBOT"
+			portrait = "ai_crisis_1"
+			immortal = yes
+		}
+		create_country = {
+			name = NAME_Contingency
+			species = event_target:custodian_bot
+			authority = auth_ancient_machine_intelligence
+			ethos = {
+				ethic = ethic_gestalt_consciousness
+			}
+			civics = {
+				civic = civic_machine_terminator
+				civic = civic_machine_warbots
+			}
+			type = "ai_empire"
+			species = ROBOT_POP_SPECIES_3
+			name_list = "AI"
+			flag = {
+				icon= {
+					category = "special"
+					file = "ai_01.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "circle.dds"
+				}
+				colors={
+					"black"
+					"red"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				set_graphical_culture = ai_01
+				create_ship_design = { design = "NAME_AI_Transport" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_Constructor" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_1" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_2" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_STARBASE" }
+				add_ship_design = last_created_design			
+				save_event_target_as = AI_crisis 
+			}
+		}
+		every_owned_pop = { kill_pop = yes }
+		change_pc = pc_ai
+		reset_planet = yes
+		set_name = "NAME_Sterilization_Hub_1"
+		set_owner = event_target:AI_crisis
+		set_controller = event_target:AI_crisis
+		create_ai_planet_defense = yes
+		create_ai_fleet = yes
+		create_ai_fleet = yes
+		random_country = { observer_event = { id = observer.45 } }
+		every_country = {
+			limit = { is_ai = no }
+			country_event = { id = crisis.2030 }
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			establish_communications_no_message = event_target:AI_crisis
+		}
+		planet_event = { id = crisis.2050 } # Start Fleet reinforcement cycle
+		planet_event = { id = crisis.2052 } # Start Army reinforcement cycle
+		every_country = {
+			limit = { has_event_chain = "ai_crisis_chain" }
+			add_event_chain_counter = {
+				event_chain = "ai_crisis_chain"
+				counter = "active_machine_worlds"
+				amount = 1 
+			}
+		}
+		awaken_guardians_of_the_galaxy = yes
+		awaken_fallen_machine_empire = yes
+		set_global_flag = ai_invasion_ongoing
+		set_global_flag = synth_terror
+
+		solar_system = {
+			if = {
+				limit = { exists = starbase }
+				starbase = {
+					fleet = {
+						destroy_fleet = this
+					}
+				}
+			}
+			create_contingency_starbase = yes
+		}
+	}
+}
+
+### Machine Empire Post-Arrival Events
+
+# Warning Signs
+
+country_event = {
+	id = crisis.2313
+	title = "crisis.2313.name"
+	desc = "crisis.2313.desc"
+	picture = GFX_evt_glitchy_matrix
+	show_sound = event_ai_started
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+
+	immediate = {
+		country_event = { id = crisis.2314 days = 120 }
+		#country_event = { id = crisis.2314 days = 1 random = 1 }
+	}
+
+	option = {
+		name = crisis.2313.a
+	}
+}
+
+country_event = {
+	id = crisis.2314
+	title = "crisis.2314.name"
+	desc = "crisis.2314.desc"
+	picture = GFX_evt_glitchy_matrix
+	show_sound = event_red_alert
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+
+	immediate = {
+		set_country_flag = post_arrival_events_machine
+	}
+
+	option = {
+		name = crisis.2314.a
+	}
+}
+
+### Synth Terror Events
+
+# Pulse Event
+event = {
+	id = crisis.2080
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = synth_terror
+	}
+	
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				has_country_flag = synth_terror_country
+				NOT = { has_country_flag = synth_detector }
+				NOR = { 
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+					owner_species = { has_trait = trait_psionic }
+				}
+			}
+			random_list = {
+				30 = { 
+					country_event = { id = crisis.2081 days = 1 random = 300 }
+				}
+				70 = {}
+			}
+		}
+	}
+}
+
+# Spawn Cybrex
+country_event = {
+	id = crisis.2400
+	hide_window = yes
+
+	trigger = {
+		has_global_flag = ai_invasion_ongoing
+		NOT = { has_global_flag = cybrex_resurface }
+		is_country_type = ai_empire
+		galaxy_percentage > 0.20
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		set_global_flag = cybrex_resurface
+		random_rim_system = {
+			spawn_system = {
+				min_distance >= 20
+				max_distance <= 50
+				initializer = "cybrex_beta"
+			}
+		}
+		observer_event = { id = observer.52 }
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.2401 days = 2 }
+		}
+		random_country = {
+			limit = { is_country_type = cybrex_empire }
+			country_event = { id = crisis.2421 days = 4 }
+			country_event = { id = crisis.2421 days = 120 }
+			country_event = { id = crisis.2421 days = 320 }
+			establish_communications_no_message = root
+		}
+	}
+}
+
+# Cybrex Destroyed (HIDDEN)
+country_event = {
+	id = crisis.2404
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = cybrex_empire
+		NOT = { has_global_flag = cybrex_departed }
+	}
+	
+	immediate = {
+		observer_event = { id = observer.53 }
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.2405 }
+		}
+		From = { save_event_target_as = killer }
+		set_global_flag = cybrex_destroyed
+	}
+}
+
+# Cybrex Depart (HIDDEN)
+country_event = {
+	id = crisis.2406
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = cybrex_empire
+	}
+	
+	immediate = {
+		set_global_flag = cybrex_departed
+		observer_event = { id = observer.54 }
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.2407 }
+		}
+		random_country = { # Triggered this way to avoid game over when testing
+			limit = { is_country_type = cybrex_empire }
+			every_owned_pop = { kill_pop = yes }
+			every_owned_fleet = { delete_fleet = this }
+			every_controlled_planet = {
+				remove_all_buildings = yes
+			}
+			every_controlled_planet = {
+				limit = { is_planet_class = pc_cybrex }
+				change_pc = pc_ringworld_habitable
+				reset_planet = yes
+			}
+			destroy_country = yes
+		}
+	}
+}
+
+# Contingency Kill Count
+country_event = {
+	id = crisis.2472
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = from
+		has_global_flag = cybrex_resurface
+		NOT = { has_global_flag = cybrex_destroyed }
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+		FROM = { is_country_type = ai_empire }
+	}
+	
+	immediate = {
+		change_variable = { 
+			which = "contingency_fleet_kills" 
+			value = 1
+		}
+	}
+}

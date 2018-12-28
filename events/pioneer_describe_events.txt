@@ -1,0 +1,2329 @@
+namespace = pioneer_describe
+#上古看护者-先驱事件
+country_event = {
+	id = pioneer_describe.0
+	is_triggered_only = yes
+	title = "pioneer_describe.fallen_machine.0.name"
+	desc = {
+		text = "pioneer_describe.fallen_machine.0.desc"
+	}
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:recipient
+		planet_background = event_target:recipient
+		graphical_culture = event_target:recipient
+		city_level = event_target:recipient
+		room = event_target:recipient.ruler
+	}
+	
+	immediate = {
+		random_country = {
+			limit = { has_country_flag = fallen_empire_1 }
+			save_event_target_as = fallen_empire_1
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_3 }
+			save_event_target_as = fallen_empire_3
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_6 }
+			save_event_target_as = fallen_empire_6
+		}
+		random_country = {
+			limit = { is_country_type = ai_empire }
+			save_event_target_as = contingency
+		}
+	}
+	
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_6
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_6 }
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_6
+			NOT = { exists = event_target:fallen_empire_3 }
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_6
+			NOT = { exists = event_target:fallen_empire_1 }
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_6 }
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.e.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_6 }
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.f.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			exists = event_target:fallen_empire_6
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_3 }
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.g.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.madeby.a"
+		trigger = {
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_6 }
+		}
+		response_text = pioneer_describe.fallen_machine.madeby.desc.h.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.contingency.a"
+		trigger = { NOT = { exists = event_target:contingency } }
+		response_text = pioneer_describe.fallen_machine.contingency.desc.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.contingency.a"
+		trigger = { exists = event_target:contingency }
+		response_text = pioneer_describe.fallen_machine.contingency.desc.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.fallen_machine.esc.a"
+		default_hide_option = yes
+		hidden_effect = {
+			remove_country_flag = ex_diplomacy
+		}
+	}
+}
+
+#地球联合国-先驱事件
+country_event = {
+	id = pioneer_describe.1
+	is_triggered_only = yes
+	title = "pioneer_describe.UNoE.0.name"
+	desc = {
+		text = "pioneer_describe.UNoE.0.desc"
+	}
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:recipient
+		planet_background = event_target:recipient
+		graphical_culture = event_target:recipient
+		city_level = event_target:recipient
+		room = event_target:recipient.ruler
+	}
+	
+	immediate = {
+		random_country = {
+			limit = { has_country_flag = fallen_empire_1 }
+			save_event_target_as = fallen_empire_1
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_2 }
+			save_event_target_as = fallen_empire_2
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_3 }
+			save_event_target_as = fallen_empire_3
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_4 }
+			save_event_target_as = fallen_empire_4
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_5 }
+			save_event_target_as = fallen_empire_5
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_6 }
+			save_event_target_as = fallen_empire_6
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_machine }
+			save_event_target_as = fallen_empire_machine
+		}
+		random_country = {
+			limit = { is_country_type = ai_empire }
+			save_event_target_as = contingency
+		}
+	}
+	
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.e.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.f.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.g.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.h.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.i.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.j.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.k.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.l.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.m.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.n.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.o.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.p.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.q.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.r.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.s.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.t.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.u.response
+		is_dialog_only = yes
+	}
+	
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.y.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.v.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.w.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.z.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.x.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.aa.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ab.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ac.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ad.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ae.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.af.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.e.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.f.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.g.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.h.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.i.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.j.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.k.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.l.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.m.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.n.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.o.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.p.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.q.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.r.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.s.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.t.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.u.response
+		is_dialog_only = yes
+	}
+	
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.y.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.v.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.w.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.z.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.x.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.aa.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.ab.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.ac.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.ad.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.ae.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			NOT = { exists = event_target:contingency }
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.warstarted.af.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.e.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.f.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.g.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.h.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.i.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.j.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.k.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.l.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.m.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.n.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.o.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.p.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.q.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.r.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.s.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.t.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.u.response
+		is_dialog_only = yes
+	}
+	
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.y.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.v.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.w.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.z.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.x.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.aa.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.ab.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.ac.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.ad.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.ae.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			NOT = { has_global_flag = war_in_heaven_started }
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.af.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.e.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.f.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.g.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.h.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.i.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.j.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.k.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.l.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.m.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.n.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.o.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.p.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.q.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.r.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.s.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.t.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.u.response
+		is_dialog_only = yes
+	}
+	
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.y.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.v.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.w.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.z.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.x.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.aa.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			exists = event_target:fallen_empire_5
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.ab.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.ac.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			NOT = { exists = event_target:fallen_empire_2 }
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.ad.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			NOT = { exists = event_target:fallen_empire_1 }
+			exists = event_target:fallen_empire_2
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.ae.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.fallen_machine.a"
+		trigger = {
+			has_global_flag = war_in_heaven_started
+			exists = event_target:fallen_empire_machine
+			exists = event_target:fallen_empire_1
+			NOT = { exists = event_target:fallen_empire_2 }
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+			NOT = { exists = event_target:fallen_empire_5 }
+			exists = event_target:contingency
+			has_communications = event_target:fallen_empire_machine
+		}
+		response_text = pioneer_describe.UNoE.fallen_empire_machine.desc.ai_empire.warstarted.af.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.esc.a"
+		default_hide_option = yes
+		hidden_effect = {
+			remove_country_flag = ex_diplomacy
+		}
+	}
+}
+
+country_event = {
+	id = pioneer_describe.2
+	is_triggered_only = yes
+	title = "pioneer_describe.UNoE.0.name"
+	desc = {
+		text = "pioneer_describe.UNoE.europa.desc"
+	}
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:recipient
+		planet_background = event_target:recipient
+		graphical_culture = event_target:recipient
+		city_level = event_target:recipient
+		room = event_target:recipient.ruler
+	}
+	
+	immediate = {
+		random_country = {
+			limit = { has_country_flag = fallen_empire_3 }
+			save_event_target_as = fallen_empire_3
+		}
+		random_country = {
+			limit = { has_country_flag = fallen_empire_4 }
+			save_event_target_as = fallen_empire_4
+		}
+	}
+	option = {
+		name = "pioneer_describe.UNoE.europa.a"
+		response_text = pioneer_describe.UNoE.europa.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.europa.b"
+		trigger = {
+			exists = event_target:fallen_empire_3
+			exists = event_target:fallen_empire_4
+		}
+		response_text = pioneer_describe.UNoE.gama.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.europa.b"
+		trigger = {
+			NOT = { exists = event_target:fallen_empire_3 }
+			exists = event_target:fallen_empire_4
+		}
+		response_text = pioneer_describe.UNoE.gama.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.europa.b"
+		trigger = {
+			exists = event_target:fallen_empire_3
+			NOT = { exists = event_target:fallen_empire_4 }
+		}
+		response_text = pioneer_describe.UNoE.gama.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.europa.b"
+		trigger = {
+			NOT = { exists = event_target:fallen_empire_3 }
+			NOT = { exists = event_target:fallen_empire_4 }
+		}
+		response_text = pioneer_describe.UNoE.gama.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = "pioneer_describe.UNoE.esc.a"
+		default_hide_option = yes
+		hidden_effect = {
+			remove_country_flag = ex_diplomacy
+		}
+	}
+}

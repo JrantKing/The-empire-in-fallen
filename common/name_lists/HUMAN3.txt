@@ -1,0 +1,226 @@
+﻿### Roman Empire
+### Created by Henrik Eklund
+
+HUMAN3 = {
+	randomized = no
+	alias = "Human3"
+
+	ship_names = {
+		generic = {
+			埃拉维西 	因苏布雷 利古里亚 诺里 雷蒂 斯科迪斯奇 特里巴利 维内蒂 希腊 雅典 塞浦路斯 昔兰尼加 伊庇鲁斯 克诺索斯 马萨利亚 萨迪斯 斯巴达 叙拉古 特拉布宗 埃杜维 阿特雷巴特 阿维尔尼 波伊 卡尔努特 加拉太 赫尔维蒂 南姆内特斯 纳尔维 皮克塔维 塞夸尼 特雷维里 维维西 沃尔卡 爱斯蒂 阿纳尔提 布迪尼 切鲁西 辛布里 弗里西 哥特 卢基 马科曼尼 鲁吉 苏维汇 阿拉霍西亚 雅登汉	阿利亚 亚美尼亚 比提尼亚 卡帕多西亚 德兰吉亚那 卡特里 呼罗珊 米底亚	阿特罗帕特尼 帕萨瓦 	帕提亚 波斯 本都 撒迦尔提亚 阿尔迪安 巴斯塔奈 毕披 布留西 道尔西 达尔马提亚 盖塔 奥德里西亚 提里斯 布里甘特 喀里多尼 德梅泰 杜莫尼 艾伯塔尼 爱西尼 迦太基 辛梅利亚 科尔基斯 帕加马 伊特鲁利亚 哈加尔 希木叶尔 马茵 马斯喀特 基得里 塞巴 亚琛 阿伦 奥格斯堡 里斯河 比贝腊赫 博普芬根 不来梅 布哈 布赫霍恩 丁克尔斯比尔 多特蒙德 内卡河 埃斯林根 法兰克福 弗里德贝格 根根堡 基森 戈斯拉尔 汉堡 海尔布隆 伊士尼 考夫博伊伦 肯普滕 康斯坦茨 科隆 洛伊特基希 林道 吕贝克 梅明根 米尔豪森 内尔特林根 诺德豪森 纽伦堡 奥芬堡 佩夫伦多夫 拉芬斯堡 雷根斯堡 罗伊特林根 罗滕堡 洛特威 施韦比施格明德  施韦比施哈尔 施韦因富特 施派尔 于伯林根 乌尔姆 万根 魏尔德尔斯塔特 魏森堡 韦茨拉尔 温普芬 温茨海姆 沃尔姆斯 哈姆斯溪 屋大维 提比略 卡利古拉 克劳狄乌斯 尼罗 加尔巴 奥索 维特里乌斯 韦斯巴芗 提图斯 图密善 塞维鲁 奈哲尔 阿尔拜努斯 卡拉卡拉 盖塔 马克里努斯 迪亚杜门尼安 埃拉伽巴路斯 塞维鲁
+		}
+
+		corvette = {
+			
+		}
+		
+		destroyer = {
+			
+		}
+		
+		cruiser = {
+			
+		}
+
+		battleship = {
+			
+		}
+
+		titan = {
+			凯撒大帝 奥古斯都 罗穆卢斯 莱姆斯 图拉真
+		}
+
+		colossus = {
+			罗马治世 索尔无敌神 冥界父神
+		}
+		
+		science = {
+			
+		}
+		
+		colonizer = {
+			
+		}
+		
+		constructor = {
+			
+		}
+		
+		transport = {
+			
+		}
+		
+		military_station_small = { 
+			健儿 猛兽 斗士 卫兵 武术 工程 统治 军需 掠夺 角斗士 守夜者 搏击 护民官 英雄 模范 游击 百夫长 齐心 勇猛 诡计 策略 力量 火焰 无畏 战狂
+		}
+
+		ion_cannon = {
+			投石机 蝎弩 标枪 巴里阿尼投石兵 叙利亚弓箭手 弩砲 连弩
+		}
+		
+	}
+
+	fleet_names = {
+		random_names = {
+		}
+		sequential_name = "%O%帝国舰队"
+	}
+	
+	army_names = {
+		generic = { 
+			sequential_name = "%O%边防军"
+		}
+
+		assault_army = {
+			sequential_name = "%O%军团"
+		}
+		
+		slave_army = {
+			sequential_name = "%O%协防军"
+		}
+		
+		clone_army = {
+			sequential_name = "%O%长生军"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O%青铜军"
+		}
+
+		robotic_defense_army = {
+			sequential_name = "%O%青铜边防军"
+		}
+		
+		android_army = {
+			sequential_name = "%O%黄金斗士"
+		}
+
+		android_defense_army = {
+			sequential_name = "%O%黄金边防斗士"
+		}
+		
+		psionic_army = { 
+			sequential_name = "%O%灵能军团"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O%喀迈拉军团"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O%鹰旗卫队"
+		}
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
+		}
+	}
+
+	### PLANETS
+
+	planet_names = {
+
+		generic = {
+			names = {
+				亚该亚 埃及 阿非利加 阿尔卑斯山诸省 阿基坦高卢 阿拉伯 亚美尼亚 亚细亚 亚述 贝提卡 比利时 比提尼亚和本都 不列颠 卡帕多细亚 奇里乞亚 克里特和昔兰尼加 塞浦路斯 达基亚 伊庇鲁斯 加拉太 那旁高卢 下日耳曼尼亚
+				上日耳曼尼亚 伊利里亚 意大利 犹太 卢格敦高卢 卢西坦尼亚 马其顿 毛里塔尼亚 美索不达米亚 下默西亚 上默西亚 诺里克 努米底亚 邦非力和吕底亚 上潘诺尼亚 下潘诺尼亚 腓尼基 雷蒂安 科西嘉与萨丁尼亚 西西里 叙利亚 塔拉科西班牙 色雷斯
+			}
+		}
+		
+		pc_desert = {
+			names = {
+				
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+				
+			}
+		}
+		
+		pc_arid = {
+			names = {
+				
+			}
+		}
+		
+		pc_continental = {
+			names = {
+				
+			}
+		}
+		
+		pc_gaia = {
+			names = {
+				
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+				
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+				
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+				
+			}
+		}
+
+		pc_savannah = {
+			names = {
+			}
+		}
+
+		pc_alpine = {
+			names = {
+			}
+		}
+		
+	}
+
+	### CHARACTERS
+
+	character_names = {
+
+		names1 = {
+			weight = 40
+			first_names_male = {
+				盖尤斯 卢基乌斯 马库斯 普布利乌斯 昆图斯 蒂图斯 提比利乌斯 塞克斯图斯 奥卢斯 戴基乌斯 格奈乌斯 斯普利乌斯 马尼乌斯 塞维乌斯 阿皮乌斯 努美利乌斯 维比乌斯
+			}
+			first_names_female = {
+				盖娅 卢基娅 马卡 普布里娅 昆塔 蒂塔 提比利娅 塞克斯塔 奥拉 戴基娅 格奈娅 斯普利娅 马尼娅 塞维娅 阿皮娅 努美利娅 维比娅
+			}
+			second_names = {
+				埃米利乌斯 阿马修斯 安东尼 亚美尼亚 阿托利斯 马格努斯 奥索尼乌斯 朱利叶斯 加缪 卡洛斯 法比尤斯 卡修斯 辛辛斯 克劳狄斯 克洛迪乌斯 科波尼斯 亨特斯维尔 科斯 库尔提乌斯 埃格内修斯 塔奎 昆图斯 恩纽斯 埃皮迪斯 埃基修斯 法比尤斯 法氏 弗拉米尼 弗拉菲乌斯 加莱里乌斯 格利乌斯 海尔维迪斯 霍雷修斯 霍尔登 朱利叶斯 朱尼厄斯 利得 李锡尼 利维乌斯 卢修斯 卢克莱修 曼里乌斯 马库斯 米诺西乌 内里 博纳 奥廖 普林尼 帕皮尼 佩西斯 尼日尔 佩特罗尼乌斯 普林尼 庞培 庇柳斯 居里 萨洛尼斯 朱莉娅 谢尔盖 塞克图斯 西顿 西柳斯 它汀 泰特斯 图利阿 瓦列里乌斯 维吉尔 维克特里西斯 维尼 维特里乌斯 维特鲁威
+				
+			}
+			regnal_first_names_male = {
+				盖尤斯 卢基乌斯 马库斯 普布利乌斯 昆图斯 蒂图斯 提比利乌斯 塞克斯图斯 奥卢斯 戴基乌斯 格奈乌斯 斯普利乌斯 马尼乌斯 塞维乌斯 阿皮乌斯 努美利乌斯 维比乌斯
+			}
+			regnal_first_names_female = {
+				盖娅 卢基娅 马卡 普布里娅 昆塔 蒂塔 提比利娅 塞克斯塔 奥拉 戴基娅 格奈娅 斯普利娅 马尼娅 塞维娅 阿皮娅 努美利娅 维比娅
+				
+			}
+			regnal_second_names = {
+				涅尔瓦 图拉真 哈德良 安托尼乌斯 马尔库斯 戴克里先 伽勒里乌斯 马克西米安 君士坦提乌斯
+			}
+		}
+		
+	}
+}

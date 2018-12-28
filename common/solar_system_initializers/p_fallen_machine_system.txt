@@ -1,0 +1,209 @@
+@base_moon_distance = 10
+# Home System - Machine
+fix_fallen_machine = {
+	usage = fallen_empire_init
+	name = "NAME_Alpha_Refuge"
+	class = "rl_standard_stars"
+
+	planet = {
+		class = star
+		orbit_distance = 0
+		orbit_angle = 0
+	}
+
+	change_orbit = 45
+	
+	init_effect = {
+		spawn_megastructure = {
+			type = "ring_world_restored"
+			orbit_angle = 0
+			orbit_distance = 45
+			graphical_culture = root
+			location = star
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_tech NOT = { has_planet_flag = named } }
+			set_name = "NAME_Circuit_I"
+			set_planet_flag = named
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_seam NOT = { has_planet_flag = named } }
+			set_name = "NAME_Superstructure_I"
+			set_planet_flag = named
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_habitable NOT = { has_planet_flag = named } }
+			set_name = "NAME_Alpha_Complex"
+			set_planet_flag = named
+			create_cluster = {
+				id = fe_mach_cluster
+				radius = 80
+				center = this.solar_system
+			}
+
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = root
+			set_controller = root
+			set_capital = yes
+
+			add_building = building_ancient_control_center
+			add_building = building_nourishment_center
+			add_building = building_nourishment_center	
+			add_building = building_nourishment_center	
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			
+			while = {
+				count = 50
+				add_district = district_nexus
+			}
+			while = {
+				count = 105
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			create_fallen_empire_starting_navy = yes
+			
+			while = {
+				count = 20
+				create_army = {
+					name = random
+					owner = root
+					species = root
+					type = "machine_assault_2"
+				}
+			}
+		}
+		spawn_megastructure = {
+			type = "ring_world_restored"
+			orbit_angle = 90
+			orbit_distance = 45
+			graphical_culture = root
+			location = star
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_tech NOT = { has_planet_flag = named } }
+			set_name = "NAME_Circuit_II"
+			set_planet_flag = named
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_seam NOT = { has_planet_flag = named } }
+			set_name = "NAME_Superstructure_II"
+			set_planet_flag = named
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_habitable NOT = { has_planet_flag = named } }
+			set_name = "NAME_Production_Unit"
+			set_planet_flag = named
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			
+			add_building = building_ancient_control_center
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge			
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			
+			while = {
+				count = 25
+				add_district = district_nexus
+			}
+			while = {
+				count = 50
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+		}
+		spawn_megastructure = {
+			type = "ring_world_restored"
+			orbit_angle = 180
+			orbit_distance = 45
+			graphical_culture = root
+			location = star
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_tech NOT = { has_planet_flag = named } }
+			set_name = "NAME_Circuit_III"
+			set_planet_flag = named
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_seam NOT = { has_planet_flag = named } }
+			set_name = "NAME_Superstructure_III"
+			set_planet_flag = named
+		}
+		every_system_planet = {
+			limit = { is_planet_class = pc_ringworld_habitable NOT = { has_planet_flag = named } }
+			set_name = "NAME_Processing_Unit"
+			set_planet_flag = named
+			set_planet_flag = fallen_empire_world
+			prevent_anomaly = yes
+			set_owner = ROOT
+			
+			add_building = building_ancient_control_center
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			
+			while = {
+				count = 25
+				add_district = district_nexus
+			}
+			while = {
+				count = 22
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+		}
+		every_system_planet = {
+			limit = { has_planet_flag = named }
+			remove_planet_flag = named
+		}
+		spawn_megastructure = {
+			type = "ring_world_ruined"
+			orbit_angle = 270
+			orbit_distance = 45
+			location = star
+		}
+
+		create_fe_citadel = yes
+	}
+
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_machine_2"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_machine_3"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_machine_4"
+	}
+	neighbor_system = {
+		distance = { min = 0 max = 50 }
+		initializer = "fallen_machine_5"
+	}
+}

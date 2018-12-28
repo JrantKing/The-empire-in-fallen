@@ -1,0 +1,10 @@
+category = {
+ name = "Effects"
+ soundeffects = {
+
+	########## EVENT
+	event_stability_increase
+    event_stability_decrease
+	rebels_revolt_alert
+ }
+}

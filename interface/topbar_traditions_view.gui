@@ -1,101 +1,118 @@
-@entries_row1_y = 60
-@entries_row2_y = 187
-@entries_row3_y = 374
-@entries_row4_y = 561
-@entries_row5_y = 748
-@entries_row6_y = 935
-
-@entries_row7_y = 1122
-@entries_row8_y = 1309
-@entries_row9_y = 1496
-@entries_row10_y = 1683
-
-@entries_column1 = 5
-@entries_column2 = 319
-@entries_column3 = 634
-@entries_column4 = 948
-@entries_column5 = 1262
+@entries_row1_y = 230
+@entries_row2_y = 497
+@entries_column1 = 11
+@entries_column2 = 325
+@entries_column3 = 640
+@entries_column4 = 954
 @entry_h = 260
-@entry_h_narrow = 180
 @entry_w = 308
-#
-#@bigwindow_h = 100% #655
-@bigwindow_h = 600
-@bigwindow_w = 1270
-#
-@entry_h_ap = 120
-@entry_w_ap = 1252
-
+@ap0_h = 40
+@ap1_h = 89
 guiTypes = {
 
 	################################################################
 	# TRADITION ENTRY POSITIONS
 	################################################################
 	
+	#####   #####   #####
+	#61 #   #131#   #201#
+	#####   #####   #####
+	
+		##### 	#####
+		#96 # 	#166#
+	    ##### 	#####
+		
 	positionType = { name = "tr_domination_colonial_viceroys"         	position = { x = 61 y = 55 } }
-	positionType = { name = "tr_domination_protection_racket"         	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_domination_star_lords"                	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_domination_fleet_levies"     	 	  	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_domination_vassal_acculturation"      	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_expansion_colonization_fever"         	position = { x = 96 y = 55 } }
-	positionType = { name = "tr_expansion_galactic_ambition" 		  	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_expansion_a_new_life"                 	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_domination_imperious_architecture"     	position = { x = 131 y = 55 } }
+	positionType = { name = "tr_domination_grand_council"         		position = { x = 96 y = 125 } }
+	positionType = { name = "tr_domination_judgment_corps"     	 		position = { x = 201 y = 55 } }
+	positionType = { name = "tr_domination_workplace_motivators"      	position = { x = 201 y = 125 } }
+	
+	positionType = { name = "tr_expansion_reach_for_the_stars"        	position = { x = 96 y = 55 } }
 	positionType = { name = "tr_expansion_courier_network"            	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_expansion_reach_for_the_stars"        	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_discovery_to_boldly_go"            	  	position = { x = 61 y = 55 } }
-	positionType = { name = "tr_discovery_planetary_survey_corps"  	  	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_discovery_science_division"        	  	position = { x = 131 y = 55 } }
-	positionType = { name = "tr_discovery_polytechnic_education"   	  	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_discovery_faith_in_science"        	  	position = { x = 201 y = 125 } }
+	positionType = { name = "tr_expansion_galactic_ambition" 		  	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_expansion_colonization_fever"         	position = { x = 201 y = 55 } }
+	positionType = { name = "tr_expansion_a_new_life"                 	position = { x = 201 y = 125 } }
+	
+	positionType = { name = "tr_discovery_to_boldly_go"            	  	position = { x = 96 y = 55 } }
+	positionType = { name = "tr_discovery_databank_uplinks"  	  		position = { x = 96 y = 125 } }
+	positionType = { name = "tr_discovery_science_division"        	  	position = { x = 166 y = 55 } }
+	positionType = { name = "tr_discovery_polytechnic_education"   	  	position = { x = 166 y = 125 } }
+	positionType = { name = "tr_discovery_faith_in_science"        	  	position = { x = 166 y = 195 } }
+	
 	positionType = { name = "tr_harmony_the_greater_good"             	position = { x = 201 y = 55 } }
 	positionType = { name = "tr_harmony_kinship"    			      	position = { x = 131 y = 55 } }
 	positionType = { name = "tr_harmony_utopian_dream" 		          	position = { x = 201 y = 125 } }
 	positionType = { name = "tr_harmony_bulwark_of_harmony"           	position = { x = 96 y = 125 } }
 	positionType = { name = "tr_harmony_mind_and_body"                	position = { x = 61 y = 55 } }
-	positionType = { name = "tr_prosperity_sct"                       	position = { x = 96 y = 55 } }
-	positionType = { name = "tr_prosperity_administrative_operations" 	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_prosperity_fleet_logistical_corps"    	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_prosperity_trans_stellar_corporations"	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_prosperity_pursuit_of_profit"         	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_diplomacy_the_federation"			  	position = { x = 96 y = 55 } }
-	positionType = { name = "tr_adaptability_reproductive_augmentation"	position = { x = 96 y = 55 } }
+	
+	positionType = { name = "tr_prosperity_administrative_operations" 	position = { x = 96 y = 55 } }
+	positionType = { name = "tr_prosperity_pursuit_of_profit"         	position = { x = 61 y = 125 } }
+	positionType = { name = "tr_prosperity_interstellar_franchising"	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_prosperity_sct"                       	position = { x = 201 y = 55 } }
+	positionType = { name = "tr_prosperity_public_works"    			position = { x = 201 y = 125 } }
+	
+	positionType = { name = "tr_diplomacy_the_federation"			  	position = { x = 61 y = 55 } }
 	positionType = { name = "tr_diplomacy_entente_coordination"		  	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_diplomacy_survival_fittest"		 	 	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_diplomacy_federal_unity"			  	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_adaptability_environmental_adaptation"	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_diplomacy_dynamic_ecomorphism"		  	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_adaptability_dynamic_ecomorphism"		position = { x = 201 y = 55 } }
-	positionType = { name = "tr_diplomacy_alien_tourism"			  	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_adaptability_hive_mind_synapse"		  	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_adaptability_xenology_center"		  	position = { x = 201 y = 125 } }
+	positionType = { name = "tr_diplomacy_open_markets"				  	position = { x = 166 y = 55 } }
+	positionType = { name = "tr_diplomacy_insider_trading"			  	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_diplomacy_secure_shipping"			  	position = { x = 201 y = 125 } }
+	
 	positionType = { name = "tr_supremacy_master_shipwrights"         	position = { x = 61 y = 55 } }	
 	positionType = { name = "tr_supremacy_war_games"                  	position = { x = 96 y = 125 } }
-	positionType = { name = "tr_supremacy_right_of_conquest"          	position = { x = 131 y = 55 } }
+	positionType = { name = "tr_supremacy_fleet_logistical_corps"      	position = { x = 131 y = 55 } }
 	positionType = { name = "tr_supremacy_overwhelming_force"         	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_supremacy_great_game"                 	position = { x = 166 y = 125 } }
+	positionType = { name = "tr_supremacy_great_game"                 	position = { x = 201 y = 125 } }
 	
 	################################################################
 	# ASCENSION PERKS ENTRY POSITIONS
 	################################################################
+	positionType = { name = "ap_0"	position = { x = 15 y = @ap0_h } }
+	positionType = { name = "ap_1"	position = { x = 73 y = @ap0_h } }
+	positionType = { name = "ap_2"	position = { x = 131 y = @ap0_h } }
+	positionType = { name = "ap_3"	position = { x = 189 y = @ap0_h } }
+	positionType = { name = "ap_4"	position = { x = 247 y = @ap0_h } }
+	positionType = { name = "ap_5"	position = { x = 305 y = @ap0_h } }
+	positionType = { name = "ap_6"	position = { x = 363 y = @ap0_h } }
+	positionType = { name = "ap_7"	position = { x = 421 y = @ap0_h } }
+	positionType = { name = "ap_8"	position = { x = 479 y = @ap0_h } }
+	positionType = { name = "ap_9"	position = { x = 537 y = @ap0_h } }
+	positionType = { name = "ap_10"	position = { x = 595 y = @ap0_h } }
+	positionType = { name = "ap_11"	position = { x = 653 y = @ap0_h } }
+	positionType = { name = "ap_12"	position = { x = 711 y = @ap0_h } }
+	positionType = { name = "ap_13"	position = { x = 769 y = @ap0_h } }
+	positionType = { name = "ap_14"	position = { x = 827 y = @ap0_h } }
+	positionType = { name = "ap_15"	position = { x = 885 y = @ap0_h } }
+	positionType = { name = "ap_16"	position = { x = 943 y = @ap0_h } }
+	positionType = { name = "ap_17"	position = { x = 1001 y = @ap0_h } }
+	positionType = { name = "ap_18"	position = { x = 1059 y = @ap0_h } }
+	positionType = { name = "ap_19"	position = { x = 1117 y = @ap0_h } }
+	positionType = { name = "ap_20"	position = { x = 1175 y = @ap0_h } }
 	
-	positionType = { name = "ap_0"	position = { x = 0 y = 45 } }
-	positionType = { name = "ap_1"	position = { x = 58 y = 45 } }
-	positionType = { name = "ap_2"	position = { x = 116 y = 45 } }
-	positionType = { name = "ap_3"	position = { x = 174 y = 45 } }
-	positionType = { name = "ap_4"	position = { x = 232 y = 45 } }
-	positionType = { name = "ap_5"	position = { x = 290 y = 45 } }
-	positionType = { name = "ap_6"	position = { x = 348 y = 45 } }
-	positionType = { name = "ap_7"	position = { x = 406 y = 45 } }
-	positionType = { name = "ap_8"	position = { x = 464 y = 45 } }
-	positionType = { name = "ap_9"	position = { x = 522 y = 45 } }
-	positionType = { name = "ap_10"	position = { x = 580 y = 45 } }
-	positionType = { name = "ap_11"	position = { x = 638 y = 45 } }
-	positionType = { name = "ap_12"	position = { x = 696 y = 45 } }
-	positionType = { name = "ap_13"	position = { x = 754 y = 45 } }
-	positionType = { name = "ap_14"	position = { x = 812 y = 45 } }
-	positionType = { name = "ap_15"	position = { x = 870 y = 45 } }
-	positionType = { name = "ap_16"	position = { x = 928 y = 45 } }
-	positionType = { name = "ap_17"	position = { x = 986 y = 45 } }
+	positionType = { name = "ap_21"	position = { x = 44 y = @ap1_h } }
+	positionType = { name = "ap_22"	position = { x = 102 y = @ap1_h } }
+	positionType = { name = "ap_23"	position = { x = 160 y = @ap1_h } }
+	positionType = { name = "ap_24"	position = { x = 218 y = @ap1_h } }
+	
+	positionType = { name = "ap_25"	position = { x = 276 y = @ap1_h } }
+	positionType = { name = "ap_26"	position = { x = 334 y = @ap1_h } }
+	positionType = { name = "ap_27"	position = { x = 392 y = @ap1_h } }
+	positionType = { name = "ap_28"	position = { x = 450 y = @ap1_h } }
+	
+	positionType = { name = "ap_29"	position = { x = 508 y = @ap1_h } }
+	positionType = { name = "ap_30"	position = { x = 566 y = @ap1_h } }
+	positionType = { name = "ap_31"	position = { x = 624 y = @ap1_h } }
+	positionType = { name = "ap_32"	position = { x = 682 y = @ap1_h } }
+	
+	positionType = { name = "ap_33"	position = { x = 740 y = @ap1_h } }
+	positionType = { name = "ap_34"	position = { x = 798 y = @ap1_h } }
+	positionType = { name = "ap_35"	position = { x = 856 y = @ap1_h } }
+	positionType = { name = "ap_36"	position = { x = 914 y = @ap1_h } }
+	
+	positionType = { name = "ap_37"	position = { x = 972 y = @ap1_h } }
+	positionType = { name = "ap_38"	position = { x = 1030 y = @ap1_h } }
+	positionType = { name = "ap_39"	position = { x = 1088 y = @ap1_h } }
+	positionType = { name = "ap_40"	position = { x = 1146 y = @ap1_h } }
 	
 	containerWindowType = {
 		name = "traditions_ascension_perk_entry"
@@ -114,6 +131,7 @@ guiTypes = {
 			spriteType = "GFX_flag_64_frame"
 			buttonFont = "cg_16b"
 			clicksound = click
+			oversound = no_sound
 		}
 	
 	}
@@ -125,13 +143,13 @@ guiTypes = {
 	containerWindowType = {
 		name = "tradition_entry"
 		size = { width = 44 height = 44 }
-		verticalScrollbar = "right_vertical_slider"
 
 		buttonType = {
 			name = "adopt_button"
 			spriteType = "GFX_event_button_452"
 			buttonFont = "cg_16b"
-			clicksound = click
+			clicksound = select_click
+			oversound = no_sound
 		}
 		
 		#Need to hook this in
@@ -150,18 +168,17 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "traditions_topbar_view"
-		size = { width = @bigwindow_w height = @bigwindow_h }
-		verticalScrollbar = "right_vertical_slider"
-
+		size = { width = 1272 height = 770 } 
+		#verticalScrollBar = "right_vertical_slider"
 		position = { x = -1270 y = 40 }
-		show_position = { x = 4 y = 40 }
+		show_position = { x = 35 y = 40 }
 		hide_position = { x = -1270 y = 40 }
 		animation_time = 200
 		animation_type = decelerated
 
 		orientation = upper_left
 		moveable = no
-		clipping = no
+		clipping = yes
 		show_sound = "interface"
 
 		background = {
@@ -197,7 +214,7 @@ guiTypes = {
 		buttonType = {
 			name = "close"
 			spriteType = "GFX_close"
-			position = { x = -55 y = 16 }
+			position = { x = -45 y = 16 }
 			orientation = upper_right
 			shortcut = "ESCAPE"
 			clicksound = "back_click"
@@ -235,7 +252,43 @@ guiTypes = {
 				fixedSize = yes
 				format = left
 			}
+			
 		}
+		
+		################################################################
+		# TRADITION ASCENSION PERKS
+		################################################################
+			containerWindowType = {
+			name = "ascension_perks"
+			size = { width = 1250 height = 170 }
+			position = { x = 11 y = 55 }
+			
+			background = {
+				name = "black"
+				spriteType = "GFX_plain_bg_tile"
+				alwaysTransparent = yes
+			}
+			
+			iconType = {
+				name = "hex_bg"
+				spriteType = "GFX_hex_bg"
+				position = { x = -15 y = -15 }
+				alwaysTransparent = yes
+			}
+			
+			instantTextBoxType = {
+				name = "ascension_perks_label"
+				font = "malgun_goth_24"
+				position = { x = 18 y = 4 }
+				text = "ASCENSION_PERKS"
+			}
+			
+			containerWindowType = {
+				name = "tradition_box"
+				size = { width = 300 height = 200 }
+				position = { x = 15 y = 70 }
+				}
+			}
 
 		################################################################
 		# TRADITION CATEGORY DOMINATION
@@ -243,8 +296,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_domination"
-			size = { width = @entry_w height = @entry_h_narrow }
-			position = { x = @entries_column2 y = @entries_row2_y }
+			size = { width = @entry_w height = @entry_h }
+			position = { x = @entries_column2 y = @entries_row1_y }
 			
 			background = {
 				name = "black"
@@ -303,7 +356,7 @@ guiTypes = {
 				buttonFont = "cg_16b"
 				text = "TRADITION_ADOPT_BUTTON"
 				font = "cg_16b"
-				oversound = menu_over_01
+				oversound = mouse_over
 			#	navUp = "terraform_button"
 			#	navRight = "edicts_list"
 			}
@@ -324,20 +377,14 @@ guiTypes = {
 
 				iconType = {
 					name = "arrow_1"
-					spriteType = "GFX_arrow_single"
-					position = { x = 77 y = 100 }
+					spriteType = "GFX_arrow_merge"
+					position = { x = 82 y = 100 }
 				}
 
 				iconType = {
 					name = "arrow_2"
 					spriteType = "GFX_arrow_single"
 					position = { x = 217 y = 100 }
-				}				
-				
-				iconType = {
-					name = "arrow_3"
-					spriteType = "GFX_arrow_merge_wide"
-					position = { x = 82 y = 100 }
 				}
 			}
 		}
@@ -348,8 +395,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_expansion"
-			size = { width = @entry_w height = @entry_h_narrow }
-			position = { x = @entries_column1 y = @entries_row2_y }
+			size = { width = @entry_w height = @entry_h }
+			position = { x = @entries_column1 y = @entries_row1_y }
 
 			background = {
 				name = "black"
@@ -408,7 +455,7 @@ guiTypes = {
 				buttonFont = "cg_16b"
 				text = "TRADITION_ADOPT_BUTTON"
 				font = "cg_16b"
-				oversound = menu_over_01
+				oversound = mouse_over
 			#	navUp = "terraform_button"
 			#	navRight = "edicts_list"
 			}
@@ -447,8 +494,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_discovery"
-			size = { width = @entry_w height = @entry_h_narrow }
-			position = { x = @entries_column3 y = @entries_row3_y }
+			size = { width = @entry_w height = @entry_h }
+			position = { x = @entries_column3 y = @entries_row2_y }
 			
 			background = {
 				name = "black"
@@ -507,7 +554,7 @@ guiTypes = {
 				buttonFont = "cg_16b"
 				text = "TRADITION_ADOPT_BUTTON"
 				font = "cg_16b"
-				oversound = menu_over_01
+				oversound = mouse_over
 			#	navUp = "terraform_button"
 			#	navRight = "edicts_list"
 			}
@@ -529,19 +576,19 @@ guiTypes = {
 				iconType = {
 					name = "arrow_1"
 					spriteType = "GFX_arrow_single"
-					position = { x = 77 y = 100 }
+					position = { x = 112 y = 100 }
 				}
 
 				iconType = {
 					name = "arrow_2"
 					spriteType = "GFX_arrow_single"
-					position = { x = 147 y = 100 }
+					position = { x = 182 y = 100 }
 				}
-				
+
 				iconType = {
 					name = "arrow_3"
-					spriteType = "GFX_arrow_right"
-					position = { x = 178 y = 140 }
+					spriteType = "GFX_arrow_single"
+					position = { x = 182 y = 170 }
 				}
 			}
 		}
@@ -552,8 +599,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_harmony"
-			size = { width = @entry_w height = @entry_h_narrow }
-			position = { x = @entries_column4 y = @entries_row2_y }
+			size = { width = @entry_w height = @entry_h }
+			position = { x = @entries_column4 y = @entries_row1_y }
 		
 			background = {
 				name = "black"
@@ -612,7 +659,7 @@ guiTypes = {
 				buttonFont = "cg_16b"
 				text = "TRADITION_ADOPT_BUTTON"
 				font = "cg_16b"
-				oversound = menu_over_01
+				oversound = mouse_over
 			#	navUp = "terraform_button"
 			#	navRight = "edicts_list"
 			}
@@ -651,8 +698,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_prosperity"
-			size = { width = @entry_w height = @entry_h_narrow }
-			position = { x = @entries_column3 y = @entries_row2_y }
+			size = { width = @entry_w height = @entry_h }
+			position = { x = @entries_column3 y = @entries_row1_y }
 		
 			background = {
 				name = "black"
@@ -711,7 +758,7 @@ guiTypes = {
 				buttonFont = "cg_16b"
 				text = "TRADITION_ADOPT_BUTTON"
 				font = "cg_16b"
-				oversound = menu_over_01
+				oversound = mouse_over
 			#	navUp = "terraform_button"
 			#	navRight = "edicts_list"
 			}
@@ -750,8 +797,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_diplomacy"
-			size = { width = @entry_w height = @entry_h_narrow }
-			position = { x = @entries_column2 y = @entries_row3_y }
+			size = { width = @entry_w height = @entry_h }
+			position = { x = @entries_column2 y = @entries_row2_y }
 
 			background = {
 				name = "black"
@@ -810,7 +857,7 @@ guiTypes = {
 				buttonFont = "cg_16b"
 				text = "TRADITION_ADOPT_BUTTON"
 				font = "cg_16b"
-				oversound = menu_over_01
+				oversound = mouse_over
 			#	navUp = "terraform_button"
 			#	navRight = "edicts_list"
 			}
@@ -831,14 +878,14 @@ guiTypes = {
 
 				iconType = {
 					name = "arrow_1"
-					spriteType = "GFX_arrow_double"
-					position = { x = 76 y = 100 }
+					spriteType = "GFX_arrow_single"
+					position = { x = 77 y = 100 }
 				}
 				
 				iconType = {
 					name = "arrow_2"
-					spriteType = "GFX_arrow_single"
-					position = { x = 217 y = 100 }
+					spriteType = "GFX_arrow_double"
+					position = { x = 147 y = 100 }
 				}
 			}
 		}
@@ -849,8 +896,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "tradition_supremacy"
-			size = { width = @entry_w height = @entry_h_narrow }
-			position = { x = @entries_column1 y = @entries_row3_y }
+			size = { width = @entry_w height = @entry_h }
+			position = { x = @entries_column1 y = @entries_row2_y }
 			
 			background = {
 				name = "black"
@@ -909,7 +956,7 @@ guiTypes = {
 				buttonFont = "cg_16b"
 				text = "TRADITION_ADOPT_BUTTON"
 				font = "cg_16b"
-				oversound = menu_over_01
+				oversound = mouse_over
 			#	navUp = "terraform_button"
 			#	navRight = "edicts_list"
 			}
@@ -936,45 +983,9 @@ guiTypes = {
 
 				iconType = {
 					name = "arrow_2"
-					spriteType = "GFX_arrow_merge"
-					position = { x = 152 y = 100 }
+					spriteType = "GFX_arrow_single"
+					position = { x = 217 y = 100 }
 				}
-			}
-		}
-
-		################################################################
-		# TRADITION ASCENSION PERKS
-		################################################################
-
-		containerWindowType = {
-			name = "ascension_perks"
-			size = { width = @entry_w_ap height = @entry_h_ap }
-			position = { x = @entries_column1 y = @entries_row1_y }
-			
-			background = {
-				name = "black"
-				spriteType = "GFX_plain_bg_tile"
-				alwaysTransparent = yes
-			}
-			
-			iconType = {
-				name = "hex_bg"
-				spriteType = "GFX_hex_bg"
-				position = { x = -15 y = -15 }
-				alwaysTransparent = yes
-			}
-			
-			instantTextBoxType = {
-				name = "ascension_perks_label"
-				font = "malgun_goth_24"
-				position = { x = 18 y = 4 }
-				text = "ASCENSION_PERKS"
-			}
-			
-			containerWindowType = {
-				name = "tradition_box"
-				size = { width = 300 height = 200 }
-				position = { x = 15 y = 70 }
 			}
 		}
 	}

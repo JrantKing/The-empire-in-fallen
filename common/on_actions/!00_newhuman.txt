@@ -1,0 +1,107 @@
+on_yearly_pulse = {
+	events = {
+		upgrade_to_founder_species.0
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		
+	}
+}
+on_press_begin = {
+	events = {
+		fallenhuman.4
+		techfound.28
+		techfound.36
+		notice_event.0
+		civic_events.8
+		fallen_start.0
+		fallen_start.5
+		startfix.0
+	}
+}
+on_building_upgraded = {
+	events = {
+		building_events.0
+	}
+}
+on_building_demolished = {
+	events = {
+		building_events.1
+	}
+}
+on_building_replaced = {
+	events = {
+		building_events.1
+	}
+}
+on_ship_built = {
+	events = {
+		techfound.18
+	}
+}
+on_entering_system = {
+	events = {
+		#crisisf.3
+	}
+	random_events = {
+		100 = 0
+	}
+}
+on_tech_increased = {
+	events = {
+		techfound.26
+		#techfound.27
+	}
+}
+on_game_start_country = {
+	events = {
+		civic_events.0
+		civic_events.1
+		civic_events.2
+		civic_events.4
+		civic_events.5
+		civic_events.9
+	}
+}
+on_uplift_completion = {
+	events = {
+	}
+}
+empire_init_create_capital_pops = {
+	events = {
+	}
+}
+empire_init_create_capital_secondary_pops = {
+	events = {
+		civic_events.3
+	}
+}
+on_war_beginning = {
+	events = {
+		
+	}
+}
+on_building_starbase_outpost = {
+	events = {
+		techfound.22
+	}
+}
+empire_init_create_ships = {
+	events = {
+		
+	}
+}
+
+on_game_start = {
+	events = {
+		sdefine.2
+	}
+}
+
+on_ship_order = {
+	events = {
+		
+	}
+}

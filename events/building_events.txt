@@ -1,0 +1,27 @@
+namespace = building_events
+
+planet_event = {
+	id = building_events.0
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_planet_class = pc_gaia
+		has_building = building_planetary_shield_system_generator
+	}
+	immediate = {
+		change_pc = { class = pc_shielded_gaia inherit_entity = yes }
+	}
+}
+
+planet_event = {
+	id = building_events.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_planet_class = pc_shielded_gaia
+		NOT = { has_building = building_planetary_shield_system_generator }
+	}
+	immediate = {
+		change_pc = { class = pc_gaia inherit_entity = yes }
+	}
+}

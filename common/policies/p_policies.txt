@@ -1,451 +1,217 @@
-orbital_bombardment = {
-
-	 = {
-		always = yes
-	}
-	
-	option = {
-		name = "orbital_bombardment_light"
-		
-		policy_flags = {
-			allow_orbital_bombardment_light
-		}
-		
-		on_enabled = {
-			# custom_tooltip = "policy_allow_slavery_effect_disable"
-		}
-		
-		AI_weight = {
-			modifier = {
-				factor = 4
-				OR = {
-					has_ethic = "ethic_pacifist"
-					has_ethic = "ethic_fanatic_pacifist"
-				}
-			}
-		}
-	}
-	option = {
-		name = "orbital_bombardment_limited"
-		
-		policy_flags = {
-			allow_orbital_bombardment_light
-			allow_orbital_bombardment_limited
-		}
-		modifier = {}
-		
-		valid = {
-			NOT = {	has_ethic = "ethic_fanatic_pacifist" }
-		}
-		
-		AI_weight = {
-			modifier = {
-				factor = 2
-				NOT = {
-					has_ethic = "ethic_pacifist"
-					has_ethic = "ethic_fanatic_pacifist"
-				}
-			}
-		}
-	}
-	option = {
-		name = "orbital_bombardment_full"
-		
-		potential = {
-		}
-		
-		valid = {
-			OR = {
-				has_ethic = "ethic_militarist"
-				has_ethic = "ethic_fanatic_militarist"
-				has_ethic = "ethic_gestalt_consciousness"
-				custom_tooltip_success = {
-					text = TRIGGER_FANATIC_PURIFIERS
-					has_valid_civic = "civic_fanatic_purifiers"
-				}			
-			}
-		}
-		
-		policy_flags = {
-			allow_orbital_bombardment_light
-			allow_orbital_bombardment_limited
-			allow_orbital_bombardment_full
-		}
-		modifier = {}
-		
-		AI_weight = {
-			modifier = {
-				factor = 4
-				OR = {
-					has_ethic = "ethic_fanatic_militarist"
-					has_ethic = "ethic_fanatic_xenophobe"
-					has_valid_civic = "civic_hive_devouring_swarm"
-				}
-			}
-		}
-	}
-	option = {
-		name = "orbital_bombardment_armageddon"
-		
-		potential = {
-			OR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_machine_terminator
-			}
-		}
-		
-		valid = {
-			always = yes
-		}
-		
-		policy_flags = {
-			allow_orbital_bombardment_light
-			allow_orbital_bombardment_limited
-			allow_orbital_bombardment_full
-			allow_orbital_bombardment_armageddon
-		}
-		modifier = {}
-		
-		AI_weight = {
-			modifier = {
-				factor = 10
-				OR = {
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}
-			}
-		}
-	}
-	option = {
-		name = "orbital_bombardment_nuclear"
-		
-		potential = {
-			always = yes
-		}
-		
-		valid = {
-			AND = {
-				has_technology = "tech_missiles_2"
-				OR = {
-					has_ethic = "ethic_militarist"
-					has_ethic = "ethic_fanatic_militarist"
-					custom_tooltip_success = {
-						text = TRIGGER_FANATIC_PURIFIERS
-						has_valid_civic = "civic_fanatic_purifiers"
-					}			
-				}
-			}
-		}
-		
-		policy_flags = {
-			allow_orbital_bombardment_light
-			allow_orbital_bombardment_limited
-			allow_orbital_bombardment_full
-			allow_orbital_bombardment_nuclear
-		}
-		modifier = {}
-		
-		AI_weight = {
-			modifier = {
-				factor = 0
-			}
-		}
-	}
-}
-
-artificial_intelligence_policy = {
-
+robot_living_standard = {
 	potential = {
 		OR = {
 			AND = {
-				NOT = { has_ethic = ethic_gestalt_consciousness }
-				#is_mechanical_empire = no
-				OR = {
-					has_technology = tech_synthetic_workers
-					has_technology = tech_sapient_ai
-					any_relation = {	
-						has_communications = root
-						OR = {
-							has_technology = tech_synthetic_workers
-							has_technology = tech_sapient_ai
-							has_authority = auth_machine_intelligence
-						}
-						OR = {
-							is_country_type = default
-							has_ai_personality_behaviour = robot_exploiter
-							has_ai_personality_behaviour = robot_liberator
-						}
-					}
-				}
+				is_mechanical_empire = no
+				has_technology = tech_synthetic_workers
+				NOT = { has_policy_flag = ai_outlawed }
+				NOT = { has_policy_flag = ai_servitude }
 			}
 			is_mechanical_empire = yes
 		}
 	}
 	
 	option = {
-		name = "ai_outlawed"
-		potential = {
-			is_mechanical_empire = no
+		name = "robot_living_standard_1"
+		
+		policy_flags = {}
+		modifier = {
+			#planet_pops_robotics_upkeep_mult = 0.1
 		}
-
+		
 		valid = {
-			NOR = {
-				has_ethic = "ethic_materialist"
-				has_ethic = "ethic_fanatic_materialist"
-				has_ethic = "ethic_fanatic_egalitarian"
-				has_ethic = "ethic_egalitarian"
+			OR = {
+				AND = {
+					is_mechanical_empire = no
+					has_technology = tech_synthetic_workers
+					NOT = { has_policy_flag = ai_outlawed }
+					NOT = { has_policy_flag = ai_servitude }
+				}
+				is_mechanical_empire = yes
 			}
 		}
 		
-		policy_flags = {
-			ai_outlawed
-		}
-
 		AI_weight = {
-			modifier = {
-				factor = 0
-				OR = {
-					has_ethic = "ethic_materialist"
-					has_ethic = "ethic_fanatic_materialist"
-				}
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_ethic = "ethic_spiritualist"
-					has_ethic = "ethic_fanatic_spiritualist"
-				}
-			}
-			modifier = {
-				factor = 2
-				NOT = { has_country_flag = allows_ai_fallen }
-				OR = {
-					has_ethic = "ethic_spiritualist"
-					has_ethic = "ethic_fanatic_spiritualist"
-				}
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					has_ai_personality = fallen_empire_egalitarian
-					has_ai_personality = awakened_fallen_empire_egalitarian
-				}
-			}
+			factor = 10
 		}
 	}
 	
 	option = {
-		name = "ai_servitude"
-		potential = {
-			is_mechanical_empire = no
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-		}
-
-		valid = {
-			NOR = {
-				has_ethic = "ethic_fanatic_egalitarian"
-				has_ethic = "ethic_egalitarian"
-			}
+		name = "robot_living_standard_2"
+		
+		policy_flags = {}
+		modifier = {
+			planet_pops_robotics_upkeep_mult = -0.2
+			pop_happiness = -0.20
+			biological_pop_happiness = 0.20
+			planet_jobs_robotic_produces_mult = -0.10
 		}
 		
-		policy_flags = {
-			ai_servitude
+		valid = {
+			OR = {
+				AND = {
+					is_mechanical_empire = no
+					has_technology = tech_synthetic_workers
+					NOT = { has_policy_flag = ai_outlawed }
+					NOT = { has_policy_flag = ai_servitude }
+				}
+				is_mechanical_empire = yes
+			}
 		}
 		
 		AI_weight = {
-			modifier = {
-				factor = 5
-				has_valid_ai_personality = yes
-				has_ai_personality_behaviour = robot_exploiter
-			}	
-			modifier = {
-				factor = 2
-				has_valid_ai_personality = yes
-				has_ai_personality_behaviour = robot_liberator
-			}				
-			modifier = {
-				factor = 0
-				OR = {
-					has_ethic = "ethic_spiritualist"
-					has_ethic = "ethic_fanatic_spiritualist"
-				}
-			}
-			modifier = {
-				factor = 0
-				has_ai_personality = fallen_empire_egalitarian
-			}
-			modifier = {
-				factor = 0
-				has_ai_personality = awakened_fallen_empire_egalitarian
-			}
+			factor = 1
 		}
 	}
 	
 	option = {
-		name = "ai_full_rights"
+		name = "robot_living_standard_3"
+		
+		policy_flags = {}
+		modifier = {
+			planet_pops_robotics_upkeep_mult = -0.1
+			pop_happiness = -0.10
+			biological_pop_happiness = 0.10
+			planet_jobs_robotic_produces_mult = -0.05
+		}
 		
 		valid = {
-			NOR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
+			OR = {
+				AND = {
+					is_mechanical_empire = no
+					has_technology = tech_synthetic_workers
+					NOT = { has_policy_flag = ai_outlawed }
+					NOT = { has_policy_flag = ai_servitude }
+				}
+				is_mechanical_empire = yes
 			}
-			NOT = { has_policy_flag = robots_outlawed }
 		}
-		
-		policy_flags = {
-			ai_full_rights
-		}
-		
-		modifier = {}
 		
 		AI_weight = {
-			modifier = {
-				factor = 5
-				has_valid_ai_personality = yes
-				has_ai_personality_behaviour = robot_liberator
-			}		
-			modifier = {
-				factor = 0
-				OR = {
-					has_ethic = "ethic_spiritualist"
-					has_ethic = "ethic_fanatic_spiritualist"
+			factor = 1
+		}
+	}	
+	
+	option = {
+		name = "robot_living_standard_4"
+		
+		policy_flags = {}
+		modifier = {
+			planet_pops_robotics_upkeep_mult = 0.05
+			pop_happiness = 0.10
+			biological_pop_happiness = -0.10
+			planet_jobs_robotic_produces_mult = 0.10
+		}
+		
+		valid = {
+			OR = {
+				AND = {
+					is_mechanical_empire = no
+					has_technology = tech_synthetic_workers
+					NOT = { has_policy_flag = ai_outlawed }
+					NOT = { has_policy_flag = ai_servitude }
 				}
+				is_mechanical_empire = yes
 			}
-			modifier = {
-				factor = 0
-				NOT = { has_country_flag = allows_ai_fallen }
-				OR = {
-					has_ethic = "ethic_spiritualist"
-					has_ethic = "ethic_fanatic_spiritualist"
+		}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_5"
+		
+		policy_flags = {}
+		modifier = {
+			planet_pops_robotics_upkeep_mult = 0.1
+			pop_happiness = 0.20
+			biological_pop_happiness = -0.20
+			planet_jobs_robotic_produces_mult = 0.20
+		}
+		
+		valid = {
+			OR = {
+				AND = {
+					is_mechanical_empire = no
+					has_technology = tech_synthetic_workers
+					NOT = { has_policy_flag = ai_outlawed }
+					NOT = { has_policy_flag = ai_servitude }
 				}
+				is_mechanical_empire = yes
 			}
+		}
+		
+		AI_weight = {
+			factor = 1
 			modifier = {
-				factor = 0
-				NOT = { has_country_flag = allows_ai_fallen }
+				factor = 20
 				OR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					AND = {
+						OR = {
+							is_country_type = fallen_empire
+							is_country_type = awakened_fallen_empire
+						}
+						has_ethic = ethic_fanatic_egalitarian
+					}
 				}
 			}
 			modifier = {
 				factor = 10
 				has_country_flag = allows_ai_fallen
 			}
-			modifier = {
-				factor = 1000
-				has_ai_personality = fallen_empire_egalitarian
-			}
-			modifier = {
-				factor = 1000
-				has_ai_personality = awakened_fallen_empire_egalitarian
-			}
-			modifier = {
-				factor = 10
-				OR = {
-					has_ethic = "ethic_fanatic_egalitarian"
-					has_ethic = "ethic_egalitarian"
-				}
-			}
 		}
 	}
 }
 
-robot_pop_policy = {
-
+robot_pop_3_auto_upgrade_to_founder_species = {
 	potential = {
-		OR = {
-			AND = {
-				NOT = { has_ethic = ethic_gestalt_consciousness }
-				#is_mechanical_empire = no
-				OR = {
-					has_civic = civic_mechanists
-					has_technology = tech_robotic_workers
-					any_relation = {	
-						has_communications = root
-						OR = {
-							has_technology = tech_robotic_workers
-							has_authority = auth_machine_intelligence
-						}
-						OR = {
-							is_country_type = default
-							has_ai_personality_behaviour = robot_exploiter
-							has_ai_personality_behaviour = robot_liberator
-						}
-					}
-				}
-			}
-			is_mechanical_empire = yes
-		}
+		is_mechanical_empire = yes
 	}
 	
 	option = {
-		name = "robot_pops_outlawed"
-		potential = {
-			is_mechanical_empire = no
-		}
-
-		valid = {
-			NOR = {
-				has_ethic = "ethic_materialist"
-				has_ethic = "ethic_fanatic_materialist"
-				has_ethic = "ethic_fanatic_egalitarian"
-				has_ethic = "ethic_egalitarian"
-			}
+		name = "robot_pop_3_auto_upgrade_to_founder_species_stop"
+		
+		policy_flags = {}
+		modifier = {
+			
 		}
 		
-		policy_flags = {
-			robots_outlawed
+		valid = {
 		}
 		
 		AI_weight = {
+			factor = 10
 			modifier = {
 				factor = 0
-				OR = {
-					has_ethic = "ethic_materialist"
-					has_ethic = "ethic_fanatic_materialist"
-				}
-			}
-			modifier = {
-				factor = 2
-				has_valid_ai_personality = yes
-				NOR = {
-					has_ai_personality_behaviour = robot_exploiter
-					has_ai_personality_behaviour = robot_liberator
+				any_owned_pop = {
+					NOT = { is_same_species = root }
+					NOT = { has_trait = trait_robot_awoken }
+					has_trait = trait_mechanical
 				}
 			}
 		}
 	}
 	
 	option = {
-		name = "robot_pops_allowed"
+		name = "robot_pop_3_auto_upgrade_to_founder_species_start"
 		
-		potential = {
-			OR = {
-				has_policy_flag = ai_full_rights
-				has_policy_flag = ai_servitude
-			}
-		}
-		
-		policy_flags = {
-			robots_allowed
+		policy_flags = { robot_pop_3_auto_upgrade_to_founder_species_start }
+		modifier = {
+			#planet_pops_robotics_upkeep_mult = 0.1
 		}
 		
 		AI_weight = {
+			factor = 1
 			modifier = {
-				factor = 5
-				has_valid_ai_personality = yes
-				has_ai_personality_behaviour = robot_exploiter
-			}	
-			modifier = {
-				factor = 2
-				has_valid_ai_personality = yes
-				has_ai_personality_behaviour = robot_liberator
-			}
-			modifier = {
-				factor = 10
-				OR = {
-					has_ethic = "ethic_fanatic_egalitarian"
-					has_ethic = "ethic_egalitarian"
+				factor = 100
+				any_owned_pop = {
+					NOT = { is_same_species = root }
+					NOT = { has_trait = trait_robot_awoken }
+					has_trait = trait_mechanical
 				}
 			}
 		}

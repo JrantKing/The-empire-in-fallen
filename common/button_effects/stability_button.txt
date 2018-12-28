@@ -1,11 +1,182 @@
+open_spy_orb = {
+	allow = {
+		if = {
+			limit = {
+				OR = {
+					has_megastructure = spy_orb_4
+					has_megastructure = spy_orb_restored
+				}
+			}
+			custom_tooltip = {
+				fail_text = had_spy_orb_enter
+				exists = root
+				root = {
+					NOT = { has_country_flag = had_spy_orb_enter }
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_megastructure = spy_orb_4
+					has_megastructure = spy_orb_restored
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_spy_orb
+				exists = root
+				always = no
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = main_spy_orb_desc
+		custom_tooltip = main_spy_orb_button
+		hidden_effect = {
+			set_country_flag = had_spy_orb_enter
+			country_event = { id = stability.996 }
+		}
+	}
+}
+
+open_spy_orb_icon = {
+	allow = {
+		if = {
+			limit = {
+				OR = {
+					has_megastructure = spy_orb_4
+					has_megastructure = spy_orb_restored
+				}
+			}
+			custom_tooltip = {
+				fail_text = ""
+				exists = root
+				root = {
+					NOT = { has_country_flag = had_spy_orb_enter }
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_megastructure = spy_orb_4
+					has_megastructure = spy_orb_restored
+				}
+			}
+			custom_tooltip = {
+				fail_text = ""
+				exists = root
+				always = no
+			}
+		}
+	}
+}
+
+open_tile = {
+	allow = {
+		custom_tooltip = {
+			fail_text = had_tile_enter
+			exists = root
+			root = { NOT = { has_country_flag = had_tile_enter } }
+		}
+	}
+	effect = {
+		custom_tooltip = main_tile_desc
+		custom_tooltip = main_tile_button
+		hidden_effect = {
+			set_country_flag = had_tile_enter
+			country_event = { id = stability.997 }
+		}
+	}
+}
+
+open_tile_icon = {
+	allow = {
+		custom_tooltip = {
+			fail_text = ""
+			exists = root
+			root = { NOT = { has_country_flag = had_tile_enter } }
+		}
+	}
+}
+
+open_stability = {
+	allow = {
+		custom_tooltip = {
+			fail_text = no_stability_button_fallen_empire
+			exists = root
+			root = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = no_stability_button
+			exists = root
+			root = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+		custom_tooltip = {
+			fail_text = had_stability_enter
+			exists = root
+			root = { NOT = { has_country_flag = stability_enter } }
+		}
+	}
+	effect = {
+		custom_tooltip = main_stability_desc
+		custom_tooltip = main_stability_button
+		hidden_effect = {
+			set_country_flag = stability_enter
+			country_event = { id = stability.998 }
+		}
+	}
+}
+
+open_stability_icon = {
+	allow = {
+		custom_tooltip = {
+			fail_text = ""
+			exists = root
+			root = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = ""
+			exists = root
+			root = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+		custom_tooltip = {
+			fail_text = ""
+			exists = root
+			root = { NOT = { has_country_flag = stability_enter } }
+		}
+	}
+}
+
+open_stability_button = {
+	allow = {
+		custom_tooltip = {
+			fail_text = ""
+			always = no
+		}
+	}
+}
 stability_button_effect = {
 	allow = {
 		if = {
 			limit = {
-				has_ethic = ethic_gestalt_consciousness
-				NOR = {
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+				exists = root
+				root = {
+					has_ethic = ethic_gestalt_consciousness
+					NOR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
 				}
 			}
 			custom_tooltip = {
@@ -15,10 +186,13 @@ stability_button_effect = {
 		}
 		if = {
 			limit = {
-				NOT = { has_ethic = ethic_gestalt_consciousness }
-				OR = {
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+				exists = root
+				root = {
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					OR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
 				}
 			}
 			custom_tooltip = {
@@ -31,10 +205,13 @@ stability_button_effect = {
 		}
 		if = {
 			limit = {
-				has_ethic = ethic_gestalt_consciousness
-				OR = {
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+				exists = root
+				root = {
+					has_ethic = ethic_gestalt_consciousness
+					OR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
 				}
 			}
 			custom_tooltip = {
@@ -47,13 +224,23 @@ stability_button_effect = {
 		}
 		if = {
 			limit = {
-				is_ai = no
-				NOR = {
-					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+				exists = root
+				root = {
+					is_ai = no
+					NOR = {
+						is_country_type = default
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
 				}
 			}
+			custom_tooltip = {
+				fail_text = no_stability
+				always = no
+			}
+		}
+		if = {
+			limit = { NOT = { exists = root } }
 			custom_tooltip = {
 				fail_text = no_stability
 				always = no
@@ -66,7 +253,7 @@ stability_button_effect = {
 			limit = { 
 				check_variable = {
 					which = stability_num
-					value = 6
+					value = 3
 				}
 			}
 			custom_tooltip = stability_button6
@@ -75,7 +262,7 @@ stability_button_effect = {
 			limit = { 
 				check_variable = {
 					which = stability_num
-					value = 5
+					value = 2
 				}
 			}
 			custom_tooltip = stability_button5
@@ -84,7 +271,7 @@ stability_button_effect = {
 			limit = { 
 				check_variable = {
 					which = stability_num
-					value = 4
+					value = 1
 				}
 			}
 			custom_tooltip = stability_button4
@@ -93,7 +280,7 @@ stability_button_effect = {
 			limit = { 
 				check_variable = {
 					which = stability_num
-					value = 3
+					value = 0
 				}
 			}
 			custom_tooltip = stability_button3
@@ -102,7 +289,7 @@ stability_button_effect = {
 			limit = { 
 				check_variable = {
 					which = stability_num
-					value = 2
+					value = -1
 				}
 			}
 			custom_tooltip = stability_button2
@@ -111,7 +298,7 @@ stability_button_effect = {
 			limit = { 
 				check_variable = {
 					which = stability_num
-					value = 1
+					value = -2
 				}
 			}
 			custom_tooltip = stability_button1
@@ -120,10 +307,347 @@ stability_button_effect = {
 			limit = { 
 				check_variable = {
 					which = stability_num
-					value = 0
+					value = -3
 				}
 			}
 			custom_tooltip = stability_button0
+		}
+	}
+}
+
+increase_stability_button_effect = {
+	allow = {
+		if = {
+			limit = {
+				exists = root
+				root = {
+					has_ethic = ethic_gestalt_consciousness
+					NOR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability_button
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+		if = {
+			limit = {
+				exists = root
+				root = {
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					OR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability_button_fallen_empire
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = root
+				root = {
+					has_ethic = ethic_gestalt_consciousness
+					OR = {
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability_button_fallen_empire
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = root
+				root = {
+					is_ai = no
+					is_country_type = default
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					check_variable = {
+						which = stability_num
+						value > 2 
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = full_stability
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				exists = root
+				root = {
+					is_ai = no
+					is_country_type = default
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					OR = {
+						check_variable = {
+							which = stability_num
+							value = 0
+						}
+						check_variable = {
+							which = stability_num
+							value = -1
+						}
+					}
+					has_resource = { type = influence amount < 50 }
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_influence_1
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				exists = root
+				root = {
+					is_ai = no
+					is_country_type = default
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					OR = {
+						check_variable = {
+							which = stability_num
+							value = 1
+						}
+						check_variable = {
+							which = stability_num
+							value = -2
+						}
+					}
+					has_resource = { type = influence amount < 100 }
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_influence_2
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				exists = root
+				root = {
+					is_ai = no
+					is_country_type = default
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					OR = {
+						check_variable = {
+							which = stability_num
+							value = 2
+						}
+						check_variable = {
+							which = stability_num
+							value = -3
+						}
+					}
+					has_resource = { type = influence amount < 150 }
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_influence_3
+				always = no
+			}
+		}
+		if = {
+			limit = {
+				exists = root
+				root = {
+					is_ai = no
+					NOR = {
+						is_country_type = default
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = no_stability
+				always = no
+			}
+		}
+		if = {
+			limit = { NOT = { exists = root } }
+			custom_tooltip = {
+				fail_text = no_stability
+				always = no
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				OR = {
+					check_variable = {
+						which = stability_num
+						value = 0
+					}
+					check_variable = {
+						which = stability_num
+						value = -1
+					}
+				}
+			}
+			custom_tooltip = stability_custom_tooltip_1
+			hidden_effect = {
+				add_resource = { influence = -50 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					check_variable = {
+						which = stability_num
+						value = 1
+					}
+					check_variable = {
+						which = stability_num
+						value = -2
+					}
+				}
+			}
+			custom_tooltip = stability_custom_tooltip_2
+			hidden_effect = {
+				add_resource = { influence = -100 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					check_variable = {
+						which = stability_num
+						value = 2
+					}
+					check_variable = {
+						which = stability_num
+						value = -3
+					}
+				}
+			}
+			custom_tooltip = stability_custom_tooltip_3
+			hidden_effect = {
+				add_resource = { influence = -150 }
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = stability_num
+				value = 1
+			}
+			country_event = { id = stability.1005 }
+		}
+	}
+}
+
+display_stability_0 = {
+	potential = {
+		exists = root
+		root = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_country_type = default
+			check_variable = {
+				which = stability_num
+				value = -3
+			}
+		}
+	}
+}
+
+display_stability_1 = {
+	potential = {
+		exists = root
+		root = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_country_type = default
+			check_variable = {
+				which = stability_num
+				value = -2
+			}
+		}
+	}
+}
+
+display_stability_2 = {
+	potential = {
+		exists = root
+		root = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_country_type = default
+			check_variable = {
+				which = stability_num
+				value = -1
+			}
+		}
+	}
+}
+
+display_stability_3 = {
+	potential = {
+		exists = root
+		root = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_country_type = default
+			check_variable = {
+				which = stability_num
+				value = 0
+			}
+		}
+	}
+}
+
+display_stability_4 = {
+	potential = {
+		exists = root
+		root = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_country_type = default
+			check_variable = {
+				which = stability_num
+				value = 1
+			}
+		}
+	}
+}
+
+display_stability_5 = {
+	potential = {
+		exists = root
+		root = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_country_type = default
+			check_variable = {
+				which = stability_num
+				value = 2
+			}
+		}
+	}
+}
+
+display_stability_6 = {
+	potential = {
+		exists = root
+		root = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_country_type = default
+			check_variable = {
+				which = stability_num
+				value = 3
+			}
 		}
 	}
 }

@@ -1,0 +1,105 @@
+utility_component_template = {
+	key = "fallen_energy_core_4"
+	size = small
+	icon = "GFX_ship_part_border_extruder_2"
+	icon_frame = 1
+	power = 260
+	#cost = 0
+	
+	size_restriction = { large_ship_fallen_empire }
+	
+	component_set = "FALLEN_ENERGY_CORE"
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "fallen_energy_core_3"
+	size = small
+	icon = "GFX_ship_part_border_extruder_1"
+	icon_frame = 1
+	power = 173
+	#cost = 0
+	
+	size_restriction = { small_ship_fallen_empire }
+	
+	component_set = "FALLEN_ENERGY_CORE"
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "fallen_energy_core_2"
+	size = small
+	icon = "GFX_ship_part_border_extruder_2"
+	icon_frame = 1
+	power = 2040
+	#cost = 0
+	
+	#class_restriction = { shipclass_outpost_station }
+	size_restriction = { massive_ship_fallen_empire }
+	
+	component_set = "FALLEN_ENERGY_CORE"
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "fallen_energy_core_1"
+	size = small
+	icon = "GFX_ship_part_border_extruder_1"
+	icon_frame = 1
+	power = 625
+	#cost = 0
+	
+	size_restriction = { military_station_small_fallen_empire }
+	
+	component_set = "FALLEN_ENERGY_CORE"
+	
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "THE_UPPER_SHIELD"
+	size = large
+	icon = "GFX_ship_part_enigmatic_shield"
+	icon_frame = 1
+	power = -70
+	cost = 70
+	hidden = yes
+	modifier = {
+	
+	}
+	#prerequisites = { "tech_enigmatic_deflector" }
+	component_set = "THE_UPPER_SHIELD"
+}
+utility_component_template = {
+	key = "THE_UPPER_POWER_CORE"
+	size = large
+	icon = "GFX_ship_part_enigmatic_power_core"
+	icon_frame = 1
+	power = 160
+	cost = 140
+	hidden = yes
+	#prerequisites = { "tech_enigmatic_power_core"  }
+	component_set = "THE_UPPER_POWER_CORE"
+}
+utility_component_template = {
+	key = "THE_UPPER_ARMOR"
+	size = large
+	icon = "GFX_ship_part_dragon_armor"
+	icon_frame = 1
+	power = 0
+	cost = 48
+	hidden = yes
+	#prerequisites = { "tech_dragon_armor" }
+	component_set = "THE_UPPER_ARMOR"
+}

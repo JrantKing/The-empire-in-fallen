@@ -1,0 +1,49 @@
+gov_representative_democracy_democratic = {
+	ruler_title = RT_CHAIRMAN
+	ruler_title_female = RT_CHAIRWOMAN
+	
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_democratic
+		has_valid_civic = civic_lethargic_leadership
+		has_valid_civic = civic_empire_in_decline
+	}
+
+	weight = {
+		base = 1000000
+	}
+}
+
+gov_awakened_ascendancy_democratic = {
+	ruler_title = RT_CHAIRMAN
+	ruler_title_female = RT_CHAIRWOMAN
+	
+	should_force_rename = yes
+
+	possible = {
+		has_authority = auth_democratic
+		has_valid_civic = civic_revanchist_fervor
+		has_valid_civic = civic_ancient_caches_of_technology
+	}
+
+	weight = {
+		base = 1000000
+	}
+}
+
+gov_teif_stagnant_ascendancy = {
+	ruler_title = RT_EMPEROR
+	ruler_title_female = RT_EMPRESS
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_fallen_start_leadership
+		has_valid_civic = civic_fallen_start
+	}
+
+	weight = {
+		base = 100000
+	}
+}

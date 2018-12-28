@@ -7,24 +7,29 @@ country_edict = {
 	modifier = {
 	}
 	
-	#influence_cost = 0
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+	length = 0
 
 	potential = {
+		is_ai = yes
 		is_country_type = default
 		NOT = { has_ethic = ethic_gestalt_consciousness }
 	}
 
 	allow = {
-		influence > 99
+		influence > 49
 		custom_tooltip_fail = {
 			text = full_stability
 			NOT = { has_edict = stability }
 			
-			ROOT = {
-				check_variable = {
-					which = stability_num
-					value < 6
-				}
+			check_variable = {
+				which = stability_num
+				value < 3
 			}
 		}
 	}
@@ -32,35 +37,28 @@ country_edict = {
 		custom_tooltip = stability_custom_tooltip
 		hidden_effect = {
 			country_event = { id = stability.1002 }
-			add_influence = -100
+			add_influence = -50
 		}
 	}
 	ai_weight = {
-		weight = 1000
+		weight = 1
 		modifier = {
-			weight = 0
-			ROOT = {
-				OR = {
-					influence < 150
-					any_owned_planet = {
-						unrest < 50
-					}
-				}
+			factor = 0
+			influence < 49
+		}
+		modifier = {
+			factor = 10
+			check_variable = {
+				which = stability_num
+				value < -2
 			}
 		}
 		modifier = {
-			weight = 1000
-			ROOT = {
-				check_variable = {
-					which = stability_num
-					value < 2
-				}
-			}
-		}
-		modifier = {
-			weight = 1000
-			ROOT = {
-				influence > 300
+			factor = 100
+			influence > 200
+			check_variable = {
+				which = stability_num
+				value < 2
 			}
 		}
 	}

@@ -1,0 +1,650 @@
+ROBOT = {
+	obevni = {
+		language = "l_simp_chinese"
+		name = 奥巴尼
+		plural = 奥巴尼
+		home_planet = "奥瓦莫尼"
+		home_system = 奥格安
+		name_list = "FUN3"
+	}
+	
+	finu = {
+		language = "l_simp_chinese"
+		name = 费努
+		plural = 费努
+		home_planet = "费努维亚"
+		home_system = 盖提尔
+		name_list = "FUN3"
+	}
+	
+	obbha = {
+		language = "l_simp_chinese"
+		name = 奥博哈
+		plural = 奥博哈
+		home_planet = 霍吉
+		home_system = "霍吉格加"
+		name_list = "FUN3"
+	}
+	
+	ganlarev = {
+		language = "l_simp_chinese"
+		name = 甘拉勒沃
+		plural = 甘拉勒沃
+		home_planet = 甘拉勒维亚
+		home_system = 甘拉戈
+		name_list = "FUN3"
+	}
+	
+	buhavilaa = {
+		language = "l_simp_chinese"
+		name = 布哈维拉
+		plural = 布哈维拉
+		home_planet = 布哈
+		home_system = 贝维尔
+		name_list = "FUN3"
+	}
+	
+	oginollox = {
+		language = "l_simp_chinese"
+		name = 奥吉-诺尔克
+		plural = 奥吉-诺尔克
+		home_planet = "奥瓦西尔"
+		home_system = "沃坚弗尔巴兰"
+		name_list = "FUN3"
+	}
+	
+	celimy = {
+		language = "l_simp_chinese"
+		name = 策利迈
+		plural = 策利迈
+		home_planet = 策利姆
+		home_system = "霍瓦策利姆布"
+		name_list = "FUN3"
+	}
+	
+	pogovon = {
+		language = "l_simp_chinese"
+		name = 波戈万
+		plural = 波戈万
+		home_planet = 波戈沃诺
+		home_system = 卡沃比
+		name_list = "FUN3"
+	}
+	
+	qasvalyvia = {
+		language = "l_simp_chinese"
+		name = 夸萨瓦利维亚
+		plural = 夸萨瓦利维亚
+		home_planet = 夸布鲁
+		home_system = 夸布鲁乌戈
+		name_list = "FUN3"
+	}
+	
+	avabbian = {
+		language = "l_simp_chinese"
+		name = 阿瓦伯比安
+		plural = 阿瓦伯比安
+		home_planet = 阿瓦伯比亚
+		home_system = 胡尔-阿洛巴瓦
+		name_list = "FUN3"
+	}
+	
+	lolehndra = {
+		language = "l_simp_chinese"
+		name = 洛勒德拉
+		plural = 洛勒德拉
+		home_planet = 洛里芬德拉
+		home_system = 阿吉芬德拉
+		name_list = "FUN3"
+	}
+	
+	reyubb = {
+		language = "l_simp_chinese"
+		name = 列乌伯
+		plural = 列乌伯
+		home_planet = "列乌伯奥费"
+		home_system = 齐兹伯
+		name_list = "FUN3"
+	}
+	
+	varelviv = {
+		language = "l_simp_chinese"
+		name = 瓦勒维沃
+		plural = 瓦勒维沃
+		home_planet = 瓦沃尔瓦
+		home_system = "阿瓦-弗伯"
+		name_list = "FUN3"
+	}
+	
+	zeppadroggan = {
+		language = "l_simp_chinese"
+		name = 齐帕达戈安
+		plural = 齐帕达戈安
+		home_planet = 帕达戈
+		home_system = 帕达戈-沃尔
+		name_list = "FUN3"
+	}
+	
+	buvhondon = {
+		language = "l_simp_chinese"
+		name = 布瓦霍顿
+		plural = 布瓦霍顿
+		home_planet = 布瓦霍多尼亚
+		home_system = "加斯西许布"
+		name_list = "FUN3"
+	}
+	
+	valmennax = {
+		language = "l_simp_chinese"
+		name = 瓦门纳克
+		plural = 瓦门纳克
+		home_planet = 瓦马克
+		home_system = "夏奥普亚瓦"
+		name_list = "FUN3"
+	}
+	
+	huviduzaan = {
+		language = "l_simp_chinese"
+		name = 胡维杜-扎安
+		plural = 胡维杜-扎安
+		home_planet = 胡维杜扎
+		home_system = 扎伊瓦
+		name_list = "FUN3"
+	}
+	
+	provalguvor = {
+		language = "l_simp_chinese"
+		name = 普罗瓦古沃尔
+		plural = 普罗瓦古沃尔
+		home_planet = 普罗瓦尔
+		home_system = 亚斯维拉
+		name_list = "FUN3"
+	}
+	
+	qlorvinserian = {
+		language = "l_simp_chinese"
+		name = 夸洛维内利安
+		plural = 夸洛维内利安
+		home_planet = 夸洛克
+		home_system = 夸洛克索布
+		name_list = "FUN3"
+	}
+	
+	wulhubb = {
+		language = "l_simp_chinese"
+		name = 乌尔胡伯
+		plural = 乌尔胡伯
+		home_planet = 乌尔胡巴
+		home_system = 戈瑞-布洛瓦
+		name_list = "FUN3"
+	}
+	
+	caphevad = {
+		language = "l_simp_chinese"
+		name = 卡派瓦德
+		plural = 卡派瓦德
+		home_planet = 卡派瓦
+		home_system = 贝罗维
+		name_list = "FUN3"
+	}
+	
+	vool = {
+		language = "l_simp_chinese"
+		name = 沃尔
+		plural = 沃尔
+		home_planet = 沃尔乌
+		home_system = 沃尔乌-乌姆
+		name_list = "FUN3"
+	}
+	
+	frubralav = {
+		language = "l_simp_chinese"
+		name = 弗罗巴拉沃
+		plural = 弗罗巴拉沃
+		home_planet = 弗巴拉
+		home_system = 法巴利哈斯
+		name_list = "FUN3"
+	}
+	
+	fjasivlin = {
+		language = "l_simp_chinese"
+		name = 弗加斯沃林
+		plural = 弗加斯沃林
+		home_planet = 弗加斯
+		home_system = "博阿萨切德"
+		name_list = "FUN3"
+	}
+	
+	pobelin = {
+		language = "l_simp_chinese"
+		name = 波贝因
+		plural = 波贝因
+		home_planet = 波贝伊纳
+		home_system = 波布里尔
+		name_list = "FUN3"
+	}
+	
+	laachax = {
+		language = "l_simp_chinese"
+		name = 拉查克
+		plural = 拉查克
+		home_planet = 拉查克
+		home_system = "格尔茨拉查克"
+		name_list = "FUN3"
+	}
+	
+	udkavongo = {
+		language = "l_simp_chinese"
+		name = 乌德卡万戈
+		plural = 乌德卡万戈
+		home_planet = 乌德卡尔
+		home_system = "加瓦克塔拉"
+		name_list = "FUN3"
+	}
+	
+	lozavata = {
+		language = "l_simp_chinese"
+		name = 洛扎瓦特
+		plural = 洛扎瓦特
+		home_planet = "洛扎瓦塔主星"
+		home_system = 洛扎
+		name_list = "PLANT"
+	}
+
+	queptilium = {
+		language = "l_simp_chinese"
+		name = 夸普提利姆
+		plural = 夸普提利姆
+		home_planet = "夸普提利姆主星"
+		home_system = 夸普塔
+		name_list = "PLANT2"
+	}
+
+	lilarobius = {
+		language = "l_simp_chinese"
+		name = 利拉罗比乌斯
+		plural = 利拉罗比乌斯
+		home_planet = "利拉罗比乌斯主星"
+		home_system = 利拉罗
+		name_list = "PLANT3"
+	}
+
+	vetirisio = {
+		language = "l_simp_chinese"
+		name = 维提利西乌斯
+		plural = 维提利西乌斯
+		home_planet = "维提利西乌斯主星"
+		home_system = 维提利
+		name_list = "PLANT"
+	}
+
+	belmacosa = {
+		language = "l_simp_chinese"
+		name = 贝尔马克萨
+		plural = 贝尔马克萨
+		home_planet = "贝尔马克萨主星"
+		home_system = 贝尔马
+		name_list = "PLANT2"
+	}
+
+	panaxala = {
+		language = "l_simp_chinese"
+		name = 帕纳夏拉
+		plural = 帕纳夏拉
+		home_planet = "帕纳夏拉主星"
+		home_system = 帕纳夏
+		name_list = "PLANT3"
+	}
+
+	ganvius = {
+		language = "l_simp_chinese"
+		name = 加维乌斯
+		plural = 加维乌斯
+		home_planet = "加维乌斯主星"
+		home_system = 加维
+		name_list = "PLANT"
+	}
+
+	caloctora = {
+		language = "l_simp_chinese"
+		name = 卡洛克托拉
+		plural = 卡洛克托拉
+		home_planet = "卡洛克托拉主星"
+		home_system = 卡洛克
+		name_list = "PLANT2"
+	}
+
+	vivisandia = {
+		language = "l_simp_chinese"
+		name = 维伊萨恩迪亚
+		plural = 维伊萨恩迪亚
+		home_planet = "维伊萨恩迪亚主星"
+		home_system = 维伊萨
+		name_list = "PLANT3"
+	}
+
+	sidimatus = {
+		language = "l_simp_chinese"
+		name = 西迪马图斯
+		plural = 西迪马图斯
+		home_planet = "西迪马图斯主星"
+		home_system = 西迪马
+		name_list = "PLANT"
+	}
+
+	mandasura = {
+		language = "l_simp_chinese"
+		name = 马达苏拉
+		plural = 马达苏拉
+		home_planet = "马达苏拉主星"
+		home_system = 马达苏
+		name_list = "PLANT2"
+	}
+
+	mirovandia = {
+		language = "l_simp_chinese"
+		name = 米罗万迪亚
+		plural = 米罗万迪亚
+		home_planet = "米罗万迪亚主星"
+		home_system = 米罗万
+		name_list = "PLANT3"
+	}
+
+	pelisimus = {
+		language = "l_simp_chinese"
+		name = 佩里斯姆斯
+		plural = 佩里斯姆斯
+		home_planet = "佩里斯姆斯主星"
+		home_system = 佩里斯
+		name_list = "PLANT"
+	}
+
+	lavis = {
+		language = "l_simp_chinese"
+		name = 拉维斯
+		plural = 拉维斯
+		home_planet = "拉维斯主星"
+		home_system = 拉维
+		name_list = "PLANT2"
+	}
+	
+	raxycodium = {
+		language = "l_simp_chinese"
+		name = 拉夏克迪姆
+		plural = 拉夏克迪姆
+		home_planet = "拉夏克迪姆主星"
+		home_system = 拉夏克
+		name_list = "PLANT3"
+	}
+	
+	bhennthell = {
+		language = "l_simp_chinese"
+		name = 本尼特尔
+		plural = 本尼特尔
+		home_planet = 特尔
+		home_system = 特尔比克
+		name_list = "FUN1"
+	}
+
+	tendrazuhn = {
+		language = "l_simp_chinese"
+		name = 坦德拉-祖恩
+		plural = 坦德拉-祖恩
+		home_planet = 祖恩
+		home_system = 塔里木-扎尔
+		name_list = "FUN2"
+	}
+	
+	hahnmur = {
+		language = "l_simp_chinese"
+		name = 汉恩-穆尔
+		plural = 汉恩-穆尔
+		home_planet = 汉恩-穆里亚
+		home_system = 穆里亚
+		name_list = "FUN1"
+	}
+	
+	menjeti = {
+		language = "l_simp_chinese"
+		name = 孟加蒂
+		plural = 孟加蒂
+		home_planet = 孟加斯
+		home_system = 孟加萨那
+		name_list = "FUN2"
+	}
+
+	hissma = {
+		language = "l_simp_chinese"
+		name = 希斯马
+		plural = 希斯马
+		home_planet = 希斯姆
+		home_system = 希斯塔尔
+		name_list = "FUN1"
+	}
+
+	tycan = {
+		language = "l_simp_chinese"
+		name = 泰孔
+		plural = 泰孔
+		home_planet = "泰孔主星"
+		home_system = 泰孔
+		name_list = "FUN2"
+	}
+	
+	canthari = {
+		language = "l_simp_chinese"
+		name = 加提尔里
+		plural = 加提尔里
+		home_planet = "加提尔苏克"
+		home_system = 加托
+		name_list = "FUN1"
+	}
+	
+	otaga = {
+		language = "l_simp_chinese"
+		name = 奥德加
+		plural = 奥德加
+		home_planet = 奥德瓜尔
+		home_system = 奥德拉
+		name_list = "FUN2"
+	}
+	
+	zracon = {
+		language = "l_simp_chinese"
+		name = 扎拉卡
+		plural = 扎拉卡斯
+		home_planet = 扎拉格
+		home_system = 扎拉马斯
+		name_list = "FUN1"
+	}
+	
+	thembolon = {
+		language = "l_simp_chinese"
+		name = 台姆博伦
+		plural = 台姆博伦
+		home_planet = 台姆博利亚
+		home_system = 台姆博尔
+		name_list = "FUN2"
+	}
+	
+	jhoolian = {
+		language = "l_simp_chinese"
+		name = 约奥利安
+		plural = 约奥利安
+		home_planet = "约奥尔主星"
+		home_system = 约奥尔
+		name_list = "FUN1"
+	}
+	
+	djunn = {
+		language = "l_simp_chinese"
+		name = 德吉恩
+		plural = 德吉恩
+		home_planet = 德吉巴尔
+		home_system = 德吉尼尔
+		name_list = "FUN2"
+	}
+	
+	hulfir = {
+		language = "l_simp_chinese"
+		name = 胡费尔
+		plural = 胡费尔
+		home_planet = "胡费沙"
+		home_system = "胡费沙科尔"
+		name_list = "FUN1"
+	}
+	
+	ultur = {
+		language = "l_simp_chinese"
+		name = 乌尔-图尔
+		plural = 乌尔-图尔
+		home_planet = 图瑞博
+		home_system = 拉-穆尔
+		name_list = "FUN2"
+	}
+	
+	tyrathian = {
+		language = "l_simp_chinese"
+		name = 泰拉提安
+		plural = 泰拉提安
+		home_planet = 泰拉斯
+		home_system = 泰拉提努斯
+		name_list = "FUN1"
+	}
+	
+	kithri = {
+		language = "l_simp_chinese"
+		name = 基提里
+		plural = 基提里
+		home_planet = 基提乌尔
+		home_system = 基提瓦拉斯
+		name_list = "FUN2"
+	}
+	
+	jibru = {
+		language = "l_simp_chinese"
+		name = 吉布里
+		plural = 吉布里
+		home_planet = 吉布巴沙
+		home_system = 吉布
+		name_list = "FUN1"
+	}
+	
+	hazar = {
+		language = "l_simp_chinese"
+		name = 哈扎尔
+		plural = 哈扎尔
+		home_planet = 哈扎里亚
+		home_system = 哈兹
+		name_list = "FUN2"
+	}
+
+	kar-du = {
+		language = "l_simp_chinese"
+		name = 卡尔-杜乌
+		plural = 卡尔-杜乌
+		home_planet = 卡尔-努
+		home_system = 卡尔-祖
+		name_list = "FUN1"
+	}
+	
+	uriy = {
+		language = "l_simp_chinese"
+		name = 优瑞亚
+		plural = 优瑞亚
+		home_planet = 优瑞亚
+		home_system = 优瑞代特
+		name_list = "FUN2"
+	}
+	
+	gorf = {
+		language = "l_simp_chinese"
+		name = 格尔夫
+		plural = 格尔夫
+		home_planet = "大格尔夫"
+		home_system = 格尔费斯
+		name_list = "FUN1"
+	}
+	
+	zik-mok = {
+		language = "l_simp_chinese"
+		name = 基克-莫克
+		plural = 基克-莫克
+		home_planet = 莫克
+		home_system = 马克卡尔
+		name_list = "FUN2"
+	}
+	
+	neborite = {
+		language = "l_simp_chinese"
+		name = 尼博里特
+		plural = 尼博里特
+		home_planet = 尼博里亚
+		home_system = 尼博里特尔
+		name_list = "FUN1"
+	}
+	
+	syldaean = {
+		language = "l_simp_chinese"
+		name = 萨尔达安
+		plural = 萨尔达安
+		home_planet = "萨尔达主星"
+		home_system = 萨尔杜斯
+		name_list = "FUN2"
+	}
+	
+	meshben = {
+		language = "l_simp_chinese"
+		name = 梅夏博恩
+		plural = 梅夏博恩
+		home_planet = 梅夏博纳尔
+		home_system = 梅夏卡
+		name_list = "FUN1"
+	}
+
+	bothrazoid = {
+		language = "l_simp_chinese"
+		name = 布拉蓉
+		plural = 布拉蓉
+		home_planet = 布拉善
+		home_system = 布拉
+		name_list = "FUN2"
+	}
+
+	makaru = {
+		language = "l_simp_chinese"
+		name = 马卡芦
+		plural = 马卡芦
+		home_planet = 马卡拉
+		home_system = 尼卡-瑞尔
+		name_list = "FUN3"
+	}
+
+	sojagg = {
+		language = "l_simp_chinese"
+		name = 索加歌
+		plural = 索加歌
+		home_planet = "索加歌主星"
+		home_system = 索加
+		name_list = "FUN4"
+	}
+
+	vatnaka = {
+		language = "l_simp_chinese"
+		name = 维特'那-卡
+		plural = 维特'那-卡
+		home_planet = "大维提"
+		home_system = 卡拉玛
+		name_list = "FUN1"
+	}
+
+	ishni = {
+		language = "l_simp_chinese"
+		name = 依西尼
+		plural = 依西尼
+		home_planet = 依西
+		home_system = "依西'塔里"
+		name_list = "FUN2"
+	}
+	
+}

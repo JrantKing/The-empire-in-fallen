@@ -1,0 +1,219 @@
+ROBOT = {
+	archetype = ROBOT
+
+	#playable = { has_global_flag = game_started }
+	possible = {
+		ethics = {
+			OR = {
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		civics = { value = civic_synthetic_evolution }
+	}
+	possible_secondary = { always = no text = SECONDARY_SPECIES_CLASS_INVALID }
+	#possible_secondary = { civics = { value = civic_synthetic_evolution } }
+	
+	randomized = no
+	robotic = yes
+	gender = no
+	use_climate_preference = no
+	portrait_modding = yes
+	
+	leader_age_min = 2
+	leader_age_max = 10
+	
+	portraits = {
+		"sd_hum_robot"
+		"sd_mam_robot"
+		"sd_rep_robot"
+		"sd_avi_robot"
+		"sd_art_robot"
+		"sd_mol_robot"
+		"sd_fun_robot"
+		"sd_pla_robot"
+		"default_robot"
+	}
+
+	graphical_culture = mammalian_01
+	move_pop_sound_effect = robot_pops_move
+}
+
+ROBOT_GENDER = {
+	archetype = ROBOT
+
+	#playable = { has_global_flag = game_started }
+	
+	possible = {
+		ethics = {
+			OR = {
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		civics = { value = civic_synthetic_evolution }
+	}
+	possible_secondary = { always = no text = SECONDARY_SPECIES_CLASS_INVALID }
+	#possible_secondary = { civics = { value = civic_synthetic_evolution } }
+	
+	randomized = no
+	robotic = yes
+	gender = yes
+	use_climate_preference = no
+	portrait_modding = yes
+	
+	leader_age_min = 2
+	leader_age_max = 10
+	
+	portraits = {
+		"sd_hum_robot"
+		"sd_mam_robot"
+		"sd_rep_robot"
+		"sd_avi_robot"
+		"sd_art_robot"
+		"sd_mol_robot"
+		"sd_fun_robot"
+		"sd_pla_robot"
+		"default_robot"
+	}
+
+	graphical_culture = mammalian_01
+	move_pop_sound_effect = robot_pops_move
+}
+
+MACHINE = {
+	archetype = MACHINE
+
+	playable = { host_has_dlc = "Synthetic Dawn Story Pack" }
+	randomized = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		# The create_species effect can't properly take the possible trigger below into account.
+		# Work around this by disabling this class for species randomization after game start.
+		NOT = { has_global_flag = game_started }
+	}
+	possible = { authority = { OR = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_USE_MACHINE_INTELLIGENCE } } }
+	#possible_secondary = { always = no text = SECONDARY_SPECIES_CLASS_INVALID }
+	possible_secondary = { civics = { value = civic_synthetic_evolution } }
+
+	robotic = yes
+	gender = no
+	use_climate_preference = no
+	portrait_modding = yes
+	
+	leader_age_min = 2
+	leader_age_max = 10
+
+	portraits = {
+		"sd_hum_robot"
+		"sd_mam_robot"
+		"sd_rep_robot"
+		"sd_avi_robot"
+		"sd_art_robot"
+		"sd_mol_robot"
+		"sd_fun_robot"
+		"sd_pla_robot"
+		"default_robot"
+	}
+
+	graphical_culture = mammalian_01
+	move_pop_sound_effect = "robot_pops_move"
+}
+
+NEWMAN = {
+	archetype = BIOLOGICAL
+
+	playable = no
+	randomized = { NOT = { has_global_flag = game_started } }
+	
+	portraits = {
+		"human"
+	}
+	
+	graphical_culture = humanoid_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_1 = {
+	randomized = no
+	graphical_culture = fallen_empire_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_2 = {
+	randomized = no
+	graphical_culture = fallen_empire_02
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_3 = {
+	randomized = no
+	graphical_culture = fallen_empire_03
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_4 = {
+	randomized = no
+	graphical_culture = fallen_empire_04
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_5 = {
+	randomized = no
+	graphical_culture = fallen_empire_05
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_6 = {
+	randomized = no
+	graphical_culture = fallen_empire_06
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_7 = {
+	randomized = no
+	graphical_culture = fallen_empire_07
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_8 = {
+	randomized = no
+	graphical_culture = fallen_empire_08
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_9 = {
+	randomized = no
+	graphical_culture = fallen_empire_09
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+
+FALLEN_10 = {
+	randomized = no
+	graphical_culture = fallen_empire_10
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_11 = {
+	randomized = no
+	graphical_culture = fallen_empire_11
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_12 = {
+	randomized = no
+	graphical_culture = fallen_empire_12
+	move_pop_sound_effect = "moving_pop_confirmation"
+}
+
+FALLEN_MACHINE_01 = {
+	randomized = no
+	graphical_culture = fallen_machine_empire_01
+	move_pop_sound_effect = "robot_pops_move"
+}
+
+FALLEN_MACHINE_02 = {
+	randomized = no
+	graphical_culture = fallen_machine_empire_02
+	move_pop_sound_effect = "robot_pops_move"
+}

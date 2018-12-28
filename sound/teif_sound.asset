@@ -12,3 +12,10 @@ sound =
 	file = "event/stability_increase.wav"
 	volume = 0.8
 }
+
+sound =
+{
+	name = "rebels_revolt_alert"
+	file = "event/rebels_revolt_alert.wav"
+	volume = 0.8
+}

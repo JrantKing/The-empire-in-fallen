@@ -7,20 +7,24 @@ dyson_sphere_0 = {
 	construction_blocks_others = no
 	entity_offset = { x = -7 y = -7 }
 	build_time = 1800
-	build_cost = {
-		minerals = 10000
-		influence = 300
-	}
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 300
+		}
 
-	maintenance = {
-		energy = 5
+		upkeep = {
+			energy = 5
+		}
 	}
 
 	potential = {
-		has_ascension_perk = ap_galactic_wonders
+		has_gw_dyson_sphere = yes
 	}
 	
 	possible = {
+		exists = starbase
 		custom_tooltip = {
 			fail_text = "requires_inside_border"
 			is_inside_border = from
@@ -45,11 +49,7 @@ dyson_sphere_0 = {
 			NOT = {
 				any_planet = {
 					AND = {
-						OR = {
-							habitable_planet = yes
-							habitable_structure = yes
-						}
-						NOT = { has_planet_flag = habitat }
+						colonizeable_planet = yes
 					}
 				}
 			}
@@ -63,8 +63,28 @@ dyson_sphere_0 = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = "requires_no_binary_trinary"
+			NOR = {
+				is_star_class = sc_binary_1
+				is_star_class = sc_binary_2
+				is_star_class = sc_binary_3
+				is_star_class = sc_binary_4
+				is_star_class = sc_binary_5
+				is_star_class = sc_binary_6
+				is_star_class = sc_binary_7
+				is_star_class = sc_binary_8
+				is_star_class = sc_binary_9
+				is_star_class = sc_binary_10
+				is_star_class = sc_trinary_1
+				is_star_class = sc_trinary_2
+				is_star_class = sc_trinary_3
+				is_star_class = sc_trinary_4
+			}
+		}
+		custom_tooltip = {
 			fail_text = "requires_no_existing_megastructure"
-			NOT = { has_any_megastructure = yes }
+			#NOT = { has_any_megastructure = yes }
+			has_no_non_gate_megastructure = yes
 		}
 	}
 	
@@ -85,23 +105,22 @@ dyson_sphere_0 = {
 		}
 	}
 	
+	# root = system
+	# from = country	
 	ai_weight = {
 		factor = 15
 		
 		modifier = {
 			factor = 0.1
-			has_any_megastructure_in_empire = yes
-		}
+			starbase = { NOT = { has_starbase_size >= starbase_starfortress } }
+		}	
 		
 		modifier = {
 			factor = 0.1
-			any_system_within_border = {
-				OR = {
-					has_megastructure = dyson_sphere_1
-					has_megastructure = dyson_sphere_2
-					has_megastructure = dyson_sphere_3
-					has_megastructure = dyson_sphere_4
-					has_megastructure = dyson_sphere_5	
+			any_neighbor_system = {
+				exists = owner
+				NOT = { 
+					owner = { is_same_value = from } 
 				}
 			}
 		}
@@ -125,12 +144,15 @@ dyson_sphere_1 = {
 		dyson_sphere_0
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -144,15 +166,19 @@ dyson_sphere_2 = {
 		dyson_sphere_1
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 250
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 250
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -166,15 +192,19 @@ dyson_sphere_3 = {
 		dyson_sphere_2
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 500
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 500
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -188,15 +218,19 @@ dyson_sphere_4 = {
 		dyson_sphere_3
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 750
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 750
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -210,15 +244,19 @@ dyson_sphere_5 = {
 		dyson_sphere_4
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 1000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 1000
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 
 	on_build_complete = {
@@ -236,7 +274,7 @@ dyson_sphere_5 = {
 				is_planet_class = pc_barren
 			}
 			change_pc = pc_barren_cold
-		}		
+		}	
 	}
 }
 
@@ -261,11 +299,15 @@ dyson_sphere_restored = {
 		dyson_sphere_ruined
 	}
 	build_time = 7200
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 1000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 20000
+		}
+
+		produces = {
+			energy = 1000
+		}
 	}
 
 	possible = {

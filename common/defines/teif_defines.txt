@@ -1,0 +1,17 @@
+NGameplay = {
+	ASCENSION_PERKS_SLOTS				= 41
+	INSULT_COOLDOWN_DAYS				= 0 	# How often can you send insults?
+	#MAX_PLANET_BUILDING_SLOTS			= 199
+	#POPS_BRANCH_OFFICE_BUILDING_SLOTS	= 25
+	#MAX_PLANET_BRANCH_OFFICE_BUILDING_SLOTS	 = 40
+}
+NSpecies = {
+	HOMEWORLD_HABITABILITY				= 0.0		# Habitability on homeworld is increased by this value
+}
+NGraphics = {
+	GALAXY_DUST_ROTATION_SPEED			= 0.100
+	GALAXY_NEBULA_DUST_ROTATION_SPEED	= 0.100
+}
+NAI = {
+	FALLEN_EMPIRE_FLEET_SIZE 			= 250		# Fallen empires will have fleets of max this size
+}

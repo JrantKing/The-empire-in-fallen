@@ -1,0 +1,12 @@
+﻿# Generated species derive their names from here
+
+NEWMAN = {
+	xinrenlei = {
+		language = "l_simp_chinese"
+		name = "人类"
+		plural = "人类"
+		home_planet = "新维也纳"
+		home_system = "天关一"
+		name_list = "HUMAN3"
+	}
+}

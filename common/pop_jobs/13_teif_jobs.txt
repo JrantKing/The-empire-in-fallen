@@ -1,0 +1,94 @@
+shielded_researcher = {
+	category = ruler
+	condition_string = RULER_JOB_TRIGGER
+	building_icon = building_planetary_shield_generator
+	clothes_texture_index = 1
+	icon = enforcer
+
+	possible = {
+		ruler_job_check_trigger = yes
+	}
+	
+	resources = {
+		category = planet_enforcers
+		produces = {
+			physics_research = 5
+			engineering_research = 5
+			society_research = 5
+			influence = 1
+		}	
+	}
+	
+	planet_modifier = {
+		planet_amenities_add = 10
+	}
+	
+	weight = {
+		weight = @ruler_job_weight
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no	
+			NOT = { has_trait = trait_mechanical }
+		}
+		modifier = {
+			factor = 2
+			has_living_standard = { type = living_standard_academic_privilege }
+		}
+		modifier = {
+			factor = 3
+			has_trait = trait_erudite
+		}		
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = trait_robot_logic_engines
+				has_trait = trait_intelligent
+			}
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_trait = trait_natural_engineers
+				has_trait = trait_natural_physicists
+				has_trait = trait_natural_sociologists
+			}
+		}	
+		modifier = {
+			factor = 5
+			has_job = shielded_researcher
+		}
+	}
+}
+
+fe_hedonist_aw = {
+	#category = ruler
+	category = precursor
+	building_icon = building_hyper_entertainment_forum
+	clothes_texture_index = 2
+	icon = fe_hedonist
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = { 	
+			is_fallen_empire_spiritualist = no 
+			is_fallen_machine_empire = no
+			is_country_type = awakened_fallen_empire
+			NOT = { is_country_type = fallen_empire }
+		}
+		is_same_species = owner
+		NOR = {
+			has_trait = trait_mechanical
+			has_trait = trait_machine_unit
+		}
+	}
+	
+	resources = {
+		category = planet_jobs
+		produces = {
+			unity = 2
+		}
+	}
+	
+	weight = {
+		weight = 1000
+	}
+}

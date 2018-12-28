@@ -1,0 +1,30 @@
+on_leader_death = {
+	events = {
+		stability.1006
+	}
+}
+on_war_lost = {
+	events = {
+		stability.1017
+	}
+}
+on_game_start_country = {
+	events = {
+		stability.1000
+	}
+}
+on_monthly_pulse = {
+	events = {
+		stability.999
+	}
+}
+on_space_battle_won = {
+	events = {
+		stability.1007
+	}
+}
+on_leader_spawned = {
+	events = {
+		
+	}
+}

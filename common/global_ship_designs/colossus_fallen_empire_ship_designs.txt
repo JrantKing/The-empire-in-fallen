@@ -1,0 +1,384 @@
+#############################
+### Fallen Machine Empire ###
+#############################
+ship_design = {
+	name = "NAME_Omega"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_NEUTRON"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_ARMOR_5"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="JUMP_DRIVE_2"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_fallen_empire_machine
+}
+
+
+############################ 
+### Keepers of Knowledge ###
+############################ 
+
+# Planet Destroyer
+ship_design = {
+	name = "NAME_Enforcer"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_SHIELDER"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_ARMOR_5"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="JUMP_DRIVE_3"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_fallen_empire_materialist
+}
+######################
+### Holy Guardians ###
+######################
+
+# Planet Destroyer
+ship_design = {
+	name = "NAME_Cleanser"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_NEUTRON"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_ARMOR_5"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="PSI_JUMP_DRIVE_1"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_fallen_empire_spiritualist
+}
+#############################
+### Militant Isolatonists ###
+#############################
+
+# Planet Destroyer
+ship_design = {
+	name = "NAME_Reaper"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_CRACKER"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_ARMOR_5"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="JUMP_DRIVE_2"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_fallen_empire_xenophobe
+}
+# Planet Destroyer
+ship_design = {
+	name = "NAME_Adjuster"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_SHIELDER"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_ARMOR_5"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="JUMP_DRIVE_2"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_fallen_empire_xenophile
+}
+# Planet Destroyer
+ship_design = {
+	name = "NAME_Giant"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_CRACKER"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_ARMOR_5"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="JUMP_DRIVE_3"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_teif_fallen_empire_authoritarian
+}
+# Planet Destroyer
+ship_design = {
+	name = "NAME_Harmony"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_SHIELDER"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_DRAGON_ARMOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_DRAGON_ARMOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_DRAGON_ARMOR"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="JUMP_DRIVE_3"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_teif_fallen_empire_egalitarian
+}
+# Planet Destroyer
+ship_design = {
+	name = "NAME_Justice"
+	ship_size = colossus
+	section = {
+		template = "SHIP_COLOSSUS_SECTION"
+		slot = "ship"
+		
+		component = {
+			slot = "PLANET_KILLER_GUN_01"
+			template = "PLANET_KILLER_SHIELDER"
+		}
+		component = {
+			slot = "LARGE_UTILITY_1"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_2"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_3"
+			template = "LARGE_DARK_MATTER_DEFLECTOR"
+		}
+		component = {
+			slot = "LARGE_UTILITY_4"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_5"
+			template = "LARGE_ARMOR_5"
+		}
+		component = {
+			slot = "LARGE_UTILITY_6"
+			template = "LARGE_ARMOR_5"
+		}		
+	}
+	required_component="COLOSSUS_DARK_MATTER_REACTOR"
+	required_component="JUMP_DRIVE_3"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
+	required_component="COMBAT_COMPUTER_COLOSSUS"
+	
+	# For special buildable
+	#is_special_buildable = yes
+	allow_buildable_trigger = is_teif_fallen_empire_egalitarian
+}

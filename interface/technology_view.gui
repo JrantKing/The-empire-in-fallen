@@ -3,7 +3,7 @@ guiTypes = {
 		name = "technology_view_window"
 		size = { width=595 height=682 } 
 		
-		show_position = { x = -1 y = 35 }
+		show_position = { x = 30 y = 35 }
         hide_position = { x = -1070 y = 35 }
         animation_time = 200
         animation_type = decelerated
@@ -264,7 +264,7 @@ guiTypes = {
 
 			smoothListBoxType = {
 				name = "list"
-				position = { x = 10 y= 60 }
+				position = { x = 10 y = 60 }
 				orientation = "UPPER_LEFT"
 				priority = 100
 				size = { x = 460 y = 510 }
@@ -290,7 +290,7 @@ guiTypes = {
 			buttonType = {
 				name = "tab_physics_active"
 				quadTextureSprite = "GFX_tab_1_active"
-				position = { x= -20 y = @tabheight }
+				position = { x = -20 y = @tabheight }
 				font = "cg_16b"
 				buttonText = "PHYSICS"
 				buttonFont = "cg_16b"
@@ -302,7 +302,7 @@ guiTypes = {
 			buttonType = {
 				name = "tab_society"
 				quadTextureSprite = "GFX_tab_2_inactive"
-				position = { x= 109 y = @tabheight }
+				position = { x = 109 y = @tabheight }
 				font = "cg_16b"
 				buttonText = "SOCIETY"
 				buttonFont = "cg_16b"
@@ -351,7 +351,7 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "technology_view_area_window"
-		size = { width=600 height=210 }
+		size = { width = 600 height = 210 }
 		position = { x = 0 y = 0 }
 		orientation = upper_left
 		moveable = no
@@ -362,13 +362,13 @@ guiTypes = {
 		iconType = {
 			name ="topbar"
 			spriteType = "GFX_scientist_top_bar_physics"
-			position = { x= 130 y = 11 }
+			position = { x = 130 y = 11 }
 		}
 
 		iconType = {
 			name ="area_icon"
 			spriteType = "GFX_resource_engineering"
-			position = { x= 134 y = 14 }
+			position = { x = 134 y = 14 }
 		}
 
 		instantTextBoxType={
@@ -393,7 +393,7 @@ guiTypes = {
 		
 		buttonType = {
 			name = "scientist_background"
-			position = { x= 131 y = 42 }
+			position = { x = 131 y = 42 }
 			size = { x = 451 y = 35 }
 			spriteType = "GFX_tiles_dark_area_cut_8"	
 			alwaystransparent = yes
@@ -450,6 +450,7 @@ guiTypes = {
 				quadTextureSprite = "GFX_leader_bg_scientist"
 				position = { x = 0 y = 0 }
 				scale = 0.4
+				oversound = no_sound
 			}			
 			
 			iconType = {
@@ -591,7 +592,7 @@ guiTypes = {
 			iconType = {
 				name ="category_icon"
 				spriteType = "GFX_traits"
-				position = { x= 547 y = 112 }
+				position = { x= 551 y = 108 }
 				scale = 1.0
 			}
 
@@ -741,7 +742,7 @@ guiTypes = {
 		iconType = {
 			name ="category_icon"
 			spriteType = "GFX_traits"
-			position = { x= 430 y = 38 }
+			position = { x= 434 y = 40 }
 			scale = 1.0
 		}
 		
@@ -880,7 +881,7 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "technology_view_unlock_entry"
-		size = { width = 340 height = 60 } #Height will be changed by code according to requirements
+		size = { width = 360 height = 60 } #Height will be changed by code according to requirements
 		position = { x = 0 y = 0 }
 		clipping = yes
 
@@ -889,7 +890,7 @@ guiTypes = {
 			font = "cg_16b"
 			text = ""
 			position = { x = 5 y = 0 } # Please don't move from (0,0)
-			maxWidth = 337
+			maxWidth = 360
 			maxHeight = 60
 			format = left
 			fixedsize = yes
@@ -897,7 +898,7 @@ guiTypes = {
 	}
 
 	containerWindowType = {
-		name = "technology_view_unlock_entry_tile_blocker"
+		name = "technology_view_unlock_entry_deposit_blocker"
 		size = { width = 340 height = 60 }
 		position = { x = 0 y = 0 }
 		clipping = yes
@@ -979,13 +980,13 @@ guiTypes = {
 	}	
 
 	containerWindowType = {
-		name = "technology_view_tile_blocker"
+		name = "technology_view_deposit_blocker"
 		size = { width = 50 height = 50 }
 		position = { x = 0 y = 0 }
 
 		iconType = {
 			name = "icon"
-			spriteType = "GFX_tile_frame_blocker"
+			spriteType = "GFX_planet_background_frame_blocker"
 			position = { x = 0 y = 0 }
 			scale = 0.5
 		}				
@@ -1149,7 +1150,7 @@ guiTypes = {
 			position = { x = 125 y = 108 }
 			size = { x = 350 y = 60 }
 			orientation = "UPPER_LEFT"
-			borderSize = { x=0 y=0 }
+			borderSize = { x = 0 y = 0 }
 			spacing = 1	
 			alwaystransparent = yes
 		}
@@ -1158,7 +1159,7 @@ guiTypes = {
 			name = "researched_desc"
 			font = "cg_16b"
 			text = ""
-			position = { x = 57 y = 175 }
+			position = { x = 57 y = 162 }
 			maxWidth = 460
 			maxHeight = 100
 			fixedSize = yes
@@ -1185,6 +1186,6 @@ guiTypes = {
 			text = "TECH_NEW_RESEARCH"
 			buttonFont = "cg_16b"
 			Orientation = "LOWER_RIGHT"
-		}	
+		}
 	}		
 }

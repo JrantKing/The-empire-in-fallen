@@ -1,0 +1,134 @@
+namespace = startfix
+
+event = {
+	id = startfix.0
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		event_target:global_event_country = {
+			country_event = { id = startfix.1 days = 31 }
+		}
+	}
+}
+
+country_event = {
+	id = startfix.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_country ={
+			limit = { is_country_type = fallen_empire }
+			every_system_within_border = {
+				if = {
+					limit = {
+						exists = starbase
+						starbase = {
+							has_starbase_size = starbase_citadel
+							has_starbase_building = titan_yards
+						}
+					}
+					random_fleet_in_system = {
+						limit = {
+							any_owned_ship = {
+								is_ship_class = shipclass_starbase
+							}
+						}
+						delete_fleet = this
+					}
+					create_starbase = {
+						owner = prev.owner
+						size = "starbase_starfortress"
+						module = "shipyard"
+						module = "shipyard"
+						module = "shipyard"			
+						module = "hangar_bay"
+						module = "gun_battery"
+						module = "gun_battery"	
+						building = "target_uplink_computer"
+						building = "defense_grid"
+					}
+					starbase = {
+						set_starbase_size = starbase_citadel
+						set_starbase_building = { slot = 0 building = target_uplink_computer }
+						set_starbase_building = { slot = 1 building = defense_grid }
+						set_starbase_building = { slot = 2 building = colossus_yards }
+						set_starbase_building = { slot = 3 building = titan_yards }
+						while = {
+							count = 10
+							create_fallen_empire_platform = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						exists = starbase
+						starbase = {
+							has_starbase_size = starbase_citadel
+							has_starbase_building = listening_post
+						}
+					}
+					random_fleet_in_system = {
+						limit = {
+							any_owned_ship = {
+								is_ship_class = shipclass_starbase
+							}
+						}
+						delete_fleet = this
+					}
+					create_starbase = {
+						owner = prev.owner
+						size = "starbase_starfortress"
+						module = "shipyard"
+						module = "shipyard"
+						module = "shipyard"			
+						module = "hangar_bay"
+						module = "gun_battery"
+						module = "gun_battery"	
+						building = "target_uplink_computer"
+						building = "defense_grid"
+					}
+					starbase = {
+						set_starbase_size = starbase_citadel
+						set_starbase_building = { slot = 0 building = crew_quarters }
+						set_starbase_building = { slot = 1 building = command_center }
+						set_starbase_building = { slot = 2 building = target_uplink_computer }
+						set_starbase_building = { slot = 3 building = listening_post }
+						while = {
+							count = 4
+							create_fallen_empire_platform = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						exists = starbase
+						starbase = {
+							has_starbase_size = starbase_outpost
+						}
+					}
+					random_fleet_in_system = {
+						limit = {
+							any_owned_ship = {
+								is_ship_class = shipclass_starbase
+							}
+						}
+						delete_fleet = this
+					}
+					create_starbase = {
+						owner = prev.owner
+						size = "starbase_starfortress"
+					}
+					starbase = {
+						set_starbase_size = starbase_outpost
+						while = {
+							count = 2
+							create_fallen_empire_platform = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}

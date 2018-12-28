@@ -1,12 +1,11 @@
 ﻿### Mammalian 1
-MAM1 = {
-	### SHIPS
-	alias = "MAM4"
+### Created by Henrik Eklund
 
+MAM1 = {
 	ship_names = {
 
 		generic = {
-				"比斯" "费坦" "帕苏朗" "巴罗尔" "图安" "内米德" "达努" "努阿达" "法尔" "鲁格" "达格达" "布瑞斯" "迪安克特"
+			"比斯" "费坦" "帕苏朗" "巴罗尔" "图安" "内米德" "达努" "努阿达" "法尔" "鲁格" "达格达" "布瑞斯" "迪安克特"
 				"海尔波" "玛查" "库兰德楚" "康齐厄伯" "涅萨" "康诺尔" "弗格斯" "迪尔德丽" "库丘林" "梅芙" "艾利尔" "洛赫"
 				"梅菲比斯" "弗拜" "康马克" "芬恩" "俄西亚" "迪尔梅德" "奥斯卡" "卡尔特" "高尔" "迪卢姆多" "梅尔顿" "德鲁伊努卡"
 				"尤瑟" "亚瑟" "格尼维尔" "兰斯洛特" "高文" "杰兰特" "加雷斯" "加拉哈德" "加赫里斯" "伯斯" "贝德维尔" "凯伊"
@@ -24,38 +23,35 @@ MAM1 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
-				"恩亚" "萨安" "艾波娜" "莫瑞甘" "安格斯"
+			"恩亚" "萨安" "艾波娜" "莫瑞甘" "安格斯"											 
 		}
 		
 		colonizer = {
-				"阿莫金" "塔利辛" "博阿迪西亚" "迈达" "伊洛"
+			"阿莫金" "塔利辛" "博阿迪西亚" "迈达" "伊洛"	
 		}
 		
 		constructor = {
-				"德鲁伊" "梅林" "凯斯巴" "范格斯" "卡拉丁"
-		}
-
-  
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
+			"德鲁伊" "梅林" "凯斯巴" "范格斯" "卡拉丁"																			  
 		}
 		
-		military_station_small = {
-				"阿格莱瓦" "卡多尔" "卡拉多克" "达格尼" "迪拿但"
+		transport = {
 		}
-		military_station_medium = {
-				"白伊利安" "霍埃尔国王" "雷恩代格兰斯" "马利亚甘特" "帕拉米迪斯"
+	
+		military_station_small = {
+			"阿格莱瓦" "卡多尔" "卡拉多克" "达格尼" "迪拿但" "白伊利安" "霍埃尔国王" "雷恩代格兰斯" "马利亚甘特" "帕拉米迪斯"
 		}
 
-		military_station_large = {
-				"佩利亚斯" "佩利诺尔国王" "萨菲尔" "尤瑞恩斯国王" "伊文"
-		}	
+		ion_cannon = {
+			"佩利亚斯" "佩利诺尔国王" "萨菲尔" "尤瑞恩斯国王" "伊文"
+		}
 	}
 
 	fleet_names = {
@@ -64,10 +60,8 @@ MAM1 = {
 		}
 		sequential_name = "星海%O%舰队"
 	}
-	
-		   
+		
 	army_names = {
-	
 		defense_army = {
 			sequential_name = "%O%守备师团"
 		}
@@ -87,9 +81,17 @@ MAM1 = {
 		robotic_army = {
 			sequential_name = "%O%机器人师团"
 		}
+
+		robotic_defense_army = {
+			sequential_name = "%O%机器人防卫者"
+		}
 		
 		android_army = {
 			sequential_name = "%O%智能人师团"
+		}
+
+		android_defense_army = {
+			sequential_name = "%O%智能人防卫者"
 		}
 		
 		psionic_army = { 
@@ -102,11 +104,19 @@ MAM1 = {
 		
 		gene_warrior_army = {
 			sequential_name = "%O%基因武士师团"
+ 		}
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
 		}
 	}
-		
-
-	### PLANETS
 
 	planet_names = {
 
@@ -121,43 +131,36 @@ MAM1 = {
 		
 		pc_desert = {
 			names = {
-					
 			}
 		}
 		
 		pc_tropical = {
 			names = {
-					  
 			}
 		}
 		
 		pc_arid = {
 			names = {
-					  
 			}
 		}
 		
 		pc_continental = {
 			names = {
-				   
 			}
 		}
 		
 		pc_ocean = {
 			names = {
-										
 			}
 		}
 		
 		pc_tundra = {
 			names = {
-					   
 			}
 		}
 		
 		pc_arctic = {
 			names = {
-					 
 			}
 		}
 
@@ -173,8 +176,6 @@ MAM1 = {
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
@@ -182,13 +183,15 @@ MAM1 = {
 			}
 			
 			# Always combined with a second name
-			first_names = {
-				"比斯" "费坦" "帕苏朗" "巴罗尔" "图安" "内米德" "达努" "努阿达" "法尔" "鲁格" "达格达" "布瑞斯" "迪安克特"
-				"海尔波" "玛查" "库兰德楚" "康齐厄伯" "涅萨" "康诺尔" "弗格斯" "迪尔德丽" "库丘林" "梅芙" "艾利尔" "洛赫"
-				"梅菲比斯" "弗拜" "康马克" "芬恩" "俄西亚" "迪尔梅德" "奥斯卡" "卡尔特" "高尔" "迪卢姆多" "梅尔顿" "德鲁伊努卡"
-				"尤瑟" "亚瑟" "格尼维尔" "兰斯洛特" "高文" "杰兰特" "加雷斯" "加拉哈德" "加赫里斯" "伯斯" "贝德维尔" "凯伊"
-				"兰马洛克" "帕西法尔" "特里斯坦" "达戈尼特" "莫德雷德" "埃克特" "摩根"
-
+			first_names_male = {
+				伊万 尼古拉 鲍里斯 弗拉迪米尔 彼得 阿列克谢 德米特里 谢尔盖 维克多 罗曼 伊戈尔 米哈伊尔 瓦西里 帕维尔 费奥多尔 尼基塔 瓦勒里
+				弗拉迪斯拉夫 列昂尼德 尼古拉 尤里 奥列格 安德烈 康斯坦丁 维亚切斯拉夫 亚历山大 斯坦尼斯拉夫 安那托利 米洛斯拉夫 根纳季 博格丹
+				布拉尼斯拉夫 伊利亚 雅罗斯拉夫 拉多米尔 基里尔 拉多斯拉夫 谢苗 拉蒂米尔 叶戈尔
+			}
+			first_names_female = {
+				安娜 叶莲娜 奥尔加 娜斯塔西娅 塔季扬娜 斯维特拉娜 娜德雅 伊凯琳娜 伊琳娜 加丽娜 米洛斯拉瓦 安娜斯塔西娅 薇拉 波利娜 柳德米拉 埃琳娜
+				玛丽娜 巴芙拉 艾尔玛 科谢妮亚 亚历山德娜 维克托莉娅 瓦伦蒂娜 阿利娜 卓娅 卡捷琳娜 卡佳 柳博芙 玛丽娅 娜塔莎 弗拉达 巴芙拉
+				塔蒂阿娜 索尼亚 拉伊莎 
 			}
 			
 			# Always combined with a first name
@@ -202,7 +205,7 @@ MAM1 = {
 			}
 			
 			regnal_second_names = {
-				"潘德拉贡"
+				费尔南德斯 桑切斯 洛佩斯 马丁 佩雷斯 贡萨雷斯 阿尔瓦雷斯 戈麦斯 迪亚斯
 			}
 		}
 	}

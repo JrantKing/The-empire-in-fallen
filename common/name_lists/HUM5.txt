@@ -1,7 +1,7 @@
 ﻿### United Nations of Earth
 HUM5 = {
+	selectable = { always = no }
 	randomized = no
-	alias = "Human"
 
 	ship_names = {		   
 	corvette = {
@@ -128,14 +128,6 @@ HUM5 = {
 			冯·布劳恩 沃尔特·雷利 阿西莫夫 克拉克 萨根 伊本·白图泰 开普勒 托勒密 皮西亚斯 阿佐菲 探索 旅行者 信风 搜索者 先驱者 勘探者 旅居者 圣玛丽亚 霍金 埃尔哈特 
 			诺贝尔 开尔文 华伦海特 春分 拉格朗日 齐奥尔科夫斯基 达尔文 格里索姆 阿基米德
 		}
-		
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = { }
 		transport = {
 		  考彭斯 贝洛林苑 巴丹 蒙特雷 韦拉克鲁斯 塔拉瓦 硫磺岛 冲绳 仁川 古斯格林 佩莱利乌 关岛
 		}
@@ -144,22 +136,7 @@ HUM5 = {
 		  伊俄 欧罗巴 泰坦 瑞亚 伊阿珀托斯 狄俄涅 特提斯 恩克拉多斯 米玛斯 提坦妮亚 奥伯龙 昂布瑞尔 
 		  艾瑞尔 米兰达 特里同斯 冥王星 卡戎
 		}
-		military_station_medium = {
-		  水星 金星 塔拉 火星 木星 土星 天王星 海王星 月亮 福波斯 得摩斯 谷神星 盖尼米得 卡利斯特 
-		  伊俄 欧罗巴 泰坦 瑞亚 伊阿珀托斯 狄俄涅 特提斯 恩克拉多斯 米玛斯 提坦妮亚 奥伯龙 昂布瑞尔 
-		  艾瑞尔 米兰达 特里同斯 冥王星 卡戎
-		}
-		military_station_large = {
-		  水星 金星 塔拉 火星 木星 土星 天王星 海王星 月亮 福波斯 得摩斯 谷神星 盖尼米得 卡利斯特 
-		  伊俄 欧罗巴 泰坦 瑞亚 伊阿珀托斯 狄俄涅 特提斯 恩克拉多斯 米玛斯 提坦妮亚 奥伯龙 昂布瑞尔 
-		  艾瑞尔 米兰达 特里同斯 冥王星 卡戎
-		}
-		military_station_small_fallen_empire = {
-		  水星 金星 塔拉 火星 木星 土星 天王星 海王星 月亮 福波斯 得摩斯 谷神星 盖尼米得 卡利斯特 
-		  伊俄 欧罗巴 泰坦 瑞亚 伊阿珀托斯 狄俄涅 特提斯 恩克拉多斯 米玛斯 提坦妮亚 奥伯龙 昂布瑞尔 
-		  艾瑞尔 米兰达 特里同斯 冥王星 卡戎
-		}
-		military_station_large_fallen_empire = {
+		ion_cannon = {
 		  水星 金星 塔拉 火星 木星 土星 天王星 海王星 月亮 福波斯 得摩斯 谷神星 盖尼米得 卡利斯特 
 		  伊俄 欧罗巴 泰坦 瑞亚 伊阿珀托斯 狄俄涅 特提斯 恩克拉多斯 米玛斯 提坦妮亚 奥伯龙 昂布瑞尔 
 		  艾瑞尔 米兰达 特里同斯 冥王星 卡戎
@@ -180,15 +157,15 @@ HUM5 = {
 	army_names = {
 	
 		defense_army = {
-			sequential_name = "%O%行星卫队"
+			sequential_name = "%O%常备军"
 		}
 
 		assault_army = {
-			sequential_name = "%O%远征军"
+			sequential_name = "%O%虎豹军"
 		}
 		
 		slave_army = {
-			sequential_name = "%O%奴仆军"
+			sequential_name = "%O%隶臣军"
 		}
 		
 		clone_army = { 
@@ -196,35 +173,31 @@ HUM5 = {
 		}
 		
 		robotic_army = {
-			sequential_name = "%O%猎杀者军"
+			sequential_name = "%O%机人军"
 		}
 
 		robotic_defense_army = {
-			sequential_name = "%O%猎杀者警备军"
+			sequential_name = "%O%机人护军"
 		}
 		
 		android_army = {
-			sequential_name = "%O%合成人游奕军"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O%合成人警备军"
+			sequential_name = "%O%智人军"
 		}
 		
+		android_defense_army = {
+			sequential_name = "%O%智人护军"
+		}
+
 		psionic_army = { 
-			sequential_name = "%O%超能突击队"
+			sequential_name = "%O%灵能军"
 		}
 		
 		xenomorph_army = {
-			sequential_name = "%O%异形师团"
+			sequential_name = "%O%修罗军"
 		}
 		
 		gene_warrior_army = {
-			random_names = {
-					"SARC-A '格斗士'" "SARC-B '毁灭者'" "SARC-C '不死者'" "SARC-D '狂战士'" "SARC-E '阿萨辛'" 
-					"SARC-F '收割者'" "SARC-G '夜鹰'" "SARC-H '亡命之徒'" "SARC-I '灰骑士'" "SARC-J '无赖'"
-			}
-			sequential_name = "%O%基因战士中队"
+			sequential_name = "%O%基因军"
 		}
 	}
 

@@ -63,8 +63,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian_1
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -80,8 +81,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian_1
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_belligerent_to = FROM
@@ -94,8 +96,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian_1
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_custodial_to = FROM
@@ -109,8 +112,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian_1
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_custodial_to = FROM
@@ -124,8 +128,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian_1
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian_normal
 			}
 			is_overlord_to = FROM
 		}
@@ -138,8 +143,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_authoritarian
-				has_ai_personality = awakened_fallen_empire_authoritarian_1
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -155,8 +161,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_authoritarian
-				has_ai_personality = awakened_fallen_empire_authoritarian_1
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_belligerent_to = FROM
@@ -169,8 +176,9 @@ greetings = {
 		trigger = {
 			is_country_type = awakened_fallen_empire
 			OR = {
-				has_ai_personality = awakened_fallen_empire_authoritarian
-				has_ai_personality = awakened_fallen_empire_authoritarian_1
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_normal
 			}
 			is_overlord_to = FROM
 		}
@@ -183,7 +191,8 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_materialist
-				has_ai_personality = awakened_fallen_empire_materialist_1
+				has_ai_personality = awakened_fallen_empire_materialist_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_materialist_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -200,7 +209,8 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_materialist
-				has_ai_personality = awakened_fallen_empire_materialist_1
+				has_ai_personality = awakened_fallen_empire_materialist_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_materialist_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_belligerent_to = FROM
@@ -214,9 +224,11 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_materialist
-				has_ai_personality = awakened_fallen_empire_materialist_1
-				has_ai_personality = awakened_fallen_empire_authoritarian
-				has_ai_personality = awakened_fallen_empire_authoritarian_1
+				has_ai_personality = awakened_fallen_empire_materialist_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_materialist_normal
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_custodial_to = FROM
@@ -231,9 +243,11 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_materialist
-				has_ai_personality = awakened_fallen_empire_materialist_1
-				has_ai_personality = awakened_fallen_empire_authoritarian
-				has_ai_personality = awakened_fallen_empire_authoritarian_1
+				has_ai_personality = awakened_fallen_empire_materialist_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_materialist_normal
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_custodial_to = FROM
@@ -248,7 +262,8 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_materialist
-				has_ai_personality = awakened_fallen_empire_materialist_1
+				has_ai_personality = awakened_fallen_empire_materialist_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_materialist_normal
 			}
 			is_overlord_to = FROM
 		}
@@ -263,7 +278,8 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_xenophile
-				has_ai_personality = awakened_fallen_empire_xenophile_1
+				has_ai_personality = awakened_fallen_empire_xenophile_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_xenophile_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -280,7 +296,8 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_xenophile
-				has_ai_personality = awakened_fallen_empire_xenophile_1
+				has_ai_personality = awakened_fallen_empire_xenophile_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_xenophile_normal
 			}
 			NOT = { is_at_war_with = FROM }
 			is_belligerent_to = FROM
@@ -294,9 +311,9 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_xenophile
-				has_ai_personality = awakened_fallen_empire_xenophile_1
-				has_ai_personality = awakened_fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian_1
+				has_ai_personality = awakened_fallen_empire_xenophile_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter
 			}
 			NOT = { is_at_war_with = FROM }
 			is_custodial_to = FROM
@@ -311,9 +328,9 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_xenophile
-				has_ai_personality = awakened_fallen_empire_xenophile_1
-				has_ai_personality = awakened_fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian_1
+				has_ai_personality = awakened_fallen_empire_xenophile_crisis_fighter
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter
 			}
 			NOT = { is_at_war_with = FROM }
 			is_custodial_to = FROM
@@ -328,7 +345,8 @@ greetings = {
 			is_country_type = awakened_fallen_empire
 			OR = {
 				has_ai_personality = awakened_fallen_empire_xenophile
-				has_ai_personality = awakened_fallen_empire_xenophile_1
+				has_ai_personality = awakened_fallen_empire_xenophile_crisis_fighter
+				has_ai_personality = awakened_fallen_empire_xenophile_normal
 			}
 			is_overlord_to = FROM
 		}

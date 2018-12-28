@@ -1,0 +1,122 @@
+objectTypes = {
+
+
+#################################
+	#			Fallen Empire		#
+	#################################
+		
+	### Color variant 01 ###
+
+	
+	pdxmesh = {
+		name = "fallen_empire_05_outpost_mesh"
+		file = "gfx/models/ships/starbases/fallen_empire_01_outpost.mesh"
+		scale = 1.0
+			
+			animation = { id = "idle"		type = "fallen_empire_station_large_idle_animation" }
+			animation = { id = "death"		type = "fallen_empire_station_large_death_animation" }
+			
+		meshsettings = {
+			name = "large_finished_MeshShape"
+			index = 0
+			texture_diffuse = "fallen_empire_stations_05_diffuse.dds"
+			texture_normal = "fallen_empire_stations_normal.dds"
+			texture_specular = "fallen_empire_stations_specular.dds"
+			shader = "PdxMeshShip"
+		}
+	}	
+	
+	pdxmesh = {
+		name = "fallen_empire_05_citadel_mesh"
+		file = "gfx/models/ships/starbases/fallen_empire_01_citadel.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"		type = "fallen_empire_01_citadel_idle_animation" }
+		
+		meshsettings = {
+			name = "large_finished_MeshShape"
+			index = 0
+			texture_diffuse = "fallen_empire_stations_05_diffuse.dds"
+			texture_normal = "fallen_empire_stations_normal.dds"
+			texture_specular = "fallen_empire_stations_specular.dds"
+			shader = "PdxMeshShip"
+		}
+
+	}
+	
+		### Color variant 02 ###
+	
+	pdxmesh = {
+		name = "fallen_empire_06_outpost_mesh"
+		file = "gfx/models/ships/starbases/fallen_empire_01_outpost.mesh"
+		scale = 1.0
+			
+			animation = { id = "idle"		type = "fallen_empire_station_large_idle_animation" }
+			animation = { id = "death"		type = "fallen_empire_station_large_death_animation" }
+			
+		meshsettings = {
+			name = "large_finished_MeshShape"
+			index = 0
+			texture_diffuse = "fallen_empire_stations_06_diffuse.dds"
+			texture_normal = "fallen_empire_stations_normal.dds"
+			texture_specular = "fallen_empire_stations_specular.dds"
+			shader = "PdxMeshShip"
+		}
+	}	
+	
+	pdxmesh = {
+		name = "fallen_empire_06_citadel_mesh"
+		file = "gfx/models/ships/starbases/fallen_empire_01_citadel.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"		type = "fallen_empire_01_citadel_idle_animation" }
+		
+		meshsettings = {
+			name = "large_finished_MeshShape"
+			index = 0
+			texture_diffuse = "fallen_empire_stations_06_diffuse.dds"
+			texture_normal = "fallen_empire_stations_normal.dds"
+			texture_specular = "fallen_empire_stations_specular.dds"
+			shader = "PdxMeshShip"
+		}
+
+	}
+	
+		### Color variant fem01 ###
+	
+	pdxmesh = {
+		name = "fallen_machine_empire_01_outpost_mesh"
+		file = "gfx/models/ships/starbases/fallen_empire_01_outpost.mesh"
+		scale = 1.0
+			
+			animation = { id = "idle"		type = "fallen_empire_station_large_idle_animation" }
+			animation = { id = "death"		type = "fallen_empire_station_large_death_animation" }
+			
+		meshsettings = {
+			name = "large_finished_MeshShape"
+			index = 0
+			texture_diffuse = "fallen_machine_empire_stations_01_diffuse.dds"
+			texture_normal = "fallen_empire_stations_normal.dds"
+			texture_specular = "fallen_empire_stations_specular.dds"
+			shader = "PdxMeshShip"
+		}
+	}	
+	
+	pdxmesh = {
+		name = "fallen_machine_empire_01_citadel_mesh"
+		file = "gfx/models/ships/starbases/fallen_empire_01_citadel.mesh"
+		scale = 1.0
+		
+		animation = { id = "idle"		type = "fallen_empire_01_citadel_idle_animation" }
+		
+		meshsettings = {
+			name = "large_finished_MeshShape"
+			index = 0
+			texture_diffuse = "fallen_machine_empire_stations_01_diffuse.dds"
+			texture_normal = "fallen_empire_stations_normal.dds"
+			texture_specular = "fallen_empire_stations_specular.dds"
+			shader = "PdxMeshShip"
+		}
+
+	}
+}

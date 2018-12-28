@@ -1,0 +1,20 @@
+terraform_link = {
+	from = "pc_shrouded"
+	to = "pc_gaia"
+	
+	energy = 20000
+	duration = 3600
+	potential = {
+		exists = root
+		root = {
+			has_country_flag = end_of_the_cycle_reckoning
+		}
+	}
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

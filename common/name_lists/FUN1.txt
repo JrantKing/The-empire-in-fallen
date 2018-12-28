@@ -1,21 +1,11 @@
 ﻿### Fungoid 1
-FUN1 = {
-	### SHIPS
 
+
+FUN1 = {
 	ship_names = {
 
 		generic = {
-				"卡俄斯" "盖亚" "塔尔塔罗斯" "厄瑞波斯" "尼克斯" "厄洛斯" "乌拉诺斯" "波托斯" "乌瑞亚" "科俄斯" "克利俄斯" "克罗诺斯"
-				"许波里文" "伊阿波托斯" "莫涅摩叙涅" "俄克阿诺斯" "弗波" "瑞亚" "特提斯" "特亚" "特米斯" "赫利俄斯" "厄俄斯" "阿斯特莱俄斯"
-				"勒托" "波尔塞斯" "阿特拉斯" "普罗米修斯" "厄比莫特斯" "塞勒涅" "阿斯特里亚" "莫诺提俄斯" "莫勒特" "阿俄伊德" "艾泰"
-				"狄俄斯" "阿德努斯" "厄斯特索斯" "安德斯" "奥利博诺斯" "莫提斯" "欧利诺莫" "布龙特斯" "斯特罗佩斯" "阿尔戈斯" "布里阿瑞俄斯"
-				"科托斯" "古戈斯"
-																														 
-																															
-																															
-																													 
-																													   
-																								  
+			"卡俄斯" "盖亚" "塔尔塔罗斯" "厄瑞波斯" "尼克斯" "厄洛斯" "乌拉诺斯" "波托斯" "乌瑞亚" "科俄斯" "克利俄斯" "克罗诺斯" "许波里文" "伊阿波托斯" "莫涅摩叙涅" "俄克阿诺斯" "弗波" "瑞亚" "特提斯" "特亚" "特米斯" "赫利俄斯" "厄俄斯" "阿斯特莱俄斯" "勒托" "波尔塞斯" "阿特拉斯" "普罗米修斯" "厄比莫特斯" "塞勒涅" "阿斯特里亚" "莫诺提俄斯" "莫勒特" "阿俄伊德" "艾泰" "狄俄斯" "阿德努斯" "厄斯特索斯" "安德斯" "奥利博诺斯" "莫提斯" "欧利诺莫" "布龙特斯" "斯特罗佩斯" "阿尔戈斯" "布里阿瑞俄斯" "科托斯" "古戈斯"
 		}
 
 		corvette = {
@@ -29,40 +19,30 @@ FUN1 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
-				"安菲特里代" "刻托" "多丽斯" "欧律比亚" "格劳克斯"
 		}
 		
 		colonizer = {
-				"福耳库斯" "塔拉萨" "陶玛斯" "代提斯" "特里同"
 		}
 		
 		constructor = {
-				"喀迈拉" "克律萨俄耳" "厄喀德那" "戈耳工" "格赖埃"
 		}
 		
-  
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
+		transport = {
 		}
-		
+	
 		military_station_small = {
-				"许德拉" "拉冬" "美杜莎" "米诺陶洛斯" "斯库拉"
 		}
-		
-		military_station_medium = {
-				"厄托斯" "阿特若斯" "提厄斯特斯" "克吕西波斯" "科普若斯"
+
+		ion_cannon = {
 		}
-		
-		military_station_large = {
-				"波瑞阿斯" "诺托斯" "欧洛斯" "查费洛斯" "阿斯特赖俄斯"
-		}	
 	}
 
 	fleet_names = {
@@ -94,8 +74,16 @@ FUN1 = {
 			sequential_name = "%O%机器人师团"
 		}
 		
+		robotic_defense_army = {
+			sequential_name = "%O%无人机守备师团"
+		}
+
 		android_army = {
 			sequential_name = "%O%智能人师团"
+		}
+		
+		android_defense_army = {
+			sequential_name = "%O%智能人守备师团"
 		}
 		
 		psionic_army = { 
@@ -109,10 +97,18 @@ FUN1 = {
 		gene_warrior_army = {
 			sequential_name = "%O%基因武士师团"
 		}
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
+		}
 	}
-
-
-	### PLANETS
 
 	planet_names = {
 
@@ -127,25 +123,25 @@ FUN1 = {
 		
 		pc_desert = {
 			names = {
-																													 
+
 			}
 		}
 		
 		pc_tropical = {
 			names = {
-																																											
+
 			}
 		}
 		
 		pc_arid = {
 			names = {
-																																						   
+
 			}
 		}
 		
 		pc_continental = {
 			names = {
-																																								   
+
 			}
 		}
 		
@@ -173,10 +169,7 @@ FUN1 = {
 			names = {
 			}
 		}
-		
 	}
-
-	### CHARACTERS
 
 	character_names = {
 		default = {
@@ -198,7 +191,7 @@ FUN1 = {
 			}
 			
 			regnal_first_names = {
-				"卡俄斯" "盖亚" "塔尔塔罗斯" "厄瑞波斯" "尼克斯" "厄洛斯" "乌拉诺斯" "波托斯" "乌瑞亚"
+				"安菲特里代" "刻托" "多丽斯" "欧律比亚" "格劳克斯" "福耳库斯" "塔拉萨" "陶玛斯" "代提斯" "特里同" "喀迈拉" "克律萨俄耳" "厄喀德那" "戈耳工" "格赖埃" "许德拉" "拉冬" "美杜莎" "米诺陶洛斯" "斯库拉" "厄托斯" "阿特若斯" "提厄斯特斯" "克吕西波斯" "科普若斯" "波瑞阿斯" "诺托斯" "欧洛斯" "查费洛斯" "阿斯特赖俄斯"
 			}
 			
 			regnal_second_names = {

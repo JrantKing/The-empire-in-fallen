@@ -1,0 +1,224 @@
+# Root = Species
+# From = Country
+# This = Species
+species_has_happiness = {
+	NOR = {
+		has_trait = trait_machine_unit
+		has_trait = trait_hive_mind
+		has_trait = trait_nerve_stapled
+		has_trait = trait_robotic_machine
+		AND = {
+			has_trait = trait_mechanical
+			OR = {
+				NOT = { exists = from }
+				from = { has_authority = auth_machine_intelligence }
+				from = { NOT = { has_technology = tech_synthetic_workers } }
+				from = { has_policy_flag = ai_outlawed }
+			}
+		}
+		AND = {
+			has_trait = trait_cybernetic
+			exists = from
+			from = {
+				has_authority = auth_machine_intelligence
+				has_civic = civic_machine_assimilator # Assimilator empire
+			}
+		}
+	}
+}
+
+# Check if full sensor range in entire galaxy 
+# root: country
+has_full_sensor_range = {
+	NOT = { has_country_flag = had_closed_spy_orb }
+	OR = {
+		has_megastructure = spy_orb_4
+		has_megastructure = spy_orb_restored
+	}
+}
+
+#This rule is a condition for bombarding planets
+#Root = fleet, potential attacker
+#From = planet, potential target
+can_orbital_bombard = {
+	exists = FROM.OWNER
+	NOT = {
+		any_owned_ship = {
+			is_ship_size = colossus
+		}
+	}
+	OR = {
+		FROM = { NOT = { is_planet_class = pc_shielded_gaia } }
+		AND = {
+			ROOT.OWNER = {
+				NOT = { has_communications = FROM.OWNER }
+			}
+			FROM.OWNER = {
+				NOT = { is_country_type = primitive }
+			}
+		}
+		AND = {
+			ROOT.OWNER = {
+				NOR = {
+					has_policy_flag = interference_passive
+					has_policy_flag = interference_active
+				}
+			}
+			FROM.OWNER = { is_country_type = primitive }
+		}
+		ROOT.OWNER = { is_at_war_with = FROM.CONTROLLER }
+		FROM = { is_planet_class = pc_infested }
+		FROM.CONTROLLER = {
+			OR = {
+				is_country_type = swarm
+				is_country_type = ai_empire
+				is_country_type = cybrex_empire
+			}
+		}
+		ROOT.OWNER = {
+			OR = {
+				is_country_type = extradimensional
+				is_country_type = extradimensional_2
+				is_country_type = extradimensional_3
+				is_country_type = swarm
+				is_country_type = ai_empire
+				is_country_type = cybrex_empire
+				is_country_type = dormant_marauders
+				is_country_type = marauder_raiders
+				is_country_type = ruined_marauders
+				is_country_type = gray_goo
+				is_country_type = vol
+				AND = {
+					is_country_type = awakened_marauders
+					FROM.CONTROLLER = {
+						NAND = {
+							is_subject_type = satrapy
+							NOT = { has_country_flag = rebelling_satrapy }
+						}
+					}
+				}
+			}
+		}
+		AND = {
+    	    from.controller = {
+    	        is_country_type = faction
+    	        NOT = { is_same_value = root.owner }
+    	    }
+    	    from.owner = {
+    	        is_same_value = root.owner
+    	    }
+		}
+	}
+}
+
+can_colonize_planet = {
+	if = {
+		limit = {
+			exists = root
+			ROOT = { is_country_type = fallen_empire }
+		}
+		custom_tooltip_fail = {
+			text = fallen_empire_no_colonize
+			always = no
+		}
+		else = {
+			always = yes
+		}
+	}
+}
+
+#Root = planet
+#This = country
+can_release_vassal = {
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_fanatic_purifiers }
+	}
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_machine_terminator }
+	}
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_machine_assimilator }
+	}
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_hive_devouring_swarm }
+	}
+	Root = {
+		exists = owner
+		owner = {
+			NOR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+}
+# Can the pop be purged/disassembled individually by its owner
+# scope: pop
+can_purge_pop_manually = {
+	custom_tooltip = {
+		fail_text = "ALREADY_BEING_PURGED"
+		NOT = { has_citizenship_type = { type = citizenship_purge } }
+	}
+	custom_tooltip = {
+		fail_text = "ACTION_CANNOT_PURGE_CITIZEN"
+		exists = owner
+		OR = {
+			is_robot_pop = yes
+			is_sapient = no
+			owner = { has_authority = auth_hive_mind }
+			has_citizenship_type = { type = citizenship_slavery }
+			has_citizenship_type = { type = citizenship_full_machine }
+		}
+	}
+	custom_tooltip = {
+		fail_text = "ACTION_CANNOT_PURGE_POLICY"
+		exists = owner
+		OR = {
+			is_robot_pop = yes
+			AND = {
+				is_sapient = no
+				owner = { NOT = { has_policy_flag = pre_sapients_protect } }
+			}
+			owner = { has_ethic = ethic_gestalt_consciousness }
+			owner = { has_policy_flag = purge_allowed }
+		}
+	}
+	custom_tooltip = {
+		fail_text = "ACTION_DISASSEMBLE_SYNTHETICS"
+		exists = owner
+		OR = {
+			owner = { has_country_flag = synthetic_empire }
+			is_robot_pop = no
+			owner = { has_authority = auth_hive_mind }
+			NAND = {
+				has_trait = trait_mechanical
+				owner = { has_policy_flag = ai_full_rights }
+			}
+		}
+	}
+}
+
+# this = ship
+# root = country that kills ship
+can_spawn_debris = {	
+	root = { 
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+	exists = owner
+	owner = {
+		NOR = {
+			has_ascension_perk = ap_enigmatic_engineering
+			has_country_flag = fallen_empire_6
+			has_country_flag = fallen_empire_6_human_2
+		}
+		relative_power = { who = root category = technology value <= superior }
+	}
+}

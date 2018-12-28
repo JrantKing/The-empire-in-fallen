@@ -1,0 +1,86 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_tile_icon"
+		texturefile = "gfx/interface/icons/tile_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_spy_orb_icon"
+		texturefile = "gfx/interface/icons/spy_orb.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_button"
+		texturefile = "gfx/interface/buttons/button_452_stability.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 3
+		animation = {
+			animationmaskfile = "gfx/interface/buttons/button_452_animated_mask.dds"
+			animationtexturefile = "gfx/interface/buttons/button_452_animated_texture.dds"
+			animationrotation = 180.0
+			animationlooping = yes
+			animationtime = 180.0
+			animationdelay = 0.0
+			animationblendmode = "overlay"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			animationframes = { 1 2 3 }
+		}
+	}
+	spriteType = {
+		name = "GFX_message_frame"
+		texturefile = "gfx/interface/icons/message/message_frame.dds"
+		noOfFrames = 3
+	}
+	spriteType = {
+		name = "GFX_message_medium_revolt_risk"
+		texturefile = "gfx/interface/icons/message/medium_revolt_risk.dds"
+	}
+	spriteType = {
+		name = "GFX_message_high_revolt_risk"
+		texturefile = "gfx/interface/icons/message/high_revolt_risk.dds"
+	}
+	spriteType = {
+		name = "GFX_message_stability"
+		texturefile = "gfx/interface/icons/message/low_stability.dds"
+	}
+	#spriteType = {
+	#	name = "GFX_text_stability"
+	#	texturefile = "gfx/interface/icons/teif_stability.dds"
+	#}
+	spriteType = {
+		name = "GFX_stability_icon"
+		texturefile = "gfx/interface/icons/stability.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_content"
+		texturefile = "gfx/interface/icons/stability_bar_frame.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_progress_indicator"
+		texturefile = "gfx/interface/icons/stability_progress_indicator.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_m_3"
+		texturefile = "gfx/interface/icons/stability_m_3.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_m_2"
+		texturefile = "gfx/interface/icons/stability_m_2.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_m_1"
+		texturefile = "gfx/interface/icons/stability_m_1.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_p_1"
+		texturefile = "gfx/interface/icons/stability_p_1.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_p_2"
+		texturefile = "gfx/interface/icons/stability_p_2.dds"
+	}
+	spriteType = {
+		name = "GFX_stability_p_3"
+		texturefile = "gfx/interface/icons/stability_p_3.dds"
+	}
+}

@@ -1,0 +1,16 @@
+namespace = notice_event
+
+country_event = {
+	id = notice_event.0
+	title = "notice_event.0.name"
+	desc = "notice_event.0.desc"
+	picture = GFX_evt_medieval_alien_civilization
+	show_sound = event_primitive_civilization
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+	}
+	option = {
+		name = OK
+	}
+}

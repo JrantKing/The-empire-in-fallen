@@ -1,0 +1,6 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_megastructure_star_pressure_controller"
+		textureFile = "gfx/interface/planetview/star_pressure_controller.dds"
+	}
+}

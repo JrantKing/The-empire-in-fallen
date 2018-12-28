@@ -1,4 +1,6 @@
 ﻿### Machine 1
+### Written by Dee Majek
+
 MACHINE1 = {
 	should_name_home_system_planets = no
 	
@@ -8,88 +10,105 @@ MACHINE1 = {
 		}
 
 		corvette = {
-			Eradicator Annihilator Pacifier Retaliator Nullifier Exterminator Silencer Vaporizer Eliminator Obliterator Annulator Extinguisher Protector Defender Subduer Suppressor Abolisher Conqueror Vanquisher Prevailer Dominator Resister Assailer Assassin Decimator Disintegrator Vitiator Devastator Effacer Shatterer Ruiner Extirpator Subjugator Razer Dispatcher Liberator Redeemer Deliverer Arbiter Predator Ender Advancer Besieger Stunner Striker Ambusher Thresher Enforcer Marshaller
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
 		}
 		
 		destroyer = {
-			Eradicator Annihilator Pacifier Retaliator Nullifier Exterminator Silencer Vaporizer Eliminator Obliterator Annulator Extinguisher Protector Defender Subduer Suppressor Abolisher Conqueror Vanquisher Prevailer Dominator Resister Assailer Assassin Decimator Disintegrator Vitiator Devastator Effacer Shatterer Ruiner Extirpator Subjugator Razer Dispatcher Liberator Redeemer Deliverer Arbiter Predator Ender Advancer Besieger Stunner Striker Ambusher Thresher Enforcer Marshaller
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
 		}
 		
 		cruiser = {
-			Eradicator Annihilator Pacifier Retaliator Nullifier Exterminator Silencer Vaporizer Eliminator Obliterator Annulator Extinguisher Protector Defender Subduer Suppressor Abolisher Conqueror Vanquisher Prevailer Dominator Resister Assailer Assassin Decimator Disintegrator Vitiator Devastator Effacer Shatterer Ruiner Extirpator Subjugator Razer Dispatcher Liberator Redeemer Deliverer Arbiter Predator Ender Advancer Besieger Stunner Striker Ambusher Thresher Enforcer Marshaller
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
 		}
 		
 		battleship = {
-			Eradicator Annihilator Pacifier Retaliator Nullifier Exterminator Silencer Vaporizer Eliminator Obliterator Annulator Extinguisher Protector Defender Subduer Suppressor Abolisher Conqueror Vanquisher Prevailer Dominator Resister Assailer Assassin Decimator Disintegrator Vitiator Devastator Effacer Shatterer Ruiner Extirpator Subjugator Razer Dispatcher Liberator Redeemer Deliverer Arbiter Predator Ender Advancer Besieger Stunner Striker Ambusher Thresher Enforcer Marshaller
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
+		}
+
+		titan = {
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
+		}
+
+		colossus = {
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
 		}
 		
 		science = {
-			Surveyor Investigator Examiner Elucidator Voyager Scholar Analyst
+			测量员 调查员 稽查者 说明者 航海者 学者 分析员
 		}
 		
 		colonizer = {
-			Replicator Founder Spawner Seeder Inductor Developer
+			复制者 创立者 授命者 播种者 授职者 发展者
 		}
 		
 		constructor = {
-			Assembler Fabricator Compiler Operator
+			组合者 制作者 编译者 操作者
 		}
 
 		transport = {
-			"Convoy"
+			护航者
 		}
-		
-
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = { 
-			#random_names = { }
+	
+		military_station_small = {
+			保护者
 		}
 
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}	
-	}
+		ion_cannon = {
+			安全保障
+		}
 
-	ship_class_names = {
-		generic = {
-			
-		}		
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
+		}
+		large_ship_fallen_empire = {
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
+		}
+		massive_ship_fallen_empire = {
+			信义 铁棒 百兽之剑 不死鸟匕首 古之霸王 四O式战术刀 三式战术刀 白之誓约 黑之契约 制式钢刀 机械生命体之剑 引擎剑 木棒 钢铁意志 双子之牙 百兽之王 不死鸟大剑 四O式斩机刀 三式斩机刀 白之约定 黑之血盟 机械生命体之斧 不死鸟之枪 野兽诅咒 草原的龙骑枪 篡位者之枪 四O式战术枪 三式战术枪 白之矜持 黑之傲慢 机械生命体之枪 赤手空拳 天使圣翼 恶魔秽牙 四O式拳套 三式拳套 白之哀伤 黑之叹息 机械生命体之首 埃米尔之首
+		}
 	}
 
 	fleet_names = {
 		random_names = {
-			"星海第一军团" "星海第二军团" "星海第三军团"	
+			"电感" "切实" "行列式" "极值" "终端" "无边" "拦截" "解决" "纵坐标" "轴" "结果" "极限" "积分" "螺旋" "微分器" "常数" "准线" "顶点" "边心距" "矩"
 		}
-		sequential_name = "%O% 军团"
+		sequential_name = "星海%O%机团"
 	}
 	
 	army_names = {
 		
 		machine_assault_1 = {
-			sequential_name = "%O% 机械化突击队"
+			sequential_name = "%O%机械化突击队"
 		}
 
-		machine_defense_1 = {
-			sequential_name = "%O% 机械化防卫队"
+		machine_defense = {
+			sequential_name = "%O%机械化防卫队"
 		}
 		
 		machine_assault_2 = {
-			sequential_name = "%O% 重装突击队"
-		}
-
-		machine_defense_2 = {
-			sequential_name = "%O% 重装防卫队"
+			sequential_name = "%O%重装突击队"
 		}
 	
-			machine_assault_3 = {
-			sequential_name = "%O% 进击巨人队"
+		machine_assault_3 = {
+			sequential_name = "%O%进击巨神队"
 		}
-	}
+	
+		defense_army = {
+			sequential_name = "%O%机甲防卫队"
+		}
+			
+		assault_army = {
+			sequential_name = "%O%机械化合成军"
+		}
 		
+		clone_army = {
+			sequential_name = "%O%机械化复制军"
+		}
+		machine_occupation_army = {
+				sequential_name = "%O%机甲占领军"
+		}	
+	}	
 
 	### PLANETS
 
@@ -97,104 +116,102 @@ MACHINE1 = {
 
 		generic = {
 			names = { 
-				Nexus Hub Bridge Matrix Network Core Kernel Source Combine Locus Cynosure Omphalos Nucleus Axis Crux Terminus Server Chassis
+				枢纽 桥梁 矩阵 网络 核心 内核 组合 轨迹 焦点 浮点 核轴 关键 终端 服务器 机箱
 			}
 		}
 		
 		pc_desert = {
 			names = { 
-				"Scorched Nexus" "Scorched Hub" "Scorched Bridge" "Scorched Matrix" "Scorched Network" "Scorched Core" "Scorched Kernel" "Scorched Source" "Scorched Combine" "Scorched Locus" "Scorched Cynosure" "Scorched Omphalos" "Scorched Nucleus" "Scorched Axis" "Scorched Crux" "Scorched Terminus" "Scorched Server" "Scorched Chassis"
+				
 			}
 		}
 		
 		pc_tropical = {
 			names = { 
-				"Verdant Nexus" "Verdant Hub" "Verdant Bridge" "Verdant Matrix" "Verdant Network" "Verdant Core" "Verdant Kernel" "Verdant Source" "Verdant Combine" "Verdant Locus" "Verdant Cynosure" "Verdant Omphalos" "Verdant Nucleus" "Verdant Axis" "Verdant Crux" "Verdant Terminus" "Verdant Server" "Verdant Chassis"
+				
 			}
 		}
 		
 		pc_arid = {
 			names = { 
-				"Desiccant Nexus" "Desiccant Hub" "Desiccant Bridge" "Desiccant Matrix" "Desiccant Network" "Desiccant Core" "Desiccant Kernel" "Desiccant Source" "Desiccant Combine" "Desiccant Locus" "Desiccant Cynosure" "Desiccant Omphalos" "Desiccant Nucleus" "Desiccant Axis" "Desiccant Crux" "Desiccant Terminus" "Desiccant Server" "Desiccant Chassis"
+				
 			}
 		}
 		
 		pc_continental = {
 			names = { 
-				"Terrene Nexus" "Terrene Hub" "Terrene Bridge" "Terrene Matrix" "Terrene Network" "Terrene Core" "Terrene Kernel" "Terrene Source" "Terrene Combine" "Terrene Locus" "Terrene Cynosure" "Terrene Omphalos" "Terrene Nucleus" "Terrene Axis" "Terrene Crux" "Terrene Terminus" "Terrene Server" "Terrene Chassis"
+				
 			}
 		}
 		
 		pc_ocean = {
 			names = { 
-				"Fluid Nexus" "Fluid Hub" "Fluid Bridge" "Fluid Matrix" "Fluid Network" "Fluid Core" "Fluid Kernel" "Fluid Source" "Fluid Combine" "Fluid Locus" "Fluid Cynosure" "Fluid Omphalos" "Liquid Nucleus" "Fluid Axis" "Fluid Crux" "Liquid Terminus" "Fluid Server" "Liquid Chassis"
+			
 			}
 		}
 		
 		pc_tundra = {
 			names = { 
-				"Polar Nexus" "Polar Hub" "Polar Bridge" "Polar Matrix" "Polar Network" "Polar Core" "Polar Kernel" "Polar Source" "Polar Combine" "Polar Locus" "Polar Cynosure" "Polar Omphalos" "Polar Nucleus" "Polar Axis" "Polar Crux" "Polar Terminus" "Polar Server" "Polar Chassis"
+
 			}
 		}
 		
 		pc_arctic = {
 			names = { 
-				"Cryo Nexus" "Cryo Hub" "Frozen Bridge" "Cryo Matrix" "Frozen Network" "Cryo Core" "Frozen Kernel" "Cryo Source" "Cryo Combine" "Frozen Locus" "Frozen Cynosure" "Frozen Omphalos" "Cryo Nucleus" "Frozen Axis" "Cryo Crux" "Cryo Terminus" "Cryo Server" "Cryo Chassis"
+
 			}
 		}
 
 		pc_savannah = {
 			names = { 
-				"Veldt Nexus" "Veldt Hub" "Veldt Bridge" "Veldt Matrix" "Veldt Network" "Veldt Core" "Veldt Kernel" "Veldt Source" "Veldt Combine" "Veldt Locus" "Veldt Cynosure" "Veldt Omphalos" "Veldt Nucleus" "Veldt Axis" "Veldt Crux" "Veldt Terminus" "Veldt Server" "Veldt Chassis"
+
 			}
 		}
 
 		pc_alpine = {
-			names = { 
-				"Tor Nexus" "Tor Hub" "Tor Bridge" "Tor Matrix" "Tor Network" "Tor Core" "Tor Kernel" "Tor Source" "Tor Combine" "Tor Locus" "Tor Cynosure" "Tor Omphalos" "Tor Nucleus" "Tor Axis" "Tor Crux" "Tor Terminus" "Tor Server" "Tor Chassis"
+			names = {
+			
 			}
 		}
 
 		pc_nuked = {
 			names = { 
-				"Grim Nexus" "Grim Hub" "Grim Bridge" "Grim Matrix" "Grim Network" "Grim Core" "Grim Kernel" "Grim Source" "Grim Combine" "Grim Locus" "Grim Cynosure" "Grim Omphalos" "Grim Nucleus" "Grim Axis" "Grim Crux" "Grim Terminus" "Grim Server" "Grim Chassis"
+			
 			}
 		}
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
 			full_names = { 
-				"Unit A1" "Unit A2" "Unit A3" "Unit A4" "Unit A5" "Unit A6" "Unit A7" "Unit A8" "Unit A9" 
-				"Unit B1" "Unit B2" "Unit B3" "Unit B4" "Unit B5" "Unit B6" "Unit B7" "Unit B8" "Unit B9"
-				"Unit C1" "Unit C2" "Unit C3" "Unit C4" "Unit C5" "Unit C6" "Unit C7" "Unit C8" "Unit C9"
-				"Unit D1" "Unit D2" "Unit D3" "Unit D4" "Unit D5" "Unit D6" "Unit D7" "Unit D8" "Unit D9"
-				"Unit E1" "Unit E2" "Unit E3" "Unit E4" "Unit E5" "Unit E6" "Unit E7" "Unit E8" "Unit E9"
-				"Unit F1" "Unit F2" "Unit F3" "Unit F4" "Unit F5" "Unit F6" "Unit F7" "Unit F8" "Unit F9"
-				"Unit G1" "Unit G2" "Unit G3" "Unit G4" "Unit G5" "Unit G6" "Unit G7" "Unit G8" "Unit G9"
-				"Unit H1" "Unit H2" "Unit H3" "Unit H4" "Unit H5" "Unit H6" "Unit H7" "Unit H8" "Unit H9"
-				"Unit I1" "Unit I2" "Unit I3" "Unit I4" "Unit I5" "Unit I6" "Unit I7" "Unit I8" "Unit I9"
-				"Unit J1" "Unit J2" "Unit J3" "Unit J4" "Unit J5" "Unit J6" "Unit J7" "Unit J8" "Unit J9"
-				"Unit K1" "Unit K2" "Unit K3" "Unit K4" "Unit K5" "Unit K6" "Unit K7" "Unit K8" "Unit K9"
-				"Unit L1" "Unit L2" "Unit L3" "Unit L4" "Unit L5" "Unit L6" "Unit L7" "Unit L8" "Unit L9"
-				"Unit M1" "Unit M2" "Unit M3" "Unit M4" "Unit M5" "Unit M6" "Unit M7" "Unit M8" "Unit M9"
-				"Unit N1" "Unit N2" "Unit N3" "Unit N4" "Unit N5" "Unit N6" "Unit N7" "Unit N8" "Unit N9"
-				"Unit O1" "Unit O2" "Unit O3" "Unit O4" "Unit O5" "Unit O6" "Unit O7" "Unit O8" "Unit O9"
-				"Unit P1" "Unit P2" "Unit P3" "Unit P4" "Unit P5" "Unit P6" "Unit P7" "Unit P8" "Unit P9"
-				"Unit Q1" "Unit Q2" "Unit Q3" "Unit Q4" "Unit Q5" "Unit Q6" "Unit Q7" "Unit Q8" "Unit Q9"
-				"Unit R1" "Unit R2" "Unit R3" "Unit R4" "Unit R5" "Unit R6" "Unit R7" "Unit R8" "Unit R9"
-				"Unit S1" "Unit S2" "Unit S3" "Unit S4" "Unit S5" "Unit S6" "Unit S7" "Unit S8" "Unit S9"
-				"Unit T1" "Unit T2" "Unit T3" "Unit T4" "Unit T5" "Unit T6" "Unit T7" "Unit T8" "Unit T9"
-				"Unit U1" "Unit U2" "Unit U3" "Unit U4" "Unit U5" "Unit U6" "Unit U7" "Unit U8" "Unit U9"
-				"Unit V1" "Unit V2" "Unit V3" "Unit V4" "Unit V5" "Unit V6" "Unit V7" "Unit V8" "Unit V9"
-				"Unit W1" "Unit W2" "Unit W3" "Unit W4" "Unit W5" "Unit W6" "Unit W7" "Unit W8" "Unit W9"
-				"Unit X1" "Unit X2" "Unit X3" "Unit X4" "Unit X5" "Unit X6" "Unit X7" "Unit X8" "Unit X9"
-				"Unit Y1" "Unit Y2" "Unit Y3" "Unit Y4" "Unit Y5" "Unit Y6" "Unit Y7" "Unit Y8" "Unit Y9"
-				"Unit Z1" "Unit Z2" "Unit Z3" "Unit Z4" "Unit Z5" "Unit Z6" "Unit Z7" "Unit Z8" "Unit Z9"
+				"单元 A1" "单元 A2" "单元 A3" "单元 A4" "单元 A5" "单元 A6" "单元 A7" "单元 A8" "单元 A9" 
+				"单元 B1" "单元 B2" "单元 B3" "单元 B4" "单元 B5" "单元 B6" "单元 B7" "单元 B8" "单元 B9"
+				"单元 C1" "单元 C2" "单元 C3" "单元 C4" "单元 C5" "单元 C6" "单元 C7" "单元 C8" "单元 C9"
+				"单元 D1" "单元 D2" "单元 D3" "单元 D4" "单元 D5" "单元 D6" "单元 D7" "单元 D8" "单元 D9"
+				"单元 E1" "单元 E2" "单元 E3" "单元 E4" "单元 E5" "单元 E6" "单元 E7" "单元 E8" "单元 E9"
+				"单元 F1" "单元 F2" "单元 F3" "单元 F4" "单元 F5" "单元 F6" "单元 F7" "单元 F8" "单元 F9"
+				"单元 G1" "单元 G2" "单元 G3" "单元 G4" "单元 G5" "单元 G6" "单元 G7" "单元 G8" "单元 G9"
+				"单元 H1" "单元 H2" "单元 H3" "单元 H4" "单元 H5" "单元 H6" "单元 H7" "单元 H8" "单元 H9"
+				"单元 I1" "单元 I2" "单元 I3" "单元 I4" "单元 I5" "单元 I6" "单元 I7" "单元 I8" "单元 I9"
+				"单元 J1" "单元 J2" "单元 J3" "单元 J4" "单元 J5" "单元 J6" "单元 J7" "单元 J8" "单元 J9"
+				"单元 K1" "单元 K2" "单元 K3" "单元 K4" "单元 K5" "单元 K6" "单元 K7" "单元 K8" "单元 K9"
+				"单元 L1" "单元 L2" "单元 L3" "单元 L4" "单元 L5" "单元 L6" "单元 L7" "单元 L8" "单元 L9"
+				"单元 M1" "单元 M2" "单元 M3" "单元 M4" "单元 M5" "单元 M6" "单元 M7" "单元 M8" "单元 M9"
+				"单元 N1" "单元 N2" "单元 N3" "单元 N4" "单元 N5" "单元 N6" "单元 N7" "单元 N8" "单元 N9"
+				"单元 O1" "单元 O2" "单元 O3" "单元 O4" "单元 O5" "单元 O6" "单元 O7" "单元 O8" "单元 O9"
+				"单元 P1" "单元 P2" "单元 P3" "单元 P4" "单元 P5" "单元 P6" "单元 P7" "单元 P8" "单元 P9"
+				"单元 Q1" "单元 Q2" "单元 Q3" "单元 Q4" "单元 Q5" "单元 Q6" "单元 Q7" "单元 Q8" "单元 Q9"
+				"单元 R1" "单元 R2" "单元 R3" "单元 R4" "单元 R5" "单元 R6" "单元 R7" "单元 R8" "单元 R9"
+				"单元 S1" "单元 S2" "单元 S3" "单元 S4" "单元 S5" "单元 S6" "单元 S7" "单元 S8" "单元 S9"
+				"单元 T1" "单元 T2" "单元 T3" "单元 T4" "单元 T5" "单元 T6" "单元 T7" "单元 T8" "单元 T9"
+				"单元 U1" "单元 U2" "单元 U3" "单元 U4" "单元 U5" "单元 U6" "单元 U7" "单元 U8" "单元 U9"
+				"单元 V1" "单元 V2" "单元 V3" "单元 V4" "单元 V5" "单元 V6" "单元 V7" "单元 V8" "单元 V9"
+				"单元 W1" "单元 W2" "单元 W3" "单元 W4" "单元 W5" "单元 W6" "单元 W7" "单元 W8" "单元 W9"
+				"单元 X1" "单元 X2" "单元 X3" "单元 X4" "单元 X5" "单元 X6" "单元 X7" "单元 X8" "单元 X9"
+				"单元 Y1" "单元 Y2" "单元 Y3" "单元 Y4" "单元 Y5" "单元 Y6" "单元 Y7" "单元 Y8" "单元 Y9"
+				"单元 Z1" "单元 Z2" "单元 Z3" "单元 Z4" "单元 Z5" "单元 Z6" "单元 Z7" "单元 Z8" "单元 Z9"
 			}
 			
 			# Always combined with a second name
@@ -206,11 +223,9 @@ MACHINE1 = {
 			}
 			
 			regnal_first_names = {
-				
 			}
 			
 			regnal_second_names = {
-				
 			}
 		}
 	}
@@ -218,7 +233,7 @@ MACHINE1 = {
 	ruler_names = {
 		default = {
 			full_names = {
-				主导执行者01
+				主导者 控制器 驱动器 同步器 阿尔法框架 互斥者 标准仲裁者 主轴突
 			}
 		}
 	}

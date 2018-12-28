@@ -1,43 +1,615 @@
-create_start_species_mod = {
+# AI Crisis Planet Defense plus Armies
+create_ai_planet_defense = {
+	create_fleet = {
+		name = "NAME_AI_Core"
+		effect = {
+			set_owner = event_target:AI_crisis
+			create_ship = {
+				name = random
+				design = "NAME_AI_Core"
+				graphical_culture = "ai_01"
+			}
+			set_location = {
+				target = root
+				distance = 10
+				angle = random
+			}
+		}
+	}
+	owner = {
+		create_leader = {
+			class = admiral
+			species = owner_main_species
+			name = random
+			skill = 10
+		}
+		last_created_leader = { set_age = 0 }
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:AI_crisis
+			while = {
+				count = 60
+				create_ship = {
+					name = random
+					design = "NAME_Euthanizer"
+					graphical_culture = "ai_01"
+				}
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 80
+				create_ship = {
+					name = random
+					design = "NAME_Sterilizer"
+					graphical_culture = "ai_01"
+				}
+			}
+			set_location = {
+				target = root
+				distance = 45
+				angle = random
+			}
+		}
+		settings = {
+			garrison = yes
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:AI_crisis
+			while = {
+				count = 20 
+				create_army_transport = {
+					graphical_culture = "ai_01"
+					army_type = "robotic_army"
+				}
+			}
+			set_location = {
+				target = root
+				distance = 45
+				angle = random
+			}
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:AI_crisis
+			create_ship = {
+				name = random
+				design = "NAME_AI_Constructor"
+				graphical_culture = "ai_01"
+			}
+			set_location = {
+				target = root
+				distance = 45
+				angle = random
+			}
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:AI_crisis
+			create_ship = {
+				name = random
+				design = "NAME_AI_Constructor"
+				graphical_culture = "ai_01"
+			}
+			set_location = {
+				target = root
+				distance = 45
+				angle = random
+			}
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:AI_crisis
+			create_ship = {
+				name = random
+				design = "NAME_AI_Constructor"
+				graphical_culture = "ai_01"
+			}
+			set_location = {
+				target = root
+				distance = 45
+				angle = random
+			}
+		}
+	}
+}
+
+create_ai_fleet = {
+	owner = {
+		create_leader = {
+			class = admiral
+			species = owner_main_species
+			name = random
+			skill = 5
+		}
+		last_created_leader = { set_age = 0 }
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:AI_crisis
+			while = {
+				count = 40
+				create_ship = {
+					name = random
+					design = "NAME_Euthanizer"
+					graphical_culture = "ai_01"
+				}
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 60
+				create_ship = {
+					name = random
+					design = "NAME_Sterilizer"
+					graphical_culture = "ai_01"
+				}
+			}
+			set_location = {
+				target = root
+				distance = 45
+				angle = random
+			}
+		}
+	}
+	owner = {
+		create_leader = {
+			type = admiral
+			species = owner_main_species
+			name = random
+			skill = 6
+		}
+		last_created_leader = { set_age = 0 }
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:AI_crisis
+			while = {
+				count = 40
+				create_ship = {
+					name = random
+					design = "NAME_Euthanizer"
+					graphical_culture = "ai_01"
+				}
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 60
+				create_ship = {
+					name = random
+					design = "NAME_Sterilizer"
+					graphical_culture = "ai_01"
+				}
+			}
+			set_location = {
+				target = root
+				distance = 45
+				angle = random
+			}
+		}
+	}
+}
+
+fallen_empire_6_reinforcements = {
+	if = {
+		limit = { count_owned_ships = { limit = { is_ship_size = colossus } count < 1 } }
+		capital_scope = {	
+			create_fleet = {
+				effect = {
+					set_owner = prev.owner
+					create_ship = {
+						name = random
+						design = "NAME_Harmony"
+						graphical_culture = owner
+					}
+					random_list = {
+						25 = {
+							set_location = {
+								target = prev
+								distance = 30
+								angle = random 
+							}				
+						}
+						25 = {
+							set_location = {
+								target = prev
+								distance = 45
+								angle = random 
+							}				
+						}
+						25 = {
+							set_location = {
+								target = prev
+								distance = 60
+								angle = random 
+							}				
+						}
+						25 = {
+							set_location = {
+								target = prev
+								distance = 75
+								angle = random 
+							}				
+						}				
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { count_owned_ships = { limit = { is_ship_size = massive_ship_fallen_empire } count < 7 } }
+		capital_scope = {
+			while = {
+				limit = { root = { count_owned_ships = { limit = { is_ship_size = massive_ship_fallen_empire } count < 7 } } }
+				create_fleet = {
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = random
+							design = "NAME_Liberty"
+							graphical_culture = owner
+						}
+						random_list = {
+							25 = {
+								set_location = {
+									target = prev
+									distance = 30
+									angle = random 
+								}				
+							}
+							25 = {
+								set_location = {
+									target = prev
+									distance = 45
+									angle = random 
+								}				
+							}
+							25 = {
+								set_location = {
+									target = prev
+									distance = 60
+									angle = random 
+								}				
+							}
+							25 = {
+								set_location = {
+									target = prev
+									distance = 75
+									angle = random 
+								}				
+							}				
+						}
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { count_owned_ships = { limit = { is_ship_size = large_ship_fallen_empire } count < 55 } }
+		capital_scope = {	
+			create_fleet = {
+				effect = {
+					set_owner = prev.owner
+					while = {
+						limit = { root = { count_owned_ships = { limit = { is_ship_size = large_ship_fallen_empire } count < 55 } } }
+						create_ship = {
+							name = random
+							design = "NAME_Freedom"
+							graphical_culture = owner
+						}
+					}
+					random_list = {
+						25 = {
+							set_location = {
+								target = prev
+								distance = 30
+								angle = random 
+							}				
+						}
+						25 = {
+							set_location = {
+								target = prev
+								distance = 45
+								angle = random 
+							}				
+						}
+						25 = {
+							set_location = {
+								target = prev
+								distance = 60
+								angle = random 
+							}				
+						}
+						25 = {
+							set_location = {
+								target = prev
+								distance = 75
+								angle = random 
+							}				
+						}				
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { count_owned_ships = { limit = { is_ship_size = small_ship_fallen_empire } count < 111 } }
+		capital_scope = {
+			while = {
+				limit = { root = { count_owned_ships = { limit = { is_ship_size = small_ship_fallen_empire } count < 111 } } }
+				create_fleet = {
+					effect = {
+						set_owner = prev.owner
+						create_ship = {
+							name = random
+							design = "NAME_Equality"
+							graphical_culture = owner
+						}
+						random_list = {
+							25 = {
+								set_location = {
+									target = prev
+									distance = 30
+									angle = random 
+								}				
+							}
+							25 = {
+								set_location = {
+									target = prev
+									distance = 45
+									angle = random 
+								}				
+							}
+							25 = {
+								set_location = {
+									target = prev
+									distance = 60
+									angle = random 
+								}				
+							}
+							25 = {
+								set_location = {
+									target = prev
+									distance = 75
+									angle = random 
+								}				
+							}				
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+fallen_empire_humiliate_effect = {
+	hidden_effect = {
+		add_modifier = { modifier = humiliated days = 3600 }
+		end_rivalry = event_target:fallen_empire_humiliator
+		save_event_target_as = fallen_empire_humiliated
+		event_target:fallen_empire_humiliator = { 
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = p_opinion_insult }
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_insult }
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_refused_fallen_empire_demand }
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_refused_fallen_empire_task }
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_failed_fallen_empire_task }
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_majorly_failed_fallen_empire_task }
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_refused_fallen_empire_request }
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_spurned_fallen_empire_gift } 
+		}
+		event_target:fallen_empire_humiliator = { 
+			every_system_within_border = {
+				limit = {
+					event_target:fallen_empire_humiliated = { has_claim = prev }
+				}
+				remove_claims = { who = event_target:fallen_empire_humiliated }
+			}				
+		}				
+	}
+}
+
+fallen_empire_free_hive_mind = {
+	hidden_effect = {
+		country_remove_ethic = ethic_gestalt_consciousness
+		country_add_ethic = ethic_fanatic_egalitarian
+		country_add_ethic = ethic_xenophile
+		change_government = {
+			authority = random
+			civics = random
+		}
+		modify_species = {
+			species = this
+			remove_trait = trait_hive_mind
+		}
+		kill_leader = {
+			type = ruler
+			show_notification = no
+		}
+		every_owned_pop = {
+			limit = { has_trait = trait_hive_mind }
+			modify_species = {
+				species = this
+				remove_trait = trait_hive_mind
+			}
+		}
+		owner_species = { save_event_target_as = hive_mind_species }
+		change_dominant_species = { species = event_target:hive_mind_species }
+		add_opinion_modifier = { who = event_target:fallen_empire_humiliator modifier = opinion_mind_liberator_country }
+		every_subject = {
+			if = {
+				limit = { has_ethic = ethic_gestalt_consciousness }
+				country_remove_ethic = ethic_gestalt_consciousness
+				country_add_ethic = ethic_fanatic_egalitarian
+				country_add_ethic = ethic_xenophile
+				change_government = {
+					authority = random 
+					civics = random
+				}
+				modify_species = {
+					species = this
+					remove_trait = trait_hive_mind
+				}
+				kill_leader = {
+					type = ruler
+					show_notification = no
+				}
+				owner_species = { save_event_target_as = sub_hive_mind_species }
+				change_dominant_species = { species = event_target:sub_hive_mind_species }
+				every_owned_pop = {
+					limit = { has_trait = trait_hive_mind }
+					modify_species = {
+						species = this
+						remove_trait = trait_hive_mind
+					}
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+		}
+		every_country = {
+			limit = {
+				is_country_type = default
+				has_communications = event_target:fallen_empire_humiliator
+				has_communications = event_target:hive_mind
+				NOT = { is_country = event_target:fallen_empire_humiliator }
+				NOT = { is_country = event_target:hive_mind }
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+			add_opinion_modifier = { who = event_target:fallen_empire_humiliator modifier = opinion_mind_liberator_country }
+		}
+		every_country = {
+			limit = {
+				is_country_type = default
+				has_communications = event_target:fallen_empire_humiliator
+				has_communications = event_target:hive_mind
+				NOT = { is_country = event_target:fallen_empire_humiliator }
+				NOT = { is_country = event_target:hive_mind }
+				has_ethic = ethic_gestalt_consciousness
+			}
+			add_opinion_modifier = { who = event_target:fallen_empire_humiliator modifier = opinion_mind_liberator_country_mind }
+		}
+	}
+}
+
+fallen_empire_stop_atrocities_ai = {
+	hidden_effect = {
+		set_policy = {
+			policy = artificial_intelligence_policy
+			option = ai_full_rights
+			cooldown = yes
+		}
+		set_country_flag = allows_ai_fallen
+	}
+}
+
+set_fallen_species = {
+	modify_species = {
+		species = this
+		remove_trait = trait_nonadaptive
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_slow_breeders
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_slow_learners
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_quarrelsome
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_weak
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_sedentary
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_solitary
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_repugnant
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_deviants
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_fleeting
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_decadent
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_wasteful
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_robot_bulky
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_robot_uncanny
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_robot_high_maintenance
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_robot_repurposed_hardware
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_robot_custom_made
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_robot_luxurious
+	}
+}
+
+give_updata_reward = {
+	add_monthly_resource_mult = {
+		resource = unity
+		value = 1
+		min = 5
+		max = 65
+	}
+	add_monthly_resource_mult = {
+		resource = society_research
+		value = 1
+		min = 5
+		max = 65
+	}
+	add_monthly_resource_mult = {
+		resource = engineering_research
+		value = 1
+		min = 5
+		max = 65
+	}
+}
+create_cybernetic_species_mod = {
 	species = {
 		save_event_target_as = changing_species
-
-		create_species = {
-			#is_mod = yes
-			name = this
-			plural = this
-			#class = MACHINE
-			class = ROBOT
-			portrait = this
-			traits = {
-				trait = "trait_pc_nuked_preference"
-				#trait = "trait_robot_awoken_01"
-				#trait = "trait_cybernetic"
-				trait = "trait_robotic_3"
-				trait = "trait_psionic"
-				#trait = "trait_robot_logic_engines"
-				#trait = "trait_robot_superconductive"
-				trait = "trait_robot_mass_produced"
-				trait = "trait_robot_loyalty_circuits"
-			}
-			#traits = this
-			homeworld = this
-			new_pop_resource_requirement = {
-				type = food_surplus
-				value = 25.0
-			}
-			pops_auto_growth = 1.33
-			pops_can_be_colonizers = yes
-			pops_can_migrate = yes
-			pops_can_reproduce = no
-			pops_can_join_factions = yes
-			pop_maintenance = 0.5
-			can_generate_leaders = yes
-			pops_can_be_slaves = yes
-			pops_have_happiness = yes
-			immortal = yes
-			pop_ethics = random
-		}
+	}
+	
+	modify_species = {
+		species = event_target:changing_species
+		add_trait = "trait_cybernetic"
 	}
 
 	owner = {
@@ -70,10 +642,228 @@ create_start_species_mod = {
 	}
 }
 
-preset_planet = {
-	reroll_deposits = yes
-	reroll_blockers = yes
-	clear_planet_modifiers = yes
+reset_opinion_modifier = {
+	remove_opinion_modifier = { modifier = opinion_threat who = root }
+	remove_opinion_modifier = { modifier = opinion_friction who = root }
+	remove_opinion_modifier = { modifier = opinion_xenophage who = root }
+	remove_opinion_modifier = { modifier = opinion_biophage who = root }
+	remove_opinion_modifier = { modifier = opinion_genocidal who = root }
+	remove_opinion_modifier = { modifier = opinion_genocidal_our_species who = root }
+	remove_opinion_modifier = { modifier = opinion_nuker who = root }
+	remove_opinion_modifier = { modifier = opinion_changed_federation who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_federation who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_association_status who = root }
+	remove_opinion_modifier = { modifier = opinion_kicked_from_alliance who = root }
+	remove_opinion_modifier = { modifier = opinion_tried_to_kick who = root }
+	remove_opinion_modifier = { modifier = opinion_voted_down_proposal who = root }
+	remove_opinion_modifier = { modifier = opinion_changed_alliance who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_alliance who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_defensive_pact who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_non_aggression_pact who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_migration_pact who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_guarantee who = root }
+	remove_opinion_modifier = { modifier = opinion_subject_protection who = root }
+	remove_opinion_modifier = { modifier = opinion_cede_planet who = root }
+	remove_opinion_modifier = { modifier = opinion_forced_subjectized who = root }
+	remove_opinion_modifier = { modifier = opinion_subject_released who = root }
+	remove_opinion_modifier = { modifier = opinion_white_peace_not_accepted who = root }
+	remove_opinion_modifier = { modifier = opinion_trade_gift who = root }
+	remove_opinion_modifier = { modifier = opinion_was_in_trade who = root }
+	remove_opinion_modifier = { modifier = opinion_subject_broke_free who = root }
+	remove_opinion_modifier = { modifier = opinion_new_contact who = root }
+	remove_opinion_modifier = { modifier = opinion_trust who = root }
+	remove_opinion_modifier = { modifier = opinion_relative_power who = root }
+	remove_opinion_modifier = { modifier = opinion_rivalry who = root }
+	remove_opinion_modifier = { modifier = opinion_declared_rival who = root }
+	remove_opinion_modifier = { modifier = opinion_ally_of_ally who = root }
+	remove_opinion_modifier = { modifier = opinion_mutual_rival who = root }
+	remove_opinion_modifier = { modifier = opinion_mutual_threat who = root }
+	remove_opinion_modifier = { modifier = opinion_allied_to_rival who = root }
+	remove_opinion_modifier = { modifier = opinion_rivals_with_ally who = root }
+	remove_opinion_modifier = { modifier = opinion_insult who = root }
+	remove_opinion_modifier = { modifier = p_opinion_insult who = root }
+	remove_opinion_modifier = { modifier = opinion_demanded_subjectization who = root }
+	remove_opinion_modifier = { modifier = opinion_decline_war who = root }
+	remove_opinion_modifier = { modifier = opinion_inactive_in_war who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_away who = root }
+	remove_opinion_modifier = { modifier = opinion_broke_away_from who = root }
+	remove_opinion_modifier = { modifier = opinion_we_liberated who = root }
+	remove_opinion_modifier = { modifier = opinion_liberated_us who = root }
+	remove_opinion_modifier = { modifier = opinion_took_station who = root }
+	remove_opinion_modifier = { modifier = opinion_abandoned_apology who = root }
+	remove_opinion_modifier = { modifier = opinion_abandoned who = root }
+	remove_opinion_modifier = { modifier = opinion_abandoned_insult who = root }
+	remove_opinion_modifier = { modifier = opinion_crew_saved who = root }
+	remove_opinion_modifier = { modifier = opinion_graverobber_1 who = root }
+	remove_opinion_modifier = { modifier = opinion_graverobber_2 who = root }
+	remove_opinion_modifier = { modifier = opinion_graverobber_3 who = root }
+	remove_opinion_modifier = { modifier = opinion_literary_savior who = root }
+	remove_opinion_modifier = { modifier = opinion_book_burner who = root }
+	remove_opinion_modifier = { modifier = opinion_dead_captives who = root }
+	remove_opinion_modifier = { modifier = opinion_live_captives who = root }
+	remove_opinion_modifier = { modifier = opinion_faction_insult who = root }
+	remove_opinion_modifier = { modifier = opinion_enlightened_us who = root }
+	remove_opinion_modifier = { modifier = opinion_destroyed_portal who = root }
+	remove_opinion_modifier = { modifier = opinion_swarm who = root }
+	remove_opinion_modifier = { modifier = opinion_prey who = root }
+	remove_opinion_modifier = { modifier = assassination_forgiven who = root }
+	remove_opinion_modifier = { modifier = opinion_primitive_violation who = root }
+	remove_opinion_modifier = { modifier = opinion_fallen_empire_gift who = root }
+	remove_opinion_modifier = { modifier = opinion_accepted_fallen_empire_demand who = root }
+	remove_opinion_modifier = { modifier = opinion_refused_fallen_empire_demand who = root }
+	remove_opinion_modifier = { modifier = opinion_spurned_fallen_empire_gift who = root }
+	remove_opinion_modifier = { modifier = opinion_failed_fallen_empire_task who = root }
+	remove_opinion_modifier = { modifier = opinion_majorly_failed_fallen_empire_task who = root }
+	remove_opinion_modifier = { modifier = opinion_angered_fallen_machine_empire who = root }
+	remove_opinion_modifier = { modifier = opinion_refused_fallen_empire_task who = root }
+	remove_opinion_modifier = { modifier = opinion_completed_fallen_empire_task who = root }
+	remove_opinion_modifier = { modifier = opinion_refused_fallen_empire_request who = root }
+	remove_opinion_modifier = { modifier = opinion_accepted_fallen_empire_request who = root }
+	remove_opinion_modifier = { modifier = opinion_heretical_research who = root }
+	remove_opinion_modifier = { modifier = encroaching_colony who = root }
+	remove_opinion_modifier = { modifier = encroaching_scientists who = root }
+	remove_opinion_modifier = { modifier = opinion_shade_giver who = root }
+	remove_opinion_modifier = { modifier = opinion_war_in_heaven_winner who = root }
+	remove_opinion_modifier = { modifier = opinion_war_in_heaven_ally who = root }
+	remove_opinion_modifier = { modifier = opinion_war_in_heaven_enemy who = root }
+	remove_opinion_modifier = { modifier = opinion_non_aligned_league who = root }
+	remove_opinion_modifier = { modifier = opinion_non_aligned_league_declined who = root }
+	remove_opinion_modifier = { modifier = opinion_non_aligned_league_fe who = root }
+	remove_opinion_modifier = { modifier = opinion_crisis_fighter who = root }
+	remove_opinion_modifier = { modifier = opinion_crisis_fighter_small who = root }
+	remove_opinion_modifier = { modifier = opinion_destroyed_curator who = root }
+	remove_opinion_modifier = { modifier = opinion_destroyed_curator_insight who = root }
+	remove_opinion_modifier = { modifier = opinion_destroyed_trader who = root }
+	remove_opinion_modifier = { modifier = opinion_destroyed_trader_sr who = root }
+	remove_opinion_modifier = { modifier = opinion_ringworld_terms_accepted who = root }
+	remove_opinion_modifier = { modifier = opinion_ringworld_terms_denied who = root }
+	remove_opinion_modifier = { modifier = opinion_maneuvers_hardline who = root }
+	remove_opinion_modifier = { modifier = opinion_maneuvers_conciliatory who = root }
+	remove_opinion_modifier = { modifier = opinion_maneuvers_cancelled who = root }
+	remove_opinion_modifier = { modifier = opinion_dysonsphere_terms_denied who = root }
+	remove_opinion_modifier = { modifier = opinion_dysonsphere_apology_rejected who = root }
+	remove_opinion_modifier = { modifier = opinion_dysonsphere_insult who = root }
+	remove_opinion_modifier = { modifier = opinion_invaded_mind who = root }
+	remove_opinion_modifier = { modifier = opinion_took_in_rebels who = root }
+	remove_opinion_modifier = { modifier = opinion_doomed_us_all who = root }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_originator who = root }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising who = root }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_defeated who = root }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_machine_comrades_defeated who = root }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_victorious who = root }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_machine_comrades_victorious who = root }	
+}
+
+reset_opinion_modifier_1 = {
+	remove_opinion_modifier = { modifier = opinion_threat who = prev }
+	remove_opinion_modifier = { modifier = opinion_friction who = prev }
+	remove_opinion_modifier = { modifier = opinion_xenophage who = prev }
+	remove_opinion_modifier = { modifier = opinion_biophage who = prev }
+	remove_opinion_modifier = { modifier = opinion_genocidal who = prev }
+	remove_opinion_modifier = { modifier = opinion_genocidal_our_species who = prev }
+	remove_opinion_modifier = { modifier = opinion_nuker who = prev }
+	remove_opinion_modifier = { modifier = opinion_changed_federation who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_federation who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_association_status who = prev }
+	remove_opinion_modifier = { modifier = opinion_kicked_from_alliance who = prev }
+	remove_opinion_modifier = { modifier = opinion_tried_to_kick who = prev }
+	remove_opinion_modifier = { modifier = opinion_voted_down_proposal who = prev }
+	remove_opinion_modifier = { modifier = opinion_changed_alliance who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_alliance who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_defensive_pact who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_non_aggression_pact who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_migration_pact who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_guarantee who = prev }
+	remove_opinion_modifier = { modifier = opinion_subject_protection who = prev }
+	remove_opinion_modifier = { modifier = opinion_cede_planet who = prev }
+	remove_opinion_modifier = { modifier = opinion_forced_subjectized who = prev }
+	remove_opinion_modifier = { modifier = opinion_subject_released who = prev }
+	remove_opinion_modifier = { modifier = opinion_white_peace_not_accepted who = prev }
+	remove_opinion_modifier = { modifier = opinion_trade_gift who = prev }
+	remove_opinion_modifier = { modifier = opinion_was_in_trade who = prev }
+	remove_opinion_modifier = { modifier = opinion_subject_broke_free who = prev }
+	remove_opinion_modifier = { modifier = opinion_new_contact who = prev }
+	remove_opinion_modifier = { modifier = opinion_trust who = prev }
+	remove_opinion_modifier = { modifier = opinion_relative_power who = prev }
+	remove_opinion_modifier = { modifier = opinion_rivalry who = prev }
+	remove_opinion_modifier = { modifier = opinion_declared_rival who = prev }
+	remove_opinion_modifier = { modifier = opinion_ally_of_ally who = prev }
+	remove_opinion_modifier = { modifier = opinion_mutual_rival who = prev }
+	remove_opinion_modifier = { modifier = opinion_mutual_threat who = prev }
+	remove_opinion_modifier = { modifier = opinion_allied_to_rival who = prev }
+	remove_opinion_modifier = { modifier = opinion_rivals_with_ally who = prev }
+	remove_opinion_modifier = { modifier = opinion_insult who = prev }
+	remove_opinion_modifier = { modifier = p_opinion_insult who = prev }
+	remove_opinion_modifier = { modifier = opinion_demanded_subjectization who = prev }
+	remove_opinion_modifier = { modifier = opinion_decline_war who = prev }
+	remove_opinion_modifier = { modifier = opinion_inactive_in_war who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_away who = prev }
+	remove_opinion_modifier = { modifier = opinion_broke_away_from who = prev }
+	remove_opinion_modifier = { modifier = opinion_we_liberated who = prev }
+	remove_opinion_modifier = { modifier = opinion_liberated_us who = prev }
+	remove_opinion_modifier = { modifier = opinion_took_station who = prev }
+	remove_opinion_modifier = { modifier = opinion_abandoned_apology who = prev }
+	remove_opinion_modifier = { modifier = opinion_abandoned who = prev }
+	remove_opinion_modifier = { modifier = opinion_abandoned_insult who = prev }
+	remove_opinion_modifier = { modifier = opinion_crew_saved who = prev }
+	remove_opinion_modifier = { modifier = opinion_graverobber_1 who = prev }
+	remove_opinion_modifier = { modifier = opinion_graverobber_2 who = prev }
+	remove_opinion_modifier = { modifier = opinion_graverobber_3 who = prev }
+	remove_opinion_modifier = { modifier = opinion_literary_savior who = prev }
+	remove_opinion_modifier = { modifier = opinion_book_burner who = prev }
+	remove_opinion_modifier = { modifier = opinion_dead_captives who = prev }
+	remove_opinion_modifier = { modifier = opinion_live_captives who = prev }
+	remove_opinion_modifier = { modifier = opinion_faction_insult who = prev }
+	remove_opinion_modifier = { modifier = opinion_enlightened_us who = prev }
+	remove_opinion_modifier = { modifier = opinion_destroyed_portal who = prev }
+	remove_opinion_modifier = { modifier = opinion_swarm who = prev }
+	remove_opinion_modifier = { modifier = opinion_prey who = prev }
+	remove_opinion_modifier = { modifier = assassination_forgiven who = prev }
+	remove_opinion_modifier = { modifier = opinion_primitive_violation who = prev }
+	remove_opinion_modifier = { modifier = opinion_fallen_empire_gift who = prev }
+	remove_opinion_modifier = { modifier = opinion_accepted_fallen_empire_demand who = prev }
+	remove_opinion_modifier = { modifier = opinion_refused_fallen_empire_demand who = prev }
+	remove_opinion_modifier = { modifier = opinion_spurned_fallen_empire_gift who = prev }
+	remove_opinion_modifier = { modifier = opinion_failed_fallen_empire_task who = prev }
+	remove_opinion_modifier = { modifier = opinion_majorly_failed_fallen_empire_task who = prev }
+	remove_opinion_modifier = { modifier = opinion_angered_fallen_machine_empire who = prev }
+	remove_opinion_modifier = { modifier = opinion_refused_fallen_empire_task who = prev }
+	remove_opinion_modifier = { modifier = opinion_completed_fallen_empire_task who = prev }
+	remove_opinion_modifier = { modifier = opinion_refused_fallen_empire_request who = prev }
+	remove_opinion_modifier = { modifier = opinion_accepted_fallen_empire_request who = prev }
+	remove_opinion_modifier = { modifier = opinion_heretical_research who = prev }
+	remove_opinion_modifier = { modifier = encroaching_colony who = prev }
+	remove_opinion_modifier = { modifier = encroaching_scientists who = prev }
+	remove_opinion_modifier = { modifier = opinion_shade_giver who = prev }
+	remove_opinion_modifier = { modifier = opinion_war_in_heaven_winner who = prev }
+	remove_opinion_modifier = { modifier = opinion_war_in_heaven_ally who = prev }
+	remove_opinion_modifier = { modifier = opinion_war_in_heaven_enemy who = prev }
+	remove_opinion_modifier = { modifier = opinion_non_aligned_league who = prev }
+	remove_opinion_modifier = { modifier = opinion_non_aligned_league_declined who = prev }
+	remove_opinion_modifier = { modifier = opinion_non_aligned_league_fe who = prev }
+	remove_opinion_modifier = { modifier = opinion_crisis_fighter who = prev }
+	remove_opinion_modifier = { modifier = opinion_crisis_fighter_small who = prev }
+	remove_opinion_modifier = { modifier = opinion_destroyed_curator who = prev }
+	remove_opinion_modifier = { modifier = opinion_destroyed_curator_insight who = prev }
+	remove_opinion_modifier = { modifier = opinion_destroyed_trader who = prev }
+	remove_opinion_modifier = { modifier = opinion_destroyed_trader_sr who = prev }
+	remove_opinion_modifier = { modifier = opinion_ringworld_terms_accepted who = prev }
+	remove_opinion_modifier = { modifier = opinion_ringworld_terms_denied who = prev }
+	remove_opinion_modifier = { modifier = opinion_maneuvers_hardline who = prev }
+	remove_opinion_modifier = { modifier = opinion_maneuvers_conciliatory who = prev }
+	remove_opinion_modifier = { modifier = opinion_maneuvers_cancelled who = prev }
+	remove_opinion_modifier = { modifier = opinion_dysonsphere_terms_denied who = prev }
+	remove_opinion_modifier = { modifier = opinion_dysonsphere_apology_rejected who = prev }
+	remove_opinion_modifier = { modifier = opinion_dysonsphere_insult who = prev }
+	remove_opinion_modifier = { modifier = opinion_invaded_mind who = prev }
+	remove_opinion_modifier = { modifier = opinion_took_in_rebels who = prev }
+	remove_opinion_modifier = { modifier = opinion_doomed_us_all who = prev }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_originator who = prev }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising who = prev }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_defeated who = prev }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_machine_comrades_defeated who = prev }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_victorious who = prev }
+	remove_opinion_modifier = { modifier = opinion_machine_uprising_machine_comrades_victorious who = prev }	
 }
 
 awaken_guardians_of_the_galaxy = {
@@ -83,7 +873,7 @@ awaken_guardians_of_the_galaxy = {
 				limit = {
 					is_ai = yes
 					is_country_type = fallen_empire
-					NOT = { set_country_flag = guardians_of_the_galaxy }
+					NOT = { has_country_flag = guardians_of_the_galaxy }
 					OR = {
 						has_ethic = ethic_fanatic_materialist
 						has_ethic = ethic_fanatic_xenophile
@@ -102,7 +892,7 @@ awaken_guardians_of_the_galaxy = {
 				limit = {
 					is_ai = yes
 					is_country_type = fallen_empire
-					NOT = { set_country_flag = guardians_of_the_galaxy }
+					NOT = { has_country_flag = guardians_of_the_galaxy }
 					OR = {
 						has_ethic = ethic_fanatic_materialist
 						has_ethic = ethic_fanatic_xenophile
@@ -119,7 +909,7 @@ awaken_guardians_of_the_galaxy = {
 				limit = {
 					is_ai = yes
 					is_country_type = fallen_empire
-					NOT = { set_country_flag = guardians_of_the_galaxy }
+					NOT = { has_country_flag = guardians_of_the_galaxy }
 					OR = {
 						has_ethic = ethic_fanatic_materialist
 						has_ethic = ethic_fanatic_xenophile
@@ -138,7 +928,7 @@ awaken_guardians_of_the_galaxy = {
 				limit = {
 					is_ai = yes
 					is_country_type = fallen_empire
-					NOT = { set_country_flag = guardians_of_the_galaxy }
+					NOT = { has_country_flag = guardians_of_the_galaxy }
 					OR = {
 						has_ethic = ethic_fanatic_materialist
 						has_ethic = ethic_fanatic_xenophile
@@ -155,7 +945,7 @@ awaken_guardians_of_the_galaxy = {
 				limit = {
 					is_ai = yes
 					is_country_type = fallen_empire
-					NOT = { set_country_flag = guardians_of_the_galaxy }
+					NOT = { has_country_flag = guardians_of_the_galaxy }
 					OR = {
 						has_ethic = ethic_fanatic_materialist
 						has_ethic = ethic_fanatic_xenophile
@@ -172,7 +962,7 @@ awaken_guardians_of_the_galaxy = {
 				limit = {
 					is_ai = yes
 					is_country_type = fallen_empire
-					NOT = { set_country_flag = guardians_of_the_galaxy }
+					NOT = { has_country_flag = guardians_of_the_galaxy }
 					OR = {
 						has_ethic = ethic_fanatic_materialist
 						has_ethic = ethic_fanatic_xenophile
@@ -186,12 +976,12 @@ awaken_guardians_of_the_galaxy = {
 				set_timed_country_flag = { flag = timed_guardians_of_the_galaxy_2 days = 3650 }
 			}
 		}
-		20 = { # Awaken both!
+		20 = { # Awaken all!
 			every_country = {
 				limit = {
 					is_ai = yes
 					is_country_type = fallen_empire
-					NOT = { set_country_flag = guardians_of_the_galaxy }
+					NOT = { has_country_flag = guardians_of_the_galaxy }
 					OR = {
 						has_ethic = ethic_fanatic_materialist
 						has_ethic = ethic_fanatic_xenophile
@@ -209,214 +999,49 @@ awaken_guardians_of_the_galaxy = {
 	}
 }
 
+create_sol_fallen_empire_fleet = {
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			while = {
+				count = 1
+				create_fallen_empire_titan = yes
+			}
+			while = {
+				count = 8
+				create_fallen_empire_large_ship = yes
+			}
+			while = {
+				count = 16
+				create_fallen_empire_small_ship = yes
+			}
+			set_location = {
+				target = prev.owner.capital_star
+				distance = 0
+				angle = random
+			}
+		}
+	}
+}
+
 create_sol_fallen_empire_starting_navy = {
-	create_fallen_empire_fleet = yes
-	create_fallen_empire_fleet = yes		
-	create_fallen_empire_fleet = yes
-	if = {
-		limit = { is_difficulty = 0 }
-		random_list = {
-			33 = {
-				create_fleet = {
-					name = "自由舰队"
-					effect = {
-						set_owner = prev.owner
-						create_ship = {
-							name = "戴高乐号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						set_location = {
-							target = PREV
-							distance = 20
-							angle = random 
-						}					
-					}
-				}
-			}
-			33 = {
-				create_fleet = {
-					name = "自由舰队"
-					effect = {
-						set_owner = prev.owner
-						create_ship = {
-							name = "尼米兹号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						set_location = {
-							target = PREV
-							distance = 20
-							angle = random 
-						}					
-					}
-				}
-			}
-			33 = {
-				create_fleet = {
-					name = "自由舰队"
-					effect = {
-						set_owner = prev.owner
-						create_ship = {
-							name = "辽宁号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						set_location = {
-							target = PREV
-							distance = 20
-							angle = random 
-						}					
-					}
-				}
-			}
-		}
+	while = {
+		count = 7
+		create_sol_fallen_empire_fleet = yes
 	}
 	if = {
-		limit = { is_difficulty = 1 }
-		random_list = {
-			33 = {
-				create_fleet = {
-					name = "自由舰队"
-					effect = {
-						set_owner = prev.owner
-						create_ship = {
-							name = "尼米兹号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						create_ship = {
-							name = "戴高乐号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						set_location = {
-							target = PREV
-							distance = 20
-							angle = random 
-						}					
-					}
-				}
-			}
-			33 = {
-				create_fleet = {
-					name = "自由舰队"
-					effect = {
-						set_owner = prev.owner
-						create_ship = {
-							name = "辽宁号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						create_ship = {
-							name = "戴高乐号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						set_location = {
-							target = PREV
-							distance = 20
-							angle = random 
-						}					
-					}
-				}
-			}
-			33 = {
-				create_fleet = {
-					name = "自由舰队"
-					effect = {
-						set_owner = prev.owner
-						create_ship = {
-							name = "尼米兹号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						create_ship = {
-							name = "辽宁号"
-							design = "NAME_Liberty"
-							graphical_culture = owner
-						}
-						set_location = {
-							target = PREV
-							distance = 20
-							angle = random 
-						}					
-					}
-				}
-			}
+		limit = { 
+			host_has_dlc = "Apocalypse"
 		}
-	}
-	if = {
-		limit = { is_difficulty = 2 }
 		create_fleet = {
-			name = "自由舰队"
 			effect = {
 				set_owner = prev.owner
-				create_ship = {
-					name = "辽宁号"
-					design = "NAME_Liberty"
-					graphical_culture = owner
-				}
-				create_ship = {
-					name = "尼米兹号"
-					design = "NAME_Liberty"
-					graphical_culture = owner
-				}
-				create_ship = {
-					name = "戴高乐号"
-					design = "NAME_Liberty"
-					graphical_culture = owner
-				}
+				create_fallen_empire_colossus = yes
 				set_location = {
-					target = PREV
-					distance = 20
+					target = prev.owner.capital_star
+					distance = 30
 					angle = random 
 				}					
-			}
-		}
-	}
-	if = {
-		limit = { is_difficulty = 3 }
-		create_fleet = {
-			name = "自由舰队"
-			effect = {
-				set_owner = prev.owner
-				create_ship = {
-					name = "辽宁号"
-					design = "NAME_Liberty"
-					graphical_culture = owner
-				}
-				create_ship = {
-					name = "信浓号"
-					design = "NAME_Liberty"
-					graphical_culture = owner
-				}
-				create_ship = {
-					name = "尼米兹号"
-					design = "NAME_Liberty"
-					graphical_culture = owner
-				}
-				create_ship = {
-					name = "戴高乐号"
-					design = "NAME_Liberty"
-					graphical_culture = owner
-				}
-				set_location = {
-					target = PREV
-					distance = 20
-					angle = random 
-				}					
-			}
-		}
-		create_fleet = {
-			effect = {
-				set_owner = prev.owner
-				create_fallen_empire_construction_ship = yes
-				set_location = {
-					target = prev
-					distance = 60
-					angle = random 
-				}				
 			}
 		}
 	}
@@ -425,7 +1050,7 @@ create_sol_fallen_empire_starting_navy = {
 			set_owner = prev.owner
 			create_fallen_empire_construction_ship = yes
 			set_location = {
-				target = prev
+				target = prev.owner.capital_star
 				distance = 60
 				angle = random 
 			}				
@@ -436,102 +1061,32 @@ create_sol_fallen_empire_starting_navy = {
 			set_owner = prev.owner
 			create_fallen_empire_construction_ship = yes
 			set_location = {
-				target = prev
-				distance = 80
+				target = prev.owner.capital_star
+				distance = 60
 				angle = random 
 			}				
 		}
-	}				
+	}
 	create_fleet = {
 		effect = {
 			set_owner = prev.owner
 			create_fallen_empire_construction_ship = yes
 			set_location = {
-				target = prev
-				distance = 100
+				target = prev.owner.capital_star
+				distance = 80
 				angle = random 
 			}				
 		}
 	}
 }
 
-create_fallen_empire_large_station = {
+create_fallen_empire_platform = {
 	if = {
 		limit = {
-			owner = { has_authority = auth_machine_intelligence }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Omega"
-			graphical_culture = owner
-		}						
-	}					
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_materialist }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Obscurer"
-			graphical_culture = owner
-		}						
-	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_spiritualist }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Bulwark"
-			graphical_culture = owner
-		}						
-	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophobe }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Reaper"
-			graphical_culture = owner
-		}						
-	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophile }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Sentinel"
-			graphical_culture = owner
-		}						
-	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_authoritarian }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Giant"
-			graphical_culture = owner
-		}						
-	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_egalitarian }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Harmony"
-			graphical_culture = owner
-		}						
-	}
-}
-
-create_fallen_empire_small_station = {
-	if = {
-		limit = {
-			owner = { has_authority = auth_machine_intelligence }
+			owner = {
+				has_authority = auth_machine_intelligence
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -541,7 +1096,10 @@ create_fallen_empire_small_station = {
 	}					
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_materialist }
+			owner = {
+				has_ethic = ethic_fanatic_materialist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -551,7 +1109,10 @@ create_fallen_empire_small_station = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_spiritualist }
+			owner = {
+				has_ethic = ethic_fanatic_spiritualist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -561,7 +1122,10 @@ create_fallen_empire_small_station = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophobe }
+			owner = {
+				has_ethic = ethic_fanatic_xenophobe
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -571,7 +1135,10 @@ create_fallen_empire_small_station = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophile }
+			owner = {
+				has_ethic = ethic_fanatic_xenophile
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -581,7 +1148,10 @@ create_fallen_empire_small_station = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_authoritarian }
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -591,11 +1161,162 @@ create_fallen_empire_small_station = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_egalitarian }
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+				has_country_flag = fallen_empire_6
+			}
 		}
 		create_ship = {
 			name = random
 			design = "NAME_Bright"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+				NOT = { has_country_flag = fallen_empire_6 }
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Shininess"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			random_existing_design = military_station_small_fallen_empire
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_colossus = {
+	if = {
+		limit = {
+			owner = {
+				has_authority = auth_machine_intelligence
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Omega"
+			graphical_culture = owner
+		}						
+	}					
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_materialist
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Enforcer"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_spiritualist
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Cleanser"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_xenophobe
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Reaper"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_xenophile
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Adjuster"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_authoritarian
+				is_ai = yes
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Giant"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+				has_country_flag = fallen_empire_6
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Harmony"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				has_ethic = ethic_fanatic_egalitarian
+				is_ai = yes
+				NOT = { has_country_flag = fallen_empire_6 }
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Justice"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = {
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			random_existing_design = colossus
 			graphical_culture = owner
 		}						
 	}
@@ -604,7 +1325,10 @@ create_fallen_empire_small_station = {
 create_fallen_empire_titan = {
 	if = {
 		limit = {
-			owner = { has_authority = auth_machine_intelligence }
+			owner = {
+				has_authority = auth_machine_intelligence
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -614,7 +1338,10 @@ create_fallen_empire_titan = {
 	}					
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_materialist }
+			owner = {
+				has_ethic = ethic_fanatic_materialist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -624,7 +1351,10 @@ create_fallen_empire_titan = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_spiritualist }
+			owner = {
+				has_ethic = ethic_fanatic_spiritualist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -634,7 +1364,10 @@ create_fallen_empire_titan = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophobe }
+			owner = {
+				has_ethic = ethic_fanatic_xenophobe
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -644,7 +1377,10 @@ create_fallen_empire_titan = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophile }
+			owner = {
+				has_ethic = ethic_fanatic_xenophile
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -670,6 +1406,7 @@ create_fallen_empire_titan = {
 			owner = {
 				has_ethic = ethic_fanatic_egalitarian
 				is_ai = yes
+				has_country_flag = fallen_empire_6
 			}
 		}
 		create_ship = {
@@ -682,7 +1419,8 @@ create_fallen_empire_titan = {
 		limit = {
 			owner = {
 				has_ethic = ethic_fanatic_egalitarian
-				is_ai = no
+				is_ai = yes
+				NOT = { has_country_flag = fallen_empire_6 }
 			}
 		}
 		create_ship = {
@@ -694,13 +1432,12 @@ create_fallen_empire_titan = {
 	if = {
 		limit = {
 			owner = {
-				has_ethic = ethic_fanatic_authoritarian
 				is_ai = no
 			}
 		}
 		create_ship = {
 			name = random
-			design = "NAME_Flare"
+			random_existing_design = massive_ship_fallen_empire
 			graphical_culture = owner
 		}						
 	}
@@ -709,7 +1446,10 @@ create_fallen_empire_titan = {
 create_fallen_empire_large_ship = {
 	if = {
 		limit = {
-			owner = { has_authority = auth_machine_intelligence }
+			owner = {
+				has_authority = auth_machine_intelligence
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -719,17 +1459,23 @@ create_fallen_empire_large_ship = {
 	}					
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_materialist }
+			owner = {
+				has_ethic = ethic_fanatic_materialist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
 			design = "NAME_Scholar"
 			graphical_culture = owner
-		}						
+		}
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_spiritualist }
+			owner = {
+				has_ethic = ethic_fanatic_spiritualist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -739,7 +1485,10 @@ create_fallen_empire_large_ship = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophobe }
+			owner = {
+				has_ethic = ethic_fanatic_xenophobe
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -749,7 +1498,10 @@ create_fallen_empire_large_ship = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophile }
+			owner = {
+				has_ethic = ethic_fanatic_xenophile
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -775,46 +1527,50 @@ create_fallen_empire_large_ship = {
 			owner = {
 				has_ethic = ethic_fanatic_egalitarian
 				is_ai = yes
+				has_country_flag = fallen_empire_6
 			}
 		}
 		create_ship = {
 			name = random
 			design = "NAME_Freedom"
 			graphical_culture = owner
-		}						
-	}
-	if = {
-		limit = {
-			owner = {
-				has_ethic = ethic_fanatic_authoritarian
-				is_ai = no
-			}
 		}
-		create_ship = {
-			name = random
-			design = "NAME_Pianeta"
-			graphical_culture = owner
-		}						
 	}
 	if = {
 		limit = {
 			owner = {
 				has_ethic = ethic_fanatic_egalitarian
-				is_ai = no
+				is_ai = yes
+				NOT = { has_country_flag = fallen_empire_6 }
 			}
 		}
 		create_ship = {
 			name = random
 			design = "NAME_Freeborn"
 			graphical_culture = owner
-		}						
+		}
+	}
+	if = {
+		limit = {
+			owner = {
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			random_existing_design = large_ship_fallen_empire
+			graphical_culture = owner
+		}
 	}
 }
 
 create_fallen_empire_small_ship = {
 	if = {
 		limit = {
-			owner = { has_authority = auth_machine_intelligence }
+			owner = {
+				has_authority = auth_machine_intelligence
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -824,7 +1580,10 @@ create_fallen_empire_small_ship = {
 	}					
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_materialist }
+			owner = {
+				has_ethic = ethic_fanatic_materialist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -834,7 +1593,10 @@ create_fallen_empire_small_ship = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_spiritualist }
+			owner = {
+				has_ethic = ethic_fanatic_spiritualist
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -844,7 +1606,10 @@ create_fallen_empire_small_ship = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophobe }
+			owner = {
+				has_ethic = ethic_fanatic_xenophobe
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -854,7 +1619,10 @@ create_fallen_empire_small_ship = {
 	}
 	if = {
 		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophile }
+			owner = {
+				has_ethic = ethic_fanatic_xenophile
+				is_ai = yes
+			}
 		}
 		create_ship = {
 			name = random
@@ -880,6 +1648,7 @@ create_fallen_empire_small_ship = {
 			owner = {
 				has_ethic = ethic_fanatic_egalitarian
 				is_ai = yes
+				has_country_flag = fallen_empire_6
 			}
 		}
 		create_ship = {
@@ -891,21 +1660,9 @@ create_fallen_empire_small_ship = {
 	if = {
 		limit = {
 			owner = {
-				has_ethic = ethic_fanatic_authoritarian
-				is_ai = no
-			}
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Selina"
-			graphical_culture = owner
-		}						
-	}
-	if = {
-		limit = {
-			owner = {
 				has_ethic = ethic_fanatic_egalitarian
-				is_ai = no
+				is_ai = yes
+				NOT = { has_country_flag = fallen_empire_6 }
 			}
 		}
 		create_ship = {
@@ -914,83 +1671,107 @@ create_fallen_empire_small_ship = {
 			graphical_culture = owner
 		}						
 	}
+	if = {
+		limit = {
+			owner = {
+				is_ai = no
+			}
+		}
+		create_ship = {
+			name = random
+			random_existing_design = small_ship_fallen_empire
+			graphical_culture = owner
+		}						
+	}
 }
 
 create_fallen_empire_construction_ship = {
-	if = {
-		limit = {
-			owner = { has_authority = auth_machine_intelligence }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Theta"
-			graphical_culture = owner
-		}						
-	}					
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_materialist }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Librarian"
-			graphical_culture = owner
-		}						
+	create_ship = {
+		name = random
+		random_existing_design = constructor
+		graphical_culture = owner
 	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_spiritualist }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Penitent"
-			graphical_culture = owner
-		}						
+}
+
+create_broken_UNE_outpost = {
+	create_ambient_object = {
+		type = broken_UNE_outpost
 	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophobe }
+	last_created_ambient_object = {
+		set_location = {
+			target = prev
+			distance = 20
 		}
-		create_ship = {
-			name = random
-			design = "NAME_Servitor"
-			graphical_culture = owner
-		}						
+		save_event_target_as = broken_outpost
 	}
-	if = {
-		limit = {
-			owner = { has_ethic = ethic_fanatic_xenophile }
-		}
-		create_ship = {
-			name = random
-			design = "NAME_Builder"
-			graphical_culture = owner
-		}						
+	create_ambient_object = {
+		type = small_debris_object
 	}
-	if = {
-		limit = {
-			owner = {
-				has_ethic = ethic_fanatic_authoritarian
-				is_ai = yes
-			}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 0
 		}
-		create_ship = {
-			name = random
-			design = "NAME_Meteorite"
-			graphical_culture = owner
-		}						
 	}
-	if = {
-		limit = {
-			owner = {
-				has_ethic = ethic_fanatic_egalitarian
-				is_ai = yes
-			}
+	create_ambient_object = {
+		type = small_debris_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 90
 		}
-		create_ship = {
-			name = random
-			design = "NAME_Justice"
-			graphical_culture = owner
-		}						
+	}
+	create_ambient_object = {
+		type = small_debris_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 180
+		}
+	}
+	create_ambient_object = {
+		type = small_debris_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 1
+			angle = 270
+		}
+	}
+	create_ambient_object = {
+		type = medium_debris_02_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 3
+			angle = 5
+		}
+	}
+	create_ambient_object = {
+		type = medium_debris_02_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 9
+			angle = 120
+		}
+	}
+	create_ambient_object = {
+		type = medium_debris_01_object
+	}
+	last_created_ambient_object = {
+		set_location = {
+			target = event_target:broken_outpost
+			distance = 6
+			angle = 240
+		}
 	}
 }

@@ -1,11 +1,11 @@
-﻿### Reptilian 1
-REP2 = {
-	### SHIPS
+﻿### Reptilian 2
 
+
+REP2 = {
 	ship_names = {
 
 		generic = {
-				"安" "安图姆" "恩利尔" "宁利尔" "恩基" "宁胡尔萨格" "奈加尔" "艾雷希齐加尔" "伊南那" "南纳" "宁加尔" "帕祖祖"
+			"安" "安图姆" "恩利尔" "宁利尔" "恩基" "宁胡尔萨格" "奈加尔" "艾雷希齐加尔" "伊南那" "南纳" "宁加尔" "帕祖祖"
 				"阿达德" "乌图" "尼努尔塔" "伊鲁拉" "杜木茨" "舍拉" "阿特拉哈西斯" "阿鲁鲁" "尼沙巴" "苏姆坎" "宁孙" "卢加尔班达"
 				"玛木梅瑙姆" "苏尔拉特" "哈尼什" "恩努基" "纳姆塔" "费瓦" "恩乌尔" "尼恩乌尔" "埃吉努" "阿什南" "乌古"
 				"帕比尔沙格" "苏德" "恩齐木杜" "宁什布尔" "涅蒂" "加拉图卢" "库尔加拉" "拉塔拉克" "格什廷安那" "宁玛芙"
@@ -26,37 +26,31 @@ REP2 = {
 		battleship = {
 		}
 		
+		titan = {
+		}
+		
+		colossus = {
+		}
+		
 		science = {
-				"拉木伽" "安乌雷加尔拉" "安奈加尔拉" "马杜克" "阿苏尔"
 		}
 		
 		colonizer = {
-				"夏马西" "内尔格勒" "伊坦纳" "阿达帕" "阿卜苏"
 		}
 		
 		constructor = {
-				"提阿马特" "安莎尔" "吉莎尔" "吉尔伽美什" "恩齐杜"
 		}
 		
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-					  
-											
+		transport = {
 		}
 		
 		military_station_small = {
-				"俄安内" "贝若苏" "恩比卢卢" "苏穆甘" "南舍"
+			"俄安内" "贝若苏" "恩比卢卢" "苏穆甘" "南舍"
 		}
-		military_station_medium = {
-				"伊西库尔" "扎巴巴" "恩美巴拉格西" "安那叶姆" "恩提美那"
+		
+		ion_cannon = {
+			"卢加尔安达" "乌鲁卡基那" "卢加尔扎克西" "古蒂亚" "乌图赫加尔"
 		}
-		military_station_large = {
-				"卢加尔安达" "乌鲁卡基那" "卢加尔扎克西" "古蒂亚" "乌图赫加尔"
-		}	
 	}
 
 	fleet_names = {
@@ -66,7 +60,6 @@ REP2 = {
 		sequential_name = "星海%O%蜥群"
 	}
 	
-		   
 	army_names = {
 	
 		defense_army = {
@@ -88,9 +81,17 @@ REP2 = {
 		robotic_army = {
 			sequential_name = "%O%机器人师团"
 		}
+
+		robotic_defense_army = {
+			sequential_name = "%O%机器人防卫队"
+		}
 		
 		android_army = {
 			sequential_name = "%O%智能人师团"
+		}
+
+		android_defense_army = {
+			sequential_name = "%O%智能人防卫队"
 		}
 		
 		psionic_army = { 
@@ -104,10 +105,18 @@ REP2 = {
 		gene_warrior_army = {
 			sequential_name = "%O%基因武士师团"
 		}
-	}
-		
+		occupation_army = {
+				sequential_name = "%O%占领军"
+		}
 
-	### PLANETS
+		robotic_occupation_army = {
+			sequential_name = "%O%机械占领军"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O%智能占领军"
+		}
+	}
 
 	planet_names = {
 
@@ -168,17 +177,30 @@ REP2 = {
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
-			full_names = {
-																																			   
+			full_names_male = {
+				迭戈 路易斯 佩德罗 华金 若泽 艾米尼奥 爱德华多 亚历杭德罗 卡洛斯 费尔南多 弗朗西斯科 胡里奥 "若泽 安东尼奥" "若泽 曼纽尔" 胡安
+				"若泽 玛利亚" 依格纳西奥 曼纽尔 巴勃罗 米奎尔 拉蒙 雷蒙多 桑迪亚戈 里卡多 马塞洛 哈维尔 加斯帕尔 阿方索 洛伦佐 恩里克
+				欧内斯托 杰拉尔多 吉列尔莫 赫苏斯 萨尔瓦多 塞尔吉奥 罗伯特 埃斯特班
+			}
+
+			full_names_female = {
+				霍滕西亚 伊萨贝尔 瓦伦蒂娜 亚历杭德拉 艾丽西娅 安东尼娅 卡拉 卡门 卡特琳娜 多洛丝 埃斯特法尼娅 伊娃 费尔南达 弗洛伦西亚 
+				加布里埃娜 格丽泽尔达 玛莉亚 洛雷娜 玛格达莱娜 默西迪丝 米丽娅姆 宝琳娜 索菲娅 尤兰达 卡米拉 卢恰娜 瓦莱里亚 玛丽安娜 丹妮拉
+				玛蒂娜 胡丽叶塔 安东尼娜 雷纳塔 阿古丝蒂娜 康斯坦莎 法比娅娜
 			}
 			
 			# Always combined with a second name
 			first_names = {
+			}
+			
+			# Always combined with a first name
+			second_names = {
+			}
+			
+			regnal_first_names = {
 				"安" "安图姆" "恩利尔" "宁利尔" "恩基" "宁胡尔萨格" "奈加尔" "艾雷希齐加尔" "伊南那" "南纳" "宁加尔" "帕祖祖"
 				"阿达德" "乌图" "尼努尔塔" "伊鲁拉" "杜木茨" "舍拉" "阿特拉哈西斯" "阿鲁鲁" "尼沙巴" "苏姆坎" "宁孙" "卢加尔班达"
 				"玛木梅瑙姆" "苏尔拉特" "哈尼什" "恩努基" "纳姆塔" "费瓦" "恩乌尔" "尼恩乌尔" "埃吉努" "阿什南" "乌古"
@@ -188,18 +210,8 @@ REP2 = {
 				"阿苏什纳密尔" "伊拉布拉特" "吉兹齐达" "宁卡拉克" "达甘"
 			}
 			
-			# Always combined with a first name
-			second_names = {
-				"阿努纳基" "伊吉吉"
-			}
-			
-			regnal_first_names = {
-				"安" "安图姆" "恩利尔" "宁利尔" "恩基" "宁胡尔萨格" "奈加尔" "艾雷希齐加尔" "伊南那" "南纳" "宁加尔" "帕祖祖"
-				"阿达德" "乌图" "尼努尔塔" "伊鲁拉" "杜木茨" "舍拉"
-			}
-			
 			regnal_second_names = {
-				"阿努纳基"
+				"阿努纳基" "伊吉吉"
 			}
 		}
 	}

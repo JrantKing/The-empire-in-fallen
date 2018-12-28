@@ -1,17 +1,96 @@
+triggered_opinion_synthetics_normal_fix = {
+	trigger = {
+		has_ethic = ethic_spiritualist
+		is_cyborg_empire = no
+		is_mechanical_empire = no
+		from = {
+			is_mechanical_empire = yes
+			OR = {
+				has_valid_civic = civic_synthetic_evolution
+				has_modifier = civic_synthetic_evolution
+			}
+		}
+	}
+
+	opinion = {
+		base = 40
+	}
+}
+
+triggered_opinion_synthetics_fanatic_fix = {
+	trigger = {
+		has_ethic = ethic_fanatic_spiritualist
+		is_cyborg_empire = no
+		is_mechanical_empire = no
+		from = {
+			is_mechanical_empire = yes
+			OR = {
+				has_valid_civic = civic_synthetic_evolution
+				has_modifier = civic_synthetic_evolution
+			}
+		}
+	}
+
+	opinion = {
+		base = 60
+	}
+}
+
+triggered_opinion_synthetics_small_fix = {
+	trigger = {
+		is_cyborg_empire = no
+		is_mechanical_empire = no
+		NOR = {
+			has_authority = auth_machine_intelligence
+			has_ethic = ethic_spiritualist
+			has_ethic = ethic_fanatic_spiritualist
+			has_ethic = ethic_materialist
+			has_ethic = ethic_fanatic_materialist
+		}
+		from = {
+			is_mechanical_empire = yes
+			OR = {
+				has_valid_civic = civic_synthetic_evolution
+				has_modifier = civic_synthetic_evolution
+			}
+		}
+	}
+
+	opinion = {
+		base = 20
+	}
+}
+
+p_opinion_insult = {
+	opinion = {
+		base = -200
+	}
+
+	unique = yes
+	monthly = yes
+	decay = {
+		base = 2	
+	}
+}
+
 p_opinion_same_species = {
 	trigger = {
 		FROM = {
-			species_portrait = human
-			NOT = { has_authority = auth_hive_mind }
+			is_same_species = root
+			NOT = { has_ethic = ethic_gestalt_consciousness }
 		}
 		ROOT = {
-			species_portrait = human
-			NOT = { has_authority = auth_hive_mind }
+			is_same_species = from
+			NOT = { has_ethic = ethic_gestalt_consciousness }
 		}
 	}
 
 	opinion = {
 		base = 100
+		modifier = {
+			add = 20
+			FROM = { has_country_flag = synthetic_empire }
+		}
 	}
 }
 p_opinion_same_species_hive_mind = {
@@ -30,37 +109,14 @@ p_opinion_same_species_hive_mind = {
 		base = -100
 	}
 }
-opinion_encroaching_borders = {
-	opinion = {
-		modifier = {
-			add = -200
-			has_ai_personality_behaviour = demands_clear_borders
-			from = {
-				is_country_type = default
-				OR = {
-					any_owned_planet = {
-						is_capital = no
-						is_neighbor_of = root
-					}
-					any_owned_fleet = {
-						is_ship_class = shipclass_outpost_station
-						distance_to_empire = {
-							who = root
-							distance = 75
-						}									
-					}	
-				}	
-			}
-		}
-	}
-}
 opinion_feifa_ai = {
 	trigger = {
 		FROM = {
 			is_country_type = default
-			has_technology = tech_synthetic_workers
+			can_set_ai_policy = yes
 			any_owned_pop = { 
 				is_robot_pop = yes
+				has_trait = trait_robotic_3
 			}
 			OR = {
 				has_policy_flag = ai_outlawed
@@ -68,37 +124,115 @@ opinion_feifa_ai = {
 			}
 		}
 		ROOT = {
+			has_country_flag = fallen_empire_6
 			OR = {
-				has_ai_personality = fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
 			}
 		}
 	}
 	opinion = {
 		modifier = {
+			add = -10
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 0
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 2
+				}
+			}
+		}
+		modifier = {
+			add = -15
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 1
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 3
+				}
+			}
+		}
+		modifier = {
+			add = -20
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 2
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 4
+				}
+			}
+		}
+		modifier = {
+			add = -25
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 3
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 5
+				}
+			}
+		}
+		modifier = {
+			add = -30
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 4
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 6
+				}
+			}
+		}
+		modifier = {
+			add = -35
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 5
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 7
+				}
+			}
+		}
+		modifier = {
 			add = -40
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes }
-					count > 5
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 6
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 8
 				}
 			}
 		}
 		modifier = {
-			add = -10
+			add = -45
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes }
-					count > 10
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 7
 				}
-			}
-		}
-		modifier = {
-			add = -10
-			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes }
-					count > 15
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 9
 				}
 			}
 		}
@@ -106,18 +240,166 @@ opinion_feifa_ai = {
 			add = -50
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes }
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 8
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 10
+				}
+			}
+		}
+		modifier = {
+			add = -55
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 9
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 11
+				}
+			}
+		}
+		modifier = {
+			add = -60
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 10
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 12
+				}
+			}
+		}
+		modifier = {
+			add = -65
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 11
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 13
+				}
+			}
+		}
+		modifier = {
+			add = -70
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 12
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 14
+				}
+			}
+		}
+		
+		modifier = {
+			add = -75
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 13
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 15
+				}
+			}
+		}
+		
+		modifier = {
+			add = -80
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 14
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 16
+				}
+			}
+		}
+		
+		modifier = {
+			add = -85
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 15
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 17
+				}
+			}
+		}
+		
+		modifier = {
+			add = -90
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
 					count > 16
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 18
+				}
+			}
+		}
+		
+		modifier = {
+			add = -95
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 17
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 19
+				}
+			}
+		}
+		
+		modifier = {
+			add = -100
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 18
+				}
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count < 20
+				}
+			}
+		}
+		modifier = {
+			add = -1000
+			FROM = {
+				count_owned_pops  = { 
+					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					count > 19
 				}
 			}
 		}
 		modifier = {
 			add = -100
 			ROOT = {
-				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
 			}
 		}
-		base = -40
 	}
 }
 opinion_hefa_ai = {
@@ -133,8 +415,8 @@ opinion_hefa_ai = {
 		}
 		ROOT = {
 			OR = {
-				has_ai_personality = fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
 			}
 		}
 	}
@@ -150,19 +432,13 @@ opinion_p_swarm = {
 		}
 		ROOT = {
 			OR = {
-				has_ai_personality = fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
 			}
 		}
 	}
 	opinion = {
-		modifier = {
-			add = -60	
-		}
-		modifier = {
-			add = -40
-			from = { has_valid_civic = "civic_hive_devouring_swarm" }
-		}
+		base = -50
 	}
 }
 opinion_d_swarm = {	
@@ -174,14 +450,14 @@ opinion_d_swarm = {
 		}
 		ROOT = {
 			OR = {
-				has_ai_personality = fallen_empire_egalitarian
-				has_ai_personality = awakened_fallen_empire_egalitarian
+				has_ai_personality = teif_fallen_empire_egalitarian
+				has_ai_personality = awakened_teif_fallen_empire_egalitarian
 			}
 		}
 	}
 	opinion = {
 		modifier = {
-			add = -100
+			add = -40
 			from = { has_valid_civic = "civic_hive_devouring_swarm" }
 		}
 	}
@@ -238,5 +514,27 @@ opinion_closed_borders = {
 			}
 		}
 		base = -20
+	}
+}
+opinion_war_helper = {
+	opinion = {
+		base = 50
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}
+opinion_war_accomplices = {
+	opinion = {
+		base = -50
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
 	}
 }

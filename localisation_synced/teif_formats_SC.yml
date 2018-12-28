@@ -1,0 +1,7 @@
+﻿l_simp_chinese:
+ format.fallen.5: "[This.GetSpeciesName]<fallen_empire_names_5>"
+ #format.fallen.6: "地球联合国"
+ format.fallen.7: "[This.GetSpeciesName]<fallen_empire_names_7>"
+ format.awakened.5: "[This.GetSpeciesName]<awakened_fallen_empire_names_5>"
+ #format.awakened.6: "地球联合国"
+ format.awakened.7: "[This.GetSpeciesName]<awakened_fallen_empire_names_7>"
