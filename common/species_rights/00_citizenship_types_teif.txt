@@ -74,7 +74,10 @@ citizenship_full_machine = {
 			AND = {
 				from = { has_country_flag = synthetic_empire }
 				exists = this
-				this = { has_trait = trait_machine_unit }
+				this = {
+					has_trait = trait_machine_unit
+					NOT = { has_trait = trait_robotic_machine }
+				}
 			}
 		}
 	}
@@ -360,5 +363,29 @@ citizenship_assimilation = {
 				}
 			}
 		}
+	}
+}
+
+citizenship_robot_servitude = {
+	token = citizenship_robot_servitude
+
+	potential = {
+		exists = from
+		from = { is_gestalt = no }
+		OR = {
+			has_trait = trait_mechanical
+			has_trait = trait_robotic_machine
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		OR = {
+			from = { NOT = { has_policy_flag = ai_full_rights } }
+			has_trait = trait_robotic_machine
+		}
+	}
+	ai_will_do = {
+		factor = 1
 	}
 }

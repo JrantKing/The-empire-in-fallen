@@ -86,14 +86,14 @@ civic_ringworld_start = {
 				value = civic_life_seeded
 				value = civic_post_apocalyptic
 				value = civic_mechanists
-				value = civic_syncretic_evolution
+				#value = civic_syncretic_evolution
 			}
 		}
 	}
 	modification = no
 	random_weight = { base = 1 }
 	modifier = {
-		country_government_civic_points_add = 1
+		#country_government_civic_points_add = 1
 	}
 	description = "civic_tooltip_ringworld_start_effects"
 }
@@ -122,13 +122,10 @@ civic_synthetic_evolution = {
 	modification = no
 	random_weight = { base = 1 }
 	modifier = {
-		country_government_civic_points_add = 1
+		#country_government_civic_points_add = 1
 	}
 	traits = {
 		trait = trait_mechanical
-		trait = trait_robotic_3
-		trait = trait_robot_luxurious
-		trait = trait_robot_custom_made
 	}
 	description = civic_tooltip_syncretic_evolution_effects
 	has_secondary_species = {	# see game_start.11
@@ -162,7 +159,7 @@ civic_transcendence = {
 	modification = no
 	random_weight = { base = 1 }
 	modifier = {
-		country_government_civic_points_add = 1
+		#country_government_civic_points_add = 1
 	}
 	traits = {
 		trait = trait_psionic
@@ -187,7 +184,7 @@ civic_evolutionary_mastery = {
 	modification = no
 	random_weight = { base = 1 }
 	modifier = {
-		country_government_civic_points_add = 1
+		#country_government_civic_points_add = 1
 	}
 	description = "civic_tooltip_evolutionary_mastery_effects"
 }

@@ -9,16 +9,23 @@ on_monthly_pulse = {
 		
 	}
 }
+
+empire_init_add_technologies = {
+	events = {
+		civic_events.0
+	}
+}
+
 on_press_begin = {
 	events = {
 		fallenhuman.4
 		techfound.28
 		techfound.36
 		notice_event.0
-		civic_events.8
 		fallen_start.0
 		fallen_start.5
 		startfix.0
+		worker_events.0
 	}
 }
 on_building_upgraded = {
@@ -28,7 +35,7 @@ on_building_upgraded = {
 }
 on_building_demolished = {
 	events = {
-		building_events.1
+		#building_events.1
 	}
 }
 on_building_replaced = {
@@ -45,9 +52,6 @@ on_entering_system = {
 	events = {
 		#crisisf.3
 	}
-	random_events = {
-		100 = 0
-	}
 }
 on_tech_increased = {
 	events = {
@@ -57,25 +61,8 @@ on_tech_increased = {
 }
 on_game_start_country = {
 	events = {
-		civic_events.0
 		civic_events.1
 		civic_events.2
-		civic_events.4
-		civic_events.5
-		civic_events.9
-	}
-}
-on_uplift_completion = {
-	events = {
-	}
-}
-empire_init_create_capital_pops = {
-	events = {
-	}
-}
-empire_init_create_capital_secondary_pops = {
-	events = {
-		civic_events.3
 	}
 }
 on_war_beginning = {
@@ -83,11 +70,12 @@ on_war_beginning = {
 		
 	}
 }
-on_building_starbase_outpost = {
+on_ship_order = {
 	events = {
 		techfound.22
 	}
 }
+
 empire_init_create_ships = {
 	events = {
 		

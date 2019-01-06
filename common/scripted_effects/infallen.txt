@@ -1,16 +1,23 @@
 in_fallen = {
-	set_global_flag = fallen_start_used
 	set_country_type = fallen_empire
-	country_remove_ethic = ethic_authoritarian
-	country_remove_ethic = ethic_egalitarian
-	country_remove_ethic = ethic_xenophobe
-	country_remove_ethic = ethic_xenophile
-	country_remove_ethic = ethic_militarist
-	country_remove_ethic = ethic_pacifist
-	country_remove_ethic = ethic_spiritualist
-	country_remove_ethic = ethic_materialist
+	set_fallen_species = yes
+	switch = {
+		trigger = has_ethic
+		ethic_materialist = { country_remove_ethic = ethic_materialist }
+		ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+		ethic_militarist = { country_remove_ethic = ethic_militarist }
+		ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+		ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+		ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+		ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+		ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+	}
 	add_global_ship_design = "NAME_Null"
 	add_global_ship_design = "NAME_Null_station"
+	give_technology = {
+		tech = tech_colossus
+		message = no
+	}
 	change_government = {
 		civics = {
 			civic = civic_lethargic_leadership
@@ -26,101 +33,116 @@ in_fallen = {
 	copy_techs_from = {
 		target = event_target:global_event
 	}
+	add_resource = {
+		minerals = 10000
+		energy = 10000	
+		alloys = 10000
+		food = 1000
+		influence = 500
+		rare_crystals = 10
+		exotic_gases = 10
+		volatile_motes = 10
+		sr_dark_matter = 10
+		sr_living_metal = 10
+		sr_zro = 10
+	}
 	every_owned_planet = {
-		limit = { is_capital = yes }
-		every_tile = {
-			kill_pop = yes
-			remove_building = yes
-		}
-		remove_planet = yes
 		every_moon = { remove_planet = yes }
+		remove_all_buildings = yes
+		every_owned_pop = {kill_pop = yes}
+		remove_planet = yes
 	}
 	set_spawn_system_batch = begin
 	switch = {
 		trigger = has_ethic
 		ethic_fanatic_materialist = {
+			set_country_flag =  fallen_empire_1
 			random_list = {
 				10 = { set_name = "[This.GetSpeciesName]管理会" }
 				10 = { set_name = "[This.GetSpeciesName]保存会" }
 				10 = { set_name = "[This.GetSpeciesName]纪录会" }
 			}
-			modify_species = {
-				species = this
-				add_trait = trait_cybernetic
-			}
-			every_owned_leader = {
-				limit = {
-					species = { has_trait = trait_cybernetic }
-					NOR = {
-						has_trait = leader_trait_admiral_cyborg
-						has_trait = leader_trait_general_cyborg
-						has_trait = leader_trait_governor_cyborg
-						has_trait = leader_trait_scientist_cyborg
-						has_trait = leader_trait_ruler_cyborg
-						has_trait = leader_trait_curator
+			if = {
+				limit = { NOR = { is_species_class = ROBOT has_trait = trait_cybernetic } }
+				modify_species = {
+					species = this
+					add_trait = trait_cybernetic
+					base = none
+				}
+				every_owned_leader = {
+					limit = {
+						species = { has_trait = trait_cybernetic }
+						NOR = {
+							has_trait = leader_trait_admiral_cyborg
+							has_trait = leader_trait_general_cyborg
+							has_trait = leader_trait_governor_cyborg
+							has_trait = leader_trait_scientist_cyborg
+							has_trait = leader_trait_ruler_cyborg
+							has_trait = leader_trait_curator
+						}
+					}
+					if = {
+						limit = { leader_class = admiral }
+						add_trait = leader_trait_admiral_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = general }
+						add_trait = leader_trait_general_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = governor }
+						add_trait = leader_trait_governor_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = scientist }
+						add_trait = leader_trait_scientist_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = ruler }
+						add_trait = leader_trait_ruler_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
 					}
 				}
-				if = {
-					limit = { leader_class = admiral }
-					add_trait = leader_trait_admiral_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = general }
-					add_trait = leader_trait_general_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = governor }
-					add_trait = leader_trait_governor_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = scientist }
-					add_trait = leader_trait_scientist_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = ruler }
-					add_trait = leader_trait_ruler_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-			}
-			every_pool_leader = {
-				limit = {
-					species = { has_trait = trait_cybernetic }
-					NOR = {
-						has_trait = leader_trait_admiral_cyborg
-						has_trait = leader_trait_general_cyborg
-						has_trait = leader_trait_governor_cyborg
-						has_trait = leader_trait_scientist_cyborg
-						has_trait = leader_trait_ruler_cyborg
+				every_pool_leader = {
+					limit = {
+						species = { has_trait = trait_cybernetic }
+						NOR = {
+							has_trait = leader_trait_admiral_cyborg
+							has_trait = leader_trait_general_cyborg
+							has_trait = leader_trait_governor_cyborg
+							has_trait = leader_trait_scientist_cyborg
+							has_trait = leader_trait_ruler_cyborg
+						}
 					}
-				}
-				if = {
-					limit = { leader_class = admiral }
-					add_trait = leader_trait_admiral_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = general }
-					add_trait = leader_trait_general_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = governor }
-					add_trait = leader_trait_governor_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = scientist }
-					add_trait = leader_trait_scientist_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
-				}
-				if = {
-					limit = { leader_class = ruler }
-					add_trait = leader_trait_ruler_cyborg
-					add_ruler_trait = leader_trait_ruler_cyborg
+					if = {
+						limit = { leader_class = admiral }
+						add_trait = leader_trait_admiral_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = general }
+						add_trait = leader_trait_general_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = governor }
+						add_trait = leader_trait_governor_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = scientist }
+						add_trait = leader_trait_scientist_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
+					if = {
+						limit = { leader_class = ruler }
+						add_trait = leader_trait_ruler_cyborg
+						add_ruler_trait = leader_trait_ruler_cyborg
+					}
 				}
 			}
 			give_technology = { message = no tech = tech_pk_shielder }
@@ -212,82 +234,93 @@ in_fallen = {
 				10 = { set_name = "[This.GetSpeciesName]守望者" }
 				10 = { set_name = "[This.GetSpeciesName]守护者" }
 			}
-			modify_species = {
-				species = this
-				add_trait = trait_psionic
-			}
-			every_owned_leader = {
-				limit = {
-					is_same_species = root
-					NOR = {
-						has_trait =	leader_trait_admiral_psionic
-						has_trait =	leader_trait_general_psionic
-						has_trait =	leader_trait_governor_psionic
-						has_trait =	leader_trait_scientist_psionic
-						has_trait =	leader_trait_ruler_psionic
-					}
-				}
-				if = {
-					limit = { leader_class = admiral }
-					add_trait = leader_trait_admiral_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = general }
-					add_trait = leader_trait_general_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = governor }
-					add_trait = leader_trait_governor_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = scientist }
-					add_trait = leader_trait_scientist_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = ruler }
-					add_trait = leader_trait_ruler_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
+			if = {
+				limit = { has_trait = trait_latent_psionic }
+				modify_species = {
+					species = this
+					remove_trait = trait_latent_psionic
 				}
 			}
-			every_pool_leader = {
-				limit = {
-					is_same_species = root
-					NOR = {
-						has_trait = leader_trait_admiral_psionic
-						has_trait = leader_trait_general_psionic
-						has_trait = leader_trait_governor_psionic
-						has_trait = leader_trait_scientist_psionic
-						has_trait = leader_trait_ruler_psionic
+			if = {
+				limit = { NOT = { has_trait = trait_psionic } }
+				modify_species = {
+					species = this
+					add_trait = trait_psionic
+					base = none
+				}
+				every_owned_leader = {
+					limit = {
+						is_same_species = root
+						NOR = {
+							has_trait =	leader_trait_admiral_psionic
+							has_trait =	leader_trait_general_psionic
+							has_trait =	leader_trait_governor_psionic
+							has_trait =	leader_trait_scientist_psionic
+							has_trait =	leader_trait_ruler_psionic
+						}
+					}
+					if = {
+						limit = { leader_class = admiral }
+						add_trait = leader_trait_admiral_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = general }
+						add_trait = leader_trait_general_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = governor }
+						add_trait = leader_trait_governor_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = scientist }
+						add_trait = leader_trait_scientist_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = ruler }
+						add_trait = leader_trait_ruler_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
 					}
 				}
-				if = {
-					limit = { leader_class = admiral }
-					add_trait = leader_trait_admiral_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = general }
-					add_trait = leader_trait_general_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = governor }
-					add_trait = leader_trait_governor_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = scientist }
-					add_trait = leader_trait_scientist_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { leader_class = ruler }
-					add_trait = leader_trait_ruler_psionic
-					add_ruler_trait = leader_trait_ruler_psionic
+				every_pool_leader = {
+					limit = {
+						is_same_species = root
+						NOR = {
+							has_trait = leader_trait_admiral_psionic
+							has_trait = leader_trait_general_psionic
+							has_trait = leader_trait_governor_psionic
+							has_trait = leader_trait_scientist_psionic
+							has_trait = leader_trait_ruler_psionic
+						}
+					}
+					if = {
+						limit = { leader_class = admiral }
+						add_trait = leader_trait_admiral_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = general }
+						add_trait = leader_trait_general_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = governor }
+						add_trait = leader_trait_governor_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = scientist }
+						add_trait = leader_trait_scientist_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { leader_class = ruler }
+						add_trait = leader_trait_ruler_psionic
+						add_ruler_trait = leader_trait_ruler_psionic
+					}
 				}
 			}
 			give_technology = { message = no tech = tech_pk_neutron }
@@ -658,11 +691,11 @@ in_fallen = {
 			set_spawn_system_batch = end
 		}
 	}
-	set_fallen_species = yes
 	event_target:prev_capital.solar_system = { create_fe_outpost = yes }
 	every_owned_planet = {
 		limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class }
-		every_tile = { kill_pop = yes remove_building = yes }
+		every_owned_pop = { kill_pop = yes }
+		remove_all_buildings = yes
 	}
 	root.species = {
 		switch = {
@@ -684,47 +717,14 @@ in_fallen = {
 		limit = { has_planet_flag = ideal_planet_class has_planet_flag = fallen_empire_world }
 		reroll_deposits = yes
 		remove_planet_flag = ideal_planet_class
-		random_tile = {
-			limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-			set_building = "building_capital_2"
-			set_deposit = d_energy_deposit
+		if = {
+			limit = { root = { is_fallen_empire_spiritualist = no } }
+			create_fe_fringe_colony = yes
 		}
-		random_tile = {
-			limit = {
-				has_building = no
-				has_blocker = no
-			}
-			set_building = "building_hydroponics_farm_4"
-			set_deposit = d_farmland_deposit
-		}
-		while = {
-			count = 3
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-				}
-				set_building = "building_power_plant_4"
-				set_deposit = d_energy_deposit
-			}
-		}
-		while = {
-			count = 2
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-				}
-				set_building = "building_mining_network_4"
-				set_deposit = d_mineral_deposit
-			}
-		}
-		while = {
-			count = 7
-			create_pop = {
-				species = owner_main_species
-			}
-		}
+		else = { create_fe_spiritualist_fringe_colony = yes }
+		add_building = building_affluence_center
+		add_building = building_nano_forge
+		add_building = building_dimensional_fabricator
 	}
 	every_owned_fleet = {
 		if = {
@@ -786,6 +786,41 @@ in_fallen = {
 		}
 	}
 	country_event = { id = fallen_start.2 days = 2 }
+	root = {
+		set_policy = {
+			policy = artificial_intelligence_policy
+			option = ai_servitude
+			cooldown = no
+		}
+		set_policy = {
+			policy = robot_pop_policy
+			option = robot_pops_allowed
+			cooldown = no
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_full_rights
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = synthetic_empire
+				NOT = { has_country_flag = release_robotic_machine }
+			}
+			every_owned_pop = {
+				limit = { NOT = { is_same_species = root } }
+				change_species = root.built_species
+			}
+		}
+	}
 }
 
 spawn_start_navy = {
@@ -806,6 +841,55 @@ spawn_start_navy = {
 		}
 		create_research_station = {
 			owner = ROOT
+		}
+	}
+	every_system_within_border = {
+		limit = {
+			any_system_planet = {
+				is_ideal_planet_class = {
+					who = ROOT
+					status = yes
+				}
+				is_colony = no
+			}
+		}
+		random_system_planet = {
+			limit = {
+				is_ideal_planet_class = {
+					who = ROOT
+					status = yes
+				}
+				is_colony = no
+			}
+			if = {
+				limit = { root = { is_fallen_empire_spiritualist = no } }
+				create_fe_fringe_colony = yes
+				while = {
+					count = 5
+					add_district = district_city
+				}
+			}
+			else = { create_fe_spiritualist_fringe_colony = yes }
+			if = {
+				limit = { root = { is_fallen_empire_egalitarian = yes } }
+				random_list = {
+					1 = {
+						add_district = district_generator
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_farming
+					}
+					1 = {
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_mining
+						add_district = district_farming
+					}
+				}
+			}
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+			add_building = building_dimensional_fabricator
 		}
 	}
 	every_planet_within_border = {
@@ -829,146 +913,8 @@ spawn_start_navy = {
 		}
 		remove_planet_flag = ideal_planet_class
 	}
-}
-
-set_fallen_planet = {
-	every_system_planet = {
-		limit = { has_planet_flag = prescripted_ideal }
-		if = {
-			limit = { NOT = { is_planet_class = pc_gaia } }
-			change_pc = pc_gaia
-		}
-		reroll_planet = yes
-		destroy_colony = yes
-		every_tile = {
-			remove_building = yes
-			remove_blocker = yes
-			kill_pop = yes
-		}
-		create_colony = {
-			owner = root
-			species = root.species
-		}
-		every_tile = {
-			create_pop = {
-				species = root.species
-			}
-			if = {
-				limit = { has_building = building_colony_shelter }
-				set_building = building_capital_2
-			}
-			set_fallen_building = yes
-		}
-	}
-}
-
-set_fallen_building = {
-	if = {
-		limit = { has_building = no }
-		if = {
-			limit = {
-				OR = {
-					has_deposit = d_energy_deposit
-					has_deposit = d_rich_energy_deposit
-					has_deposit = d_vast_energy_deposit
-					has_deposit = d_immense_energy_deposit
-					has_deposit = d_betharian_deposit
-				}
-			}
-			set_building = building_dark_matter_power_plant
-		}
-		if = {
-			limit = {
-				OR = {
-					has_deposit = d_mineral_deposit
-					has_deposit = d_rich_mineral_deposit
-					has_deposit = d_vast_mineral_deposit
-					has_deposit = d_immense_mineral_deposit
-				}
-			}
-			if = {
-				limit = { root = { has_ethic = ethic_fanatic_materialist NOT = { has_country_flag = synthetic_empire } } }
-				kill_pop = yes
-				build_pop = { name = buildable_robot_pop_3 }
-			}
-			set_building = building_ancient_factory
-		}
-		if = {
-			limit = {
-				OR = {
-					has_deposit = d_farmland_deposit
-					has_deposit = d_rich_farmland_deposit
-					has_deposit = d_vast_farmland_deposit
-					has_deposit = d_immense_farmland_deposit
-				}
-			}
-			if = {
-				limit = { root = { has_ethic = ethic_fanatic_materialist NOT = { has_country_flag = synthetic_empire } } }
-				set_building = building_dark_matter_power_plant
-			}
-			else = { set_building = building_agri_processing_complex }
-		}
-		if = {
-			limit = {
-				OR = {
-					has_deposit = d_mineral_energy_deposit
-					has_deposit = d_rich_mineral_energy_deposit
-				}
-			}
-			random_list = {
-				1 = {
-					if = {
-						limit = { root = { has_ethic = ethic_fanatic_materialist NOT = { has_country_flag = synthetic_empire } } }
-						kill_pop = yes
-						build_pop = { name = buildable_robot_pop_3 }
-					}
-					set_building = building_ancient_factory
-				}
-				1 = {
-					set_building = building_dark_matter_power_plant
-				}
-			}
-		}
-		if = {
-			limit = {
-				OR = {
-					has_deposit = d_mineral_food_deposit
-					has_deposit = d_rich_food_mineral_deposit
-				}
-			}
-			if = {
-				limit = { root = { has_ethic = ethic_fanatic_materialist NOT = { has_country_flag = synthetic_empire } } }
-				kill_pop = yes
-				build_pop = { name = buildable_robot_pop_3 }
-			}
-			set_building = building_ancient_factory
-		}
-		if = {
-			limit = {
-				OR = {
-					has_deposit = d_society_deposit
-					has_deposit = d_rich_society_deposit
-					has_deposit = d_vast_society_deposit
-					has_deposit = d_immense_society_deposit
-					has_deposit = d_physics_deposit
-					has_deposit = d_rich_physics_deposit
-					has_deposit = d_vast_physics_deposit
-					has_deposit = d_immense_physics_deposit
-					has_deposit = d_engineering_deposit
-					has_deposit = d_rich_engineering_deposit
-					has_deposit = d_vast_engineering_deposit
-					has_deposit = d_immense_engineering_deposit
-					has_deposit = d_alien_pets_deposit
-				}
-			}
-			set_building = building_ancient_archives
-		}
-		if = {
-			limit = {
-				has_building = no
-			}
-			set_building = building_fortress
-		}
+	every_owned_planet = {
+		clear_blockers = yes
 	}
 }
 

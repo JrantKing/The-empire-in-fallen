@@ -224,6 +224,28 @@ living_standard_utopian = {
 	}
 }
 
+living_standard_servitude = {
+	token = living_standard_servitude
+	name = living_standard_servitude
+	
+	potential = {
+		exists = from
+		from = { is_gestalt = no }
+		OR = {
+			has_trait = trait_mechanical
+			has_trait = trait_robotic_machine
+		}
+	}		
+	
+	allow = {
+		has_citizenship_type = { type = citizenship_robot_servitude country = from }
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
 living_standard_hive_mind = {
 	token = living_standard_hive_mind
 	name = living_standard_hive_mind

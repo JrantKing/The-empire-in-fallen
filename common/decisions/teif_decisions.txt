@@ -1,0 +1,39 @@
+decision_planet_planetary_shield = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = planetary_shield_generator
+	enactment_time = 2250
+	resources = {
+		category = decisions
+		cost = {
+			minerals = 25000
+			influence = 300
+		}
+	}
+	
+	potential = {
+		owner = { has_technology = tech_planetary_shield_generator }
+		is_planet_class = pc_gaia
+	}
+	
+	allow = {
+		has_building = building_planetary_shield_generator
+	}	
+	
+	effect = {
+		if = {
+			limit = { has_building = building_planetary_shield_generator }
+			custom_tooltip = decision_planet_planetary_shield.tooltip.a
+		}
+		custom_tooltip = decision_planet_planetary_shield.tooltip.b
+		hidden_effect = {
+			remove_building = building_planetary_shield_generator
+			add_building = building_planetary_shield_system_generator
+			change_pc = { class = pc_shielded_gaia inherit_entity = yes }
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}

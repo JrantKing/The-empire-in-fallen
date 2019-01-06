@@ -20,6 +20,7 @@ country_event = {
 		host_has_dlc = "Leviathans Story Pack"
 		is_country_type = fallen_empire
 		is_ai = yes
+		NOT = { has_country_flag = fallen_empire_06 }
 		is_at_war = no
 		fleet_power > 40000
 		has_global_flag = sleepers_awake_happened
@@ -54,20 +55,19 @@ country_event = {
 			}
 			save_event_target_as = FirstSleeper
 			set_timed_country_flag = { flag = ai_no_wars days = 3650 }
-		}			
+		}	
 		set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 		set_timed_country_flag = { flag = war_in_heaven_timer days = 730 }
 		set_timed_country_flag = { flag = war_in_heaven_timer_2 days = 3650 }
 		set_global_flag = sleepers_awake_rival_waking
 		set_country_type = awakened_fallen_empire
 		if = {
-			limit = { has_country_flag = fallen_empire_6 }
+			limit = { has_ethic = ethic_fanatic_egalitarian NOT = { has_country_flag = fallen_empire_06 } }
 			change_government = {
 				civics = {
 					civic = civic_revanchist_fervor
 					civic = civic_ancient_caches_of_technology
-					civic = civic_idealistic_foundation
-					civic = civic_environmentalist
+					civic = civic_shared_burden
 				}
 			}
 		}
@@ -80,9 +80,11 @@ country_event = {
 			}
 		}
 		# Changing country type resets resources, so give them full stores
-		add_minerals = 20000
-		add_energy = 5000
-		add_influence = 1000
+		add_resource = {
+			minerals = 20000
+			energy = 5000
+			influence = 1000
+		}
 		every_planet = {
 			limit = { 	
 				is_surveyed = {
@@ -495,6 +497,15 @@ country_event = {
 				}
 			}
 		}		
+	}
+	option = {
+		name = war_in_heaven.4.c.2
+		trigger = { 
+			is_subject = no 
+		}
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = {
 		name = war_in_heaven.4.d

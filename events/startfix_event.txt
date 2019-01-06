@@ -8,7 +8,8 @@ event = {
 	
 	immediate = {
 		event_target:global_event_country = {
-			country_event = { id = startfix.1 days = 31 }
+			country_event = { id = startfix.1 days = 100 }
+			country_event = { id = fallen_start.3 days = 1 }
 		}
 	}
 }
@@ -127,6 +128,24 @@ country_event = {
 							create_fallen_empire_platform = yes
 						}
 					}
+				}
+			}
+			every_planet_within_border = {
+				limit = { 
+					has_deposit_for = shipclass_mining_station 
+					has_mining_station = no
+				}
+				create_mining_station = {
+					owner = prev
+				}
+			}
+			every_planet_within_border = {
+				limit = { 
+					has_deposit_for = shipclass_research_station 
+					has_research_station = no
+				}
+				create_research_station = {
+					owner = prev
 				}
 			}
 		}

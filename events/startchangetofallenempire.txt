@@ -109,17 +109,10 @@ country_event = {
 	}
 }
 
-country_event = {
+event = {
 	id = fallen_start.3
-	fire_only_once = yes
+	is_triggered_only = yes
 	hide_window = yes
-	trigger = {
-		is_country_type = fallen_empire
-		any_country = {
-			NOT = { has_government = gov_teif_stagnant_ascendancy }
-		}
-		has_global_flag = fallen_start_used
-	}
 	immediate = {
 		every_playable_country = {
 			limit = {
@@ -173,6 +166,8 @@ country_event = {
 						is_country_type = ldragon_country
 						is_country_type = guardian_hatchling
 						is_country_type = prikki
+						is_country_type = caravaneer_home
+						is_country_type = caravaneer_fleet
 					}
 					NOT = { has_communications = prev }
 				}

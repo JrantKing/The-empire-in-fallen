@@ -376,7 +376,7 @@ tech_biomechanics = {
 	weight = @tier4weight2
 
 	potential = {
-		is_synthetic_empire = yes
+		has_authority = auth_machine_intelligence
 	}
 	
 	weight_modifier = {

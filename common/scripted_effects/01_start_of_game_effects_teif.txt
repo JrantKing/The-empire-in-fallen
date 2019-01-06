@@ -5,11 +5,8 @@ generate_start_deposits_and_blockers = {
 	# blockers
 	if = {
 		limit = {
-			OR = {
-				is_planet_class = pc_nuked
-				owner = {		
-					has_civic = civic_post_apocalyptic 
-				}
+			owner = {		
+				has_civic = civic_post_apocalyptic 
 			}
 		}
 		add_deposit = d_tomb_world_ruins
@@ -24,6 +21,27 @@ generate_start_deposits_and_blockers = {
 	
 		add_deposit = d_exterminators_ruins
 		add_deposit = d_former_battlefield
+	}
+	else_if = {
+		limit = {
+			owner = {
+				NOR = {
+					has_civic = civic_machine_terminator
+					has_civic = civic_post_apocalyptic 
+				}
+			}
+			is_planet_class = pc_nuked
+		}
+		if = {
+			limit = { owner = { is_machine_empire = yes } }
+			add_deposit = d_exterminators_ruins
+			add_deposit = d_former_battlefield
+		}
+		if = {
+			limit = { owner = { is_machine_empire = no } }
+			add_deposit = d_tomb_world_wasteland
+			add_deposit = d_battlefield_debris
+		}
 	}
 	else_if = {
 		limit = {
@@ -80,6 +98,9 @@ generate_start_deposits_and_blockers = {
 					has_civic = civic_post_apocalyptic 
 				}
 			}
+			owner = {		
+				is_machine_empire = no
+			}
 		}	
 		
 		# 3 + 3 energy		
@@ -100,8 +121,14 @@ generate_start_deposits_and_blockers = {
 	
 	if = {
 		limit = {
+			OR = {
+				owner = {	
+					has_civic = civic_machine_terminator
+				}
+				is_planet_class = pc_nuked
+			}
 			owner = {		
-				has_civic = civic_machine_terminator
+				is_machine_empire = yes
 			}
 		}	
 		
@@ -461,7 +488,12 @@ generate_start_deposits_and_blockers = {
 
 generate_start_buildings_and_districts = {		
 	if = {
-		limit = { owner = { is_regular_empire = yes } }
+		limit = {
+			owner = {
+				is_regular_empire = yes
+				NOT = { has_valid_civic = civic_machine_worlds_2 }
+			}
+		}
 		
 		# total - 24 jobs
 		
@@ -559,7 +591,12 @@ generate_start_buildings_and_districts = {
 	
 	# Replace capital building for machine empires
 	if = {
-		limit = { owner = { is_machine_empire = yes } }
+		limit = {
+			owner = {
+				is_machine_empire = yes
+				NOT = { has_valid_civic = civic_machine_worlds_1 }
+			}
+		}
 		
 		# total - 27 jobs
 		
@@ -607,6 +644,43 @@ generate_start_buildings_and_districts = {
 			add_building = building_organic_sanctuary
 		}
 	}
+	if = {
+		limit = {
+			owner = { is_machine_empire = yes }
+			is_planet_class = pc_machine
+		}
+		add_building = building_machine_capital	
+		add_building = building_research_lab_1
+		add_building = building_foundry_1
+		add_building = building_machine_assembly_plant
+		add_district = district_nexus
+		add_district = district_nexus
+		add_district = district_nexus
+		add_district = district_mining_uncapped
+		add_district = district_mining_uncapped
+		add_district = district_generator_uncapped
+		add_district = district_generator_uncapped
+		add_district = district_generator_uncapped
+		add_district = district_generator_uncapped
+	}
+	if = {
+		limit = {
+			owner = { is_regular_empire = yes }
+			is_planet_class = pc_machine
+		}
+		add_building = building_capital
+		add_building = building_research_lab_1
+		add_building = building_foundry_1
+		add_building = building_factory_1
+		add_district = district_city
+		add_district = district_city
+		add_district = district_city
+		add_district = district_mining_uncapped
+		add_district = district_mining_uncapped
+		add_district = district_generator_uncapped
+		add_district = district_generator_uncapped
+		add_district = district_generator_uncapped
+	}
 }
 
 generate_start_pops = {	
@@ -617,6 +691,7 @@ generate_start_pops = {
 					has_valid_civic = civic_syncretic_evolution
 					has_valid_civic = civic_machine_servitor
 					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_synthetic_evolution
 				}
 			}
 		}
@@ -693,7 +768,77 @@ generate_start_pops = {
 					clear_ethos = yes
 				}
 			}
-		} 
+		}
+		
+		if = { 
+			limit = { owner = { has_valid_civic = civic_synthetic_evolution } }
+			owner = {
+				set_country_flag = synthetic_empire
+				set_country_flag = synthetic_age
+				set_policy = {
+					policy = artificial_intelligence_policy
+					option = ai_full_rights
+					cooldown = no
+				}
+				set_built_species = last_created_species
+			}
+			last_created_species = {
+				set_citizenship_type = {
+					country = root.owner
+					type = citizenship_robot_servitude
+				}
+				set_living_standard = {
+					country = root.owner
+					type = living_standard_servitude
+				}
+			}
+			if = {
+				limit = { owner = { NOT = { has_valid_civic = civic_machine_worlds_2 } } }
+				add_district = district_generator
+			}
+			remove_district = district_farming
+			remove_district = district_farming
+			while = {
+				count = 8
+				create_pop = {
+					species = last_created_species
+					ethos = random
+				}
+				last_created_pop = {
+					clear_ethos = yes
+				}
+			}
+			if = {
+				limit = { root.owner = { is_species_class = ROBOT_GENDER } }
+				root.owner = {
+					root.owner.species = { save_event_target_as = species_homeworld }
+					create_species = {
+						name = this
+						plural = this
+						class = ROBOT
+						portrait = this
+						homeworld = event_target:species_homeworld
+						traits = this
+					}
+					every_owned_leader = {
+						limit = { is_same_species = event_target:species_homeworld }
+						change_species = last_created
+					}
+					every_pool_leader = {
+						limit = { is_same_species = event_target:species_homeworld }
+						change_species = last_created
+					}
+					change_dominant_species = { species = last_created }
+				}
+			}
+			while = {
+				limit = { num_pops < 27 }
+				create_pop = {
+					species = owner_main_species
+					ethos = random
+				}
+			}
+		}
 	}
 	
 	if = { 
@@ -764,5 +909,5 @@ generate_start_pops = {
 				ethos = random
 			}
 		}		
-	}	
+	}
 }

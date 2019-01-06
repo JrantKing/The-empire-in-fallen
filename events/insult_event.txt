@@ -16,6 +16,7 @@ country_event = {
 					}
 					NOT = { is_same_species = ROOT }
 					NOT = { is_subspecies = ROOT }
+					NOT = { has_authority = auth_corporate }
 				}
 				has_authority = auth_machine_intelligence
 				is_species_class = ROBOT
@@ -34,6 +35,7 @@ country_event = {
 					}
 					NOT = { is_same_species = ROOT }
 					NOT = { is_subspecies = ROOT }
+					NOT = { has_authority = auth_corporate }
 				}
 			}
 		}
@@ -50,6 +52,7 @@ country_event = {
 					}
 					NOT = { is_same_species = ROOT }
 					NOT = { is_subspecies = ROOT }
+					NOT = { has_authority = auth_corporate }
 				}
 			}
 		}
@@ -66,6 +69,7 @@ country_event = {
 					}
 					NOT = { is_same_species = ROOT }
 					NOT = { is_subspecies = ROOT }
+					NOT = { has_authority = auth_corporate }
 				}
 			}
 		}
@@ -82,6 +86,7 @@ country_event = {
 					}
 					NOT = { is_same_species = ROOT }
 					NOT = { is_subspecies = ROOT }
+					NOT = { has_authority = auth_corporate }
 				}
 			}
 		}
@@ -98,6 +103,7 @@ country_event = {
 					}
 					NOT = { is_same_species = ROOT }
 					NOT = { is_subspecies = ROOT }
+					NOT = { has_authority = auth_corporate }
 				}
 			}
 		}
@@ -112,6 +118,7 @@ country_event = {
 				}
 				NOT = { is_same_species = ROOT }
 				NOT = { is_subspecies = ROOT }
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -124,6 +131,7 @@ country_event = {
 					has_ethic = ethic_fanatic_xenophobe
 				}
 				NOT = { is_same_species_class = ROOT }
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -138,6 +146,7 @@ country_event = {
 				}
 				NOT = { is_same_species = ROOT }
 				NOT = { is_subspecies = ROOT }
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -152,13 +161,19 @@ country_event = {
 				}
 				NOT = { is_same_species = ROOT }
 				NOT = { is_subspecies = ROOT }
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
 	desc = {
 		text = "05_INSULT_PROPOSE_XENOPHOBE"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			FROM = {
 				OR = {
 					has_ethic = ethic_xenophobe
@@ -171,7 +186,12 @@ country_event = {
 	desc = {
 		text = "06_INSULT_PROPOSE_XENOPHOBE"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			FROM = {
 				OR = {
 					has_ethic = ethic_xenophobe
@@ -184,7 +204,12 @@ country_event = {
 	desc = {
 		text = "07_INSULT_PROPOSE_XENOPHOBE"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			FROM = {
 				OR = {
 					has_ethic = ethic_xenophobe
@@ -202,7 +227,12 @@ country_event = {
 	desc = {
 		text = "01_INSULT_PROPOSE_PAC_MIL"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_militarist
 				has_ethic = ethic_fanatic_militarist
@@ -218,7 +248,12 @@ country_event = {
 	desc = {
 		text = "02_INSULT_PROPOSE_PAC_MIL"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_militarist
 				has_ethic = ethic_fanatic_militarist
@@ -234,7 +269,12 @@ country_event = {
 	desc = {
 		text = "03_INSULT_PROPOSE_PAC_MIL"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_militarist
 				has_ethic = ethic_fanatic_militarist
@@ -250,7 +290,12 @@ country_event = {
 	desc = {
 		text = "04_INSULT_PROPOSE_PAC_MIL"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_militarist
 				has_ethic = ethic_fanatic_militarist
@@ -266,7 +311,12 @@ country_event = {
 	desc = {
 		text = "01_INSULT_PROPOSE_MIL_PAC"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_pacifist
 				has_ethic = ethic_fanatic_pacifist
@@ -282,7 +332,12 @@ country_event = {
 	desc = {
 		text = "02_INSULT_PROPOSE_MIL_PAC"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_pacifist
 				has_ethic = ethic_fanatic_pacifist
@@ -299,7 +354,12 @@ country_event = {
 	desc = {
 		text = "03_INSULT_PROPOSE_MIL_PAC"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_pacifist
 				has_ethic = ethic_fanatic_pacifist
@@ -315,7 +375,12 @@ country_event = {
 	desc = {
 		text = "04_INSULT_PROPOSE_MIL_PAC"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_pacifist
 				has_ethic = ethic_fanatic_pacifist
@@ -331,7 +396,12 @@ country_event = {
 	desc = {
 		text = "01_INSULT_PROPOSE_MAT_SPI"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
@@ -347,7 +417,12 @@ country_event = {
 	desc = {
 		text = "02_INSULT_PROPOSE_MAT_SPI"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
@@ -363,7 +438,12 @@ country_event = {
 	desc = {
 		text = "03_INSULT_PROPOSE_MAT_SPI"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
@@ -379,7 +459,12 @@ country_event = {
 	desc = {
 		text = "04_INSULT_PROPOSE_MAT_SPI"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
@@ -395,7 +480,12 @@ country_event = {
 	desc = {
 		text = "01_INSULT_PROPOSE_SPI_MAT"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_materialist
 				has_ethic = ethic_fanatic_materialist
@@ -411,7 +501,12 @@ country_event = {
 	desc = {
 		text = "02_INSULT_PROPOSE_SPI_MAT"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_materialist
 				has_ethic = ethic_fanatic_materialist
@@ -427,7 +522,12 @@ country_event = {
 	desc = {
 		text = "03_INSULT_PROPOSE_SPI_MAT"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_materialist
 				has_ethic = ethic_fanatic_materialist
@@ -443,7 +543,12 @@ country_event = {
 	desc = {
 		text = "04_INSULT_PROPOSE_SPI_MAT"
 		trigger = {
-			FROM = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			FROM = { 
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_authority = auth_corporate
+				}
+			}
 			OR = {
 				has_ethic = ethic_materialist
 				has_ethic = ethic_fanatic_materialist
@@ -468,6 +573,7 @@ country_event = {
 					has_ethic = ethic_authoritarian
 					has_ethic = ethic_fanatic_authoritarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -483,6 +589,7 @@ country_event = {
 					has_ethic = ethic_authoritarian
 					has_ethic = ethic_fanatic_authoritarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -498,6 +605,7 @@ country_event = {
 					has_ethic = ethic_authoritarian
 					has_ethic = ethic_fanatic_authoritarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -513,6 +621,7 @@ country_event = {
 					has_ethic = ethic_authoritarian
 					has_ethic = ethic_fanatic_authoritarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -528,6 +637,7 @@ country_event = {
 					has_ethic = ethic_egalitarian
 					has_ethic = ethic_fanatic_egalitarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -543,6 +653,7 @@ country_event = {
 					has_ethic = ethic_egalitarian
 					has_ethic = ethic_fanatic_egalitarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -558,6 +669,7 @@ country_event = {
 					has_ethic = ethic_egalitarian
 					has_ethic = ethic_fanatic_egalitarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -573,6 +685,7 @@ country_event = {
 					has_ethic = ethic_egalitarian
 					has_ethic = ethic_fanatic_egalitarian
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -588,6 +701,7 @@ country_event = {
 					has_ethic = ethic_xenophobe
 					has_ethic = ethic_fanatic_xenophobe
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -603,6 +717,7 @@ country_event = {
 					has_ethic = ethic_xenophobe
 					has_ethic = ethic_fanatic_xenophobe
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -618,6 +733,7 @@ country_event = {
 					has_ethic = ethic_xenophobe
 					has_ethic = ethic_fanatic_xenophobe
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -633,6 +749,7 @@ country_event = {
 					has_ethic = ethic_xenophobe
 					has_ethic = ethic_fanatic_xenophobe
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -648,6 +765,7 @@ country_event = {
 					has_ethic = ethic_xenophile
 					has_ethic = ethic_fanatic_xenophile
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -663,6 +781,7 @@ country_event = {
 					has_ethic = ethic_xenophile
 					has_ethic = ethic_fanatic_xenophile
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -678,6 +797,7 @@ country_event = {
 					has_ethic = ethic_xenophile
 					has_ethic = ethic_fanatic_xenophile
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -693,6 +813,7 @@ country_event = {
 					has_ethic = ethic_xenophile
 					has_ethic = ethic_fanatic_xenophile
 				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}
@@ -1011,6 +1132,64 @@ country_event = {
 			exists = event_target:ratling_country
 			FROM = {
 				is_same_empire = event_target:ratling_country
+			}
+		}
+	}
+	desc = {
+		text = "CORP_INSULT_PROPOSE_01"
+		trigger = {
+			FROM = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	desc = {
+		text = "CORP_INSULT_PROPOSE_02"
+		trigger = {
+			FROM = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	desc = {
+		text = "CORP_INSULT_PROPOSE_03"
+		trigger = {
+			FROM = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	desc = {
+		text = "CORP_CORP_INSULT_PROPOSE_01"
+		trigger = {
+			has_authority = auth_corporate
+			FROM = {
+				has_authority = auth_corporate
+			}
+		}
+	}
+	desc = {
+		text = "TO_CORP_INSULT_PROPOSE_01"
+		trigger = {
+			has_authority = auth_corporate
+		}
+	}
+	desc = {
+		text = "TO_CORP_INSULT_PROPOSE_02"
+		trigger = {
+			has_authority = auth_corporate
+		}
+	}
+	desc = {
+		text = "TO_CORP_INSULT_PROPOSE_EG_01"
+		trigger = {
+			has_authority = auth_corporate
+			FROM = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+				NOT = { has_authority = auth_corporate }
 			}
 		}
 	}

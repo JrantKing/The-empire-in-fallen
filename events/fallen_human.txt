@@ -167,6 +167,7 @@ country_event = {
 				is_country_type = fallen_empire
 				species_portrait = human
 				NOT = { has_country_flag = fallenhuman }
+				is_ai = yes
 				OR = {
 					has_country_flag = fallen_empire_1
 					has_country_flag = fallen_empire_2

@@ -1,0 +1,84 @@
+#Psionic path
+building_psi_corps = {
+	base_buildtime = 480
+
+	category = government
+	
+	base_cap_amount = 1
+	
+	potential = {
+		owner = {
+			OR = {
+				has_ascension_perk = ap_mind_over_matter
+				has_country_flag = civic_transcendence
+			}
+		}
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = slave_colony }
+	}
+	
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	planet_modifier = {
+		job_telepath_add = 2
+		planet_stability_add = 5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+	
+	triggered_desc = {
+		text = job_telepath_effect_desc
+	}	
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+building_planetary_shield_generator = {
+	base_buildtime = 600	
+	base_cap_amount = 1
+	add_to_first_building_slot = yes
+
+	category = army
+	
+	allow = {
+		has_upgraded_capital = yes
+	}
+	
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+		}			
+		upkeep = {
+			energy = 5
+		}
+	}
+	
+	upgrades = {
+		"building_planetary_shield_system_generator"
+	}
+	
+	prerequisites = {
+		"tech_planetary_shield_generator"
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

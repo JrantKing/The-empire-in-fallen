@@ -40,10 +40,13 @@ tech_reachtoUtopia = {
 	is_reverse_engineerable = no
 	
 	modifier = {
-		max_energy = 20000
-		max_minerals = 40000
-		max_food = 5000
-		max_influence = 1000
+		#country_resource_max_energy_add = 50000
+		#country_resource_max_minerals_add = 15000
+		#country_resource_max_food_add = 15000
+		#country_resource_max_consumer_goods_add = 15000
+		#country_resource_max_alloys_add = 15000
+		#country_resource_max_influence_add = 1000
+		country_resource_max_add = 100000
 	}
 	potential = {
 		OR = {

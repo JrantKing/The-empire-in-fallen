@@ -4,6 +4,7 @@ NGameplay = {
 	#MAX_PLANET_BUILDING_SLOTS			= 199
 	#POPS_BRANCH_OFFICE_BUILDING_SLOTS	= 25
 	#MAX_PLANET_BRANCH_OFFICE_BUILDING_SLOTS	 = 40
+	BASE_PLANET_BUILDING_SLOTS				= 2
 }
 NSpecies = {
 	HOMEWORLD_HABITABILITY				= 0.0		# Habitability on homeworld is increased by this value

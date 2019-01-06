@@ -19,7 +19,7 @@ country_event = {
 	
 	immediate = {
 		random_country = {
-			limit = { has_country_flag = fallen_empire_1 }
+			limit = { is_ai = yes has_country_flag = fallen_empire_1 }
 			save_event_target_as = fallen_empire_1
 		}
 		random_country = {
@@ -157,7 +157,7 @@ country_event = {
 	
 	immediate = {
 		random_country = {
-			limit = { has_country_flag = fallen_empire_1 }
+			limit = { is_ai = yes has_country_flag = fallen_empire_1 }
 			save_event_target_as = fallen_empire_1
 		}
 		random_country = {

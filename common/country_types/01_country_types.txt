@@ -417,12 +417,13 @@ default = {
 					is_regular_empire = yes
 					is_hive_empire = yes
 				}
+				NOT = { has_country_flag = synthetic_empire }
 			}
 			food = 10
 		}
 		produces = {
 			trigger = {
-				is_machine_empire = yes
+				is_synthetic_empire = yes
 			}
 			energy = 10
 			minerals = 10

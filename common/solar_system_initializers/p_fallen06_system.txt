@@ -244,7 +244,7 @@ fallen_6 = {
 					add_district = district_arcology_leisure
 				}			
 				while = {
-					count = 34
+					count = 50
 					create_pop = {
 						species = owner_main_species
 					}

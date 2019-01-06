@@ -199,17 +199,33 @@ country_event = {
 					add_ship_design = last_created_design
 					give_technology = { message = no tech = tech_pk_cracker }
 				}
-				ethic_fanatic_egalitarian = { 
-					create_ship_design = { design = "NAME_Harmony" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Liberty" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Freedom" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Equality" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Bright" }
-					add_ship_design = last_created_design
+				ethic_fanatic_egalitarian = {
+					if = {
+						limit = { has_country_flag = fallen_empire_6 }
+						create_ship_design = { design = "NAME_Harmony" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Liberty" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Freedom" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Equality" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Bright" }
+						add_ship_design = last_created_design
+					}
+					if = {
+						limit = { has_country_flag = fallen_empire_7 }
+						create_ship_design = { design = "NAME_Justice" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Liberation" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Freeborn" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Equalities" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Shininess" }
+						add_ship_design = last_created_design
+					}
 					give_technology = { message = no tech = tech_pk_shielder }
 				}
 			}

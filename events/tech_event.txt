@@ -6,145 +6,6 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		add_global_ship_design = "NAME_Null"
-		add_global_ship_design = "NAME_Null_station"
-		switch = {
-			trigger = has_ethic
-			ethic_fanatic_materialist = {
-				random_list = {
-					10 = { set_name = "[This.GetSpeciesName]管理会" }
-					10 = { set_name = "[This.GetSpeciesName]保存会" }
-					10 = { set_name = "[This.GetSpeciesName]纪录会" }
-				}
-				every_owned_pop = {
-					pop_change_ethic = "ethic_materialist"
-				}
-				give_technology = { message = no tech = tech_pk_shielder }
-				create_ship_design = { design = "NAME_Enforcer" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Savant" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Scholar" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Sage" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Cloaker" }
-				add_ship_design = last_created_design
-			}
-			ethic_fanatic_spiritualist = {
-				random_list = {
-					10 = { set_name = "[This.GetSpeciesName]保护者" }
-					10 = { set_name = "[This.GetSpeciesName]守望者" }
-					10 = { set_name = "[This.GetSpeciesName]守护者" }
-				}
-				every_owned_pop = {
-					pop_change_ethic = "ethic_spiritualist"
-				}
-				give_technology = { message = no tech = tech_pk_neutron }
-				create_ship_design = { design = "NAME_Cleanser" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Eternal" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Avatar" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Zealot" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Faith" }
-				add_ship_design = last_created_design
-			}
-			ethic_fanatic_xenophile = {
-				random_list = {
-					10 = { set_name = "[This.GetSpeciesName]始祖星族" }
-					10 = { set_name = "[This.GetSpeciesName]先锋星族" }
-					10 = { set_name = "[This.GetSpeciesName]古代星族" }
-				}
-				every_owned_pop = {
-					pop_change_ethic = "ethic_xenophile"
-				}
-				give_technology = { message = no tech = tech_pk_shielder }
-				create_ship_design = { design = "NAME_Adjuster" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Keeper" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Custodian" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Warden" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Watcher" }
-				add_ship_design = last_created_design
-			}
-			ethic_fanatic_xenophobe = {
-				random_list = {
-					10 = { set_name = "[This.GetSpeciesName]碎片文明" }
-					10 = { set_name = "[This.GetSpeciesName]遗留文明" }
-					10 = { set_name = "[This.GetSpeciesName]遗迹文明" }
-				}
-				every_owned_pop = {
-					pop_change_ethic = "ethic_xenophobe"
-				}
-				give_technology = { message = no tech = tech_pk_cracker }
-				create_ship_design = { design = "NAME_Reaper" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Imperium" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Supremacy" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Glory" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Devastator" }
-				add_ship_design = last_created_design
-			}
-			ethic_fanatic_egalitarian = {
-				random_list = {
-					10 = { set_name = "[This.GetSpeciesName]自由邦" }
-					10 = { set_name = "[This.GetSpeciesName]乌托邦" }
-					10 = { set_name = "[This.GetSpeciesName]文明邦" }
-				}
-				every_owned_pop = {
-					pop_change_ethic = "ethic_egalitarian"
-				}
-				give_technology = { message = no tech = tech_pk_shielder }
-				create_ship_design = { design = "NAME_Justice" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Liberation" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Freeborn" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Equalities" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Shininess" }
-				add_ship_design = last_created_design
-			}
-			ethic_fanatic_authoritarian = {
-				random_list = {
-					10 = { set_name = "[This.GetSpeciesName]沉寂皇族" }
-					10 = { set_name = "[This.GetSpeciesName]僻静皇族" }
-					10 = { set_name = "[This.GetSpeciesName]边陲皇族" }
-				}
-				every_owned_pop = {
-					pop_change_ethic = "ethic_authoritarian"
-				}
-				give_technology = { message = no tech = tech_pk_cracker }
-				create_ship_design = { design = "NAME_Giant" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Flare" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Pianeta" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Selina" }
-				add_ship_design = last_created_design
-				create_ship_design = { design = "NAME_Dwarf" }
-				add_ship_design = last_created_design
-			}
-		}
-		#random_country = {
-		#	limit = { has_country_flag = fallen_empire_6 }
-		#	join_alliance = { 
-		#		who = from
-		#		name = "NAME_League_of_Non-Aligned_Powers"
-		#		override_requirements = yes
-		#	}
-		#}
 	}
 }
 
@@ -221,6 +82,7 @@ country_event = {
 			planet_size = 25
 			OR = {
 				is_planet_class = pc_gaia
+				is_planet_class = pc_shielded_gaia
 				is_ringworld = yes
 			}
 		}
@@ -360,7 +222,6 @@ country_event = {
 		if = {
 			limit = {
 				has_country_flag = being_fallen
-				NOT = { has_country_flag = no_fallen_graphical_culture }
 			}
 			set_become_fallen_empire = yes
 		}
@@ -460,20 +321,21 @@ country_event = {
 	id = techfound.8
 	hide_window = yes
 	fire_only_once = yes
+	is_triggered_only = yes
 	trigger = {
-		NOT = { has_country_flag = planetcapital }
-		has_country_flag = fallen_empire_6
+		#NOT = { has_country_flag = planetcapital }
+		#has_country_flag = fallen_empire_6
 	}
 	immediate = {
-		random_planet = {
-			limit = {
-				has_planet_flag = planet_earth_fallen
-			}
-			random_tile = {
-				limit = { has_building = building_capital_2 }
-				set_building = "building_capital_3"		
-			}
-		}
+		#random_planet = {
+		#	limit = {
+		#		has_planet_flag = planet_earth_fallen
+		#	}
+		#	random_tile = {
+		#		limit = { has_building = building_capital_2 }
+		#		set_building = "building_capital_3"		
+		#	}
+		#}
 	}
 }
 
@@ -841,22 +703,11 @@ ship_event = {
 			is_ai = no
 			is_country_type = fallen_empire
 		}
-		
+		has_fleet_order = build_orbital_station_order
+		is_constructing = starbase
 	}
 	
 	immediate = {
-		#set_ship_flag = del_starbase
-		#every_system = {
-		#	limit = {
-		#		any_ship_in_system = { has_ship_flag = del_starbase }
-		#	}
-			#set_star_flag = del_starbase
-		#}
-		#every_owned_ship = {
-		#	limit = { has_ship_flag = del_starbase }
-		#	remove_ship_flag = del_starbase
-		#}
-		#owner = { country_event = { id = techfound.20 days = 1 } }
 		fleet = { clear_orders = yes }
 	}
 }

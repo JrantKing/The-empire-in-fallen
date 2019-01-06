@@ -319,7 +319,8 @@ fallen_empire_6 = {
 	initializer = "sol_fallen"
 	
 	possible = {
-		is_crises_allowed = yes
+		#is_crises_allowed = yes
+		always = no
 	}
 
 	create_country_effect = {
@@ -350,7 +351,7 @@ fallen_empire_6 = {
 				civic = civic_lethargic_leadership
 				civic = civic_empire_in_decline
 				civic = civic_idealistic_foundation
-				civic = civic_environmentalist
+				civic = civic_shared_burden
 			}
 			species = event_target:fallen_6_species
 			ethos = {
@@ -491,7 +492,8 @@ fallen_empire_7 = {
 	initializer = "fallen_6"
 	
 	possible = {
-		is_crises_allowed = no
+		#is_crises_allowed = no
+		always = yes
 	}
 	
 	create_country_effect = {
@@ -511,6 +513,7 @@ fallen_empire_7 = {
 			civics = {
 				civic = civic_lethargic_leadership
 				civic = civic_empire_in_decline
+				civic = civic_shared_burden
 			}
 			species = last_created
 			ethos = {
@@ -539,14 +542,6 @@ fallen_empire_7 = {
 						message = no
 					}
 				}
-				# must initialize global designs here
-				#add_global_ship_design = "NAME_Omega"
-				#add_global_ship_design = "NAME_Alpha"
-				#add_global_ship_design = "NAME_Beta"
-				#add_global_ship_design = "NAME_Gamma"
-				#add_global_ship_design = "NAME_Theta"
-				#add_global_ship_design = "NAME_Tau"
-				#add_global_ship_design = "NAME_Sigma"
 			}
 		}
 	}

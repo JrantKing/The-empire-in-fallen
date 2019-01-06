@@ -1049,18 +1049,28 @@ fallen_col_1 = {
 			if = {
 				limit = { root = { is_fallen_empire_spiritualist = no } }
 				create_fe_fringe_colony = yes
-				if = {
-					limit = { root = { has_country_flag = fallen_empire_6_nonhuman has_ethic = ethic_fanatic_egalitarian } }
-					add_building = building_autocurating_vault
-					while = {
-						count = 2
-						create_pop = {
-							species = event_target:fe_servants
-						}
+			}
+			else = { create_fe_spiritualist_fringe_colony = yes }
+			if = {
+				limit = { root = { is_fallen_empire_egalitarian = yes } }
+				random_list = {
+					1 = {
+						add_district = district_generator
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_farming
+					}
+					1 = {
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_mining
+						add_district = district_farming
 					}
 				}
 			}
-			else = { create_fe_spiritualist_fringe_colony = yes }
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+			add_building = building_dimensional_fabricator
 		}
 
 		change_orbit = @base_moon_distance
@@ -1144,18 +1154,28 @@ fallen_col_2 = {
 			if = {
 				limit = { root = { is_fallen_empire_spiritualist = no } }
 				create_fe_fringe_colony = yes
-				if = {
-					limit = { root = { has_country_flag = fallen_empire_6_nonhuman has_ethic = ethic_fanatic_egalitarian } }
-					add_building = building_autocurating_vault
-					while = {
-						count = 2
-						create_pop = {
-							species = event_target:fe_servants
-						}
+			}
+			else = { create_fe_spiritualist_fringe_colony = yes }
+			if = {
+				limit = { root = { is_fallen_empire_egalitarian = yes } }
+				random_list = {
+					1 = {
+						add_district = district_generator
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_farming
+					}
+					1 = {
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_mining
+						add_district = district_farming
 					}
 				}
 			}
-			else = { create_fe_spiritualist_fringe_colony = yes }
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+			add_building = building_dimensional_fabricator
 		}
 
 		change_orbit = @base_moon_distance
@@ -1278,18 +1298,25 @@ fallen_orbitals_1 = {
 			if = {
 				limit = { root = { is_fallen_empire_spiritualist = no } }
 				create_fe_fringe_colony = yes
-				if = {
-					limit = { root = { has_country_flag = fallen_empire_6_nonhuman has_ethic = ethic_fanatic_egalitarian } }
-					add_building = building_autocurating_vault
-					while = {
-						count = 2
-						create_pop = {
-							species = event_target:fe_servants
-						}
-					}
-				}
 			}
 			else = { create_fe_spiritualist_fringe_colony = yes }
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+			add_building = building_dimensional_fabricator
+			random_list = {
+				1 = {
+					add_district = district_generator
+					add_district = district_generator
+					add_district = district_mining
+					add_district = district_farming
+				}
+				1 = {
+					add_district = district_generator
+					add_district = district_mining
+					add_district = district_mining
+					add_district = district_farming
+				}
+			}
 		}
 	
 		if = {
@@ -1379,18 +1406,32 @@ fallen_orbitals_2 = {
 			if = {
 				limit = { root = { is_fallen_empire_spiritualist = no } }
 				create_fe_fringe_colony = yes
-				if = {
-					limit = { root = { has_country_flag = fallen_empire_6_nonhuman has_ethic = ethic_fanatic_egalitarian } }
-					add_building = building_autocurating_vault
-					while = {
-						count = 2
-						create_pop = {
-							species = event_target:fe_servants
-						}
-					}
+				while = {
+					count = 5
+					add_district = district_city
 				}
 			}
 			else = { create_fe_spiritualist_fringe_colony = yes }
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+			add_building = building_dimensional_fabricator
+			if = {
+				limit = { root = { is_fallen_empire_egalitarian = yes } }
+				random_list = {
+					1 = {
+						add_district = district_generator
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_farming
+					}
+					1 = {
+						add_district = district_generator
+						add_district = district_mining
+						add_district = district_mining
+						add_district = district_farming
+					}
+				}
+			}
 		}
 
 		if = {
