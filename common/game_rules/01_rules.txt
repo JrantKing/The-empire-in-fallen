@@ -1,3 +1,19 @@
+# Will colonizing this planet tick off a fallen empire?
+# Root = fallen empire
+# This = planet
+will_anger_fallen_empire = {
+	OR = {
+		AND = {
+			root = { has_ai_personality_behaviour = demands_clear_borders }
+			is_neighbor_of = root
+		}
+		AND = {
+			root = { has_ai_personality_behaviour = holy_planets }
+			has_modifier = "holy_planet"
+		}
+	}
+}
+
 # Root = Species
 # From = Country
 # This = Species

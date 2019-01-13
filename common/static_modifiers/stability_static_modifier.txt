@@ -20,7 +20,7 @@
 5_stability={
     icon = "gfx/interface/icons/modifiers/mod_planet_stability_add.dds"
 	planet_stability_add = 10				#星球稳定度
-	ship_upkeep_mult = -0.15              #舰队维护
+	ships_upkeep_mult = -0.15              #舰队维护
 	ship_weapon_damage = 0.15             #舰队伤害
     pop_growth_speed = 0.10               #人口生长速度
 	ship_fire_rate_mult = 0.10            #舰队射速
@@ -39,7 +39,7 @@
 4_stability={
     icon = "gfx/interface/icons/modifiers/mod_planet_stability_add.dds"
 	planet_stability_add = 5				#星球稳定度
-	ship_upkeep_mult = -0.10              #舰队维护
+	ships_upkeep_mult = -0.10              #舰队维护
 	ship_weapon_damage = 0.10             #舰队伤害
 	pop_growth_speed = 0.05	              #人口生长速度
 	ship_fire_rate_mult = 0.05            #舰队射速
@@ -56,7 +56,7 @@
 2_stability={
     icon = "gfx/interface/icons/modifiers/mod_planet_stability_minus.dds"
 	planet_stability_add = -5				#星球稳定度
-	ship_upkeep_mult = 0.10                #舰队维护
+	ships_upkeep_mult = 0.10                #舰队维护
 	ship_weapon_damage = -0.10             #舰队伤害
 	pop_growth_speed = -0.05               #人口生长速度
 	ship_fire_rate_mult = -0.05            #舰队射速
@@ -75,7 +75,7 @@
 1_stability={
     icon = "gfx/interface/icons/modifiers/mod_planet_stability_minus.dds"
 	planet_stability_add = -10				#星球稳定度
-	ship_upkeep_mult = 0.15                #舰队维护
+	ships_upkeep_mult = 0.15                #舰队维护
 	ship_weapon_damage = -0.15             #舰队伤害
 	pop_growth_speed = -0.10               #人口生长速度
 	ship_fire_rate_mult = -0.10            #舰队射速
@@ -94,7 +94,7 @@
 0_stability={
     icon = "gfx/interface/icons/modifiers/mod_planet_stability_minus.dds"
 	planet_stability_add = -15				#星球稳定度
-	ship_upkeep_mult = 0.20                #舰队维护
+	ships_upkeep_mult = 0.20                #舰队维护
 	ship_weapon_damage = -0.20             #舰队伤害
 	pop_growth_speed = -0.15               #人口生长速度
 	ship_fire_rate_mult = -0.15            #舰队射速

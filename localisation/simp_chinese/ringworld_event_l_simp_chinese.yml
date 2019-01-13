@@ -290,7 +290,6 @@
  pioneer_describe.UNoE.europa.a:0 "她究竟发生了什么？"
  pioneer_describe.UNoE.europa.b:0 "伽马外星人是什么？"
  pioneer_describe.UNoE.europa.a.response:0 "她被伽马外星人的巨神兵击碎了，我们的公民伤亡接近数十亿人。"
- #pioneer_describe.UNoE.europa.a.response:0 "我在此庄严的宣誓：\n我此生将不遗余力，\n用以保卫地球联合国，\n保护人类火种的延续，\n以及宇宙全体知性生命的存亡。\n无论从太平洋的深渊，还是到银河的边陲。\n今生为誓，至死方休！\n"
  pioneer_describe.UNoE.gama.a.response:0 "关于伽马外星人，我们只知道它们没有传统意义上的书面文字，至少我们没能成功翻译它们的书面文字，也是因为这样连[fallen_empire_3.GetName]也不清楚它们的来历。但是它们对其他所有异种抱有难以想象的恶意。就像...就像是$civic_fanatic_purifiers$一般，当它们研究出了$colossus$和$tech_pk_cracker$之后就立刻偷袭了[europa.GetName]的$titan$船坞。当时我们和[fallen_empire_4.GetName]正处在战争之中，回防已经来不及了，因此我们数十亿的子民遭受灭顶之灾，这让我们感到非常愤怒并根据之后的伽马外星人的$colossus$残骸逆向出了$colossus$。迫于民意，高层决定使用这个新型的巨型武器。直到我们击碎了它们的最后一个星球，也没能了解它们的语言。我们最终只收获了两点信息，它们是$civic_fanatic_purifiers$，同时它们是一种发源自海洋星球的软体类生物。"
  pioneer_describe.UNoE.gama.b.response:0 "关于伽马外星人，我们只知道它们没有传统意义上的书面文字，至少我们没能成功翻译它们的书面文字，也是因为这样连§R文明已毁灭§!也不清楚它们的来历。但是它们对其他所有异种抱有难以想象的恶意。就像...就像是$civic_fanatic_purifiers$一般，当它们研究出了$colossus$和$tech_pk_cracker$之后就立刻偷袭了[europa.GetName]的$titan$船坞。当时我们和[fallen_empire_4.GetName]正处在战争之中，回防已经来不及了，因此我们数十亿的子民遭受灭顶之灾，这让我们感到非常愤怒并根据之后的伽马外星人的$colossus$残骸逆向出了$colossus$。迫于民意，高层决定使用这个新型的巨型武器。直到我们击碎了它们的最后一个星球，也没能了解它们的语言。我们最终只收获了两点信息，它们是$civic_fanatic_purifiers$，同时它们是一种发源自海洋星球的软体类生物。"
  pioneer_describe.UNoE.gama.c.response:0 "关于伽马外星人，我们只知道它们没有传统意义上的书面文字，至少我们没能成功翻译它们的书面文字，也是因为这样连[fallen_empire_3.GetName]也不清楚它们的来历。但是它们对其他所有异种抱有难以想象的恶意。就像...就像是$civic_fanatic_purifiers$一般，当它们研究出了$colossus$和$tech_pk_cracker$之后就立刻偷袭了[europa.GetName]的$titan$船坞。当时我们和§R文明已毁灭§!正处在战争之中，回防已经来不及了，因此我们数十亿的子民遭受灭顶之灾，这让我们感到非常愤怒并根据之后的伽马外星人的$colossus$残骸逆向出了$colossus$。迫于民意，高层决定使用这个新型的巨型武器。直到我们击碎了它们的最后一个星球，也没能了解它们的语言。我们最终只收获了两点信息，它们是$civic_fanatic_purifiers$，同时它们是一种发源自海洋星球的软体类生物。"
@@ -322,3 +321,8 @@
  fallen_start.4.desc:0 "请问您是否同意在多人游戏中使用§R失落帝国开局§"
  fallen_start.4.a:0 "同意"
  fallen_start.4.b:0 "不同意"
+ #
+ UNE_after_being_attacked.2.name:0 "正在与§H[event_target:fallen_empire_6.GetName]§!进行通讯"
+ UNE_after_being_attacked.2.desc.a:0 "鉴于此次攻击，吾等别无它法。只能后发制人，吾之公民早已冲冠发怒，审判即将降临于尔等蝼蚁。\n§R所有地球联合国的公民致：\n我在此庄严的宣誓：\n我此生将不遗余力，\n用以保卫地球联合国，\n保护人类火种的延续，\n以及宇宙全体知性生命的存亡。\n无论从太平洋的深渊，还是到银河的边陲。\n今生为誓，至死方休！§!\n"
+ UNE_after_being_attacked.2.desc.b:0 "鉴于此次攻击，吾等别无它法。只能后发制人，吾之公民早已冲冠发怒，审判即将降临于尔等蝼蚁。\n§R所有地球联合国的公民致：\n我在此庄严的宣誓：\n我此生将不遗余力，\n用以保卫地球联合国，\n保护人类火种的延续。\n无论从太平洋的深渊，还是到银河的边陲。\n今生为誓，至死方休！§!\n"
+ 

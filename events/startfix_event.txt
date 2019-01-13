@@ -151,3 +151,138 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = startfix.3
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		every_system_within_border = {
+			if = {
+				limit = {
+					exists = starbase
+					starbase = {
+						has_starbase_size = starbase_citadel
+						has_starbase_building = titan_yards
+					}
+				}
+				random_fleet_in_system = {
+					limit = {
+						any_owned_ship = {
+							is_ship_class = shipclass_starbase
+						}
+					}
+					delete_fleet = this
+				}
+				create_starbase = {
+					owner = prev.owner
+					size = "starbase_starfortress"
+					module = "shipyard"
+					module = "shipyard"
+					module = "shipyard"			
+					module = "hangar_bay"
+					module = "gun_battery"
+					module = "gun_battery"	
+					building = "target_uplink_computer"
+					building = "defense_grid"
+				}
+				starbase = {
+					set_starbase_size = starbase_citadel
+					set_starbase_building = { slot = 0 building = target_uplink_computer }
+					set_starbase_building = { slot = 1 building = defense_grid }
+					set_starbase_building = { slot = 2 building = colossus_yards }
+					set_starbase_building = { slot = 3 building = titan_yards }
+					while = {
+						count = 10
+						create_fallen_empire_platform = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = starbase
+					starbase = {
+						has_starbase_size = starbase_citadel
+						has_starbase_building = listening_post
+					}
+				}
+				random_fleet_in_system = {
+					limit = {
+						any_owned_ship = {
+							is_ship_class = shipclass_starbase
+						}
+					}
+					delete_fleet = this
+				}
+				create_starbase = {
+					owner = prev.owner
+					size = "starbase_starfortress"
+					module = "shipyard"
+					module = "shipyard"
+					module = "shipyard"			
+					module = "hangar_bay"
+					module = "gun_battery"
+					module = "gun_battery"	
+					building = "target_uplink_computer"
+					building = "defense_grid"
+				}
+				starbase = {
+					set_starbase_size = starbase_citadel
+					set_starbase_building = { slot = 0 building = crew_quarters }
+					set_starbase_building = { slot = 1 building = command_center }
+					set_starbase_building = { slot = 2 building = target_uplink_computer }
+					set_starbase_building = { slot = 3 building = listening_post }
+					while = {
+						count = 4
+						create_fallen_empire_platform = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = starbase
+					starbase = {
+						has_starbase_size = starbase_outpost
+					}
+				}
+				random_fleet_in_system = {
+					limit = {
+						any_owned_ship = {
+							is_ship_class = shipclass_starbase
+						}
+					}
+					delete_fleet = this
+				}
+				create_starbase = {
+					owner = prev.owner
+					size = "starbase_starfortress"
+				}
+				starbase = {
+					set_starbase_size = starbase_outpost
+					while = {
+						count = 2
+						create_fallen_empire_platform = yes
+					}
+				}
+			}
+		}
+		every_planet_within_border = {
+			limit = { 
+				has_deposit_for = shipclass_mining_station 
+				has_mining_station = no
+			}
+			create_mining_station = {
+				owner = prev
+			}
+		}
+		every_planet_within_border = {
+			limit = { 
+				has_deposit_for = shipclass_research_station 
+				has_research_station = no
+			}
+			create_research_station = {
+				owner = prev
+			}
+		}
+	}
+}

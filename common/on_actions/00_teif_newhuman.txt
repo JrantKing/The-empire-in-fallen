@@ -1,3 +1,34 @@
+on_destroy_planet_with_PLANET_KILLER_CRACKER = {
+	events = {
+		UNE_after_being_attacked.0
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_SHIELDER = {
+	events = {
+		UNE_after_being_attacked.0
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_NEUTRON = {
+	events = {
+		UNE_after_being_attacked.0
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_GODRAY = {
+	events = {
+		UNE_after_being_attacked.0
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_NANOBOTS = {
+	events = {
+		UNE_after_being_attacked.0
+	}
+}
+
+
 on_yearly_pulse = {
 	events = {
 		upgrade_to_founder_species.0
@@ -84,7 +115,7 @@ empire_init_create_ships = {
 
 on_game_start = {
 	events = {
-		sdefine.2
+		setup_planet_name.0
 	}
 }
 

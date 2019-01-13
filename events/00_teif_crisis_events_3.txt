@@ -180,6 +180,7 @@ planet_event = {
 	
 	immediate = {	
 		set_crisis_sound = ai_empire_ambient_stage_1
+		set_global_flag = ai_happen
 		set_crisis_stage_1 = yes	
 		create_species = {
 			name = "NAME_Custodian_Bot"
@@ -239,6 +240,7 @@ planet_event = {
 				create_ship_design = { design = "NAME_AI_STARBASE" }
 				add_ship_design = last_created_design			
 				save_event_target_as = AI_crisis 
+				save_global_event_target_as = crisis_check_ai
 			}
 		}
 		every_owned_pop = { kill_pop = yes }
@@ -290,6 +292,108 @@ planet_event = {
 				}
 			}
 			create_contingency_starbase = yes
+		}
+	}
+}
+
+# Final Machine World Destroyed
+planet_event = {
+	id = crisis.2046
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:final_machine_world_destroyer = { set_country_flag = does_not_compute }
+		remove_global_flag = synth_terror
+		remove_global_flag = ai_ghost_signal
+		remove_global_flag = ai_invasion_ongoing
+		if = {
+			limit = {
+				NOT = { has_planet_flag = destroyed_by_colossus }
+			}
+			destroy_colony = yes
+			change_pc = pc_broken
+			reset_planet = yes
+		}
+		every_country = {
+			limit = { has_notification_modifier = ghost_signal_1 }
+			remove_notification_modifier = ghost_signal_1
+			every_owned_pop = {
+				limit = { has_modifier = "pop_ghost_signal_1" }
+				remove_modifier = "pop_ghost_signal_1"
+			}
+			every_owned_ship = {
+				limit = {
+					has_sapient_combat_computer = yes
+				}
+				remove_modifier = "ship_ghost_signal_1"
+			}
+		}
+		every_country = {
+			limit = { has_event_chain = "ai_crisis_chain" }
+			end_event_chain = "ai_crisis_chain"
+		}
+		every_country = {
+			limit = { has_special_project = SYNTH_INFILTRATION_PROJECT }
+			abort_special_project = { type = SYNTH_INFILTRATION_PROJECT }
+		}
+		every_country = {
+			limit = { has_modifier = unity_reduction_crisis_2204 }
+			remove_modifier = unity_reduction_crisis_2204
+		}
+		random_country = { observer_event = { id = observer.51 } }
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.2038 }
+			every_owned_planet = {
+				limit = { has_modifier = synth_planet_paranoia }
+				remove_modifier = synth_planet_paranoia
+			}
+		}
+		every_country = {
+			limit = {
+				is_fallen_machine_empire = yes
+			}
+			country_event = { id = fallen_machine_empire.3 days = 1 }
+		}
+		random_country = {
+			limit = { is_country_type = ai_empire }
+			every_controlled_planet = { 
+				#TODO [CD] replace with assigning to purge job
+				#purge = no
+			} # Stop purging any occupied worlds
+			destroy_country = yes # Destroy the Contingency
+		}
+		check_crisis_exists = yes
+
+		event_target:final_machine_world_destroyer = { set_country_flag = final_machine_world_destroyed }
+
+		# Cybrex
+		if = {
+			limit = {
+				has_global_flag = cybrex_resurface
+				NOT = { has_global_flag = cybrex_destroyed }
+			}
+			random_country = {
+				limit = { is_country_type = cybrex_empire }
+
+				# Cybrex recall expeditionary fleets
+				every_country = {
+					limit = { has_country_flag = cybrex_donation }
+					country_event = { id = crisis.2474 days = 20 random = 30 }
+				}
+
+				# Cybrex Depart Galaxy
+				country_event = { id = crisis.2406 days = 365 random = 800 }
+
+			}
 		}
 	}
 }

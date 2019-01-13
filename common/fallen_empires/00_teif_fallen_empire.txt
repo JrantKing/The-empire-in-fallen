@@ -319,8 +319,7 @@ fallen_empire_6 = {
 	initializer = "sol_fallen"
 	
 	possible = {
-		#is_crises_allowed = yes
-		always = no
+		is_crises_allowed = yes
 	}
 
 	create_country_effect = {
@@ -351,7 +350,7 @@ fallen_empire_6 = {
 				civic = civic_lethargic_leadership
 				civic = civic_empire_in_decline
 				civic = civic_idealistic_foundation
-				civic = civic_shared_burden
+				civic = civic_beacon_of_liberty
 			}
 			species = event_target:fallen_6_species
 			ethos = {
@@ -492,8 +491,7 @@ fallen_empire_7 = {
 	initializer = "fallen_6"
 	
 	possible = {
-		#is_crises_allowed = no
-		always = yes
+		is_crises_allowed = no
 	}
 	
 	create_country_effect = {

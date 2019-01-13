@@ -190,7 +190,7 @@ living_standard_utopian = {
 	ai_will_do = {
 		factor = 15
 		modifier = {
-			factor = 15
+			factor = 100
 			is_fallen_empire_egalitarian = yes
 		}
 		modifier = {

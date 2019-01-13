@@ -69,9 +69,13 @@ ap_crisis_fighter = {
 					civic = civic_ancient_caches_of_technology
 				}
 			}
-			add_minerals = 20000
-			add_energy = 5000
-			add_influence = 1000
+			add_resource = { minerals = 50000 }
+			add_resource = { energy = 50000 }
+			add_resource = { influence = 1000 }
+			if = {
+				limit = { is_synthetic_empire = no }
+				add_resource = { food = 5000 }
+			}
 			country_event = { id = fallen_empires.13 }
 			if = {
 				limit = {
@@ -216,9 +220,13 @@ ap_rw_awakening = {
 					civic = civic_ancient_caches_of_technology
 				}
 			}
-			add_minerals = 20000
-			add_energy = 5000
-			add_influence = 1000
+			add_resource = { minerals = 50000 }
+			add_resource = { energy = 50000 }
+			add_resource = { influence = 1000 }
+			if = {
+				limit = { is_synthetic_empire = no }
+				add_resource = { food = 5000 }
+			}
 			country_event = { id = fallen_empires.13 }
 			leave_alliance = { override_requirements = yes }
 			if = {

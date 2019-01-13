@@ -18,9 +18,39 @@ building_planetary_shield_system_generator = {
 		planet_orbital_bombardment_damage = -10.00
 		planet_stability_add = 15
 		job_shielded_researcher_add = 1
-		job_soldier_add = 12
 	}
-	
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_gestalt = no
+				is_fallen_empire = no
+			}
+		}
+		modifier = {
+			job_soldier_add = 12
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_gestalt = yes
+				is_fallen_empire = no
+			}
+		}
+		modifier = {
+			job_warrior_drone_add = 12
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_fallen_empire = yes
+			}
+		}
+		modifier = {
+			job_fe_protector_add = 12
+		}
+	}
 	army_modifier = {
 		army_defense_health_mult = 2.40
 		army_defense_morale_mult = 2.40

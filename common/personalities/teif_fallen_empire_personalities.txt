@@ -516,3 +516,46 @@ awakened_fallen_empire_materialist_normal = {
 		weight = 1000	
 	}
 }
+
+awakened_teif_fallen_empire_egalitarian_attacked = { 
+	aggressiveness = 10
+	trade_willingness = 0
+	bravery = 10
+	combat_bravery = 10
+	
+	federation_acceptance = -1000
+	nap_acceptance = -1000
+	defensive_pact_acceptance = -1000
+	migration_pact_acceptance = -1000
+
+	threat_modifier = 10.0
+	threat_others_modifier = 0.0
+	friction_modifier = 0.0
+
+	behaviour = {
+		conqueror = yes
+		subjugator = yes
+		liberator = no
+		opportunist = yes
+		slaver = no
+		uplifter = no
+		purger = no
+		dominator = no
+		infiltrator = no
+		robot_exploiter = no
+		robot_liberator = yes
+		propagator = no
+		multispecies = yes
+	}
+	
+	allow = {
+		is_ai = yes
+		is_country_type = awakened_fallen_empire
+		has_ethic = "ethic_fanatic_egalitarian"
+		has_modifier = "revenge_craze"
+	}
+	
+	weight_modifier = {
+		weight = 100000
+	}
+}

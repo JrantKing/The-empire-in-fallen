@@ -12,9 +12,8 @@ wg_fe_stop_atrocities_ai = {
 		from = {
 			any_owned_pop = {
 				is_robot_pop = yes
-				has_trait = trait_robotic_3
+				has_trait = trait_mechanical
 			}
-			can_set_robot_policy = yes
 			OR = {
 				has_policy_flag = ai_outlawed
 				has_policy_flag = ai_servitude
@@ -86,4 +85,57 @@ wg_fe_hive_mind = {
 			from = { NOT = { has_civic = civic_hive_devouring_swarm } }
 		}
 	}
+}
+
+wg_fe_attacked = {
+	casus_belli = cb_purification_fe
+	surrender_acceptance = -10
+	potential = {
+		has_ai_personality = awakened_teif_fallen_empire_egalitarian_attacked
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		custom_tooltip = wg_fe_attacked_accept
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						any_country = {
+							is_at_war_with = event_target:fallen_empire_6
+							is_same_value = from
+						}
+					}
+				}
+				remove_modifier = revenge_craze
+			}
+			add_threat = { who = this amount = 100 }
+		}
+		from = {
+			fallen_empire_attacked = yes	
+		}
+	}
+	on_status_quo = {
+		custom_tooltip = wg_fe_attacked_accept
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						any_country = {
+							is_at_war_with = event_target:fallen_empire_6
+							is_same_value = from
+						}
+					}
+				}
+				remove_modifier = revenge_craze
+			}
+			add_threat = { who = this amount = 100 }
+		}
+		from = {
+			fallen_empire_attacked = yes		
+		}
+	}
+	ai_weight = {
+		weight = 100000
 }

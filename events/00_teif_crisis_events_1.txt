@@ -156,7 +156,7 @@ country_event = {
 		set_crisis_sound = swarm_crisis_ambient_stage_1
 		set_crisis_stage_1 = yes
 		awaken_guardians_of_the_galaxy = yes		
-	
+		set_global_flag = prethoryn_happen
 		remove_global_flag = prethoryn_approaching_rim
 		set_global_flag = prethoryn_arrival
 		observer_event = { id = observer.29 }
@@ -215,6 +215,7 @@ country_event = {
 						add_ship_design = last_created_design
 						create_ship_design = { design = "NAME_Swarm_Starbase" }
 						add_ship_design = last_created_design
+						save_global_event_target_as = crisis_check_prethoryn
 					}
 				}
 				solar_system = {
@@ -1642,6 +1643,94 @@ country_event = {
 				}
 			}
 			establish_communications_no_message = event_target:feral_prethoryn_infighting
+		}
+	}
+}
+
+# Destroy Swarm if no planets and only 5 or less ships remain
+# On yearly pulse
+event = {
+	id = crisis.208
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			is_country_type = swarm
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = swarm
+					num_ships < 2
+					NOT = {
+						any_system = {
+							any_system_planet = {
+								exists = controller
+								controller = { is_country_type = swarm }
+							}
+						}
+					}
+					NOT = {
+						any_system = {
+							any_system_planet = {
+								exists = owner
+								owner = { is_country_type = swarm }
+							}
+						}
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					is_country_type = swarm
+				}
+				destroy_country = yes
+			}
+			check_crisis_exists = yes
+		}
+	}
+}
+
+# Prethoryn Defeated (HIDDEN)
+country_event = {
+	id = crisis.210
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = swarm
+	}
+	
+	immediate = {
+		stop_crisis_sound = yes
+		#end_crisis = yes
+		remove_global_flag = ongoing_prethoryn_invasion
+		observer_event = { id = observer.33 }
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			country_event = { id = crisis.211 }
+		}
+		random_country = {
+			limit = { is_country_type = global_event }
+			country_event = { id = crisis.119 days = 360 }
+		}
+		if = {
+			limit = { exists = event_target:sentinels }
+			event_target:sentinels = {
+				country_event = { id = crisis.75 days = 15 random = 10 }
+			}
 		}
 	}
 }

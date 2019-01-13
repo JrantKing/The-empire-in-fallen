@@ -68,7 +68,11 @@ country_event = {
 					AND = {
 						has_ethic = ethic_fanatic_egalitarian
 						has_ascension_perk = ap_executive_vigor
-						has_ascension_perk = ap_galactic_wonders
+						OR = {
+							has_ascension_perk = ap_galactic_wonders_utopia
+							has_ascension_perk = ap_galactic_wonders_megacorp
+							has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
+						}
 					}
 				}
 				fleet_power > 75000

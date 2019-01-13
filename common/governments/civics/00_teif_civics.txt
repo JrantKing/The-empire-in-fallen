@@ -71,7 +71,7 @@ civic_fallen_start_leadership = {
 	}
 	modification = no
 	modifier = {
-		country_resource_influence_add = -1
+		country_base_influence_produces_add = -1
 	}
 	description = FALLEN_EMPIRE_LETHARGY_2
 }

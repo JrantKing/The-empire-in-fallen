@@ -92,7 +92,7 @@ sol_fallen = {
 		modifiers = none
 		flags = { planet_earth_fallen }
 		init_effect = {
-
+			save_event_target_as = earth_location
 			create_cluster = {
 				id = fe6_cluster
 				radius = 120
@@ -111,6 +111,72 @@ sol_fallen = {
 			every_deposit = {
 				limit = { is_blocker = yes }
 				clear_blocker = yes
+			}
+			while = {
+				count = 25
+				add_district = district_city
+			}
+			while = {
+				count = 2
+				add_district = district_generator
+			}
+			while = {
+				count = 2
+				add_district = district_mining
+			}
+			while = {
+				count = 2
+				add_district = district_farming
+			}
+			add_building = building_ancient_palace
+			add_building = building_planetary_shield_system_generator
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			root = {
+				create_species = {
+					name = "NAME_Synthetic"
+					plural = "NAME_Synthetics"
+					class = ROBOT
+					namelist = this
+					portrait = "sd_hum_robot"
+					traits = {
+						trait = "trait_mechanical"
+						trait = "trait_robot_power_drills"
+						trait = "trait_robot_harvesters"
+					}
+				}
+				set_built_species = last_created_species
+			}
+			last_created_species = {
+				save_event_target_as = fe_servants
+				set_living_standard = {
+					type = living_standard_utopian
+					country = root
+				}
+			}
+			while = {
+				count = 56
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			while = {
+				count = 13
+				create_pop = {
+					species = event_target:fe_servants
+				}
 			}
 			while = {
 				count = 10
@@ -166,7 +232,58 @@ sol_fallen = {
 			set_owner = ROOT
 			set_controller = root
 			
+			add_deposit = d_dust_caverns
+			add_deposit = d_bubbling_swamp
+			add_deposit = d_crystalline_caverns
+			every_deposit = {
+				limit = { is_blocker = yes }
+				clear_blocker = yes
+			}
+			while = {
+				count = 25
+				add_district = district_city
+			}
+			while = {
+				count = 2
+				add_district = district_generator
+			}
+			while = {
+				count = 2
+				add_district = district_mining
+			}
+			while = {
+				count = 2
+				add_district = district_farming
+			}
+			add_building = building_ancient_palace
+			add_building = building_planetary_shield_system_generator
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge
 			
+			while = {
+				count = 57
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			while = {
+				count = 13
+				create_pop = {
+					species = event_target:fe_servants
+				}
+			}
 		}
 	}
 	
@@ -400,7 +517,7 @@ sol_fallen = {
 		orbit_distance = @orbit_distance_gas_giant
 		orbit_angle = -195
 		size = 20
-		has_ring = no
+		has_ring = yes
 		entity = "ice_giant_01_entity"
 		change_orbit = 4
 		
@@ -410,7 +527,8 @@ sol_fallen = {
 		
 		moon = {
 			name = "NAME_Triton"
-			class = "pc_frozen"
+			#class = "pc_frozen"
+			class = "pc_broken"
 			size = 6
 			orbit_distance = 7
 			orbit_angle = 115
@@ -496,6 +614,11 @@ sol_fallen = {
 	
 	init_effect = {
 		spawn_megastructure = {
+			type = strategic_coordination_center_3
+			graphical_culture = root
+			location = event_target:earth_location
+		}
+		spawn_megastructure = {
 			type = star_pressure_controller
 			graphical_culture = root
 			location = event_target:star_pressure_controller
@@ -511,7 +634,7 @@ sol_fallen = {
 			location = event_target:thinktank_haiwang
 		}
 		spawn_megastructure = {
-			type = think_tank_4
+			type = interstellar_assembly_4
 			graphical_culture = root
 			location = event_target:thinktank_muxing
 		}
@@ -647,6 +770,58 @@ sol_nme_fallen = {
 				prevent_anomaly = yes
 				set_owner = ROOT
 				set_controller = root
+				add_deposit = d_dust_caverns
+				add_deposit = d_bubbling_swamp
+				add_deposit = d_crystalline_caverns
+				every_deposit = {
+					limit = { is_blocker = yes }
+					clear_blocker = yes
+				}
+				while = {
+					count = 20
+					add_district = district_city
+				}
+				while = {
+					count = 2
+					add_district = district_generator
+				}
+				while = {
+					count = 2
+					add_district = district_mining
+				}
+				while = {
+					count = 2
+					add_district = district_farming
+				}
+				add_building = building_ancient_palace
+				add_building = building_planetary_shield_system_generator
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				
+				while = {
+					count = 57
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					count = 13
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
 			}
 		}
 		planet = {
@@ -914,7 +1089,58 @@ sol_tlx_fallen = {
 			prevent_anomaly = yes
 			set_owner = ROOT
 			set_controller = ROOT
+			add_deposit = d_dust_caverns
+			add_deposit = d_bubbling_swamp
+			add_deposit = d_crystalline_caverns
+			every_deposit = {
+				limit = { is_blocker = yes }
+				clear_blocker = yes
+			}
+			while = {
+				count = 20
+				add_district = district_city
+			}
+			while = {
+				count = 2
+				add_district = district_generator
+			}
+			while = {
+				count = 2
+				add_district = district_mining
+			}
+			while = {
+				count = 2
+				add_district = district_farming
+			}
+			add_building = building_ancient_palace
+			add_building = building_planetary_shield_system_generator
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge
 			
+			while = {
+				count = 57
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			while = {
+				count = 13
+				create_pop = {
+					species = event_target:fe_servants
+				}
+			}
 		}
 		
 		change_orbit = @base_moon_distance

@@ -179,9 +179,7 @@ country_event = {
 					}
 					any_owned_pop = {
 						is_robot_pop = yes
-						has_trait = trait_robotic_3
 					}
-					can_set_robot_policy = yes
 					OR = {
 						has_policy_flag = ai_outlawed
 						has_policy_flag = ai_servitude

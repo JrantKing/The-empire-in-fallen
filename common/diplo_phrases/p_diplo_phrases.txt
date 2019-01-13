@@ -1,47 +1,58 @@
 greetings = {
-	09_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+	01_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
 		trigger = {
 			has_country_flag = fallen_empire_6
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_patronizing_to = FROM
-			FROM = { species_portrait = human }
+			FROM = { is_same_species = root }
 		}
 	}
-	10_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+	02_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
 		trigger = {
 			has_country_flag = fallen_empire_6
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_patronizing_to = FROM
-			FROM = { 
-				species_portrait = human
-				is_species_class = HUM
-				has_country_flag = human_2
+			FROM = { is_same_species = root }
+		}
+	}
+	03_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+		}
+	}
+	04_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+		}
+	}
+	05_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			OR = {
+				is_patronizing_to = FROM
+				FROM = {
+					has_technology = tech_synthetic_workers
+					any_owned_pop = {
+						is_robot_pop = yes
+					}
+					OR = {
+						has_policy_flag = ai_outlawed
+						has_policy_flag = ai_servitude
+					}
+				}
 			}
 		}
 	}
-	11_FALLEN_EMPIRE_PATRONIZING_GREETING = {
-		trigger = {
-			has_country_flag = fallen_empire_6
-			is_country_type = fallen_empire
-			NOT = { is_at_war_with = FROM }
-			is_patronizing_to = FROM
-		}
-	}
-	12_FALLEN_EMPIRE_PATRONIZING_GREETING = {
-		trigger = {
-			has_country_flag = fallen_empire_6
-			is_country_type = fallen_empire
-			NOT = { is_at_war_with = FROM }
-			is_patronizing_to = FROM
-			FROM = {
-				species_portrait = human
-				is_species_class = HUM
-			}
-		}
-	}
-	09_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+	01_FALLEN_EMPIRE_DISMISSIVE_GREETING_teif = {
 		trigger = {
 			has_country_flag = fallen_empire_6
 			is_country_type = fallen_empire
@@ -49,10 +60,106 @@ greetings = {
 			is_dismissive_to = FROM
 			FROM = {
 				NOT = {
-					species_portrait = human
-					is_species_class = HUM
+					is_same_species = root
 				}
 			}
+		}
+	}
+	02_FALLEN_EMPIRE_DISMISSIVE_GREETING_teif = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+			FROM = { has_authority = auth_corporate }
+		}
+	}
+	03_FALLEN_EMPIRE_DISMISSIVE_GREETING_teif = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+			FROM = { NOT = { is_same_species = root } }
+		}
+	}
+	01_FALLEN_EMPIRE_ANGRY_GREETING_teif = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			is_angry_to = FROM
+			FROM = {
+				OR = {
+					has_authority = auth_imperial
+					has_authority = auth_dictatorial
+				}
+				NOT = { is_same_species = root }
+			}
+		}
+	}
+	01_FALLEN_EMPIRE_GREETING_teif = {
+		trigger = {
+			has_country_flag = fallen_empire_6
+			is_country_type = fallen_empire
+			NOT = { is_angry_to = FROM }
+		}
+	}
+	
+	JR_ARROGANT_GREETING_01_teif = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			has_modifier = revenge_craze
+			FROM = { NOT = { has_authority = auth_machine_intelligence } }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	JR_MECH_ARROGANT_GREETING_01_teif = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			has_modifier = revenge_craze
+			FROM = { has_authority = auth_machine_intelligence }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	JR_BELLIGERENT_GREETING_01_teif = {
+		weight = {
+			weight = 3
+		}
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			has_modifier = revenge_craze
+			FROM = { NOT = { has_authority = auth_machine_intelligence } }
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}
+	
+	01_AWAKENED_EMPIRE_WAR_GREETING_teif = {
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			has_modifier = revenge_craze
+			is_at_war_with = FROM
+		}
+	}
+	02_AWAKENED_EMPIRE_WAR_GREETING_teif = {
+		trigger = {
+			is_country_type = awakened_fallen_empire
+			has_modifier = revenge_craze
+			is_at_war_with = FROM
 		}
 	}
 # Benevolent Interventionists

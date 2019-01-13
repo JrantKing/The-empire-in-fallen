@@ -108,6 +108,10 @@ shielded_researcher = {
 			factor = 5
 			has_job = shielded_researcher
 		}
+		modifier = {
+			factor = 10
+			is_same_species = owner
+		}
 	}
 }
 

@@ -17,6 +17,7 @@ country_event = {
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_1
 		set_crisis_stage_1 = yes
+		set_global_flag = ed_happen
 		create_country = {
 			name = "NAME_Portal_Holder_1"
 			type = portal_holder
@@ -108,6 +109,7 @@ country_event = {
 						}
 						set_graphical_culture = extra_dimensional_01
 						save_event_target_as = extradimensionals
+						save_global_event_target_as = crisis_check_ed1
 					}
 				}
 				event_target:extradimensionals = {
@@ -329,6 +331,7 @@ country_event = {
 						}
 						save_event_target_as = extradimensional_hunters
 						set_graphical_culture = extra_dimensional_02
+						save_global_event_target_as = crisis_check_ed2
 					}
 				}
 				event_target:extradimensional_hunters = {
@@ -669,6 +672,7 @@ country_event = {
 						}
 						set_graphical_culture = extra_dimensional_03
 						save_event_target_as = extradimensional_trespassers
+						save_global_event_target_as = crisis_check_ed3
 					}
 				}
 				event_target:extradimensional_trespassers = {
@@ -882,6 +886,108 @@ country_event = {
 				}
 				country_event = { id = crisis.1217 }
 			}
+		}
+	}
+}
+
+# Destroy EXDs if no portals and only 5 or less ships remain
+# On yearly pulse
+event = {
+	id = crisis.1254
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			OR = {
+				is_country_type = extradimensional
+				is_country_type = extradimensional_2
+				is_country_type = extradimensional_3
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_country = {
+					OR = {
+						is_country_type = extradimensional
+						is_country_type = extradimensional_2
+						is_country_type = extradimensional_3
+					}
+					OR = {
+						AND = {
+							has_global_flag = extradimensional_first_portal_destroyed
+							NOT = { has_global_flag = extradimensional_second_portal }
+							NOT = { has_global_flag = extradimensional_third_portal }
+						}
+						AND = {
+							has_global_flag = extradimensional_first_portal_destroyed
+							has_global_flag = extradimensional_second_portal_destroyed
+							NOT = { has_global_flag = extradimensional_third_portal }
+						}
+						AND = {
+							has_global_flag = extradimensional_first_portal_destroyed
+							has_global_flag = extradimensional_second_portal_destroyed
+							has_global_flag = extradimensional_third_portal_destroyed
+						}
+					}
+
+					num_ships < 6
+
+					NOR = {
+						any_owned_ship = { is_ship_size = dimensional_portal_ed }
+						any_country = {
+							AND = {
+								is_country_type = portal_holder
+								any_owned_ship = { is_ship_size = dimensional_portal_ed }
+							}
+						}
+					}
+
+					NOT = {
+						any_system = {
+							any_system_planet = {
+								controller = {
+									OR = {
+										is_country_type = extradimensional
+										is_country_type = extradimensional_2
+										is_country_type = extradimensional_3
+									}
+								}
+							}
+						}
+					}
+
+					NOT = {
+						any_system = {
+							any_system_planet = {
+								owner = {
+									OR = {
+										is_country_type = extradimensional
+										is_country_type = extradimensional_2
+										is_country_type = extradimensional_3
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = extradimensional
+						is_country_type = extradimensional_2
+						is_country_type = extradimensional_3
+					}
+				}
+				destroy_country = yes
+			}
+			check_crisis_exists = yes
 		}
 	}
 }

@@ -1,32 +1,7 @@
-namespace = sdefine
-
-planet_event = {
-	id = sdefine.1
-	title = ""
-	desc = ""	
-	hide_window = yes
-	trigger = {
-		OR = {
-			has_planet_flag = pringworld_1
-			has_planet_flag = pringworld_2
-		}
-	}
-	is_triggered_only = yes
-	immediate = {
-		change_pc = "pc_ringworld_habitable"
-		clear_blockers = yes
-		while = {
-			count = 15
-			random_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }			
-				set_blocker = tb_ancient_ruins
-			}
-		}
-	}
-}
+namespace = setup_planet_name
 
 event = {
-	id = sdefine.2
+	id = setup_planet_name.0
 	title = ""
 	desc = ""	
 	hide_window = yes

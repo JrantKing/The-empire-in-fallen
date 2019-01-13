@@ -9,9 +9,6 @@ decision_planet_size = {
 			minerals = 5000
 		}
 	}
-	modifier = {
-		
-	}
 	
 	potential = {	
 		is_ringworld = no
@@ -74,10 +71,6 @@ decision_planet_size_add = {
 		cost = {
 			energy = 1000
 		}
-	}
-	
-	modifier = {
-		
 	}
 	
 	potential = {	

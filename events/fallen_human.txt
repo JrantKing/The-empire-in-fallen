@@ -10,6 +10,7 @@ country_event = {
 		NOT = { has_country_flag = changespecies }
 	}
 	immediate = {
+		set_name = "地球联合国"
 		every_country = {
 			limit = {
 				has_country_flag = fallen_empire_6
@@ -22,15 +23,6 @@ country_event = {
 					set_friendly = yes
 				}					
 			}
-			#create_ambient_object = {
-			#	type = planet_shield
-			#	scale = 0.13
-			#	location = event_target:star_pressure_controller
-			#	use_3d_location = yes
-			#	entity_face_object = star
-			#	entity_scale_to_size = yes
-			#	target = event_target:star_pressure_controller
-			#}
 		}
 		random_planet = {
 			limit = {
@@ -88,21 +80,6 @@ country_event = {
 			limit = { is_robot_pop = no }
 			change_species = event_target:fallen_human_pop_species
 		}
-		every_owned_pop = {
-			limit = { is_robot_pop = yes }
-			modify_species = {
-				species = this
-				add_trait = trait_robot_power_drills
-			}
-			modify_species = {
-				species = this
-				add_trait = trait_robot_efficient_processors
-			}
-			modify_species = {
-				species = this
-				add_trait = trait_robot_mass_produced
-			}
-		}
 		every_owned_army = {
 			limit = {
 				exists = species
@@ -123,21 +100,22 @@ country_event = {
 		}
 		change_dominant_species = { species = event_target:fallen_human_pop_species }
 		create_leader = {
-			type = ruler
 			name = "谢尔盖·狄马尼斯"
 			species = owner_species
+			gender = male
+			type = ruler
+			skill = 10
 			set_age = 20
+			traits = {
+				trait = trait_ruler_champion_of_the_people
+				trait = trait_ruler_industrialist
+				trait = trait_ruler_space_miner
+			}
 		}
-		last_created_leader = {
-			set_is_female = no
-		}
+		#last_created_leader = {
+		#	set_is_female = no
+		#}
 		set_leader = last_created_leader
-		every_owned_leader = {
-			limit = { leader_class = ruler }
-			add_trait = trait_ruler_champion_of_the_people
-			add_trait = trait_ruler_industrialist
-			add_trait = trait_ruler_space_miner
-		}
 		random_planet = {
 			limit = {
 				has_planet_flag = planet_earth_fallen
@@ -149,15 +127,38 @@ country_event = {
 			limit = { planet_size < 25 }
 			set_planet_size = 25
 			change_pc = pc_gaia
+			while = {
+				count = 16
+				add_district = district_city
+			}
+		}
+		every_owned_planet = {
+			limit = {
+				has_building = building_planetary_shield_system_generator
+				NOT = { has_planet_flag = planet_earth_fallen }
+			}
+			change_pc = { class = pc_shielded_gaia inherit_entity = yes }
 		}
 		country_event = { id = fallenhuman.1 }
+		if = {
+			limit = {
+				any_system_within_border = { is_star_class = sc_black_hole }
+			}
+			random_system_within_border = {
+				limit = { is_star_class = sc_black_hole }
+				spawn_megastructure = {
+					type = "matter_decompressor_4"
+					owner = root
+					graphical_culture = root
+					location = star
+				}
+			}
+		}
 	}
 }
 
 country_event = {
 	id = fallenhuman.1
-	title = ""
-	desc = ""	
 	hide_window = yes
 	is_triggered_only = yes
 	
@@ -202,10 +203,6 @@ country_event = {
 					
 				}
 				any_owned_pop = {
-					NOR = { 
-						has_trait = trait_robotic_3
-						has_trait = trait_psionic
-					}
 					species_portrait = human
 				}
 			}
@@ -272,6 +269,7 @@ country_event = {
 			modify_species = {
 				species = this
 				base = event_target:fallen_human_pop
+				remove_trait = trait_pc_shielded_gaia_preference
 			}
 		}
 	}
@@ -308,6 +306,7 @@ country_event = {
 			modify_species = {
 				species = this
 				base = event_target:fallen_human_pop
+				remove_trait = trait_pc_shielded_gaia_preference
 			}
 		}
 	}
@@ -339,7 +338,6 @@ country_event = {
 		hidden_effect = {
 			event_target:playerhuman_machine = {
 				create_species = {
-					#is_mod = yes
 					name = this
 					namelist = this
 					plural = this
@@ -350,10 +348,10 @@ country_event = {
 				}
 			}
 			modify_species = {
-				#species = event_target:playerhuman_machine
 				species = last_created_species
 				base = event_target:fallen_human_pop
 				change_scoped_species = no
+				remove_trait = trait_pc_shielded_gaia_preference
 			}
 			setup_species_machine = yes
 			every_owned_pop = {
@@ -392,6 +390,7 @@ country_event = {
 				species = event_target:temp_species
 				base = event_target:fallen_human_pop
 				change_scoped_species = no
+				remove_trait = trait_pc_shielded_gaia_preference
 			}
 			setup_species_machine = yes
 			every_owned_pop = {
@@ -408,7 +407,7 @@ country_event = {
 	}
 }
 
-country_event = {
+event = {
 	id = fallenhuman.4
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -423,11 +422,16 @@ country_event = {
 			limit = { NOT = { exists = event_target:fallen_empire_6 } }
 			create_species = {
 				name = "PRESCRIPTED_species_name_humans1"
-				namelist = this
+				namelist = HUMAN1
 				plural = "PRESCRIPTED_species_plural_humans1"
 				class = HUM
 				portrait = human
-				traits = this
+				traits = {
+					trait = "trait_pc_continental_preference"
+					trait = "trait_adaptive"
+					trait = "trait_nomadic"
+					trait = "trait_wasteful"
+				}
 				effect = { save_global_event_target_as = no_unoe_human_species }
 			}
 			every_country = {
@@ -436,24 +440,33 @@ country_event = {
 					NOR = { has_authority = auth_machine_intelligence has_valid_civic = civic_syncretic_evolution }
 					is_ai = yes
 					species_portrait = human
+					is_species_class = NEWMAN
 				}
-				every_owned_pop = { change_species = event_target:no_unoe_human_species }
-				change_dominant_species = { species = event_target:no_unoe_human_species }
+				create_species = {
+					name = "PRESCRIPTED_species_name_humans1"
+					namelist = HUMAN1
+					plural = "PRESCRIPTED_species_plural_humans1"
+					class = HUM
+					portrait = human
+					traits = this
+					effect = { save_event_target_as = temp_human_species }
+				}
+				modify_species = {
+					species = event_target:temp_human_species
+					base = event_target:no_unoe_human_species
+				}
+				every_owned_pop = { change_species = last_created_species }
+				change_dominant_species = { species = last_created_species }
 				every_owned_leader = {
-					change_species = event_target:no_unoe_human_species
+					change_species = last_created_species
 				}
 				every_pool_leader = {
-					change_species = event_target:no_unoe_human_species
+					change_species = last_created_species
 				}
-			}
-			every_country = {
-				limit = {
-					OR = { is_country_type = primitive is_country_type = default is_country_type = fallen_empire }
-					OR = { has_authority = auth_machine_intelligence has_valid_civic = civic_syncretic_evolution }
-					is_ai = yes
-					any_owned_pop = { species_portrait = human }
+				if = {
+					limit = { is_country_type = primitive }
+					set_name = "[This.GetSpeciesName]文明"
 				}
-				every_owned_pop = { limit = { species_portrait = human } change_species = event_target:no_unoe_human_species }
 			}
 		}
 	}

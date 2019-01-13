@@ -17,6 +17,7 @@ country_event = {
 	trigger = {
 		is_ai = yes
 		is_country_type = fallen_empire
+		NOT = { has_country_flag = fallen_empire_06 }
 		OR = {
 			# Fragged a holy world
 			has_country_flag = holy_world_killed
@@ -208,13 +209,13 @@ country_event = {
 					civic = civic_revanchist_fervor
 					civic = civic_ancient_caches_of_technology
 					civic = civic_idealistic_foundation
-					civic = civic_shared_burden
+					civic = civic_beacon_of_liberty
 				}
 			}
-			set_name = "NAME_United_Nations_of_Earth"
+			set_name = "地球联合国"
 		}
 		if = {
-			limit = { has_ethic = ethic_fanatic_egalitarian NOT = { has_country_flag = fallen_empire_06 } }
+			limit = { has_ethic = ethic_fanatic_egalitarian has_country_flag = fallen_empire_07 }
 			change_government = {
 				civics = {
 					civic = civic_revanchist_fervor
@@ -244,6 +245,7 @@ country_event = {
 				surveyor = ROOT
 			}
 		}
+		country_event = { id = startfix.3 }
 
 		# Changing country type resets resources, so give them full stores
 		add_resource = { minerals = 50000 }

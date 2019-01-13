@@ -1,0 +1,188 @@
+namespace = UNE_after_being_attacked
+
+planet_event = {
+	id = UNE_after_being_attacked.0
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				exists = owner
+				owner = {
+					is_country_type = fallen_empire
+					has_country_flag = fallen_empire_6
+				}
+			}
+			from.owner = { save_event_target_as = attacker }
+			every_country = {
+				limit = {
+					is_ai = no
+					NOT = { is_same_value = from.owner }
+				}
+				country_event = { id = UNE_after_being_attacked.3 }
+			}
+			owner = { country_event = { id = UNE_after_being_attacked.1 } }
+			from.owner = {
+				if = {
+					limit = { is_ai = no }
+					country_event = { id = UNE_after_being_attacked.2 }
+				}
+			}
+		}
+		set_planet_flag = be_attacked
+	}
+}
+
+country_event = {
+	id = UNE_after_being_attacked.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		change_country_flag = { icon = { category = human file = flag_human_9.dds } background = { category = backgrounds file = 00_solid.dds } colors = { red black } }
+		every_system_within_border = {
+			every_fleet_in_system = {
+				limit = { owner = { is_at_war_with = root } }
+				set_location = {
+					target = owner.capital_star
+				}
+			}
+		}
+		set_war_goal = { type = wg_fe_attacked target = root enemy = event_target:attacker }
+		add_modifier = { modifier = "revenge_craze" days = -1 }
+		set_country_type = awakened_fallen_empire
+		change_government = {
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+				civic = civic_idealistic_foundation
+				civic = civic_beacon_of_liberty
+			}
+		}
+		random_owned_pop = {
+			limit = { is_robot_pop = yes }
+			species = {
+				set_citizenship_type = {
+					type = citizenship_full
+					country = root
+				}
+				set_living_standard = {
+					type = living_standard_utopian
+					country = root
+				}
+			}
+		}
+		set_name = "地球联合国"
+		add_resource = {
+			minerals = 9999999
+			energy = 9999999	
+			alloys = 9999999
+			food = 9999999
+			influence = 9999999
+			rare_crystals = 9999999
+			exotic_gases = 9999999
+			volatile_motes = 9999999
+			sr_dark_matter = 9999999
+			sr_living_metal = 9999999
+			sr_zro = 9999999
+			nanites = 9999999
+		}
+		every_owned_fleet = {
+			if = {
+				limit = { exists = leader }
+				leader = { unassign_leader = this }
+			}
+		}
+		every_owned_ship = { limit = { NOR = { is_ship_class = shipclass_starbase is_ship_class = shipclass_military_station } } delete_ship = this }
+		country_event = { id = startfix.3 }
+		create_sol_fallen_empire_starting_navy = yes
+		while = {
+			count = 45
+			create_fallen_empire_fleet = yes
+		}
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				NOT = { has_communications = root }
+			}
+
+			establish_communications_no_message = root
+			root = { save_event_target_as = contact_empire }
+			country_event = { id = action.1 }
+		}
+	}
+}
+
+country_event = {
+	id = UNE_after_being_attacked.2
+	title = UNE_after_being_attacked.2.name
+	desc = {
+		trigger = { is_homicidal = yes }
+		text = UNE_after_being_attacked.2.desc.a
+	}
+	desc = {
+		trigger = { is_homicidal = no }
+		text = UNE_after_being_attacked.2.desc.b
+	}
+	picture_event_data = {
+		portrait = event_target:fallen_empire_6
+		planet_background = event_target:fallen_empire_6
+		graphical_culture = event_target:fallen_empire_6
+		city_level = event_target:fallen_empire_6
+		room = event_target:fallen_empire_6.ruler
+	}
+	show_sound = event_super_explosion
+	is_triggered_only = yes
+	diplomatic = yes
+	option = {
+		name = "OOPS"
+	}
+	option = {
+		name = "TERRIBLE"
+	}
+	option = {
+		name = "DISCONCERTING"
+	}
+	option = {
+		name = "PRAISE"
+	}
+}
+
+country_event = {
+	id = UNE_after_being_attacked.3
+	title = UNE_after_being_attacked.2.name
+	desc = {
+		trigger = { event_target:attacker = { is_homicidal = yes } }
+		text = UNE_after_being_attacked.2.desc.a
+	}
+	desc = {
+		trigger = { event_target:attacker = { is_homicidal = no } }
+		text = UNE_after_being_attacked.2.desc.b
+	}
+	picture_event_data = {
+		portrait = event_target:fallen_empire_6
+		planet_background = event_target:fallen_empire_6
+		graphical_culture = event_target:fallen_empire_6
+		city_level = event_target:fallen_empire_6
+		room = event_target:fallen_empire_6.ruler
+	}
+	show_sound = event_super_explosion
+	is_triggered_only = yes
+	diplomatic = yes
+	option = {
+		name = "OOPS"
+	}
+	option = {
+		name = "TERRIBLE"
+	}
+	option = {
+		name = "DISCONCERTING"
+	}
+	option = {
+		name = "PRAISE"
+	}
+}

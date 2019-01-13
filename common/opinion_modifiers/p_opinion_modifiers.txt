@@ -1,3 +1,16 @@
+triggered_opinion_revenge_craze = {
+	trigger = {
+		has_modifier = revenge_craze
+		from = {
+			NOT = { is_same_species = root }
+		}
+	}
+
+	opinion = {
+		base = -200
+	}
+}
+
 triggered_opinion_synthetics_normal_fix = {
 	trigger = {
 		has_ethic = ethic_spiritualist
