@@ -1,0 +1,9 @@
+﻿l_simp_chinese:
+ UTOPIAN_ABUNDANCE_POP_EFFECTS:0 "£pops£$POPS$：§Y+20%§!£consumer_goods£维护费，$20_HAPPINESS$，£job£产出§G+10%§!"
+ add_research_options_galactic_wonders_utopia_megacorp:0 "§H解锁决议：§!$decision_planet_planetary_shield$\n获得科研选项：\n£engineering_research£§Y$tech_ring_world$§!\n£physics_research£§Y$tech_matter_decompressor$§!\n£physics_research£ §Y$tech_dyson_sphere$§!\n环形世界、物质解压器和戴森球是极为强力的巨构建筑。"
+ FTL_MAGNET:0 "超光速干扰器"
+ COMPONENT_FTL_MAGNET_TIP:0 "\n§H超光速拦截器§!\n在途的敌舰队将被强制牵引至此空间站附近空域"
+ civic_tooltip_machine_servitor_effects:0 "开始游戏时，拥有§Y8§!个有机体£pop£人口，其公民权为 £job_bio_trophy£ §Y$citizenship_organic_trophy$§!并拥有§Y$living_standard_organic_trophy$§!的生活标准\n可以建造£building£ §Y$building_organic_sanctuary$§!建筑，使活体陈设生产£unity §Y凝聚力§!，取代普通机械帝国的£building£ §Y$building_simulation_1$§!建筑"
+ SURVEY_ORDER_SYSTEM_DESC:0 "调查该星系内的所有天体。"
+ Ethics:0 "$ETHICS$"
+ Civics:0 "$GOVERNMENT_CIVICS$"

@@ -87,7 +87,7 @@ utility_component_template = {
 	
 	modifier = {
 	}
-	
+		
 	prerequisites = { "tech_thrusters_1" }
 	component_set = "thruster_components"
 	size_restriction = { destroyer small_ship_fallen_empire }
@@ -206,6 +206,7 @@ utility_component_template = {
 		weight = 5
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = sr_dark_matter value <= 0 }
 		}
 	}
@@ -345,6 +346,7 @@ utility_component_template = {
 		weight = 5
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = sr_dark_matter value <= 0 }
 		}
 	}
@@ -454,7 +456,7 @@ utility_component_template = {
 	upgrades_to = "TITAN_SHIP_THRUSTER_5"
 	
 	ai_weight = {
-		weight = 3
+		weight = 4
 	}
 }
 
@@ -484,6 +486,144 @@ utility_component_template = {
 		weight = 5
 		modifier = {
 			factor = 0.0
+			is_country_type = default
+			has_monthly_income = { resource = sr_dark_matter value <= 0 }
+		}
+	}
+}
+
+utility_component_template = {
+	key = "COLOSSUS_SHIP_THRUSTER_1"
+	size = small
+	icon = "GFX_ship_part_thruster_1"
+	icon_frame = 1
+	power = @colossus_power_1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost1
+		}
+	}
+
+	modifier = {
+	}
+
+	prerequisites = { "tech_thrusters_1" }
+	component_set = "thruster_components"
+	size_restriction = { colossus juggernaut fe_colossus }
+	upgrades_to = "COLOSSUS_SHIP_THRUSTER_2"
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+utility_component_template = {
+	key = "COLOSSUS_SHIP_THRUSTER_2"
+	size = small
+	icon = "GFX_ship_part_thruster_2"
+	icon_frame = 1
+	power = @colossus_power_2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost2
+		}
+	}
+	
+	modifier = {
+		ship_base_speed_mult = 0.25
+	}
+		
+	prerequisites = { "tech_thrusters_2" }
+	component_set = "thruster_components"
+	size_restriction = { colossus juggernaut fe_colossus }
+	upgrades_to = "COLOSSUS_SHIP_THRUSTER_3"
+	
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "COLOSSUS_SHIP_THRUSTER_3"
+	size = small
+	icon = "GFX_ship_part_thruster_3"
+	icon_frame = 1
+	power = @colossus_power_3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost3
+		}
+	}
+	modifier = {
+		ship_base_speed_mult = 0.50
+	}
+
+	prerequisites = { "tech_thrusters_3" }
+	component_set = "thruster_components"
+	size_restriction = { colossus juggernaut fe_colossus }
+	upgrades_to = "COLOSSUS_SHIP_THRUSTER_4"
+	
+	ai_weight = {
+		weight = 3
+	}
+}
+
+utility_component_template = {
+	key = "COLOSSUS_SHIP_THRUSTER_4"
+	size = small
+	icon = "GFX_ship_part_thruster_4"
+	icon_frame = 1
+	power = @colossus_power_4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost4
+		}
+	}
+	modifier = {
+		ship_base_speed_mult = 0.75
+	}
+
+	prerequisites = { "tech_thrusters_4" }
+	component_set = "thruster_components"
+	size_restriction = { colossus juggernaut fe_colossus }
+	upgrades_to = "COLOSSUS_SHIP_THRUSTER_5"
+	
+	ai_weight = {
+		weight = 4
+	}
+}
+
+utility_component_template = {
+	key = "COLOSSUS_SHIP_THRUSTER_5"
+	size = small
+	icon = "GFX_ship_part_thruster_5"
+	icon_frame = 1
+	power = @colossus_power_5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost5
+			sr_dark_matter = 32
+		}
+	}
+	modifier = {
+		ship_base_speed_mult = 1.25
+	}
+
+	prerequisites = { "tech_dark_matter_propulsion" }
+	component_set = "thruster_components"
+	size_restriction = { colossus juggernaut fe_colossus }
+	
+	ai_weight = {
+		weight = 5
+
+		modifier = {
+			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = sr_dark_matter value <= 0 }
 		}
 	}

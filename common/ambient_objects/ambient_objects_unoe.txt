@@ -7,6 +7,13 @@ ambient_object = {
 	tooltip = "derelict_starbase_citadel_desc"
 	description = "derelict_starbase_citadel_desc"
 }
+
+ambient_object = {
+	name = "star_pressure_controller"
+	entity = "star_pressure_controller_entity_ambient_object"
+	selectable = no
+	show_name = no
+}
 # Ancient Battlefield
 ambient_object = {
 	name = "unoe_ancient_battlefield_object"

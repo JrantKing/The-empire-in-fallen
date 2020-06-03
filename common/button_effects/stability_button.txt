@@ -1,4 +1,73 @@
+open_agenda = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			fail_text = had_agenda_enter
+			exists = root
+			root = {
+				NOT = { has_country_flag = had_agenda_enter }
+			}
+		}
+		custom_tooltip = {
+			fail_text = not_has_agenda
+			exists = root
+			root = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				OR = {
+					has_authority = auth_oligarchic
+					has_authority = auth_dictatorial
+					has_authority = auth_imperial
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = main_agenda_desc
+		custom_tooltip = main_agenda_button
+		hidden_effect = {
+			set_country_flag = had_agenda_enter
+			country_event = { id = stability.995 }
+		}
+	}
+}
+
+open_agenda_icon = {
+	potential = { always = yes }
+	allow = {
+		custom_tooltip = {
+			fail_text = had_agenda_enter
+			exists = root
+			root = {
+				NOT = { has_country_flag = had_agenda_enter }
+			}
+		}
+		custom_tooltip = {
+			fail_text = not_has_agenda
+			exists = root
+			root = {
+				OR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+				OR = {
+					has_authority = auth_oligarchic
+					has_authority = auth_dictatorial
+					has_authority = auth_imperial
+					has_authority = auth_corporate
+				}
+			}
+		}
+	}
+}
+
 open_spy_orb = {
+	potential = { always = yes }
 	allow = {
 		if = {
 			limit = {
@@ -40,6 +109,7 @@ open_spy_orb = {
 }
 
 open_spy_orb_icon = {
+	potential = { always = yes }
 	allow = {
 		if = {
 			limit = {
@@ -73,6 +143,7 @@ open_spy_orb_icon = {
 }
 
 open_tile = {
+	potential = { always = yes }
 	allow = {
 		custom_tooltip = {
 			fail_text = had_tile_enter
@@ -91,6 +162,7 @@ open_tile = {
 }
 
 open_tile_icon = {
+	potential = { always = yes }
 	allow = {
 		custom_tooltip = {
 			fail_text = ""
@@ -101,6 +173,7 @@ open_tile_icon = {
 }
 
 open_stability = {
+	potential = { always = yes }
 	allow = {
 		custom_tooltip = {
 			fail_text = no_stability_button_fallen_empire
@@ -134,6 +207,7 @@ open_stability = {
 }
 
 open_stability_icon = {
+	potential = { always = yes }
 	allow = {
 		custom_tooltip = {
 			fail_text = ""
@@ -159,6 +233,7 @@ open_stability_icon = {
 }
 
 open_stability_button = {
+	potential = { always = yes }
 	allow = {
 		custom_tooltip = {
 			fail_text = ""
@@ -167,6 +242,7 @@ open_stability_button = {
 	}
 }
 stability_button_effect = {
+	potential = { always = yes }
 	allow = {
 		if = {
 			limit = {
@@ -316,6 +392,7 @@ stability_button_effect = {
 }
 
 increase_stability_button_effect = {
+	potential = { always = yes }
 	allow = {
 		if = {
 			limit = {
@@ -555,6 +632,7 @@ increase_stability_button_effect = {
 }
 
 display_stability_0 = {
+	allow = { always = yes }
 	potential = {
 		exists = root
 		root = {
@@ -569,6 +647,7 @@ display_stability_0 = {
 }
 
 display_stability_1 = {
+	allow = { always = yes }
 	potential = {
 		exists = root
 		root = {
@@ -583,6 +662,7 @@ display_stability_1 = {
 }
 
 display_stability_2 = {
+	allow = { always = yes }
 	potential = {
 		exists = root
 		root = {
@@ -597,6 +677,7 @@ display_stability_2 = {
 }
 
 display_stability_3 = {
+	allow = { always = yes }
 	potential = {
 		exists = root
 		root = {
@@ -611,6 +692,7 @@ display_stability_3 = {
 }
 
 display_stability_4 = {
+	allow = { always = yes }
 	potential = {
 		exists = root
 		root = {
@@ -625,6 +707,7 @@ display_stability_4 = {
 }
 
 display_stability_5 = {
+	allow = { always = yes }
 	potential = {
 		exists = root
 		root = {
@@ -639,6 +722,7 @@ display_stability_5 = {
 }
 
 display_stability_6 = {
+	allow = { always = yes }
 	potential = {
 		exists = root
 		root = {

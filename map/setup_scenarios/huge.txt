@@ -3,16 +3,17 @@ setup_scenario = {
 	priority = 4					#priority decides in which order the scenarios are listed
 	num_stars = 1000
 	radius = 450					#should be less than 500, preferably less than ~460
-	num_empires = { min = 0 max = 20 }	#limits player customization
-	num_empire_default = 13
+	num_empires = { min = 0 max = 30 }	#limits player customization
+	num_empire_default = 15
 	fallen_empire_default = 6
-	fallen_empire_max = 7
+	fallen_empire_max = 8
 	marauder_empire_default = 3
 	marauder_empire_max = 3
 	advanced_empire_default = 4
 	colonizable_planet_odds = 1.0
 	primitive_odds = 1.0
 	crisis_strength = 1.5
+	extra_crisis_strength = { 10 25 50 100 125 150 200 250 }
 	
 	cluster_count = {
 		method = one_every_x_empire

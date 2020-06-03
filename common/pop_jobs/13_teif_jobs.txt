@@ -1,51 +1,31 @@
-servant = {
-	category = worker
-	is_capped_by_modifier = no
-	building_icon = building_luxury_residence
-	clothes_texture_index = 2
-		
+fe_shielded_researcher = {
+	category = precursor
+	condition_string = RULER_JOB_TRIGGER
+	building_icon = building_planetary_shield_generator
+	clothes_texture_index = 1
+	icon = enforcer
+
 	possible = {
-		OR = {
-			can_take_servant_job = yes
-			has_trait = trait_robotic_machine
-		}
+		exists = owner
+		is_same_species = owner
 	}
 	
-	resources = {}
-	
-	triggered_pop_modifier = {
-		potential = {
-			is_organic_species = yes
-		}
-		pop_housing_usage_add = -0.5
+	resources = {
+		category = planet_enforcers
+		produces = {
+			physics_research = 5
+			engineering_research = 5
+			society_research = 5
+			influence = 1
+		}	
 	}
 	
 	planet_modifier = {
-		planet_amenities_add = 4
-	}	
-	
-	triggered_planet_modifier = {
-		potential = {
-			OR = {
-				has_trait = trait_robot_domestic_protocols
-				has_trait = trait_charismatic
-			}
-		}
-		modifier = {
-			planet_amenities_add = 1
-		}
+		planet_amenities_add = 10
 	}
-	triggered_planet_modifier = {
-		potential = {
-			has_trait = trait_repugnant
-		}
-		modifier = {
-			planet_amenities_add = -1
-		}
-	}	
-		
+	
 	weight = {
-		weight = @special_job_weight
+		weight = 1000
 	}
 }
 
@@ -112,38 +92,5 @@ shielded_researcher = {
 			factor = 10
 			is_same_species = owner
 		}
-	}
-}
-
-fe_hedonist_aw = {
-	#category = ruler
-	category = precursor
-	building_icon = building_hyper_entertainment_forum
-	clothes_texture_index = 2
-	icon = fe_hedonist
-	possible = {
-		hidden_trigger = { exists = owner }
-		owner = { 	
-			is_fallen_empire_spiritualist = no 
-			is_fallen_machine_empire = no
-			is_country_type = awakened_fallen_empire
-			NOT = { is_country_type = fallen_empire }
-		}
-		is_same_species = owner
-		NOR = {
-			has_trait = trait_mechanical
-			has_trait = trait_machine_unit
-		}
-	}
-	
-	resources = {
-		category = planet_jobs
-		produces = {
-			unity = 2
-		}
-	}
-	
-	weight = {
-		weight = 1000
 	}
 }

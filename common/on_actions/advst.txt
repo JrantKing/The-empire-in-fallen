@@ -1,0 +1,5 @@
+empire_init_capital_planet = {
+	events = {
+		advst.0
+	}
+}

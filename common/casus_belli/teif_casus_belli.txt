@@ -1,0 +1,24 @@
+cb_containment_gestalt = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		is_country_type = default
+		has_valid_civic = civic_gestalt_terminator
+	}
+	is_valid = {
+		#has_total_war_cb = yes
+		OR = {
+			is_subject = no
+			overlord = { NOT = { is_same_value = from } }
+		}
+		NOT = { is_overlord_to = FROM }
+		from = {
+			has_ethic = ethic_gestalt_consciousness
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_assimilator
+				has_valid_civic = civic_machine_terminator	
+			}
+		}
+	}
+}

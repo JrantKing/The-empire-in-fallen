@@ -2,25 +2,37 @@ ap_crisis_fighter = {
 	potential = {
 		is_ai = no
 		is_country_type = fallen_empire
-		NOT = {
+		NOR = {
 			has_ascension_perk = ap_crisis_fighter
 			has_ascension_perk = ap_rw_awakening
 		}
 	}
 	
-	possible = {	
-		has_global_flag = galactic_crisis_happened
-		is_country_type = fallen_empire
-		OR = {
-			has_ethic = ethic_fanatic_materialist
-			has_ethic = ethic_fanatic_xenophile
-			has_ethic = ethic_fanatic_egalitarian
-			has_ethic = ethic_fanatic_authoritarian
+	possible = {
+		custom_tooltip = {
+			fail_text = fail_text_galactic_crisis_happened	
+			has_global_flag = galactic_crisis_happened
+			is_country_type = fallen_empire
+		}
+		custom_tooltip = {
+			fail_text = any_crisis_defence_leader
+			OR = {
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
 		}
 	}
 	
 	on_enabled = {
 		set_country_type = awakened_fallen_empire
+		change_government = {
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+			}
+		}
 		hidden_effect = {
 			switch = {
 				trigger = has_ethic
@@ -54,68 +66,90 @@ ap_crisis_fighter = {
 				}
 			}
 			set_country_flag = guardians_of_the_galaxy
+			set_country_flag = ai_no_leave_fed
+			set_country_flag = ai_no_wars
 			every_country = {
 				limit = {
 					is_country_type = default
 				}
 				random_list = {
-					100 = { add_opinion_modifier = { who = root modifier = opinion_crisis_fighter } }
+					33 = { add_opinion_modifier = { who = root modifier = opinion_crisis_fighter } }
+					33 = { add_opinion_modifier = { who = root modifier = opinion_crisis_fighter_small } }
+					33 = { }
 				}
 			}
-			set_country_flag = sleepers_awake_first_sleeper
-			change_government = {
-				civics = {
-					civic = civic_revanchist_fervor
-					civic = civic_ancient_caches_of_technology
-				}
-			}
-			add_resource = { minerals = 50000 }
-			add_resource = { energy = 50000 }
-			add_resource = { influence = 1000 }
-			if = {
-				limit = { is_synthetic_empire = no }
-				add_resource = { food = 5000 }
-			}
-			country_event = { id = fallen_empires.13 }
-			if = {
-				limit = {
-					any_country = {
-						is_country_type = default
-						fleet_power > 50000
-					}
-				}
-				country_event = { id = fallen_empires.13 }
-			}
+			#set_country_flag = sleepers_awake_first_sleeper
+			add_awakened_fallen_empire_resources = yes
+			add_awakened_fallen_empire_fleet = yes
 			every_country = {
 				limit = {
 					OR = {
-						is_country_type = default
+						is_country_type = faction
+						is_country_type = adversary
+						is_country_type = neutral_faction
+						is_country_type = nomad
+						is_country_type = pirate
+						is_country_type = dormant_marauders
+						is_country_type = ruined_marauders
+						is_country_type = awakened_marauders
 						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+						is_country_type = rebel
+						is_country_type = ambient
+						is_country_type = enclave
+						is_country_type = shroud_spirits
+						is_country_type = tiyanki
+						is_country_type = amoeba
+						is_country_type = crystal
+						is_country_type = drone
+						is_country_type = cloud
+						is_country_type = portal_holder
+						is_country_type = feral_prethoryn
+						is_country_type = feral_prethoryn_infighting
+						is_country_type = marauder_raiders
+						is_country_type = vol
+						is_country_type = ratlings
+						is_country_type = nivlacs
+						is_country_type = enigmatic_cache
+						is_country_type = gray_goo
+						is_country_type = guardian
+						is_country_type = guardian_dragon
+						is_country_type = guardian_stellarite
+						is_country_type = guardian_wraith
+						is_country_type = guardian_hiver
+						is_country_type = guardian_horror
+						is_country_type = guardian_fortress
+						is_country_type = guardian_dreadnought
+						is_country_type = guardian_sphere
+						is_country_type = guardian_scavenger_bot
+						is_country_type = guardian_elderly_tiyanki
+						is_country_type = ldragon_country
+						is_country_type = guardian_hatchling
+						is_country_type = prikki
+						is_country_type = caravaneer_home
+						is_country_type = caravaneer_fleet
 					}
 					NOT = { has_communications = root }
 				}
-
 				establish_communications_no_message = root
-				root = { save_event_target_as = contact_empire }
-				country_event = { id = action.1 }
 			}
 			#country_event = { id = fallen_empires_awakening.7 }
 			if = {
 				limit = { is_overlord = yes }
 				country_event = { id = fallen_empires_awakening.8 }
 			}
-			every_planet = {
-				limit = { 	
-					is_surveyed = {
-						who = ROOT
-						status = no
-					}
-				}
-				surveyed = {
-					set_surveyed = yes
-					surveyor = ROOT
-				}
-			}
+			# every_planet = {
+			# 	limit = { 	
+			# 		is_surveyed = {
+			# 			who = ROOT
+			# 			status = no
+			# 		}
+			# 	}
+			# 	surveyed = {
+			# 		set_surveyed = yes
+			# 		surveyor = ROOT
+			# 	}
+			# }
 			every_country = {
 				limit = {
 					is_ai = no
@@ -132,6 +166,7 @@ ap_crisis_fighter = {
 		damage_vs_country_type_extradimensional_2_mult = 0.5
 		damage_vs_country_type_extradimensional_3_mult = 0.5
 		damage_vs_country_type_ai_empire_mult = 0.5
+		damage_vs_country_type_gray_goo_mult = 0.5
 	}
 	
 	ai_weight = {
@@ -143,23 +178,43 @@ ap_rw_awakening = {
 	potential = {
 		is_ai = no
 		is_country_type = fallen_empire
-		NOT = {
+		NOR = {
 			has_ascension_perk = ap_rw_awakening
 			has_ascension_perk = ap_crisis_fighter
 		}
 	}
 	
-	possible = {	
-		years_passed > 100
-		is_country_type = fallen_empire
-		is_at_war = no
-		fleet_power > 40000
-		any_country = {
-			is_country_type = default
+	possible = {
+		custom_tooltip = {
+			fail_text = end_game_years_passed
 			OR = {
-				fleet_power > 70000
-				any_owned_planet = {
-					has_planet_flag = fallen_empire_world
+				end_game_years_passed >= 0
+				any_country = {
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = not_at_war_military
+			is_country_type = fallen_empire
+			is_at_war = no
+			fleet_power > 60000
+		}
+		custom_tooltip = {
+			fail_text = default_empire_growing_too_strong
+			any_country = {
+				is_country_type = default
+				OR = {
+					fleet_power > 70000
+					AND = {
+						has_federation = yes
+						federation = {
+							fleet_power > 90000
+						}
+					}
+					any_owned_planet = {
+						has_planet_flag = fallen_empire_world
+					}
 				}
 			}
 		}
@@ -167,6 +222,12 @@ ap_rw_awakening = {
 	
 	on_enabled = {
 		set_country_type = awakened_fallen_empire
+		change_government = {
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+			}
+		}
 		hidden_effect = {
 			switch = {
 				trigger = has_ethic
@@ -214,42 +275,59 @@ ap_rw_awakening = {
 				}
 			}
 			set_country_flag = sleepers_awake_first_sleeper
-			change_government = {
-				civics = {
-					civic = civic_revanchist_fervor
-					civic = civic_ancient_caches_of_technology
-				}
-			}
-			add_resource = { minerals = 50000 }
-			add_resource = { energy = 50000 }
-			add_resource = { influence = 1000 }
-			if = {
-				limit = { is_synthetic_empire = no }
-				add_resource = { food = 5000 }
-			}
-			country_event = { id = fallen_empires.13 }
-			leave_alliance = { override_requirements = yes }
-			if = {
-				limit = {
-					any_country = {
-						is_country_type = default
-						fleet_power > 50000
-					}
-				}
-				country_event = { id = fallen_empires.13 }
-			}
+			add_awakened_fallen_empire_resources = yes
+			add_awakened_fallen_empire_fleet = yes
 			every_country = {
 				limit = {
 					OR = {
-						is_country_type = default
+						is_country_type = faction
+						is_country_type = adversary
+						is_country_type = neutral_faction
+						is_country_type = nomad
+						is_country_type = pirate
+						is_country_type = dormant_marauders
+						is_country_type = ruined_marauders
+						is_country_type = awakened_marauders
 						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+						is_country_type = rebel
+						is_country_type = ambient
+						is_country_type = enclave
+						is_country_type = shroud_spirits
+						is_country_type = tiyanki
+						is_country_type = amoeba
+						is_country_type = crystal
+						is_country_type = drone
+						is_country_type = cloud
+						is_country_type = portal_holder
+						is_country_type = feral_prethoryn
+						is_country_type = feral_prethoryn_infighting
+						is_country_type = marauder_raiders
+						is_country_type = vol
+						is_country_type = ratlings
+						is_country_type = nivlacs
+						is_country_type = enigmatic_cache
+						is_country_type = gray_goo
+						is_country_type = guardian
+						is_country_type = guardian_dragon
+						is_country_type = guardian_stellarite
+						is_country_type = guardian_wraith
+						is_country_type = guardian_hiver
+						is_country_type = guardian_horror
+						is_country_type = guardian_fortress
+						is_country_type = guardian_dreadnought
+						is_country_type = guardian_sphere
+						is_country_type = guardian_scavenger_bot
+						is_country_type = guardian_elderly_tiyanki
+						is_country_type = ldragon_country
+						is_country_type = guardian_hatchling
+						is_country_type = prikki
+						is_country_type = caravaneer_home
+						is_country_type = caravaneer_fleet
 					}
 					NOT = { has_communications = root }
 				}
-
 				establish_communications_no_message = root
-				root = { save_event_target_as = contact_empire }
-				country_event = { id = action.1 }
 			}
 			country_event = { id = fallen_empires_awakening.6 }
 			country_event = { id = fallen_empires_awakening.7 }

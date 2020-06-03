@@ -1,0 +1,373 @@
+spawn_fallen_system_1 = {
+	set_spawn_system_batch = begin
+	capital_scope = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			initializer = fallen_1
+		}
+		starbase = { fleet = { delete_fleet = this } }
+	}
+	event_target:fallen_1 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 45
+			max_orientation_angle = 45
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 135
+			max_orientation_angle = 135
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_1 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_1 }
+	event_target:fallen_1 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 225
+			max_orientation_angle = 225
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 315
+			max_orientation_angle = 315
+			initializer = fallen_col_2
+		}
+	}
+	random_list = {
+		1 = {
+			event_target:fallen_1 = {
+				spawn_system = {
+					min_distance >= 10
+					max_distance <= 10
+					min_orientation_angle = 90
+					max_orientation_angle = 90
+					initializer = fallen_1_2
+				}
+			}
+		}
+		1 = {
+			event_target:fallen_1 = {
+				spawn_system = {
+					min_distance >= 10
+					max_distance <= 10
+					min_orientation_angle = 180
+					max_orientation_angle = 180
+					initializer = fallen_1_2
+				}
+			}
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_1_2 to = event_target:fallen_1 }
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_1 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_1 }
+	set_spawn_system_batch = end
+}
+
+spawn_fallen_system_2 = {
+	set_spawn_system_batch = begin
+	capital_scope = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			initializer = fallen_2
+		}
+		starbase = { fleet = { delete_fleet = this } }
+	}
+	event_target:fallen_2 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 45
+			max_orientation_angle = 45
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 135
+			max_orientation_angle = 135
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_2 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_2 }
+	event_target:fallen_2 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 225
+			max_orientation_angle = 225
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 315
+			max_orientation_angle = 315
+			initializer = fallen_col_2
+		}
+	}
+	random_list = {
+		1 = {}
+		1 = {
+			random_list = {
+				1 = {
+				event_target:fallen_2 = {
+						spawn_system = {
+							min_distance >= 10
+							max_distance <= 10
+							min_orientation_angle = 90
+							max_orientation_angle = 90
+							initializer = fallen_shrouded
+						}
+					}
+				}
+				1 = {
+					event_target:fallen_2 = {
+						spawn_system = {
+							min_distance >= 10
+							max_distance <= 10
+							min_orientation_angle = 180
+							max_orientation_angle = 180
+							initializer = fallen_shrouded
+						}
+					}
+				}
+			}
+			add_hyperlane = { from = event_target:fallen_shrouded to = event_target:fallen_2 }
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_2 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_2 }
+	set_spawn_system_batch = end
+}
+
+spawn_fallen_system_3 = {
+	set_spawn_system_batch = begin
+	capital_scope = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			initializer = fallen_3
+		}
+		starbase = { fleet = { delete_fleet = this } }
+	}
+	event_target:fallen_3 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 45
+			max_orientation_angle = 45
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 135
+			max_orientation_angle = 135
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_3 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_3 }
+	event_target:fallen_3 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 225
+			max_orientation_angle = 225
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 315
+			max_orientation_angle = 315
+			initializer = fallen_col_2
+		}
+	}
+	#random_list = {
+	#	1 = {
+	#		event_target:fallen_3 = {
+	#			spawn_system = {
+	#				min_distance >= 10
+	#				max_distance <= 10
+	#				min_orientation_angle = 90
+	#				max_orientation_angle = 90
+	#				initializer = fallen_xeno_zoo
+	#			}
+	#		}
+	#	}
+	#	1 = {
+	#		event_target:fallen_3 = {
+	#			spawn_system = {
+	#				min_distance >= 10
+	#				max_distance <= 10
+	#				min_orientation_angle = 180
+	#				max_orientation_angle = 180
+	#				initializer = fallen_xeno_zoo
+	#			}
+	#		}
+	#	}
+	#}
+	#add_hyperlane = { from = event_target:fallen_xeno_zoo to = event_target:fallen_3 }
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_3 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_3 }
+	set_spawn_system_batch = end
+}
+
+spawn_fallen_system_4 = {
+	set_spawn_system_batch = begin
+	capital_scope = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			initializer = fallen_4
+		}
+		starbase = { fleet = { delete_fleet = this } }
+	}
+	event_target:fallen_4 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 45
+			max_orientation_angle = 45
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 135
+			max_orientation_angle = 135
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_4 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_4 }
+	event_target:fallen_4 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 225
+			max_orientation_angle = 225
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 315
+			max_orientation_angle = 315
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_4 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_4 }
+	set_spawn_system_batch = end
+}
+
+spawn_fallen_system_5 = {
+	set_spawn_system_batch = begin
+	capital_scope = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			initializer = fallen_5
+		}
+		starbase = { fleet = { delete_fleet = this } }
+	}
+	event_target:fallen_5 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 45
+			max_orientation_angle = 45
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 135
+			max_orientation_angle = 135
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_5 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_5 }
+	event_target:fallen_5 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 225
+			max_orientation_angle = 225
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 315
+			max_orientation_angle = 315
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_5 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_5 }
+	set_spawn_system_batch = end
+}
+
+spawn_fallen_system_6 = {
+	set_spawn_system_batch = begin
+	capital_scope = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			initializer = fallen_6
+		}
+		starbase = { fleet = { delete_fleet = this } }
+	}
+	event_target:fallen_6 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 45
+			max_orientation_angle = 45
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 135
+			max_orientation_angle = 135
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_6 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_6 }
+	event_target:fallen_6 = {
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 225
+			max_orientation_angle = 225
+			initializer = fallen_col_1
+		}
+		spawn_system = {
+			min_distance >= 10
+			max_distance <= 10
+			min_orientation_angle = 315
+			max_orientation_angle = 315
+			initializer = fallen_col_2
+		}
+	}
+	add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_6 }
+	add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_6 }
+	set_spawn_system_batch = end
+}

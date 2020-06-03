@@ -1,0 +1,22 @@
+namespace = fallen_communications
+
+ship_event = {
+    id = fallen_communications.0
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        owner = { is_country_type = default }
+        from.owner ={
+            is_fallen_empire = yes
+            NOT = { has_established_contact = root.owner }
+        }
+    }
+
+    immediate = {
+        from.owner = { save_event_target_as = contact_empire }
+        owner = {
+            establish_communications_no_message = event_target:contact_empire
+            country_event = { id = action.1 }
+        }
+    }
+}

@@ -1,0 +1,469 @@
+living_standard_deassimilation = {
+	token = living_standard_deassimilation
+	name = living_standard_deassimilation
+
+	pop_modifier = {}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		has_trait = trait_hive_mind
+		from = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			OR = {
+				has_ascension_perk = ap_evolutionary_mastery
+				has_modifier = civic_evolutionary_mastery
+			}
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+living_standard_ego_assimilation = {
+	token = living_standard_ego_assimilation
+	name = living_standard_ego_assimilation
+
+	pop_modifier = {
+		pop_happiness = -0.50
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		from = {
+			OR = {
+				AND = {
+					has_authority = auth_hive_mind
+					OR = {
+						has_ascension_perk = ap_evolutionary_mastery
+						has_modifier = civic_evolutionary_mastery
+					}
+					NOT = { has_civic = civic_hive_devouring_swarm }
+				}
+				AND = {
+					has_authority = auth_machine_intelligence
+					has_valid_civic = civic_machine_assimilator
+				}
+			}
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+living_standard_psi_assimilation = {
+	token = living_standard_psi_assimilation
+	name = living_standard_psi_assimilation
+
+	pop_modifier = {
+		pop_happiness = -0.25
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		from = {
+			OR = {
+				has_ascension_perk = ap_transcendence
+				has_country_flag = civic_transcendence
+			}
+		}
+		NOR = { has_trait = trait_machine_unit has_trait = trait_mechanical }
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+living_standard_utopian = {
+	token = living_standard_utopian
+	name = living_standard_utopian
+	
+	triggered_pop_modifier = {
+		potential = { 
+			NAND = {
+				exists = owner
+				owner = { has_deficit = consumer_goods }			
+			}
+		}
+		pop_happiness = 0.20
+		planet_pops_consumer_goods_upkeep_mult = 0.2
+		planet_jobs_produces_mult = 0.1
+	}
+	
+	potential = {
+		exists = from
+		from = {
+			NOR = {
+				is_gestalt = yes
+				is_authoritarian = yes
+			}
+		}
+		NOR = {
+			has_trait = trait_hive_mind
+			has_trait = trait_machine_unit
+			is_shackled_robot_species_rights = yes	
+		}
+	}
+	
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = empire_not_tech_reachtoUtopia
+			from = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_technology = tech_reachtoUtopia
+				}
+			}
+		}
+		NOR = {
+			custom_tooltip = {
+				has_citizenship_type = { country = from type = citizenship_slavery }
+				text = is_slaves_tooltip
+			}
+			custom_tooltip = {
+				AND = {
+					OR = {
+						has_citizenship_type = { country = from type = citizenship_purge_machine }
+						has_citizenship_type = { country = from type = citizenship_purge }
+					}	
+					NOT = { has_purge_type = { country = from type = purge_neutering } }
+				}
+				text = is_purged_not_neutered
+			}
+		}
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING
+			NOT = {
+				has_citizenship_type = {
+					type = citizenship_assimilation
+					country = from
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 15
+		modifier = {
+			factor = 50
+			from = { has_ethic = ethic_fanatic_communism }
+		}
+		modifier = {
+			factor = 20
+			from = { is_fallen_empire_egalitarian = yes }
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_citizenship_type = { country = from type = citizenship_full } }
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_living_standard = { country = from type = living_standard_utopian } }
+			NOT = {
+				from = {
+					has_monthly_income = {
+						resource = minerals
+						value > 300
+					}	
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			has_living_standard = { country = from type = living_standard_utopian }
+			NOT = {
+				from = {
+					has_monthly_income = {
+						resource = minerals
+						value > 200
+					}	
+				}			
+			}
+		}		
+	}
+}
+
+living_standard_hive_mind = {
+	token = living_standard_hive_mind
+	name = living_standard_hive_mind
+
+	potential = {
+		OR = {
+			from = { is_gestalt = yes }
+			AND = {
+				from = { has_technology = tech_automaton_brain }
+				has_trait = trait_machine_unit
+			}
+			AND = {
+				from = { has_technology = tech_create_hive_mind }
+				has_trait = trait_hive_mind
+			}
+		}
+	}
+
+	triggered_pop_modifier = {
+        potential = {
+            owner = {
+				NOT = { has_policy_flag = full_robot_machine_pop }
+				is_gestalt = no
+			}
+            has_trait = trait_machine_unit
+        }
+		pop_amenities_usage_no_happiness_mult = -10
+		pop_housing_usage_mult = -10
+		planet_jobs_minerals_produces_mult = 0.25
+		pop_decline_speed = 6
+		#pop_assembly_speed = 0.25
+		species_empire_size_mult = -10
+	}
+	
+	triggered_pop_modifier = {
+        potential = {
+            owner = {
+				NOT = { has_policy_flag = full_hive_mind_pop }
+				is_gestalt = no
+			}
+            has_trait = trait_hive_mind
+        }
+		pop_amenities_usage_no_happiness_mult = -10
+		pop_housing_usage_mult = -10
+		planet_jobs_minerals_produces_mult = 0.10
+		planet_jobs_food_produces_mult = 0.15
+		pop_decline_speed = 6
+		#pop_growth_speed = 0.25
+		species_empire_size_mult = -10
+	}
+
+	triggered_pop_modifier = {
+		potential = {
+			OR = {
+				has_trait = trait_machine_unit
+				has_trait = trait_hive_mind
+			}
+			owner = { is_gestalt = no }
+		}
+		pop_political_power = -10
+	}
+	
+	allow = {
+		hidden_trigger = {
+			from = {
+				OR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_technology = tech_automaton_brain
+					has_technology = tech_create_hive_mind
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = species_is_not_hive
+			OR = {
+				AND = {
+					has_trait = trait_hive_mind
+					from = {
+						OR = {
+							has_authority = auth_hive_mind
+							has_technology = tech_create_hive_mind
+						}
+					}
+				}
+				NOT = { from = { has_authority = auth_hive_mind } }
+			}
+		}
+		custom_tooltip = {
+			fail_text = species_is_not_machine
+			OR = {
+				NOT = { from = { has_authority = auth_machine_intelligence } }
+				AND = {
+					from = {
+						OR = {
+							has_authority = auth_machine_intelligence
+							has_authority = auth_ancient_machine_intelligence
+						}
+					}
+					OR = {
+						has_trait = trait_machine_unit
+						has_trait = trait_mechanical
+						AND = {
+							from = { has_civic = civic_machine_assimilator }
+							has_trait = trait_cybernetic
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING
+			NOT = {
+				has_citizenship_type = {
+					type = citizenship_assimilation
+					country = from
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = species_is_not_machine
+			OR = {
+				AND = {
+					has_trait = trait_machine_unit
+					OR = {
+						has_citizenship_type = {
+							type = citizenship_full_machine
+							country = from
+						}
+						has_citizenship_type = {
+							type = citizenship_robot_servitude
+							country = from
+						}
+					}
+				}
+				AND = {
+					has_trait = trait_hive_mind
+					OR = {
+						has_citizenship_type = {
+							type = citizenship_full
+							country = from
+						}
+						has_citizenship_type = {
+							type = citizenship_limited
+							country = from
+						}
+						has_citizenship_type = {
+							type = citizenship_slavery
+							country = from
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1000
+	}
+}
+
+living_standard_subsistence = {
+	token = living_standard_subsistence
+	name = living_standard_subsistence
+	
+	pop_modifier = {
+		pop_cat_ruler_happiness = -0.05
+		pop_cat_specialist_happiness = -0.10
+		pop_cat_worker_happiness = -0.20
+		pop_cat_slave_happiness = -0.10
+		pop_cat_ruler_political_power = 4
+		pop_cat_specialist_political_power = -0.25
+		pop_cat_worker_political_power = -0.5
+	}
+	
+	potential = {	
+		exists = from
+		OR = {
+			AND = {
+				NOT = { from = { has_valid_civic = civic_shared_burden } }
+				OR = {
+					from = { is_gestalt = no }
+					has_citizenship_type = { type = citizenship_slavery country = from }
+				}
+				NOR = {
+					has_trait = trait_hive_mind
+					has_trait = trait_machine_unit
+					is_shackled_robot_species_rights = yes				
+				}
+			}
+			AND = {
+				from = { has_valid_civic = civic_machine_servitor }
+				has_purge_type = { country = from type = purge_displacement }
+			}
+		}
+	}	
+	
+	allow = {
+		hidden_trigger = { exists = from }
+		OR = {
+			has_citizenship_type = { country = from type = citizenship_slavery }
+			has_citizenship_type = { type = citizenship_limited country = from }	
+			AND = {
+				OR = {
+					has_citizenship_type = { country = from type = citizenship_purge_machine }
+					has_citizenship_type = { country = from type = citizenship_purge }
+				}
+				has_purge_type = { country = from type = purge_displacement }
+			}
+		}
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING
+			NOT = {
+				has_citizenship_type = {
+					type = citizenship_assimilation
+					country = from
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 0
+			from = { 
+				is_xenophobe = no 
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			factor = 0.1
+			from = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_five_year_plans"
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+	}
+}

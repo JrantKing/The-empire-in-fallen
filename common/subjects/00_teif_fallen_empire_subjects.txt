@@ -107,7 +107,7 @@ signatory = {
 						has_global_flag = war_in_heaven_ongoing
 					}
 					join_war = from
-				}
+				}				
 			}
 		}		
 	}

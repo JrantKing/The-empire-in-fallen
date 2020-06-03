@@ -39,5 +39,21 @@ pc_shielded_gaia = {
 	colonizable = yes
 	ideal = yes
 	starting_planet = no
+	district_set = standard
 	uses_alternative_skies_for_moons = no
+}
+
+random_list = {
+	name = "random_habitable_teif"
+	planets = {
+		"pc_desert"
+		"pc_tropical"
+		"pc_arid"
+		"pc_ocean"
+		"pc_tundra"
+		"pc_arctic"
+		"pc_continental"
+		"pc_alpine"
+		"pc_savannah"
+	}
 }

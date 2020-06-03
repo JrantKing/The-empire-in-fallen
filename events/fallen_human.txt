@@ -1,159 +1,14 @@
 namespace = fallenhuman
 country_event = {
 	id = fallenhuman.0
-	title = ""
-	desc = ""	
 	hide_window = yes
-	fire_only_once = yes
+	is_triggered_only = yes
 	trigger = {
-		has_country_flag = fallen_empire_6
-		NOT = { has_country_flag = changespecies }
+		exists = event_target:fallen_empire_6
 	}
+	fire_only_once = yes
 	immediate = {
-		set_name = "地球联合国"
-		every_country = {
-			limit = {
-				has_country_flag = fallen_empire_6
-			}
-			event_target:sanctuary = {
-				set_faction_hostility = {
-					target = prev
-					set_hostile = no
-					set_neutral = no
-					set_friendly = yes
-				}					
-			}
-		}
-		random_planet = {
-			limit = {
-				has_planet_flag = planet_earth_fallen
-			}
-			if = {
-				limit = { NOT = { is_planet_class =  pc_continental } }
-				change_pc = pc_continental
-			}
-			save_event_target_as = pef
-		}
-		create_species = {
-			name = "PRESCRIPTED_species_name_humans1"
-			plural="PRESCRIPTED_species_plural_humans1"
-			class = HUM
-			portrait = human
-			homeworld = event_target:pef
-			traits = {
-				trait = "trait_adaptive"
-				trait = "trait_nomadic"
-				trait = "trait_wasteful"
-			}
-			effect = { save_global_event_target_as = fallen_human_pop }
-		}
-		event_target:fallen_human_pop = {
-			create_species = {
-				is_mod = yes
-				name = this
-				plural = this
-				class = this
-				portrait = this
-				homeworld = event_target:pef
-				traits = {
-					trait = "trait_fertile"
-					trait = "trait_erudite"
-					trait = "trait_robust"
-					trait = "trait_charismatic"
-					trait = "trait_communal"
-					trait = "trait_rapid_breeders"
-					trait = "trait_extremely_adaptive"
-					trait = "trait_cybernetic"
-				}
-				effect = { save_global_event_target_as = fallen_human_pop_species }
-			}
-		}
-		random_country = {
-			limit = {
-				is_country_type = fallen_empire
-				has_ethic = ethic_fanatic_egalitarian
-				has_country_flag = fallen_empire_6
-			}
-			save_event_target_as = fallen_human
-		}
-		every_owned_pop = {
-			limit = { is_robot_pop = no }
-			change_species = event_target:fallen_human_pop_species
-		}
-		every_owned_army = {
-			limit = {
-				exists = species
-				exists = planet
-			}
-			modify_army = {
-				type = "defense_army"
-				species = event_target:fallen_human_pop_species
-			}
-		}
-		every_owned_leader = {
-			limit = { is_same_species = root }
-			change_species = event_target:fallen_human_pop_species
-		}
-		every_pool_leader = {
-			limit = { is_same_species = root }
-			change_species = event_target:fallen_human_pop_species
-		}
-		change_dominant_species = { species = event_target:fallen_human_pop_species }
-		create_leader = {
-			name = "谢尔盖·狄马尼斯"
-			species = owner_species
-			gender = male
-			type = ruler
-			skill = 10
-			set_age = 20
-			traits = {
-				trait = trait_ruler_champion_of_the_people
-				trait = trait_ruler_industrialist
-				trait = trait_ruler_space_miner
-			}
-		}
-		#last_created_leader = {
-		#	set_is_female = no
-		#}
-		set_leader = last_created_leader
-		random_planet = {
-			limit = {
-				has_planet_flag = planet_earth_fallen
-			}
-			change_pc = { class = pc_shielded_gaia inherit_entity = yes }
-			set_planet_entity = { entity = continental_planet_earth_entity }
-		}
-		every_owned_planet = {
-			limit = { planet_size < 25 }
-			set_planet_size = 25
-			change_pc = pc_gaia
-			while = {
-				count = 16
-				add_district = district_city
-			}
-		}
-		every_owned_planet = {
-			limit = {
-				has_building = building_planetary_shield_system_generator
-				NOT = { has_planet_flag = planet_earth_fallen }
-			}
-			change_pc = { class = pc_shielded_gaia inherit_entity = yes }
-		}
-		country_event = { id = fallenhuman.1 }
-		if = {
-			limit = {
-				any_system_within_border = { is_star_class = sc_black_hole }
-			}
-			random_system_within_border = {
-				limit = { is_star_class = sc_black_hole }
-				spawn_megastructure = {
-					type = "matter_decompressor_4"
-					owner = root
-					graphical_culture = root
-					location = star
-				}
-			}
-		}
+		event_target:fallen_empire_6 = { country_event = { id = fallenhuman.10 } }
 	}
 }
 
@@ -166,7 +21,10 @@ country_event = {
 		every_country = {
 			limit = {
 				is_country_type = fallen_empire
-				species_portrait = human
+				OR = {
+					species_portrait = human
+					is_species_class = NEWMAN
+				}
 				NOT = { has_country_flag = fallenhuman }
 				is_ai = yes
 				OR = {
@@ -189,20 +47,50 @@ country_event = {
 				change_species = event_target:fallen_human_pop_species
 			}
 			change_dominant_species = { species = event_target:fallen_human_pop_species }
-		}
+			every_owned_planet = {
+				limit = {
+					NOR = {
+						is_planet_class = pc_gaia
+						is_planet_class = pc_city
+						is_planet_class = pc_shielded_gaia
+					}
+				}
+				change_pc = pc_continental
+			}
+			random_owned_pop_species = {
+				limit = { is_species_class = MACHINE }
+				change_species_characteristics = { portrait = "sd_hum_robot" }
+			}
+        }
+        every_country = {
+            limit = {
+                is_country_type = fallen_empire
+                is_xenophile = yes
+                any_owned_pop = {
+                    species_portrait = human
+                }
+            }
+            random_owned_pop = {
+                limit = {
+                    species_portrait = human
+                }
+                change_species = event_target:fallen_human_pop
+            }
+        }
 		every_country = {
 			limit = {
-				OR = {
-					is_country_type = default
-					is_country_type = primitive
-				}
-				NOT = {
+				NOT = { is_country_type = fallen_empire }
+				NOR = {
 					has_authority = auth_machine_intelligence
 					has_country_flag = fallenhuman
 					has_valid_civic = civic_syncretic_evolution
-					
+					has_valid_civic = civic_synthetic_evolution
+					has_civic = civic_fallen_start
 				}
-				any_owned_pop = {
+				OR = {
+					any_owned_pop = {
+						species_portrait = human
+					}
 					species_portrait = human
 				}
 			}
@@ -210,13 +98,16 @@ country_event = {
 		}
 		every_country = {
 			limit = {
-				is_country_type = default
+				NOT = { is_country_type = fallen_empire }
 				NOT = { has_country_flag = fallenhuman }
 				OR = {
-					has_valid_civic = civic_syncretic_evolution
+					has_origin = origin_syncretic_evolution
 					has_authority = auth_machine_intelligence
 				}
-				any_owned_pop = {
+				OR = {
+					any_owned_pop = {
+						species_portrait = human
+					}
 					species_portrait = human
 				}
 			}
@@ -240,73 +131,132 @@ country_event = {
 		name = "fallenhuman.is_newhuman"
 		trigger = { NOT = { has_authority = auth_machine_intelligence } }
 		hidden_effect = {
-			create_species = {
-				name = this
-				namelist = this
-				plural = this
-				class = this
-				portrait = this
-				traits = this
-				homeworld = event_target:fallen_human_pop
-			}
-			setup_species = yes
-			every_owned_army = {
-				limit = {
-					exists = species
-					exists = planet
-				}
-				modify_army = {
-					type = "defense_army"
-					species = last_created_species
-				}
-			}
-			every_owned_leader = {
-				change_species = last_created_species
-			}
-			every_pool_leader = {
-				change_species = last_created_species
-			}
+			# create_species = {
+			# 	name = this
+			# 	namelist = this
+			# 	plural = this
+			# 	adjective = this
+			# 	class = this
+			# 	portrait = this
+			# 	traits = this
+			# 	homeworld = event_target:fallen_human_pop
+			# }
+			# setup_species = yes
+			# every_owned_army = {
+			# 	limit = {
+			# 		exists = species
+			# 		exists = planet
+			# 	}
+			# 	modify_army = {
+			# 		type = "defense_army"
+			# 		species = last_created_species
+			# 	}
+			# }
+			# every_owned_leader = {
+			# 	change_species = last_created_species
+			# }
+			# every_pool_leader = {
+			# 	change_species = last_created_species
+			# }
 			modify_species = {
 				species = this
 				base = event_target:fallen_human_pop
-				remove_trait = trait_pc_shielded_gaia_preference
+				#remove_trait = trait_pc_shielded_gaia_preference
 			}
+		}
+		ai_chance = {
+			factor = 0
 		}
 	}
 	option = {
 		name = "fallenhuman.is_human"
 		trigger = { NOT = { has_authority = auth_machine_intelligence } }
 		hidden_effect = {
-			create_species = {
-				name = "PRESCRIPTED_species_name_humans1"
-				namelist = this
-				plural = "PRESCRIPTED_species_plural_humans1"
-				class = HUM
-				portrait = human
-				traits = this
-				homeworld = event_target:fallen_human_pop
-			}
-			setup_species = yes
-			every_owned_army = {
+			if = {
 				limit = {
-					exists = species
-					exists = planet
+					has_trait = trait_pc_continental_preference
+					has_trait = trait_adaptive
+					has_trait = trait_nomadic
+					has_trait = trait_wasteful
 				}
-				modify_army = {
-					type = "defense_army"
-					species = last_created_species
+				change_dominant_species = { species = event_target:fallen_human_pop }
+				every_owned_army = {
+					limit = {
+						exists = species
+						exists = planet
+					}
+					modify_army = {
+						type = "defense_army"
+						species = event_target:fallen_human_pop
+					}
+				}
+				every_owned_leader = {
+					change_species = event_target:fallen_human_pop
+				}
+				every_pool_leader = {
+					change_species = event_target:fallen_human_pop
+				}
+				every_owned_pop = { limit = { is_same_species = event_target:playerhuman } change_species = event_target:fallen_human_pop }
+			}
+			else_if = {
+				limit = { NOT = { species = { is_archetype = ROBOT } } }
+				create_species = {
+					name = "PRESCRIPTED_species_name_humans1"
+					namelist = this
+					plural = "PRESCRIPTED_species_plural_humans1"
+					adjective = "PRESCRIPTED_species_adjective_humans1"
+					class = HUM
+					portrait = human
+					traits = this
+					homeworld = this
+				}
+				setup_species = yes
+				every_owned_army = {
+					limit = {
+						exists = species
+						exists = planet
+					}
+					modify_army = {
+						type = "defense_army"
+						species = last_created_species
+					}
+				}
+				every_owned_leader = {
+					change_species = last_created_species
+				}
+				every_pool_leader = {
+					change_species = last_created_species
+				}
+				modify_species = {
+					species = this
+					base = event_target:fallen_human_pop
+					#remove_trait = trait_pc_shielded_gaia_preference
 				}
 			}
-			every_owned_leader = {
-				change_species = last_created_species
-			}
-			every_pool_leader = {
-				change_species = last_created_species
-			}
-			modify_species = {
-				species = this
-				base = event_target:fallen_human_pop
-				remove_trait = trait_pc_shielded_gaia_preference
+			else_if = {
+				limit = { species = { is_archetype = ROBOT } }
+				create_species = {
+					name = "PRESCRIPTED_species_name_humans1"
+					namelist = this
+					plural = "PRESCRIPTED_species_plural_humans1"
+					adjective = "PRESCRIPTED_species_adjective_humans1"
+					class = ROBOT
+					portrait = human
+					traits = this
+					homeworld = this
+				}
+				every_owned_leader = {
+					change_species = last_created_species
+				}
+				every_pool_leader = {
+					change_species = last_created_species
+				}
+				every_owned_pop = { limit = { is_same_species = event_target:playerhuman } change_species = last_created_species }
+				change_dominant_species = { species = last_created_species }
+				modify_species = {
+					species = this
+					base = event_target:fallen_human_pop
+				}
 			}
 		}
 	}
@@ -341,6 +291,7 @@ country_event = {
 					name = this
 					namelist = this
 					plural = this
+					adjective = this
 					class = this
 					portrait = this
 					traits = this
@@ -358,6 +309,9 @@ country_event = {
 				limit = { NOT = { is_same_species = root } }
 				set_citizenship_type = { country = prev type = citizenship_full_machine cooldown = no }
 			}
+		}
+		ai_chance = {
+			factor = 0
 		}
 	}
 	option = {
@@ -379,6 +333,7 @@ country_event = {
 					name = "PRESCRIPTED_species_name_humans1"
 					namelist = this
 					plural = "PRESCRIPTED_species_plural_humans1"
+					adjective = "PRESCRIPTED_species_adjective_humans1"
 					class = HUM
 					portrait = human
 					traits = this
@@ -407,67 +362,1136 @@ country_event = {
 	}
 }
 
-event = {
+country_event = {
 	id = fallenhuman.4
 	is_triggered_only = yes
-	fire_only_once = yes
 	hide_window = yes
+	fire_only_once = yes
 	trigger = {
+		NOT = { exists = event_target:fallen_empire_6 }
 		any_country = {
-			any_owned_pop = { species_portrait = human }
+			OR = {
+				species_portrait = human
+				is_species_class = NEWMAN
+			}
 		}
 	}
 	immediate = {
-		if = {
-			limit = { NOT = { exists = event_target:fallen_empire_6 } }
+		create_species = {
+			name = "PRESCRIPTED_species_name_humans1"
+			namelist = HUMAN1
+			plural = "PRESCRIPTED_species_plural_humans1"
+			adjective = "PRESCRIPTED_species_adjective_humans1"
+			class = HUM
+			portrait = human
+			traits = {
+				trait = "trait_pc_continental_preference"
+				trait = "trait_adaptive"
+				trait = "trait_nomadic"
+				trait = "trait_wasteful"
+			}
+			effect = { save_global_event_target_as = no_unoe_human_species }
+		}
+		every_country = {
+			limit = {
+				NOR = { has_authority = auth_machine_intelligence has_origin = origin_syncretic_evolution }
+				is_ai = yes
+				species_portrait = human
+				is_species_class = NEWMAN
+			}
 			create_species = {
 				name = "PRESCRIPTED_species_name_humans1"
 				namelist = HUMAN1
 				plural = "PRESCRIPTED_species_plural_humans1"
+				adjective = "PRESCRIPTED_species_adjective_humans1"
 				class = HUM
 				portrait = human
+				traits = this
+				homeworld = capital_scope
+				effect = { save_event_target_as = temp_human_species }
+			}
+			modify_species = {
+				species = event_target:temp_human_species
+				#species = this
+				base = event_target:no_unoe_human_species
+			}
+			every_owned_pop = { change_species = event_target:temp_human_species }
+			change_dominant_species = { species = event_target:temp_human_species }
+			every_owned_leader = {
+				change_species = event_target:temp_human_species
+			}
+			every_pool_leader = {
+				change_species = event_target:temp_human_species
+			}
+			if = {
+				limit = { is_country_type = primitive }
+				set_name = "[This.GetSpeciesName]文明"
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = fallenhuman.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { 
+			has_star_flag = fallen_sol_system
+		}
+		owner = { NOT = { has_country_flag = entered_fallen_sol_system } }
+	}
+	
+	immediate = {
+		owner = { 
+			set_country_flag = entered_fallen_sol_system
+		}
+	}
+}
+
+country_event = {
+	id = fallenhuman.6
+	title = fallenhuman.6.name
+	desc = fallenhuman.6.desc
+	show_sound = event_default
+	picture = GFX_evt_fallen_empire
+	is_triggered_only = yes
+	option = {
+		name = OK
+	}
+}
+
+ship_event = {
+	id = fallenhuman.7
+	title = fallenhuman.7.name
+	desc = "fallenhuman.7.desc"
+	picture = GFX_evt_drifting_gateway
+	show_sound = event_radio_chatter
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			NOT = { has_country_flag = encountered_first_wormhole }
+		}
+		FROM = {
+			any_system_megastructure = {
+				OR = {
+					is_megastructure_type = une_gate
+					is_megastructure_type = une_gate_final
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		FROM = { save_event_target_as = wormhole_system }
+		owner = {
+			set_country_flag = encountered_first_wormhole
+			add_seen_bypass_type = wormhole
+			add_seen_bypass_type = une_wormhole
+		}
+	}	
+	
+	option = {
+		name = apoc.5.a
+	}
+}
+
+country_event = {
+	id = fallenhuman.8
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_ethic = ethic_fanatic_communism
+	}
+
+	immediate = {
+		from = {
+			set_skill = 10
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_cautious
+				break = yes
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_glory_seeker
+				break = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fallenhuman.9
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				is_planet_class = pc_ringworld_habitable
+				free_building_slots > 0
+			}
+			add_building = building_nourishment_center
+		}
+	}
+}
+
+country_event = {
+	id = fallenhuman.10
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		
+		event_target:fallen_empire_6 = {
+			random_planet = {
+				limit = {
+					has_planet_flag = planet_earth_fallen
+				}
+				save_event_target_as = pef
+			}
+			create_species = {
+				name = "PRESCRIPTED_species_name_humans1"
+				plural ="PRESCRIPTED_species_plural_humans1"
+				adjective = "PRESCRIPTED_species_adjective_humans1"
+				class = HUM
+				portrait = human
+				homeworld = event_target:pef
 				traits = {
-					trait = "trait_pc_continental_preference"
 					trait = "trait_adaptive"
 					trait = "trait_nomadic"
 					trait = "trait_wasteful"
 				}
-				effect = { save_global_event_target_as = no_unoe_human_species }
 			}
+			modify_species = {
+				species = last_created_species
+				remove_trait = trait_pc_gaia_preference
+				add_trait = trait_pc_continental_preference
+			}
+			last_created_species = {
+				save_global_event_target_as = fallen_human_pop
+			}
+			event_target:fallen_human_pop = {
+				create_species = {
+					is_mod = yes
+					name = this
+					plural = this
+					adjective = this
+					class = this
+					portrait = this
+					homeworld = event_target:pef
+					traits = {
+						trait = "trait_venerable"
+						trait = "trait_fertile"
+						trait = "trait_erudite"
+						trait = "trait_robust"
+						trait = "trait_cybernetic"
+					}
+					effect = {
+						event_target:fallen_empire_6 = {
+							modify_species = {
+								species = last_created_species
+								ideal_planet_class = pc_continental
+							}
+						}
+						last_created_species = {
+							save_global_event_target_as = fallen_human_pop_species
+						}
+					}
+				}
+			}
+			create_species = {
+				name = "NAME_Robo"
+				plural = "NAME_Roboes"
+				class = MACHINE
+				namelist = MACHINE3
+				portrait = "sd_hum_robot"
+				homeworld = event_target:pef
+				traits = {
+					trait = "trait_machine_unit"
+					trait = "trait_robot_efficient_processors"
+					trait = "trait_robot_durable"
+					trait = "trait_robot_mass_produced"
+					trait = "trait_robot_luxurious"
+				}
+				effect = {
+					save_event_target_as = machine_species
+				}
+			}
+			set_built_species = event_target:machine_species
+			create_species = {
+				name = "NAME_Synthetic"
+				plural = "NAME_Synthetics"
+				class = ROBOT
+				namelist = HUM5
+				homeworld = event_target:pef
+				portrait = "sd_hum_robot"
+				traits = {
+					trait = "trait_mechanical"
+					trait = "trait_robot_efficient_processors"
+					trait = "trait_robot_double_jointed"
+					trait = "trait_robot_durable"
+					trait = "trait_robot_custom_made"
+					trait = "trait_robot_luxurious"
+				}
+				effect = {
+					save_event_target_as = synthetic_species
+				}
+			}
+			random_system = {
+				limit = {
+					has_star_flag = fallen_empire_sol
+				}
+				create_fe_home_citadel_sol = yes
+				# Earth
+				random_system_planet = {
+					limit = {
+						has_planet_flag = planet_earth_fallen
+					}
+					planet_event = { id = fallenhuman.11 days = 1 }
+					create_colony = {
+						owner = event_target:fallen_empire_6
+					}
+					add_modifier = { modifier = mastery_of_nature days = -1 }
+					set_name = NAME_Earth
+					set_planet_flag = fallen_empire_world
+					prevent_anomaly = yes
+					set_owner = event_target:fallen_empire_6
+					set_controller = event_target:fallen_empire_6
+					set_capital = yes
+					generate_earth_deposits_and_blockers = yes
+					add_deposit = d_dust_caverns
+					add_deposit = d_bubbling_swamp
+					add_deposit = d_crystalline_caverns
+					every_deposit = {
+						limit = { is_blocker = yes }
+						clear_blocker = yes
+					}
+					while = {
+						count = 25
+						add_district = district_city
+					}
+					while = {
+						count = 2
+						add_district = district_generator
+					}
+					while = {
+						count = 2
+						add_district = district_mining
+					}
+					while = {
+						count = 2
+						add_district = district_farming
+					}
+					while = {
+						count = 56
+						create_pop = {
+							species = event_target:fallen_human_pop_species
+						}
+					}
+					while = {
+						count = 31
+						create_pop = {
+							species = event_target:synthetic_species
+						}
+					}
+					while = {
+						count = 13
+						create_pop = {
+							species = event_target:machine_species
+						}
+					}
+					add_building = building_ancient_palace
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_affluence_center
+					add_building = building_affluence_center
+					add_building = building_class_4_singularity
+					add_building = building_class_4_singularity
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					while = {
+						count = 10
+						create_army = {
+							name = random
+							owner = event_target:fallen_empire_6
+							species = event_target:fallen_empire_6
+							type = "gene_warrior_army"
+						}
+					}
+					while = {
+						count = 10
+						create_army = {
+							name = random
+							owner = event_target:fallen_empire_6
+							species = event_target:fallen_empire_6
+							type = "robotic_army"
+						}
+					}
+				}
+				# Mars
+				random_system_planet = {
+					limit = {
+						has_planet_flag = planet_mars_fallen
+					}
+					create_colony = {
+						owner = event_target:fallen_empire_6
+					}
+					add_modifier = { modifier = mastery_of_nature days = -1 }
+					set_name = NAME_Mars
+					set_planet_flag = fallen_empire_world
+					prevent_anomaly = yes
+					set_owner = event_target:fallen_empire_6
+					set_controller = event_target:fallen_empire_6
+					
+					add_deposit = d_dust_caverns
+					add_deposit = d_bubbling_swamp
+					add_deposit = d_crystalline_caverns
+					every_deposit = {
+						limit = { is_blocker = yes }
+						clear_blocker = yes
+					}
+					while = {
+						count = 25
+						add_district = district_city
+					}
+					while = {
+						count = 2
+						add_district = district_generator
+					}
+					while = {
+						count = 2
+						add_district = district_mining
+					}
+					while = {
+						count = 2
+						add_district = district_farming
+					}
+					while = {
+						count = 57
+						create_pop = {
+							species = event_target:fallen_human_pop_species
+						}
+					}
+					while = {
+						count = 31
+						create_pop = {
+							species = event_target:synthetic_species
+						}
+					}
+					while = {
+						count = 12
+						create_pop = {
+							species = event_target:machine_species
+						}
+					}
+					add_building = building_ancient_palace
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_affluence_center
+					add_building = building_affluence_center
+					add_building = building_class_4_singularity
+					add_building = building_class_4_singularity
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+				}
+				# Venus
+				random_system_planet = {
+					limit = {
+						has_planet_flag = planet_venus_fallen
+					}
+					create_colony = {
+						owner = event_target:fallen_empire_6
+					}
+					add_modifier = { modifier = mastery_of_nature days = -1 }
+					set_name = NAME_Venus
+					set_planet_flag = fallen_empire_world
+					set_owner = event_target:fallen_empire_6
+					set_controller = event_target:fallen_empire_6
+					add_deposit = d_dust_caverns
+					add_deposit = d_bubbling_swamp
+					add_deposit = d_crystalline_caverns
+					add_deposit = d_submerged_ore_veins
+					add_deposit = d_submerged_ore_veins
+					add_deposit = d_submerged_ore_veins
+					every_deposit = {
+						limit = { is_blocker = yes }
+						clear_blocker = yes
+					}
+					while = {
+						count = 20
+						add_district = district_city
+					}
+					while = {
+						count = 8
+						add_district = district_mining
+					}
+					add_building = building_ancient_palace
+					while = {
+						count = 17
+						create_pop = {
+							species = event_target:fallen_human_pop_species
+						}
+					}
+					while = {
+						count = 24
+						create_pop = {
+							species = event_target:synthetic_species
+						}
+					}
+					while = {
+						count = 34
+						create_pop = {
+							species = event_target:machine_species
+						}
+					}
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_fortress
+				}
+				random_system = {
+					limit = {
+						has_star_flag = sagittarius_a
+					}
+					isolate_system = yes
+					add_hyperlane = {
+						from = THIS
+						to = prev
+					}
+				}
+			}
+			every_system = {
+				limit = {
+					has_star_flag = fallen_sol_system
+					NOT = { has_star_flag = fallen_empire_sol }
+				}
+				create_fe_citadel_sol = yes
+			}
+			#
+			every_system = {
+				limit = {
+					OR = {
+						has_star_flag = tlx
+						has_star_flag = nme
+					}
+				}
+				random_system_planet = {
+					limit = {
+						is_planet_class = pc_gaia
+					}
+					create_colony = {
+						owner = event_target:fallen_empire_6
+					}
+					add_modifier = { modifier = mastery_of_nature days = -1 }
+					if = {
+						limit = {
+							solar_system = {
+								has_star_flag = tlx
+							}
+						}
+						set_name = NAME_Sirius_III
+					}
+					if = {
+						limit = {
+							solar_system = {
+								has_star_flag = nme
+							}
+						}
+						set_name = NAME_Alpha_Centauri_B_b
+					}
+					set_planet_flag = fallen_empire_world
+					prevent_anomaly = yes
+					set_owner = ROOT
+					set_controller = root
+					add_deposit = d_dust_caverns
+					add_deposit = d_bubbling_swamp
+					add_deposit = d_crystalline_caverns
+					every_deposit = {
+						limit = { is_blocker = yes }
+						clear_blocker = yes
+					}
+					while = {
+						count = 20
+						add_district = district_city
+					}
+					while = {
+						count = 2
+						add_district = district_generator
+					}
+					while = {
+						count = 2
+						add_district = district_mining
+					}
+					while = {
+						count = 2
+						add_district = district_farming
+					}
+					while = {
+						count = 57
+						create_pop = {
+							species = event_target:fallen_human_pop_species
+						}
+					}
+					while = {
+						count = 26
+						create_pop = {
+							species = event_target:synthetic_species
+						}
+					}
+					while = {
+						count = 17
+						create_pop = {
+							species = event_target:machine_species
+						}
+					}
+					add_building = building_ancient_palace
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_fe_dome
+					add_building = building_affluence_center
+					add_building = building_affluence_center
+					add_building = building_class_4_singularity
+					add_building = building_class_4_singularity
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+				}
+			}
+			# Ring word
+			random_system = {
+				limit = {
+					has_star_flag = nhs
+				}
+				every_system_planet = {
+					limit = {
+						is_planet_class = pc_ringworld_habitable
+					}
+					create_colony = { owner = event_target:fallen_empire_6 }
+					if = {
+						limit = { has_planet_flag = agrarian }
+						remove_planet_flag = agrarian
+						set_name = NAME_Agrarian_District
+						set_planet_flag = fallen_empire_world
+						prevent_anomaly = yes
+						set_owner = event_target:fallen_empire_6
+						set_controller = event_target:fallen_empire_6
+						while = {
+							count = 1
+							add_district = district_rw_science
+						}
+						while = {
+							count = 5
+							add_district = district_rw_farming
+						}
+						while = {
+							count = 126
+							create_pop = {
+								species = event_target:machine_species
+							}
+						}
+						while = {
+							count = 51
+							create_pop = {
+								species = event_target:fallen_human_pop_species
+							}
+						}
+						while = {
+							count = 24
+							create_pop = {
+								species = event_target:synthetic_species
+							}
+						}
+						add_building = building_ancient_palace
+						add_building = building_planetary_shield_generator
+						add_building = building_fe_stronghold
+						add_building = building_fe_stronghold
+						add_building = building_fe_stronghold
+						add_building = building_fe_stronghold
+						add_building = building_fe_stronghold
+						add_building = building_food_processing_center
+						add_building = building_nourishment_center
+						add_building = building_nourishment_center
+						add_building = building_nourishment_center
+						add_building = building_nourishment_center
+						add_building = building_nourishment_center
+						add_building = building_nourishment_center
+						add_building = building_nano_forge
+						add_building = building_affluence_center
+					}
+					if = {
+						limit = { has_planet_flag = metropolis }
+						remove_planet_flag = metropolis
+						set_name = NAME_Metropolis
+						set_planet_flag = fallen_empire_world
+						set_owner = event_target:fallen_empire_6
+						set_controller = event_target:fallen_empire_6
+						while = {
+							count = 5
+							add_district = district_rw_city
+						}
+						while = {
+							count = 187
+							create_pop = {
+								species = event_target:fallen_human_pop_species
+							}
+						}
+						while = {
+							count = 132
+							create_pop = {
+								species = event_target:synthetic_species
+							}
+						}
+						while = {
+							count = 35
+							create_pop = {
+								species = event_target:machine_species
+							}
+						}
+						add_building = building_ancient_palace
+						add_building = building_planetary_shield_generator
+						add_building = building_fe_stronghold
+						add_building = building_fe_stronghold
+						add_building = building_fe_dome
+						add_building = building_fe_dome
+						add_building = building_fe_dome
+						add_building = building_fe_dome
+						add_building = building_galactic_stock_exchange
+						add_building = building_commercial_megaplex
+						add_building = building_commercial_megaplex
+						add_building = building_commercial_megaplex
+						add_building = building_commercial_megaplex
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+					}
+					if = {
+						limit = { has_planet_flag = factory }
+						remove_planet_flag = factory
+						set_name = NAME_Factory
+						set_planet_flag = fallen_empire_world
+						set_owner = event_target:fallen_empire_6
+						set_controller = event_target:fallen_empire_6
+						while = {
+							count = 5
+							add_district = district_rw_city
+						}
+						while = {
+							count = 119
+							create_pop = {
+								species = event_target:fallen_human_pop_species
+							}
+						}
+						while = {
+							count = 150
+							create_pop = {
+								species = event_target:synthetic_species
+							}
+						}
+						while = {
+							count = 35
+							create_pop = {
+								species = event_target:machine_species
+							}
+						}
+						add_building = building_ancient_palace
+						add_building = building_planetary_shield_generator
+						add_building = building_fe_stronghold
+						add_building = building_fe_stronghold
+						add_building = building_ministry_production
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+						add_building = building_factory_3
+					}
+					if = {
+						limit = { has_planet_flag = process }
+						remove_planet_flag = process
+						set_name = NAME_Process
+						set_planet_flag = fallen_empire_world
+						set_owner = event_target:fallen_empire_6
+						set_controller = event_target:fallen_empire_6
+						while = {
+							count = 5
+							add_district = district_rw_city
+						}
+						while = {
+							count = 119
+							create_pop = {
+								species = event_target:fallen_human_pop_species
+							}
+						}
+						while = {
+							count = 150
+							create_pop = {
+								species = event_target:synthetic_species
+							}
+						}
+						while = {
+							count = 35
+							create_pop = {
+								species = event_target:machine_species
+							}
+						}
+						add_building = building_ancient_palace
+						add_building = building_planetary_shield_generator
+						add_building = building_fe_stronghold
+						add_building = building_fe_stronghold
+						add_building = building_ministry_production
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+						add_building = building_foundry_3
+					}
+				}
+			}
+			# Paradise
+			random_planet = {
+				limit = {
+					has_planet_flag = taohuayuan
+				}
+				create_colony = { owner = event_target:fallen_empire_6 }
+				add_modifier = { modifier = mastery_of_nature days = -1 }
+				add_modifier = { modifier = gaia_world days = -1 }
+				set_name = NAME_Taohuayuan
+				set_planet_flag = fallen_empire_world
+				prevent_anomaly = yes
+				set_owner = event_target:fallen_empire_6
+				set_controller = event_target:fallen_empire_6
+				every_deposit = {
+					limit = { is_blocker = yes }
+					clear_blocker = yes
+				}
+				while = {
+					count = 35
+					create_pop = {
+						species = event_target:synthetic_species
+					}
+				}
+				while = {
+					count = 18
+					create_pop = {
+						species = event_target:machine_species
+					}
+				}
+				add_building = building_resort_major_capital
+				add_building = building_planetary_shield_generator
+				add_building = building_autocurating_vault
+				add_building = building_hyper_entertainment_forum
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_class_4_singularity
+			}
+			country_event = { id = fallenhuman.9 days = 35 }
+			set_name = "地球联合国"
 			every_country = {
 				limit = {
-					OR = { is_country_type = primitive is_country_type = default is_country_type = fallen_empire }
-					NOR = { has_authority = auth_machine_intelligence has_valid_civic = civic_syncretic_evolution }
-					is_ai = yes
-					species_portrait = human
-					is_species_class = NEWMAN
+					OR = {
+						has_ethic = ethic_fanatic_communism
+						any_owned_planet = {
+							has_planet_flag = sanctuary_primitive
+						}
+					}
 				}
-				create_species = {
-					name = "PRESCRIPTED_species_name_humans1"
-					namelist = HUMAN1
-					plural = "PRESCRIPTED_species_plural_humans1"
-					class = HUM
-					portrait = human
-					traits = this
-					effect = { save_event_target_as = temp_human_species }
+				event_target:sanctuary = {
+					set_faction_hostility = {
+						target = prev
+						set_hostile = no
+						set_neutral = no
+						set_friendly = yes
+					}	
+				}
+			}
+			# every_owned_pop = {
+			# 	limit = { is_robot_pop = no }
+			# 	change_species = event_target:fallen_human_pop_species
+			# }
+			# every_owned_army = {
+			# 	limit = {
+			# 		exists = species
+			# 		exists = planet
+			# 	}
+			# 	modify_army = {
+			# 		type = "defense_army"
+			# 		species = event_target:fallen_human_pop_species
+			# 	}
+			# }
+			# every_owned_leader = {
+			# 	limit = { is_same_species = root }
+			# 	change_species = event_target:fallen_human_pop_species
+			# }
+			# every_pool_leader = {
+			# 	limit = { is_same_species = root }
+			# 	change_species = event_target:fallen_human_pop_species
+			# }
+			change_dominant_species = { species = event_target:fallen_human_pop_species }
+			create_leader = {
+				name = "谢尔盖·狄马尼斯"
+				species = event_target:fallen_human_pop_species
+				gender = male
+				class = governor
+				skill = 10
+				set_age = 20
+				effect = {
+					add_ruler_trait = trait_ruler_champion_of_the_people
+					add_ruler_trait = trait_ruler_industrialist
+					add_ruler_trait = trait_ruler_space_miner
+				}
+			}
+			set_leader = last_created_leader
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = planet_earth_fallen
+				}
+				change_pc = { class = pc_shielded_gaia }
+				add_building = building_planetary_shield_system_generator
+				set_planet_entity = { entity = gaia_planet_earth_entity }
+			}
+			random_owned_planet = {
+				limit = {
+					has_planet_flag = planet_mars_fallen
+				}
+				change_pc = { class = pc_shielded_gaia inherit_entity = yes }
+				set_planet_entity = { entity = gaia_planet_mars_entity }
+				add_building = building_planetary_shield_system_generator
+			}
+			every_owned_planet = {
+				limit = { planet_size < 25 is_ringworld = no }
+				set_planet_size = 25
+				while = {
+					count = 16
+					add_district = district_city
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					NOR = { is_ringworld = yes has_planet_flag = planet_earth_fallen has_planet_flag = planet_mars_fallen has_planet_flag = taohuayuan }
+				}
+				change_pc = { class = pc_shielded_gaia inherit_entity = yes }
+				add_building = building_planetary_shield_system_generator
+			}
+			random_planet = {
+				limit = {
+					has_planet_flag = taohuayuan
+				}
+				random_list = {
+					1 = {
+						create_species = {
+							name = random
+							class = PRE_FUN
+							portrait = random
+							traits = {
+								trait = random_presapient_trait
+							}
+							homeworld = THIS
+							sapient = no
+						}
+					}
+					1 = {
+						create_species = {
+							name = random
+							class = PRE_MOL
+							portrait = random
+							traits = {
+								trait = random_presapient_trait
+							}
+							homeworld = THIS
+							sapient = no
+						}
+					}
+					1 = {
+						create_species = {
+							name = random
+							class = PRE_ART
+							portrait = random
+							traits = {
+								trait = random_presapient_trait
+							}
+							homeworld = THIS
+							sapient = no
+						}
+					}
+					1 = {
+						create_species = {
+							name = random
+							class = PRE_AVI
+							portrait = random
+							traits = {
+								trait = random_presapient_trait
+							}
+							homeworld = THIS
+							sapient = no
+						}
+					}
+					1 = {
+						create_species = {
+							name = random
+							class = PRE_REP
+							portrait = random
+							traits = {
+								trait = random_presapient_trait
+							}
+							homeworld = THIS
+							sapient = no
+						}
+					}
+					1 = {
+						create_species = {
+							name = random
+							class = PRE_MAM						
+							portrait = random
+							traits = {
+								trait = random_presapient_trait
+							}
+							homeworld = THIS
+							sapient = no
+						}
+					}				
 				}
 				modify_species = {
-					species = event_target:temp_human_species
-					base = event_target:no_unoe_human_species
+					base = none
+					species = last_created_species
+					remove_trait = trait_pc_gaia_preference
+					add_trait = trait_pc_continental_preference
 				}
-				every_owned_pop = { change_species = last_created_species }
-				change_dominant_species = { species = last_created_species }
-				every_owned_leader = {
-					change_species = last_created_species
+				last_created_species = {
+					save_event_target_as = pre_sapient
 				}
-				every_pool_leader = {
-					change_species = last_created_species
+				while = {
+					count = 3
+					create_pop = {
+						species = event_target:pre_sapient
+					}
 				}
+			}
+			country_event = { id = fallenhuman.1 }
+			create_leader = {
+				name = "江"
+				class = governor
+				species = event_target:fallen_human_pop_species
+				immortal = yes
+				gender = male
+				skill = 10
+				effect = {
+					set_age = -1
+					#change_leader_portrait = rep11
+					change_leader_portrait = ta1
+					add_trait = leader_trait_governor_chosen
+					add_ruler_trait = leader_trait_ruler_cyborg
+					add_ruler_trait = leader_trait_ruler_chosen
+					add_ruler_trait = leader_trait_reformer
+				}
+			}
+			every_owned_pop = {
+				pop_change_ethic = ethic_egalitarian
 				if = {
-					limit = { is_country_type = primitive }
-					set_name = "[This.GetSpeciesName]文明"
+					limit = {
+						is_organic_species = yes
+					}
+					set_pop_flag = organic_fallen_empire_pop
+					change_species = event_target:fallen_human_pop_species
+				}
+			}
+			every_owned_pop = {
+				limit = { has_job = no }
+				clear_pop_category = yes
+			}
+			every_owned_planet = { check_planet_employment = yes }
+		}
+	}
+}
+
+planet_event = {
+	id = fallenhuman.11
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		create_sol_fallen_empire_starting_navy = yes
+		owner = {
+			random_owned_species = {
+				limit = {
+					has_trait = trait_mechanical
+				}
+				save_event_target_as = synthetic_species
+			}
+			while = {
+				count = 7
+				create_leader = {
+					class = admiral
+					name = random
+					species = event_target:synthetic_species
+					set_age = 0
+					skill = 10
+					event_leader = yes
+				}
+				random_owned_fleet = {
+					limit = {
+						NOT = { exists = leader }
+						any_owned_ship = {
+							is_ship_size = massive_ship_fallen_empire
+						}
+					}
+					assign_leader = last_created_leader
 				}
 			}
 		}
+	}
+}
+
+country_event = {
+	id = fallenhuman.12
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		check_crisis_exists = yes
 	}
 }

@@ -1,4 +1,8 @@
 song = {
+	name = "maintheme2"
+}
+
+song = {
 	name = "foraslongasishalllive_apocalypsetrailerscore"
 }
 
@@ -11,7 +15,7 @@ song = {
 }
 
 song = {
-	name = "fasterthanlightbonusfeaturingmiastegmar"
+    name = "fasterthanlightbonusfeaturingmiastegmar"
 }
 
 song = {
@@ -19,7 +23,7 @@ song = {
 }
 
 song = {
-	name = "battleforsupremacybonus"
+    name = "battleforsupremacybonus"
 }
 
 song = {
@@ -28,4 +32,20 @@ song = {
 
 song = {
 	name = "totheendsofthegalaxyadditionaltake"
+}
+
+song = {
+	name = "cradleofthegalaxypiano"
+}
+
+song = {
+	name = "creationandbeyondpiano"
+}
+
+song = {
+	name = "distantnebulapiano"
+}
+
+song = {
+	name = "fasterthanlightpiano"
 }

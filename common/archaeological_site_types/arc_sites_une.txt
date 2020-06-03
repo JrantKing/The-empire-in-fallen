@@ -1,0 +1,49 @@
+une_crisis_cache_digsite = {
+	picture = GFX_evt_shielded_earth
+	desc = une_crisis_cache_desc
+	stages = 5
+	max_instances = 1
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+		is_crises_allowed = yes
+		is_regular_empire = yes
+	}
+	on_visible = {
+		country_event = { id = story.5 days = 30 }
+	}
+	stage = {
+		difficulty = 1
+		icon = GFX_archaeology_runes_D1
+		event = une_ancrel.0
+	}
+	stage = {
+		difficulty = 7
+		icon = GFX_archaeology_runes_D2
+		event = une_ancrel.1
+	}
+	stage = {
+		difficulty = 9
+		icon = GFX_archaeology_runes_D3
+		event = une_ancrel.2
+	}
+	stage = {
+		difficulty = 9
+		icon = GFX_archaeology_runes_D4
+		event = une_ancrel.3
+	}
+	stage = {
+		difficulty = 9
+		icon = GFX_archaeology_runes_C5
+		event = une_ancrel.4
+	}
+	
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = all_random_events }
+		}
+	}
+}

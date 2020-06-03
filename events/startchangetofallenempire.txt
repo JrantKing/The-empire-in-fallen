@@ -1,9 +1,10 @@
 namespace = fallen_start
 
-event = {
+country_event = {
 	id = fallen_start.0
 	is_triggered_only = yes
 	hide_window = yes
+	fire_only_once = yes
 	trigger = {
 		any_country = {
 			is_country_type = default
@@ -11,20 +12,34 @@ event = {
 		}
 	}
 	immediate = {
-		if = {
-			limit = { is_multiplayer = yes }
-			every_country = {
-				limit = { is_ai = no }
-				country_event = { id = fallen_start.4 }
+		every_playable_country = {
+			if = {
+				limit = {
+					has_government = gov_teif_stagnant_ascendancy
+					NOR = {
+						graphical_culture = fallen_empire_01
+						graphical_culture = fallen_empire_02
+						graphical_culture = fallen_empire_03
+						graphical_culture = fallen_empire_04
+						graphical_culture = fallen_empire_05
+						graphical_culture = fallen_empire_06
+						graphical_culture = fallen_empire_07
+						graphical_culture = fallen_empire_08
+						graphical_culture = fallen_empire_09
+						graphical_culture = fallen_empire_10
+						graphical_culture = fallen_empire_11
+						graphical_culture = fallen_empire_12
+						graphical_culture = fallen_machine_empire_01
+						graphical_culture = fallen_machine_empire_02
+					}
+				}
+				country_event = { id = techfound.29 }
 			}
-		}
-		else = {
-			every_country = {
+			else = {
 				if = {
 					limit = {
-						is_country_type = default
 						has_government = gov_teif_stagnant_ascendancy
-						NOR = {
+						OR = {
 							graphical_culture = fallen_empire_01
 							graphical_culture = fallen_empire_02
 							graphical_culture = fallen_empire_03
@@ -41,32 +56,7 @@ event = {
 							graphical_culture = fallen_machine_empire_02
 						}
 					}
-					country_event = { id = techfound.29 }
-				}
-				else = {
-					if = {
-						limit = {
-							is_country_type = default
-							has_government = gov_teif_stagnant_ascendancy
-							OR = {
-								graphical_culture = fallen_empire_01
-								graphical_culture = fallen_empire_02
-								graphical_culture = fallen_empire_03
-								graphical_culture = fallen_empire_04
-								graphical_culture = fallen_empire_05
-								graphical_culture = fallen_empire_06
-								graphical_culture = fallen_empire_07
-								graphical_culture = fallen_empire_08
-								graphical_culture = fallen_empire_09
-								graphical_culture = fallen_empire_10
-								graphical_culture = fallen_empire_11
-								graphical_culture = fallen_empire_12
-								graphical_culture = fallen_machine_empire_01
-								graphical_culture = fallen_machine_empire_02
-							}
-						}
-						country_event = { id = fallen_start.1 }
-					}
+					country_event = { id = fallen_start.1 }
 				}
 			}
 		}
@@ -78,13 +68,64 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	immediate = {
-		in_fallen = yes
+		set_country_flag = get_machine
+		root = { save_event_target_as = sender }
+		switch = {
+			trigger = has_ethic
+			ethic_fanatic_materialist = {
+				random_list = {
+					10 = { set_name = "[This.GetSpeciesName]管理会" }
+					10 = { set_name = "[This.GetSpeciesName]保存会" }
+					10 = { set_name = "[This.GetSpeciesName]纪录会" }
+				}
+				in_fallen_materialist = yes
+			}
+			ethic_fanatic_spiritualist = {
+				random_list = {
+					10 = { set_name = "[This.GetSpeciesName]保护者" }
+					10 = { set_name = "[This.GetSpeciesName]守望者" }
+					10 = { set_name = "[This.GetSpeciesName]守护者" }
+				}
+				in_fallen_spiritualist = yes
+			}
+			ethic_fanatic_xenophile = {
+				random_list = {
+					10 = { set_name = "[This.GetSpeciesName]始祖星族" }
+					10 = { set_name = "[This.GetSpeciesName]先锋星族" }
+					10 = { set_name = "[This.GetSpeciesName]古代星族" }
+				}
+				in_fallen_xenophile = yes
+			}
+			ethic_fanatic_xenophobe = {
+				random_list = {
+					10 = { set_name = "[This.GetSpeciesName]碎片文明" }
+					10 = { set_name = "[This.GetSpeciesName]遗留文明" }
+					10 = { set_name = "[This.GetSpeciesName]遗迹文明" }
+				}
+				in_fallen_xenophobe = yes
+			}
+			ethic_fanatic_authoritarian = {
+				random_list = {
+					10 = { set_name = "[This.GetSpeciesName]沉寂皇族" }
+					10 = { set_name = "[This.GetSpeciesName]僻静皇族" }
+					10 = { set_name = "[This.GetSpeciesName]边陲皇族" }
+				}
+				in_fallen_authoritarian = yes
+			}
+			ethic_fanatic_egalitarian = {
+				random_list = {
+					10 = { set_name = "[This.GetSpeciesName]自由邦" }
+					10 = { set_name = "[This.GetSpeciesName]乌托邦" }
+					10 = { set_name = "[This.GetSpeciesName]文明邦" }
+				}
+				in_fallen_egalitarian = yes
+			}
+		}
 		if = {
 			limit = {
 				has_country_flag = no_fallen_graphical_culture
 				has_country_flag = being_fallen
 			}
-			root = { save_event_target_as = sender }
 			every_country = {
 				limit = {
 					OR = {
@@ -93,6 +134,7 @@ country_event = {
 						is_country_type = awakened_fallen_empire
 					}
 					has_communications = root
+					NOT = { is_same_value = root }
 				}
 				country_event = { id = techfound.5 }
 			}
@@ -106,8 +148,31 @@ country_event = {
 	hide_window = yes
 	immediate = {
 		spawn_start_navy = yes
-		country_event = { id = fallen_start.6 days = 2 }
+		country_event = { id = fallen_start.6 days = 5 }
 		country_event = { id = startfix.3 days = 92 }
+        every_owned_planet = {
+			while = {
+				limit = { any_owned_pop = { has_job = yes } }
+				check_planet_employment = yes
+			}
+		}
+		every_owned_pop_species = {
+			limit = {
+				is_species_class = MACHINE
+			}
+			set_citizenship_type = {
+				type = citizenship_robot_servitude
+				country = root
+			}
+			set_living_standard = {
+				type = living_standard_hive_mind
+				country = root
+			}
+			set_military_service_type = {
+				type = military_service_limited
+				country = root
+			}
+		}
 	}
 }
 
@@ -180,117 +245,10 @@ event = {
 }
 
 country_event = {
-	id = fallen_start.4
-	title = "fallen_start.4.name"
-	desc = "fallen_start.4.desc"
-	picture = GFX_evt_ancient_alien_temple
-	show_sound = event_alien_signal
-	is_triggered_only = yes
-	immediate = {
-		set_country_flag = voting
-		random_country = {
-			limit = {
-				is_country_type = global_event
-			}
-			save_event_target_as = global_event
-		}
-	}
-	option = {
-		name = "fallen_start.4.a"
-		hidden_effect = {
-			event_target:global_event = {
-				change_variable = { which = num_allow_fallen_player = value = 1 }
-			}
-			set_country_flag = voted
-		}
-	}
-	option = {
-		name = "fallen_start.4.b"
-		hidden_effect = {
-			event_target:global_event = {
-				change_variable = { which = num_not_allow_fallen_player = value = 1 }
-			}
-			set_country_flag = voted
-		}
-	}
-	after ={
-		if = {
-			limit = {
-				count_country = {
-					count = all
-					is_ai = no
-					has_country_flag = voting
-					has_country_flag = voted
-				}
-			}
-			event_target:global_event = {
-				subtract_variable = { which = num_allow_fallen_player value = num_not_allow_fallen_player }
-			}
-			if = {
-				limit = {
-					event_target:global_event = {
-						check_variable = { which = num_allow_fallen_player value >= 0 }
-					}
-				}
-				every_country = {
-					if = {
-						limit = {
-							is_country_type = default
-							has_government = gov_teif_stagnant_ascendancy
-							NOR = {
-								graphical_culture = fallen_empire_01
-								graphical_culture = fallen_empire_02
-								graphical_culture = fallen_empire_03
-								graphical_culture = fallen_empire_04
-								graphical_culture = fallen_empire_05
-								graphical_culture = fallen_empire_06
-								graphical_culture = fallen_empire_07
-								graphical_culture = fallen_empire_08
-								graphical_culture = fallen_empire_09
-								graphical_culture = fallen_empire_10
-								graphical_culture = fallen_empire_11
-								graphical_culture = fallen_empire_12
-								graphical_culture = fallen_machine_empire_01
-								graphical_culture = fallen_machine_empire_02
-							}
-						}
-						country_event = { id = techfound.29 }
-					}
-					else = {
-						if = {
-							limit = {
-								is_country_type = default
-								has_government = gov_teif_stagnant_ascendancy
-								OR = {
-									graphical_culture = fallen_empire_01
-									graphical_culture = fallen_empire_02
-									graphical_culture = fallen_empire_03
-									graphical_culture = fallen_empire_04
-									graphical_culture = fallen_empire_05
-									graphical_culture = fallen_empire_06
-									graphical_culture = fallen_empire_07
-									graphical_culture = fallen_empire_08
-									graphical_culture = fallen_empire_09
-									graphical_culture = fallen_empire_10
-									graphical_culture = fallen_empire_11
-									graphical_culture = fallen_empire_12
-									graphical_culture = fallen_machine_empire_01
-									graphical_culture = fallen_machine_empire_02
-								}
-							}
-							country_event = { id = fallen_start.1 }
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-event = {
 	id = fallen_start.5
 	is_triggered_only = yes
 	hide_window = yes
+	fire_only_once = yes
 	immediate = {
 		every_playable_country = {
 			limit = { is_country_type = fallen_empire is_ai = yes }
@@ -310,6 +268,11 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		random_owned_planet = {
+			limit = { has_planet_flag = waiting_remove }
+			remove_planet = yes
+			every_moon = { remove_planet = yes }
+		}
 		every_planet_within_border = {
 			limit = { 
 				has_deposit_for = shipclass_mining_station 
@@ -327,6 +290,65 @@ country_event = {
 			create_research_station = {
 				owner = ROOT
 			}
+		}
+		every_owned_planet = {
+			limit = {
+				has_planet_flag = ideal_planet_class
+			}
+			remove_all_buildings = yes
+			remove_all_districts = yes
+			add_building = building_ancient_palace
+			add_building = building_fe_dome
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+            add_building = building_dimensional_fabricator
+			if = {
+				limit = { owner = { is_spiritualist = yes } }
+				while = {
+					count = 3
+					add_district = district_city
+				}
+				while = {
+					count = 2
+					add_district = district_generator
+				}
+				while = {
+					count = 2
+					add_district = district_mining
+				}
+				while = {
+					count = 2
+					add_district = district_farming
+				}
+				add_building = building_fe_dome
+			}
+			if = {
+				limit = { owner = { is_egalitarian = yes } }
+				if = {
+					limit = { count_owned_pops = { count = 20 } }
+					add_district = district_generator
+					add_district = district_generator
+					add_district = district_mining
+					add_district = district_farming
+					random_list = {
+						1 = { add_building = building_affluence_center }
+						1 = { add_building = building_nano_forge }
+						1 = { add_building = building_dimensional_fabricator }
+					}
+				}
+				if = {
+					limit = { count_owned_pops = { count = 18 } }
+					add_district = district_generator
+					add_district = district_mining
+					add_district = district_mining
+					add_district = district_farming
+				}
+				while = {
+					count = 5
+					add_district = district_city
+				}
+			}
+			remove_planet_flag = ideal_planet_class
 		}
 		every_system_within_border = {
 			limit = {
@@ -400,6 +422,13 @@ country_event = {
 		}
 		every_owned_planet = {
 			clear_blockers = yes
+		}
+		if = {
+			limit = {
+				species_portrait = human
+				exists = event_target:fallen_empire_6
+			}
+			country_event = { id = fallenhuman.2 }
 		}
 	}
 }

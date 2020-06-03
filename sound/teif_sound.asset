@@ -19,3 +19,76 @@ sound =
 	file = "event/rebels_revolt_alert.wav"
 	volume = 0.8
 }
+
+sound =
+{
+	name = "event_the_response"
+	file = "event/event_the_response.wav"
+	volume = 0.8
+}
+
+sound = 
+{
+	name = "elder_greetings_01"
+	file = "elder/have_fought_a_hundred_battles.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_02"
+	file = "elder/improve_knowledge.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_03"
+	file = "elder/life_experience.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_04"
+	file = "elder/naive.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_05"
+	file = "elder/western_countries.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_06"
+	file = "elder/do_you_know_it.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_07"
+	file = "elder/i_am_an_elder.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_08"
+	file = "elder/learn_more.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_09"
+	file = "elder/support_him.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_10"
+	file = "elder/too_simple.wav"
+}
+
+sound = 
+{
+	name = "elder_greetings_11"
+	file = "elder/too_young.wav"
+}

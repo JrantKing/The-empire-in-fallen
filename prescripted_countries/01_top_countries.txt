@@ -23,12 +23,14 @@ urras = {
 	room = "personality_spiritual_seekers_room"
 	
 	authority="auth_democratic"
-	civics={ "civic_beacon_of_liberty" "civic_life_seeded" }
+	civics={ "civic_beacon_of_liberty" "civic_idealistic_foundation" }
 	government="gov_theocratic_republic"
 	
 	ethic="ethic_fanatic_egalitarian"
 	ethic="ethic_spiritualist"
 	
+	origin = "origin_life_seeded"
+
 	flags = { urras_orangutan }
 	
 	planet_name = "PRESCRIPTED_planet_name_urras"
@@ -65,5 +67,388 @@ urras = {
 		hair=0
 		clothes=0
 		leader_class = ruler
+	}
+}
+
+fhk = {
+	name = "fhk"
+	adjective = "PRESCRIPTED_adjective_humans1"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "FHK"
+	
+	species = {
+		class = "HUM"
+		portrait = "human"
+		name = "PRESCRIPTED_species_name_humans1"
+		plural = "PRESCRIPTED_species_plural_humans1"
+		adjective = "PRESCRIPTED_species_adjective_humans1"
+		name_list = "HUMAN1"
+		trait="trait_adaptive"
+		trait="trait_nomadic"
+		trait="trait_wasteful"
+	}
+	
+	room = "personality_erudite_explorers_room"
+	
+	authority="auth_oligarchic"
+	civics={ "civic_efficient_bureaucracy" "civic_advanced_start" }
+	government = "gov_executive_committee"
+	
+	ethic="ethic_egalitarian"
+	ethic="ethic_xenophile"
+	ethic="ethic_materialist"
+
+	origin = "origin_default"
+	
+	flags = { freesia custom_start_screen }
+	
+	planet_name = "PRESCRIPTED_planet_name_fhk"
+	planet_class = "pc_continental"
+	initializer = "sigma_hydrids_system"
+	system_name = "PRESCRIPTED_system_name_fhk"
+
+	graphical_culture = "humanoid_01"
+	city_graphical_culture = "humanoid_01"
+
+	empire_flag={
+		icon={
+			category="ornate"
+			file="flag_ornate_24.dds"
+		}
+		background={
+			category="backgrounds"
+			file="diagonal.dds"
+		}
+		colors={
+			"pink"
+			"blue"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "PRESCRIPTED_ruler_name_fhk"
+		ruler_title = "PRESCRIPTED_ruler_title_fhk"
+		gender = female
+		portrait = "human_female_03"
+		texture = 0
+		hair = 0
+		clothes = 0
+		leader_class = ruler
+	}
+}
+
+spegc = {
+	name = "spegc"
+	adjective = "PRESCRIPTED_adjective_humans1"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "SPEGC"
+	
+	species = {
+		class = "HUM"
+		portrait = "human"
+		name = "PRESCRIPTED_species_name_humans1"
+		plural = "PRESCRIPTED_species_plural_humans1"
+		adjective = "PRESCRIPTED_species_adjective_humans1"
+		name_list = "HUMAN1"
+		trait="trait_adaptive"
+		trait="trait_nomadic"
+		trait="trait_wasteful"
+	}
+	
+	room = "personality_erudite_explorers_room"
+	
+	authority="auth_oligarchic"
+	civics={ "civic_technocracy" "civic_advanced_start" }
+	government = "gov_science_directorate"
+	
+	ethic="ethic_egalitarian"
+	ethic="ethic_fanatic_materialist"
+
+	origin = "origin_default"
+	
+	flags = { sasa custom_start_screen }
+	
+	planet_name = "PRESCRIPTED_planet_name_spegc"
+	planet_class = "pc_continental"
+	initializer = "lambda_hydrae_system"
+	system_name = "PRESCRIPTED_system_name_spegc"
+
+	graphical_culture = "humanoid_01"
+	city_graphical_culture = "humanoid_01"
+
+	empire_flag={
+		icon={
+			category="human"
+			file="flag_human_10.dds"
+		}
+		background={
+			category="backgrounds"
+			file="diagonal.dds"
+		}
+		colors={
+			"turquoise"
+			"blue"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "PRESCRIPTED_ruler_name_spegc"
+		ruler_title = "PRESCRIPTED_ruler_title_spegc"
+		gender = male
+		portrait="human_male_02"
+		texture = 0
+		hair = 4
+		clothes = 0
+		leader_class = ruler
+	}
+}
+
+cdfly = {
+	name = "cdfly"
+	adjective = "PRESCRIPTED_adjective_cdfly"
+	spawn_enabled = yes
+	ignore_portrait_duplication = yes
+
+	ship_prefix = "PRESCRIPTED_ship_prefix_cdfly"
+
+	species = {
+		class = "PLANT"
+		portrait = "pla10"
+		name = "PRESCRIPTED_species_name_cdfly"
+		plural = "PRESCRIPTED_species_plural_cdfly"
+		adjective = "PRESCRIPTED_species_adjective_cdfly"
+		name_list = "PLANT3"
+		trait = "trait_very_strong"
+		trait = "trait_resilient"
+		trait = "trait_fleeting"
+		trait = "trait_quarrelsome"
+	}
+	
+	room = "personality_honorbound_warriors_room"
+	
+	authority = "auth_democratic"
+	civics = { "civic_gestalt_terminator" "civic_distinguished_admiralty" }
+	government = "gov_military_commissariat"
+
+	ethic = "ethic_egalitarian"
+	ethic = "ethic_fanatic_militarist"
+
+	origin = "origin_default"
+
+	flags = { cdfly custom_start_screen }
+
+	planet_name = "PRESCRIPTED_planet_name_cdfly"
+	planet_class = "pc_tropical"
+	initializer = ""
+	system_name = "PRESCRIPTED_system_name_cdfly"
+
+	graphical_culture = "plantoid_01"
+	city_graphical_culture = "plantoid_01"
+
+	empire_flag = {
+		icon = {
+			category = "legion"
+			file = "flag_mp_beta_05.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "stripes.dds"
+		}
+		colors = {
+			"pink"
+			"light_orange"
+			"null"
+			"null"
+		}
+	}
+	ruler = {
+		gender = female
+		name = "PRESCRIPTED_ruler_name_cdfly"
+		ruler_title = "PRESCRIPTED_ruler_title_cdfly"
+		portrait = "pla10"
+		texture = 3
+		hair = 0
+		clothes = 4
+		leader_class = "ruler"
+	}
+}
+
+fmcd = {
+	name = "fmcd"
+	adjective = "PRESCRIPTED_adjective_fmcd"
+	spawn_enabled = yes
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_fmcd"
+	
+	species = {
+		class = "ART"
+		portrait = "art1"
+		name = "PRESCRIPTED_species_name_fmcd"
+		plural = "PRESCRIPTED_species_plural_fmcd"
+		adjective = "PRESCRIPTED_species_adjective_fmcd"
+		name_list = "ART4"
+		trait = "trait_rapid_breeders"
+		trait = "trait_strong"
+		trait = "trait_sedentary"
+	}
+	
+	secondary_species = {
+		class = "FUN"
+		portrait = "fun11"
+		name = "PRESCRIPTED_secondary_species_name_fmcd"
+		plural = "PRESCRIPTED_secondary_species_plural_fmcd"
+		adjective = "PRESCRIPTED_secondary_species_adjective_fmcd"
+		name_list = "FUN4"
+		trait = "trait_hive_mind"
+		trait = "trait_adaptive"
+		trait = "trait_charismatic"
+		trait = "trait_sedentary"
+		trait = "trait_weak"
+	}
+		
+	room = "personality_spiritual_seekers_room"
+		
+	authority = "auth_oligarchic"
+	government = "gov_theocratic_oligarchy"
+	civics = { "civic_hivekeeper" "civic_evolutionary_mastery" }
+	
+	ethic = "ethic_egalitarian"
+	ethic = "ethic_xenophile"
+	ethic = "ethic_spiritualist"
+
+	origin = "origin_default"
+	
+	flags = { fmcd custom_start_screen }
+
+	planet_name = "PRESCRIPTED_planet_name_fmcd"
+	planet_class = "pc_ocean"
+	system_name = "PRESCRIPTED_system_name_fmcd"
+	initializer = ""
+	
+	graphical_culture = "arthropoid_01"
+	city_graphical_culture = "arthropoid_01"
+	
+	empire_flag = {
+		icon = {
+			category = "zoological"
+			file = "flag_zoological_15.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "stripe.dds"
+		}
+		colors = {
+			"dark_teal"
+			"pink"
+			"null"
+			"null"
+		}
+	}
+	ruler = {
+		gender = female
+		name = "PRESCRIPTED_ruler_name_fmcd"
+		ruler_title = "PRESCRIPTED_ruler_title_fmcd"
+		portrait = "art1"
+		texture = 0
+		hair = 0
+		clothes = 0
+		leader_class = "ruler"
+	}
+}
+
+xelteks = {
+	name = "xelteks"
+	adjective = "PRESCRIPTED_adjective_xelteks"
+	spawn_enabled = yes
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_xelteks"
+	
+	species = {
+		class = "ROBOT"
+		portrait = "sd_art_robot"
+		name = "PRESCRIPTED_species_name_xelteks"
+		plural = "PRESCRIPTED_species_plural_xelteks"
+		adjective = "PRESCRIPTED_species_adjective_xelteks"
+		name_list = "ART1"
+		trait = "trait_mechanical"
+		trait = "trait_robot_logic_engines"
+		trait = "trait_robot_streamlined_protocols"
+		trait = "trait_robot_luxurious"
+		trait = "trait_robot_custom_made"
+	}
+	secondary_species = {
+		class = "MACHINE"
+		portrait = "sd_art_robot"
+		name = "PRESCRIPTED_secondary_species_name_xelteks"
+		plural = "PRESCRIPTED_secondary_species_plural_xelteks"
+		adjective = "PRESCRIPTED_secondary_species_adjective_xelteks"
+		name_list = "MACHINE1"
+		trait = "trait_machine_unit"
+		trait = "trait_robot_power_drills"
+		trait = "trait_robot_efficient_processors"
+		trait = "trait_robot_high_bandwidth"
+		trait = "trait_robot_repurposed_hardware"
+		trait = "trait_robot_high_maintenance"
+	}
+	
+	room = "personality_erudite_explorers_room"
+	
+	authority = "auth_oligarchic"
+	government = "gov_executive_committee"
+	
+	civics = { "civic_synthetic_evolution" "civic_advanced_start" }
+	
+	
+	ethic = "ethic_authoritarian"
+	ethic = "ethic_xenophile"
+	ethic = "ethic_materialist"
+	
+	origin = "origin_machine_worlds"
+	
+	flags = { xelteks custom_start_screen }
+	
+	planet_name = "PRESCRIPTED_planet_name_xelteks"
+	planet_class = "pc_arid"
+	system_name = "PRESCRIPTED_system_name_xelteks"
+	initializer = ""
+	
+	graphical_culture = "arthropoid_01"
+	city_graphical_culture = "arthropoid_01"
+	
+	empire_flag = {
+		icon = {
+			category = "pointy"
+			file = "flag_pointy_23.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "new_dawn.dds"
+		}
+		colors = {
+			"pink"
+			"turquoise"
+			"null"
+			"null"
+		}
+	}
+	ruler = {
+		gender = female
+		name = "PRESCRIPTED_ruler_name_xelteks"
+		ruler_title = "PRESCRIPTED_ruler_title_xelteks"
+		portrait = "sd_art_robot"
+		texture=0
+		hair=0
+		clothes=0
+		leader_class = "ruler"
 	}
 }

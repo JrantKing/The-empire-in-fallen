@@ -15,7 +15,10 @@ tech_robomodding_m = {
 	}
 	
 	potential = {
-		is_synthetic_empire = yes
+		OR = {
+            is_robot_empire = yes
+            has_technology = tech_automaton_brain
+        }
 	}
 
 	weight_modifier = {			
@@ -184,7 +187,11 @@ tech_robomodding_points_2 = {
 			has_ascension_perk = ap_the_flesh_is_weak
 		}
 		modifier = {
-			factor = 0.20
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = 0.50
 			NOR = {
 				research_leader = {
 					area = engineering
@@ -249,7 +256,10 @@ tech_binary_motivators = {
 	}
 	
 	potential = {
-		is_synthetic_empire = yes
+        OR = {
+            is_robot_empire = yes
+            has_technology = tech_automaton_brain
+        }
 	}
 
 	weight_modifier = {
@@ -290,7 +300,10 @@ tech_nanite_assemblers = {
 	}
 	
 	potential = {
-		is_synthetic_empire = yes
+		OR = {
+            is_robot_empire = yes
+            has_technology = tech_automaton_brain
+        }
 	}	
 	
 	weight_modifier = {
@@ -314,6 +327,17 @@ tech_nanite_assemblers = {
 					area = engineering
 					has_trait = "leader_trait_expertise_industry"
 				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
 			}
 		}
 	}
@@ -340,7 +364,10 @@ tech_adaptive_combat_algorithms = {
 	weight = @tier2weight2
 	
 	potential = {
-		has_authority = auth_machine_intelligence
+		OR = {
+            is_robot_empire = yes
+            has_technology = tech_automaton_brain
+        }
 	}	
 	
 	weight_modifier = {
@@ -376,7 +403,10 @@ tech_biomechanics = {
 	weight = @tier4weight2
 
 	potential = {
-		has_authority = auth_machine_intelligence
+		OR = {
+            is_robot_empire = yes
+            has_technology = tech_automaton_brain
+        }
 	}
 	
 	weight_modifier = {
@@ -394,11 +424,8 @@ tech_biomechanics = {
 			}
 		}
 		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_spark_of_genius"
-			}
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.5
@@ -440,11 +467,14 @@ tech_micro_replicators = {
 	weight = @tier2weight2
 	
 	modifier = {
-		pop_assembly_speed = 0.10
+		planet_pop_assembly_mult = 0.10
 	}
 	
 	potential = {
-		is_synthetic_empire = yes
+		OR = {
+            is_robot_empire = yes
+            has_technology = tech_automaton_brain
+        }
 	}
 	
 	weight_modifier = {
@@ -452,7 +482,7 @@ tech_micro_replicators = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = society
+				area = engineering
 				has_trait = "leader_trait_expertise_industry"
 			}
 		}
@@ -462,7 +492,7 @@ tech_micro_replicators = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = society
+				area = engineering
 				has_trait = "leader_trait_expertise_industry"
 			}
 		}
@@ -479,11 +509,14 @@ tech_self_assembling_components = {
 	prerequisites = { "tech_micro_replicators" }
 	
 	modifier = {
-		pop_assembly_speed = 0.10
+		planet_pop_assembly_mult = 0.10
 	}
 	
 	potential = {
-		is_synthetic_empire = yes
+		OR = {
+            is_robot_empire = yes
+            has_technology = tech_automaton_brain
+        }
 	}
 	
 	weight_modifier = {
@@ -491,7 +524,7 @@ tech_self_assembling_components = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = society
+				area = engineering
 				has_trait = "leader_trait_expertise_industry"
 			}
 		}
@@ -501,7 +534,7 @@ tech_self_assembling_components = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = society
+				area = engineering
 				has_trait = "leader_trait_expertise_industry"
 			}
 		}

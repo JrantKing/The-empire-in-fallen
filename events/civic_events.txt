@@ -8,6 +8,8 @@ country_event = {
 	immediate = {
 		if = {
 			limit = { has_civic = civic_synthetic_evolution }
+			add_modifier = { modifier = civic_synthetic_evolution days = -1 }
+			set_country_flag = get_machine
 			give_technology = { tech = tech_administrative_ai message = no }
 			give_technology = { tech = tech_cryostasis_1 message = no }
 			give_technology = { tech = tech_cryostasis_2 message = no }
@@ -22,11 +24,59 @@ country_event = {
 			give_technology = { tech = tech_powered_exoskeletons message = no }
 			give_technology = { tech = tech_robotic_workers message = no }
 			give_technology = { tech = tech_droid_workers message = no }
+			give_technology = { tech = tech_automaton_brain message = no }
 			give_technology = { tech = tech_synthetic_workers message = no }
 			give_technology = { tech = tech_synthetic_leaders message = no }
-			add_modifier = { modifier = civic_synthetic_evolution days = -1 }
 			add_resource = { energy = 200 }
-			add_resource = { food = -200 }
+            add_resource = { food = -200 }
+            set_policy = {
+                policy = robot_machine_pop
+                option = servitude_robot_machine_pop
+                cooldown = no
+			}
+			set_policy = {
+                policy = artificial_intelligence_policy
+                option = ai_full_rights
+                cooldown = no
+			}
+			every_owned_leader = {
+				add_ruler_trait = leader_trait_ruler_synthetic
+				if = {
+					limit = { leader_class = governor }
+					add_trait = leader_trait_governor_synthetic
+				}
+				if = {
+					limit = { leader_class = scientist }
+					add_trait = leader_trait_scientist_synthetic
+				}
+				if = {
+					limit = { leader_class = admiral }
+					add_trait = leader_trait_admiral_synthetic
+				}
+				if = {
+					limit = { leader_class = general }
+					add_trait = leader_trait_general_synthetic
+				}
+			}
+			# every_pool_leader = {
+			# 	add_ruler_trait = leader_trait_ruler_synthetic
+			# 	if = {
+			# 		limit = { leader_class = governor }
+			# 		add_trait = leader_trait_governor_synthetic
+			# 	}
+			# 	if = {
+			# 		limit = { leader_class = scientist }
+			# 		add_trait = leader_trait_scientist_synthetic
+			# 	}
+			# 	if = {
+			# 		limit = { leader_class = admiral }
+			# 		add_trait = leader_trait_admiral_synthetic
+			# 	}
+			# 	if = {
+			# 		limit = { leader_class = general }
+			# 		add_trait = leader_trait_general_synthetic
+			# 	}
+			# }
 		}
 		if = {
 			limit = { has_civic = civic_evolutionary_mastery }
@@ -50,6 +100,7 @@ country_event = {
 			give_technology = { tech = tech_gene_seed_purification message = no }
 			give_technology = { tech = tech_genetic_resequencing message = no }
 			add_modifier = { modifier = civic_evolutionary_mastery days = -1 }
+			country_event = { id = civic_events.8 days = 3 }
 		}
 		if = {
 			limit = { has_civic = civic_transcendence }
@@ -64,396 +115,37 @@ country_event = {
 			add_research_option = tech_psionic_shield
 			add_research_option = tech_psionic_barrier
 			country_event = { id = civic_events.6 days = 20 random = 20 }
+        }
+		if = {
+			limit = { has_civic = civic_gestalt_terminator }
+			set_country_flag = found_presapients
+			give_technology = { tech = tech_psionic_theory message = no }
+		}
+		if = {
+			limit = { has_valid_civic = civic_hivekeeper }
+			set_country_flag = get_hive_mind
+			give_technology = { tech = tech_psionic_theory message = no }
+			give_technology = { tech = tech_create_hive_mind message = no }
+			set_policy = {
+                policy = hive_mind_pop
+                option = servitude_hive_mind_pop
+                cooldown = no
+			}
 		}
 	}
 }
 
-country_event = {
+planet_event = {
 	id = civic_events.1
 	hide_window = yes
 	is_triggered_only = yes
-	
 	trigger = {
-		is_country_type = default
-		has_valid_civic = civic_ringworld_start
+		has_building = building_clone_vats
+		FromFrom = { is_organic_species = yes }
 	}
 	immediate = {
-		if = {
-			limit = {
-				capital_scope.solar_system = {
-					OR = {
-						AND = {
-							OR = {
-								is_star_class = sc_a
-								is_star_class = sc_b
-								is_star_class = sc_f
-								is_star_class = sc_g
-								is_star_class = sc_k
-								is_star_class = sc_m
-							}
-							any_planet = { NOT = { has_planet_flag = temp_save } }
-						}
-						AND = {
-							OR = {
-								is_star_class = sc_trinary_1
-								is_star_class = sc_trinary_2
-								is_star_class = sc_trinary_3
-								is_star_class = sc_trinary_4
-								is_star_class = sc_binary_5
-								is_star_class = sc_binary_6
-								is_star_class = sc_binary_7
-								is_star_class = sc_binary_8
-								is_star_class = sc_binary_9
-								is_star_class = sc_binary_10
-							}
-							any_planet = { has_planet_flag = temp_save }
-						}
-					}
-				}
-			}
-			capital_scope.solar_system = {
-				spawn_megastructure = {
-					name = "NAME_Ring_Section_A"
-					type = "ring_world_3_intermediate"
-					orbit_angle = 0
-					orbit_distance = 45
-					owner = root
-					graphical_culture = root
-					location = star
-				}
-				spawn_megastructure = {
-					name = "NAME_Ring_Section_B"
-					type = "ring_world_3_intermediate"
-					orbit_angle = 90
-					orbit_distance = 45
-					owner = root
-					graphical_culture = root
-					location = star
-				}
-				spawn_megastructure = {
-					name = "NAME_Ring_Section_C"
-					type = "ring_world_3_intermediate"
-					orbit_angle = 180
-					orbit_distance = 45
-					owner = root
-					graphical_culture = root
-					location = star
-				}
-				spawn_megastructure = {
-					name = "NAME_Ring_Section_D"
-					type = "ring_world_3_intermediate"
-					orbit_angle = 270
-					orbit_distance = 45
-					owner = root
-					graphical_culture = root
-					location = star
-				}
-				system_star = {
-					clear_deposits = yes
-					set_planet_flag = starting_mining_target
-					set_planet_flag = starting_deposit
-					remove_planet_flag = has_megastructure
-					set_deposit = d_energy_5
-				}
-			}
-			random_planet_within_border ={
-				limit = {
-					is_planet_class = pc_ringworld_habitable
-				}
-				save_event_target_as = ringworld_capital
-				set_planet_flag = ringworld_capital
-			}
-			random_owned_planet = {
-				limit = { is_capital = yes }
-				save_event_target_as = prevcapital
-			}
-			if = {
-				limit = { has_valid_civic = civic_synthetic_evolution }
-				random_owned_pop = {
-					limit = { NOT = { is_same_species = root } }
-					species = {
-						create_species = {
-							name = this
-							plural = this
-							namelist = this
-							class = this
-							portrait = this
-							traits = this
-							homeworld = event_target:ringworld_capital
-							effect = {
-								save_event_target_as = playerspecies_secondary_species
-							}
-						}
-					}
-				}
-			}
-			if = {
-				limit = { has_valid_civic = civic_syncretic_evolution }
-				random_owned_pop = {
-					limit = { NOT = { is_same_species = root } }
-					species = {
-						create_species = {
-							name = this
-							plural = this
-							namelist = this
-							class = this
-							portrait = this
-							traits = this
-							homeworld = event_target:ringworld_capital
-							effect = {
-								save_event_target_as = playerspecies_secondary_species
-							}
-						}
-					}
-				}
-				last_created_species = {
-					set_citizenship_type = {
-						country = root
-						type = citizenship_slavery
-					}
-				}
-			}
-			if = {
-				limit = { owner_species = { OR = { is_species_class = ROBOT is_species_class = ROBOT_GENDER } } }
-				create_species = {
-					name = this
-					namelist = this
-					plural = this
-					class = "ROBOT"
-					portrait = this
-					traits = this
-					homeworld = event_target:ringworld_capital
-					effect = { save_event_target_as = playerspecies }
-				}
-			}
-			else_if = {
-				limit = { owner_species = { NOR = { is_species_class = ROBOT is_species_class = ROBOT_GENDER } } }
-				create_species = {
-					name = this
-					namelist = this
-					plural = this
-					class = this
-					portrait = this
-					traits = this
-					homeworld = event_target:ringworld_capital
-					effect = { save_event_target_as = playerspecies }
-				}
-			}
-			if = {
-				limit = {
-					owner_species = {
-						NOR = {
-							is_species_class = ROBOT
-							is_species_class = ROBOT_GENDER
-						}
-					}
-				}
-				modify_species = {
-					species = event_target:playerspecies
-					ideal_planet_class = event_target:prevcapital
-					remove_trait = trait_pc_ringworld_habitable_preference
-					base = none
-				}
-				last_created_species = { save_event_target_as = playerspecies }
-				if = {
-					limit = { exists = event_target:playerspecies_secondary_species }
-					modify_species = {
-						species = event_target:playerspecies_secondary_species
-						ideal_planet_class = event_target:prevcapital
-						remove_trait = trait_pc_ringworld_habitable_preference
-						base = none
-					}
-					last_created_species = { save_event_target_as = playerspecies_secondary_species }
-				}
-			}
-			every_owned_leader = { change_species = event_target:playerspecies }
-			every_pool_leader = { change_species = event_target:playerspecies }
-			change_dominant_species = { species = event_target:playerspecies }
-			event_target:ringworld_capital = {
-				set_owner = root
-				set_controller = root
-				create_colony = {
-					owner = root
-					species = root.owner_species
-				}
-				remove_all_buildings = yes
-				every_owned_pop = { kill_pop = yes }
-				generate_start_buildings_and_districts = yes
-				set_name = "[ROOT.Capital.GetName]"
-				set_capital = yes
-				remove_planet_flag = ringworld_capital
-				add_deposit = d_meteorite_crater
-				add_district = district_mining_ringworld
-				add_district = district_mining_ringworld
-				if = {
-					limit = { owner = { has_civic = civic_syncretic_evolution } }
-					while = {
-						count = 12
-						create_pop = {
-							species = event_target:playerspecies_secondary_species
-							ethos = random
-						}
-					}
-				}
-				if = {
-					limit = { owner = { has_civic = civic_synthetic_evolution } }
-					root = { set_built_species = event_target:playerspecies_secondary_species }
-					event_target:playerspecies_secondary_species = {
-						set_citizenship_type = {
-							country = root
-							type = citizenship_robot_servitude
-						}
-						set_living_standard = {
-							country = root
-							type = living_standard_servitude
-						}
-					}
-					add_district = district_generator_uncapped
-					remove_district = district_farming_uncapped
-					remove_district = district_farming_uncapped
-					while = {
-						count = 8
-						create_pop = {
-							species = event_target:playerspecies_secondary_species
-							ethos = random
-						}
-						last_created_pop = {
-							clear_ethos = yes
-						}
-					}
-					while = {
-						limit = { num_pops < 27 }
-						create_pop = {
-							species = owner_main_species
-							ethos = random
-						}
-					}
-				}
-				else_if = {
-					limit = { root = { is_megacorp = yes} }
-					while = {
-						limit = { num_pops < 28 }
-						create_pop = {
-							species = owner_main_species
-							ethos = random
-						}
-					}				
-				}	
-				else = {
-					while = {
-						limit = { num_pops < 24 }
-						create_pop = {
-							species = owner_main_species
-							ethos = random
-						}
-					}		
-				}
-			}
-			#random_owned_leader = {
-			#	limit = { leader_class = governor }
-			#	save_event_target_as = leader_governor
-			#}
-			capital_scope = {
-				#assign_leader = event_target:leader_governor
-				solar_system = {
-					set_asteroid_belt = { radius = 0 }
-					if = {
-						limit = { any_planet = { has_planet_flag = temp_save } }
-						every_system_planet = { 
-							limit = {
-								NOR = {
-									is_star = yes
-									is_ringworld = yes
-								}
-								has_planet_flag = temp_save
-							}
-							destroy_colony = yes
-							remove_planet = yes 
-						}
-					}
-					else = {
-						every_system_planet = { 
-							limit = {
-								NOR = {
-									is_star = yes
-									is_ringworld = yes
-								}
-							}
-							destroy_colony = yes
-							remove_planet = yes 
-						}
-					}
-					random_system_planet = {
-						limit = {
-							is_planet_class = pc_ringworld_habitable
-							NOT = { is_capital = yes }
-							NOR = {
-								has_planet_flag = nongye
-								has_planet_flag = gongye
-								has_planet_flag = maoyi
-							}
-						}
-						add_deposit = d_meteorite_crater
-						set_planet_flag = nongye
-						set_name = "NAME_Agrarian_District"
-						add_district = district_farming_uncapped
-					}
-					random_system_planet = {
-						limit = {
-							is_planet_class = pc_ringworld_habitable
-							NOT = { is_capital = yes }
-							NOR = {
-								has_planet_flag = nongye
-								has_planet_flag = gongye
-								has_planet_flag = maoyi
-							}
-						}
-						add_deposit = d_meteorite_crater
-						set_planet_flag = gongye
-						set_name = "NAME_Industrial_District"
-						add_district = district_mining_ringworld
-					}
-					random_system_planet = {
-						limit = {
-							is_planet_class = pc_ringworld_habitable
-							NOT = { is_capital = yes }
-							NOR = {
-								has_planet_flag = nongye
-								has_planet_flag = gongye
-								has_planet_flag = maoyi
-							}
-						}
-						add_deposit = d_meteorite_crater
-						set_planet_flag = maoyi
-						set_name = "NAME_Trade_District"
-						add_district = district_generator_uncapped
-					}
-					every_system_planet = {
-						remove_planet_flag = nongye
-						remove_planet_flag = gongye
-						remove_planet_flag = maoyi
-					}
-				}
-			}
-			every_planet_within_border = {
-				limit = {
-					has_deposit_for = shipclass_mining_station 
-					has_mining_station = no
-				}
-				create_mining_station = {
-					owner = ROOT
-				}
-			}
-			every_planet_within_border = {
-				limit = {
-					is_ringworld = yes
-					has_deposit_for = shipclass_research_station 
-					has_research_station = no
-				}
-				create_research_station = {
-					owner = ROOT
-				}
-			}
+		create_pop = {
+			species = FromFrom
 		}
 	}
 }
@@ -465,7 +157,7 @@ country_event = {
 	
 	trigger = {
 		is_country_type = default
-		NOT = { has_valid_civic = civic_ringworld_start }
+		always = no
 	}
 	immediate = {
 		capital_scope = {
@@ -484,7 +176,19 @@ country_event = {
 					}
 					exists = event_target:has_ringworld
 				}
+				NOT = { has_civic = civic_ringworld_start }
 			}
+			every_owned_planet = {
+				remove_all_buildings = yes
+				remove_all_districts = yes
+				every_owned_pop = {
+					kill_pop = yes
+				}
+				destroy_colony = yes
+			}
+		}
+		if = {
+			limit = { has_any_megastructure_in_empire = yes }
 			every_owned_planet = {
 				remove_all_buildings = yes
 				remove_all_districts = yes
@@ -514,6 +218,7 @@ country_event = {
 	immediate = {
 		set_country_flag = shroud_diplomacy_engaged
 		set_country_flag = shroud_intro
+		set_country_flag = breached_shroud
 		random_country = {
 			limit = { is_country_type = shroud }
 			establish_communications_no_message = root
@@ -521,15 +226,15 @@ country_event = {
 	}
 
 	after = {
-		hidden_effect = {
-			country_event = { id = civic_events.7 }
-		}
+		remove_country_flag = shroud_diplomacy_engaged
+		remove_country_flag = shroud_intro
 	}
 
 	option = {
 		name = "utopia.3000.a"
 
 		hidden_effect = {
+			country_event = { id = civic_events.7 }
 			random_list = {
 				90 = {
 					add_modifier = {
@@ -609,5 +314,129 @@ country_event = {
 	option = {
 		name = "exit.shroud"
 		default_hide_option = yes
+	}
+}
+
+country_event = {
+	id = civic_events.8
+	is_triggered_only = yes
+	diplomatic = yes
+	picture_event_data = {
+		portrait = root
+		room = root
+	}
+	title = civic_events.8.name
+	desc = civic_events.8.desc
+	immediate = {
+		add_modifier = { modifier = civic_evolutionary_mastery_cost days = 31 }
+	}
+	option = {
+		name = OK
+		tooltip = {
+			add_modifier = { modifier = civic_evolutionary_mastery_cost }
+		}
+	}
+}
+
+planet_event = {
+	id = civic_events.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { has_valid_civic = civic_gestalt_terminator }
+		FROMFROM = {
+			OR = {
+				has_trait = trait_machine_unit
+				has_trait = trait_hive_mind
+			}
+			NOT = {
+				is_same_species = owner_species
+			}
+		}
+		is_controlled_by = FROM
+	}
+	
+	immediate = {
+		FROM = {
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 1.5
+				min = 5
+				max = 100
+			}
+		}
+		if = {
+			limit = { FROMFROM = { has_trait = trait_machine_unit } }
+			FROM = {
+				add_monthly_resource_mult = {
+					resource = alloys
+					value = 1
+					min = 1
+					max = 100
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				FROMFROM = {
+					has_trait = trait_hive_mind
+					NOT = { has_trait = trait_lithoid }
+				}
+			}
+			if = {
+				limit = { FROM = { has_country_flag = synthetic_empire } }
+				FROM = {
+					add_monthly_resource_mult = {
+						resource = energy
+						value = 1
+						min = 1
+						max = 100
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						is_lithoid_empire = yes
+						NOT = { has_country_flag = synthetic_empire }
+					}
+				}
+				FROM = {
+					add_monthly_resource_mult = {
+						resource = energy
+						value = 1
+						min = 1
+						max = 100
+					}
+				}
+			}
+			else = {
+				FROM = {
+					add_monthly_resource_mult = {
+						resource = food
+						value = 1
+						min = 1
+						max = 100
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				FROMFROM = {
+					has_trait = trait_hive_mind
+					has_trait = trait_lithoid
+				}
+			}
+			FROM = {
+				add_monthly_resource_mult = {
+					resource = minerals
+					value = 1
+					min = 1
+					max = 100
+				}
+			}
+		}
 	}
 }

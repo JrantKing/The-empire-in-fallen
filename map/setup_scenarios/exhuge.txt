@@ -1,18 +1,19 @@
 setup_scenario = {
 	name = "exhuge"
-	priority = 5					#priority decides in which order the scenarios are listed
-	num_stars = 3000
-	radius = 450					#should be less than 500, preferably less than ~460
-	num_empires = { min = 0 max = 40 }	#limits player customization
-	num_empire_default = 20
+	priority = 9					#priority decides in which order the scenarios are listed
+	num_stars = 2000
+	radius = 500					#should be less than 500, preferably less than ~460
+	num_empires = { min = 0 max = 60 }	#limits player customization
+	num_empire_default = 30
 	fallen_empire_default = 5
-	fallen_empire_max = 7
+	fallen_empire_max = 8
 	marauder_empire_default = 3
 	marauder_empire_max = 3
 	advanced_empire_default = 5
 	colonizable_planet_odds = 1.0
 	primitive_odds = 1.0
-	crisis_strength = 1.5
+	crisis_strength = 4.0
+	extra_crisis_strength = { 10 25 50 100 125 150 200 250 }
 	
 	cluster_count = {
 		method = one_every_x_empire
@@ -45,7 +46,7 @@ setup_scenario = {
 		method = depth_first
 	}
 
-	num_nebulas	= 10
+	num_nebulas	= 20
 	nebula_size = 60
 	nebula_min_dist = 200
 	
@@ -57,5 +58,7 @@ setup_scenario = {
 	num_hyperlanes_default = 1
 	
 	supports_shape = elliptical
+	supports_shape = spiral_2
 	supports_shape = spiral_4
+	supports_shape = ring
 }

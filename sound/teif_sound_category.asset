@@ -1,10 +1,11 @@
 category = {
  name = "Effects"
  soundeffects = {
-
+	elder_greetings
 	########## EVENT
 	event_stability_increase
     event_stability_decrease
 	rebels_revolt_alert
- }
+	event_the_response
+	}
 }

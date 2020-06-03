@@ -1,7 +1,6 @@
 building_planetary_shield_system_generator = {
 	icon = building_planetary_shield_generator
 	base_buildtime = 2250
-	base_cap_amount = 1
 	can_build = no
 	can_demolish = no
 	can_be_ruined = no
@@ -9,15 +8,52 @@ building_planetary_shield_system_generator = {
 	add_to_first_building_slot = yes
 	
 	category = army
-	
+	potential = {
+		is_planet_class = pc_shielded_gaia
+	}
 	allow = {
 		has_upgraded_capital = yes
 	}
-	
+	convert_to = {
+		building_planetary_shield_generator
+	}
+	# destroy_trigger = {
+	# 	NOT = { is_planet_class = pc_shielded_gaia }
+	# }
 	planet_modifier = {
 		planet_orbital_bombardment_damage = -10.00
 		planet_stability_add = 15
-		job_shielded_researcher_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_fallen_empire = no
+			}
+		}
+		modifier = {
+			job_shielded_researcher_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_fallen_empire = yes
+				is_fallen_empire_machine = no
+			}
+		}
+		modifier = {
+			job_fe_shielded_researcher_add = 1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				is_fallen_empire_machine = yes
+			}
+		}
+		modifier = {
+			job_fe_guardian_bot_add = 1
+		}
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -55,7 +91,6 @@ building_planetary_shield_system_generator = {
 		army_defense_health_mult = 2.40
 		army_defense_morale_mult = 2.40
 		army_defense_damage_mult = 2.40
-		armies_upkeep_mult = -0.15
 	}
 	
 	resources = {
@@ -76,21 +111,12 @@ building_planetary_shield_system_generator = {
 	triggered_desc = {
 		text = job_shielded_researcher_effect_desc
 	}
-	
-	potential = {
-		planet = {
-			OR = {
-				is_planet_class = pc_gaia
-				is_planet_class = pc_shielded_gaia
-			}
-		}
-	}
-	
+
 	#upgrades = { "building_planetary_shield_generator" }
 	
-	prerequisites = {
-		"tech_planetary_shield_generator"
-	}
+	#prerequisites = {
+	#	"tech_planetary_shield_generator"
+	#}
 	
 	ai_weight = {
 		weight = 100

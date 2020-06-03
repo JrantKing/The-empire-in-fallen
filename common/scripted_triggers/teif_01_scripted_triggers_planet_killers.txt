@@ -99,10 +99,12 @@ can_destroy_planet_with_PLANET_KILLER_CRACKER = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
-					is_planet_class = pc_gaia	
+					is_planet_class = pc_gaia
+					is_planet_class = pc_relic
 					is_planet_class = pc_nuked
 					is_planet_class = pc_ringworld_habitable
 					is_planet_class = pc_habitat
+					is_planet_class = pc_city
 				}
 			}
 		}
@@ -207,7 +209,10 @@ can_destroy_planet_with_PLANET_KILLER_NEUTRON = {
 can_destroy_planet_with_PLANET_KILLER_GODRAY = {
 	custom_tooltip = {
 		fail_text = is_not_a_habitable_planet_or_megastructure
-		is_a_habitable_planet_megastructure = yes
+		OR = {
+			is_a_habitable_planet_megastructure = yes
+			is_planet_class = pc_ai
+		}
 	}
 	custom_tooltip = {
 		fail_text = is_shielded_gaia
@@ -226,6 +231,7 @@ can_destroy_planet_with_PLANET_KILLER_GODRAY = {
 		fail_text = is_not_hostile_or_primitive
 		OR = {
 			planet_is_hostile = yes
+			is_planet_class = pc_ai
 			AND = {
 				exists = owner
 				owner = { is_country_type = primitive }
@@ -339,8 +345,6 @@ is_a_planet = {
 		is_planet_class = pc_shrouded
 		is_planet_class = pc_ringworld_habitable
 		is_planet_class = pc_ringworld_habitable_damaged
-		#is_planet_class = pc_broken
-		#is_planet_class = pc_shattered # TEMP TODO [MO]
 	}
 }
 

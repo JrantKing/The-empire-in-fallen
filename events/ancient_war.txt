@@ -1,0 +1,1683 @@
+namespace = ancient_war
+
+########## The War in Heaven ##########
+# Ancient Rival awakens
+country_event = {
+	id = ancient_war.0
+	hide_window = yes
+	trigger = {
+		host_has_dlc = "Leviathans Story Pack"
+		is_country_type = fallen_empire
+		NOT = { has_global_flag = galactic_war_happened }
+		is_at_war = no
+		has_global_flag = sleepers_awake_happened
+		has_country_flag = sleepers_awake_ancient_rival
+		any_country = {
+			is_country_type = awakened_fallen_empire
+			#has_country_flag = sleepers_awake_first_sleeper
+			reverse_has_relation_flag = {
+				who = ROOT
+				flag = ancient_rival
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 5	
+		modifier = {
+			factor = 0.01
+			OR = {
+				has_global_flag = war_in_heaven_debug
+				NOT = { has_country_flag = timed_ancient_rival }
+			}
+		}
+	}
+
+	immediate = {
+		# No War
+		every_playable_country = {
+			set_timed_country_flag = { flag = ai_no_wars days = 3600 }
+		}
+		# Select First awakened
+		random_country = {
+			limit = { 
+				is_country_type = awakened_fallen_empire
+				#has_country_flag = sleepers_awake_first_sleeper
+				reverse_has_relation_flag = {
+					who = root
+					flag = ancient_rival
+				}
+			}
+			save_event_target_as = Defenderempire
+		}
+		# Second awakened initialized
+		set_timed_country_flag = { flag = war_in_heaven_timer days = 730 }
+		set_timed_country_flag = { flag = war_in_heaven_timer_2 days = 3600 }
+		set_country_type = awakened_fallen_empire
+		change_government = {
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+			}
+		}
+		# Changing country type resets resources, so give them full stores
+		add_awakened_fallen_empire_resources = yes
+		add_awakened_fallen_empire_fleet = yes #also some more fleet
+
+		# Establish communications / notify
+		every_playable_country = {
+			limit = {
+				NOT = { has_communications = root }
+			}
+			establish_communications_no_message = root	
+			root = { save_event_target_as = contact_empire }
+			country_event = { id = action.1 }
+		}
+		every_playable_country = {
+			country_event = { id = ancient_war.1 }
+		}
+		# Notify observer
+		observer_event = { id = observer.75 }
+	}
+}
+
+# Notify Player Ancient Rival awakened
+country_event = {
+	id = ancient_war.1
+	title = war_in_heaven.2.name
+	desc = war_in_heaven.2.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	option = {
+		name = war_in_heaven.2.a	
+	}
+}
+
+# The War in Heaven broke out
+country_event = {
+	id = ancient_war.2
+	hide_window = yes
+
+	trigger = {
+		host_has_dlc = "Leviathans Story Pack"
+		is_country_type = awakened_fallen_empire
+		is_at_war = no
+		fleet_power > 60000
+		has_country_flag = sleepers_awake_ancient_rival
+		OR = {
+			has_global_flag = war_in_heaven_debug
+			NOT = { has_country_flag = war_in_heaven_timer }
+		}
+		NOT = { has_global_flag = war_in_heaven_started }
+		any_country = {
+			is_country_type = awakened_fallen_empire
+			NOT = { is_same_value = root }
+			#has_country_flag = sleepers_awake_first_sleeper
+			is_at_war = no
+			reverse_has_relation_flag = {
+				who = ROOT
+				flag = ancient_rival
+			}
+			fleet_power > 60000
+		}
+	}
+
+
+	mean_time_to_happen = {
+		years = 1	
+		modifier = {
+			factor = 0.01
+			OR = {
+				has_global_flag = war_in_heaven_debug
+				NOT = { has_country_flag = war_in_heaven_timer_2 }
+			}
+		}
+	}
+	
+	immediate = {
+		set_global_flag = war_in_heaven_ongoing
+		save_event_target_as = Attackerempire
+		add_awakened_fallen_empire_fleet_small = yes
+		remove_country_flag = ai_no_wars
+		# Defender
+		random_country = {
+			limit = { 
+				is_country_type = awakened_fallen_empire
+				#has_country_flag = sleepers_awake_first_sleeper
+				reverse_has_relation_flag = {
+					who = ROOT
+					flag = ancient_rival
+				}
+			}
+			save_event_target_as = Defenderempire
+			save_event_target_as = FirstSleeper
+			remove_country_flag = ai_no_wars
+			add_awakened_fallen_empire_fleet_small = yes
+		}
+		set_global_flag = war_in_heaven_started
+		set_global_flag = war_in_heaven_ongoing
+		declare_war = {
+			target = event_target:Defenderempire
+			name = "NAME_The_War_in_Heaven"
+			attacker_war_goal = "wg_war_in_heaven_teif"
+		}
+		# Regular empire war in heaven picked side
+		every_country = {
+			limit = {
+				is_country_type = default
+			}	
+			country_event = { id = ancient_war.3 }
+		}
+		# Add opinion modifier nonaligned
+		every_country = {
+			limit = {
+				has_country_flag = formed_nonaligned_league
+			}
+			set_timed_country_flag = { flag = ai_no_leave_fed days = 7200 }
+			add_opinion_modifier = {
+				who = event_target:Attackerempire
+				modifier = opinion_non_aligned_league_fe
+			}
+			add_opinion_modifier = {
+				who = event_target:Defenderempire
+				modifier = opinion_non_aligned_league_fe
+			}
+			event_target:Attackerempire = {
+				add_opinion_modifier = {
+					who = PREV
+					modifier = opinion_non_aligned_league_fe
+				}
+			}
+			event_target:Defenderempire = {
+				add_opinion_modifier = {
+					who = PREV
+					modifier = opinion_non_aligned_league_fe
+				}
+			}
+		}
+		# Nonaligned League Declare War
+		random_country = {
+			limit = {
+				is_federation_leader = yes
+				has_country_flag = formed_nonaligned_league
+			}
+			if = {
+				limit = { exists = event_target:nonaligned_league }
+				declare_war = {
+					target = event_target:Defenderempire
+					name = "NAME_The_War_in_Heaven"
+					attacker_war_goal = wg_war_in_heaven_teif
+				}
+				declare_war = {
+					target = event_target:Attackerempire
+					name = "NAME_The_War_in_Heaven"
+					attacker_war_goal = wg_war_in_heaven_teif
+				}
+			}
+		}
+		# For observer
+		observer_event = { id = observer.76 }
+	}
+}
+
+# Regular empire war in heaven picked side
+country_event = {
+	id = ancient_war.3
+	title = war_in_heaven.4.name
+	desc = war_in_heaven.4.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = event_target:Attackerempire
+
+	is_triggered_only = yes
+
+	# Become Defender's Subject
+	option = {
+		name = war_in_heaven.4.a
+		trigger = { 
+			is_subject = no 
+			NOT = { is_at_war_with = event_target:Defenderempire }
+			is_country_type = default
+		}
+		# AI Chance
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_homicidal = yes
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_spiritualist
+						}
+						NOR = {
+							has_ethic = ethic_spiritualist
+							has_ethic = ethic_fanatic_spiritualist
+						}
+					}
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_materialist
+						}
+						NOR = {
+							has_ethic = ethic_materialist
+							has_ethic = ethic_fanatic_materialist
+						}
+					}					
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				OR = {
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_xenophobe
+						}
+						NOR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+						}
+					}
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_xenophile
+						}
+						NOR = {
+							has_ethic = ethic_pacifist
+							has_ethic = ethic_fanatic_pacifist
+							has_ethic = ethic_xenophile
+							has_ethic = ethic_fanatic_xenophile
+						}
+					}						
+				}
+			}
+			modifier = {
+				factor = 0.1
+				OR = {
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_xenophobe			
+						}
+						OR = {
+							has_ethic = ethic_pacifist
+							has_ethic = ethic_fanatic_pacifist
+							has_ethic = ethic_xenophile
+							has_ethic = ethic_fanatic_xenophile
+						}
+					}
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_xenophile						
+						}
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+						}
+					}
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_materialist
+						}
+						OR = {
+							has_ethic = ethic_spiritualist
+							has_ethic = ethic_fanatic_spiritualist
+						}
+					}
+					AND = {
+						event_target:Defenderempire = { 
+							has_ethic = ethic_fanatic_spiritualist
+						}
+						OR = {
+							has_ethic = ethic_materialist
+							has_ethic = ethic_fanatic_materialist
+						}
+					}				
+				}
+			}			
+		}
+		hidden_effect = { set_country_flag = war_in_heaven_picked_side }
+		# Set Subject type
+		# Thrall
+		if = {
+			limit = { 
+				event_target:Defenderempire = { 
+					OR = {
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_fanatic_authoritarian
+					}
+				}
+			}
+			set_subject_of = {
+				who = event_target:Defenderempire
+				subject_type = thrall
+			}		
+		}
+		# Signatory
+		if = {
+			limit = { 
+				event_target:Defenderempire = {
+					OR = {
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_egalitarian
+					}
+				}
+			}
+			set_subject_of = {
+				who = event_target:Defenderempire
+				subject_type = signatory
+			}		
+		}
+		# Dominion
+		if = {
+			limit = { 
+				event_target:Defenderempire = { 
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			set_subject_of = {
+				who = event_target:Defenderempire
+				subject_type = dominion
+			}		
+		}
+		# Satellite
+		if = {
+			limit = { 
+				event_target:Defenderempire = { 
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+			set_subject_of = {
+				who = event_target:Defenderempire
+				subject_type = satellite
+			}	
+		}
+		# Set opinion modifier
+		hidden_effect = {
+			hidden_effect = { add_opinion_modifier = { who = event_target:Defenderempire modifier = opinion_war_in_heaven_ally } }
+			event_target:Defenderempire = { add_opinion_modifier = { who = root modifier = opinion_war_in_heaven_ally } }
+			hidden_effect = { add_opinion_modifier = { who = event_target:Attackerempire modifier = opinion_war_in_heaven_enemy } }
+			event_target:Attackerempire = { add_opinion_modifier = { who = root modifier = opinion_war_in_heaven_enemy } }		
+		}
+		# Join War in Heaven
+		join_war = event_target:Defenderempire
+	}
+	# Become Attacker's Subject
+	option = {
+		name = war_in_heaven.4.b	
+		trigger = { 
+			is_subject = no 
+			NOT = { is_at_war_with = event_target:Attackerempire }
+			is_country_type = default
+		}
+		# AI Chance
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_homicidal = yes
+			}			
+			modifier = {
+				factor = 0.2
+				OR = {
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_spiritualist
+						}
+						NOR = {
+							has_ethic = ethic_spiritualist
+							has_ethic = ethic_fanatic_spiritualist
+						}
+					}
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_materialist
+						}
+						NOR = {
+							has_ethic = ethic_materialist
+							has_ethic = ethic_fanatic_materialist
+						}
+					}						
+				}
+			}			
+			modifier = {
+				factor = 0.5
+				OR = {
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_xenophobe
+						}
+						NOR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+						}
+					}
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_xenophile
+						}
+						NOR = {
+							has_ethic = ethic_pacifist
+							has_ethic = ethic_fanatic_pacifist
+							has_ethic = ethic_xenophile
+							has_ethic = ethic_fanatic_xenophile
+						}
+					}						
+				}
+			}
+			modifier = {
+				factor = 0.1
+				OR = {
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_xenophobe					
+						}
+						OR = {
+							has_ethic = ethic_pacifist
+							has_ethic = ethic_fanatic_pacifist
+							has_ethic = ethic_xenophile
+							has_ethic = ethic_fanatic_xenophile
+						}
+					}
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_xenophile						
+						}
+						OR = {
+							has_ethic = ethic_militarist
+							has_ethic = ethic_fanatic_militarist
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+						}
+					}
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_materialist
+						}
+						OR = {
+							has_ethic = ethic_spiritualist
+							has_ethic = ethic_fanatic_spiritualist
+						}
+					}
+					AND = {
+						event_target:Attackerempire = { 
+							has_ethic = ethic_fanatic_spiritualist
+						}
+						OR = {
+							has_ethic = ethic_materialist
+							has_ethic = ethic_fanatic_materialist
+						}
+					}					
+				}
+			}			
+		}
+		hidden_effect = { set_country_flag = war_in_heaven_picked_side }
+		# Set Subject type
+		# Thrall
+		if = {
+			limit = { 
+				event_target:Attackerempire = { 
+					OR = {
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_fanatic_authoritarian
+					}
+				}
+			}
+			set_subject_of = {
+				who = event_target:Attackerempire
+				subject_type = thrall
+			}		
+		}
+		# Signatory
+		if = {
+			limit = { 
+				event_target:Attackerempire = {
+					OR = {
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_fanatic_xenophile
+					}
+				}
+			}
+			set_subject_of = {
+				who = event_target:Attackerempire
+				subject_type = signatory
+			}		
+		}
+		# Dominion	
+		if = {
+			limit = { 
+				event_target:Attackerempire = { 
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			set_subject_of = {
+				who = event_target:Attackerempire
+				subject_type = dominion
+			}		
+		}
+		# Satellite
+		if = {
+			limit = { 
+				event_target:Attackerempire = { 
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+			set_subject_of = {
+				who = event_target:Attackerempire
+				subject_type = satellite
+			}		
+		}
+		# Set opinion modifier
+		hidden_effect = {
+			hidden_effect = { add_opinion_modifier = { who = event_target:Attackerempire modifier = opinion_war_in_heaven_ally } }
+			event_target:Attackerempire = { add_opinion_modifier = { who = root modifier = opinion_war_in_heaven_ally } }		
+			hidden_effect = { add_opinion_modifier = { who = event_target:Defenderempire modifier = opinion_war_in_heaven_enemy } }
+			event_target:Defenderempire = { add_opinion_modifier = { who = root modifier = opinion_war_in_heaven_enemy } }
+		}
+		join_war = event_target:Attackerempire
+	}
+	# Not is subject 1
+	option = {
+		name = war_in_heaven.4.c
+		trigger = { 
+			is_subject = no 
+		}	
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.5
+				fleet_power < 25000
+			}			
+			modifier = {
+				factor = 0.5
+				fleet_power < 50000
+			}
+			modifier = {
+				factor = 2
+				fleet_power > 80000
+			}
+			modifier = {
+				factor = 2
+				fleet_power > 100000
+			}			
+			modifier = {
+				factor = 2
+				fleet_power > 125000
+			}	
+			modifier = {
+				factor = 5
+				has_federation = yes
+			}
+			modifier = {
+				factor = 3
+				any_country = {
+					is_in_federation_with = root
+					fleet_power > 100000
+				}
+			}
+			modifier = {
+				factor = 2
+				any_country = {
+					is_ai = no
+					is_in_federation_with = root
+				}
+			}
+		}		
+	}
+	# Not is subject 2
+	option = {
+		name = war_in_heaven.4.c.2
+		trigger = { 
+			is_subject = no 
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+	# Subject join overlord's war
+	option = {
+		name = war_in_heaven.4.d
+		trigger = { 
+			is_subject = yes			
+		}	
+		if = {
+			limit = { overlord = { is_country_type = awakened_fallen_empire } }
+			if = {
+				limit = {
+					overlord = { is_same_value = event_target:Defenderempire }
+				}
+				join_war = event_target:Defenderempire
+			}
+			if = {
+				limit = {
+					overlord = { is_same_value = event_target:Attackerempire }
+				}
+				join_war = event_target:Attackerempire
+			}			
+		}			
+	}
+	# Remove No War
+	after = {
+		hidden_effect = {
+			every_playable_country = {
+				limit = {
+					has_country_flag = ai_no_wars
+				}
+				remove_country_flag = ai_no_wars
+			}
+		}
+	}
+}
+
+# Victory for one side
+country_event = {
+	id = ancient_war.4
+	title = war_in_heaven.5.name
+	desc = war_in_heaven.5.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_subject = no
+	}
+
+	option = {
+		name = war_in_heaven.5.a	
+	}
+}
+
+# Ends in Status Quo
+country_event = {
+	id = ancient_war.5
+	title = war_in_heaven.6.name
+	desc = war_in_heaven.6.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	option = {
+		name = war_in_heaven.6.a		
+	}
+}
+
+# War in Heaven combatant defeated by nonaligned league
+#This = destroyed country
+#From = optional, destroyer (country)
+country_event = {
+	id = ancient_war.6
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		is_country_type = awakened_fallen_empire
+		any_war = {
+			any_war_participant = {
+				prev = {
+					OR = {
+						using_war_goal = {
+							type = wg_war_in_heaven
+							owner = prev
+						}
+						using_war_goal = {
+							type = wg_war_in_heaven_teif
+							owner = prev
+						}
+					}
+				}
+			}
+			any_war_participant = {
+				is_country_type = awakened_fallen_empire
+				prev = {
+					OR = {
+						AND = {
+							is_war_participant = {
+								who = prev
+								side = attackers
+							}
+							is_war_participant = {
+								who = root
+								side = defenders
+							}
+						}
+						AND = {
+							is_war_participant = {
+								who = prev
+								side = defenders
+							}
+							is_war_participant = {
+								who = root
+								side = attackers
+							}
+						}
+					}
+				}
+			}
+		}
+		has_global_flag = war_in_heaven_ongoing
+		OR = {
+			NOT = { exists = from }
+			from = {
+				NOT = { is_country_type = awakened_fallen_empire }
+			}
+		}
+		any_country = {
+			is_country_type = awakened_fallen_empire
+			OR = {
+				has_relation_flag = {
+					who = root
+					flag = ancient_rival
+				}
+				reverse_has_relation_flag = {
+					who = root
+					flag = ancient_rival
+				}
+			}
+		}
+	}
+
+	immediate = {
+		set_global_flag = war_in_heaven_first_awakened_down
+		random_country = {
+			limit = {
+				is_country_type = awakened_fallen_empire
+				NOT = { is_same_value = root }
+				any_war = {
+					any_war_participant = {
+						prev = {
+							OR = {
+								using_war_goal = {
+									type = wg_war_in_heaven
+									owner = prev
+								}
+								using_war_goal = {
+									type = wg_war_in_heaven_teif
+									owner = prev
+								}
+							}
+						}
+					}
+				}
+				OR = {
+					has_relation_flag = {
+						who = root
+						flag = ancient_rival
+					}
+					reverse_has_relation_flag = {
+						who = root
+						flag = ancient_rival
+					}
+				}
+			}
+			save_event_target_as = RemainingAwakened
+		}
+
+		every_war = { #End War in Heaven
+			limit = {
+				any_war_participant = {
+					prev = {
+						OR = {
+							using_war_goal = {
+								type = wg_war_in_heaven
+								owner = prev
+							}
+							using_war_goal = {
+								type = wg_war_in_heaven_teif
+								owner = prev
+							}
+						}
+					}
+				}
+			}
+			end_war_effect = yes
+		}
+		
+		every_country = {
+			limit = { is_ai = no }		
+			country_event = { id = ancient_war.7 }
+		}
+		observer_event = { id = observer.79 }		
+	}
+}
+
+# War in Heaven combatant defeated by nonaligned league Notify Player
+country_event = {
+	id = ancient_war.7
+	title = war_in_heaven.11.name
+	desc = war_in_heaven.11.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	option = {
+		name = war_in_heaven.11.a
+	}
+}
+
+# Find a leader for non-aligned league of empires 1
+country_event = {
+	id = ancient_war.8	
+	hide_window = yes
+	
+	trigger = {
+		is_country_type = awakened_fallen_empire
+		OR = {
+			has_country_flag = defender_ancient_rival
+			has_country_flag = attacker_ancient_rival
+		}
+		has_global_flag = war_in_heaven_ongoing
+		has_country_flag = defender_ancient_rival
+		NOT = {
+			any_country = {
+				has_federation = yes
+				has_country_flag = formed_nonaligned_league
+			}
+		}
+		any_country = {
+			is_subject = no
+			NOT = {
+				any_country = {
+					is_country_type = awakened_fallen_empire
+					OR = {
+						has_country_flag = defender_ancient_rival
+						has_country_flag = attacker_ancient_rival
+					}
+					is_at_war_with = prev
+				}
+			}
+			is_country_type = default
+			
+			any_country = {
+				is_subject = no
+				NOT = {
+					any_country = {
+						is_country_type = awakened_fallen_empire
+						OR = {
+							has_country_flag = defender_ancient_rival
+							has_country_flag = attacker_ancient_rival
+						}
+						is_at_war_with = prev
+					}
+				}
+				is_country_type = default
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+				}
+				NOT = { has_country_flag = war_in_heaven_league_leader_declined }	
+				NOT = { is_same_value = prev }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		# Find strongest neutral power and offer them to become league leader
+		if = {
+			limit = {
+				any_federation = {
+					NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
+					any_member = {
+						is_federation_leader = yes
+						NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+						NOT = {
+							any_country = {
+								is_country_type = awakened_fallen_empire
+								is_at_war_with = prev
+							}
+						}
+					}
+					NOT = {
+						any_federation = {
+							NOT = { is_same_value = prev }
+							relative_power = {
+								who = prev
+								value > equivalent
+								category = fleet
+							}
+							any_member = {
+								is_federation_leader = yes
+								NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+								NOT = {
+									any_country = {
+										is_country_type = awakened_fallen_empire
+										is_at_war_with = prev
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			random_federation = {
+				limit = {
+					NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
+					any_member = {
+						is_federation_leader = yes
+						NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+						NOT = {
+							any_country = {
+								is_country_type = awakened_fallen_empire
+								is_at_war_with = prev
+							}
+						}
+					}
+					NOT = {
+						any_federation = {
+							NOT = { is_same_value = prev }
+							relative_power = {
+								who = prev
+								value > equivalent
+								category = fleet
+							}
+							any_member = {
+								is_federation_leader = yes
+								NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+								NOT = {
+									any_country = {
+										is_country_type = awakened_fallen_empire
+										is_at_war_with = prev
+									}
+								}
+							}
+						}
+					}
+				}
+				random_member = {
+					limit = {
+						is_federation_leader = yes
+						NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+						NOT = {
+							any_country = {
+								is_country_type = awakened_fallen_empire
+								is_at_war_with = prev
+							}
+						}
+					}
+					set_global_flag = war_in_heaven_seeking_league_leader
+					country_event = { id = ancient_war.9 }
+				}
+			}
+		}
+		else = {
+			random_country = {
+				limit = {	
+					is_subject = no
+					NOT = {
+						any_country = {
+							is_country_type = awakened_fallen_empire
+							is_at_war_with = prev
+						}
+					}
+					is_country_type = default
+					NOR = {
+						has_valid_civic = civic_hive_devouring_swarm
+						has_valid_civic = civic_fanatic_purifiers
+						has_valid_civic = civic_machine_terminator
+					}				
+					NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
+					NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+	
+					NOT = {
+						any_country = {
+							is_country_type = default
+							relative_power = {
+								who = prev
+								value > equivalent
+							}
+							is_subject = no
+							NOT = {
+								any_country = {
+									is_country_type = awakened_fallen_empire
+									is_at_war_with = prev
+								}
+							}
+							NOR = {
+								has_valid_civic = civic_hive_devouring_swarm
+								has_valid_civic = civic_fanatic_purifiers
+								has_valid_civic = civic_machine_terminator
+							}
+							NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+						}
+					}
+				}
+				set_global_flag = war_in_heaven_seeking_league_leader
+				country_event = { id = ancient_war.9 }
+			}
+		}
+		
+	}
+}
+
+# Find a leader for non-aligned league of empires 2
+country_event = {
+	id = ancient_war.9
+	title = war_in_heaven.13.name
+	desc = {
+		text = war_in_heaven.13.desc
+		trigger = {
+			OR = {
+				has_federation = no
+				is_federation_leader = no
+			}
+		}
+	}
+	desc = {
+		text = war_in_heaven.13.desc2
+		trigger = {
+			has_federation = yes
+			is_federation_leader = yes
+		}
+	}
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = root
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = war_in_heaven_nonaligned_league_check
+	}
+
+	option = {
+		name = war_in_heaven.13.a
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+				}	
+			}
+		}
+		if = {
+			limit = { #existing federation will become the Non-Aligned League
+				has_federation = yes
+				is_federation_leader = yes
+			}
+			federation = {
+			 	set_name = NAME_League_of_Non-Aligned_Powers
+				set_federation_flag = non_aligned_league
+			}
+			hidden_effect = {
+				set_country_flag = formed_nonaligned_league
+				every_country = {
+					limit = {
+						is_ai = yes
+						is_in_federation_with = root
+					}
+					set_country_flag = war_in_heaven_nonaligned_league_check
+					add_non_aligned_league_opinions = yes
+				}
+			}
+		}
+		else_if = {
+			limit = { has_federation = yes }
+			leave_alliance = {
+				override_requirements = yes
+			}
+		}
+		hidden_effect = {
+			set_timed_country_flag = { flag = war_in_heaven_nonaligned_league_timer days = 180 }
+			set_country_flag = war_in_heaven_league_leader
+			set_global_flag = war_in_heaven_nonaligned_league
+			remove_global_flag = war_in_heaven_seeking_league_leader
+			every_country = {
+				limit = {
+					is_country_type = awakened_fallen_empire
+					OR = {
+						has_country_flag = defender_ancient_rival
+						has_country_flag = attacker_ancient_rival
+					}
+				}
+				add_opinion_modifier = { who = from modifier = opinion_non_aligned_league_fe } 
+				from = { add_opinion_modifier = { who = root modifier = opinion_non_aligned_league_fe } } 
+			}
+
+			every_country = {
+				limit = { 
+					is_ai = no 
+					is_subject = no 
+					not = { is_same_value = root }
+					NOT = { has_country_flag = war_in_heaven_nonaligned_league_check }
+				}
+				country_event = { id = ancient_war.15 }
+			}
+			every_country = {
+				limit = { 
+					is_ai = no 
+					is_subject = yes
+					not = { is_same_value = root }
+					NOT = { has_country_flag = war_in_heaven_nonaligned_league_check }
+				}	
+				country_event = { id = ancient_war.18 }
+			}					
+		}
+	}
+	option = {
+		name = war_in_heaven.13.b
+		ai_chance = { 
+			factor = 1
+		}
+		hidden_effect = { 
+			set_country_flag = war_in_heaven_league_leader_declined
+			remove_global_flag = war_in_heaven_seeking_league_leader
+		}
+	}
+}
+
+# AI evaluates joining the League 1
+country_event = {
+	id = ancient_war.10
+
+	hide_window = yes
+	
+	trigger = {
+		has_global_flag = war_in_heaven_nonaligned_league
+		is_subject = no
+		NOT = {
+			any_country = {
+				is_country_type = awakened_fallen_empire
+				OR = {
+					has_country_flag = defender_ancient_rival
+					has_country_flag = attacker_ancient_rival
+				}
+				is_at_war_with = prev
+			}
+		}
+		is_country_type = default
+		NOR = {
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_fanatic_purifiers
+			has_valid_civic = civic_machine_terminator
+		}	
+		NOT = { has_country_flag = war_in_heaven_nonaligned_league_check }	
+		is_ai = yes
+		any_country = {
+			has_country_flag = war_in_heaven_league_leader
+			has_country_flag = war_in_heaven_nonaligned_league_timer
+			OR = {
+				has_federation = yes
+				NOT = { has_country_flag = formed_nonaligned_league }
+			}	
+			is_subject = no
+			is_country_type = default
+			NOT = { is_in_federation_with = root }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		set_country_flag = war_in_heaven_nonaligned_league_check
+		random_country = {
+			limit = {
+				has_country_flag = war_in_heaven_league_leader
+				is_subject = no
+				is_country_type = default
+			}
+			country_event = { id = ancient_war.11 }
+		}
+	}
+}
+
+# AI evaluates joining the League 2
+country_event = {
+	id = ancient_war.11
+	title = war_in_heaven.15.name
+	desc = war_in_heaven.15.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_federation = yes
+			NOT = { has_country_flag = formed_nonaligned_league }
+		}		
+	}
+
+	option = {
+		name = war_in_heaven.15.a
+		ai_chance = { 
+			factor = 100
+		}	
+		if = {
+			limit = {
+				NOT = { has_country_flag = formed_nonaligned_league }
+			}
+			set_country_flag = formed_nonaligned_league	
+		}	
+		hidden_effect = {
+			from = {
+				add_non_aligned_league_opinions = yes
+				if = {
+					limit = { is_ai = no }
+					country_event = { id = ancient_war.16 }
+				}
+			}
+			every_country = {
+				limit = {
+					is_country_type = awakened_fallen_empire
+					OR = {
+						has_country_flag = defender_ancient_rival
+						has_country_flag = attacker_ancient_rival
+					}
+				}
+				add_opinion_modifier = { who = from modifier = opinion_non_aligned_league_fe } 
+				from = { add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league_fe } } 
+			}			
+		}		
+		if = {
+			limit = { has_federation = no }
+			from = {
+				set_timed_country_flag = { flag = ai_no_leave_fed days = 7200 }
+				join_alliance = {
+					who = root
+					name = NAME_League_of_Non-Aligned_Powers
+					override_requirements = yes
+				}
+				hidden_effect = {
+					root.federation = {
+						set_federation_flag = non_aligned_league
+						if = {
+							limit = {
+								has_federation_perk = cohesion_join_1
+							}
+							add_cohesion = 50
+						}
+						else = { add_cohesion = 100 }
+						add_federation_experience = 4200 #level 3 with some breathing room
+					}
+				}
+			}
+		}
+		else = {	
+			from = {
+				set_timed_country_flag = { flag = ai_no_leave_fed days = 7200 }
+				join_alliance = {
+					who = root
+					override_requirements = yes
+				}
+				hidden_effect = {
+					root.federation = { #counteract the -100 cohesion you'd normally get for new members
+						if = {
+							limit = {
+								has_federation_perk = cohesion_join_1
+							}
+							add_cohesion = 50
+						}
+						else = { add_cohesion = 100 }
+						add_federation_experience = 150
+					}
+				}
+				if = {
+					limit = {
+						is_overlord = yes
+						root.federation = {
+							has_federation_law = allow_subjects_to_join_yes
+						}
+					}
+					every_subject = {
+						root = {
+							prev = { add_non_aligned_league_opinions = yes }
+						}
+						join_alliance = {
+							who = root
+							override_requirements = yes
+						}
+						hidden_effect = {
+							root.federation = {
+								add_cohesion = 100
+								add_federation_experience = 100
+							}
+						}
+					}
+				}
+			}
+		}
+		from = { alliance = { save_global_event_target_as = nonaligned_league } }
+	}
+	option = {
+		name = war_in_heaven.15.b
+		ai_chance = { 
+			factor = 1
+		}	
+		hidden_effect = {
+			from = { add_opinion_modifier = { who = root modifier = opinion_non_aligned_league_declined } }
+			from = {	
+				if = {
+					limit = { is_ai = no }
+					country_event = { id = ancient_war.17 }
+				}
+			}					
+		}	
+	}
+}
+
+# Non-aligned league Declare War
+country_event = {
+	id = ancient_war.12
+	title = ancient_war.12.name
+	desc = ancient_war.12.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = root
+	
+	trigger = {
+		is_subject = no
+		NOT = {
+			any_country = {
+				is_country_type = awakened_fallen_empire
+				OR = {
+					has_country_flag = defender_ancient_rival
+					has_country_flag = attacker_ancient_rival
+				}
+				is_at_war_with = prev
+			}
+		}
+		has_federation = yes
+		is_country_type = default
+		has_country_flag = war_in_heaven_league_leader
+		has_global_flag = war_in_heaven_nonaligned_league	
+		NOT = { has_global_flag = war_in_heaven_nonaligned_league_war }
+		NOT = { has_country_flag = war_in_heaven_nonaligned_league_timer }
+		
+		any_country = { 
+			is_country_type = awakened_fallen_empire 
+			has_country_flag = defender_ancient_rival
+		}
+		any_country = { 
+			is_country_type = awakened_fallen_empire 
+			has_country_flag = attacker_ancient_rival
+		}			
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_global_flag = war_in_heaven_nonaligned_league_war
+		every_country = {
+			limit = {
+				is_country_type = awakened_fallen_empire
+				has_country_flag = defender_ancient_rival
+			}
+			random_country = {
+				limit = {
+					is_country_type = awakened_fallen_empire
+					has_country_flag = attacker_ancient_rival
+					has_relation_flag = {
+						who = PREV
+						flag = ancient_rival
+					}
+					is_at_war_with = PREV
+				}
+				root = {
+					declare_war = {
+						target = PREV
+						name = "NAME_The_War_in_Heaven"
+						attacker_war_goal = "wg_war_in_heaven_teif"
+					}
+				}
+			}
+			root = {
+				declare_war = {
+					target = PREV
+					name = "NAME_The_War_in_Heaven"
+					attacker_war_goal = "wg_war_in_heaven_teif"
+				}
+			}
+			hidden_effect = {
+				every_subject = {
+					join_war = prev
+				}
+			}
+		}
+	}
+
+	option = {
+		name = war_in_heaven.16.a
+	}
+}
+
+# War in Heaven ends because both Awakened Empires are gone
+country_event = {
+	id = ancient_war.13
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = yes
+		has_global_flag = war_in_heaven_ongoing
+		NOT = {
+			any_country = {
+				is_country_type = awakened_fallen_empire
+				OR = {
+					has_country_flag = attacker_ancient_rival
+					has_country_flag = defender_ancient_rival
+				}
+			}
+		}	
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_war = {
+					any_war_participant = {
+						prev = {
+							using_war_goal = {
+								type = wg_war_in_heaven_teif
+								owner = prev
+							}
+						}
+					}
+				}
+			}
+			every_war = { #End War in Heaven
+				limit = {
+					any_war_participant = {
+						prev = {
+							using_war_goal = {
+								type = wg_war_in_heaven_teif
+								owner = prev
+							}
+						}
+					}
+				}
+				end_war_effect = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = war_in_heaven_ended }
+			}
+			remove_global_flag = war_in_heaven_ongoing
+			set_global_flag = war_in_heaven_ended
+			random_country = {
+				limit = {
+					has_country_flag = war_in_heaven_league_leader
+				}
+				set_country_flag = last_best_hope
+			}
+			every_country = {
+				limit = { is_ai = no }		
+				country_event = { id = ancient_war.14 }
+			}	
+			observer_event = { id = observer.80 }		
+		}	
+	}
+}
+
+# Notify Player War in Heaven ends because both Awakened Empires are gone
+country_event = {
+	id = ancient_war.14
+	title = war_in_heaven.18.name
+	desc = war_in_heaven.18.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	option = {
+		name = war_in_heaven.18.a
+	}
+}
+
+# Check Nonaligned League
+country_event = {
+	id = ancient_war.15
+	title = war_in_heaven.19.name
+	desc = {
+		text = war_in_heaven.19.desc
+		trigger = {
+			from = { has_federation = no }
+		}
+	}
+	desc = {
+		text = war_in_heaven.19.desc3
+		trigger = {
+			from = { has_federation = yes }
+			NOT = { is_in_federation_with = from }
+		}
+	}
+	desc = {
+		text = war_in_heaven.19.desc2
+		trigger = {
+			is_in_federation_with = from
+		}
+	}
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	immediate = { set_country_flag = war_in_heaven_nonaligned_league_check }
+	
+	option = {
+		name = war_in_heaven.19.a
+		hidden_effect = {
+			from = {	
+				country_event = { id = ancient_war.11 }
+			}		
+		}
+	}
+	option = {
+		trigger = {
+			is_in_federation_with = from
+		}
+		name = war_in_heaven.19.a2
+		hidden_effect = {
+			from = { #this weird scoping is necessary for the scopes in the scripted effect
+				root = {
+					add_non_aligned_league_opinions = yes
+				}
+			}		
+		}
+	}
+	option = {
+		trigger = {
+			NOT = { is_in_federation_with = from }
+		}
+		name = war_in_heaven.19.b	
+	}
+	option = {
+		trigger = {
+			is_in_federation_with = from
+			is_subject = no
+		}
+		name = war_in_heaven.19.b2
+		leave_alliance = {
+			override_requirements = yes
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Requested join Nonaligned League
+country_event = {
+	id = ancient_war.16
+	title = war_in_heaven.20.name
+	desc = war_in_heaven.20.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	option = {
+		name = war_in_heaven.20.a
+	}
+}
+# Refused join Nonaligned League
+country_event = {
+	id = ancient_war.17
+	title = war_in_heaven.21.name
+	desc = war_in_heaven.21.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+
+	option = {
+		name = war_in_heaven.21.a
+	}
+}
+
+# Check Nonaligned League
+country_event = {
+	id = ancient_war.18
+	title = war_in_heaven.19.name
+	desc = war_in_heaven.19.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = war_in_heaven_nonaligned_league_check
+	}
+
+	option = {
+		name = war_in_heaven.22.a
+	}
+}

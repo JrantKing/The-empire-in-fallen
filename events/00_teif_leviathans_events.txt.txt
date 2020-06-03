@@ -1,0 +1,17 @@
+namespace = leviathans
+# Enigmatic Fortress Disabled (HIDDEN)
+ship_event = {
+	id = leviathans.2100
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_ship_flag = fortress_vault
+		from.owner = { OR = { is_country_type = default is_fallen_empire = yes } }
+	}
+
+	immediate = {
+		from.owner = { country_event = { id = leviathans.2101 } }
+	}
+}

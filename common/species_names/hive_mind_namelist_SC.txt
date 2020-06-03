@@ -1,0 +1,2296 @@
+named_lists = {
+	hive_mind_names = {
+		obevni = {
+			language = "l_simp_chinese"
+			name = 奥巴尼
+			plural = 奥巴尼
+		}
+		
+		finu = {
+			language = "l_simp_chinese"
+			name = 费努
+			plural = 费努
+		}
+		
+		obbha = {
+			language = "l_simp_chinese"
+			name = 奥博哈
+			plural = 奥博哈
+		}
+		
+		ganlarev = {
+			language = "l_simp_chinese"
+			name = 甘拉勒沃
+			plural = 甘拉勒沃
+		}
+		
+		buhavilaa = {
+			language = "l_simp_chinese"
+			name = 布哈维拉
+			plural = 布哈维拉
+		}
+		
+		oginollox = {
+			language = "l_simp_chinese"
+			name = 奥吉-诺尔克
+			plural = 奥吉-诺尔克
+		}
+		
+		celimy = {
+			language = "l_simp_chinese"
+			name = 策利迈
+			plural = 策利迈
+		}
+		
+		pogovon = {
+			language = "l_simp_chinese"
+			name = 波戈万
+			plural = 波戈万
+		}
+		
+		qasvalyvia = {
+			language = "l_simp_chinese"
+			name = 夸萨瓦利维亚
+			plural = 夸萨瓦利维亚
+		}
+		
+		avabbian = {
+			language = "l_simp_chinese"
+			name = 阿瓦伯比安
+			plural = 阿瓦伯比安
+		}
+		
+		lolehndra = {
+			language = "l_simp_chinese"
+			name = 洛勒德拉
+			plural = 洛勒德拉
+		}
+		
+		reyubb = {
+			language = "l_simp_chinese"
+			name = 列乌伯
+			plural = 列乌伯
+		}
+		
+		varelviv = {
+			language = "l_simp_chinese"
+			name = 瓦勒维沃
+			plural = 瓦勒维沃
+		}
+		
+		zeppadroggan = {
+			language = "l_simp_chinese"
+			name = 齐帕达戈安
+			plural = 齐帕达戈安
+		}
+		
+		buvhondon = {
+			language = "l_simp_chinese"
+			name = 布瓦霍顿
+			plural = 布瓦霍顿
+		}
+		
+		valmennax = {
+			language = "l_simp_chinese"
+			name = 瓦门纳克
+			plural = 瓦门纳克
+		}
+		
+		huviduzaan = {
+			language = "l_simp_chinese"
+			name = 胡维杜-扎安
+			plural = 胡维杜-扎安
+		}
+		
+		provalguvor = {
+			language = "l_simp_chinese"
+			name = 普罗瓦古沃尔
+			plural = 普罗瓦古沃尔
+		}
+		
+		qlorvinserian = {
+			language = "l_simp_chinese"
+			name = 夸洛维内利安
+			plural = 夸洛维内利安
+		}
+		
+		wulhubb = {
+			language = "l_simp_chinese"
+			name = 乌尔胡伯
+			plural = 乌尔胡伯
+		}
+		
+		caphevad = {
+			language = "l_simp_chinese"
+			name = 卡派瓦德
+			plural = 卡派瓦德
+		}
+		
+		vool = {
+			language = "l_simp_chinese"
+			name = 沃尔
+			plural = 沃尔
+		}
+		
+		frubralav = {
+			language = "l_simp_chinese"
+			name = 弗罗巴拉沃
+			plural = 弗罗巴拉沃
+		}
+		
+		fjasivlin = {
+			language = "l_simp_chinese"
+			name = 弗加斯沃林
+			plural = 弗加斯沃林
+		}
+		
+		pobelin = {
+			language = "l_simp_chinese"
+			name = 波贝因
+			plural = 波贝因
+		}
+		
+		laachax = {
+			language = "l_simp_chinese"
+			name = 拉查克
+			plural = 拉查克
+		}
+		
+		udkavongo = {
+			language = "l_simp_chinese"
+			name = 乌德卡万戈
+			plural = 乌德卡万戈
+		}
+		
+		lozavata = {
+			language = "l_simp_chinese"
+			name = 洛扎瓦特
+			plural = 洛扎瓦特
+		}
+
+		queptilium = {
+			language = "l_simp_chinese"
+			name = 夸普提利姆
+			plural = 夸普提利姆
+		}
+
+		lilarobius = {
+			language = "l_simp_chinese"
+			name = 利拉罗比乌斯
+			plural = 利拉罗比乌斯
+		}
+
+		vetirisio = {
+			language = "l_simp_chinese"
+			name = 维提利西乌斯
+			plural = 维提利西乌斯
+		}
+
+		belmacosa = {
+			language = "l_simp_chinese"
+			name = 贝尔马克萨
+			plural = 贝尔马克萨
+		}
+
+		panaxala = {
+			language = "l_simp_chinese"
+			name = 帕纳夏拉
+			plural = 帕纳夏拉
+		}
+
+		ganvius = {
+			language = "l_simp_chinese"
+			name = 加维乌斯
+			plural = 加维乌斯
+		}
+
+		caloctora = {
+			language = "l_simp_chinese"
+			name = 卡洛克托拉
+			plural = 卡洛克托拉
+		}
+
+		vivisandia = {
+			language = "l_simp_chinese"
+			name = 维伊萨恩迪亚
+			plural = 维伊萨恩迪亚
+		}
+
+		sidimatus = {
+			language = "l_simp_chinese"
+			name = 西迪马图斯
+			plural = 西迪马图斯
+		}
+
+		mandasura = {
+			language = "l_simp_chinese"
+			name = 马达苏拉
+			plural = 马达苏拉
+		}
+
+		mirovandia = {
+			language = "l_simp_chinese"
+			name = 米罗万迪亚
+			plural = 米罗万迪亚
+		}
+
+		pelisimus = {
+			language = "l_simp_chinese"
+			name = 佩里斯姆斯
+			plural = 佩里斯姆斯
+		}
+
+		lavis = {
+			language = "l_simp_chinese"
+			name = 拉维斯
+			plural = 拉维斯
+		}
+		
+		raxycodium = {
+			language = "l_simp_chinese"
+			name = 拉夏克迪姆
+			plural = 拉夏克迪姆
+		}
+		
+		bhennthell = {
+			language = "l_simp_chinese"
+			name = 本尼特尔
+			plural = 本尼特尔
+		}
+
+		tendrazuhn = {
+			language = "l_simp_chinese"
+			name = 坦德拉-祖恩
+			plural = 坦德拉-祖恩
+		}
+		
+		hahnmur = {
+			language = "l_simp_chinese"
+			name = 汉恩-穆尔
+			plural = 汉恩-穆尔
+		}
+		
+		menjeti = {
+			language = "l_simp_chinese"
+			name = 孟加蒂
+			plural = 孟加蒂
+		}
+
+		hissma = {
+			language = "l_simp_chinese"
+			name = 希斯马
+			plural = 希斯马
+		}
+
+		tycan = {
+			language = "l_simp_chinese"
+			name = 泰孔
+			plural = 泰孔
+		}
+		
+		canthari = {
+			language = "l_simp_chinese"
+			name = 加提尔里
+			plural = 加提尔里
+		}
+		
+		otaga = {
+			language = "l_simp_chinese"
+			name = 奥德加
+			plural = 奥德加
+		}
+		
+		zracon = {
+			language = "l_simp_chinese"
+			name = 扎拉卡
+			plural = 扎拉卡斯
+		}
+		
+		thembolon = {
+			language = "l_simp_chinese"
+			name = 台姆博伦
+			plural = 台姆博伦
+		}
+		
+		jhoolian = {
+			language = "l_simp_chinese"
+			name = 约奥利安
+			plural = 约奥利安
+		}
+		
+		djunn = {
+			language = "l_simp_chinese"
+			name = 德吉恩
+			plural = 德吉恩
+		}
+		
+		hulfir = {
+			language = "l_simp_chinese"
+			name = 胡费尔
+			plural = 胡费尔
+		}
+		
+		ultur = {
+			language = "l_simp_chinese"
+			name = 乌尔-图尔
+			plural = 乌尔-图尔
+		}
+		
+		tyrathian = {
+			language = "l_simp_chinese"
+			name = 泰拉提安
+			plural = 泰拉提安
+		}
+		
+		kithri = {
+			language = "l_simp_chinese"
+			name = 基提里
+			plural = 基提里
+		}
+		
+		jibru = {
+			language = "l_simp_chinese"
+			name = 吉布里
+			plural = 吉布里
+		}
+		
+		hazar = {
+			language = "l_simp_chinese"
+			name = 哈扎尔
+			plural = 哈扎尔
+		}
+
+		kar-du = {
+			language = "l_simp_chinese"
+			name = 卡尔-杜乌
+			plural = 卡尔-杜乌
+		}
+		
+		uriy = {
+			language = "l_simp_chinese"
+			name = 优瑞亚
+			plural = 优瑞亚
+		}
+		
+		gorf = {
+			language = "l_simp_chinese"
+			name = 格尔夫
+			plural = 格尔夫
+		}
+		
+		zik-mok = {
+			language = "l_simp_chinese"
+			name = 基克-莫克
+			plural = 基克-莫克
+		}
+		
+		neborite = {
+			language = "l_simp_chinese"
+			name = 尼博里特
+			plural = 尼博里特
+		}
+		
+		syldaean = {
+			language = "l_simp_chinese"
+			name = 萨尔达安
+			plural = 萨尔达安
+		}
+		
+		meshben = {
+			language = "l_simp_chinese"
+			name = 梅夏博恩
+			plural = 梅夏博恩
+		}
+
+		bothrazoid = {
+			language = "l_simp_chinese"
+			name = 布拉蓉
+			plural = 布拉蓉
+		}
+
+		makaru = {
+			language = "l_simp_chinese"
+			name = 马卡芦
+			plural = 马卡芦
+		}
+
+		sojagg = {
+			language = "l_simp_chinese"
+			name = 索加歌
+			plural = 索加歌
+		}
+
+		vatnaka = {
+			language = "l_simp_chinese"
+			name = 维特'那-卡
+			plural = 维特'那-卡
+		}
+
+		ishni = {
+			language = "l_simp_chinese"
+			name = 依西尼
+			plural = 依西尼
+		}
+		khellzen = {
+			language = "l_simp_chinese"
+			name = 凯尔森
+			plural = 凯尔森
+		}
+		
+		sutharian = {
+			language = "l_simp_chinese"
+			name = 苏塔里安
+			plural = 苏塔里安
+		}
+		
+		velutarian = {
+			language = "l_simp_chinese"
+			name = 瓦鲁塔里安
+			plural = 瓦鲁塔里安
+		}
+		
+		zelvan = {
+			language = "l_simp_chinese"
+			name = 策万
+			plural = 策万
+		}
+		
+		quenti = {
+			language = "l_simp_chinese"
+			name = 昆提
+			plural = 昆提
+		}
+		
+		rihinar = {
+			language = "l_simp_chinese"
+			name = 利希纳尔
+			plural = 利希纳尔
+		}
+		
+		prossnakan = {
+			language = "l_simp_chinese"
+			name = 普罗斯纳堪
+			plural = 普罗斯纳堪
+		}
+		
+		mitron = {
+			language = "l_simp_chinese"
+			name = 米特隆
+			plural = 米特隆
+		}
+		
+		cevelli = {
+			language = "l_simp_chinese"
+			name = 策瓦尔利
+			plural = 策瓦尔利
+		}
+		
+		panuri = {
+			language = "l_simp_chinese"
+			name = 帕努里
+			plural = 帕努里
+		}
+		
+		ylkhahan = {
+			language = "l_simp_chinese"
+			name = 亚尔卡汗
+			plural = 亚尔卡汗
+		}
+		
+		giranshu = {
+			language = "l_simp_chinese"
+			name = 吉兰斯胡
+			plural = 吉兰斯胡
+		}
+		
+		bebaki = {
+			language = "l_simp_chinese"
+			name = 贝巴克伊
+			plural = 贝巴克伊
+		}
+		
+		alvanian = {
+			language = "l_simp_chinese"
+			name = 阿尔瓦尼安
+			plural = 阿尔瓦尼安
+		}
+		
+		djomar = {
+			language = "l_simp_chinese"
+			name = 迪约马尔
+			plural = 迪约马尔
+		}
+		
+		mathin = {
+			language = "l_simp_chinese"
+			name = 马提尼
+			plural = 马提尼
+		}
+		
+		malwegoll = {
+			language = "l_simp_chinese"
+			name = 马洛戈尔
+			plural = 马洛戈尔
+		}
+		
+		alvothari = {
+			language = "l_simp_chinese"
+			name = 阿洛塔里
+			plural = 阿洛塔里
+		}
+		
+		hathgum = {
+			language = "l_simp_chinese"
+			name = 哈提古姆
+			plural = 哈提古姆
+		}
+		
+		uri = {
+			language = "l_simp_chinese"
+			name = 乌里
+			plural = 乌里
+		}
+		
+		havoll = {
+			language = "l_simp_chinese"
+			name = 哈沃尔
+			plural = 哈沃尔
+		}
+		
+		ymacera = {
+			language = "l_simp_chinese"
+			name = 亚马策拉
+			plural = 亚马策拉
+		}
+		
+		jogollwa = {
+			language = "l_simp_chinese"
+			name = 加戈尔瓦
+			plural = 加戈尔瓦
+		}
+		
+		usanace = {
+			language = "l_simp_chinese"
+			name = 乌萨纳策
+			plural = 乌萨纳策
+		}
+		
+		havarigga = {
+			language = "l_simp_chinese"
+			name = 哈瓦利戈
+			plural = 哈瓦利戈
+		}
+		
+		slerpanor = {
+			language = "l_simp_chinese"
+			name = 谢尔帕诺尔
+			plural = 谢尔帕诺尔
+		}
+		
+		fellnoll = {
+			language = "l_simp_chinese"
+			name = 费尔诺尔
+			plural = 费尔诺尔
+		}
+		
+		sirgogg = {
+			language = "l_simp_chinese"
+			name = 西尔高戈
+			plural = 西尔高戈
+		}
+		
+		obadin = {
+			language = "l_simp_chinese"
+			name = 奥巴丁
+			plural = 奥巴丁
+		}
+		
+		yalon = {
+			language = "l_simp_chinese"
+			name = 亚隆
+			plural = 亚隆
+		}
+		
+		dyss = {
+			language = "l_simp_chinese"
+			name = 代斯
+			plural = 代斯
+		}
+		
+		gwesibor = {
+			language = "l_simp_chinese"
+			name = 格维斯博尔
+			plural = 格维斯博尔
+		}
+		
+		andigonj = {
+			language = "l_simp_chinese"
+			name = 安迪贡吉
+			plural = 安迪贡吉
+		}
+		
+		grollferp = {
+			language = "l_simp_chinese"
+			name = 格罗尔费皮
+			plural = 格罗尔费皮
+		}
+		
+		sondrithan = {
+			language = "l_simp_chinese"
+			name = 索恩迪里坦
+			plural = 索恩迪里坦
+		}
+		
+		hjannarthi = {
+			language = "l_simp_chinese"
+			name = 赫加纳提
+			plural = 赫加纳提
+		}
+		
+		domanna = {
+			language = "l_simp_chinese"
+			name = 多曼纳
+			plural = 多曼纳
+		}
+		
+		wacegi = {
+			language = "l_simp_chinese"
+			name = 瓦策吉
+			plural = 瓦策吉
+		}
+		
+		norillga = {
+			language = "l_simp_chinese"
+			name = 诺里尔戈
+			plural = 诺里尔戈
+		}
+		
+		laginchuuz = {
+			language = "l_simp_chinese"
+			name = 拉金库齐
+			plural = 拉金库齐
+		}
+		
+		moijhuxgan = {
+			language = "l_simp_chinese"
+			name = 迈吉-胡斯格安
+			plural = 迈吉-胡斯格安
+		}
+		
+		uvaxavani = {
+			language = "l_simp_chinese"
+			name = 乌瓦-夏瓦尼
+			plural = 乌瓦-夏瓦尼
+		}
+		
+		qvefoz = {
+			language = "l_simp_chinese"
+			name = 夸弗齐
+			plural = 夸弗齐
+		}
+
+		jasgavaz = {
+			language = "l_simp_chinese"
+			name = 加斯戈瓦齐
+			plural = 加斯戈瓦齐
+		}
+
+		yvzorak = {
+			language = "l_simp_chinese"
+			name = 亚瓦祖拉克
+			plural = 亚瓦祖拉克
+		}
+
+		sintomoroi = {
+			language = "l_simp_chinese"
+			name = 新图莫瑞
+			plural = 新图莫瑞
+		}
+		
+		qixlufran = {
+			language = "l_simp_chinese"
+			name = 齐斯鲁夫兰
+			plural = 齐斯鲁夫兰
+		}
+		
+		mithfell = {
+			language = "l_simp_chinese"
+			name = 米提-费尔
+			plural = 米提-费尔
+		}
+		
+		tilllynesi = {
+			language = "l_simp_chinese"
+			name = 提尔莱内斯
+			plural = 提尔莱内斯
+		}
+		
+		jessinax = {
+			language = "l_simp_chinese"
+			name = 吉斯伊纳西
+			plural = 吉斯伊纳西
+		}
+		
+		boki = {
+			language = "l_simp_chinese"
+			name = 博基
+			plural = 博基
+		}
+
+		essjaggon = {
+			language = "l_simp_chinese"
+			name = 埃斯加贡
+			plural = 埃斯加贡
+		}
+		
+		juvan = {
+			language = "l_simp_chinese"
+			name = 吉万
+			plural = 吉万
+		}
+		
+		iztran = {
+			language = "l_simp_chinese"
+			name = 伊齐特兰
+			plural = 伊齐特兰
+		}
+		
+		helvan = {
+			language = "l_simp_chinese"
+			name = 赫万
+			plural = 赫万
+		}
+		
+		ozkox = {
+			language = "l_simp_chinese"
+			name = 奥齐库西
+			plural = 奥齐库西
+		}
+		
+		fafossan = {
+			language = "l_simp_chinese"
+			name = 法弗萨恩
+			plural = 法弗萨恩
+		}
+		
+		gulkfurki = {
+			language = "l_simp_chinese"
+			name = 古克-弗基
+			plural = 古克-弗基
+		}
+		
+		Haahn = {
+			language = "l_simp_chinese"
+			name = 哈恩
+			plural = 哈恩
+		}
+		
+		twaxihdar = {
+			language = "l_simp_chinese"
+			name = 特瓦西伊达尔
+			plural = 特瓦西伊达尔
+		}
+		
+		uvxantt = {
+			language = "l_simp_chinese"
+			name = 乌瓦-夏内特
+			plural = 乌瓦-夏内特
+		}
+		
+		kraxroz = {
+			language = "l_simp_chinese"
+			name = 科拉西罗齐
+			plural = 科拉西罗齐
+		}
+		
+		yssravannar = {
+			language = "l_simp_chinese"
+			name = 也萨瓦纳尔
+			plural = 也萨瓦纳尔
+		}
+		
+		haspalv = {
+			language = "l_simp_chinese"
+			name = 哈斯帕维
+			plural = 哈斯帕维
+		}
+		
+		pelxcradonian = {
+			language = "l_simp_chinese"
+			name = 佩西-克拉多尼安
+			plural = 佩西-克拉多尼安
+		}
+		
+		jaazijan = {
+			language = "l_simp_chinese"
+			name = 加齐加恩
+			plural = 加齐加恩
+		}
+		
+		qravadox = {
+			language = "l_simp_chinese"
+			name = 夸拉瓦多西
+			plural = 夸拉瓦多西
+		}
+		
+		raxthalak = {
+			language = "l_simp_chinese"
+			name = 拉克泰拉克
+			plural = 拉克泰拉克
+		}
+		
+		thekqlak = {
+			language = "l_simp_chinese"
+			name = 特克夸克
+			plural = 特克夸克
+		}
+		
+		bospachtux = {
+			language = "l_simp_chinese"
+			name = 博斯帕库图克
+			plural = 博斯帕库图克
+		}
+
+		mectpux = {
+			language = "l_simp_chinese"
+			name = 梅克特-普克
+			plural = 梅克特-普克
+		}
+		
+		othethi = {
+			language = "l_simp_chinese"
+			name = 奥泰提
+			plural = 奥泰提
+		}
+
+		oxbraxi = {
+			language = "l_simp_chinese"
+			name = 奥斯巴拉西
+			plural = 奥斯巴拉西
+		}
+
+		zaydran = {
+			language = "l_simp_chinese"
+			name = 扎亚达兰
+			plural = 扎亚达兰
+		}
+
+		nharr = {
+			language = "l_simp_chinese"
+			name = 纳哈尔
+			plural = 纳哈尔
+		}
+		
+		zukakkan = {
+			language = "l_simp_chinese"
+			name = 祖卡克卡恩
+			plural = 祖卡克卡恩
+		}
+		
+		seklokkar = {
+			language = "l_simp_chinese"
+			name = 塞克-洛卡尔
+			plural = 塞克-洛卡尔
+		}
+		
+		netraxi = {
+			language = "l_simp_chinese"
+			name = 内塔西
+			plural = 内塔西
+		}
+		
+		dimaxanian = {
+			language = "l_simp_chinese"
+			name = 迪马夏尼安
+			plural = 迪马夏尼安
+		}
+		
+		vagoross = {
+			language = "l_simp_chinese"
+			name = 瓦格-奥罗斯
+			plural = 瓦格-奥罗斯
+		}
+		
+		Kalaxenan = {
+			language = "l_simp_chinese"
+			name = 卡拉谢南
+			plural = 卡拉谢南
+		}
+		
+		fexklanga = {
+			language = "l_simp_chinese"
+			name = 费克基安格
+			plural = 费克基安格
+		}
+		
+		tuxkan = {
+			language = "l_simp_chinese"
+			name = 图西克安
+			plural = 图西克安
+		}
+		
+		gox = {
+			language = "l_simp_chinese"
+			name = 戈西
+			plural = 戈西
+		}
+		
+		rakthalaknak = {
+			language = "l_simp_chinese"
+			name = 拉克塔拉克纳卡
+			plural = 拉克塔拉克纳卡
+		}
+		
+		bokasheran = {
+			language = "l_simp_chinese"
+			name = 博卡舍安
+			plural = 博卡舍安
+		}
+		
+		adeex = {
+			language = "l_simp_chinese"
+			name = 阿德西
+			plural = 阿德西
+		}
+		
+		rothak = {
+			language = "l_simp_chinese"
+			name = 罗塔克
+			plural = 罗塔克
+		}
+		
+		steccashi = {
+			language = "l_simp_chinese"
+			name = 斯特卡斯
+			plural = 斯特卡斯
+		}
+		
+		xulokako = {
+			language = "l_simp_chinese"
+			name = 许罗卡库
+			plural = 许罗卡库
+		}
+		
+		gargaxton = {
+			language = "l_simp_chinese"
+			name = 盖戈西顿
+			plural = 盖戈西顿
+		}
+		
+		loxungrakva = {
+			language = "l_simp_chinese"
+			name = 洛西乌戈拉克-瓦
+			plural = 洛西乌戈拉克-瓦
+		}
+		
+		screk = {
+			language = "l_simp_chinese"
+			name = 崔勒克
+			plural = 崔勒克
+		}
+
+		xanyr = {
+			language = "l_simp_chinese"
+			name = 夏安瑞
+			plural = 夏安瑞
+		}
+		
+		zaacplot = {
+			language = "l_simp_chinese"
+			name = 扎克普特
+			plural = 扎克普特
+		}
+
+		vurxac = {
+			language = "l_simp_chinese"
+			name = 沃尔夏克
+			plural = 沃尔夏克
+		}
+
+		opalglec = {
+			language = "l_simp_chinese"
+			name = 奥帕戈克
+			plural = 奥帕戈克
+		}
+
+		valurt = {
+			language = "l_simp_chinese"
+			name = 瓦鲁特
+			plural = 瓦鲁特
+		}
+
+		natfankan = {
+			language = "l_simp_chinese"
+			name = 纳特伐克安
+			plural = 纳特伐克安
+		}
+
+		husko = {
+			language = "l_simp_chinese"
+			name = 胡斯科
+			plural = 胡斯科
+		}
+
+		zaxxoid = {
+			language = "l_simp_chinese"
+			name = 扎夏奥德
+			plural = 扎夏奥德
+		}
+		
+		dabbax = {
+			language = "l_simp_chinese"
+			name = 达巴克
+			plural = 达巴克
+		}
+		
+		zemmerpuk = {
+			language = "l_simp_chinese"
+			name = 齐梅尔普克
+			plural = 齐梅尔普克
+		}
+
+		trakpocian = {
+			language = "l_simp_chinese"
+			name = 特拉克普西安
+			plural = 特拉克普西安
+		}
+		
+		ytrellan = {
+			language = "l_simp_chinese"
+			name = 也特瑞安
+			plural = 也特瑞安
+		}
+		
+		savixqast = {
+			language = "l_simp_chinese"
+			name = 萨维克夸特
+			plural = 萨维克夸特
+		}
+		
+		qopinjaxi = {
+			language = "l_simp_chinese"
+			name = 夸皮加西
+			plural = 夸皮加西
+		}
+		
+		najklax = {
+			language = "l_simp_chinese"
+			name = 纳吉卡克
+			plural = 纳吉卡克
+		}
+		
+		sakyt = {
+			language = "l_simp_chinese"
+			name = 萨瑞特
+			plural = 萨瑞特
+		}
+		
+		backatta = {
+			language = "l_simp_chinese"
+			name = 巴克卡塔
+			plural = 巴克卡塔
+		}
+		
+		xaplo = {
+			language = "l_simp_chinese"
+			name = 夏皮洛
+			plural = 夏皮洛
+		}
+		
+		uindar = {
+			language = "l_simp_chinese"
+			name = 优尼达尔
+			plural = 优尼达尔
+		}
+		
+		eruxo = {
+			language = "l_simp_chinese"
+			name = 埃罗谢
+			plural = 埃罗谢
+		}
+		
+		spuxulac = {
+			language = "l_simp_chinese"
+			name = 斯普夏克
+			plural = 斯普夏克
+		}
+		
+		multyx = {
+			language = "l_simp_chinese"
+			name = 穆崔克
+			plural = 穆崔克
+		}
+		
+		cilxtac = {
+			language = "l_simp_chinese"
+			name = 塞克塔克
+			plural = 塞克塔克
+		}
+		
+		ztrakpor = {
+			language = "l_simp_chinese"
+			name = 齐特拉卡波尔
+			plural = 齐特拉卡波尔
+		}
+		
+		tchaaskeran = {
+			language = "l_simp_chinese"
+			name = 特切斯科兰
+			plural = 特切斯科兰
+		}
+		
+		yaxkalock = {
+			language = "l_simp_chinese"
+			name = 亚克卡洛克
+			plural = 亚克卡洛克
+		}
+		
+		vunokon = {
+			language = "l_simp_chinese"
+			name = 文-奥科恩
+			plural = 文-奥科恩
+		}
+		
+		tumbator = {
+			language = "l_simp_chinese"
+			name = 图姆巴托尔
+			plural = 图姆巴托尔
+		}
+
+		onotach = {
+			language = "l_simp_chinese"
+			name = 奥诺塔齐
+			plural = 奥诺塔齐
+		}
+
+		yapathi = {
+			language = "l_simp_chinese"
+			name = 亚帕提
+			plural = 亚帕提
+		}
+		rekthalar = {
+			language = "l_simp_chinese"
+			name = 雷克塔拉尔
+			plural = 雷克塔拉尔
+		}
+
+		zum = {
+			language = "l_simp_chinese"
+			name = 祖米
+			plural = 祖米
+		}
+		
+		ugarlak = {
+			language = "l_simp_chinese"
+			name = 乌戈尔拉克
+			plural = 乌戈尔拉克
+		}
+
+		glostwerheni = {
+			language = "l_simp_chinese"
+			name = 格洛斯特-温赫尼
+			plural = 格洛斯特-温赫尼
+		}
+
+		mekonass = {
+			language = "l_simp_chinese"
+			name = 梅科纳斯
+			plural = 梅科纳斯
+		}
+
+		oklarr = {
+			language = "l_simp_chinese"
+			name = 奥克拉瑞
+			plural = 奥克拉瑞
+		}
+
+		drullperfen = {
+			language = "l_simp_chinese"
+			name = 迪罗尔佩尔芬
+			plural = 迪罗尔佩尔芬
+		}
+
+		photecian = {
+			language = "l_simp_chinese"
+			name = 菲特西安
+			plural = 菲特西安
+		}
+
+		wessari = {
+			language = "l_simp_chinese"
+			name = 温萨里
+			plural = 温萨里
+		}
+
+		lahtrepian = {
+			language = "l_simp_chinese"
+			name = 拉赫特皮安
+			plural = 拉赫特皮安
+		}
+
+		ekwynian = {
+			language = "l_simp_chinese"
+			name = 伊克温尼安
+			plural = 伊克温尼安
+		}
+
+		ragerian = {
+			language = "l_simp_chinese"
+			name = 拉格利安
+			plural = 拉格利安
+		}
+
+		pouzjok = {
+			language = "l_simp_chinese"
+			name = 普齐-约克
+			plural = 普齐-约克
+		}
+
+		jusstkan = {
+			language = "l_simp_chinese"
+			name = 吉斯特卡安
+			plural = 吉斯特卡安
+		}
+		
+		klaggian = {
+			language = "l_simp_chinese"
+			name = 克拉吉安
+			plural = 克拉吉安
+		}
+		
+		uqopraknar = {
+			language = "l_simp_chinese"
+			name = 乌魁帕克纳尔
+			plural = 乌魁帕克纳尔
+		}
+		
+		onedqarak = {
+			language = "l_simp_chinese"
+			name = 万德齐勒克
+			plural = 万德齐勒克
+		}
+		
+		ruphaari = {
+			language = "l_simp_chinese"
+			name = 鲁帕阿里
+			plural = 鲁帕阿里
+		}
+		
+		qwepulci = {
+			language = "l_simp_chinese"
+			name = 魁普尔西
+			plural = 魁普尔西
+		}
+		
+		groknaploran = {
+			language = "l_simp_chinese"
+			name = 格罗纳普兰
+			plural = 格罗纳普兰
+		}
+		
+		ktaknor = {
+			language = "l_simp_chinese"
+			name = 克塔克诺尔
+			plural = 克塔克诺尔
+		}
+		
+		gagassi = {
+			language = "l_simp_chinese"
+			name = 格盖斯
+			plural = 格盖斯
+		}
+		
+		hadadeshi = {
+			language = "l_simp_chinese"
+			name = 哈达德斯
+			plural = 哈达德斯
+		}
+		
+		alari = {
+			language = "l_simp_chinese"
+			name = 阿罗毗
+			plural = 阿罗毗
+		}	
+		
+		mireesh = {
+			language = "l_simp_chinese"
+			name = 米勒埃斯
+			plural = 米勒埃斯
+		}
+		
+		triech = {
+			language = "l_simp_chinese"
+			name = 特里希
+			plural = 特里希
+		}
+		
+		vrinn = {
+			language = "l_simp_chinese"
+			name = 维恩
+			plural = 维恩
+		}
+		
+		cevanti = {
+			language = "l_simp_chinese"
+			name = 策万提
+			plural = 策万提
+		}
+		
+		mishar = {
+			language = "l_simp_chinese"
+			name = 米萨尔
+			plural = 米萨尔
+		}
+		
+		fareen = {
+			language = "l_simp_chinese"
+			name = 法雷恩
+			plural = 法雷恩
+		}
+		
+		yldar = {
+			language = "l_simp_chinese"
+			name = 雅达尔
+			plural = 雅达尔
+		}
+		
+		korinth = {
+			language = "l_simp_chinese"
+			name = 科林斯
+			plural = 科林斯
+		}
+		sildor = {
+			language = "l_simp_chinese"
+			name = 西多尔
+			plural = 西多尔
+		}
+
+		nagyari = {
+			language = "l_simp_chinese"
+			name = 那加里
+			plural = 那加里
+		}
+
+		kobarian = {
+			language = "l_simp_chinese"
+			name = 科巴赖恩
+			plural = 科巴赖恩
+		}
+
+		Hesukar = {
+			language = "l_simp_chinese"
+			name = 哈斯卡
+			plural = 哈斯卡里
+		}
+
+		giroid = {
+			language = "l_simp_chinese"
+			name = 基卓
+			plural = 基卓
+		}
+
+		akkano = {
+			language = "l_simp_chinese"
+			name = 阿凯农
+			plural = 阿凯农
+		}
+		
+		kroll = {
+			language = "l_simp_chinese"
+			name = 克罗尔
+			plural = 克罗尔
+		}
+
+		orassian = {
+			language = "l_simp_chinese"
+			name = 奥莱西安
+			plural = 奥莱西安
+		}
+
+		aramathi = {
+			language = "l_simp_chinese"
+			name = 阿拉莫提
+			plural = 阿拉莫提
+		}
+		immutharan = {
+			language = "l_simp_chinese"
+			name = 伊曼提兰
+			plural = 伊曼提兰
+		}
+
+		hiffnar = {
+			language = "l_simp_chinese"
+			name = 希弗纳尔
+			plural = 希弗纳尔
+		}
+		
+		zaanami = {
+			language = "l_simp_chinese"
+			name = 扎纳米
+			plural = 扎纳米
+		}
+
+		estwani = {
+			language = "l_simp_chinese"
+			name = 艾斯特沃尼
+			plural = 艾斯特沃尼
+		}
+
+		vailon = {
+			language = "l_simp_chinese"
+			name = 瓦尔伦
+			plural = 瓦尔伦
+		}
+
+		raltek = {
+			language = "l_simp_chinese"
+			name = 雷尔特克
+			plural = 雷尔特克
+		}
+
+		birnathi = {
+			language = "l_simp_chinese"
+			name = 博纳蒂
+			plural = 博纳蒂
+		}
+
+		othari = {
+			language = "l_simp_chinese"
+			name = 奥塔里
+			plural = 奥塔里
+		}
+
+		evandari = {
+			language = "l_simp_chinese"
+			name = 埃文达里
+			plural = 埃文达里
+		}
+
+		bothrian = {
+			language = "l_simp_chinese"
+			name = 博斯里安
+			plural = 博斯里安
+		}
+
+		dorbolan = {
+			language = "l_simp_chinese"
+			name = 多尔博兰
+			plural = 多尔博兰
+		}
+
+		fevarian = {
+			language = "l_simp_chinese"
+			name = 费瓦里安
+			plural = 费瓦里安
+		}
+
+		kenjodan = {
+			language = "l_simp_chinese"
+			name = 肯约达恩
+			plural = 肯约达恩
+		}
+
+		glyrran = {
+			language = "l_simp_chinese"
+			name = 吉厄兰
+			plural = 吉厄兰
+		}
+		
+		pallyrian = {
+			language = "l_simp_chinese"
+			name = 帕尔瑞安
+			plural = 帕尔瑞安
+		}
+		
+		quvarian = {
+			language = "l_simp_chinese"
+			name = 库瓦里安
+			plural = 库瓦里安
+		}
+		
+		qellnuram = {
+			language = "l_simp_chinese"
+			name = 齐尔努达尔
+			plural = 齐尔努达尔
+		}
+		
+		valdari = {
+			language = "l_simp_chinese"
+			name = 瓦达尔里
+			plural = 瓦达尔里
+		}
+		
+		igarian = {
+			language = "l_simp_chinese"
+			name = 伊格利安
+			plural = 伊格利安
+		}
+		
+		adnoran = {
+			language = "l_simp_chinese"
+			name = 安多伦
+			plural = 安多伦
+		}
+		
+		T'Jell = {
+			language = "l_simp_chinese"
+			name = 蒂杰尔
+			plural = 蒂杰尔
+		}
+		
+		tarassi = {
+			language = "l_simp_chinese"
+			name = 塔拉西
+			plural = 塔拉西
+		}
+
+		sinrath = {
+			language = "l_simp_chinese"
+			name = 西拉提
+			plural = 西拉提
+		}
+
+		kaan_visam = {
+			language = "l_simp_chinese"
+			name = 卡汗-维西
+			plural = 卡汗-维西
+		}
+
+		tebazoid = {
+			language = "l_simp_chinese"
+			name = 塔巴兽
+			plural = 塔巴兽
+		}
+
+		kazam = {
+			language = "l_simp_chinese"
+			name = 卡容
+			plural = 卡容
+		}
+
+		quvab = {
+			language = "l_simp_chinese"
+			name = 魁'瑞比
+			plural = 魁'瑞比
+		}
+		
+		themlar = {
+			language = "l_simp_chinese"
+			name = 特姆拉尔
+			plural = 特姆拉尔
+		}
+
+		tezhnid = {
+			language = "l_simp_chinese"
+			name = 特扎尼迪
+			plural = 特扎尼迪
+		}
+		
+		pithok = {
+			language = "l_simp_chinese"
+			name = 皮托克
+			plural = 皮托克
+		}
+
+		cithin = {
+			language = "l_simp_chinese"
+			name = 西提尼
+			plural = 西提尼
+		}
+
+		thimoid = {
+			language = "l_simp_chinese"
+			name = 蒂莫迪
+			plural = 蒂莫迪
+		}
+
+		rutharian = {
+			language = "l_simp_chinese"
+			name = 鲁提利安
+			plural = 鲁提利安
+		}
+
+		jhabbanid = {
+			language = "l_simp_chinese"
+			name = 加哈巴尼迪
+			plural = 加哈巴尼迪
+		}
+
+		saathid = {
+			language = "l_simp_chinese"
+			name = 萨提迪
+			plural = 萨提迪
+		}
+
+		iknurval = {
+			language = "l_simp_chinese"
+			name = 伊克-努尔-瓦尔
+			plural = 伊克-努尔-瓦尔
+		}
+		
+		haddam = {
+			language = "l_simp_chinese"
+			name = 哈达姆
+			plural = 哈达姆
+		}
+		
+		xeltek = {
+			language = "l_simp_chinese"
+			name = 西尔特克
+			plural = 西尔特克
+		}
+
+		zithorian = {
+			language = "l_simp_chinese"
+			name = 齐托尔里安
+			plural = 齐托尔里安
+		}
+		
+		hantak = {
+			language = "l_simp_chinese"
+			name = 汉塔克
+			plural = 汉塔克
+		}
+		
+		rontor = {
+			language = "l_simp_chinese"
+			name = 洛托尔
+			plural = 洛托尔
+		}
+		
+		talakkur = {
+			language = "l_simp_chinese"
+			name = 塔尔阿库尔
+			plural = 塔尔阿库尔
+		}
+		
+		myrran = {
+			language = "l_simp_chinese"
+			name = 麦尔兰
+			plural = 麦尔兰
+		}
+		
+		athallid = {
+			language = "l_simp_chinese"
+			name = 阿提利迪
+			plural = 阿提利迪
+		}
+		
+		entheri = {
+			language = "l_simp_chinese"
+			name = 恩提尔利
+			plural = 恩提尔利
+		}
+		
+		chimm = {
+			language = "l_simp_chinese"
+			name = 齐姆
+			plural = 齐姆
+		}
+		
+		shabtak = {
+			language = "l_simp_chinese"
+			name = 沙伯塔克
+			plural = 沙伯塔克
+		}
+		
+		yibrak = {
+			language = "l_simp_chinese"
+			name = 伊布拉基
+			plural = 伊布拉基
+		}
+		
+		qiramulan = {
+			language = "l_simp_chinese"
+			name = 齐拉穆兰
+			plural = 齐拉穆兰
+		}
+		
+		ethir = {
+			language = "l_simp_chinese"
+			name = 埃提尔
+			plural = 埃提尔
+		}
+		
+		avtyrran = {
+			language = "l_simp_chinese"
+			name = 阿瓦提兰
+			plural = 阿瓦提兰
+		}
+		
+		pirak = {
+			language = "l_simp_chinese"
+			name = 皮拉克
+			plural = 皮拉克
+		}
+		izki = {
+			language = "l_simp_chinese"
+			name = 伊札奇
+			plural = 伊札奇
+		}
+
+		pakari = {
+			language = "l_simp_chinese"
+			name = 帕卡里
+			plural = 帕卡里
+		}
+
+		wi-ziraki = {
+			language = "l_simp_chinese"
+			name = 威-札拉卡
+			plural = 威-札拉卡
+		}
+
+		maggar = {
+			language = "l_simp_chinese"
+			name = 马格
+			plural = 马格
+		}
+
+		krithakkan = {
+			language = "l_simp_chinese"
+			name = 坎塔可
+			plural = 坎塔
+		}
+		
+		rethellian = {
+			language = "l_simp_chinese"
+			name = 雷提尔利安
+			plural = 雷提尔利安
+		}
+		
+		kammarian = {
+			language = "l_simp_chinese"
+			name = 卡姆曼利安
+			plural = 卡姆曼利安
+		}
+		
+		anathurian = {
+			language = "l_simp_chinese"
+			name = 安纳托利安
+			plural = 安纳托利安
+		}
+
+		zuifvan = {
+			language = "l_simp_chinese"
+			name = 祖伊夫万
+			plural = 祖伊夫万
+		}
+		
+		reshethi = {
+			language = "l_simp_chinese"
+			name = 瑞夏提
+			plural = 瑞夏提
+		}
+
+		dethakkan = {
+			language = "l_simp_chinese"
+			name = 德塔克安
+			plural = 德塔克安
+		}
+
+		ikarzuri = {
+			language = "l_simp_chinese"
+			name = 伊卡尔祖里
+			plural = 伊卡尔祖里
+		}
+
+		vhemm = {
+			language = "l_simp_chinese"
+			name = 瓦赫姆
+			plural = 瓦赫姆
+		}
+		
+		tendrakkian = {
+			language = "l_simp_chinese"
+			name = 特恩达里基安
+			plural = 特恩达里基安
+		}
+		
+		baanthurian = {
+			language = "l_simp_chinese"
+			name = 巴纳图里安
+			plural = 巴纳图里安
+		}
+		
+		cormathani = {
+			language = "l_simp_chinese"
+			name = 克尔马提尼
+			plural = 克尔马提尼
+		}
+		
+		kirillian = {
+			language = "l_simp_chinese"
+			name = 基里尔安
+			plural = 基里尔安
+		}
+		
+		beldross = {
+			language = "l_simp_chinese"
+			name = 贝尔多罗斯
+			plural = 贝尔多罗斯
+		}
+		
+		jurinn = {
+			language = "l_simp_chinese"
+			name = 吉里恩
+			plural = 吉里恩
+		}
+		
+		ziiran = {
+			language = "l_simp_chinese"
+			name = 齐兰
+			plural = 齐兰
+		}
+		
+		athanebian = {
+			language = "l_simp_chinese"
+			name = 阿塔尼比安
+			plural = 阿塔尼比安
+		}
+		
+		diri = {
+			language = "l_simp_chinese"
+			name = 迪里
+			plural = 迪里
+		}
+		
+		hydari = {
+			language = "l_simp_chinese"
+			name = 赫达里
+			plural = 赫达里
+		}
+		
+		cirrulan = {
+			language = "l_simp_chinese"
+			name = 支罗兰
+			plural = 支罗兰
+		}
+		
+		yaanari = {
+			language = "l_simp_chinese"
+			name = 亚纳利
+			plural = 亚纳利
+		}
+		
+		ubaric = {
+			language = "l_simp_chinese"
+			name = 乌巴里克
+			plural = 乌巴里克
+		}
+		
+		kedeshi = {
+			language = "l_simp_chinese"
+			name = 科德斯
+			plural = 科德斯
+		}
+		
+		tebadoran = {
+			language = "l_simp_chinese"
+			name = 特巴多兰
+			plural = 特巴多兰
+		}
+		
+		bessadon = {
+			language = "l_simp_chinese"
+			name = 贝谢顿
+			plural = 贝谢顿
+		}
+		
+		lyrite = {
+			language = "l_simp_chinese"
+			name = 莱利特
+			plural = 莱利特
+		}
+
+		sathori = {
+			language = "l_simp_chinese"
+			name = 沙多利
+			plural = 沙多利
+		}
+
+		suramo = {
+			language = "l_simp_chinese"
+			name = 苏拉蒙
+			plural = 苏拉蒙
+		}
+
+		knatza = {
+			language = "l_simp_chinese"
+			name = 坎特札
+			plural = 坎特兹
+		}
+
+		bryll = {
+			language = "l_simp_chinese"
+			name = 布里尔
+			plural = 布里尔
+		}
+
+		raxar = {
+			language = "l_simp_chinese"
+			name = 雷索
+			plural = 雷索里
+		}
+		
+		shantari = {
+			language = "l_simp_chinese"
+			name = 圣塔利
+			plural = 圣塔利
+		}
+		
+		saiiban = {
+			language = "l_simp_chinese"
+			name = 塞班
+			plural = 塞班
+		}
+
+		ikaanan = {
+			language = "l_simp_chinese"
+			name = 伊卡南
+			plural = 伊卡南
+		}
+
+		avarrian = {
+			language = "l_simp_chinese"
+			name = 阿瓦利安
+			plural = 阿瓦利安
+		}
+
+		khessam = {
+			language = "l_simp_chinese"
+			name = 科萨姆
+			plural = 科萨姆
+		}
+		
+		cynn = {
+			language = "l_simp_chinese"
+			name = 库恩
+			plural = 库恩
+		}
+		
+		yeon = {
+			language = "l_simp_chinese"
+			name = 延恩
+			plural = 延恩
+		}
+		
+		tezekian = {
+			language = "l_simp_chinese"
+			name = 特扎基安
+			plural = 特扎基安
+		}
+		
+		khemplar = {
+			language = "l_simp_chinese"
+			name = 科姆普拉尔
+			plural = 科姆普拉尔
+		}
+		
+		vissari = {
+			language = "l_simp_chinese"
+			name = 维萨里
+			plural = 维萨里
+		}
+
+		rackuddon = {
+			language = "l_simp_chinese"
+			name = 拉库顿
+			plural = 拉库顿
+		}
+		
+		tiyal = {
+			language = "l_simp_chinese"
+			name = 蒂亚尔
+			plural = 蒂亚尔
+		}
+		
+		keerim = {
+			language = "l_simp_chinese"
+			name = 克里姆
+			plural = 克里姆
+		}
+		
+		fiiral = {
+			language = "l_simp_chinese"
+			name = 费拉尔
+			plural = 费拉尔
+		}
+		
+		cynur = {
+			language = "l_simp_chinese"
+			name = 库努尔
+			plural = 库努尔
+		}
+		
+		imari = {
+			language = "l_simp_chinese"
+			name = 伊马里
+			plural = 伊马里
+		}
+		
+		izirian = {
+			language = "l_simp_chinese"
+			name = 伊齐利安
+			plural = 伊齐利安
+		}
+		
+		figyar = {
+			language = "l_simp_chinese"
+			name = 费亚尔
+			plural = 费亚尔
+		}
+		
+		sibulan = {
+			language = "l_simp_chinese"
+			name = 西布兰
+			plural = 西布兰
+		}
+		
+		miidari = {
+			language = "l_simp_chinese"
+			name = 米达尔里
+			plural = 米达尔里
+		}
+		
+		spyran = {
+			language = "l_simp_chinese"
+			name = 斯班兰
+			plural = 斯班兰
+		}
+		
+		bruggan = {
+			language = "l_simp_chinese"
+			name = 比罗格安
+			plural = 比罗格安
+		}
+		
+		inari = {
+			language = "l_simp_chinese"
+			name = 伊纳里
+			plural = 伊纳里
+		}
+		
+		penthulan = {
+			language = "l_simp_chinese"
+			name = 本都兰
+			plural = 本都兰
+		}
+		
+		rixi = {
+			language = "l_simp_chinese"
+			name = 里希
+			plural = 里希
+		}
+
+		baviir = {
+			language = "l_simp_chinese"
+			name = 巴凡尔
+			plural = 巴凡里
+		}
+
+		ospranian = {
+			language = "l_simp_chinese"
+			name = 欧斯瑞恩
+			plural = 欧斯瑞恩
+		}
+
+		erissu = {
+			language = "l_simp_chinese"
+			name = 易立苏
+			plural = 易立苏
+		}
+
+		skanuri = {
+			language = "l_simp_chinese"
+			name = 司卡卢里
+			plural = 司卡卢里
+		}
+
+		hiran = {
+			language = "l_simp_chinese"
+			name = 亥瑞
+			plural = 亥瑞
+		}
+		
+		Aztani = {
+			language = "l_simp_chinese"
+			name = 阿齐塔尼
+			plural = 阿齐塔尼
+		}
+		
+		karabnar = {
+			language = "l_simp_chinese"
+			name = 卡拉博纳尔
+			plural = 卡拉博纳尔
+		}
+		
+		ymorz = {
+			language = "l_simp_chinese"
+			name = 亚莫齐
+			plural = 亚莫齐
+		}
+		
+		bilnoc = {
+			language = "l_simp_chinese"
+			name = 比尔诺克
+			plural = 比尔诺克
+		}
+		
+		larongo = {
+			language = "l_simp_chinese"
+			name = 拉罗格
+			plural = 拉罗格
+		}
+		
+		uthonian = {
+			language = "l_simp_chinese"
+			name = 乌托尼安
+			plural = 乌托尼安
+		}
+		
+		elaaminid = {
+			language = "l_simp_chinese"
+			name = 埃安米德
+			plural = 埃安米德
+		}
+		
+		heejam = {
+			language = "l_simp_chinese"
+			name = 赫加姆
+			plural = 赫加姆
+		}
+		
+		hannfelir = {
+			language = "l_simp_chinese"
+			name = 汉恩费利尔
+			plural = 汉恩费利尔
+		}
+		
+		cyggan = {
+			language = "l_simp_chinese"
+			name = 塞格安
+			plural = 塞格安
+		}
+		
+		gorothi = {
+			language = "l_simp_chinese"
+			name = 格罗丁
+			plural = 格罗丁
+		}
+		
+		connisthian = {
+			language = "l_simp_chinese"
+			name = 康尼斯提安
+			plural = 康尼斯提安
+		}
+		
+		nuurian = {
+			language = "l_simp_chinese"
+			name = 诺里安
+			plural = 诺里安
+		}
+		
+		genoggian = {
+			language = "l_simp_chinese"
+			name = 格诺吉安
+			plural = 格诺吉安
+		}
+		
+		dabulan = {
+			language = "l_simp_chinese"
+			name = 达布兰
+			plural = 达布兰
+		}
+		
+		uthabulan = {
+			language = "l_simp_chinese"
+			name = 乌塔布兰
+			plural = 乌塔布兰
+		}
+		
+		gurite = {
+			language = "l_simp_chinese"
+			name = 古利特
+			plural = 古利特
+		}
+		
+		hythean = {
+			language = "l_simp_chinese"
+			name = 海提安
+			plural = 海提安
+		}
+		
+		tebbran = {
+			language = "l_simp_chinese"
+			name = 特博兰
+			plural = 特博兰
+		}
+		
+		kundaric = {
+			language = "l_simp_chinese"
+			name = 库恩坦
+			plural = 库恩坦
+		}
+		
+		sejethari = {
+			language = "l_simp_chinese"
+			name = 塞加塔利
+			plural = 塞加塔利
+		}
+		
+		bakurian = {
+			language = "l_simp_chinese"
+			name = 巴克图利安
+			plural = 巴克图利安
+		}
+		
+		sebannic = {
+			language = "l_simp_chinese"
+			name = 塞巴恩
+			plural = 塞巴恩
+		}
+		
+		jakly = {
+			language = "l_simp_chinese"
+			name = 加卡利
+			plural = 加卡利
+		}
+		
+		bavi = {
+			language = "l_simp_chinese"
+			name = 巴维
+			plural = 巴维
+		}
+
+		endurga = {
+			language = "l_simp_chinese"
+			name = 安多加
+			plural = 安多加
+		}
+
+		xabir = {
+			language = "l_simp_chinese"
+			name = 札拜尔
+			plural = 札拜里
+		}
+
+		jubaran = {
+			language = "l_simp_chinese"
+			name = 朱巴拉
+			plural = 朱巴拉
+		}
+
+		norani = {
+			language = "l_simp_chinese"
+			name = 诺拉尼
+			plural = 诺拉尼
+		}
+
+		urzo = {
+			language = "l_simp_chinese"
+			name = 优洛
+			plural = 优洛
+		}
+	}
+}

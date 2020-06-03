@@ -8,6 +8,13 @@ component_set = {
 }
 
 component_set = {
+	key = "TITAN_LASER_ST"
+	
+	icon = "GFX_ship_part_energy_lance_2"
+	icon_frame = 1	
+}
+
+component_set = {
 	key = "pTITAN_LASER_R"
 	
 	icon = "GFX_ship_part_titan_lance_red"

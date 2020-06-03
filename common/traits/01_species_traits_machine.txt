@@ -1,22 +1,28 @@
 trait_robotic_machine = {
 	cost = 0
-	sorting_priority = 10
 	
 	initial = no
 	randomized = no
 	modification = no
 
-	allowed_archetypes = { MACHINE ROBOT }
+	allowed_archetypes = { MACHINE ROBOT BIOLOGICAL LITHOID }
 	
-	modifier = {
-		planet_jobs_physics_research_produces_mult = -0.5
-		planet_jobs_society_research_produces_mult = -0.5
-		planet_jobs_engineering_research_produces_mult = -0.5
-		planet_jobs_unity_produces_mult = -0.5
-		planet_jobs_energy_produces_mult = -0.5
-		planet_jobs_minerals_produces_mult = 0.35
-		pop_assembly_speed = 0.25
-	}
+	# modifier = {
+	# 	planet_jobs_physics_research_produces_mult = -0.5
+	# 	planet_jobs_society_research_produces_mult = -0.5
+	# 	planet_jobs_engineering_research_produces_mult = -0.5
+	# 	planet_jobs_unity_produces_mult = -0.5
+	# 	planet_jobs_energy_produces_mult = -0.5
+	# 	pop_amenities_usage_no_happiness_mult = -1
+	# 	pop_housing_usage_mult = -1
+	# 	planet_jobs_minerals_produces_mult = 0.35
+	# 	pop_assembly_speed = 0.25
+	# }
+	
+	species_potential_add = {
+		always = no
+    }
+	#custom_tooltip = trait_robotic_machine_effect
 	
 	#prerequisites = {  }
 }

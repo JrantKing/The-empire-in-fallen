@@ -1,0 +1,189 @@
+wg_end_threat_gestalt = {
+	casus_belli = cb_containment_gestalt
+	
+	hide_if_no_cb = yes
+	total_war = yes
+	set_defender_wargoal = wg_end_threat_gestalt
+	
+	surrender_acceptance = -1000
+
+	potential = {
+		OR = {
+			AND = {
+				from = {
+					is_country_type = default
+					has_ethic = ethic_gestalt_consciousness
+					NOR = {
+						has_valid_civic = civic_hive_devouring_swarm
+						has_valid_civic = civic_machine_assimilator
+						has_valid_civic = civic_machine_terminator
+					}
+				}
+				has_valid_civic = civic_gestalt_terminator
+			}
+			AND = {
+				from = {
+					has_valid_civic = civic_gestalt_terminator
+				}
+				is_country_type = default
+				has_ethic = ethic_gestalt_consciousness
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+		}
+	}
+	possible = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+wg_end_threat_assimilation_gestalt = {
+	casus_belli = cb_containment
+	
+	hide_if_no_cb = yes
+	total_war = yes
+	set_defender_wargoal = wg_assimilation_gestalt_terminator
+	
+	surrender_acceptance = -1000
+
+	potential = {
+		from = {
+			is_country_type = default
+			has_ethic = ethic_gestalt_consciousness
+			has_valid_civic = civic_machine_assimilator
+		}
+		has_valid_civic = civic_gestalt_terminator
+	}
+	possible = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+wg_end_threat_cleansing_gestalt = {
+	casus_belli = cb_containment
+	
+	hide_if_no_cb = yes
+	total_war = yes
+	set_defender_wargoal = wg_cleansing_gestalt_terminator
+	
+	surrender_acceptance = -1000
+
+	potential = {
+		from = {
+			is_country_type = default
+			has_ethic = ethic_gestalt_consciousness
+			has_valid_civic = civic_machine_terminator
+		}
+		has_valid_civic = civic_gestalt_terminator
+	}
+	possible = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+wg_end_threat_absorption_gestalt = {
+	casus_belli = cb_containment
+	
+	hide_if_no_cb = yes
+	total_war = yes
+	set_defender_wargoal = wg_absorption_gestalt_terminator
+	
+	surrender_acceptance = -1000
+
+	potential = {
+		from = {
+			is_country_type = default
+			has_ethic = ethic_gestalt_consciousness
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+		has_valid_civic = civic_gestalt_terminator
+	}
+	possible = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+wg_assimilation_gestalt_terminator = {
+	casus_belli = cb_sublimation
+	
+	hide_if_no_cb = yes
+	total_war = yes
+	set_defender_wargoal = wg_end_threat_assimilation_gestalt
+	
+	surrender_acceptance = -1000
+
+	potential = {
+		from = { has_valid_civic = civic_gestalt_terminator }
+		has_valid_civic = civic_machine_assimilator
+	}
+	possible = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+wg_cleansing_gestalt_terminator = {
+	casus_belli = cb_purification
+	
+	hide_if_no_cb = yes
+	total_war = yes
+	set_defender_wargoal = wg_end_threat_cleansing_gestalt
+	
+	surrender_acceptance = -1000
+
+	potential = {
+		from = { has_valid_civic = civic_gestalt_terminator }
+		has_valid_civic = civic_machine_terminator
+	}
+	possible = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+wg_absorption_gestalt_terminator = {
+	casus_belli = cb_hunger
+	
+	hide_if_no_cb = yes
+	total_war = yes
+	set_defender_wargoal = wg_end_threat_absorption_gestalt
+	
+	surrender_acceptance = -1000
+	
+	potential = {
+		from = { has_valid_civic = civic_gestalt_terminator }
+		has_valid_civic = civic_hive_devouring_swarm
+	}
+	possible = {
+		always = yes
+	}
+	
+	ai_weight = {
+		weight = 1000
+	}
+}

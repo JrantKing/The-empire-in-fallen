@@ -1,11 +1,29 @@
 ###Ice Giant###
+# Saturn
 entity = {
-	name = "ice_giant_01_entity"
+	name = "gas_giant_saturn_entity"
+	pdxmesh = "planet_no_pole_no_clouds_mesh"
+		
+	meshsettings = {
+	name = "planet_geosphereShape"
+	texture_diffuse = "saturn.dds"
+	texture_normal = "gas_giant_01_normal.dds"
+	texture_specular = "gas_giant_01_specular.dds"
+	}
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
+		start_event = { trigger_once = yes sound = { soundeffect = "gas_giant_amb_hum" } }
+	}
+	scale = 1.2
+}
+entity = {
+	name = "gas_giant_neptune_entity"
 	pdxmesh = "planet_no_pole_no_clouds_mesh"
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "ice_giant_01_diffuse.dds"
+	texture_diffuse = "neptune.dds"
 	texture_normal = "gas_giant_01_normal.dds"
 	texture_specular = "gas_giant_01_specular.dds"
 	}
@@ -18,16 +36,23 @@ entity = {
 }
 
 entity = {
-	name = "ice_giant_02_entity"
+    name = "gas_giant_uranus_entity"
+    locator = { name = entity rotation = { 0 135 90 } }
+    default_state = "idle"
+	state = { name = "idle" state_time = 5
+	}
+	attach = { "entity" = "gas_giant_uranus_entity_mesh" }
+}
+
+entity = {
+	name = "gas_giant_uranus_entity_mesh"
 	pdxmesh = "planet_no_pole_no_clouds_mesh"
-	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "ice_giant_02_diffuse.dds"
+	texture_diffuse = "uranus.dds"
 	texture_normal = "gas_giant_01_normal.dds"
 	texture_specular = "gas_giant_01_specular.dds"
 	}
-	
 	default_state = "idle"	
 	state = { name = "idle" animation = "idle" time_offset = { 0 100 } 
 		start_event = { trigger_once = yes sound = { soundeffect = "gas_giant_amb_hum" } }
@@ -36,7 +61,7 @@ entity = {
 }
 # Titan
 entity = {
-	name = "greenhouse_planet_02_entity"
+	name = "moon_titan_entity"
 	pdxmesh = "planet_no_pole_no_clouds_mesh"
 	
 	meshsettings = {
@@ -51,29 +76,32 @@ entity = {
 		start_event = { trigger_once = yes sound = { soundeffect = "gas_giant_amb_hum" } }
 	}
 }
+# Ganymede
 entity = {
-	name = "greenhouse_planet_04_entity"
+	name = "moon_ganymede_entity"
 	pdxmesh = "planet_no_pole_no_clouds_mesh"
-	
+		
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "greenhouse_04_diffuse.dds"
-	texture_normal = "gas_giant_01_normal.dds"
-	texture_specular = "gas_giant_01_specular.dds"
+	texture_diffuse = "ganymede.dds"
+	texture_normal = "nonormal.dds"
+	texture_specular = "nospec.dds"
 	}
 	
-	default_state = "idle"	
-	state = { name = "idle" animation = "idle" time_offset = { 0 100 } 
-		start_event = { trigger_once = yes sound = { soundeffect = "gas_giant_amb_hum" } }
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class" } }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
 	}
+	scale = 1.2
 }
 entity = {
-	name = "gas_giant_08_entity"
+	name = "gas_giant_jupiter_entity"
 	pdxmesh = "planet_no_pole_no_clouds_mesh"
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "gas_giant_08_diffuse.dds"
+	texture_diffuse = "jupiter.dds"
 	texture_normal = "gas_giant_01_normal.dds"
 	texture_specular = "gas_giant_01_specular.dds"
 	}
@@ -84,58 +112,14 @@ entity = {
 	}
 	scale = 1.2
 }
-#Mars
-entity = { 
- 	name = "Mars_planet_04_entity"
- 	pdxmesh = "planet_non_clouded_mesh"
-	
-	meshsettings = {
-	name = "planet_geosphereShape"
-	texture_diffuse = "mars.dds"
-	texture_normal = "barren_04_normal.dds"
-	texture_specular = "barren_04_specular.dds"
-	}
-	
-	##pole texture override
-	meshsettings = {
-	name = "polesShape"
-	texture_diffuse = "poles_barren_1_diffuse.dds"
-	texture_normal = "poles_barren_1_normal.dds"
-	texture_specular = "poles_barren_1_specular.dds"
-	}
-	
-	default_state = "idle"
- 	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
-		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class" } }
-		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
-	}
-}
 # Callisto
 entity = { 
- 	name = "cold_barren_planet_08_entity"
+ 	name = "moon_callisto_entity"
  	pdxmesh = "planet_non_clouded_mesh"
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "callisto_texture.dds"
-	texture_normal = "barren_04_normal.dds"
-	texture_specular = "barren_04_specular.dds"
-	}
-	
-	default_state = "idle"
- 	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
-		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class" } }
-		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
-	}
-}
-# Mercury
-entity = {
- 	name = "cold_barren_planet_09_entity"
- 	pdxmesh = "planet_no_pole_no_clouds_mesh"
-	
-	meshsettings = {
-	name = "planet_geosphereShape"
-	texture_diffuse = "mercury.dds"
+	texture_diffuse = "callisto.dds"
 	texture_normal = "nonormal.dds"
 	texture_specular = "nospec.dds"
 	}
@@ -148,14 +132,14 @@ entity = {
 }
 # Ceres
 entity = {
- 	name = "cold_barren_planet_10_entity"
+ 	name = "asteroid_ceres_entity"
  	pdxmesh = "planet_non_clouded_mesh"
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "ceres_texture.dds"
-	texture_normal = "barren_04_normal.dds"
-	texture_specular = "barren_04_specular.dds"
+	texture_diffuse = "ceres.dds"
+	texture_normal = "nonormal.dds"
+	texture_specular = "nospec.dds"
 	}
 	
 	default_state = "idle"
@@ -166,14 +150,14 @@ entity = {
 }
 # Io
 entity = {
- 	name = "cold_barren_planet_11_entity"
+ 	name = "moon_io_entity"
  	pdxmesh = "planet_non_clouded_mesh"
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "io_texture.dds"
-	texture_normal = "barren_04_normal.dds"
-	texture_specular = "barren_04_specular.dds"
+	texture_diffuse = "io.dds"
+	texture_normal = "nonormal.dds"
+	texture_specular = "nospec.dds"
 	}
 	
 	default_state = "idle"
@@ -191,45 +175,47 @@ entity = {
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "pluto_texture.dds"
-	texture_normal = "barren_04_normal.dds"
-	texture_specular = "barren_04_specular.dds"
+	texture_diffuse = "pluto.dds"
+	texture_normal = "nonormal.dds"
+	texture_specular = "nospec.dds"
 	}
 	
 	default_state = "idle"
- 	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
+	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class" } }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
 	}
+	scale = 1.2
 }
 # Europa
 entity = {
- 	name = "europa_entity"
+ 	name = "moon_europa_entity"
  	pdxmesh = "planet_non_clouded_mesh"
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "europa_texture.dds"
-	texture_normal = "barren_04_normal.dds"
-	texture_specular = "barren_04_specular.dds"
+	texture_diffuse = "europa.dds"
+	texture_normal = "nonormal.dds"
+	texture_specular = "nospec.dds"
 	}
 	
 	default_state = "idle"
- 	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
+	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class" } }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
 	}
+	scale = 1.2
 }
 # Iapetus
 entity = {
- 	name = "iapetus_entity"
+ 	name = "moon_iapetus_entity"
  	pdxmesh = "planet_non_clouded_mesh"
 	
 	meshsettings = {
 	name = "planet_geosphereShape"
-	texture_diffuse = "iapetus_texture.dds"
-	texture_normal = "barren_04_normal.dds"
-	texture_specular = "barren_04_specular.dds"
+	texture_diffuse = "iapetus.dds"
+	texture_normal = "nonormal.dds"
+	texture_specular = "nospec.dds"
 	}
 	
 	default_state = "idle"
@@ -248,7 +234,7 @@ entity = {
 	name = "planet_geosphereShape"
 	texture_diffuse = "gaia_mars.dds"
 	texture_normal = "tropical_03_normal.dds"
-	texture_specular = "continental_05_spec.dds"
+	texture_specular = "gaia_mars_specular.dds"
 	}
 
 	default_state = "idle"
@@ -257,41 +243,40 @@ entity = {
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
 	}
 }
-# Nuked Earth
+
+## Gaia Earth
 entity = {
-	name = "nuked_planet_earth_entity"
+	name = "gaia_planet_earth_entity"
 	pdxmesh = "planet_clouded_mesh"
 	
 	meshsettings = {
-	name = "planet_geosphereShape"
-	texture_diffuse = "fallout_earth.dds"
-	texture_normal = "continental_05_normals.dds"
-	texture_specular = "continental_05_spec.dds"
+		name = "planet_geosphereShape"
+		texture_diffuse = "gaia_earth1.dds"
+		texture_normal = "continental_05_normals.dds"
+		texture_specular = "continental_05_spec.dds"
 	}
 	
 	##pole texture override
-	meshsettings = {
-	name = "polesShape"
-	texture_diffuse = "poles_1_diffuse.dds"
-	texture_normal = "poles_1_normal.dds"
-	texture_specular = "poles_1_specular.dds"
-	}
+	#meshsettings = {
+	#	name = "polesShape"
+	#	texture_diffuse = "poles_1_diffuse.dds"
+	#	texture_normal = "poles_1_normal.dds"
+	#	texture_specular = "poles_1_specular.dds"
+	#}
 	
-	##cloud texture override
-	meshsettings = {
-	name = "clouds_geosphereShape"
-	texture_diffuse = "nuked_clouds_medium_diffuse.dds"
-	texture_normal = "nuked_clouds_medium_normal.dds"
-	texture_specular = "nuked_clouds_medium_specular.dds"
-	}
+	#meshsettings = {
+	#	name = "clouds_geosphereShape"
+	#	texture_diffuse = "clouds_medium_diffuse.dds"
+	#	texture_normal = "clouds_medium_normal.dds"
+	#	texture_specular = "clouds_medium_specular.dds"
+	#}
 	
-	##cloud shadow texture override
-	meshsettings = {
-	name = "clouds_shadow_geosphereShape"
-	texture_diffuse = "clouds_medium_shadow_diffuse.dds"
-	texture_normal = "nonormal.dds"
-	texture_specular = "nospec.dds"
-	}
+	#meshsettings = {
+	#	name = "clouds_shadow_geosphereShape"
+	#	texture_diffuse = "clouds_medium_shadow_diffuse.dds"
+	#	texture_normal = "nonormal.dds"
+	#	texture_specular = "nospec.dds"
+	#}
 	
 	default_state = "idle"
 	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
@@ -299,7 +284,6 @@ entity = {
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
 	}
 }
-
 entity = {
 	name = "planet_gaia_shield_effect_entity"
 	pdxmesh = "planet_shield_effect_mesh"
@@ -343,5 +327,28 @@ entity = {
 	locator = { name = "root" position = { 0 0 0 } }
 	
 	scale = 30.00
+	
+}
+
+entity = {
+	name = "star_pressure_controller_entity_ambient_object"
+	pdxmesh = "planet_shield_effect_mesh"
+	
+	#get_state_from_parent = no
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		start_event = { node = root particle = "planet_shield_effect" keep_particle = yes trigger_once = yes }
+	}
+	
+	game_data = { 
+		bloom_factor = 1.2 
+		uv_animation_speed 		= 2
+		uv_animation_direction 	= { 0.0 -0.02 }
+	}
+	
+	locator = { name = "root" position = { 0 0 0 } }
+	
+	scale = 1.15
 	
 }

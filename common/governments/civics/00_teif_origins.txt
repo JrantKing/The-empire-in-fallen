@@ -1,0 +1,478 @@
+origin_mechanists = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_mechanist.dds"
+	picture = GFX_origin_mechanist
+
+	playable = {
+		host_has_dlc = "Utopia"
+	}
+
+	possible = {
+		ethics = {
+			NOT = { value = ethic_gestalt_consciousness }
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_synthetic_evolution
+				value = civic_evolutionary_mastery
+			}
+		}
+	}
+	has_secondary_species = {	# see game_start.11
+		title = civic_synthetic_evolution_secondary_species
+		traits = {
+			trait = trait_mechanical
+		}
+	}
+	modifier = { planet_pops_robotics_upkeep_mult = -0.05 }
+
+	description = "origin_tooltip_mechanists_effects"
+
+	advanced_start = yes
+
+	random_weight = {
+		base = 10
+	}
+}
+
+origin_fallen_empire_01 = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_elder_race.dds"
+	picture = GFX_origin_fallen_empire
+	#starting_colony = pc_city
+	initializers = { origin_fallen_1 }
+	max_once_global = yes
+	potential = {
+		ethics = {
+			value = ethic_fanatic_materialist
+		}
+	}
+
+	possible = {
+		civics = {
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_1
+				value = civic_lethargic_leadership
+				value = civic_fallen_start_leadership
+				value = civic_revanchist_fervor
+			}
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_2
+				value = civic_fallen_start
+				value = civic_empire_in_decline
+				value = civic_ancient_caches_of_technology
+			}
+		}
+	}
+
+	description = origin_no_effect
+	random_weight = {
+		base = 0
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}
+
+origin_fallen_empire_02 = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_elder_race.dds"
+	picture = GFX_origin_fallen_empire
+	#starting_colony = pc_gaia
+	initializers = { origin_fallen_2 }
+	max_once_global = yes
+	potential = {
+		ethics = {
+			value = ethic_fanatic_spiritualist
+		}
+	}
+
+	possible = {
+		civics = {
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_1
+				value = civic_lethargic_leadership
+				value = civic_fallen_start_leadership
+				value = civic_revanchist_fervor
+			}
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_2
+				value = civic_fallen_start
+				value = civic_empire_in_decline
+				value = civic_ancient_caches_of_technology
+			}
+		}
+	}
+
+	description = origin_no_effect
+	random_weight = {
+		base = 0
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}
+
+origin_fallen_empire_03 = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_elder_race.dds"
+	picture = GFX_origin_fallen_empire
+	#starting_colony = pc_gaia
+	initializers = { origin_fallen_3 }
+	max_once_global = yes
+	potential = {
+		ethics = {
+			value = ethic_fanatic_xenophile
+		}
+	}
+
+	possible = {
+		civics = {
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_1
+				value = civic_lethargic_leadership
+				value = civic_fallen_start_leadership
+				value = civic_revanchist_fervor
+			}
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_2
+				value = civic_fallen_start
+				value = civic_empire_in_decline
+				value = civic_ancient_caches_of_technology
+			}
+		}
+	}
+
+	description = origin_no_effect
+	random_weight = {
+		base = 0
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}
+
+origin_fallen_empire_04 = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_elder_race.dds"
+	picture = GFX_origin_fallen_empire
+	#starting_colony = pc_gaia
+	initializers = { origin_fallen_4 }
+	max_once_global = yes
+	potential = {
+		ethics = {
+			value = ethic_fanatic_xenophobe
+		}
+	}
+
+	possible = {
+		civics = {
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_1
+				value = civic_lethargic_leadership
+				value = civic_fallen_start_leadership
+				value = civic_revanchist_fervor
+			}
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_2
+				value = civic_fallen_start
+				value = civic_empire_in_decline
+				value = civic_ancient_caches_of_technology
+			}
+		}
+	}
+
+	description = origin_no_effect
+	random_weight = {
+		base = 0
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}
+
+origin_fallen_empire_05 = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_elder_race.dds"
+	picture = GFX_origin_fallen_empire
+	#starting_colony = pc_gaia
+	initializers = { origin_fallen_5 }
+	max_once_global = yes
+	potential = {
+		ethics = {
+			value = ethic_fanatic_authoritarian
+		}
+	}
+
+	possible = {
+		civics = {
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_1
+				value = civic_lethargic_leadership
+				value = civic_fallen_start_leadership
+				value = civic_revanchist_fervor
+			}
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_2
+				value = civic_fallen_start
+				value = civic_empire_in_decline
+				value = civic_ancient_caches_of_technology
+			}
+		}
+	}
+
+	description = origin_no_effect
+	random_weight = {
+		base = 0
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}
+
+origin_fallen_empire_06 = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_elder_race.dds"
+	picture = GFX_origin_fallen_empire
+	#starting_colony = pc_city
+	initializers = { origin_fallen_6 }
+	max_once_global = yes
+	potential = {
+		ethics = {
+			value = ethic_fanatic_egalitarian
+		}
+	}
+
+	possible = {
+		civics = {
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_1
+				value = civic_lethargic_leadership
+				value = civic_fallen_start_leadership
+				value = civic_revanchist_fervor
+			}
+			OR = {
+				text = origin_tooltip_fallen_origin_possible_2
+				value = civic_fallen_start
+				value = civic_empire_in_decline
+				value = civic_ancient_caches_of_technology
+			}
+		}
+	}
+
+	description = origin_no_effect
+	random_weight = {
+		base = 0
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}
+
+origin_ringworld_start_01 = {
+	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_ringworld_start.dds"
+	picture = GFX_origin_ringworld_start
+	initializers = { ring_starting_init_01 }
+	starting_colony = pc_ringworld_habitable
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_fanatic_purifiers
+				value = civic_gestalt_terminator
+			}
+		}
+	}
+	description = "civic_tooltip_ringworld_start_effects"
+	
+	flags = { custom_start_screen }
+	
+	traits = {
+
+	}
+	
+	advanced_start = yes
+
+	random_weight = {
+		base = 1
+	}
+}
+
+origin_ringworld_start_02 = {
+	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_ringworld_start.dds"
+	picture = GFX_origin_ringworld_start
+	initializers = { ring_starting_init_02 }
+
+	starting_colony = pc_ringworld_habitable
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_fanatic_purifiers
+				value = civic_gestalt_terminator
+			}
+		}
+	}
+	description = "civic_tooltip_ringworld_start_effects"
+	
+	flags = { custom_start_screen }
+	
+	traits = {
+
+	}
+	
+	advanced_start = yes
+
+	random_weight = {
+		base = 1
+	}
+}
+
+origin_ringworld_start_03 = {
+	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_ringworld_start.dds"
+	picture = GFX_origin_ringworld_start
+	initializers = { ring_starting_init_03 }
+
+	starting_colony = pc_ringworld_habitable
+	possible = {
+		civics = {
+			NOR = {
+				value = civic_fanatic_purifiers
+				value = civic_gestalt_terminator
+			}
+		}
+	}
+	description = "civic_tooltip_ringworld_start_effects"
+	
+	flags = { custom_start_screen }
+	
+	traits = {
+
+	}
+	
+	advanced_start = yes
+
+	random_weight = {
+		base = 1
+	}
+}
+
+origin_machine_worlds = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_resource_consolidation.dds"
+	picture = GFX_origin_resource_consolidation
+	starting_colony = pc_machine
+	#max_once_global = yes
+
+	playable = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+	}
+	potential = {
+		#civics = { value = civic_synthetic_evolution }
+	}
+
+	possible = {
+		species = {
+			value = ROBOT
+		}
+		# authority = { NOT = { value = auth_corporate } }
+		# ethics = {
+		# 	OR = {
+		# 		text = civic_tooltip_materialist
+		# 		value = ethic_materialist
+		# 		value = ethic_fanatic_materialist
+		# 	}
+		# }
+		#civics = { value = civic_synthetic_evolution }
+	}
+
+	description = "origin_tooltip_machine_effects"
+	#flags = { custom_start_screen }
+	advanced_start = yes
+	random_weight = {
+		base = 2
+	}
+}
+
+origin_the_road_not_taken = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_the_road_not_taken.dds"
+	picture = GFX_origin_the_road_not_taken
+	possible = {
+		text = alwaysno
+		#always = no
+		ethics = {
+			NOT = { value = ethic_gestalt_consciousness }
+		}
+		civics = {
+			NOR = {
+				value = civic_fanatic_purifiers
+				value = civic_hivekeeper
+				value = civic_synthetic_evolution
+				value = civic_evolutionary_mastery
+				value = civic_transcendence
+			}
+		}
+	}
+	description = origin_the_road_not_taken_effect
+	random_weight = {
+		base = 0
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}
+
+origin_the_last_of_us = {
+	is_origin = yes
+	#icon = "gfx/interface/icons/origins/origin_the_last_of_us.dds"
+	icon = "gfx/interface/icons/origins/origin_the_last_of_us.dds"
+	picture = GFX_origin_the_last_of_us
+	starting_colony = pc_nuked
+	possible = {
+		text = alwaysno
+		#always = no
+		ethics = {
+			NOT = { value = ethic_gestalt_consciousness }
+		}
+		civics = {
+			NOR = {
+				value = civic_fanatic_purifiers
+				value = civic_hivekeeper
+				value = civic_synthetic_evolution
+				value = civic_evolutionary_mastery
+				value = civic_transcendence
+			}
+		}
+	}
+	traits = {
+		trait = trait_survivor
+	}
+	description = civic_tooltip_syncretic_evolution_effects
+	has_secondary_species = {	# see game_start.11
+		title = civic_synthetic_evolution_secondary_species
+		traits = {
+			trait = trait_machine_unit
+		}
+	}
+	description = origin_the_last_of_us_effect
+	random_weight = {
+		base = 5
+	}
+}

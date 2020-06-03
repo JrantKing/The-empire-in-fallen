@@ -1,25 +1,22 @@
-#civic_example = {
-#	playable = {}								# AND trigger, no scope; use this to prevent the civic from being selectable by the player (UI)
-#	potential = {}								# requirements list, see ../readme_requirements.txt
-#	possible = {}								# requirements list, see ../readme_requirements.txt
-#	pickable_at_start = yes / no				# default: yes
-#	modification = yes / no						# default: yes, set to no to prevent adding or removing this after creation of the empire
-#
-#	random_weight = { base = 5 }				# scriptable weight for randomizing a civic; required, else the civic will not get assigned randomly
-#
-#	modifier = {}								# modifier added to the country if the civic is selected and valid
-#	can_build_ruler_ship = yes / no				# default: no
-#	traits = { trait = ... }					# default: empty; trait set to enforce on the primary species. They cannot be removed, but more can be added if points/picks permit
-#	has_secondary_species = {					# default: none; if present, will enable secondary species customization in empire designer and will create secondary species & pops at galaxy generation time (see empire_init_create_capital_secondary_pops)
-#		traits = { trait = ... }					# default: empty; trait set to enforce on the secondary species. They cannot be removed, but more can be added if points/picks permit
-#	}
-#}
 civic_fallen_start = {
+	icon = "gfx/interface/icons/governments/civics/civic_empire_in_decline.dds"
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
-		NOT = { has_global_flag = game_started }
+		authority = { NOT = { value = auth_corporate } }
+		civics = { value = civic_fallen_start_leadership }
 	}
 	possible = {
+		origin = {
+			OR = {
+				text = origin_tooltip_fallen_origin
+				value = origin_fallen_empire_01
+				value = origin_fallen_empire_02
+				value = origin_fallen_empire_03
+				value = origin_fallen_empire_04
+				value = origin_fallen_empire_05
+				value = origin_fallen_empire_06
+			}
+		}
 		#text = alwaysno
 		#always = yes
 		ethics = {
@@ -43,15 +40,32 @@ civic_fallen_start = {
 	modifier = {
 	}
 	description = "civic_tooltip_fallen_start_effects"
+	random_weight = {
+		base = 0
+		modifier = {
+			factor =  0
+			always = yes
+		}
+	}
 }
 
 civic_fallen_start_leadership = {
-	icon = "gfx/interface/icons/governments/civics/civic_fallen_start.dds"
+	icon = "gfx/interface/icons/governments/civics/civic_lethargic_leadership.dds"
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
-		civics = { value = civic_fallen_start }
 	}
 	possible = {
+		origin = {
+			OR = {
+				text = origin_tooltip_fallen_origin
+				value = origin_fallen_empire_01
+				value = origin_fallen_empire_02
+				value = origin_fallen_empire_03
+				value = origin_fallen_empire_04
+				value = origin_fallen_empire_05
+				value = origin_fallen_empire_06
+			}
+		}
 		ethics = {
 			OR = {
 				text = civic_tooltip_fanatic_ethics
@@ -74,41 +88,35 @@ civic_fallen_start_leadership = {
 		country_base_influence_produces_add = -1
 	}
 	description = FALLEN_EMPIRE_LETHARGY_2
-}
-
-civic_ringworld_start = {
-	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
-	#homeworld = pc_ringworld_habitable
-	possible = {
-		civics = {
-			NOR = {
-				value = civic_fanatic_purifiers
-				value = civic_life_seeded
-				value = civic_post_apocalyptic
-				value = civic_mechanists
-				#value = civic_syncretic_evolution
-			}
+	random_weight = {
+		base = 0
+		modifier = {
+			factor =  0
+			always = yes
 		}
 	}
-	modification = no
-	random_weight = { base = 1 }
-	modifier = {
-		#country_government_civic_points_add = 1
-	}
-	description = "civic_tooltip_ringworld_start_effects"
 }
 
 civic_synthetic_evolution = {
-	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
 	possible = {
+		authority = { NOT = { value = auth_corporate } }
 		civics = {
 			NOR = {
-				value = civic_syncretic_evolution
-				value = civic_mechanists
-				value = civic_post_apocalyptic
-				value = civic_life_seeded
 				value = civic_inwards_perfection
 				value = civic_evolutionary_mastery
+			}
+		}
+		origin = {
+			NOR = {
+				value = origin_mechanists
+				value = origin_syncretic_evolution
+				value = origin_lost_colony
+				value = origin_post_apocalyptic
+				value = origin_life_seeded
 			}
 		}
 		ethics = {
@@ -120,7 +128,6 @@ civic_synthetic_evolution = {
 		}
 	}
 	modification = no
-	random_weight = { base = 1 }
 	modifier = {
 		#country_government_civic_points_add = 1
 	}
@@ -132,18 +139,23 @@ civic_synthetic_evolution = {
 		title = civic_synthetic_evolution_secondary_species
 		traits = {
 			trait = trait_machine_unit
-			trait = trait_robotic_machine
 		}
 	}
 	description = "civic_tooltip_synthetic_evolution_effects"
+	random_weight = {
+		base = 1
+		modifier = {
+			factor =  0
+			has_global_flag = game_started
+		}
+	}
 }
 
 civic_transcendence = {
-	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
+	potential = { ethics = { NOR = { value = ethic_gestalt_consciousness value = auth_corporate } } }
 	possible = {
 		civics = {
 			NOR = {
-				value = civic_syncretic_evolution
 				value = civic_evolutionary_mastery
 				value = civic_inwards_perfection
 			}
@@ -157,7 +169,6 @@ civic_transcendence = {
 		}
 	}
 	modification = no
-	random_weight = { base = 1 }
 	modifier = {
 		#country_government_civic_points_add = 1
 	}
@@ -165,59 +176,148 @@ civic_transcendence = {
 		trait = trait_psionic
 	}
 	description = "civic_tooltip_transcendence_effects"
+	random_weight = {
+		base = 1
+		modifier = {
+			factor = 0
+			has_global_flag = game_started
+		}
+	}
 }
 
 civic_evolutionary_mastery = {
-	potential = { authority = { NOT = { value = auth_machine_intelligence } } }
+	potential = { authority = { NOR = { value = auth_machine_intelligence value = auth_corporate } } }
 	possible = {
 		civics = {
 			NOR = {
 				value = civic_synthetic_evolution
-				value = civic_syncretic_evolution
 				value = civic_transcendence
-				value = civic_mechanists
 				value = civic_inwards_perfection
 				value = civic_fanatic_purifiers
+				value = civic_hive_devouring_swarm
 			}
 		}
 	}
 	modification = no
-	random_weight = { base = 1 }
 	modifier = {
 		#country_government_civic_points_add = 1
 	}
 	description = "civic_tooltip_evolutionary_mastery_effects"
+	random_weight = {
+		base = 1
+		modifier = {
+			factor = 0
+			has_global_flag = game_started
+		}
+	}
 }
 
-civic_machine_worlds_1 = {
-	icon = "gfx/interface/icons/governments/civics/civic_machine_worlds.dds"
-	homeworld = pc_machine
-	potential = { authority = { value = auth_machine_intelligence } }
+civic_gestalt_terminator = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+	}
 	possible = {
+		authority = {
+			NOT = {
+				value = auth_corporate
+			} 
+		}
+		ethics = {
+			OR = {
+				text = civic_tooltip_militarist
+				value = ethic_militarist
+				value = ethic_fanatic_militarist
+			}
+			NOR = {
+				text = civic_tooltip_not_spiritualist
+				value = ethic_spiritualist
+				value = ethic_fanatic_spiritualist
+			}
+			NOR = {
+				text = civic_tooltip_not_authoritarian
+				value = ethic_authoritarian
+				value = ethic_fanatic_authoritarian
+			}
+		}
+		origin = {
+			NOR = {
+				value = origin_mechanists
+				value = origin_syncretic_evolution
+				value = origin_life_seeded
+			}
+		}
 		civics = {
 			NOR = {
-				value = civic_machine_terminator
-				value = civic_machine_assimilator
-				value = civic_machine_servitor
+				value = civic_fanatic_purifiers
+				value = civic_barbaric_despoilers
+				value = civic_feudal_realm
+				value = civic_hivekeeper
 			}
 		}
 	}
 	modification = no
-	random_weight = { base = 1 }
 	modifier = {
-		#country_government_civic_points_add = 1
+		ship_fire_rate_mult = 0.15
+		ship_weapon_damage = 0.15
+		army_damage_mult = 0.4
+		country_naval_cap_mult = 0.4
+		country_war_exhaustion_mult = -0.1
+		country_claim_influence_cost_mult = 1
 	}
-	description = "civic_tooltip_machine_worlds_effects"
+	description = "civic_gestalt_terminator_effects"
+	random_weight = {
+		base = 10
+	}
 }
 
-civic_machine_worlds_2 = {
-	icon = "gfx/interface/icons/governments/civics/civic_machine_worlds.dds"
-	homeworld = pc_machine
-	potential = { civics = { value = civic_synthetic_evolution } }
+civic_hivekeeper = {
+	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
+	possible = {
+		authority = { NOT = { value = auth_corporate } }
+		ethics = {
+			OR = {
+				text = civic_tooltip_spiritualist
+				value = ethic_spiritualist
+				value = ethic_fanatic_spiritualist
+			}
+			OR = {
+				text = civic_tooltip_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+		origin = {
+			NOR = {
+				value = origin_mechanists
+				value = origin_syncretic_evolution
+				value = origin_life_seeded
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_fanatic_purifiers
+				value = civic_barbaric_despoilers
+				value = civic_feudal_realm
+				value = civic_gestalt_terminator
+			}
+		}
+	}
 	modification = no
-	random_weight = { base = 1 }
 	modifier = {
 		#country_government_civic_points_add = 1
 	}
-	description = "civic_tooltip_machine_worlds_effects"
+	has_secondary_species = {	# see game_start.11
+		title = civic_hivekeeper_secondary_species
+		traits = {
+			trait = trait_hive_mind
+		}
+	}
+	description = "civic_tooltip_hiver_effects"
+	random_weight = {
+		base = 1
+		modifier = {
+			factor = 0
+			has_global_flag = game_started
+		}
+	}
 }

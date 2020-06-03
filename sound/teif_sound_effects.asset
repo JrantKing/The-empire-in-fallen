@@ -27,3 +27,57 @@ soundeffect = {
 	max_audible = 1
 	max_audible_behaviour = fail	
 }
+
+soundeffect = {
+	name = event_the_response
+	sounds = {
+		sound = event_the_response
+	}  
+	volume = 0.4
+	max_audible = 1
+	max_audible_behaviour = fail	
+}
+
+soundeffect = {
+	name = elder_greetings
+	sounds = {
+		sound = elder_greetings_01
+		sound = elder_greetings_02
+		sound = elder_greetings_03
+		sound = elder_greetings_04
+		sound = elder_greetings_05
+		sound = elder_greetings_06
+		sound = elder_greetings_07
+		sound = elder_greetings_08
+		sound = elder_greetings_09
+		sound = elder_greetings_10
+		sound = elder_greetings_11
+	}  
+	volume = 0.75
+}
+
+#################   FIX   ###################
+soundeffect = {
+	name = amb_galaxy_map_01
+	random_sound_when_looping = no
+	sounds = {
+		sound = amb_galaxy_map_01
+	}
+	loop = yes
+	#playbackrate_random_offset = { -1.0 1.0 }
+	fade_in = 2.0
+	fade_out = 2.0
+	volume = 0.25
+}
+soundeffect = {
+	name = amb_galaxy_map_02
+	random_sound_when_looping = no
+	sounds = {
+		sound = amb_galaxy_map_02
+	}
+	loop = yes
+	#playbackrate_random_offset = { -1.0 1.0 }
+	fade_in = 2.0
+	fade_out = 2.0
+	volume = 0.25
+}

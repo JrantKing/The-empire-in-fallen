@@ -1,9 +1,0 @@
-﻿l_english:
- civic_ringworld_start:0 "$pc_ringworld_habitable$ Start"
- civic_ringworld_start_desc:0 "Our world is created by The God.\nNow,where is the Creator?"
- civic_tooltip_ringworld_start_effects:0 "Start the game with §G A full Ring World §! consists of §G4§! Completed Ring World Sections, each equivalent to §Ga size 25 Gaia world§!.\nIf the Starting Solar System is §YMultiple Star Systems§!\nAnd Stars §RToo close to others§! you will not get the Ring World Start's §Reffect§!!\n§Y$MOD_COUNTRY_GOVERNMENT_CIVIC_POINTS_ADD$§!:§G+1§!"
- civic_synthetic_evolution:0 "$ap_synthetic_evolution$"
- civic_synthetic_evolution_desc:0 "Before the sky,we abandoned the flawed organic vessels that imprison our minds. By transferring our neural patterns into synthetic bodies, we will achieve a higher state of being."
- civic_synthetic_evolution_secondary_species:0 "Machine Sapiens"
- civic_tooltip_synthetic_evolution_effects:0 "Start the game with §Y6§!£pop Pops being Synthetics.And§Y2§!£pop Pops being Machines，and the ability to §YAssimilate§! machines as synthetics\nAssimilating an machine £pop  Pop generates a small amount of £unity §YUnity§! , £society §YSociety Research§! and £engineering_research §YEngineering Research§!.\n§Y$SECONDARY_SPECIES$§!machines can't be §YAssimilated§!.\nwhit the §G$computing$§! technology\nCan give machines Pops with §YMachine Integration§! $SPECIES_RIGHT_CITIZENSHIP$.\n§Y$MOD_COUNTRY_GOVERNMENT_CIVIC_POINTS_ADD$§!:§G+1§!"
- ROBOT_GENDER:0 "$ROBOT$(GENDER)"

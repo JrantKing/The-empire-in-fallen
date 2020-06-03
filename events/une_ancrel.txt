@@ -1,0 +1,161 @@
+namespace = une_ancrel
+
+fleet_event = { 
+	id = une_ancrel.0
+	title = "une_ancrel.0.name"
+	desc = une_ancrel.0.desc
+	picture = GFX_evt_shielded_earth
+	show_sound = pc_shielded
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = une_ancrel.0.a
+	}
+}
+
+fleet_event = { 
+	id = une_ancrel.1
+	title = "une_ancrel.1.name"
+	desc = une_ancrel.1.desc
+	picture = GFX_evt_ancient_databank
+	show_sound = event_factions
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = une_ancrel.1.a
+	}
+}
+
+fleet_event = { 
+	id = une_ancrel.2
+	title = "une_ancrel.2.name"
+	desc = une_ancrel.2.desc
+	picture = GFX_evt_glitchy_matrix
+	show_sound = event_primitive_civilization
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = une_ancrel.2.a
+	}
+}
+
+fleet_event = { 
+	id = une_ancrel.3
+	title = "une_ancrel.3.name"
+	desc = une_ancrel.3.desc
+	picture = GFX_evt_synth_sabotage
+	show_sound = event_mystic_reveal
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = une_ancrel.3.a
+		owner = {
+			add_relic = r_une_databank
+		}
+		hidden_effect = {
+			owner = {
+				random_planet = {
+					limit = { has_planet_flag = planet_earth_fallen }
+					change_pc = { class = pc_shielded_gaia }
+					set_planet_entity = {
+						entity = gaia_planet_earth_entity
+						picture = pc_gaia
+					}
+					every_deposit = {
+						clear_blocker = yes
+					}
+					generate_earth_deposits_and_blockers = yes
+					add_deposit = d_dust_caverns
+					add_deposit = d_bubbling_swamp
+					add_deposit = d_crystalline_caverns
+					every_deposit = {
+						limit = { is_blocker = yes }
+						clear_blocker = yes
+					}
+					add_building = building_system_capital
+					add_building = building_planetary_shield_system_generator
+				}
+			}
+		}
+	}
+}
+
+fleet_event = { 
+	id = une_ancrel.4
+	title = "une_ancrel.4.name"
+	desc = une_ancrel.4.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = une_ancrel.4.a
+		hidden_effect = {
+			owner = {
+				create_fleet = {
+					settings = {
+						spawn_debris = no
+						can_upgrade = no
+						can_change_composition = no
+						uses_naval_capacity = no
+					}
+					effect = {
+						set_owner = root.owner
+						while = {
+							count = 1
+							create_ship = {
+								name = random
+								design = "NAME_Libertarian"
+								graphical_culture = fallen_empire_06
+								upgradable = no
+							}
+						}
+						while = {
+							count = 8
+							create_ship = {
+								name = random
+								design = "NAME_Freedom"
+								graphical_culture = fallen_empire_06
+								upgradable = no
+							}
+						}
+						while = {
+							count = 16
+							create_ship = {
+								name = random
+								design = "NAME_Equality"
+								graphical_culture = fallen_empire_06
+								upgradable = no
+							}
+						}
+						add_modifier = {
+							modifier = fe_ancrel_ship
+							days = -1
+						}
+						set_location = from
+					}
+				}
+			}
+		}
+	}
+}

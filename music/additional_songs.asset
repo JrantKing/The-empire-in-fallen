@@ -45,3 +45,27 @@ music = {
 	file = "totheendsofthegalaxy_additionaltake.ogg"
 	volume = 0.80
 }
+
+music = {
+	name = "cradleofthegalaxypiano"
+	file = "cradleofthegalaxy_piano.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "creationandbeyondpiano"
+	file = "creationandbeyond_piano.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "distantnebulapiano"
+	file = "distantnebula_piano.ogg"
+	volume = 0.80
+}
+
+music = {
+	name = "fasterthanlightpiano"
+	file = "fasterthanlight_piano.ogg"
+	volume = 0.80
+}

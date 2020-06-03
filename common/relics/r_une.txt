@@ -1,0 +1,104 @@
+@triumph_duration = 3600
+
+r_une_databank = {
+	activation_duration = @triumph_duration
+	portrait = "GFX_relic_omnicodex"
+	sound = "relic_activation_miniature_galaxy"
+
+	resources = {
+		category = relics
+		# Activation cost
+		cost = {
+			influence = 300
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+		modifier = {
+			factor = 1.5
+			is_materialist = yes
+		}
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			always = yes
+		}
+		custom_tooltip = ap_defender_of_the_galaxy_modifier_desc
+		damage_vs_country_type_swarm_mult = 0.5
+		damage_vs_country_type_extradimensional_mult = 0.5
+		damage_vs_country_type_extradimensional_2_mult = 0.5
+		damage_vs_country_type_extradimensional_3_mult = 0.5
+		damage_vs_country_type_ai_empire_mult = 0.5
+		damage_vs_country_type_gray_goo_mult = 0.5
+	}
+
+	score = 5000
+
+	active_effect = {
+		custom_tooltip = relic_galaxy_active
+		custom_tooltip = relic_triumph_cooldown
+		hidden_effect = {
+			add_modifier = {
+				modifier = "relic_activation_cooldown" 
+				days = @triumph_duration
+			}
+			locked_random_list = {
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.50
+						area = engineering
+						ignore_prereqs = no
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = engineering_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.50
+						area = physics
+						ignore_prereqs = no
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = physics_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+				10 = {
+					add_random_research_option = {
+						add_progress = 0.50
+						area = society
+						ignore_prereqs = no
+						fail_effects = {
+							add_monthly_resource_mult = {
+								resource = society_research
+								value = @tier5researchreward
+								min = @tier5researchmin
+								max = @tier5researchmax
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Possible check for activation
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_relic_no_cooldown"
+			NOT = { has_modifier = relic_activation_cooldown }
+		}	
+	}
+}

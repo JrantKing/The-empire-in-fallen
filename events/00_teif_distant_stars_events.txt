@@ -1,0 +1,334 @@
+namespace = distar
+
+country_event = { # Planetfall on planet X after being shoot into deep space. Recalls our earlier disregard for their survival
+	id = distar.3014
+	title = "distar.3015.name"
+	desc = "distar.3015.desc"
+	picture = GFX_evt_alien_city
+	show_sound = event_scanner
+	location = event_target:nivlac_planet
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_system = {
+			any_system_planet = {
+				is_colonizable = yes
+				has_owner = no
+				is_colony = no
+				habitable_planet = yes
+				has_anomaly = no
+				NOR = {
+					OR = {
+						is_same_value = event_target:holy_planet_1
+						is_same_value = event_target:holy_planet_2
+						is_same_value = event_target:holy_planet_3
+						is_same_value = event_target:holy_planet_4
+					}
+					solar_system = {
+						has_star_flag = hostile_system
+					}
+				}
+				distance = {
+					source = root.owner.capital_scope
+					max_distance <= 300
+					min_distance >= 50
+				}
+				solar_system = {
+					NOT = { exists = starbase }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_planet = {
+			limit = {
+				is_colonizable = yes
+				has_owner = no
+				is_colony = no
+				habitable_planet = yes
+				has_anomaly = no
+				NOR = {
+					OR = {
+						is_same_value = event_target:holy_planet_1
+						is_same_value = event_target:holy_planet_2
+						is_same_value = event_target:holy_planet_3
+						is_same_value = event_target:holy_planet_4
+					}
+					solar_system = {
+						has_star_flag = hostile_system
+					}
+				}
+				distance = {
+					source = root.owner.capital_scope
+					max_distance <= 300
+					min_distance >= 50
+				}
+				solar_system = {
+					NOT = { exists = starbase }
+				}
+			}
+			save_global_event_target_as = nivlac_planet
+		}
+		create_species = {
+			name = "NAME_Nivlac"
+			plural = "NAME_Nivlacs"
+			class = FUN
+			portrait = "fun15"
+			namelist = "FUN4"
+			traits = {
+				trait = "trait_nivlac"
+				trait = "trait_quick_learners"
+			}
+			homeworld = event_target:nivlac_planet
+			effect = {
+				save_global_event_target_as = nivlac_species
+			}
+		}
+		create_country = {
+			name = NAME_Nivlac_Circle
+			authority = random
+			civics = random
+			species = event_target:nivlac_species
+			ignore_initial_colony_error = yes
+			type = default
+			ethos = random
+			flag = random
+			effect = {
+				save_global_event_target_as = nivlac_country
+				add_resource = { minerals = 1000 }
+				add_resource = { energy = 1000 }
+				add_resource = { food = 100 }
+				add_resource = { influence = 50 }
+			}
+		}
+		event_target:nivlac_planet = {
+			solar_system = {
+				create_starbase = {
+					size = starbase_outpost
+					owner = event_target:nivlac_country
+				}
+			}
+			set_owner = event_target:nivlac_country
+			set_capital = yes
+			clear_blockers = yes
+			solar_system = {
+				every_system_planet = {
+					surveyed = {
+						set_surveyed = yes
+						surveyor = root.owner
+					}
+				}
+			}
+			while = {
+				count = 22
+				create_pop = {
+					species = event_target:nivlac_species
+				}					
+			}
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_mining
+			add_district = district_mining
+			add_district = district_generator
+			add_district = district_generator
+			add_building = building_capital
+			add_building = building_research_lab_1
+			add_building = building_foundry_1
+			add_building = building_factory_1
+			while = {
+				count = 2
+				create_army = {
+					name = random
+					owner = event_target:nivlac_country
+					species = event_target:nivlac_species
+					type = defense_army
+				}
+			}
+		}
+
+		event_target:nivlac_country = {
+			establish_communications_no_message = root
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_discarded
+			}
+		}
+	}
+
+	option = {
+		name = OOPS
+	}
+}
+
+country_event = { # Helpful relocation was a success
+	id = distar.3016
+	title = "distar.3016.name"
+	desc = "distar.3016.desc"
+	picture = GFX_evt_alien_city
+	show_sound = event_scanner
+	location = event_target:nivlac_planet
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_system = {
+			any_system_planet = {
+				is_colonizable = yes
+				has_owner = no
+				is_colony = no
+				habitable_planet = yes
+				has_anomaly = no
+				NOR = {
+					OR = {
+						is_same_value = event_target:holy_planet_1
+						is_same_value = event_target:holy_planet_2
+						is_same_value = event_target:holy_planet_3
+						is_same_value = event_target:holy_planet_4
+					}
+					solar_system = {
+						has_star_flag = hostile_system
+					}
+				}
+				distance = {
+					source = root.owner.capital_scope
+					max_distance <= 300
+					min_distance >= 50
+				}
+				solar_system = {
+					NOT = { exists = starbase }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_planet = {
+			limit = {
+				is_colonizable = yes
+				has_owner = no
+				is_colony = no
+				habitable_planet = yes
+				has_anomaly = no
+				NOR = {
+					OR = {
+						is_same_value = event_target:holy_planet_1
+						is_same_value = event_target:holy_planet_2
+						is_same_value = event_target:holy_planet_3
+						is_same_value = event_target:holy_planet_4
+					}
+					solar_system = {
+						has_star_flag = hostile_system
+					}
+				}
+				distance = {
+					source = root.owner.capital_scope
+					max_distance <= 300
+					min_distance >= 50
+				}
+				solar_system = {
+					NOT = { exists = starbase }
+				}
+			}
+			save_global_event_target_as = nivlac_planet
+		}
+		create_species = {
+			name = "NAME_Nivlac"
+			plural = "NAME_Nivlacs"
+			class = FUN
+			portrait = "fun15"
+			namelist = "FUN4"
+			traits = {
+				trait = "trait_nivlac"
+				trait = "trait_quick_learners"
+			}
+			homeworld = event_target:nivlac_planet
+			effect = {
+				save_global_event_target_as = nivlac_species
+			}
+		}
+		create_country = {
+			name = NAME_Nivlac_Circle
+			authority = random
+			civics = random
+			species = event_target:nivlac_species
+			ignore_initial_colony_error = yes
+			type = default
+			ethos = random
+			flag = random
+			effect = {
+				save_global_event_target_as = nivlac_country
+				add_resource = { minerals = 1000 }
+				add_resource = { energy = 1000 }
+				add_resource = { food = 100 }
+				add_resource = { influence = 50 }
+				establish_communications_no_message = root
+			}
+		}
+		event_target:nivlac_planet = {
+			solar_system = {
+				create_starbase = {
+					size = starbase_outpost
+					owner = event_target:nivlac_country
+				}
+			}
+			set_owner = event_target:nivlac_country
+			set_capital = yes
+			clear_blockers = yes
+			while = {
+				count = 22
+				create_pop = {
+					species = event_target:nivlac_species
+				}					
+			}
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_mining
+			add_district = district_mining
+			add_district = district_generator
+			add_district = district_generator
+			add_building = building_capital
+			add_building = building_research_lab_1
+			add_building = building_foundry_1
+			add_building = building_factory_1
+			while = {
+				count = 2
+				create_army = {
+					name = random
+					owner = event_target:nivlac_country
+					species = event_target:nivlac_species
+					type = defense_army
+				}
+			}
+			solar_system = {
+				every_system_planet = {
+					surveyed = {
+						set_surveyed = yes
+						surveyor = root.owner
+					}
+				}
+			}
+		}
+		event_target:nivlac_country = {
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_nurtured
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+	}
+}

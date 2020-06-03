@@ -28,7 +28,7 @@ ap_engineered_evolution = {
 
 		modify_species_cost_mult = @ap_engineered_evolution_COST_MULT
 	}
-	
+
 	potential = {
 		host_has_dlc = "Utopia"
 		NOT = {
@@ -37,7 +37,7 @@ ap_engineered_evolution = {
 			has_modifier = civic_evolutionary_mastery
 		}
 	}
-	
+
 	ai_weight = {
 		factor = 10
 		modifier = {
@@ -58,8 +58,8 @@ ap_evolutionary_mastery = {
 	}
 	possible = {
 		custom_tooltip = {
-			fail_text = "requires_ascension_perks_3"
-			num_ascension_perks > 2
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
 		}
 		custom_tooltip = {
 			fail_text = "requires_technology_glandular_acclimation"
@@ -81,15 +81,15 @@ ap_evolutionary_mastery = {
 
 		modify_species_cost_mult = @ap_evolutionary_mastery_COST_MULT
 	}
-	
+
 	potential = {
 		host_has_dlc = "Utopia"
 		NOT = {
 			has_ascension_perk = ap_evolutionary_mastery
 			has_authority = "auth_machine_intelligence"
-		}	
+		}
 	}
-	
+
 	ai_weight = {
 		factor = 100
 	}
@@ -104,8 +104,8 @@ ap_the_flesh_is_weak = {
 	}
 	modifier = {
 		planet_pops_robotics_upkeep_mult = -0.10
-		planet_pop_assembly_mult = 0.33
-	}	
+		planet_pop_assembly_mult = 0.10
+	}
 	possible = {
 		custom_tooltip = {
 			fail_text = "synthetic_empire_synthetic_ascension"
@@ -128,15 +128,19 @@ ap_the_flesh_is_weak = {
 			NOT = { has_ascension_perk = ap_mind_over_matter }
 		}
 	}
-	
+
 	potential = {
 		host_has_dlc = "Utopia"
 		NOT = {
-			has_ascension_perk = ap_the_flesh_is_weak
+			OR = {
+				has_ascension_perk = ap_the_flesh_is_weak
+				has_modifier = ap_the_flesh_is_weak
+				has_country_flag = researched_tech_telepathy
+			}
 			has_authority = "auth_machine_intelligence"
 		}
 	}
-	
+
 	ai_weight = {
 		factor = 20
 		modifier = {
@@ -149,7 +153,7 @@ ap_the_flesh_is_weak = {
 		modifier = {
 			factor = 0
 			num_owned_planets < 10
-		}		
+		}
 	}
 }
 
@@ -175,8 +179,8 @@ ap_synthetic_evolution = {
 			NOT = { has_authority = auth_hive_mind }
 		}
 		custom_tooltip = {
-			fail_text = "requires_ascension_perks_3"
-			num_ascension_perks > 2
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
 		}
 		custom_tooltip = {
 			fail_text = "requires_technology_synthetic_workers"
@@ -188,14 +192,17 @@ ap_synthetic_evolution = {
 		}
 		custom_tooltip = {
 			fail_text = "requires_ap_the_flesh_is_weak"
-			has_ascension_perk = ap_the_flesh_is_weak
+			OR = {
+				has_ascension_perk = ap_the_flesh_is_weak
+				has_modifier = ap_the_flesh_is_weak
+			}
 		}
 		custom_tooltip = {
 			fail_text = "requires_finished_cybernetics_project"
 			NOT = { has_special_project = FLESH_IS_WEAK_PROJECT }
 		}
 	}
-	
+
 	potential = {
 		host_has_dlc = "Utopia"
 		NOT = {
@@ -229,8 +236,15 @@ ap_mind_over_matter = {
 			fail_text = "requires_technology_psionic_theory"
 			has_technology = tech_psionic_theory
 		}
+		custom_tooltip = {
+			fail_text = "requires_finished_cybernetics_project"
+			NOT = { has_special_project = FLESH_IS_WEAK_PROJECT }
+		}
+		custom_tooltip = {
+			fail_text = "requires_finished_synthetic_evolution_project"
+			NOT = { has_special_project = SYNTHETIC_EVOLUTION_PROJECT }
+		}
 	}
-	
 	potential = {
 		host_has_dlc = "Utopia"
 		NOT = {
@@ -239,7 +253,6 @@ ap_mind_over_matter = {
 			has_country_flag = researched_tech_telepathy
 		}
 	}
-	
 	ai_weight = {
 		factor = 20
 		modifier = {
@@ -248,14 +261,15 @@ ap_mind_over_matter = {
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
 			}
-		}	
+		}
 		modifier = {
 			factor = 0
 			num_owned_planets < 10
 		}
 		modifier = {
 			factor = 0
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
+			has_ethic = ethic_fanatic_egalitarian
 			NOT = { has_country_flag = synthetic_empire }
 		}
 	}
@@ -274,15 +288,23 @@ ap_transcendence = {
 			NOT = { has_authority = auth_hive_mind }
 		}
 		custom_tooltip = {
-			fail_text = "requires_ascension_perks_3"
-			num_ascension_perks > 2
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
 		}
 		custom_tooltip = {
 			fail_text = "requires_ap_mind_over_matter"
 			has_ascension_perk = ap_mind_over_matter
 		}
+		custom_tooltip = {
+			fail_text = "requires_finished_cybernetics_project"
+			NOT = { has_special_project = FLESH_IS_WEAK_PROJECT }
+		}
+		custom_tooltip = {
+			fail_text = "requires_finished_synthetic_evolution_project"
+			NOT = { has_special_project = SYNTHETIC_EVOLUTION_PROJECT }
+		}
 	}
-	
+
 	potential = {
 		host_has_dlc = "Utopia"
 		NOT = {
@@ -290,7 +312,6 @@ ap_transcendence = {
 			has_authority = "auth_machine_intelligence"
 		}
 	}
-	
 	ai_weight = {
 		factor = 100
 	}
@@ -302,7 +323,7 @@ ap_synthetic_age = {
 		ROBOT_species_trait_points_add = 2
 		modify_species_cost_mult = -0.33
 	}
-	
+
 	potential = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
 		is_synthetic_empire = yes
@@ -310,7 +331,7 @@ ap_synthetic_age = {
 			has_ascension_perk = ap_synthetic_age
 		}
 	}
-	
+
 	possible = {
 		custom_tooltip = {
 			fail_text = "requires_technology_robomodding"
@@ -322,9 +343,9 @@ ap_synthetic_age = {
 		custom_tooltip = {
 			fail_text = "requires_ascension_perks_2"
 			num_ascension_perks > 1
-		}				
+		}
 	}
-	
+
 	ai_weight = {
 		factor = 10
 	}
@@ -334,6 +355,13 @@ ap_machine_worlds = {
 	on_enabled = {
 		custom_tooltip = "allow_machine_worlds"
 		custom_tooltip = "describe_machine_worlds"
+
+		if = {
+			limit = { has_civic = civic_machine_servitor }
+			custom_tooltip = "01_BERSERK_MACHINE_EMPIRE_ERROR"
+			custom_tooltip = "anomaly.3060.c"
+			custom_tooltip = "01_BERSERK_MACHINE_EMPIRE_ERROR"
+		}
 	}
 
 	potential = {
@@ -343,18 +371,18 @@ ap_machine_worlds = {
 			has_ascension_perk = ap_machine_worlds
 		}
 	}
-	
+
 	possible = {
 		custom_tooltip = {
 			fail_text = "requires_technology_tech_climate_restoration"
 			has_technology = tech_climate_restoration
-		}	
+		}
 		custom_tooltip = {
 			fail_text = "requires_ascension_perks_2"
 			num_ascension_perks > 1
 		}
 	}
-	
+
 	ai_weight = {
 		factor = 10
 	}

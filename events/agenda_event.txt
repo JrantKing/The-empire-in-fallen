@@ -1,0 +1,187 @@
+namespace = agenda_event
+
+country_event = {
+    id = agenda_event.0
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        OR = {
+            is_country_type = default
+            is_country_type = fallen_empire
+            is_country_type = awakened_fallen_empire
+        }
+        OR = {
+            has_authority = auth_oligarchic
+            has_authority = auth_dictatorial
+            has_authority = auth_imperial
+            has_authority = auth_corporate
+        }
+    }
+    immediate = {
+		if = {
+			limit = { has_global_flag = agenda_select }
+			remove_agenda = yes
+        	get_random_agenda = yes
+		}
+		if = {
+			limit = { NOT = { has_global_flag = agenda_select } }
+			set_global_flag = agenda_select
+		}
+    }
+}
+
+country_event = {
+    id = agenda_event.1
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        OR = {
+            is_country_type = default
+            is_country_type = fallen_empire
+            is_country_type = awakened_fallen_empire
+        }
+        OR = {
+            has_authority = auth_oligarchic
+            has_authority = auth_dictatorial
+            has_authority = auth_imperial
+            has_authority = auth_corporate
+        }
+        from = { is_same_value = root.ruler }
+    }
+    immediate = {
+        remove_agenda = yes
+    }
+}
+
+event = {
+	id = agenda_event.2
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_country = {
+			OR = {
+				AND = {
+					OR = {
+						has_authority = auth_oligarchic
+						has_authority = auth_dictatorial
+						has_authority = auth_imperial
+						has_authority = auth_corporate
+					}
+					NOR = {
+						has_modifier = modifer_defensive_focus
+						has_modifier = modifer_naval_focus
+						has_modifier = modifer_industrial
+						has_modifier = modifer_science
+						has_modifier = modifer_finanical
+						has_modifier = modifer_welfare
+						has_modifier = modifer_expansionist_overtures
+						has_modifier = modifer_national_purity
+						has_modifier = modifer_public_debates
+						has_modifier = modifer_import_export
+						has_modifier = modifer_native_privilege
+						has_modifier = modifer_skill_development
+						has_modifier = modifer_slave_optimization
+						has_modifier = modifer_selective_nostalgia
+						has_modifier = modifer_xeno_outreach
+					}
+					exists = leader
+					leader = { leader_class = ruler }
+				}
+				AND = {
+					NOR = {
+						has_authority = auth_oligarchic
+						has_authority = auth_dictatorial
+						has_authority = auth_imperial
+						has_authority = auth_corporate
+					}
+					OR = {
+						has_modifier = modifer_defensive_focus
+						has_modifier = modifer_naval_focus
+						has_modifier = modifer_industrial
+						has_modifier = modifer_science
+						has_modifier = modifer_finanical
+						has_modifier = modifer_welfare
+						has_modifier = modifer_expansionist_overtures
+						has_modifier = modifer_national_purity
+						has_modifier = modifer_public_debates
+						has_modifier = modifer_import_export
+						has_modifier = modifer_native_privilege
+						has_modifier = modifer_skill_development
+						has_modifier = modifer_slave_optimization
+						has_modifier = modifer_selective_nostalgia
+						has_modifier = modifer_xeno_outreach
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+        every_playable_country = {
+            if = {
+                limit = {
+                    OR = {
+						has_authority = auth_oligarchic
+						has_authority = auth_dictatorial
+						has_authority = auth_imperial
+						has_authority = auth_corporate
+					}
+                }
+                if = {
+					limit = {
+						NOR = {
+							has_modifier = modifer_defensive_focus
+							has_modifier = modifer_naval_focus
+							has_modifier = modifer_industrial
+							has_modifier = modifer_science
+							has_modifier = modifer_finanical
+							has_modifier = modifer_welfare
+							has_modifier = modifer_expansionist_overtures
+							has_modifier = modifer_national_purity
+							has_modifier = modifer_public_debates
+							has_modifier = modifer_import_export
+							has_modifier = modifer_native_privilege
+							has_modifier = modifer_skill_development
+							has_modifier = modifer_slave_optimization
+							has_modifier = modifer_selective_nostalgia
+							has_modifier = modifer_xeno_outreach
+						}
+					}
+					get_random_agenda = yes
+				}
+            }
+			if = {
+				limit = {
+					NOR = {
+						has_authority = auth_oligarchic
+						has_authority = auth_dictatorial
+						has_authority = auth_imperial
+						has_authority = auth_corporate
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							has_modifier = modifer_defensive_focus
+							has_modifier = modifer_naval_focus
+							has_modifier = modifer_industrial
+							has_modifier = modifer_science
+							has_modifier = modifer_finanical
+							has_modifier = modifer_welfare
+							has_modifier = modifer_expansionist_overtures
+							has_modifier = modifer_national_purity
+							has_modifier = modifer_public_debates
+							has_modifier = modifer_import_export
+							has_modifier = modifer_native_privilege
+							has_modifier = modifer_skill_development
+							has_modifier = modifer_slave_optimization
+							has_modifier = modifer_selective_nostalgia
+							has_modifier = modifer_xeno_outreach
+						}
+					}
+					remove_agenda = yes
+				}
+			}
+        }
+    }
+}

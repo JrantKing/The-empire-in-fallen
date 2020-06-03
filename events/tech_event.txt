@@ -1,11 +1,21 @@
 namespace = techfound
 
-country_event = {
+planet_event = {
 	id = techfound.0
 	hide_window = yes
 	is_triggered_only = yes
-	
+	pre_triggers = {
+		is_ai = no
+	}
+	trigger = {
+		always = yes
+		FromFrom = { NOT = { has_trait = trait_hive_mind } }
+	}
 	immediate = {
+		# This = Planet scope
+		# From = Country
+		# FromFrom = Pop
+		create_pop = { species = FromFrom }
 	}
 }
 
@@ -23,9 +33,13 @@ country_event = {
 		OR = {
 			has_country_flag = finish_unoe_task
 			AND = {
-				end_game_years_passed >= 0
+				end_game_years_passed >= -10
 				NOT = { has_country_flag = slct }
-				is_at_war = no
+                is_at_war = no
+                has_ascension_perk = ap_colossus
+                has_country_flag = colossus_project
+                has_ascension_perk = ap_world_shaper
+				has_ascension_perk = ap_arcology_project
 				OR = {
 					AND = {
 						has_ethic = ethic_fanatic_materialist
@@ -56,9 +70,13 @@ country_event = {
 					}
 					AND = {
 						has_ethic = ethic_fanatic_xenophobe
-						has_ascension_perk = ap_colossus
-						has_country_flag = colossus_project
-						has_technology = tech_pk_cracker
+                        OR = {
+							AND = {
+								has_ascension_perk = ap_evolutionary_mastery
+								has_technology = tech_genetic_resequencing
+							}
+							has_valid_civic = civic_evolutionary_mastery
+						}
 					}
 					AND = {
 						has_ethic = ethic_fanatic_authoritarian
@@ -67,12 +85,8 @@ country_event = {
 					}
 					AND = {
 						has_ethic = ethic_fanatic_egalitarian
-						has_ascension_perk = ap_executive_vigor
-						OR = {
-							has_ascension_perk = ap_galactic_wonders_utopia
-							has_ascension_perk = ap_galactic_wonders_megacorp
-							has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
-						}
+                        has_ascension_perk = ap_executive_vigor
+						has_galactic_wonders = yes
 					}
 				}
 				fleet_power > 75000
@@ -134,9 +148,17 @@ country_event = {
 			factor = 20
 		}
 		name = "techfound.1.a"
-		add_food = 2000
+		add_resource = { food = 2000 }
 		hidden_effect = {
+			every_playable_country = {
+				limit = {
+					NOT = { is_same_value = root }
+				}
+				root = { end_all_treaties_with = prev }
+				end_all_treaties_with = root
+			}
 			set_country_flag = being_fallen
+			set_country_flag = get_machine
 			if = {
 				limit = {
 					NOR = {
@@ -179,7 +201,57 @@ country_event = {
 							graphical_culture = fallen_machine_empire_02
 						}
 					}
-					in_fallen = yes
+					switch = {
+						trigger = has_ethic
+						ethic_fanatic_materialist = {
+							random_list = {
+								10 = { set_name = "[This.GetSpeciesName]������" }
+								10 = { set_name = "[This.GetSpeciesName]�����" }
+								10 = { set_name = "[This.GetSpeciesName]��¼��" }
+							}
+							in_fallen_materialist = yes
+						}
+						ethic_fanatic_spiritualist = {
+							random_list = {
+								10 = { set_name = "[This.GetSpeciesName]������" }
+								10 = { set_name = "[This.GetSpeciesName]������" }
+								10 = { set_name = "[This.GetSpeciesName]�ػ���" }
+							}
+							in_fallen_spiritualist = yes
+						}
+						ethic_fanatic_xenophile = {
+							random_list = {
+								10 = { set_name = "[This.GetSpeciesName]ʼ������" }
+								10 = { set_name = "[This.GetSpeciesName]�ȷ�����" }
+								10 = { set_name = "[This.GetSpeciesName]�Ŵ�����" }
+							}
+							in_fallen_xenophile = yes
+						}
+						ethic_fanatic_xenophobe = {
+							random_list = {
+								10 = { set_name = "[This.GetSpeciesName]��Ƭ����" }
+								10 = { set_name = "[This.GetSpeciesName]��������" }
+								10 = { set_name = "[This.GetSpeciesName]�ż�����" }
+							}
+							in_fallen_xenophobe = yes
+						}
+						ethic_fanatic_authoritarian = {
+							random_list = {
+								10 = { set_name = "[This.GetSpeciesName]���Ż���" }
+								10 = { set_name = "[This.GetSpeciesName]Ƨ������" }
+								10 = { set_name = "[This.GetSpeciesName]�������" }
+							}
+							in_fallen_authoritarian = yes
+						}
+						ethic_fanatic_egalitarian = {
+							random_list = {
+								10 = { set_name = "[This.GetSpeciesName]���ɰ�" }
+								10 = { set_name = "[This.GetSpeciesName]���а�" }
+								10 = { set_name = "[This.GetSpeciesName]������" }
+							}
+							in_fallen_egalitarian = yes
+						}
+					}
 				}
 			}
 			remove_modifier = suppressed_xenophobe
@@ -197,7 +269,20 @@ country_event = {
 			remove_modifier = suppressed_militarist
 			remove_modifier = promoted_militarist
 			remove_modifier = suppressed_pacifist
-			remove_modifier = promoted_pacifist
+            remove_modifier = promoted_pacifist
+            every_playable_country = {
+                every_system_within_border = {
+                    limit = {
+                        root = { has_claim = prev }
+                    }
+                    remove_claims = { who = root }
+				}
+				end_rivalry = root
+            }
+            every_playable_country = {
+                country_event = { id = techfound.20 }
+            }
+            
 		}
 	}
 	
@@ -206,13 +291,13 @@ country_event = {
 			factor = 80
 		}
 		name = "techfound.1.b"
-		add_unity = 10000
+		add_resource = { unity = 10000 }
 		add_research_option = tech_psi_jump_drive_1
 		add_research_option = tech_jump_drive_1
 		hidden_effect = {
 			add_research_option = tech_regenerative_hull_tissue
 			add_research_option = tech_lost
-			add_research_option = tech_lostbuild
+			#add_research_option = tech_lostbuild
 			add_research_option = tech_dark_matter_power_core
 			add_research_option = tech_dark_matter_deflector
 			add_research_option = tech_enigmatic_encoder
@@ -239,7 +324,7 @@ country_event = {
 
 	immediate = {
 		give_technology = { message = no tech = tech_lost }
-		give_technology = { message = no tech = tech_lostbuild }
+		#give_technology = { message = no tech = tech_lostbuild }
 		give_technology = { message = no tech = tech_enigmatic_encoder }
 		give_technology = { message = no tech = tech_enigmatic_decoder }
 		give_technology = { message = no tech = tech_dragon_armor }
@@ -254,28 +339,26 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		give_technology = { message = no tech = tech_repeatable_improved_tile_energy_output }
-		give_technology = { message = no tech = tech_repeatable_improved_shield_output }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_energy_damage }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_energy_fire_rate }
-		give_technology = { message = no tech = tech_repeatable_improved_tile_food_output }
-		give_technology = { message = no tech = tech_repeatable_improved_sector_cap }
-		give_technology = { message = no tech = tech_repeatable_improved_core_system_cap }
-		give_technology = { message = no tech = tech_repeatable_improved_leader_cap }
-		give_technology = { message = no tech = tech_repeatable_improved_edict_length }
-		give_technology = { message = no tech = tech_repeatable_improved_army_damage }
-		give_technology = { message = no tech = tech_repeatable_improved_army_health }
-		give_technology = { message = no tech = tech_repeatable_improved_leader_life_span }
-		give_technology = { message = no tech = tech_repeatable_improved_tile_mineral_output }
-		give_technology = { message = no tech = tech_repeatable_improved_military_station_damage }
-		give_technology = { message = no tech = tech_repeatable_improved_military_station_health }
-		give_technology = { message = no tech = tech_repeatable_improved_armor_output }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_explosive_damage }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_explosive_fire_rate }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_kinetic_damage }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_kinetic_fire_rate }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_strike_craft_fire_damage }
-		give_technology = { message = no tech = tech_repeatable_weapon_type_strike_craft_fire_rate }
+		give_technology = { tech = tech_repeatable_improved_tile_energy_output message = no }
+		give_technology = { tech = tech_repeatable_improved_shield_output message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_energy_damage message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_energy_fire_rate message = no }
+		give_technology = { tech = tech_repeatable_improved_tile_food_output message = no }
+		give_technology = { tech = tech_repeatable_improved_core_system_cap message = no }
+		give_technology = { tech = tech_repeatable_improved_edict_length message = no }
+		give_technology = { tech = tech_repeatable_improved_army_damage message = no }
+		give_technology = { tech = tech_repeatable_improved_army_health message = no }
+		give_technology = { tech = tech_repeatable_improved_leader_life_span message = no }
+		give_technology = { tech = tech_repeatable_improved_tile_mineral_output message = no }
+		give_technology = { tech = tech_repeatable_improved_military_station_damage message = no }
+		give_technology = { tech = tech_repeatable_improved_military_station_health message = no }
+		give_technology = { tech = tech_repeatable_improved_armor_output message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_explosive_damage message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_explosive_fire_rate message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_kinetic_damage message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_kinetic_fire_rate message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_strike_craft_fire_damage message = no }
+		give_technology = { tech = tech_repeatable_weapon_type_strike_craft_fire_rate message = no }
 	}
 }
 
@@ -284,10 +367,6 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	immediate = {
-		give_technology = { message = no tech = tech_colonization_2 }
-		give_technology = { message = no tech = tech_colonization_3 }
-		give_technology = { message = no tech = tech_colonization_4 }
-		give_technology = { message = no tech = tech_colonization_5 }
 	}
 }
 
@@ -326,20 +405,7 @@ country_event = {
 	hide_window = yes
 	fire_only_once = yes
 	is_triggered_only = yes
-	trigger = {
-		#NOT = { has_country_flag = planetcapital }
-		#has_country_flag = fallen_empire_6
-	}
 	immediate = {
-		#random_planet = {
-		#	limit = {
-		#		has_planet_flag = planet_earth_fallen
-		#	}
-		#	random_tile = {
-		#		limit = { has_building = building_capital_2 }
-		#		set_building = "building_capital_3"		
-		#	}
-		#}
 	}
 }
 
@@ -347,76 +413,8 @@ country_event = {
 	id = techfound.9
 	hide_window = yes
 	fire_only_once = yes
-	trigger = {
-		has_country_flag = fallen_empire_6
-		NOT = { has_country_flag = changespecies }
-	}
+	is_triggered_only = yes
 	immediate = {
-		random_planet = {
-			limit = {
-				has_planet_flag = planet_earth_fallen
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-			create_army = {
-				name = random
-				owner = ROOT
-				species = ROOT
-				type = "gene_warrior_army"
-			}
-		}
 	}
 }
 
@@ -596,6 +594,7 @@ country_event = {
 country_event = {
 	id = techfound.14
 	hide_window = yes
+	mean_time_to_happen = { days = 1 }
 	trigger = {
 		NOT = { has_technology = tech_lost }
 		OR = {
@@ -647,6 +646,7 @@ ship_event = {
 		NOR = {
 			is_ship_class = shipclass_constructor
 			is_ship_class = shipclass_science_ship
+			is_ship_class = shipclass_military_station
 		}
 		owner = { is_country_type = fallen_empire }
 	}
@@ -670,22 +670,16 @@ country_event = {
 	id = techfound.20
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = {
-		any_system = {
-			has_star_flag = del_starbase
-		}
-	}
 	immediate = {
-		every_system = {
-			limit = {
-				has_star_flag = del_starbase
+        event_target:sender = {
+            every_system_within_border = {
+                limit = {
+                    root = { has_claim = prev }
+                }
+                remove_claims = { who = root }
 			}
-			if = {
-				limit = { exists = starbase }
-				starbase = { fleet = { delete_fleet = this } }
-			}
-			remove_star_flag = del_starbase
-		}
+			end_rivalry = root
+        }
 	}
 }
 
@@ -752,6 +746,335 @@ country_event = {
 					}			
 				}
 			}
+		}
+	}
+}
+
+country_event = {
+	id = techfound.25
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		last_increased_tech = tech_lost
+		is_country_type = default
+	}
+
+	immediate = {
+		set_country_flag = gcslct
+	}
+}
+
+country_event = {
+	id = techfound.26
+	title = "techfound.12.name"
+	desc = "techfound.12.desc"
+	picture = GFX_evt_ancient_alien_temple
+	show_sound = event_alien_signal
+	is_triggered_only = yes
+
+	trigger = {
+		last_increased_tech = tech_lost
+		NOR = {
+			graphical_culture = fallen_empire_01
+			graphical_culture = fallen_empire_02
+			graphical_culture = fallen_empire_03
+			graphical_culture = fallen_empire_04
+			graphical_culture = fallen_empire_05
+			graphical_culture = fallen_empire_06
+			graphical_culture = fallen_empire_07
+			graphical_culture = fallen_empire_08
+			graphical_culture = fallen_empire_09
+			graphical_culture = fallen_empire_10
+			graphical_culture = fallen_empire_11
+			graphical_culture = fallen_empire_12
+			graphical_culture = fallen_machine_empire_01
+			graphical_culture = fallen_machine_empire_02
+		}
+	}
+	
+	option = {
+		name = "techfound.12.a"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_07
+			set_city_graphical_culture = fallen_empire_07
+		}
+	}
+	option = {
+		name = "techfound.12.b"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_08
+			set_city_graphical_culture = fallen_empire_08
+		}
+	}
+	option = {
+		name = "techfound.12.c"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_09
+			set_city_graphical_culture = fallen_empire_09
+		}
+	}
+	option = {
+		name = "techfound.12.d"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_10
+			set_city_graphical_culture = fallen_empire_10
+		}
+	}
+	option = {
+		name = "techfound.12.e"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_11
+			set_city_graphical_culture = fallen_empire_11
+		}
+	}
+	option = {
+		name = "techfound.12.f"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_12
+			set_city_graphical_culture = fallen_empire_12
+		}
+	}
+	option = {
+		name = "techfound.12.g"
+		hidden_effect = {
+			set_graphical_culture = fallen_machine_empire_02
+			set_city_graphical_culture = fallen_machine_empire_02
+		}
+	}
+	option = {
+		name = "techfound.12.h"
+		hidden_effect = {
+			country_event = { id = techfound.27 }
+		}
+	}
+}
+
+country_event = {
+	id = techfound.27
+	title = "techfound.12.name"
+	desc = "techfound.12.desc"
+	picture = GFX_evt_ancient_alien_temple
+	is_triggered_only = yes
+
+	option = {
+		name = "techfound.12.aa"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_01
+			set_city_graphical_culture = fallen_empire_01
+		}
+	}
+	option = {
+		name = "techfound.12.bb"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_02
+			set_city_graphical_culture = fallen_empire_02
+		}
+	}
+	option = {
+		name = "techfound.12.cc"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_03
+			set_city_graphical_culture = fallen_empire_03
+		}
+	}
+	option = {
+		name = "techfound.12.dd"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_04
+			set_city_graphical_culture = fallen_empire_04
+		}
+	}
+	option = {
+		name = "techfound.12.ee"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_05
+			set_city_graphical_culture = fallen_empire_05
+		}
+	}
+	option = {
+		name = "techfound.12.ff"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_06
+			set_city_graphical_culture = fallen_empire_06
+		}
+	}
+	option = {
+		name = "techfound.12.gg"
+		hidden_effect = {
+			set_graphical_culture = fallen_machine_empire_01
+			set_city_graphical_culture = fallen_machine_empire_01
+		}
+	}
+	after = {
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = slct
+					has_valid_civic = civic_fallen_start
+				}
+			}
+			country_event = { id = fallen_start.1 }
+		}
+	}
+}
+
+country_event = {
+	id = techfound.28
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				is_country_type = fallen_empire
+				OR = {
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			give_technology = { message = no tech = tech_teif_jump_drive_2 }
+			give_technology = { message = no tech = tech_teif_jump_drive_3 }
+		}
+		every_country = {
+			limit = {
+				is_country_type = fallen_empire
+				OR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+			give_technology = { message = no tech = tech_teif_jump_drive_2 }
+		}
+	}
+}
+
+country_event = {
+	id = techfound.29
+	title = "techfound.12.name"
+	desc = "techfound.12.desc"
+	picture = GFX_evt_ancient_alien_temple
+	show_sound = event_alien_signal
+	is_triggered_only = yes
+	
+	option = {
+		name = "techfound.12.a"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_07
+			set_city_graphical_culture = fallen_empire_07
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = slct
+						has_valid_civic = civic_fallen_start
+					}
+				}
+				country_event = { id = fallen_start.1 }
+			}
+		}
+	}
+	option = {
+		name = "techfound.12.b"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_08
+			set_city_graphical_culture = fallen_empire_08
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = slct
+						has_valid_civic = civic_fallen_start
+					}
+				}
+				country_event = { id = fallen_start.1 }
+			}
+		}
+	}
+	option = {
+		name = "techfound.12.c"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_09
+			set_city_graphical_culture = fallen_empire_09
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = slct
+						has_valid_civic = civic_fallen_start
+					}
+				}
+				country_event = { id = fallen_start.1 }
+			}
+		}
+	}
+	option = {
+		name = "techfound.12.d"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_10
+			set_city_graphical_culture = fallen_empire_10
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = slct
+						has_valid_civic = civic_fallen_start
+					}
+				}
+				country_event = { id = fallen_start.1 }
+			}
+		}
+	}
+	option = {
+		name = "techfound.12.e"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_11
+			set_city_graphical_culture = fallen_empire_11
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = slct
+						has_valid_civic = civic_fallen_start
+					}
+				}
+				country_event = { id = fallen_start.1 }
+			}
+		}
+	}
+	option = {
+		name = "techfound.12.f"
+		hidden_effect = {
+			set_graphical_culture = fallen_empire_12
+			set_city_graphical_culture = fallen_empire_12
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = slct
+						has_valid_civic = civic_fallen_start
+					}
+				}
+				country_event = { id = fallen_start.1 }
+			}
+		}
+	}
+	option = {
+		name = "techfound.12.g"
+		hidden_effect = {
+			set_graphical_culture = fallen_machine_empire_02
+			set_city_graphical_culture = fallen_machine_empire_02
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = slct
+						has_valid_civic = civic_fallen_start
+					}
+				}
+				country_event = { id = fallen_start.1 }
+			}
+		}
+	}
+	option = {
+		name = "techfound.12.h"
+		hidden_effect = {
+			country_event = { id = techfound.27 }
 		}
 	}
 }

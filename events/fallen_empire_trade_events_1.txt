@@ -30,16 +30,16 @@ country_event = {
 	}
 	option = {
 		trigger = {
-			minerals > 4999
+			has_resource = { type = minerals amount > 4999 }
 		}
 		ai_chance = {
 			factor = 10
 		}
 		name = "fallentrade.3.b"
 		event_target:actor = {
-			add_minerals = -5000
+			add_resource = { minerals = -5000 }
 			event_target:recipient = {
-				add_minerals = 5000
+				add_resource = { minerals = 5000 }
 			}
 			capital_scope = {
 				create_fleet = {

@@ -33,7 +33,7 @@ utility_component_template = {
 		weight = 4
 	}
 
-	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special }
+	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special shipclass_starbase }
 	prerequisites = { "tech_jump_drive_1" }
 	component_set = "ftl_components"
 	upgrades_to = "PSI_JUMP_DRIVE_1"
@@ -63,14 +63,14 @@ utility_component_template = {
 		weight = 5
 	}
 
-	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special }
+	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special shipclass_starbase }
 	prerequisites = { "tech_psi_jump_drive_1" }
 	component_set = "ftl_components"
-	upgrades_to = "PSI_JUMP_DRIVE_2"
+	upgrades_to = "teif_JUMP_DRIVE_2"
 }
 
 utility_component_template = {
-	key = "JUMP_DRIVE_2"
+	key = "teif_JUMP_DRIVE_2"
 	size = small
 	icon = "GFX_ship_part_jump_drive_1"
 	icon_frame = 1
@@ -95,14 +95,14 @@ utility_component_template = {
 		ship_windup_mult = -0.85
 	}
 
-	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special }
-	prerequisites = { "tech_jump_drive_2" }
+	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special shipclass_starbase }
+	prerequisites = { "tech_teif_jump_drive_2" }
 	component_set = "ftl_components"
-	upgrades_to = "JUMP_DRIVE_3"
+	upgrades_to = "teif_JUMP_DRIVE_3"
 }
 
 utility_component_template = {
-	key = "JUMP_DRIVE_3"
+	key = "teif_JUMP_DRIVE_3"
 	size = small
 	icon = "GFX_ship_part_jump_drive_1"
 	icon_frame = 1
@@ -127,7 +127,7 @@ utility_component_template = {
 		ship_windup_mult = -0.95
 	}
 
-	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special }
-	prerequisites = { "tech_jump_drive_3" }
+	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special shipclass_starbase }
+	prerequisites = { "tech_teif_jump_drive_3" }
 	component_set = "ftl_components"
 }

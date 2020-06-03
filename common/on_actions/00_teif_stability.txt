@@ -23,8 +23,3 @@ on_space_battle_won = {
 		stability.1007
 	}
 }
-on_leader_spawned = {
-	events = {
-		
-	}
-}

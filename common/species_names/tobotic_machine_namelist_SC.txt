@@ -1,0 +1,116 @@
+named_lists = {
+	robotic_machine = {
+		shazarak = {
+			language = "l_simp_chinese"
+			name = 沙扎拉克
+			plural = 沙扎拉克斯
+		}
+
+		mechazur = {
+			language = "l_simp_chinese"
+			name = 麦克佐
+			plural = 麦克佐斯
+		}
+
+		zero-zero-one = {
+			language = "l_simp_chinese"
+			name = 零-零-壹
+			plural = 零-零-壹
+		}
+
+		prime = {
+			language = "l_simp_chinese"
+			name = 至尊
+			plural = 至尊
+		}
+
+		zenak = {
+			language = "l_simp_chinese"
+			name = 则纳克
+			plural = 则纳基
+		}
+
+		omni = {
+			name = 奥姆
+			plural = 奥姆
+		}
+
+		daar = {
+			language = "l_simp_chinese"
+			name = 达尔
+			plural = 达尔
+		}
+
+		tronzaru = {
+			language = "l_simp_chinese"
+			name = 创泽鲁
+			plural = 创泽鲁
+		}
+
+		techarus = {
+			language = "l_simp_chinese"
+			name = 塔夏鲁斯
+			plural = 塔其斯
+		}
+
+		jonus = {
+			language = "l_simp_chinese"
+			name = 乔纳斯
+			plural = 乔纳西
+		}
+
+		iribot = {
+			language = "l_simp_chinese"
+			name = 伊利波特
+			plural = 伊利波特
+		}
+
+		silicron = {
+			language = "l_simp_chinese"
+			name = 西利克隆
+			plural = 西利克隆斯
+		}
+
+		dekron = {
+			language = "l_simp_chinese"
+			name = 戴克隆
+			plural = 戴克隆斯
+		}
+
+		synthoid = {
+			language = "l_simp_chinese"
+			name = 合成人
+			plural = 合成人
+		}
+
+		cydran = {
+			language = "l_simp_chinese"
+			name = 赛德兰
+			plural = 赛德兰人
+		}
+
+		kelbrid = {
+			language = "l_simp_chinese"
+			name = 凯尔布德
+			plural = 凯尔布德
+		}
+
+		model-16 = {
+			language = "l_simp_chinese"
+			name = 型号-16
+			plural = 型号-16
+		}
+
+		nex = {
+			language = "l_simp_chinese"
+			name = NEX
+			plural = NEX
+		}
+
+		sictor = {
+			language = "l_simp_chinese"
+			name = 米克多
+			plural = 米克多
+		}
+	}
+}

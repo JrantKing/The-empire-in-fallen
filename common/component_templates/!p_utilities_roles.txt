@@ -26,7 +26,7 @@ utility_component_template = {
 	size_restriction = { destroyer small_ship_fallen_empire }
 	component_set = "combat_computers"
 	upgrades_to = "COMBAT_COMPUTER_PICKET_BASIC"
-	
+
 	ai_weight = {
 		weight = 1
 	}
@@ -47,10 +47,10 @@ utility_component_template = {
 	ship_behavior = "line"
 
 	class_restriction = { shipclass_military }
-	size_restriction = { cruiser battleship large_ship_fallen_empire }
+	size_restriction = { cruiser battleship small_ship_fallen_empire large_ship_fallen_empire }
 	component_set = "combat_computers"
 	upgrades_to = "COMBAT_COMPUTER_LINE_BASIC"
-	
+
 	ai_weight = {
 		weight = 1
 	}
@@ -70,11 +70,11 @@ utility_component_template = {
 	}
 	ship_behavior = "artillery"
 
-	class_restriction = { shipclass_military }
-	size_restriction = { titan massive_ship_fallen_empire }
+	class_restriction = { shipclass_military shipclass_starbase }
+	size_restriction = { titan juggernaut small_ship_fallen_empire large_ship_fallen_empire massive_ship_fallen_empire }
 	component_set = "combat_computers"
 	upgrades_to = "COMBAT_COMPUTER_ARTILLERY_BASIC"
-	
+
 	ai_weight = {
 		weight = 1
 	}
@@ -101,15 +101,15 @@ utility_component_template = {
 	ship_behavior = "picket"
 	prerequisites = { "tech_combat_computers_1" }
 	upgrades_to = "COMBAT_COMPUTER_PICKET_ADVANCED"
-	
+
 	ship_modifier = {
 		ship_fire_rate_mult = 0.05
 		ship_tracking_add = 10
 	}
-	
+
 	ai_weight = {
 		weight = 2
-	}	
+	}
 }
 
 utility_component_template = {
@@ -130,15 +130,15 @@ utility_component_template = {
 	ship_behavior = "picket"
 	prerequisites = { "tech_combat_computers_2" }
 	upgrades_to = "COMBAT_COMPUTER_PICKET_SAPIENT"
-	
+
 	ship_modifier = {
 		ship_fire_rate_mult = 0.10
 		ship_tracking_add = 20
 	}
-	
+
 	ai_weight = {
 		weight = 3
-	}	
+	}
 }
 
 utility_component_template = {
@@ -158,15 +158,15 @@ utility_component_template = {
 	component_set = "combat_computers"
 	ship_behavior = "picket"
 	prerequisites = { "tech_combat_computers_3" }
-	
+
 	modifier = {
-		ship_evasion_add = 10
+		ship_evasion_mult = 0.10
 	}
 	ship_modifier = {
 		ship_fire_rate_mult = 0.15
 		ship_tracking_add = 30
 	}
-	
+
 	ai_weight = {
 		weight = 5
 		modifier = {
@@ -178,8 +178,8 @@ utility_component_template = {
 				has_global_flag = ghost_signal_2_flag
 				has_global_flag = ghost_signal_1_flag
 			}
-		}			
-	}	
+		}
+	}
 }
 
 utility_component_template = {
@@ -199,18 +199,18 @@ utility_component_template = {
 	component_set = "combat_computers"
 	ship_behavior = "picket"
 	prerequisites = { "tech_combat_computers_autonomous" }
-	
+
 	modifier = {
-		ship_evasion_add = 10
+		ship_evasion_mult = 0.10
 	}
 	ship_modifier = {
 		ship_fire_rate_mult = 0.15
 		ship_tracking_add = 30
 	}
-	
+
 	ai_weight = {
-		weight = 5			
-	}	
+		weight = 5
+	}
 }
 
 utility_component_template = {
@@ -230,15 +230,15 @@ utility_component_template = {
 	component_set = "combat_computers"
 	ship_behavior = "picket"
 	prerequisites = { "tech_precognition_interface" }
-	
+
 	ship_modifier = {
 		ship_fire_rate_mult = 0.20
 		ship_tracking_add = 40
 	}
-	
+
 	ai_weight = {
 		weight = 4
-	}	
+	}
 }
 
 ####################
@@ -257,20 +257,20 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship large_ship_fallen_empire }
+	size_restriction = { destroyer cruiser battleship small_ship_fallen_empire large_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "line"
 	prerequisites = { "tech_combat_computers_1" }
 	upgrades_to = "COMBAT_COMPUTER_LINE_ADVANCED"
-	
+
 	ship_modifier = {
 		ship_fire_rate_mult = 0.05
 		ship_accuracy_add = 5
 	}
-	
+
 	ai_weight = {
 		weight = 2
-	}	
+	}
 }
 
 utility_component_template = {
@@ -286,7 +286,7 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship large_ship_fallen_empire }
+	size_restriction = { destroyer cruiser battleship small_ship_fallen_empire large_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "line"
 	prerequisites = { "tech_combat_computers_2" }
@@ -296,10 +296,10 @@ utility_component_template = {
 		ship_fire_rate_mult = 0.10
 		ship_accuracy_add = 10
 	}
-	
+
 	ai_weight = {
 		weight = 3
-	}	
+	}
 }
 
 utility_component_template = {
@@ -315,7 +315,7 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship large_ship_fallen_empire }
+	size_restriction = { destroyer cruiser battleship small_ship_fallen_empire large_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "line"
 	prerequisites = { "tech_combat_computers_3" }
@@ -324,7 +324,7 @@ utility_component_template = {
 		ship_fire_rate_mult = 0.20
 		ship_accuracy_add = 20
 	}
-	
+
 	ai_weight = {
 		weight = 5
 		modifier = {
@@ -336,8 +336,8 @@ utility_component_template = {
 				has_global_flag = ghost_signal_2_flag
 				has_global_flag = ghost_signal_1_flag
 			}
-		}			
-	}	
+		}
+	}
 }
 
 utility_component_template = {
@@ -353,7 +353,7 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship large_ship_fallen_empire }
+	size_restriction = { destroyer cruiser battleship small_ship_fallen_empire large_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "line"
 	prerequisites = { "tech_combat_computers_autonomous" }
@@ -362,10 +362,10 @@ utility_component_template = {
 		ship_fire_rate_mult = 0.20
 		ship_accuracy_add = 20
 	}
-	
+
 	ai_weight = {
-		weight = 5			
-	}	
+		weight = 5
+	}
 }
 
 utility_component_template = {
@@ -381,7 +381,7 @@ utility_component_template = {
 		}
 	}
 	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship large_ship_fallen_empire }
+	size_restriction = { destroyer cruiser battleship small_ship_fallen_empire large_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "line"
 	prerequisites = { "tech_precognition_interface" }
@@ -391,10 +391,10 @@ utility_component_template = {
 		ship_accuracy_add = 15
 		ship_tracking_add = 10
 	}
-	
+
 	ai_weight = {
 		weight = 4
-	}	
+	}
 }
 
 ######################
@@ -412,21 +412,21 @@ utility_component_template = {
 			alloys = @cost1
 		}
 	}
-	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship titan massive_ship_fallen_empire }
+	class_restriction = { shipclass_military shipclass_starbase }
+	size_restriction = { destroyer cruiser battleship titan juggernaut small_ship_fallen_empire large_ship_fallen_empire massive_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "artillery"
 	prerequisites = { "tech_combat_computers_1" }
 	upgrades_to = "COMBAT_COMPUTER_ARTILLERY_ADVANCED"
-	
+
 	ship_modifier = {
 		ship_fire_rate_mult = 0.05
 		ship_weapon_range_mult = 0.05
 	}
-	
+
 	ai_weight = {
 		weight = 2
-	}	
+	}
 }
 
 utility_component_template = {
@@ -441,8 +441,8 @@ utility_component_template = {
 			alloys = @cost2
 		}
 	}
-	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship titan massive_ship_fallen_empire }
+	class_restriction = { shipclass_military shipclass_starbase }
+	size_restriction = { destroyer cruiser battleship titan juggernaut small_ship_fallen_empire large_ship_fallen_empire massive_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "artillery"
 	prerequisites = { "tech_combat_computers_2" }
@@ -452,10 +452,10 @@ utility_component_template = {
 		ship_fire_rate_mult = 0.10
 		ship_weapon_range_mult = 0.10
 	}
-	
+
 	ai_weight = {
 		weight = 3
-	}	
+	}
 }
 
 utility_component_template = {
@@ -470,8 +470,8 @@ utility_component_template = {
 			alloys = @cost3
 		}
 	}
-	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship titan massive_ship_fallen_empire }
+	class_restriction = { shipclass_military shipclass_starbase }
+	size_restriction = { destroyer cruiser battleship titan juggernaut small_ship_fallen_empire large_ship_fallen_empire massive_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "artillery"
 	prerequisites = { "tech_combat_computers_3" }
@@ -480,7 +480,7 @@ utility_component_template = {
 		ship_fire_rate_mult = 0.20
 		ship_weapon_range_mult = 0.20
 	}
-	
+
 	ai_weight = {
 		weight = 5
 		modifier = {
@@ -492,8 +492,8 @@ utility_component_template = {
 				has_global_flag = ghost_signal_2_flag
 				has_global_flag = ghost_signal_1_flag
 			}
-		}		
-	}	
+		}
+	}
 }
 
 
@@ -509,8 +509,8 @@ utility_component_template = {
 			alloys = @cost3
 		}
 	}
-	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship titan massive_ship_fallen_empire }
+	class_restriction = { shipclass_military shipclass_starbase }
+	size_restriction = { destroyer cruiser battleship titan juggernaut small_ship_fallen_empire large_ship_fallen_empire massive_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "artillery"
 	prerequisites = { "tech_combat_computers_autonomous" }
@@ -519,10 +519,10 @@ utility_component_template = {
 		ship_fire_rate_mult = 0.20
 		ship_weapon_range_mult = 0.20
 	}
-	
+
 	ai_weight = {
-		weight = 5	
-	}	
+		weight = 5
+	}
 }
 
 utility_component_template = {
@@ -537,8 +537,8 @@ utility_component_template = {
 			alloys = @cost3
 		}
 	}
-	class_restriction = { shipclass_military }
-	size_restriction = { destroyer cruiser battleship titan massive_ship_fallen_empire }
+	class_restriction = { shipclass_military shipclass_starbase }
+	size_restriction = { destroyer cruiser battleship titan juggernaut small_ship_fallen_empire large_ship_fallen_empire massive_ship_fallen_empire }
 	component_set = "combat_computers"
 	ship_behavior = "artillery"
 	prerequisites = { "tech_precognition_interface" }
@@ -548,8 +548,31 @@ utility_component_template = {
 		ship_weapon_range_mult = 0.15
 		ship_tracking_add = 10
 	}
-	
+
 	ai_weight = {
 		weight = 4
-	}	
+	}
+}
+
+utility_component_template = {
+	key = "COMBAT_COMPUTER_COLOSSUS"
+	size = small
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+	power = @power0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
+	ship_behavior = "colossus"
+
+	class_restriction = { shipclass_military_special }
+	size_restriction = { colossus fe_colossus }
+	component_set = "combat_computers"
+
+	ai_weight = {
+		weight = 0
+	}
 }

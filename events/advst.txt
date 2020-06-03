@@ -1,0 +1,456 @@
+namespace = advst
+
+planet_event = {
+	id = advst.0
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		create_pop = { species = owner.built_species }
+		if = {
+			limit = { owner = { has_civic = civic_advanced_start } }
+			owner = {
+				random_list = {
+					1 = { set_variable = { which = system_count value = 2 } }
+					1 = { set_variable = { which = system_count value = 3 } }
+					1 = { set_variable = { which = system_count value = 4 } }
+					1 = { set_variable = { which = system_count value = 5 } }
+					1 = { set_variable = { which = system_count value = 6 } }
+				}
+				country_event = { id = game_start.6 }
+				country_event = { id = advst.1 days = 1 }
+			}
+			planet_event = { id = game_start.20 }
+			planet_event = { id = game_start.22 }
+			planet_event = { id = game_start.23 }
+			create_fleet = {
+				effect = {
+					set_owner = root.owner
+						create_ship = {
+						name = random
+						random_existing_design = science
+					}
+					set_fleet_stance = evasive
+					set_location = root.owner.capital_star
+					
+					root.owner = {
+						create_leader = {
+							class = scientist
+							sub_type = survey
+							name = random
+							species = owner_main_species
+						}
+					}
+					set_leader = last_created_leader
+				}			
+			}
+			create_fleet = {
+				effect = {
+					set_owner = root.owner
+					
+					create_ship = {
+						name = random
+						random_existing_design = constructor
+					}
+					
+					set_fleet_stance = evasive
+					set_location = root.owner.capital_star
+				}
+			}
+			create_fleet = {
+				set_take_point = yes
+				effect = {
+					set_owner = root.owner
+					random_list = {
+						1 = {
+							while = {
+								count = 3
+								create_ship = {
+									name = random
+									random_existing_design = corvette
+								}
+							}
+						}
+						1 = {
+							while = {
+								count = 4
+								create_ship = {
+									name = random
+									random_existing_design = corvette
+								}
+							}
+						}
+						1 = {
+							while = {
+								count = 5
+								create_ship = {
+									name = random
+									random_existing_design = corvette
+								}
+							}
+						}
+						1 = {
+							while = {
+								count = 6
+								create_ship = {
+									name = random
+									random_existing_design = corvette
+								}
+							}
+						}
+						1 = {
+							while = {
+								count = 7
+								create_ship = {
+									name = random
+									random_existing_design = corvette
+								}
+							}
+						}
+					}
+					set_location = root.owner.capital_star
+				}
+			}
+			solar_system = {
+				while = {
+					limit = {
+						root.owner = {
+							check_variable = {
+								which = system_count
+								value > 0
+							}
+						}
+					}
+					closest_system = {
+						max_steps = 5
+						limit = {
+							NOT = {
+								any_fleet_in_system = {
+									exists = owner
+									owner = { is_same_value = root.owner }
+								}
+							}
+							NOR = {
+								has_star_flag = pirates_spawned
+								has_star_flag = precursor_system
+								has_star_flag = enclave
+								any_ship_in_system = {
+									exists = owner
+									owner = { is_hostile = root.owner }
+								}
+							}
+						}
+						if = {
+							limit = {
+								any_system_planet = {
+									has_planet_flag = prescripted_ideal
+									is_colony = no
+								}
+							}
+							random_system_planet = {
+								limit = {
+									has_planet_flag = prescripted_ideal
+									is_colony = no
+								}
+								create_colony = {
+									owner = root.owner
+									species = root.owner
+								}
+								planet_event = { id = game_start.21 }
+								planet_event = { id = game_start.22 }
+								planet_event = { id = game_start.23 }
+							}
+						}
+						every_system_planet = {
+							limit = {
+								NOT = { has_planet_flag = prescripted_ideal }
+								is_colony = no
+								is_colonizable = yes
+							}
+							if = {
+								limit = {
+									habitability = {
+										who = root.owner
+										value >= 0.7
+									}
+								}
+								create_colony = {
+									owner = root.owner
+									species = root.owner
+								}
+								planet_event = { id = game_start.21 }
+								planet_event = { id = game_start.22 }
+								planet_event = { id = game_start.23 }
+							}
+							else = {
+								random_list = {
+									75 = {
+										create_colony = {
+											owner = root.owner
+											species = root.owner
+										}
+										planet_event = { id = game_start.21 }
+										planet_event = { id = game_start.22 }
+										planet_event = { id = game_start.23 }
+									}
+									25 = {}
+								}
+							}
+						}
+						create_starbase = {
+							size = starbase_outpost
+							owner = root.owner
+						}
+						if = {
+							limit = {
+								any_fleet_in_system = {
+									exists = owner
+									owner = { is_same_value = root.owner }
+								}
+							}
+							root.owner = { change_variable = { which = system_count value = -1 } }
+						}
+					}
+				}
+			}
+			solar_system = {
+				while = {
+					limit = {
+						root.owner = {
+							check_variable = {
+								which = system_count
+								value > 0
+							}
+						}
+					}
+					closest_system = {
+						max_steps = 5
+						limit = {
+							NOT = {
+								any_fleet_in_system = {
+									exists = owner
+									owner = { is_same_value = root.owner }
+								}
+							}
+							OR = {
+								has_star_flag = neighbor_t1
+								has_star_flag = neighbor_t2
+								has_star_flag = neighbor_t1_first_colony
+								has_star_flag = neighbor_t2_second_colony
+							}
+							NOR = {
+								has_star_flag = pirates_spawned
+								has_star_flag = precursor_system
+								has_star_flag = enclave
+								any_ship_in_system = {
+									exists = owner
+									owner = { is_hostile = root.owner }
+								}
+							}
+						}
+						if = {
+							limit = {
+								any_system_planet = {
+									has_planet_flag = prescripted_ideal
+									is_colony = no
+								}
+							}
+							random_system_planet = {
+								limit = {
+									has_planet_flag = prescripted_ideal
+									is_colony = no
+								}
+								create_colony = {
+									owner = root.owner
+									species = root.owner
+								}
+								planet_event = { id = game_start.21 }
+								planet_event = { id = game_start.22 }
+								planet_event = { id = game_start.23 }
+							}
+						}
+						every_system_planet = {
+							limit = {
+								NOT = { has_planet_flag = prescripted_ideal }
+								is_colony = no
+								is_colonizable = yes
+							}
+							if = {
+								limit = {
+									habitability = {
+										who = root.owner
+										value >= 0.7
+									}
+								}
+								create_colony = {
+									owner = root.owner
+									species = root.owner
+								}
+								planet_event = { id = game_start.21 }
+								planet_event = { id = game_start.22 }
+								planet_event = { id = game_start.23 }
+							}
+							else = {
+								random_list = {
+									75 = {
+										create_colony = {
+											owner = root.owner
+											species = root.owner
+										}
+										planet_event = { id = game_start.21 }
+										planet_event = { id = game_start.22 }
+										planet_event = { id = game_start.23 }
+									}
+									25 = {}
+								}
+							}
+						}
+						create_starbase = {
+							size = starbase_outpost
+							owner = root.owner
+						}
+						if = {
+							limit = {
+								any_fleet_in_system = {
+									exists = owner
+									owner = { is_same_value = root.owner }
+								}
+							}
+							root.owner = { change_variable = { which = system_count value = -1 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = advst.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				check_variable = {
+					which = system_count
+					value > 0
+				}
+			}
+			capital_scope = {
+				solar_system = {
+					while = {
+						limit = {
+							root.owner = {
+								check_variable = {
+									which = system_count
+									value > 0
+								}
+							}
+						}
+						closest_system = {
+							max_steps = 5
+							limit = {
+								NOT = { exists = starbase }
+								NOR = {
+									has_star_flag = pirates_spawned
+									has_star_flag = precursor_system
+									has_star_flag = enclave
+									any_ship_in_system = {
+										exists = owner
+										owner = { is_hostile = root.owner }
+									}
+								}
+							}
+							root.owner = {
+								change_variable = { which = system_count value = -1 }
+							}
+							if = {
+								limit = {
+									any_system_planet = {
+										has_planet_flag = prescripted_ideal
+										is_colony = no
+									}
+								}
+								random_system_planet = {
+									limit = {
+										has_planet_flag = prescripted_ideal
+										is_colony = no
+									}
+									create_colony = {
+										owner = root.owner
+										species = root.owner
+									}
+									planet_event = { id = game_start.21 }
+									planet_event = { id = game_start.22 }
+									planet_event = { id = game_start.23 }
+								}
+							}
+							every_system_planet = {
+								limit = {
+									NOT = { has_planet_flag = prescripted_ideal }
+									is_colony = no
+									is_colonizable = yes
+								}
+								if = {
+									limit = {
+										habitability = {
+											who = root.owner
+											value >= 0.7
+										}
+									}
+									create_colony = {
+										owner = root.owner
+										species = root.owner
+									}
+									planet_event = { id = game_start.21 }
+									planet_event = { id = game_start.22 }
+									planet_event = { id = game_start.23 }
+								}
+								else = {
+									random_list = {
+										75 = {
+											create_colony = {
+												owner = root.owner
+												species = root.owner
+											}
+											planet_event = { id = game_start.21 }
+											planet_event = { id = game_start.22 }
+											planet_event = { id = game_start.23 }
+										}
+										25 = {}
+									}
+								}
+							}
+							create_starbase = {
+								size = starbase_outpost
+								owner = root.owner
+							}
+						}
+					}
+				}
+			}
+			every_system = {
+				limit = {
+					any_fleet_in_system = {
+						exists = owner
+						owner = { is_same_value = prevprevprev }
+					}
+				}
+				every_system_planet = {
+					limit = {
+						has_deposit_for = shipclass_mining_station
+						has_mining_station = no
+					}
+					create_mining_station = { owner = prevprev }
+				}
+				every_system_planet = {
+					limit = {
+						has_deposit_for = shipclass_research_station
+						has_research_station = no
+					}
+					create_research_station = { owner = prevprev }
+				}
+			}
+		}
+	}
+}

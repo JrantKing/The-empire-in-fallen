@@ -63,13 +63,14 @@ fix_fallen_machine = {
 			add_building = building_ancient_cryo_chamber
 			add_building = building_ancient_cryo_chamber
 			add_building = building_ancient_cryo_chamber
-			
 			while = {
-				count = 50
-				add_district = district_nexus
+				count = 5
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_rw_science
+				}
 			}
 			while = {
-				count = 105
+				count = 100
 				create_pop = {
 					species = owner_main_species
 				}
@@ -117,18 +118,25 @@ fix_fallen_machine = {
 			add_building = building_dimensional_fabricator
 			add_building = building_dimensional_fabricator
 			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
 			add_building = building_nano_forge
 			add_building = building_nano_forge
-			add_building = building_nano_forge			
 			add_building = building_nano_forge
 			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_affluence_center
 			
 			while = {
-				count = 25
-				add_district = district_nexus
+				count = 5
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_rw_nexus
+				}
 			}
 			while = {
-				count = 50
+				count = 259
 				create_pop = {
 					species = owner_main_species
 				}
@@ -164,13 +172,26 @@ fix_fallen_machine = {
 			add_building = building_class_4_singularity
 			add_building = building_class_4_singularity
 			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
 			
 			while = {
-				count = 25
-				add_district = district_nexus
+				count = 5
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_rw_generator
+				}
 			}
 			while = {
-				count = 22
+				count = 109
 				create_pop = {
 					species = owner_main_species
 				}

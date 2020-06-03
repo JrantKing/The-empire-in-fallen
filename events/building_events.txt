@@ -25,3 +25,24 @@ planet_event = {
 		change_pc = { class = pc_gaia inherit_entity = yes }
 	}
 }
+
+planet_event = {
+    id = building_events.2
+    hide_window = yes
+	is_triggered_only = yes
+    trigger = {
+		has_orbital_bombardment = yes
+		from = { is_crisis_faction = yes }
+		planet_devastation >= 10
+		NOT = { has_planet_flag = recent_devastation_down }
+		has_building = building_planetary_shield_system_generator
+	}
+
+    immediate = {
+	   add_planet_devastation = -10
+	   set_timed_planet_flag = {
+		   flag = recent_devastation_down
+		   days = 30
+	   }
+    }
+}

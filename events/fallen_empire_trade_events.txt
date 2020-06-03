@@ -1,5 +1,5 @@
 namespace = fallentrade
-
+# Ai
 country_event = {
 	id = fallentrade.2
 	hide_window = yes
@@ -7,6 +7,14 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		if = {
+			limit = {
+				event_target:recipient = { is_ai = yes }
+				event_target:actor = { is_homicidal = yes }
+			}
+			event_target:actor = { country_event = { id = fallentrade.5 } }
+			break = yes
+		}
 		if = {
 			limit = {
 				event_target:recipient = {
@@ -18,6 +26,7 @@ country_event = {
 				limit = {
 					event_target:recipient = {
 						OR = {
+							has_ethic = ethic_fanatic_xenophobe
 							is_belligerent_to = event_target:actor
 							is_imperious_to = event_target:actor
 							is_angry_to = event_target:actor
@@ -109,7 +118,7 @@ country_event = {
 		}
 	}
 }
-
+# Human
 country_event = {
 	id = fallentrade.4
 	title = "fallentrade.4.name"

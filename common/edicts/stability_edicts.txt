@@ -2,8 +2,8 @@
 # Empire edicts
 ##########################################################################
 
-country_edict = {
-	name = "stability"
+country_edict_stability = {
+	#name = "stability"
 	modifier = {
 	}
 	
@@ -22,10 +22,10 @@ country_edict = {
 	}
 
 	allow = {
-		influence > 49
+		has_resource = { type = influence amount > 49 }
 		custom_tooltip_fail = {
 			text = full_stability
-			NOT = { has_edict = stability }
+			NOT = { has_edict = country_edict_stability }
 			
 			check_variable = {
 				which = stability_num
@@ -37,28 +37,28 @@ country_edict = {
 		custom_tooltip = stability_custom_tooltip
 		hidden_effect = {
 			country_event = { id = stability.1002 }
-			add_influence = -50
+			add_resource = {
+				influence = -50
+			}
 		}
 	}
 	ai_weight = {
 		weight = 1
 		modifier = {
 			factor = 0
-			influence < 49
+			OR = {
+				has_resource = { type = influence amount < 49 }
+				check_variable = {
+					which = stability_num
+					value > 2
+				}
+			}
 		}
 		modifier = {
 			factor = 10
 			check_variable = {
 				which = stability_num
-				value < -2
-			}
-		}
-		modifier = {
-			factor = 100
-			influence > 200
-			check_variable = {
-				which = stability_num
-				value < 2
+				value < 3
 			}
 		}
 	}

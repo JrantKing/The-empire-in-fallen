@@ -1,0 +1,15 @@
+civic_advanced_start = {
+	playable = {
+		NOT = { has_global_flag = game_started }
+	}
+	possible = {
+		origin = {
+			NOR = {
+				value = origin_common_ground
+				value = origin_hegemon
+				value = origin_doomsday
+			}
+		}
+	}
+	description = "civic_tooltip_advanced_start_effects"
+}

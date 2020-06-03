@@ -1,0 +1,13 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_arrow_right"
+		textureFile = "gfx/interface/traditions/arrow_right.dds"
+	}
+	
+	corneredTileSpriteType = {
+		name = "GFX_tile_outliner_tradition"
+		textureFile = "gfx/interface/buttons/outliner_tile_tradition.dds"
+		borderSize = { x=80 y=80 }
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+}

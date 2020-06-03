@@ -27,10 +27,6 @@ decision_planet_size = {
 	effect = {
 		tooltip = { this = { change_planet_size = -1 } }
 		hidden_effect = {
-			owner = {
-				add_energy = -1000
-				add_minerals = -5000
-			}
 			if = {
 				limit = { planet_size = 1 }
 				owner = {
@@ -80,7 +76,7 @@ decision_planet_size_add = {
 		owner = {
 			check_variable = {
 				which = planet_size_num
-				value > 0 
+				value > 0
 			}
 		}
 	}
@@ -88,9 +84,6 @@ decision_planet_size_add = {
 	effect = {
 		tooltip = { this = { change_planet_size = 1 } }
 		hidden_effect = {
-			owner = {
-				add_energy = -1000
-			}
 			change_planet_size = 1
 			owner = {
 				change_variable = {

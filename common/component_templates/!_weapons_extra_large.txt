@@ -1,4 +1,57 @@
 weapon_component_template = {
+	key = "TITAN_LASER_ST"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+	hidden = no
+	prerequisites = { "tech_lost" }
+	icon = "GFX_ship_part_energy_lance_2"
+	icon_frame = 1
+	
+	firing_arc = 25.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+    ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+	damage = { min = 5000.0  max = 10000.0 }
+	shield_penetration = 1.0
+	armor_penetration = 1.0
+	windup = { min = 30.0  max = 45.0 }
+	total_fire_time = 180.0
+	range = 250.0
+	accuracy = 1.0
+	tracking = 1.0
+	
+	component_set = "TITAN_LASER_ST"
+	projectile_gfx = "titan_laser"
+	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
+	class_restriction = { shipclass_military_station }
+	size_restriction = { ion_cannon }
+}
+
+weapon_component_template = {
 	key = "TITAN_LASER"
 	size = titanic
 	entity = "invisible_turret_entity"
@@ -13,7 +66,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -59,7 +121,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -106,7 +177,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -152,7 +232,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -198,7 +287,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -244,7 +342,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -290,7 +397,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -336,7 +452,16 @@ weapon_component_template = {
 	min_range = 30.0
 	static_rotation = yes
 	use_ship_kill_target = no
-	
+	ai_tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
+    tags = {
+		weapon_type_energy
+		weapon_role_anti_hull
+		weapon_role_artillery
+	}
 	#cost = 500.0
 	power = -500.0
 	damage = { min = 5000.0  max = 10000.0 }
@@ -384,7 +509,7 @@ weapon_component_template = {
 	min_range = 0
 	#static_rotation = yes
 	use_ship_kill_target = no
-	
+
 	damage = { min = 6000 max = 10000 }
 	windup = { min = 30 max = 45 }
 	total_fire_time = 90
@@ -394,7 +519,17 @@ weapon_component_template = {
 	shield_penetration = 0.00
 	armor_penetration = 1.00
 	tracking = 1.00
-	cost = 300
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
 	
 	component_set = "THE_UPPER_TEARER"
 	projectile_gfx = "focused_arc_emitter"

@@ -1,0 +1,35 @@
+part = {
+	location = 0
+	localization = "START_SCREEN_fhk"
+	
+	trigger = {
+		has_country_flag = freesia
+	}
+}
+
+part = {
+	location = 0
+	localization = "START_SCREEN_spegc"
+	
+	trigger = {
+		has_country_flag = sasa
+	}
+}
+
+part = {
+	location = 0
+	localization = "START_SCREEN_cdfly"
+	
+	trigger = {
+		has_country_flag = cdfly
+	}
+}
+
+part = {
+	location = 0
+	localization = "START_SCREEN_fmcd"
+	
+	trigger = {
+		has_country_flag = fmcd
+	}
+}

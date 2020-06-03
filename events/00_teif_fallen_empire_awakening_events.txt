@@ -23,17 +23,46 @@ country_event = {
 			has_country_flag = holy_world_killed
 			# Original trigger
 			AND = {
-				NOT = { has_global_flag = sleepers_awake_happened }
-				NOT = { has_global_flag = guardians_of_the_galaxy_happened }			
 				end_game_years_passed >= 0
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				is_at_war = no
-				fleet_power > 40000
-				# Wake up if regular empire is growing too strong or has started to conquer other fallen 		empires
+				fleet_power > 60000
+				NOT = { has_global_flag = ancient_war_fire_timer }
+				AND = {
+					count_country = {
+						count < 2
+						limit = {
+							OR = {
+								has_country_flag = fallen_empire_1
+								has_country_flag = fallen_empire_3
+								has_country_flag = fallen_empire_7
+							}
+						}
+					}
+					count_country = {
+						count < 2
+						limit = {
+							OR = {
+								has_country_flag = fallen_empire_2
+								has_country_flag = fallen_empire_4
+								has_country_flag = fallen_empire_5
+							}
+						}
+					}
+					#NOT = { has_global_flag = galactic_war_happened }
+				}
+				NOT = { has_country_flag = guardians_of_the_galaxy }
+				# Wake up if regular empire is growing too strong or has started to conquer other fallen empires
 				any_country = {
 					is_country_type = default
 					OR = {
-						fleet_power > 50000
+						fleet_power > 70000
+						AND = {
+							has_federation = yes
+							federation = {
+								fleet_power > 90000
+							}
+						}
 						any_owned_planet = {
 							has_planet_flag = fallen_empire_world
 						}
@@ -49,7 +78,7 @@ country_event = {
 			factor = 0.5
 			any_country = {
 				is_country_type = default
-				fleet_power > 75000
+				fleet_power > 120000
 			}
 		}
 		modifier = {
@@ -107,9 +136,12 @@ country_event = {
 				40 = { # War in Heaven with Fallen Empire of opposing ethos
 					random_country = {
 						limit = {
+							is_ai = yes
 							NOT = { is_same_value = root }
 							is_country_type = fallen_empire
 							NOT = { has_ethic = ethic_gestalt_consciousness }
+							NOT = { has_ethic = ethic_fanatic_communism }
+							NOT = { has_country_flag = attacker_ancient_rival }
 							OR = {
 								AND = {
 									has_ethic = ethic_fanatic_xenophobe
@@ -137,7 +169,11 @@ country_event = {
 								}
 							}
 						}
-						set_country_flag = sleepers_awake_ancient_rival
+						set_relation_flag = {
+							who = root
+							flag = ancient_rival
+						}
+						set_country_flag = attacker_ancient_rival
 						set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
 						set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 						root = { set_timed_country_flag = { flag = ai_no_wars days = 3650 } }
@@ -146,6 +182,7 @@ country_event = {
 							set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 						}	
 					}
+					set_country_flag = defender_ancient_rival
 				}
 				20 = { # War in Heaven with Fallen Empire of different ethos
 					random_country = {
@@ -153,8 +190,15 @@ country_event = {
 							NOT = { is_same_value = root }
 							is_country_type = fallen_empire
 							NOT = { has_ethic = ethic_gestalt_consciousness }
+							NOT = { has_ethic = ethic_fanatic_communism }
+							NOT = { has_country_flag = attacker_ancient_rival }
+							is_ai = yes
 						}
-						set_country_flag = sleepers_awake_ancient_rival
+						set_relation_flag = {
+							who = root
+							flag = ancient_rival
+						}
+						set_country_flag = attacker_ancient_rival
 						set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
 						set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 						root = { set_timed_country_flag = { flag = ai_no_wars days = 3650 } }
@@ -165,6 +209,7 @@ country_event = {
 							set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 						}						
 					}
+					set_country_flag = defender_ancient_rival
 				}
 				40 = { } # No War in Heaven
 			}
@@ -200,19 +245,33 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		set_country_flag = sleepers_awake_first_sleeper
 		set_country_type = awakened_fallen_empire
 		if = {
-			limit = { has_country_flag = fallen_empire_6 }
-			change_government = {
-				civics = {
-					civic = civic_revanchist_fervor
-					civic = civic_ancient_caches_of_technology
-					civic = civic_idealistic_foundation
-					civic = civic_beacon_of_liberty
+			limit = { has_ethic = ethic_fanatic_communism }
+			set_name = "地球联合国"
+			random_megastructure = {
+				limit = { is_megastructure_type = une_gate }
+				upgrade_megastructure_to = une_gate_final
+				finish_upgrade = yes
+			}
+			every_owned_planet = {
+				add_modifier = {
+					modifier = planet_population_control
+					days = -1
 				}
 			}
-			set_name = "地球联合国"
+			every_owned_species = {
+				limit = { NOT = { is_species_class = MACHINE } }
+				set_citizenship_type = { country = root type = citizenship_full cooldown = no }
+				set_living_standard = { country = root type = living_standard_utopian cooldown = no }
+				set_military_service_type = { country = root type = military_service_full cooldown = no }
+			}
+			every_owned_species = {
+				limit = { is_species_class = MACHINE }
+				set_citizenship_type = { country = root type = citizenship_robot_servitude cooldown = no }
+				set_living_standard = { country = root type = living_standard_hive_mind cooldown = no }
+				set_military_service_type = { country = root type = military_service_limited cooldown = no }
+			}
 		}
 		if = {
 			limit = { has_ethic = ethic_fanatic_egalitarian has_country_flag = fallen_empire_07 }
@@ -233,37 +292,8 @@ country_event = {
 			}
 		}
 		
-		every_planet = {
-			limit = { 	
-				is_surveyed = {
-					who = ROOT
-					status = no
-				}
-			}
-			surveyed = {
-				set_surveyed = yes
-				surveyor = ROOT
-			}
-		}
-		country_event = { id = startfix.3 }
-
-		# Changing country type resets resources, so give them full stores
-		add_resource = { minerals = 50000 }
-		add_resource = { energy = 50000 }
-		add_resource = { food = 5000 }
-		add_resource = { influence = 1000 }
-
-		# Add some more fleet
-		country_event = { id = fallen_empires.13 }
-		if = {
-			limit = {
-				any_country = {
-					is_country_type = default
-					fleet_power > 50000
-				}
-			}
-			country_event = { id = fallen_empires.13 }
-		}
+		add_awakened_fallen_empire_resources = yes
+		add_awakened_fallen_empire_fleet = yes
 
 		# Establish communications
 		every_country = {
@@ -294,9 +324,9 @@ country_event = {
 	trigger = {
 		is_ai = yes
 		has_global_flag = galactic_crisis_happened
-		NOT = { has_global_flag = sleepers_awake_rival_waking } # Not if WiH happened
+		#NOT = { has_global_flag = sleepers_awake_rival_waking } # Not if WiH happened
 		has_country_flag = guardians_of_the_galaxy
-		NOT = { has_global_flag = guardians_of_the_galaxy_happened }
+		is_country_type = fallen_empire
 		NOT = { has_country_flag = timed_guardians_of_the_galaxy }
 	}
 
@@ -310,6 +340,8 @@ country_event = {
 
 	immediate = {
 		set_global_flag = guardians_of_the_galaxy_happened
+		set_country_flag = ai_no_wars
+		set_country_flag = ai_no_leave_fed
 		country_event = { id = fallen_empires_awakening.3 }
 
 		every_country = {
@@ -392,6 +424,8 @@ country_event = {
 					limit = {
 						is_country_type = fallen_empire
 						NOT = { has_ethic = ethic_gestalt_consciousness }
+						NOT = { has_country_flag = attacker_ancient_rival }
+						NOT = { has_ethic = ethic_fanatic_communism }
 						OR = {
 							AND = {
 								has_ethic = ethic_fanatic_xenophobe
@@ -424,9 +458,14 @@ country_event = {
 				if = {
 					limit = { exists = event_target:ndfallen_empire }
 					event_target:ndfallen_empire = {
-						set_country_flag = sleepers_awake_ancient_rival
+						set_country_flag = attacker_ancient_rival
 						set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
+						set_relation_flag = {
+							who = root
+							flag = ancient_rival
+						}
 					}
+					set_country_flag = defender_ancient_rival
 				}
 				if = {
 					limit = { 
@@ -438,6 +477,8 @@ country_event = {
 						limit = {
 							is_country_type = fallen_empire
 							NOT = { has_ethic = ethic_gestalt_consciousness }
+							NOT = { has_country_flag = attacker_ancient_rival }
+							NOT = { has_ethic = ethic_fanatic_communism }
 							NOR = {
 								AND = {
 									has_ethic = ethic_fanatic_xenophobe
@@ -465,9 +506,14 @@ country_event = {
 								}
 							}
 						}
-						set_country_flag = sleepers_awake_ancient_rival
+						set_country_flag = attacker_ancient_rival
 						set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
+						set_relation_flag = {
+							who = root
+							flag = ancient_rival
+						}
 					}
+					set_country_flag = defender_ancient_rival
 				}
 			}
 		}
@@ -481,6 +527,8 @@ country_event = {
 					limit = {
 						is_country_type = fallen_empire
 						NOT = { has_ethic = ethic_gestalt_consciousness }
+						NOT = { has_country_flag = attacker_ancient_rival }
+						NOT = { has_ethic = ethic_fanatic_communism }
 						NOR = {
 							AND = {
 								has_ethic = ethic_fanatic_xenophobe
@@ -508,9 +556,14 @@ country_event = {
 							}
 						}
 					}
-					set_country_flag = sleepers_awake_ancient_rival
+					set_country_flag = attacker_ancient_rival
 					set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
+					set_relation_flag = {
+						who = root
+						flag = ancient_rival
+					}
 				}
+				set_country_flag = defender_ancient_rival
 			}
 		}
 	}

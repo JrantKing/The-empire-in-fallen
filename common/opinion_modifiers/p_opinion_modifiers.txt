@@ -1,3 +1,106 @@
+triggered_opinion_xenophage_fix = {
+	trigger = {
+		from = {
+			any_owned_pop_species = {	
+				is_sapient = yes
+				AND = {
+					has_citizenship_type = { country = from type = citizenship_slavery }
+					has_slavery_type = { country = from type = slavery_livestock }
+					has_trait = trait_hive_mind
+				}
+			}
+		}
+	}
+	opinion = {
+		base = 0
+		modifier = {
+			add = 25
+			NOR = {
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}	
+			NOT = { is_country_type = fallen_empire }
+			from = {
+				any_owned_pop_species = {	
+					is_sapient = yes
+					AND = {
+						has_citizenship_type = { country = from type = citizenship_slavery }
+						has_slavery_type = { country = from type = slavery_livestock }
+						has_trait = trait_hive_mind
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 25
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}		
+			NOT = { is_country_type = fallen_empire }
+			from = {
+				any_owned_pop_species = {	
+					is_sapient = yes
+					AND = {
+						has_citizenship_type = { country = from type = citizenship_slavery }
+						has_slavery_type = { country = from type = slavery_livestock }
+						has_trait = trait_hive_mind
+					}
+				}
+			}
+		}
+		modifier = {
+			add = -75
+			has_authority = auth_hive_mind
+			NOT = { is_country_type = fallen_empire }
+			from = {
+				any_owned_pop_species = {	
+					is_sapient = yes
+					AND = {
+						has_citizenship_type = { country = from type = citizenship_slavery }
+						has_slavery_type = { country = from type = slavery_livestock }
+						has_trait = trait_hive_mind
+					}
+				}
+			}
+		}
+	}
+}
+
+triggered_opinion_gestalt_terminator = {
+	trigger = {
+		OR = {
+			AND = {
+				has_civic = civic_gestalt_terminator
+				from = { has_ethic = ethic_gestalt_consciousness }
+			}
+			AND = {
+				has_ethic = ethic_gestalt_consciousness
+				from = { has_civic = civic_gestalt_terminator }
+			}
+		}
+	}
+
+	opinion = {
+		base = -1000
+	}
+}
+
+triggered_opinion_gestalt_terminator_normal = {
+	trigger = {
+		has_civic = civic_gestalt_terminator
+		from = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	opinion = {
+		base = 20
+	}
+}
+
 triggered_opinion_revenge_craze = {
 	trigger = {
 		has_modifier = revenge_craze
@@ -109,11 +212,13 @@ p_opinion_same_species = {
 p_opinion_same_species_hive_mind = {
 	trigger = {
 		FROM = {
-			species_portrait = human
+			any_owned_pop = {
+				is_same_species = root
+				has_trait = trait_hive_mind
+			}
 			has_authority = auth_hive_mind
 		}
 		ROOT = {
-			species_portrait = human
 			NOT = { has_authority = auth_hive_mind }
 		}
 	}
@@ -126,10 +231,10 @@ opinion_feifa_ai = {
 	trigger = {
 		FROM = {
 			is_country_type = default
+			has_technology = tech_synthetic_workers
 			can_set_ai_policy = yes
 			any_owned_pop = { 
 				is_robot_pop = yes
-				has_trait = trait_robotic_3
 			}
 			OR = {
 				has_policy_flag = ai_outlawed
@@ -137,7 +242,7 @@ opinion_feifa_ai = {
 			}
 		}
 		ROOT = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			OR = {
 				has_ai_personality = teif_fallen_empire_egalitarian
 				has_ai_personality = awakened_teif_fallen_empire_egalitarian
@@ -149,11 +254,11 @@ opinion_feifa_ai = {
 			add = -10
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 0
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 2
 				}
 			}
@@ -162,11 +267,11 @@ opinion_feifa_ai = {
 			add = -15
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 1
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 3
 				}
 			}
@@ -175,11 +280,11 @@ opinion_feifa_ai = {
 			add = -20
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 2
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 4
 				}
 			}
@@ -188,11 +293,11 @@ opinion_feifa_ai = {
 			add = -25
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 3
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 5
 				}
 			}
@@ -201,11 +306,11 @@ opinion_feifa_ai = {
 			add = -30
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 4
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 6
 				}
 			}
@@ -214,11 +319,11 @@ opinion_feifa_ai = {
 			add = -35
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 5
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 7
 				}
 			}
@@ -227,11 +332,11 @@ opinion_feifa_ai = {
 			add = -40
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 6
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 8
 				}
 			}
@@ -240,11 +345,11 @@ opinion_feifa_ai = {
 			add = -45
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 7
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 9
 				}
 			}
@@ -253,11 +358,11 @@ opinion_feifa_ai = {
 			add = -50
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 8
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 10
 				}
 			}
@@ -266,11 +371,11 @@ opinion_feifa_ai = {
 			add = -55
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 9
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 11
 				}
 			}
@@ -279,11 +384,11 @@ opinion_feifa_ai = {
 			add = -60
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 10
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 12
 				}
 			}
@@ -292,11 +397,11 @@ opinion_feifa_ai = {
 			add = -65
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 11
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 13
 				}
 			}
@@ -305,11 +410,11 @@ opinion_feifa_ai = {
 			add = -70
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 12
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 14
 				}
 			}
@@ -319,11 +424,11 @@ opinion_feifa_ai = {
 			add = -75
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 13
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 15
 				}
 			}
@@ -333,11 +438,11 @@ opinion_feifa_ai = {
 			add = -80
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 14
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 16
 				}
 			}
@@ -347,11 +452,11 @@ opinion_feifa_ai = {
 			add = -85
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 15
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 17
 				}
 			}
@@ -361,11 +466,11 @@ opinion_feifa_ai = {
 			add = -90
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 16
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 18
 				}
 			}
@@ -375,11 +480,11 @@ opinion_feifa_ai = {
 			add = -95
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 17
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 19
 				}
 			}
@@ -389,11 +494,11 @@ opinion_feifa_ai = {
 			add = -100
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 18
 				}
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count < 20
 				}
 			}
@@ -402,7 +507,7 @@ opinion_feifa_ai = {
 			add = -1000
 			FROM = {
 				count_owned_pops  = { 
-					limit = { is_robot_pop = yes has_trait = trait_robotic_3 }
+					limit = { is_robot_pop = yes }
 					count > 19
 				}
 			}
@@ -423,6 +528,7 @@ opinion_hefa_ai = {
 			NOT = { has_ascension_perk = ap_synthetic_evolution }
 			any_owned_pop = { 
 				is_robot_pop = yes
+				has_trait = trait_mechanical
 			}
 			has_policy_flag = ai_full_rights
 		}
@@ -454,7 +560,7 @@ opinion_p_swarm = {
 		base = -50
 	}
 }
-opinion_d_swarm = {	
+opinion_d_swarm = {
 	trigger = {
 		FROM = {
 			is_country_type = default

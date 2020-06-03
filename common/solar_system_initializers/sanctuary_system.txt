@@ -4,7 +4,21 @@ sanctuary_system = {
 		type = rocky_asteroid_belt
 		radius = 150
 	}
+	usage = misc_system_init
+	usage_odds = {
+        base = 2000000
+        modifier = {
+            factor = 0
+            is_fe_cluster = yes
+        }
+        modifier = {
+            factor = 0
+            has_star_flag = empire_cluster
+        }
+    }
+	max_instances = 1
 	flags = { sanctuary_system }
+	spawn_chance = 100
 	
 	name = "NAME_Sanctuary"
 
@@ -15,15 +29,78 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+			create_species = {
+				name = "PRESCRIPTED_species_name_humans1"
+				plural ="PRESCRIPTED_species_plural_humans1"
+				adjective = "PRESCRIPTED_species_adjective_humans1"
+				class = HUM
+				portrait = human
+				traits = {
+					trait = "trait_pc_continental_preference"
+					trait = "trait_venerable"
+					trait = "trait_fertile"
+					trait = "trait_erudite"
+					trait = "trait_robust"
+					trait = "trait_cybernetic"
+				}
+				effect = {
+					save_event_target_as = elder_species
+					change_species_portrait = elder
+				}
+			}
 			create_country = {
 				name = "NAME_Sanctuary"
-				type = faction
+				type = sanctuary
+				species = event_target:elder_species
+				flag = {
+					icon= {
+						category = "human"
+						file = "flag_human_8.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "diagonal.dds"
+					}
+					colors={
+						"blue"
+						"red"
+						"null"
+						"null"
+					}
+				}
 			}
 			last_created_country = {
+				create_leader = {
+					name = "江"
+					class = governor
+					species = event_target:fallen_human_pop_species
+					immortal = yes
+					gender = male
+					skill = 10
+					effect = {
+						set_age = -1
+						change_leader_portrait = ta1
+						add_trait = leader_trait_governor_chosen
+						add_ruler_trait = leader_trait_ruler_cyborg
+						add_ruler_trait = leader_trait_ruler_chosen
+						add_ruler_trait = leader_trait_reformer
+						save_event_target_as = tar1
+					}
+				}
+				assign_leader = event_target:tar1
+				set_city_graphical_culture = fallen_empire_06
+				set_graphical_culture = fallen_empire_06
 				save_global_event_target_as = sanctuary
+				add_modifier = {
+					modifier = communist_society_1
+					days = -1
+				}
 				create_fleet = {
 					name = "NAME_Sanctuary_Core"
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -39,13 +116,16 @@ sanctuary_system = {
 						add_modifier = {
 							modifier = sanctuary_power
 							days = -1
-						}						
+						}
 						save_event_target_as = sanctuary_core
 						set_fleet_flag = sanctuary_core
 					}
 				}
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -61,7 +141,10 @@ sanctuary_system = {
 					}
 				}
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -77,7 +160,10 @@ sanctuary_system = {
 					}
 				}
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -93,7 +179,10 @@ sanctuary_system = {
 					}
 				}
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -121,13 +210,18 @@ sanctuary_system = {
 		orbit_distance = 0
 		deposit_blockers = none
 		modifiers = none
-		
+		flags = { sanctuary_primitive }
 		init_effect = {
 			prevent_anomaly = yes
-			
+			set_planet_entity = {
+                entity = fallen_empire_06_ringworld_habitable_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -154,9 +248,15 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_tech_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -177,9 +277,15 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_seam_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -200,13 +306,18 @@ sanctuary_system = {
 		orbit_distance = 0
 		deposit_blockers = none
 		modifiers = none
-		
+		flags = { sanctuary_primitive }
 		init_effect = {
 			prevent_anomaly = yes
-			
+			set_planet_entity = {
+                entity = fallen_empire_06_ringworld_habitable_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -233,9 +344,15 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_tech_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -256,9 +373,15 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_seam_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -279,13 +402,18 @@ sanctuary_system = {
 		orbit_distance = 0
 		deposit_blockers = none
 		modifiers = none
-		
+		flags = { sanctuary_primitive }
 		init_effect = {
 			prevent_anomaly = yes
-			
+			set_planet_entity = {
+                entity = fallen_empire_06_ringworld_habitable_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -312,9 +440,15 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_tech_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -332,7 +466,12 @@ sanctuary_system = {
 		class = "pc_ringworld_seam"
 		name = "NAME_Sanctuary-I"
 		orbit_angle = 30
-		orbit_distance = 0
+        orbit_distance = 0
+        init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_seam_entity_01_entity
+            }
+        }
 	}
 	planet = {
 		class = "pc_ringworld_habitable"
@@ -341,13 +480,18 @@ sanctuary_system = {
 		orbit_distance = 0
 		deposit_blockers = none
 		modifiers = none
-		
+		flags = { sanctuary_primitive }
 		init_effect = {
 			prevent_anomaly = yes
-			
+			set_planet_entity = {
+                entity = fallen_empire_06_ringworld_habitable_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -374,9 +518,15 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_tech_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {
@@ -397,9 +547,15 @@ sanctuary_system = {
 		orbit_distance = 0
 		
 		init_effect = {
+            set_planet_entity = {
+                entity = fallen_empire_06_ringworld_seam_entity_01_entity
+            }
 			last_created_country = {
 				create_fleet = {
-					settings = { spawn_debris = no }
+					settings = {
+						spawn_debris = no
+						is_boss = yes
+					}
 					effect = {
 						set_owner = event_target:sanctuary
 						create_ship = {

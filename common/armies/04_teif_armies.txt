@@ -126,3 +126,165 @@ synthetic_psionic_army = {
 		}
 	}
 }
+
+### Machine Empire Armies
+machine_occupation_army = {
+	defensive = yes
+	occupation = yes
+	health = 1.10
+	damage = 1.10
+	has_morale = no
+	morale_damage = 1.00
+	collateral_damage = 0.0
+	war_exhaustion = 0.0 # No WE from occupation armies
+	icon_frame = 12
+	has_species = yes
+
+	potential = {
+        OR = {
+            owner = { has_authority = auth_machine_intelligence }
+            owner = { has_technology = tech_automaton_brain NOT = { has_policy_flag = no_robot_machine_pop } }
+        }
+		from = {
+			has_trait = "trait_machine_unit"
+		}
+	}
+}
+
+machine_defense = {
+	defensive = yes
+	is_pop_spawned = yes
+	health = 1.10
+	damage = 1.10
+	has_morale = no
+	morale_damage = 1.00
+	collateral_damage = 0.0
+	war_exhaustion = 0.0 # No WE from defense armies
+	icon_frame = 12
+	has_species = yes
+
+	potential = {
+		OR = {
+            owner = { has_authority = auth_machine_intelligence }
+            owner = { has_technology = tech_automaton_brain NOT = { has_policy_flag = no_robot_machine_pop } }
+        }
+		from = {
+			has_trait = "trait_machine_unit"
+		}
+	}
+}
+
+# Hunter-Killer Armies
+machine_assault_1 = {
+	damage = 1.00
+	health = 1.00
+	has_morale = no
+	morale_damage = 1.00
+	collateral_damage = 2.0
+	war_exhaustion = 0.5
+	time = 90
+	has_species = yes
+
+	icon_frame = 11
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 100
+		}
+
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	potential = {
+        OR = {
+            owner = { has_authority = auth_machine_intelligence }
+            owner = { has_technology = tech_automaton_brain NOT = { has_policy_flag = no_robot_machine_pop } }
+        }
+		from = {
+			has_trait = "trait_machine_unit"
+		}
+	}
+	
+	show_tech_unlock_if = {
+        OR = {
+            is_synthetic_empire = yes
+            has_technology = tech_automaton_brain
+        }
+    }
+	
+	prerequisites = { "tech_assault_armies" }
+}
+
+# Battle Frames
+machine_assault_2 = {
+	damage = 1.5
+	health = 2.5
+	has_morale = no
+	morale_damage = 1.5
+	collateral_damage = 2.0
+	war_exhaustion = 1.0
+	time = 120
+	has_species = yes
+
+	icon_frame = 11
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 200
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	potential = {
+		OR = {
+            owner = { has_authority = auth_machine_intelligence }
+            owner = { has_technology = tech_automaton_brain NOT = { has_policy_flag = no_robot_machine_pop } }
+        }
+		from = {
+			has_trait = "trait_machine_unit"
+		}
+	}
+	
+	prerequisites = { "tech_adaptive_combat_algorithms" }
+}
+
+# Mega-Warform
+machine_assault_3 = {
+	damage = 4.0
+	health = 6.0
+	has_morale = no
+	morale_damage = 1.5
+	collateral_damage = 4.0
+	war_exhaustion = 4.0
+	time = 500
+	has_species = no
+
+	icon_frame = 11
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 800
+		}
+
+		upkeep = {
+			energy = 8
+		}
+	}
+
+	potential = {
+		OR = {
+            owner = { has_authority = auth_machine_intelligence }
+            owner = { has_technology = tech_automaton_brain NOT = { has_policy_flag = no_robot_machine_pop } }
+        }
+	}
+	
+	prerequisites = { "tech_biomechanics" }
+}

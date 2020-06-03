@@ -76,7 +76,7 @@ ship_design = {
 		}		
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_PICKET_SAPIENT"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"
 	required_component="DESTROYER_SHIP_THRUSTER_5"
@@ -251,7 +251,7 @@ ship_design = {
 		}		
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_3"
+	required_component="teif_JUMP_DRIVE_3"
 	required_component="COMBAT_COMPUTER_PICKET_SAPIENT"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"
 	required_component="DESTROYER_SHIP_THRUSTER_5"
@@ -363,7 +363,11 @@ ship_design = {
 		component = {
 			slot = "TORPEDO_01"
 			template = "TORPEDO_3"
-		}	
+		}
+		component = {
+			slot = "TORPEDO_02"
+			template = "TORPEDO_3"
+		}
 		component = {
 			slot = "SMALL_GUN_01"
 			template = "SMALL_PLASMA_3"
@@ -483,15 +487,15 @@ ship_design = {
 		}	
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_DARK_MATTER_DEFLECTOR"
+			template = "LARGE_PSI_SHIELD"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_DARK_MATTER_DEFLECTOR"
+			template = "LARGE_PSI_SHIELD"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_DARK_MATTER_DEFLECTOR"
+			template = "LARGE_PSI_SHIELD"
 		}	
 		component = {
 			slot = "LARGE_UTILITY_4"
@@ -601,7 +605,7 @@ ship_design = {
 		}		
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
 	required_component="DESTROYER_SHIP_THRUSTER_5"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"
@@ -650,11 +654,11 @@ ship_design = {
 		}		
 		component = {
 			slot = "PD_01"
-			template = "FLAK_BATTERY_2"
+			template = "FLAK_BATTERY_3"
 		}
 		component = {
 			slot = "PD_02"
-			template = "FLAK_BATTERY_2"
+			template = "FLAK_BATTERY_3"
 		}	
 		component = {
 			slot = "LARGE_UTILITY_1"
@@ -776,7 +780,7 @@ ship_design = {
 		}		
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"	
 	required_component="DESTROYER_SHIP_THRUSTER_5"
@@ -787,7 +791,7 @@ ship_design = {
 	allow_buildable_trigger = is_fallen_empire_xenophile
 }
 
- Defense Platform
+#Defense Platform
 ship_design = {
 	name = "NAME_Watcher"
 	ship_size = military_station_small_fallen_empire
@@ -894,7 +898,7 @@ ship_design = {
 		}
 		component={
 			slot="MEDIUM_UTILITY_6"
-			template="MEDIUM_DRAGON_ARMOR"
+			template="MEDIUM_ARMOR_5"
 		}
 		component={
 			slot="SMALL_GUN_04"
@@ -930,11 +934,11 @@ ship_design = {
 		}
 		component={
 			slot="MEDIUM_UTILITY_4"
-			template="MEDIUM_DRAGON_ARMOR"
+			template="MEDIUM_ARMOR_5"
 		}
 		component={
 			slot="MEDIUM_UTILITY_5"
-			template="MEDIUM_DRAGON_ARMOR"
+			template="MEDIUM_ARMOR_5"
 		}
 		component={
 			slot="MEDIUM_UTILITY_1"
@@ -950,7 +954,7 @@ ship_design = {
 		}
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_3"
+	required_component="teif_JUMP_DRIVE_3"
 	required_component="COMBAT_COMPUTER_PICKET_PRECOG"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"
 	required_component="DESTROYER_SHIP_THRUSTER_5"
@@ -1122,7 +1126,7 @@ ship_design = {
 		}
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_3"
+	required_component="teif_JUMP_DRIVE_3"
 	required_component="COMBAT_COMPUTER_PICKET_PRECOG"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"
 	required_component="DESTROYER_SHIP_THRUSTER_5"

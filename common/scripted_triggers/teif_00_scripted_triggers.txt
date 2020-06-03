@@ -1,5 +1,9 @@
 allow_diplo = {
 	custom_tooltip = {
+		fail_text = "DIPLOMACY_STATUS_WAR"
+		NOT = { is_at_war_with = event_target:recipient }
+	}
+	custom_tooltip = {
 		fail_text = "requires_actor_not_fanatic_purifiers"
 		OR = {
 			is_same_species = event_target:recipient
@@ -15,7 +19,7 @@ allow_diplo = {
 	}
 	custom_tooltip = {
 		fail_text = "requires_actor_not_devouring_swarm"
-		NOT = { has_valid_civic = civic_hive_devouring_swarm	}
+		NOT = { has_valid_civic = civic_hive_devouring_swarm }
 	}
 	custom_tooltip = {
 		fail_text = "requires_recipient_not_devouring_swarm"
@@ -51,6 +55,137 @@ allow_diplo = {
 			}
 		}
 	}
+	custom_tooltip = {
+		fail_text = "requires_actor_not_gestalt_terminator"
+		OR = {
+			is_same_species = event_target:recipient
+			NOT = { has_civic = civic_gestalt_terminator }
+			AND = {
+				has_civic = civic_gestalt_terminator
+				event_target:recipient = {
+					is_regular_empire = yes
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = "requires_recipient_not_gestalt_terminator"
+		OR = {
+			is_same_species = event_target:recipient
+			event_target:recipient = { NOT = { has_civic = civic_gestalt_terminator } }
+			AND = {
+				event_target:recipient = { has_civic = civic_gestalt_terminator }
+				is_regular_empire = yes
+			}
+		}
+	}
+}
+
+can_set_ai_policy = {
+	OR = {
+		has_technology = tech_synthetic_workers
+		has_technology = tech_sapient_ai
+		any_relation = {
+			has_communications = prev
+			OR = {
+				has_technology = tech_synthetic_workers
+				has_technology = tech_sapient_ai
+				has_authority = auth_machine_intelligence
+			}
+			OR = {
+				is_country_type = default
+				has_ai_personality_behaviour = robot_exploiter
+				has_ai_personality_behaviour = robot_liberator
+			}
+		}
+	}
+}
+
+is_valid_target_fe_cleanse_holy_worlds = {
+	NOT = { has_relic = r_severed_head }
+	OR = {
+		any_owned_planet = {
+			OR = {
+				is_same_value = event_target:holy_planet_1
+				is_same_value = event_target:holy_planet_2
+				is_same_value = event_target:holy_planet_3
+				is_same_value = event_target:holy_planet_4
+			}
+			is_colony = yes
+		}
+		any_subject = {
+			any_owned_planet = {
+				OR = {
+					is_same_value = event_target:holy_planet_1
+					is_same_value = event_target:holy_planet_2
+					is_same_value = event_target:holy_planet_3
+					is_same_value = event_target:holy_planet_4
+				}
+				is_colony = yes
+			}					
+		}
+	}	
+}
+
+is_valid_fallen_empire_for_task = {
+	is_country_type = fallen_empire
+	is_at_war = no
+	fleet_power > 60000
+	OR = {
+		has_ethic = ethic_fanatic_spiritualist
+		has_ethic = ethic_fanatic_xenophile
+		has_ethic = ethic_fanatic_materialist
+		has_ethic = ethic_fanatic_egalitarian
+		has_ethic = ethic_fanatic_communism
+		has_authority = auth_machine_intelligence
+	}
+}
+
+#Works in species scope, with a country in from
+is_lonely_hive_mind_pop = {
+	has_trait = trait_hive_mind
+	from = {
+		NOR = {
+			has_authority = auth_hive_mind
+			AND = {
+				has_technology = tech_create_hive_mind
+				has_policy_flag = full_hive_mind_pop
+			}
+		}
+	}
+}
+
+#Works in species scope, with a country in from
+is_disconnected_machine_pop = {
+	has_trait = trait_machine_unit
+	from = {
+        NOR = {
+            has_authority = auth_machine_intelligence
+            AND = {
+                has_technology = tech_automaton_brain
+                has_policy_flag = full_robot_machine_pop
+            }
+        }
+	}
+}
+
+is_non_sapient_robot = { # The pop is a non-sapient robot
+	OR = {
+		AND = {
+			has_citizenship_type = { type = citizenship_robot_servitude }
+			has_trait = trait_machine_unit
+		}
+		AND = {
+			has_trait = "trait_mechanical"
+			NAND = {
+				exists = owner
+				owner = { 
+					has_technology = "tech_synthetic_workers"
+					NOT = { has_policy_flag = ai_outlawed } 
+				}
+			}
+		}
+	}
 }
 
 is_fallen_empire_authoritarian = {
@@ -69,16 +204,20 @@ is_fallen_empire_egalitarian = {
 	has_ethic = ethic_fanatic_egalitarian
 }
 
-is_valid_fallen_empire_for_task = {
-	is_country_type = fallen_empire
-	is_at_war = no
-	fleet_power > 40000
+is_binary_star = {
 	OR = {
-		has_ethic = ethic_fanatic_spiritualist
-		has_ethic = ethic_fanatic_xenophile
-		has_ethic = ethic_fanatic_materialist
-		has_ethic = ethic_fanatic_egalitarian
-		has_authority = auth_machine_intelligence
+		is_star_class = sc_binary_1
+		is_star_class = sc_binary_2
+		is_star_class = sc_binary_3
+		is_star_class = sc_binary_4
+		is_star_class = sc_binary_5
+		is_star_class = sc_binary_6
+		is_star_class = sc_binary_7
+		is_star_class = sc_binary_8
+		is_star_class = sc_binary_9
+		is_star_class = sc_binary_10
+		is_star_class = teif_sc_binary_1
+		is_star_class = teif_sc_trinary_1
 	}
 }
 
@@ -110,10 +249,4 @@ is_fe_cluster = {
 		is_in_cluster = fe6_cluster
 		is_in_cluster = fe_mach_cluster
 	}
-}
-
-#Works in species scope, with a country in from
-is_disconnected_machine_pop = {
-	has_trait = trait_machine_unit
-	from = { is_synthetic_empire = no }
 }

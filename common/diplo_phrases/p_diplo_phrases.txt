@@ -1,7 +1,7 @@
 greetings = {
 	01_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_patronizing_to = FROM
@@ -10,7 +10,7 @@ greetings = {
 	}
 	02_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_patronizing_to = FROM
@@ -19,7 +19,7 @@ greetings = {
 	}
 	03_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_patronizing_to = FROM
@@ -27,7 +27,7 @@ greetings = {
 	}
 	04_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_patronizing_to = FROM
@@ -35,7 +35,7 @@ greetings = {
 	}
 	05_FALLEN_EMPIRE_PATRONIZING_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			OR = {
 				is_patronizing_to = FROM
@@ -54,7 +54,7 @@ greetings = {
 	}
 	01_FALLEN_EMPIRE_DISMISSIVE_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_dismissive_to = FROM
@@ -67,7 +67,7 @@ greetings = {
 	}
 	02_FALLEN_EMPIRE_DISMISSIVE_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_dismissive_to = FROM
@@ -76,7 +76,7 @@ greetings = {
 	}
 	03_FALLEN_EMPIRE_DISMISSIVE_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_at_war_with = FROM }
 			is_dismissive_to = FROM
@@ -85,7 +85,7 @@ greetings = {
 	}
 	01_FALLEN_EMPIRE_ANGRY_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			is_angry_to = FROM
 			FROM = {
@@ -99,7 +99,7 @@ greetings = {
 	}
 	01_FALLEN_EMPIRE_GREETING_teif = {
 		trigger = {
-			has_country_flag = fallen_empire_6
+			has_ethic = ethic_fanatic_communism
 			is_country_type = fallen_empire
 			NOT = { is_angry_to = FROM }
 		}

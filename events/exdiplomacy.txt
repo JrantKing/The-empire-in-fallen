@@ -273,12 +273,6 @@ country_event = {
 	}
 	option = {
 		name = "exdiplomacy.0.f"
-		allow = {
-			custom_tooltip = {
-				fail_text = "exdiplomacy.0.d.task"
-				always = no
-			}
-		}
 		trigger = {
 			is_country_type = fallen_empire
 			event_target:recipient = {
@@ -286,13 +280,144 @@ country_event = {
 					is_country_type = fallen_empire
 					is_country_type = awakened_fallen_empire
 				}
+				NOT = { has_country_flag = fe_demand_made }
+				event_target:actor = { opinion = { who = event_target:recipient value < -99 } }
+				NOT = { event_target:actor = { has_opinion_modifier = { who = event_target:recipient modifier = opinion_refused_fallen_empire_demand } } }
 			}
 		}
 		custom_tooltip = exdiplomacy.0.f.tooltip
 		hidden_effect ={
 			remove_country_flag = ex_diplomacy
 			event_target:recipient = {
-				
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ai_personality_behaviour = holy_planets
+						}
+						is_valid_target_fe_cleanse_holy_worlds = yes
+					}			
+					country_event = { id = fallen_empires.4 }		
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ethic = ethic_fanatic_spiritualist
+						}
+						is_valid_target_fe_stop_ai = yes
+					}					
+					country_event = { id = fallen_empires.5 }	
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ethic = ethic_fanatic_xenophile
+						}	
+						is_valid_target_fe_stop_atrocities = yes
+					}			
+					country_event = { id = fallen_empires.6 }		
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ai_personality_behaviour = demands_clear_borders
+						}
+						any_system_within_border = {
+							event_target:actor = {
+								any_system_within_border = {
+									has_hyperlane_to = prevprev
+								}
+							}
+						}
+					}				
+					country_event = { id = fallen_empires.7 }
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ethic = ethic_fanatic_egalitarian
+						}
+						has_authority = auth_hive_mind
+						NOT = { has_civic = civic_hive_devouring_swarm }
+					}				
+					country_event = { id = fallen_empires.15 }
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ethic = ethic_fanatic_egalitarian
+						}
+						any_owned_pop = {
+							has_trait = "trait_mechanical"
+						}
+						NOR = {
+							has_policy_flag = ai_full_rights 
+							is_mechanical_empire = yes
+						}
+						has_technology = tech_synthetic_workers
+						NOT = { has_country_flag = allows_ai_fallen }
+					}				
+					country_event = { id = fallen_empires.16 }
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ethic = ethic_fanatic_egalitarian
+						}
+						has_authority = auth_hive_mind
+						has_civic = civic_hive_devouring_swarm
+					}				
+					country_event = { id = fallen_empires.17 }
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ethic = ethic_fanatic_egalitarian
+						}
+						any_owned_pop = {
+							is_robot_pop = yes
+						}
+						OR = {
+							has_policy_flag = ai_outlawed
+							has_policy_flag = ai_servitude
+						}
+						has_technology = tech_synthetic_workers
+						NOT = { has_country_flag = 2nd_allows_ai_fallen }
+						has_country_flag = allows_ai_fallen
+					}				
+					country_event = { id = fallen_empires.18 }
+					set_country_flag = 2nd_allows_ai_fallen
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:actor = { 
+							has_ethic = ethic_fanatic_egalitarian
+						}
+						any_owned_pop = {
+							has_trait = "trait_mechanical"
+						}
+						NOR = {
+							has_policy_flag = ai_full_rights 
+							is_mechanical_empire = yes
+						}
+						has_technology = tech_synthetic_workers
+						has_country_flag = 2nd_allows_ai_fallen
+						has_country_flag = allows_ai_fallen
+					}				
+					event_target:actor = { add_opinion_modifier = { modifier = opinion_majorly_failed_fallen_empire_task who = prev } }
+					break = yes
+				}			
+				if = {
+					limit = { NOT = { has_modifier = humiliated } }
+					country_event = { id = fallen_empires.8 }
+				}
 			}
 		}
 	}
@@ -404,7 +529,7 @@ country_event = {
 			exists = event_target:fallen_machine
 			NOT = { is_at_war_with = event_target:recipient }
 			event_target:recipient = {
-				has_country_flag = fallen_empire_6
+				has_ethic = ethic_fanatic_communism
 				NOR = {
 					is_angry_to = event_target:actor
 					is_imperious_to = event_target:actor
@@ -429,7 +554,7 @@ country_event = {
 			exists = event_target:europa
 			NOT = { is_at_war_with = event_target:recipient }
 			event_target:recipient = {
-				has_country_flag = fallen_empire_6
+				has_ethic = ethic_fanatic_communism
 				NOR = {
 					is_angry_to = event_target:actor
 					is_imperious_to = event_target:actor
@@ -495,5 +620,43 @@ country_event = {
 		hidden_effect ={
 			remove_country_flag = ex_diplomacy
 		}
+	}
+}
+
+country_event = {
+	id = exdiplomacy.3
+	title = "exdiplomacy.3.name"
+	is_triggered_only = yes
+	show_sound = elder_greetings
+	desc = ex_diplomacy.3.desc.a
+	desc = ex_diplomacy.3.desc.b
+	desc = ex_diplomacy.3.desc.c
+	desc = ex_diplomacy.3.desc.d
+	desc = ex_diplomacy.3.desc.e
+	desc = ex_diplomacy.3.desc.f
+	desc = ex_diplomacy.3.desc.g
+	desc = ex_diplomacy.3.desc.h
+	desc = ex_diplomacy.3.desc.i
+	desc = ex_diplomacy.3.desc.j
+	desc = ex_diplomacy.3.desc.k
+	# custom_gui = "enclave_artist_window"
+	# custom_gui_option = "enclave_artist_option"
+	diplomatic = yes
+	trigger = {
+		from = { is_country_type = sanctuary }
+		NOT = { exists = event_target:fallen_empire_6 }
+		is_homicidal = no
+		#has_country_flag = get_elder_service
+	}
+	picture_event_data = {
+		portrait = event_target:sanctuary
+		#planet_background = pc_ringworld_habitable
+		planet_background = pc_relic
+		graphical_culture = fallen_empire_06
+		#city_level = 4
+		room = personality_fallen_empire_blue_room
+	}
+	option = {
+		name = OK
 	}
 }

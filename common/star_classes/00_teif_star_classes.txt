@@ -1,0 +1,40 @@
+teif_sc_binary_1 = { # Binary System: Brown Dwarf
+    class             = g_star
+    icon              = d_binary_star
+    planet            = {
+                        key = pc_g_star
+                        class = g_star
+                    }
+    planet            = {
+                        key = pc_t_star
+                        class = t_star
+                    }
+    spawn_odds         = 4
+    num_planets     = { min = 4 max = 10 }
+}
+
+teif_sc_trinary_1 = {
+    class             = k_star
+    icon              = black_hole
+    icon_scale		= 2.0
+    planet            = {
+                        key = pc_k_star
+                        class = k_star
+                    }
+    planet            = {
+                        key = pc_f_star
+                        class = f_star
+                    }
+    planet            = {
+                        key = pc_m_star
+                        class = m_star
+                    }
+    spawn_odds         = 4
+    num_planets     = { min = 4 max = 10 }
+    is_environmental_hazard = yes
+	modifier = {
+		ship_disengage_chance_reduction = 0.9
+        ship_emergency_ftl_min_days_mult = 0.9
+        ship_speed_reduction = 0.9
+	}
+}

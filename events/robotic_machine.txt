@@ -1,0 +1,84 @@
+namespace = robotic_machine
+
+# Get Machine Species
+country_event = {
+	id = robotic_machine.0
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+		has_technology = tech_automaton_brain
+		NOT = { has_country_flag = get_machine }
+		any_owned_planet = {
+			is_capital = yes
+		}
+	}
+
+	immediate = {
+        set_country_flag = get_machine
+        set_policy = {
+            policy = robot_machine_pop
+            option = servitude_robot_machine_pop
+            cooldown = no
+        }
+        random_owned_planet = {
+            limit = {
+                is_capital = yes
+            }
+            save_event_target_as = capital
+        }
+		create_species = {
+			name = "NAME_Machine"
+			plural = "NAME_Machine"
+			class = MACHINE
+			namelist = MACHINE3
+			portrait = "default_robot"
+			homeworld = event_target:capital
+			traits = {
+				trait = trait_machine_unit
+			}
+			effect = {
+				if = { limit = { host_has_dlc = "Synthetic Dawn Story Pack" }
+					root.species = {
+						switch = {
+							trigger = is_species_class
+							HUM = { prev = { change_species_characteristics = { portrait = "sd_hum_robot" } } }
+							MAM = { prev = { change_species_characteristics = { portrait = "sd_mam_robot" } } }
+							REP = { prev = { change_species_characteristics = { portrait = "sd_rep_robot" } } }
+							AVI = { prev = { change_species_characteristics = { portrait = "sd_avi_robot" } } }
+							ART = { prev = { change_species_characteristics = { portrait = "sd_art_robot" } } }
+							MOL = { prev = { change_species_characteristics = { portrait = "sd_mol_robot" } } }
+							FUN = { prev = { change_species_characteristics = { portrait = "sd_fun_robot" } } }
+							PLANT = { prev = { change_species_characteristics = { portrait = "sd_pla_robot" } } }
+							LITHOID = { prev = { change_species_characteristics = { portrait = "lith_machine" } } }
+						}
+					}
+				}
+				save_event_target_as = machine_species
+			}
+		}
+		last_created_species = { set_species_flag = mechanical_species@prev }
+		set_built_species = last_created_species
+		if = {
+			limit = {
+				is_ai = no
+			}
+			event_target:machine_species = {
+				rename_species = {
+					prompt_country = root
+					name_list = robotic_machine
+				}
+			}
+		}
+		last_created_species = {
+			set_citizenship_type = {
+				type = citizenship_robot_servitude
+				country = root
+			}
+		}
+	}
+}

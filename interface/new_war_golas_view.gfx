@@ -12,4 +12,52 @@ spriteTypes = {
 		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
 		noOfFrames = 2
 	}
+	spriteType = {
+		name = "GFX_wg_war_in_heaven_teif"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_war_in_galaxy"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	#
+	spriteType = {
+		name = "GFX_wg_end_threat_gestalt"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	#
+	spriteType = {
+		name = "GFX_wg_end_threat_assimilation_gestalt"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_end_threat_cleansing_gestalt"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_end_threat_absorption_gestalt"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	#
+	spriteType = {
+		name = "GFX_wg_assimilation_gestalt_terminator"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_cleansing_gestalt_terminator"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_wg_absorption_gestalt_terminator"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_war.dds"
+		noOfFrames = 2
+	}
 }

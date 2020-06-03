@@ -1,0 +1,13 @@
+portraits = {
+	ta1 = {	entity = "portrait_reptilian_11_entity"	clothes_selector = "reptilian_massive_clothes_11" hair_selector = "no_texture"
+		greeting_sound = "elder_greetings"
+		character_textures = {
+			"gfx/models/portraits/ta1.dds"
+		}
+	}
+}
+portrait_groups = {
+	elder = {
+		default = ta1
+	}
+}

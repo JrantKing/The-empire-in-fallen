@@ -1,6 +1,4 @@
-in_fallen = {
-	set_country_type = fallen_empire
-	set_fallen_species = yes
+in_fallen_materialist = {
 	switch = {
 		trigger = has_ethic
 		ethic_materialist = { country_remove_ethic = ethic_materialist }
@@ -12,8 +10,29 @@ in_fallen = {
 		ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
 		ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
 	}
-	add_global_ship_design = "NAME_Null"
-	add_global_ship_design = "NAME_Null_station"
+    set_country_type = fallen_empire
+	set_country_flag = get_machine
+	create_ship_design = { design = "NAME_FE_Starbase" }
+	add_ship_design = last_created_design
+	set_timed_country_flag = {
+		flag = game_start_job
+		days = 90
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_country_flag = machine_computer_release_completed
+				has_country_flag = machine_computer_repressed_completed
+			}
+		}
+		set_country_flag = machine_computer_repressed_completed
+	}
+    set_fallen_species = yes
+    leave_alliance = { override_requirements = yes }
+	add_modifier = {
+		modifier = fe_ship_cost_modifier
+		days = -1
+	}
 	give_technology = {
 		tech = tech_colossus
 		message = no
@@ -48,15 +67,11 @@ in_fallen = {
 	}
 	random_owned_planet = {
 		limit = { is_capital = yes }
-		every_moon = { remove_planet = yes }
-		remove_all_buildings = yes
-		every_owned_pop = { kill_pop = yes }
-		destroy_colony = yes
-		remove_planet = yes
+		set_planet_flag = waiting_remove
+		save_event_target_as = prev_capital
 	}
 	every_owned_planet = {
 		limit = { is_capital = no }
-		every_moon = { remove_planet = yes }
 		remove_all_buildings = yes
 		every_owned_pop = { kill_pop = yes }
 		destroy_colony = yes
@@ -77,696 +92,143 @@ in_fallen = {
 			}
 		}
 	}
-	set_spawn_system_batch = begin
-	switch = {
-		trigger = has_ethic
-		ethic_fanatic_materialist = {
-			set_country_flag =  fallen_empire_1
-			random_list = {
-				10 = { set_name = "[This.GetSpeciesName]管理会" }
-				10 = { set_name = "[This.GetSpeciesName]保存会" }
-				10 = { set_name = "[This.GetSpeciesName]纪录会" }
-			}
-			if = {
-				limit = { NOR = { is_species_class = ROBOT has_trait = trait_cybernetic } }
-				modify_species = {
-					species = this
-					add_trait = trait_cybernetic
-					base = none
-				}
-				every_owned_leader = {
-					limit = {
-						species = { has_trait = trait_cybernetic }
-						NOR = {
-							has_trait = leader_trait_admiral_cyborg
-							has_trait = leader_trait_general_cyborg
-							has_trait = leader_trait_governor_cyborg
-							has_trait = leader_trait_scientist_cyborg
-							has_trait = leader_trait_ruler_cyborg
-							has_trait = leader_trait_curator
-						}
-					}
-					if = {
-						limit = { leader_class = admiral }
-						add_trait = leader_trait_admiral_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = general }
-						add_trait = leader_trait_general_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = governor }
-						add_trait = leader_trait_governor_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = scientist }
-						add_trait = leader_trait_scientist_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = ruler }
-						add_trait = leader_trait_ruler_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-				}
-				every_pool_leader = {
-					limit = {
-						species = { has_trait = trait_cybernetic }
-						NOR = {
-							has_trait = leader_trait_admiral_cyborg
-							has_trait = leader_trait_general_cyborg
-							has_trait = leader_trait_governor_cyborg
-							has_trait = leader_trait_scientist_cyborg
-							has_trait = leader_trait_ruler_cyborg
-						}
-					}
-					if = {
-						limit = { leader_class = admiral }
-						add_trait = leader_trait_admiral_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = general }
-						add_trait = leader_trait_general_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = governor }
-						add_trait = leader_trait_governor_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = scientist }
-						add_trait = leader_trait_scientist_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-					if = {
-						limit = { leader_class = ruler }
-						add_trait = leader_trait_ruler_cyborg
-						add_ruler_trait = leader_trait_ruler_cyborg
-					}
-				}
-			}
-			give_technology = { message = no tech = tech_pk_shielder }
-			create_ship_design = { design = "NAME_Enforcer" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Savant" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Scholar" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Sage" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Cloaker" }
-			add_ship_design = last_created_design
-			capital_scope = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					initializer = fallen_1
-				}
-				starbase = { fleet = { delete_fleet = this } }
-				save_event_target_as = prev_capital
-			}
-			event_target:fallen_1 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 45
-					max_orientation_angle = 45
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 135
-					max_orientation_angle = 135
-					initializer = fallen_col_2
-				}
-			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_1 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_1 }
-			event_target:fallen_1 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 225
-					max_orientation_angle = 225
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 315
-					max_orientation_angle = 315
-					initializer = fallen_col_2
-				}
-			}
-			random_list = {
-				1 = {
-					event_target:fallen_1 = {
-						spawn_system = {
-							min_distance >= 10
-							max_distance <= 10
-							min_orientation_angle = 90
-							max_orientation_angle = 90
-							initializer = fallen_1_2
-						}
-					}
-				}
-				1 = {
-					event_target:fallen_1 = {
-						spawn_system = {
-							min_distance >= 10
-							max_distance <= 10
-							min_orientation_angle = 180
-							max_orientation_angle = 180
-							initializer = fallen_1_2
-						}
-					}
-				}
-			}
-			add_hyperlane = { from = event_target:fallen_1_2 to = event_target:fallen_1 }
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_1 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_1 }
-			set_spawn_system_batch = end
+	if = {
+		limit = { NOR = { is_species_class = ROBOT has_trait = trait_cybernetic } }
+		modify_species = {
+			species = this
+			add_trait = trait_cybernetic
+			base = none
 		}
-		ethic_fanatic_spiritualist = {
-			random_list = {
-				10 = { set_name = "[This.GetSpeciesName]保护者" }
-				10 = { set_name = "[This.GetSpeciesName]守望者" }
-				10 = { set_name = "[This.GetSpeciesName]守护者" }
-			}
-			if = {
-				limit = { has_trait = trait_latent_psionic }
-				modify_species = {
-					species = this
-					remove_trait = trait_latent_psionic
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_admiral_cyborg
+					has_trait = leader_trait_general_cyborg
+					has_trait = leader_trait_governor_cyborg
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_ruler_cyborg
+					has_trait = leader_trait_curator
 				}
 			}
 			if = {
-				limit = { NOT = { has_trait = trait_psionic } }
-				modify_species = {
-					species = this
-					add_trait = trait_psionic
-					base = none
-				}
-				every_owned_leader = {
-					limit = {
-						is_same_species = root
-						NOR = {
-							has_trait =	leader_trait_admiral_psionic
-							has_trait =	leader_trait_general_psionic
-							has_trait =	leader_trait_governor_psionic
-							has_trait =	leader_trait_scientist_psionic
-							has_trait =	leader_trait_ruler_psionic
-						}
-					}
-					if = {
-						limit = { leader_class = admiral }
-						add_trait = leader_trait_admiral_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = general }
-						add_trait = leader_trait_general_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = governor }
-						add_trait = leader_trait_governor_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = scientist }
-						add_trait = leader_trait_scientist_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = ruler }
-						add_trait = leader_trait_ruler_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-				}
-				every_pool_leader = {
-					limit = {
-						is_same_species = root
-						NOR = {
-							has_trait = leader_trait_admiral_psionic
-							has_trait = leader_trait_general_psionic
-							has_trait = leader_trait_governor_psionic
-							has_trait = leader_trait_scientist_psionic
-							has_trait = leader_trait_ruler_psionic
-						}
-					}
-					if = {
-						limit = { leader_class = admiral }
-						add_trait = leader_trait_admiral_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = general }
-						add_trait = leader_trait_general_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = governor }
-						add_trait = leader_trait_governor_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = scientist }
-						add_trait = leader_trait_scientist_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-					if = {
-						limit = { leader_class = ruler }
-						add_trait = leader_trait_ruler_psionic
-						add_ruler_trait = leader_trait_ruler_psionic
-					}
-				}
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			give_technology = { message = no tech = tech_pk_neutron }
-			create_ship_design = { design = "NAME_Cleanser" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Eternal" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Avatar" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Zealot" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Faith" }
-			add_ship_design = last_created_design
-			capital_scope = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					initializer = fallen_2
-				}
-				starbase = { fleet = { delete_fleet = this } }
-				save_event_target_as = prev_capital
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			event_target:fallen_2 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 45
-					max_orientation_angle = 45
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 135
-					max_orientation_angle = 135
-					initializer = fallen_col_2
-				}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_2 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_2 }
-			event_target:fallen_2 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 225
-					max_orientation_angle = 225
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 315
-					max_orientation_angle = 315
-					initializer = fallen_col_2
-				}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			random_list = {
-				1 = {}
-				1 = {
-					1 = {
-					event_target:fallen_2 = {
-							spawn_system = {
-								min_distance >= 10
-								max_distance <= 10
-								min_orientation_angle = 90
-								max_orientation_angle = 90
-								initializer = fallen_shrouded
-							}
-						}
-					}
-					1 = {
-						event_target:fallen_2 = {
-							spawn_system = {
-								min_distance >= 10
-								max_distance <= 10
-								min_orientation_angle = 180
-								max_orientation_angle = 180
-								initializer = fallen_shrouded
-							}
-						}
-					}
-					add_hyperlane = { from = event_target:fallen_shrouded to = event_target:fallen_2 }
-				}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_2 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_2 }
-			set_spawn_system_batch = end
 		}
-		ethic_fanatic_xenophile = {
-			random_list = {
-				10 = { set_name = "[This.GetSpeciesName]始祖星族" }
-				10 = { set_name = "[This.GetSpeciesName]先锋星族" }
-				10 = { set_name = "[This.GetSpeciesName]古代星族" }
-			}
-			give_technology = { message = no tech = tech_pk_shielder }
-			create_ship_design = { design = "NAME_Adjuster" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Keeper" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Custodian" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Warden" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Watcher" }
-			add_ship_design = last_created_design
-			capital_scope = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					initializer = fallen_3
-				}
-				starbase = { fleet = { delete_fleet = this } }
-				save_event_target_as = prev_capital
-			}
-			event_target:fallen_3 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 45
-					max_orientation_angle = 45
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 135
-					max_orientation_angle = 135
-					initializer = fallen_col_2
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_admiral_cyborg
+					has_trait = leader_trait_general_cyborg
+					has_trait = leader_trait_governor_cyborg
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_ruler_cyborg
 				}
 			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_3 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_3 }
-			event_target:fallen_3 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 225
-					max_orientation_angle = 225
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 315
-					max_orientation_angle = 315
-					initializer = fallen_col_2
-				}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			#random_list = {
-			#	1 = {
-			#		event_target:fallen_3 = {
-			#			spawn_system = {
-			#				min_distance >= 10
-			#				max_distance <= 10
-			#				min_orientation_angle = 90
-			#				max_orientation_angle = 90
-			#				initializer = fallen_xeno_zoo
-			#			}
-			#		}
-			#	}
-			#	1 = {
-			#		event_target:fallen_3 = {
-			#			spawn_system = {
-			#				min_distance >= 10
-			#				max_distance <= 10
-			#				min_orientation_angle = 180
-			#				max_orientation_angle = 180
-			#				initializer = fallen_xeno_zoo
-			#			}
-			#		}
-			#	}
-			#}
-			#add_hyperlane = { from = event_target:fallen_xeno_zoo to = event_target:fallen_3 }
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_3 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_3 }
-			set_spawn_system_batch = end
-		}
-		ethic_fanatic_xenophobe = {
-			random_list = {
-				10 = { set_name = "[This.GetSpeciesName]碎片文明" }
-				10 = { set_name = "[This.GetSpeciesName]遗留文明" }
-				10 = { set_name = "[This.GetSpeciesName]遗迹文明" }
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			give_technology = { message = no tech = tech_pk_cracker }
-			create_ship_design = { design = "NAME_Reaper" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Imperium" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Supremacy" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Glory" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Devastator" }
-			add_ship_design = last_created_design
-			capital_scope = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					initializer = fallen_4
-				}
-				starbase = { fleet = { delete_fleet = this } }
-				save_event_target_as = prev_capital
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			event_target:fallen_4 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 45
-					max_orientation_angle = 45
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 135
-					max_orientation_angle = 135
-					initializer = fallen_col_2
-				}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_4 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_4 }
-			event_target:fallen_4 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 225
-					max_orientation_angle = 225
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 315
-					max_orientation_angle = 315
-					initializer = fallen_col_2
-				}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
 			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_4 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_4 }
-			set_spawn_system_batch = end
-		}
-		ethic_fanatic_authoritarian = {
-			random_list = {
-				10 = { set_name = "[This.GetSpeciesName]沉寂皇族" }
-				10 = { set_name = "[This.GetSpeciesName]僻静皇族" }
-				10 = { set_name = "[This.GetSpeciesName]边陲皇族" }
-			}
-			give_technology = { message = no tech = tech_pk_cracker }
-			create_ship_design = { design = "NAME_Giant" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Flare" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Pianeta" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Selina" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Dwarf" }
-			add_ship_design = last_created_design
-			capital_scope = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					initializer = fallen_5
-				}
-				starbase = { fleet = { delete_fleet = this } }
-				save_event_target_as = prev_capital
-			}
-			event_target:fallen_5 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 45
-					max_orientation_angle = 45
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 135
-					max_orientation_angle = 135
-					initializer = fallen_col_2
-				}
-			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_5 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_5 }
-			event_target:fallen_5 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 225
-					max_orientation_angle = 225
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 315
-					max_orientation_angle = 315
-					initializer = fallen_col_2
-				}
-			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_5 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_5 }
-			set_spawn_system_batch = end
-		}
-		ethic_fanatic_egalitarian = {
-			random_list = {
-				10 = { set_name = "[This.GetSpeciesName]自由邦" }
-				10 = { set_name = "[This.GetSpeciesName]乌托邦" }
-				10 = { set_name = "[This.GetSpeciesName]文明邦" }
-			}
-			give_technology = { message = no tech = tech_pk_shielder }
-			create_ship_design = { design = "NAME_Justice" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Liberation" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Freeborn" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Equalities" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_Shininess" }
-			add_ship_design = last_created_design
-			capital_scope = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					initializer = fallen_6
-				}
-				starbase = { fleet = { delete_fleet = this } }
-				save_event_target_as = prev_capital
-			}
-			event_target:fallen_6 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 45
-					max_orientation_angle = 45
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 135
-					max_orientation_angle = 135
-					initializer = fallen_col_2
-				}
-			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_6 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_6 }
-			event_target:fallen_6 = {
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 225
-					max_orientation_angle = 225
-					initializer = fallen_col_1
-				}
-				spawn_system = {
-					min_distance >= 10
-					max_distance <= 10
-					min_orientation_angle = 315
-					max_orientation_angle = 315
-					initializer = fallen_col_2
-				}
-			}
-			add_hyperlane = { from = event_target:fallen_col_1 to = event_target:fallen_6 }
-			add_hyperlane = { from = event_target:fallen_col_2 to = event_target:fallen_6 }
-			set_spawn_system_batch = end
 		}
 	}
+	give_technology = { message = no tech = tech_pk_shielder }
+	create_ship_design = { design = "NAME_Enforcer" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Savant" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Scholar" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Sage" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Cloaker" }
+	add_ship_design = last_created_design
+	spawn_fallen_system_1 = yes
 	event_target:prev_capital.solar_system = { create_fe_outpost = yes }
-	every_owned_planet = {
-		limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class }
-		every_owned_pop = { kill_pop = yes }
-		remove_all_buildings = yes
-	}
-	root.species = {
-		switch = {
-			trigger = has_trait
-			"trait_pc_desert_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_desert } } }
-			"trait_pc_arid_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_arid } } }
-			"trait_pc_savannah_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_savannah } } }
-			"trait_pc_tropical_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_tropical } } }
-			"trait_pc_continental_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_continental } } }
-			"trait_pc_ocean_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_ocean } } }
-			"trait_pc_arctic_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_arctic } } }
-			"trait_pc_tundra_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_tundra } } }
-			"trait_pc_alpine_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_alpine } } }
-			"trait_pc_nuked_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_nuked } } }
-			"trait_pc_gaia_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } reroll_deposits = yes change_pc = pc_gaia } } }
+	if = {
+		limit = {
+			root.species = { NOR = { is_archetype = MACHINE is_archetype = ROBOT } }
+		}
+		root.species = {
+			switch = {
+				trigger = has_trait
+				default = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+				"trait_pc_desert_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+				"trait_pc_arid_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+				"trait_pc_savannah_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+				"trait_pc_tropical_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+				"trait_pc_continental_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+				"trait_pc_ocean_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+				"trait_pc_arctic_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+				"trait_pc_tundra_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+				"trait_pc_alpine_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				"trait_pc_nuked_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_nuked reset_planet = yes } } }
+				"trait_pc_gaia_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+			}
 		}
 	}
-	every_owned_planet = {
-		limit = { has_planet_flag = ideal_planet_class has_planet_flag = fallen_empire_world }
-		reroll_deposits = yes
-		remove_planet_flag = ideal_planet_class
-		if = {
-			limit = { root = { is_fallen_empire_spiritualist = no } }
-			create_fe_fringe_colony = yes
-		}
-		else = { create_fe_spiritualist_fringe_colony = yes }
-		if = {
-			limit = { root = { is_fallen_empire_egalitarian = yes } }
-			random_list = {
-				1 = {
-					add_district = district_generator
-					add_district = district_generator
-					add_district = district_mining
-					add_district = district_farming
-				}
-				1 = {
-					add_district = district_generator
-					add_district = district_mining
-					add_district = district_mining
-					add_district = district_farming
+	else_if = {
+		limit = { root.species = { OR = { is_archetype = MACHINE is_archetype = ROBOT } } }
+		root = {
+			random_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = random_habitable_teif reset_planet = yes save_event_target_as = ideal_planet }
+			event_target:ideal_planet = {
+				switch = {
+					trigger = is_planet_class
+					"pc_desert" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+					"pc_arid" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+					"pc_savannah" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+					"pc_tropical" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+					"pc_continental" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+					"pc_ocean" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+					"pc_arctic" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+					"pc_tundra" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+					"pc_alpine" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
 				}
 			}
 		}
-		add_building = building_affluence_center
-		add_building = building_nano_forge
-		add_building = building_dimensional_fabricator
 	}
 	every_owned_fleet = {
 		if = {
@@ -777,15 +239,1141 @@ in_fallen = {
 	every_owned_ship = { limit = { NOR = { is_ship_class = shipclass_starbase is_ship_class = shipclass_military_station } } delete_ship = this }
 	country_event = { id = fallen_start.2 days = 2 }
 	root = {
-		set_policy = {
-			policy = artificial_intelligence_policy
-			option = ai_servitude
-			cooldown = no
+		if = {
+			limit = {
+				NOR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_servitude
+				cooldown = no
+			}
+			set_policy = {
+				policy = robot_pop_policy
+				option = robot_pops_allowed
+				cooldown = no
+			}
 		}
-		set_policy = {
-			policy = robot_pop_policy
-			option = robot_pops_allowed
-			cooldown = no
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_full_rights
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = synthetic_empire
+				NOT = { has_country_flag = release_robotic_machine }
+			}
+			every_owned_pop = {
+				limit = { NOT = { is_same_species = root } }
+				change_species = root.built_species
+			}
+		}
+	}
+}
+
+in_fallen_spiritualist = {	
+	country_remove_ethic = ethic_materialist
+	country_remove_ethic = ethic_spiritualist
+	country_remove_ethic = ethic_militarist
+	country_remove_ethic = ethic_pacifist
+	country_remove_ethic = ethic_xenophile
+	country_remove_ethic = ethic_xenophobe
+	country_remove_ethic = ethic_egalitarian
+	country_remove_ethic = ethic_authoritarian
+    set_country_type = fallen_empire
+	set_country_flag = get_machine
+	create_ship_design = { design = "NAME_FE_Starbase" }
+	add_ship_design = last_created_design
+	set_timed_country_flag = {
+		flag = game_start_job
+		days = 90
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_country_flag = machine_computer_release_completed
+				has_country_flag = machine_computer_repressed_completed
+			}
+		}
+		set_country_flag = machine_computer_repressed_completed
+	}
+    set_fallen_species = yes
+    leave_alliance = { override_requirements = yes }
+	add_modifier = {
+		modifier = fe_ship_cost_modifier
+		days = -1
+	}
+	give_technology = {
+		tech = tech_colossus
+		message = no
+	}
+	change_government = {
+		civics = {
+			civic = civic_lethargic_leadership
+			civic = civic_empire_in_decline
+		}
+	}
+	random_country = {
+		limit = {
+			is_country_type = global_event
+		}
+		save_event_target_as = global_event
+	}
+	copy_techs_from = {
+		target = event_target:global_event
+	}
+	add_resource = {
+		minerals = 10000
+		energy = 10000	
+		alloys = 10000
+		food = 1000
+		influence = 500
+		rare_crystals = 10
+		exotic_gases = 10
+		volatile_motes = 10
+		sr_dark_matter = 10
+		sr_living_metal = 10
+		sr_zro = 10
+	}
+	random_owned_planet = {
+		limit = { is_capital = yes }
+		set_planet_flag = waiting_remove
+		save_event_target_as = prev_capital
+	}
+	every_owned_planet = {
+		limit = { is_capital = no }
+		remove_all_buildings = yes
+		every_owned_pop = { kill_pop = yes }
+		destroy_colony = yes
+		reroll_planet = yes
+	}
+	every_system_within_border = {
+		if = {
+			limit = {
+				exists = starbase
+			}
+			random_fleet_in_system = {
+				limit = {
+					any_owned_ship = {
+						is_ship_class = shipclass_starbase
+					}
+				}
+				delete_fleet = this
+			}
+		}
+	}
+	if = {
+		limit = { has_trait = trait_latent_psionic }
+		modify_species = {
+			species = this
+			remove_trait = trait_latent_psionic
+		}
+	}
+	if = {
+		limit = { NOT = { has_trait = trait_psionic } }
+		modify_species = {
+			species = this
+			add_trait = trait_psionic
+			base = none
+		}
+		every_owned_leader = {
+			limit = {
+				is_same_species = root
+				NOR = {
+					has_trait =	leader_trait_admiral_psionic
+					has_trait =	leader_trait_general_psionic
+					has_trait =	leader_trait_governor_psionic
+					has_trait =	leader_trait_scientist_psionic
+					has_trait =	leader_trait_ruler_psionic
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+		}
+		every_pool_leader = {
+			limit = {
+				is_same_species = root
+				NOR = {
+					has_trait = leader_trait_admiral_psionic
+					has_trait = leader_trait_general_psionic
+					has_trait = leader_trait_governor_psionic
+					has_trait = leader_trait_scientist_psionic
+					has_trait = leader_trait_ruler_psionic
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+		}
+	}
+	give_technology = { message = no tech = tech_pk_neutron }
+	create_ship_design = { design = "NAME_Cleanser" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Eternal" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Avatar" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Zealot" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Faith" }
+	add_ship_design = last_created_design
+	spawn_fallen_system_2 = yes
+	event_target:prev_capital.solar_system = { create_fe_outpost = yes }
+	if = {
+		limit = {
+			root.species = { NOR = { is_archetype = MACHINE is_archetype = ROBOT } }
+		}
+		root.species = {
+			switch = {
+				trigger = has_trait
+				default = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+				"trait_pc_desert_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+				"trait_pc_arid_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+				"trait_pc_savannah_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+				"trait_pc_tropical_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+				"trait_pc_continental_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+				"trait_pc_ocean_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+				"trait_pc_arctic_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+				"trait_pc_tundra_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+				"trait_pc_alpine_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				"trait_pc_nuked_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_nuked reset_planet = yes } } }
+				"trait_pc_gaia_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+			}
+		}
+	}
+	else_if = {
+		limit = { root.species = { OR = { is_archetype = MACHINE is_archetype = ROBOT } } }
+		root = {
+			random_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = random_habitable_teif reset_planet = yes save_event_target_as = ideal_planet }
+			event_target:ideal_planet = {
+				switch = {
+					trigger = is_planet_class
+					"pc_desert" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+					"pc_arid" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+					"pc_savannah" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+					"pc_tropical" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+					"pc_continental" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+					"pc_ocean" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+					"pc_arctic" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+					"pc_tundra" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+					"pc_alpine" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				}
+			}
+		}
+	}
+	every_owned_fleet = {
+		if = {
+			limit = { exists = leader }
+			leader = { unassign_leader = this }
+		}
+	}
+	every_owned_ship = { limit = { NOR = { is_ship_class = shipclass_starbase is_ship_class = shipclass_military_station } } delete_ship = this }
+	country_event = { id = fallen_start.2 days = 2 }
+	root = {
+		if = {
+			limit = {
+				NOR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_servitude
+				cooldown = no
+			}
+			set_policy = {
+				policy = robot_pop_policy
+				option = robot_pops_allowed
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_full_rights
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = synthetic_empire
+				NOT = { has_country_flag = release_robotic_machine }
+			}
+			every_owned_pop = {
+				limit = { NOT = { is_same_species = root } }
+				change_species = root.built_species
+			}
+		}
+	}
+}
+
+in_fallen_xenophile = {	
+	country_remove_ethic = ethic_materialist
+	country_remove_ethic = ethic_spiritualist
+	country_remove_ethic = ethic_militarist
+	country_remove_ethic = ethic_pacifist
+	country_remove_ethic = ethic_xenophile
+	country_remove_ethic = ethic_xenophobe
+	country_remove_ethic = ethic_egalitarian
+	country_remove_ethic = ethic_authoritarian
+    set_country_type = fallen_empire
+	set_country_flag = get_machine
+	create_ship_design = { design = "NAME_FE_Starbase" }
+	add_ship_design = last_created_design
+	set_timed_country_flag = {
+		flag = game_start_job
+		days = 90
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_country_flag = machine_computer_release_completed
+				has_country_flag = machine_computer_repressed_completed
+			}
+		}
+		set_country_flag = machine_computer_repressed_completed
+	}
+    set_fallen_species = yes
+    leave_alliance = { override_requirements = yes }
+	add_modifier = {
+		modifier = fe_ship_cost_modifier
+		days = -1
+	}
+	give_technology = {
+		tech = tech_colossus
+		message = no
+	}
+	change_government = {
+		civics = {
+			civic = civic_lethargic_leadership
+			civic = civic_empire_in_decline
+		}
+	}
+	random_country = {
+		limit = {
+			is_country_type = global_event
+		}
+		save_event_target_as = global_event
+	}
+	copy_techs_from = {
+		target = event_target:global_event
+	}
+	add_resource = {
+		minerals = 10000
+		energy = 10000	
+		alloys = 10000
+		food = 1000
+		influence = 500
+		rare_crystals = 10
+		exotic_gases = 10
+		volatile_motes = 10
+		sr_dark_matter = 10
+		sr_living_metal = 10
+		sr_zro = 10
+	}
+	random_owned_planet = {
+		limit = { is_capital = yes }
+		set_planet_flag = waiting_remove
+		save_event_target_as = prev_capital
+	}
+	every_owned_planet = {
+		limit = { is_capital = no }
+		remove_all_buildings = yes
+		every_owned_pop = { kill_pop = yes }
+		destroy_colony = yes
+		reroll_planet = yes
+	}
+	every_system_within_border = {
+		if = {
+			limit = {
+				exists = starbase
+			}
+			random_fleet_in_system = {
+				limit = {
+					any_owned_ship = {
+						is_ship_class = shipclass_starbase
+					}
+				}
+				delete_fleet = this
+			}
+		}
+	}
+	give_technology = { message = no tech = tech_pk_shielder }
+	create_ship_design = { design = "NAME_Adjuster" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Keeper" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Custodian" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Warden" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Watcher" }
+	add_ship_design = last_created_design
+	spawn_fallen_system_3 = yes
+	event_target:prev_capital.solar_system = { create_fe_outpost = yes }
+	if = {
+		limit = {
+			root.species = { NOR = { is_archetype = MACHINE is_archetype = ROBOT } }
+		}
+		root.species = {
+			switch = {
+				trigger = has_trait
+				default = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+				"trait_pc_desert_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+				"trait_pc_arid_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+				"trait_pc_savannah_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+				"trait_pc_tropical_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+				"trait_pc_continental_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+				"trait_pc_ocean_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+				"trait_pc_arctic_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+				"trait_pc_tundra_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+				"trait_pc_alpine_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				"trait_pc_nuked_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_nuked reset_planet = yes } } }
+				"trait_pc_gaia_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+			}
+		}
+	}
+	else_if = {
+		limit = { root.species = { OR = { is_archetype = MACHINE is_archetype = ROBOT } } }
+		root = {
+			random_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = random_habitable_teif reset_planet = yes save_event_target_as = ideal_planet }
+			event_target:ideal_planet = {
+				switch = {
+					trigger = is_planet_class
+					"pc_desert" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+					"pc_arid" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+					"pc_savannah" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+					"pc_tropical" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+					"pc_continental" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+					"pc_ocean" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+					"pc_arctic" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+					"pc_tundra" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+					"pc_alpine" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				}
+			}
+		}
+	}
+	every_owned_fleet = {
+		if = {
+			limit = { exists = leader }
+			leader = { unassign_leader = this }
+		}
+	}
+	every_owned_ship = { limit = { NOR = { is_ship_class = shipclass_starbase is_ship_class = shipclass_military_station } } delete_ship = this }
+	country_event = { id = fallen_start.2 days = 2 }
+	root = {
+		if = {
+			limit = {
+				NOR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_servitude
+				cooldown = no
+			}
+			set_policy = {
+				policy = robot_pop_policy
+				option = robot_pops_allowed
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_full_rights
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = synthetic_empire
+				NOT = { has_country_flag = release_robotic_machine }
+			}
+			every_owned_pop = {
+				limit = { NOT = { is_same_species = root } }
+				change_species = root.built_species
+			}
+		}
+	}
+}
+
+in_fallen_xenophobe = {	
+	country_remove_ethic = ethic_materialist
+	country_remove_ethic = ethic_spiritualist
+	country_remove_ethic = ethic_militarist
+	country_remove_ethic = ethic_pacifist
+	country_remove_ethic = ethic_xenophile
+	country_remove_ethic = ethic_xenophobe
+	country_remove_ethic = ethic_egalitarian
+	country_remove_ethic = ethic_authoritarian
+    set_country_type = fallen_empire
+	set_country_flag = get_machine
+	create_ship_design = { design = "NAME_FE_Starbase" }
+	add_ship_design = last_created_design
+	set_timed_country_flag = {
+		flag = game_start_job
+		days = 90
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_country_flag = machine_computer_release_completed
+				has_country_flag = machine_computer_repressed_completed
+			}
+		}
+		set_country_flag = machine_computer_repressed_completed
+	}
+    set_fallen_species = yes
+    leave_alliance = { override_requirements = yes }
+	add_modifier = {
+		modifier = fe_ship_cost_modifier
+		days = -1
+	}
+	give_technology = {
+		tech = tech_colossus
+		message = no
+	}
+	change_government = {
+		civics = {
+			civic = civic_lethargic_leadership
+			civic = civic_empire_in_decline
+		}
+	}
+	random_country = {
+		limit = {
+			is_country_type = global_event
+		}
+		save_event_target_as = global_event
+	}
+	copy_techs_from = {
+		target = event_target:global_event
+	}
+	add_resource = {
+		minerals = 10000
+		energy = 10000	
+		alloys = 10000
+		food = 1000
+		influence = 500
+		rare_crystals = 10
+		exotic_gases = 10
+		volatile_motes = 10
+		sr_dark_matter = 10
+		sr_living_metal = 10
+		sr_zro = 10
+	}
+	random_owned_planet = {
+		limit = { is_capital = yes }
+		set_planet_flag = waiting_remove
+		save_event_target_as = prev_capital
+	}
+	every_owned_planet = {
+		limit = { is_capital = no }
+		remove_all_buildings = yes
+		every_owned_pop = { kill_pop = yes }
+		destroy_colony = yes
+		reroll_planet = yes
+	}
+	every_system_within_border = {
+		if = {
+			limit = {
+				exists = starbase
+			}
+			random_fleet_in_system = {
+				limit = {
+					any_owned_ship = {
+						is_ship_class = shipclass_starbase
+					}
+				}
+				delete_fleet = this
+			}
+		}
+	}
+	give_technology = { message = no tech = tech_pk_cracker }
+	create_ship_design = { design = "NAME_Reaper" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Imperium" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Supremacy" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Glory" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Devastator" }
+	add_ship_design = last_created_design
+	spawn_fallen_system_4 = yes
+	event_target:prev_capital.solar_system = { create_fe_outpost = yes }
+	if = {
+		limit = {
+			root.species = { NOR = { is_archetype = MACHINE is_archetype = ROBOT } }
+		}
+		root.species = {
+			switch = {
+				trigger = has_trait
+				default = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+				"trait_pc_desert_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+				"trait_pc_arid_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+				"trait_pc_savannah_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+				"trait_pc_tropical_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+				"trait_pc_continental_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+				"trait_pc_ocean_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+				"trait_pc_arctic_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+				"trait_pc_tundra_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+				"trait_pc_alpine_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				"trait_pc_nuked_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_nuked reset_planet = yes } } }
+				"trait_pc_gaia_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+			}
+		}
+	}
+	else_if = {
+		limit = { root.species = { OR = { is_archetype = MACHINE is_archetype = ROBOT } } }
+		root = {
+			random_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = random_habitable_teif reset_planet = yes save_event_target_as = ideal_planet }
+			event_target:ideal_planet = {
+				switch = {
+					trigger = is_planet_class
+					"pc_desert" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+					"pc_arid" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+					"pc_savannah" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+					"pc_tropical" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+					"pc_continental" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+					"pc_ocean" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+					"pc_arctic" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+					"pc_tundra" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+					"pc_alpine" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				}
+			}
+		}
+	}
+	every_owned_fleet = {
+		if = {
+			limit = { exists = leader }
+			leader = { unassign_leader = this }
+		}
+	}
+	every_owned_ship = { limit = { NOR = { is_ship_class = shipclass_starbase is_ship_class = shipclass_military_station } } delete_ship = this }
+	country_event = { id = fallen_start.2 days = 2 }
+	root = {
+		if = {
+			limit = {
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = { has_country_flag = synthetic_empire }
+			}
+			root.species = {
+				switch = {
+					trigger = has_trait
+					"trait_pc_desert_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_desert_preference } } } }
+					"trait_pc_arid_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_arid_preference } } } }
+					"trait_pc_savannah_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_savannah_preference } } } }
+					"trait_pc_tropical_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_tropical_preference } } } }
+					"trait_pc_continental_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_continental_preference } } } }
+					"trait_pc_ocean_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_ocean_preference } } } }
+					"trait_pc_arctic_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_arctic_preference } } } }
+					"trait_pc_tundra_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_tundra_preference } } } }
+					"trait_pc_alpine_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_alpine_preference } } } }
+					"trait_pc_nuked_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_nuked_preference } } } }
+					"trait_pc_gaia_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_gaia_preference } } } }
+				}
+			}
+			last_created_species = {
+				set_citizenship_type = {
+					type = citizenship_slavery
+					cooldown = no
+					country = ROOT
+				}
+				set_slavery_type = {
+					type = slavery_domestic
+					cooldown = no
+					country = ROOT
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_servitude
+				cooldown = no
+			}
+			set_policy = {
+				policy = robot_pop_policy
+				option = robot_pops_allowed
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_full_rights
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = synthetic_empire
+				NOT = { has_country_flag = release_robotic_machine }
+			}
+			every_owned_pop = {
+				limit = { NOT = { is_same_species = root } }
+				change_species = root.built_species
+			}
+		}
+	}
+}
+
+in_fallen_authoritarian = {	
+	country_remove_ethic = ethic_materialist
+	country_remove_ethic = ethic_spiritualist
+	country_remove_ethic = ethic_militarist
+	country_remove_ethic = ethic_pacifist
+	country_remove_ethic = ethic_xenophile
+	country_remove_ethic = ethic_xenophobe
+	country_remove_ethic = ethic_egalitarian
+	country_remove_ethic = ethic_authoritarian
+    set_country_type = fallen_empire
+	set_country_flag = get_machine
+	create_ship_design = { design = "NAME_FE_Starbase" }
+	add_ship_design = last_created_design
+	set_timed_country_flag = {
+		flag = game_start_job
+		days = 90
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_country_flag = machine_computer_release_completed
+				has_country_flag = machine_computer_repressed_completed
+			}
+		}
+		set_country_flag = machine_computer_repressed_completed
+	}
+    set_fallen_species = yes
+    leave_alliance = { override_requirements = yes }
+	add_modifier = {
+		modifier = fe_ship_cost_modifier
+		days = -1
+	}
+	give_technology = {
+		tech = tech_colossus
+		message = no
+	}
+	change_government = {
+		civics = {
+			civic = civic_lethargic_leadership
+			civic = civic_empire_in_decline
+		}
+	}
+	random_country = {
+		limit = {
+			is_country_type = global_event
+		}
+		save_event_target_as = global_event
+	}
+	copy_techs_from = {
+		target = event_target:global_event
+	}
+	add_resource = {
+		minerals = 10000
+		energy = 10000	
+		alloys = 10000
+		food = 1000
+		influence = 500
+		rare_crystals = 10
+		exotic_gases = 10
+		volatile_motes = 10
+		sr_dark_matter = 10
+		sr_living_metal = 10
+		sr_zro = 10
+	}
+	random_owned_planet = {
+		limit = { is_capital = yes }
+		set_planet_flag = waiting_remove
+		save_event_target_as = prev_capital
+	}
+	every_owned_planet = {
+		limit = { is_capital = no }
+		remove_all_buildings = yes
+		every_owned_pop = { kill_pop = yes }
+		destroy_colony = yes
+		reroll_planet = yes
+	}
+	every_system_within_border = {
+		if = {
+			limit = {
+				exists = starbase
+			}
+			random_fleet_in_system = {
+				limit = {
+					any_owned_ship = {
+						is_ship_class = shipclass_starbase
+					}
+				}
+				delete_fleet = this
+			}
+		}
+	}
+	give_technology = { message = no tech = tech_pk_cracker }
+	create_ship_design = { design = "NAME_Giant" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Flare" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Pianeta" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Selina" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Dwarf" }
+	add_ship_design = last_created_design
+	spawn_fallen_system_5 = yes
+	event_target:prev_capital.solar_system = { create_fe_outpost = yes }
+	if = {
+		limit = {
+			root.species = { NOR = { is_archetype = MACHINE is_archetype = ROBOT } }
+		}
+		root.species = {
+			switch = {
+				trigger = has_trait
+				default = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+				"trait_pc_desert_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+				"trait_pc_arid_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+				"trait_pc_savannah_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+				"trait_pc_tropical_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+				"trait_pc_continental_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+				"trait_pc_ocean_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+				"trait_pc_arctic_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+				"trait_pc_tundra_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+				"trait_pc_alpine_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				"trait_pc_nuked_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_nuked reset_planet = yes } } }
+				"trait_pc_gaia_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+			}
+		}
+	}
+	else_if = {
+		limit = { root.species = { OR = { is_archetype = MACHINE is_archetype = ROBOT } } }
+		root = {
+			random_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = random_habitable_teif reset_planet = yes save_event_target_as = ideal_planet }
+			event_target:ideal_planet = {
+				switch = {
+					trigger = is_planet_class
+					"pc_desert" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+					"pc_arid" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+					"pc_savannah" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+					"pc_tropical" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+					"pc_continental" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+					"pc_ocean" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+					"pc_arctic" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+					"pc_tundra" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+					"pc_alpine" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				}
+			}
+		}
+	}
+	every_owned_fleet = {
+		if = {
+			limit = { exists = leader }
+			leader = { unassign_leader = this }
+		}
+	}
+	every_owned_ship = { limit = { NOR = { is_ship_class = shipclass_starbase is_ship_class = shipclass_military_station } } delete_ship = this }
+	country_event = { id = fallen_start.2 days = 2 }
+	root = {
+		if = {
+			limit = {
+				NOR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_servitude
+				cooldown = no
+			}
+			set_policy = {
+				policy = robot_pop_policy
+				option = robot_pops_allowed
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_full_rights
+				cooldown = no
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = synthetic_empire
+				NOT = { has_country_flag = release_robotic_machine }
+			}
+			every_owned_pop = {
+				limit = { NOT = { is_same_species = root } }
+				change_species = root.built_species
+			}
+		}
+	}
+}
+
+in_fallen_egalitarian = {	
+	country_remove_ethic = ethic_materialist
+	country_remove_ethic = ethic_spiritualist
+	country_remove_ethic = ethic_militarist
+	country_remove_ethic = ethic_pacifist
+	country_remove_ethic = ethic_xenophile
+	country_remove_ethic = ethic_xenophobe
+	country_remove_ethic = ethic_egalitarian
+	country_remove_ethic = ethic_authoritarian
+    set_country_type = fallen_empire
+	set_country_flag = get_machine
+	create_ship_design = { design = "NAME_FE_Starbase" }
+	add_ship_design = last_created_design
+	set_timed_country_flag = {
+		flag = game_start_job
+		days = 90
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_country_flag = machine_computer_release_completed
+				has_country_flag = machine_computer_repressed_completed
+			}
+		}
+		set_country_flag = machine_computer_repressed_completed
+	}
+    set_fallen_species = yes
+    leave_alliance = { override_requirements = yes }
+	add_modifier = {
+		modifier = fe_ship_cost_modifier
+		days = -1
+	}
+	give_technology = {
+		tech = tech_colossus
+		message = no
+	}
+	change_government = {
+		civics = {
+			civic = civic_lethargic_leadership
+			civic = civic_empire_in_decline
+		}
+	}
+	random_country = {
+		limit = {
+			is_country_type = global_event
+		}
+		save_event_target_as = global_event
+	}
+	copy_techs_from = {
+		target = event_target:global_event
+	}
+	add_resource = {
+		minerals = 10000
+		energy = 10000	
+		alloys = 10000
+		food = 1000
+		influence = 500
+		rare_crystals = 10
+		exotic_gases = 10
+		volatile_motes = 10
+		sr_dark_matter = 10
+		sr_living_metal = 10
+		sr_zro = 10
+	}
+	random_owned_planet = {
+		limit = { is_capital = yes }
+		set_planet_flag = waiting_remove
+		save_event_target_as = prev_capital
+	}
+	every_owned_planet = {
+		limit = { is_capital = no }
+		remove_all_buildings = yes
+		every_owned_pop = { kill_pop = yes }
+		destroy_colony = yes
+		reroll_planet = yes
+	}
+	every_system_within_border = {
+		if = {
+			limit = {
+				exists = starbase
+			}
+			random_fleet_in_system = {
+				limit = {
+					any_owned_ship = {
+						is_ship_class = shipclass_starbase
+					}
+				}
+				delete_fleet = this
+			}
+		}
+	}
+	give_technology = { message = no tech = tech_pk_shielder }
+	create_ship_design = { design = "NAME_Justice" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Liberation" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Freeborn" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Equalities" }
+	add_ship_design = last_created_design
+	create_ship_design = { design = "NAME_Shininess" }
+	add_ship_design = last_created_design
+	spawn_fallen_system_6 = yes
+	event_target:prev_capital.solar_system = { create_fe_outpost = yes }
+	if = {
+		limit = {
+			root.species = { NOR = { is_archetype = MACHINE is_archetype = ROBOT } }
+		}
+		root.species = {
+			switch = {
+				trigger = has_trait
+				default = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+				"trait_pc_desert_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+				"trait_pc_arid_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+				"trait_pc_savannah_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+				"trait_pc_tropical_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+				"trait_pc_continental_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+				"trait_pc_ocean_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+				"trait_pc_arctic_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+				"trait_pc_tundra_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+				"trait_pc_alpine_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				"trait_pc_nuked_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_nuked reset_planet = yes } } }
+				"trait_pc_gaia_preference" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_gaia reset_planet = yes } } }
+			}
+		}
+	}
+	else_if = {
+		limit = { root.species = { OR = { is_archetype = MACHINE is_archetype = ROBOT } } }
+		root = {
+			random_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = random_habitable_teif reset_planet = yes save_event_target_as = ideal_planet }
+			event_target:ideal_planet = {
+				switch = {
+					trigger = is_planet_class
+					"pc_desert" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_desert reset_planet = yes } } }
+					"pc_arid" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arid reset_planet = yes } } }
+					"pc_savannah" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_savannah reset_planet = yes } } }
+					"pc_tropical" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tropical reset_planet = yes } } }
+					"pc_continental" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_continental reset_planet = yes } } }
+					"pc_ocean" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_ocean reset_planet = yes } } }
+					"pc_arctic" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_arctic reset_planet = yes } } }
+					"pc_tundra" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_tundra reset_planet = yes } } }
+					"pc_alpine" = { root = { every_owned_planet = { limit = { has_planet_flag = fallen_empire_world has_planet_flag = ideal_planet_class } change_pc = pc_alpine reset_planet = yes } } }
+				}
+			}
+		}
+	}
+	every_owned_fleet = {
+		if = {
+			limit = { exists = leader }
+			leader = { unassign_leader = this }
+		}
+	}
+	every_owned_ship = { limit = { NOR = { is_ship_class = shipclass_starbase is_ship_class = shipclass_military_station } } delete_ship = this }
+	country_event = { id = fallen_start.2 days = 2 }
+	root = {
+		if = {
+			limit = {
+				NOR = {
+					has_country_flag = synthetic_empire
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			set_policy = {
+				policy = artificial_intelligence_policy
+				option = ai_servitude
+				cooldown = no
+			}
+			set_policy = {
+				policy = robot_pop_policy
+				option = robot_pops_allowed
+				cooldown = no
+			}
 		}
 		if = {
 			limit = {
@@ -885,10 +1473,13 @@ set_become_fallen_empire = {
 			who = event_target:sender
 			status = no
 		}
-		reset_opinion_modifier = yes
-		event_target:sender = {
-			reset_opinion_modifier_1 = yes
-		}
+        reset_opinion_modifier = yes
+        every_playable_country = {
+            limit = {
+                NOT = { is_same_value = ROOT }
+            }
+            reset_opinion_modifier_1 = yes
+        }
 	}
 	set_variable = {
 		which = stability_num
@@ -1041,6 +1632,15 @@ setup_species = {
 				add_trait = "trait_pc_gaia_preference"
 			}
 		}
+		if = {
+			limit = {
+				event_target:playerhuman = { has_trait = trait_pc_ringworld_habitable_preference }
+			}
+			modify_species = {
+				species = this
+				add_trait = "trait_pc_ringworld_habitable_preference"
+			}
+		}
 	}
 }
 
@@ -1153,6 +1753,564 @@ setup_species_machine = {
 					add_trait = "trait_pc_gaia_preference"
 				}
 			}
+			if = {
+				limit = {
+					event_target:playerhuman_machine = { has_trait = trait_pc_ringworld_habitable_preference }
+				}
+				modify_species = {
+					species = this
+					add_trait = "trait_pc_ringworld_habitable_preference"
+				}
+			}
+		}
+	}
+}
+
+remove_negetive_trait = {
+	modify_species = {
+		species = this
+		remove_trait = trait_nonadaptive
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_slow_breeders
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_slow_learners
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_quarrelsome
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_unruly
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_weak
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_sedentary
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_solitary
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_repugnant
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_deviants
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_fleeting
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_fleeting_lithoid
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_decadent
+	}
+	modify_species = {
+		species = this
+		remove_trait = trait_wasteful
+	}
+}
+# this = Planet
+setup_origin_fallen_empire_init = {
+	if = {
+		limit = { root.owner = { is_fallen_empire = yes } }
+		remove_building = building_fortress
+		remove_building = building_fortress
+		add_building = building_ancient_palace
+		add_building = building_fe_stronghold
+		add_building = building_fe_stronghold
+		solar_system = {
+			while = {
+				limit = {
+					count_system = {
+						count > 0
+						closest_system = {
+							min_steps = 1
+							max_steps = 5
+							OR = {
+								has_star_flag = fallen_col_1
+								has_star_flag = fallen_col_2
+								has_star_flag = fallen_orbitals_1
+								has_star_flag = fallen_orbitals_2
+							}
+						}
+					}
+				}
+				closest_system = {
+					min_steps = 1
+					max_steps = 5
+					limit = { 
+						OR = {
+							has_star_flag = fallen_col_1
+							has_star_flag = fallen_col_2
+							has_star_flag = fallen_orbitals_1
+							has_star_flag = fallen_orbitals_2
+						}
+					}
+					remove_star_flag = fallen_col_1
+					remove_star_flag = fallen_col_2
+					remove_star_flag = fallen_orbitals_1
+					remove_star_flag = fallen_orbitals_2
+					if = {
+						limit = { any_system_planet = { has_planet_flag = fallen_empire_world } }
+						create_fe_citadel = yes
+						random_system_planet = {
+							limit = { has_planet_flag = fallen_empire_world NOT = { is_same_value = root } }
+							set_owner = root.owner
+							prevent_anomaly = yes
+							if = {
+								limit = { root.owner = { is_spiritualist = no } }
+								while = {
+									count = 5
+									add_district = district_city
+								}
+								while = {
+									count = 8
+									create_pop = {
+										species = owner_main_species
+									}
+								}
+								while = {
+									count = 8
+									create_pop = {
+										species = event_target:fe_servants
+									}
+								}
+							}
+							if = {
+								limit = {
+									root.owner = { is_spiritualist = yes }
+								}
+								add_building = building_fe_dome
+								while = {
+									count = 3
+									add_district = district_city
+								}
+								while = {
+									count = 2
+									add_district = district_generator
+								}
+								while = {
+									count = 2
+									add_district = district_mining
+								}
+								while = {
+									count = 2
+									add_district = district_farming
+								}
+								while = {
+									count = 20
+									create_pop = {
+										species = owner_main_species
+									}
+								}
+							}
+							if = {
+								limit = {
+									root.owner = { is_egalitarian = yes }
+								}
+								random_list = {
+									1 = {
+										add_district = district_generator
+										add_district = district_generator
+										add_district = district_mining
+										add_district = district_farming
+										while = {
+											count = 4
+											create_pop = {
+												species = event_target:synthetic_species
+											}
+										}
+										random_list = {
+											1 = { add_building = building_affluence_center }
+											1 = { add_building = building_nano_forge }
+											1 = { add_building = building_dimensional_fabricator }
+										}
+									}
+									1 = {
+										add_district = district_generator
+										add_district = district_mining
+										add_district = district_mining
+										add_district = district_farming
+										while = {
+											count = 2
+											create_pop = {
+												species = event_target:synthetic_species
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					else = { create_fe_outpost = yes }
+				}
+			}
+		}
+		if = {
+			limit = { root.owner = { num_owned_planets < 6 is_xenophile = no } }
+			while = {
+				limit = {
+					root.owner = { num_owned_planets < 6 }
+				}
+				random_system = {
+					limit = {
+						any_fleet_in_system = {
+							exists = owner
+							owner = {
+								is_same_value = root.owner
+							}
+						}
+						any_neighbor_system = {
+							ignore_hyperlanes = yes
+							OR = {
+								has_star_flag = fallen_col_1
+								has_star_flag = fallen_col_2
+								has_star_flag = fallen_orbitals_1
+								has_star_flag = fallen_orbitals_2
+							}
+							any_system_planet = {
+								has_planet_flag = fallen_empire_world
+							}
+						}
+					}
+					random_neighbor_system = {
+						ignore_hyperlanes = yes
+						limit = {
+							OR = {
+								has_star_flag = fallen_col_1
+								has_star_flag = fallen_col_2
+								has_star_flag = fallen_orbitals_1
+								has_star_flag = fallen_orbitals_2
+							}
+							any_system_planet = {
+								has_planet_flag = fallen_empire_world
+							}
+						}
+						add_hyperlane = {
+							from = THIS
+							to = PREV
+						}
+						create_fe_citadel = yes
+						remove_star_flag = fallen_col_1
+						remove_star_flag = fallen_col_2
+						remove_star_flag = fallen_orbitals_1
+						remove_star_flag = fallen_orbitals_2
+						random_system_planet = {
+							limit = { has_planet_flag = fallen_empire_world NOT = { is_same_value = root } }
+							set_owner = root.owner
+							prevent_anomaly = yes
+							if = {
+								limit = { root.owner = { is_spiritualist = no } }
+								while = {
+									count = 5
+									add_district = district_city
+								}
+								while = {
+									count = 8
+									create_pop = {
+										species = owner_main_species
+									}
+								}
+								while = {
+									count = 8
+									create_pop = {
+										species = event_target:fe_servants
+									}
+								}
+							}
+							if = {
+								limit = {
+									root.owner = { is_spiritualist = yes }
+								}
+								add_building = building_fe_dome
+								while = {
+									count = 3
+									add_district = district_city
+								}
+								while = {
+									count = 2
+									add_district = district_generator
+								}
+								while = {
+									count = 2
+									add_district = district_mining
+								}
+								while = {
+									count = 2
+									add_district = district_farming
+								}
+								while = {
+									count = 20
+									create_pop = {
+										species = owner_main_species
+									}
+								}
+							}
+							if = {
+								limit = {
+									root.owner = { is_egalitarian = yes }
+								}
+								random_list = {
+									1 = {
+										add_district = district_generator
+										add_district = district_generator
+										add_district = district_mining
+										add_district = district_farming
+										while = {
+											count = 4
+											create_pop = {
+												species = event_target:synthetic_species
+											}
+										}
+										random_list = {
+											1 = { add_building = building_affluence_center }
+											1 = { add_building = building_nano_forge }
+											1 = { add_building = building_dimensional_fabricator }
+										}
+									}
+									1 = {
+										add_district = district_generator
+										add_district = district_mining
+										add_district = district_mining
+										add_district = district_farming
+										while = {
+											count = 2
+											create_pop = {
+												species = event_target:synthetic_species
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { root.owner = { num_owned_planets < 8 is_xenophile = yes } }
+			while = {
+				limit = {
+					root.owner = { num_owned_planets < 8 }
+				}
+				random_system = {
+					limit = {
+						any_fleet_in_system = {
+							exists = owner
+							owner = {
+								is_same_value = root.owner
+							}
+						}
+						any_neighbor_system = {
+							ignore_hyperlanes = yes
+							OR = {
+								has_star_flag = fallen_col_1
+								has_star_flag = fallen_col_2
+								has_star_flag = fallen_orbitals_1
+								has_star_flag = fallen_orbitals_2
+							}
+							any_system_planet = {
+								has_planet_flag = fallen_empire_world
+							}
+						}
+					}
+					random_neighbor_system = {
+						ignore_hyperlanes = yes
+						limit = {
+							OR = {
+								has_star_flag = fallen_col_1
+								has_star_flag = fallen_col_2
+								has_star_flag = fallen_orbitals_1
+								has_star_flag = fallen_orbitals_2
+							}
+							any_system_planet = {
+								has_planet_flag = fallen_empire_world
+							}
+						}
+						add_hyperlane = {
+							from = THIS
+							to = PREV
+						}
+						create_fe_citadel = yes
+						remove_star_flag = fallen_col_1
+						remove_star_flag = fallen_col_2
+						remove_star_flag = fallen_orbitals_1
+						remove_star_flag = fallen_orbitals_2
+						random_system_planet = {
+							limit = { has_planet_flag = fallen_empire_world NOT = { is_same_value = root } }
+							set_owner = root.owner
+							prevent_anomaly = yes
+							if = {
+								limit = { root.owner = { is_spiritualist = no } }
+								while = {
+									count = 5
+									add_district = district_city
+								}
+								while = {
+									count = 8
+									create_pop = {
+										species = owner_main_species
+									}
+								}
+								while = {
+									count = 8
+									create_pop = {
+										species = event_target:fe_servants
+									}
+								}
+							}
+							if = {
+								limit = {
+									root.owner = { is_spiritualist = yes }
+								}
+								add_building = building_fe_dome
+								while = {
+									count = 3
+									add_district = district_city
+								}
+								while = {
+									count = 2
+									add_district = district_generator
+								}
+								while = {
+									count = 2
+									add_district = district_mining
+								}
+								while = {
+									count = 2
+									add_district = district_farming
+								}
+								while = {
+									count = 20
+									create_pop = {
+										species = owner_main_species
+									}
+								}
+							}
+							if = {
+								limit = {
+									root.owner = { is_egalitarian = yes }
+								}
+								random_list = {
+									1 = {
+										add_district = district_generator
+										add_district = district_generator
+										add_district = district_mining
+										add_district = district_farming
+										while = {
+											count = 4
+											create_pop = {
+												species = event_target:synthetic_species
+											}
+										}
+										random_list = {
+											1 = { add_building = building_affluence_center }
+											1 = { add_building = building_nano_forge }
+											1 = { add_building = building_dimensional_fabricator }
+										}
+									}
+									1 = {
+										add_district = district_generator
+										add_district = district_mining
+										add_district = district_mining
+										add_district = district_farming
+										while = {
+											count = 2
+											create_pop = {
+												species = event_target:synthetic_species
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_system = {
+					any_fleet_in_system = {
+						exists = owner
+						owner = { is_same_value = root.owner }
+					}
+					NOT = {
+						any_neighbor_system = {
+							ignore_hyperlanes = no
+							any_fleet_in_system = {
+								exists = owner
+								owner = { is_same_value = root.owner }
+							}
+						}
+					}
+				}
+			}
+			random_system = {
+				limit = {
+					any_fleet_in_system = {
+						exists = owner
+						owner = { is_same_value = root.owner }
+					}
+					NOT = {
+						any_neighbor_system = {
+							ignore_hyperlanes = no
+							any_fleet_in_system = {
+								exists = owner
+								owner = { is_same_value = root.owner }
+							}
+						}
+					}
+				}
+				random_neighbor_system = {
+					ignore_hyperlanes = yes
+					limit = {
+						any_fleet_in_system = {
+							exists = owner
+							owner = { is_same_value = root.owner }
+						}
+						NOT = { has_hyperlane_to = prev }
+					}
+					add_hyperlane = {
+						from = THIS
+						to = prev
+					}
+				}
+			}
+		}
+	}
+	root.owner = {
+		if = {
+			limit = { is_fallen_empire = yes }
+			add_resource = {
+				minerals = 10000
+				energy = 10000	
+				alloys = 10000
+				food = 1000
+				influence = 500
+				rare_crystals = 10
+				exotic_gases = 10
+				volatile_motes = 10
+				sr_dark_matter = 10
+				sr_living_metal = 10
+				sr_zro = 10
+			}
+			capital_scope = { create_fallen_empire_starting_navy = yes }
 		}
 	}
 }

@@ -1,0 +1,105 @@
+star_pressure_controller = {
+	entity = "star_pressure_controller_entity"
+	#entity = ""
+	portrait = "GFX_megastructure_star_pressure_controller"
+	place_entity_on_planet_plane = yes
+	potential = {
+		always = no
+	}
+	resources = {
+		category = megastructures
+
+		upkeep = {
+			energy = 1000
+		}
+		upkeep = {
+			trigger = {
+				owner = { is_fallen_empire = no }
+			}
+			energy = 99000
+		}
+
+		produces = {
+			minerals = 800
+		}
+	}
+	on_build_complete = {
+		fromfrom.planet = {
+			set_planet_flag = has_megastructure
+		}
+		# create_ambient_object = {
+		# 	type = star_pressure_controller
+		# 	use_3d_location = yes
+		# 	location = fromfrom
+		# 	entity_scale_to_size = yes
+		# 	entity_offset = { min = 0 max = 0 }
+		# 	scale = 0.125
+		# }
+	}
+}
+
+une_gate = {
+	entity = "deactivated_une_wormhole_station_entity"
+	construction_entity = "deactivated_une_wormhole_station_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	build_outside_gravity_well = yes
+	show_galactic_map_icon = no
+	build_time = 0
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	resources = {
+		category = megastructures
+		cost = {}
+	}
+	upgrade_from = {
+		une_gate_final
+	}
+	potential = {
+		always = no
+	}
+	possible = {
+		always = yes
+	}
+	placement_rules = {}
+	ai_weight = {
+		factor = 0
+	}
+	on_build_start = {}
+	on_build_cancel = {}	
+	on_build_complete = {}
+	#bypass_type = une_wormhole
+}
+
+une_gate_final = {
+	entity = "une_wormhole_station_entity"
+	construction_entity = "deactivated_une_wormhole_station_entity"
+	portrait = "GFX_megastructure_une_gate"
+	place_entity_on_planet_plane = no
+	build_outside_gravity_well = yes
+	show_galactic_map_icon = no
+	build_time = 0
+	construction_blocks_others = no
+	construction_blocked_by_others = no
+	resources = {
+		category = megastructures
+		cost = {}
+	}
+	upgrade_from = {
+		une_gate
+	}
+	potential = {
+		always = no
+	}
+	possible = {
+		always = yes
+	}
+	placement_rules = {}
+	ai_weight = {
+		factor = 0
+	}
+	on_build_start = {}
+	on_build_cancel = {}	
+	on_build_complete = {}
+	bypass_type = une_wormhole
+}

@@ -1,3 +1,37 @@
+decision_end_population_control = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		has_modifier = planet_population_control
+	}
+
+	effect = {
+		remove_modifier = "planet_population_control"
+	}
+
+	ai_weight = {
+		weight = 20
+
+		modifier = { # don't end if less than 1 housing
+			factor = 0
+			free_housing < 1
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				is_country_type = awakened_fallen_empire
+				has_country_flag = fallen_empire_6
+			}
+		}
+	}
+}
+
 decision_planet_planetary_shield = {
 	owned_planets_only = yes
 	sound = event_administrative_work
@@ -12,12 +46,16 @@ decision_planet_planetary_shield = {
 	}
 	
 	potential = {
-		owner = { has_technology = tech_planetary_shield_generator }
-		is_planet_class = pc_gaia
+		owner = {
+			has_technology = tech_planetary_shield_generator
+			has_galactic_wonders = yes
+		}
+		NOT = { is_planet_class = pc_shielded_gaia }
 	}
 	
 	allow = {
 		has_building = building_planetary_shield_generator
+		is_planet_class = pc_gaia
 	}	
 	
 	effect = {

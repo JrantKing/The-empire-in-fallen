@@ -36,6 +36,7 @@ country_event = {
 				OR = {
 					has_ethic = ethic_fanatic_xenophile
 					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_fanatic_communism
 				}
 			}
 		}
@@ -99,6 +100,7 @@ country_event = {
 				OR = {
 					has_ethic = ethic_fanatic_xenophile
 					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_fanatic_communism
 				}
 			}
 		}
@@ -156,6 +158,7 @@ country_event = {
 				OR = {
 					has_ethic = ethic_fanatic_xenophile
 					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_fanatic_communism
 				}
 			}
 		}
@@ -210,6 +213,7 @@ country_event = {
 				OR = {
 					has_ethic = ethic_fanatic_xenophile
 					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_fanatic_communism
 				}
 			}
 		}
@@ -229,11 +233,13 @@ country_event = {
 			limit = { has_country_flag = fe_gift_resources_small }
 			add_resource = { minerals = 1500 }
 			add_resource = { energy = 500 }
+			add_resource = { alloys = 250 }
 		}
 		if = {
 			limit = { has_country_flag = fe_gift_resources_large }
 			add_resource = { minerals = 3000 }
 			add_resource = { energy = 1000 }
+			add_resource = { alloys = 500 }
 		}
 		if = {
 			limit = { has_country_flag = fe_gift_databanks }
@@ -308,6 +314,7 @@ country_event = {
 										OR = {
 											has_authority = auth_machine_intelligence
 											has_ethic = ethic_fanatic_egalitarian
+											has_ethic = ethic_fanatic_communism
 										}
 									}
 								}
@@ -426,6 +433,7 @@ country_event = {
 										OR = {
 											has_authority = auth_machine_intelligence
 											has_ethic = ethic_fanatic_egalitarian
+											has_ethic = ethic_fanatic_communism
 										}
 									}
 								}

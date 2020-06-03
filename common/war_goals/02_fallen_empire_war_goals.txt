@@ -1,6 +1,6 @@
 wg_fe_stop_atrocities_ai = {
 	casus_belli = cb_fe_punishment
-	
+	cede_claims = no
 	hide_if_no_cb = yes
 	threat_multiplier = 0
 	surrender_acceptance = 20
@@ -46,7 +46,7 @@ wg_fe_stop_atrocities_ai = {
 
 wg_fe_hive_mind = {
 	casus_belli = cb_fe_punishment
-	
+	cede_claims = no
 	hide_if_no_cb = yes
 	threat_multiplier = 0
 	surrender_acceptance = -50
@@ -90,6 +90,7 @@ wg_fe_hive_mind = {
 wg_fe_attacked = {
 	casus_belli = cb_purification_fe
 	surrender_acceptance = -10
+	cede_claims = no
 	potential = {
 		has_ai_personality = awakened_teif_fallen_empire_egalitarian_attacked
 	}
@@ -138,4 +139,90 @@ wg_fe_attacked = {
 	}
 	ai_weight = {
 		weight = 100000
+	}
+}
+
+wg_war_in_heaven_teif = {
+	casus_belli = cb_event
+
+	total_war = yes
+	
+	surrender_acceptance = -1000
+	war_exhaustion = 0.01
+	
+	set_defender_wargoal = wg_war_in_heaven_teif
+
+	potential = {
+		always = no # event only
+	}
+	possible = {
+		always = yes
+	}
+	
+	on_accept  = {
+		hidden_effect = {
+			save_event_target_as = WarInHeavenFEOne
+			remove_country_flag = defender_ancient_rival
+			remove_country_flag = attacker_ancient_rival
+			every_playable_country = {
+				country_event = { id = ancient_war.4 }
+			}
+			observer_event = { id = observer.77 }		
+		}
+	}	
+	
+	on_status_quo = {
+		hidden_effect = {
+			save_event_target_as = WarInHeavenFEOne
+			remove_country_flag = defender_ancient_rival
+			remove_country_flag = attacker_ancient_rival
+			from = {
+				save_event_target_as = WarInHeavenFETwo
+				remove_country_flag = defender_ancient_rival
+				remove_country_flag = attacker_ancient_rival
+			}
+			every_playable_country = {
+				country_event = { id = ancient_war.5 }
+			}
+			observer_event = { id = observer.78 }	
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+
+wg_war_in_galaxy = {
+	casus_belli = cb_event
+
+	total_war = yes
+	
+	surrender_acceptance = -10000
+	war_exhaustion = 0
+	
+	set_defender_wargoal = wg_war_in_galaxy
+
+	potential = {
+		always = no # event only
+	}
+	possible = {
+		always = yes
+	}
+	
+	on_accept  = {
+		hidden_effect = {
+			
+		}
+	}
+	
+	on_status_quo = {
+		hidden_effect = {
+			
+		}
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
 }

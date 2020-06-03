@@ -2,6 +2,18 @@
 fallen_empire_1 = {
 	graphical_culture = "fallen_empire_02"
 	initializer = "fallen_1"
+
+	weight_modifier = {
+		base = 100
+		modifier = {
+			factor = 99999
+			has_origin = origin_scion
+		}
+		modifier = {
+			factor = 0
+			any_country = { has_origin = origin_fallen_empire_01 }
+		}
+	}
 	
 	create_country_effect = {
 		create_species = {
@@ -26,8 +38,13 @@ fallen_empire_1 = {
 				ethic = ethic_fanatic_materialist
 			}
 			flag = random
+			origin = "origin_fallen_empire_01"
 			effect = {
-				set_country_flag = fallen_empire_1
+                set_country_flag = fallen_empire_1
+                set_country_flag = get_machine
+				set_country_flag = get_hive_mind
+				set_country_flag = machine_computer_repressed_completed
+				set_timed_country_flag = { flag = game_start_job days = 90 }
 				add_resource = {
 					minerals = 10000
 					energy = 10000	
@@ -49,6 +66,7 @@ fallen_empire_1 = {
 				#add_global_ship_design = "NAME_Cloaker"
 				#add_global_ship_design = "NAME_Librarian"
 				#add_global_ship_design = "NAME_Seeker"
+				#add_global_ship_design = "NAME_FE_Starbase"
 				if = {
 					limit = { host_has_dlc = "Apocalypse" }
 					give_technology = {
@@ -64,6 +82,18 @@ fallen_empire_1 = {
 fallen_empire_2 = {
 	graphical_culture = "fallen_empire_01"
 	initializer = "fallen_2"
+
+	weight_modifier = {
+		base = 100
+		modifier = {
+			factor = 99999
+			has_origin = origin_scion
+		}
+		modifier = {
+			factor = 0
+			any_country = { has_origin = origin_fallen_empire_02 }
+		}
+	}
 	
 	create_country_effect = {
 		create_species = {
@@ -88,8 +118,23 @@ fallen_empire_2 = {
 				ethic = ethic_fanatic_spiritualist
 			}			
 			flag = random
+			origin = "origin_fallen_empire_02"
 			effect = {
-				set_country_flag = fallen_empire_2
+				set_country_flag = researched_tech_telepathy
+				set_country_flag = civic_transcendence
+				give_technology = { tech = tech_psionic_theory message = no }
+				give_technology = { tech = tech_telepathy message = no }
+				give_technology = { tech = tech_holographic_rituals message = no }
+				give_technology = { tech = tech_consecration_fields message = no }
+				give_technology = { tech = tech_transcendent_faith message = no }
+				give_technology = { tech = tech_psi_jump_drive_1 message = no }
+				give_technology = { tech = tech_psionic_shield message = no }
+				give_technology = { tech = tech_psionic_barrier message = no }
+                set_country_flag = fallen_empire_2
+                set_country_flag = get_machine
+				set_country_flag = get_hive_mind
+				set_country_flag = machine_computer_repressed_completed
+				set_timed_country_flag = { flag = game_start_job days = 90 }
 				add_resource = {
 					minerals = 10000
 					energy = 10000	
@@ -111,14 +156,11 @@ fallen_empire_2 = {
 				#add_global_ship_design = "NAME_Penitent"
 				#add_global_ship_design = "NAME_Faith"
 				#add_global_ship_design = "NAME_Pilgrim"
+				#add_global_ship_design = "NAME_FE_Starbase"
 				if = {
 					limit = { host_has_dlc = "Apocalypse" }
 					give_technology = {
 						tech = tech_colossus
-						message = no
-					}
-					give_technology = {
-						tech = tech_psionic_shield
 						message = no
 					}
 				}
@@ -130,6 +172,14 @@ fallen_empire_2 = {
 fallen_empire_3 = {
 	graphical_culture = "fallen_empire_03"
 	initializer = "fallen_3"
+
+	weight_modifier = {
+		base = 100
+		modifier = {
+			factor = 0
+			any_country = { has_origin = origin_fallen_empire_03 }
+		}
+	}
 	
 	create_country_effect = {
 		create_species = {
@@ -154,8 +204,13 @@ fallen_empire_3 = {
 				ethic = ethic_fanatic_xenophile
 			}			
 			flag = random
+			origin = "origin_fallen_empire_03"
 			effect = {
-				set_country_flag = fallen_empire_3
+                set_country_flag = fallen_empire_3
+                set_country_flag = get_machine
+				set_country_flag = get_hive_mind
+				set_country_flag = machine_computer_repressed_completed
+				set_timed_country_flag = { flag = game_start_job days = 90 }
 				add_resource = {
 					minerals = 10000
 					energy = 10000	
@@ -177,6 +232,7 @@ fallen_empire_3 = {
 				#add_global_ship_design = "NAME_Watcher"
 				#add_global_ship_design = "NAME_Seeder"
 				#add_global_ship_design = "NAME_Builder"
+				#add_global_ship_design = "NAME_FE_Starbase"
 				if = {
 					limit = { host_has_dlc = "Apocalypse" }
 					give_technology = {
@@ -192,6 +248,14 @@ fallen_empire_3 = {
 fallen_empire_4 = {
 	graphical_culture = "fallen_empire_04"
 	initializer = "fallen_4"
+
+	weight_modifier = {
+		base = 100
+		modifier = {
+			factor = 0
+			any_country = { has_origin = origin_fallen_empire_04 }
+		}
+	}
 	
 	create_country_effect = {
 		create_species = {
@@ -217,8 +281,13 @@ fallen_empire_4 = {
 				ethic = ethic_fanatic_xenophobe
 			}			
 			flag = random
+			origin = "origin_fallen_empire_04"
 			effect = {
-				set_country_flag = fallen_empire_4
+                set_country_flag = fallen_empire_4
+                set_country_flag = get_machine
+				set_country_flag = get_hive_mind
+				set_country_flag = machine_computer_repressed_completed
+				set_timed_country_flag = { flag = game_start_job days = 90 }
 				add_resource = {
 					minerals = 10000
 					energy = 10000	
@@ -240,6 +309,7 @@ fallen_empire_4 = {
 				#add_global_ship_design = "NAME_Devastator"
 				#add_global_ship_design = "NAME_Servitor"
 				#add_global_ship_design = "NAME_Destiny"
+				#add_global_ship_design = "NAME_FE_Starbase"
 				if = {
 					limit = { host_has_dlc = "Apocalypse" }
 					give_technology = {
@@ -255,6 +325,14 @@ fallen_empire_4 = {
 fallen_empire_5 = {
 	graphical_culture = "fallen_empire_05"
 	initializer = "fallen_5"
+
+	weight_modifier = {
+		base = 100
+		modifier = {
+			factor = 0
+			any_country = { has_origin = origin_fallen_empire_05 }
+		}
+	}
 
 	create_country_effect = {
 		create_species = {
@@ -279,8 +357,13 @@ fallen_empire_5 = {
 				ethic = ethic_fanatic_authoritarian
 			}			
 			flag = random
+			origin = "origin_fallen_empire_05"
 			effect = {
-				set_country_flag = fallen_empire_5
+                set_country_flag = fallen_empire_5
+                set_country_flag = get_machine
+				set_country_flag = get_hive_mind
+				set_country_flag = machine_computer_repressed_completed
+				set_timed_country_flag = { flag = game_start_job days = 90 }
 				add_resource = {
 					minerals = 10000
 					energy = 10000	
@@ -313,13 +396,14 @@ fallen_empire_5 = {
 		}
 	}
 }
-# Egalitarian
+
 fallen_empire_6 = {
 	graphical_culture = "fallen_empire_06"
-	initializer = "sol_fallen"
-	
-	possible = {
-		is_crises_allowed = yes
+	#initializer = "sol_fallen"
+	initializer = "basic_init_01"
+
+	weight_modifier = {
+		base = 100
 	}
 
 	create_country_effect = {
@@ -349,13 +433,12 @@ fallen_empire_6 = {
 			civics = {
 				civic = civic_lethargic_leadership
 				civic = civic_empire_in_decline
-				civic = civic_idealistic_foundation
-				civic = civic_beacon_of_liberty
 			}
 			species = event_target:fallen_6_species
 			ethos = {
+				#ethic = ethic_fanatic_communism
 				ethic = ethic_fanatic_egalitarian
-			}			
+			}
 			flag = {
 				icon = {
 					category = "human"
@@ -371,19 +454,29 @@ fallen_empire_6 = {
 					"null"
 					"null"
 				}
-			}		
+			}
+			origin = "origin_fallen_empire"
 			effect = {
-				country_event = { id = techfound.3 }
-				country_event = { id = techfound.3 }
-				country_event = { id = techfound.3 }
-				country_event = { id = techfound.3 }
+				#
+				give_technology = { tech = tech_extradimensional_weapon_1 }
+				give_technology = { tech = tech_scourge_missile_1 }
+				give_technology = { tech = tech_swarm_strike_craft_1 }
 				give_technology = { message = no tech = tech_lost }
-				give_technology = { message = no tech = tech_lostbuild }
 				give_technology = { message = no tech = tech_enigmatic_encoder }
 				give_technology = { message = no tech = tech_enigmatic_decoder }
 				give_technology = { message = no tech = tech_dragon_armor }
 				give_technology = { message = no tech = tech_crystal_armor_1 }
 				give_technology = { message = no tech = tech_crystal_armor_2 }
+				give_technology = { message = no tech = tech_lgate_activation }
+				give_technology = { message = no tech = tech_mining_drone_weapon_1 }
+				give_technology = { message = no tech = tech_space_cloud_weapon_1 }
+				give_technology = { message = no tech = tech_gargantuan_evolution }
+				give_technology = { message = no tech = tech_neuroregeneration }
+				give_technology = { message = no tech = tech_prescient_data_modeling }
+				give_technology = { message = no tech = tech_genetic_resequencing }
+				give_technology = { message = no tech = tech_amoeba_strike_craft_1 }
+				give_technology = { message = no tech = tech_space_whale_weapon_1 }
+				give_technology = { message = no tech = tech_orbital_trash_dispersal }
 				#
 				add_tradition = tr_expansion_adopt
 				add_tradition = tr_expansion_colonization_fever
@@ -433,38 +526,19 @@ fallen_empire_6 = {
 				add_tradition = tr_discovery_science_division
 				add_tradition = tr_discovery_polytechnic_education
 				add_tradition = tr_discovery_faith_in_science
+				#
 				save_global_event_target_as = fallen_empire_6
+				set_country_flag = fallen_empire_6
+                set_country_flag = get_machine
+				set_country_flag = get_hive_mind
+				set_country_flag = machine_computer_repressed_completed
+				set_country_flag = entered_fallen_sol_system
 				set_country_flag = human_1
 				set_country_flag = custom_start_screen
-				set_timed_country_flag = {
-					flag = planetcapital
-					days = 31
-				}
-				set_timed_country_flag = {
-					flag = changespecies
-					days = 5
-				}
-				set_timed_country_flag = {
-					flag = experiment
-					days = 4
-				}
+				set_timed_country_flag = { flag = game_start_job days = 90 }
 				add_modifier = {
 					modifier = communist_society
 					days = -1
-				}
-				set_country_flag = fallen_empire_6
-				add_resource = {
-					minerals = 10000
-					energy = 10000	
-					alloys = 10000
-					food = 1000
-					influence = 500
-					rare_crystals = 10
-					exotic_gases = 10
-					volatile_motes = 10
-					sr_dark_matter = 10
-					sr_living_metal = 10
-					sr_zro = 10
 				}
 				# must initialize global designs here
 				#add_global_ship_design = "NAME_Harmony"
@@ -481,17 +555,183 @@ fallen_empire_6 = {
 						message = no
 					}
 				}
+				create_ship_design = { design = "NAME_Harmony" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_Liberty" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_Freedom" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_Equality" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_Bright" }
+				add_ship_design = last_created_design
+				give_technology = { message = no tech = tech_pk_cracker }
+				#country_event = { id = fallenhuman.0 days = 1 }
+				while = {
+					count = 30
+					country_event = { id = techfound.3 }
+				}
+				add_resource = {
+					minerals = 10000
+					energy = 10000	
+					alloys = 10000
+					food = 1000
+					consumer_goods = 10000
+					influence = 500
+					rare_crystals = 100
+					exotic_gases = 100
+					volatile_motes = 100
+					sr_dark_matter = 100
+					sr_living_metal = 100
+					sr_zro = 100
+				}
+				every_owned_planet = {
+					limit = {
+						NOR = {
+							is_planet_class = pc_habitat
+							is_planet_class = pc_ringworld_habitable
+						}
+					}
+					add_modifier = {
+						modifier = mastery_of_nature
+						days = -1
+					}
+				}
+				shift_ethic = ethic_fanatic_communism
+				set_spawn_system_batch = begin
+				no_scope = {
+					spawn_system = {
+						initializer = sagittarius_a_system
+						min_distance >= 0
+						max_distance <= 0
+						min_orientation_angle = 0
+						max_orientation_angle = 0
+					}
+					spawn_system = {
+						min_distance >= 10
+						max_distance <= 20
+						min_orientation_angle = 0
+						max_orientation_angle = 359
+						initializer = sol_fallen
+					}
+					random_system = {
+						limit = { has_star_flag = sol }
+						save_event_target_as = sol
+						spawn_system = {
+							min_distance >= 10
+							max_distance <= 20
+							min_orientation_angle = -45
+							max_orientation_angle = 45
+							initializer = sol_tlx_fallen
+						}
+						spawn_system = {
+							min_distance >= 10
+							max_distance <= 20
+							min_orientation_angle = 135
+							max_orientation_angle = 225
+							initializer = sol_nme_fallen
+						}
+					}
+					random_system = {
+						limit = { has_star_flag = tlx }
+						save_event_target_as = tlx
+						spawn_system = {
+							min_distance >= 10
+							max_distance <= 20
+							min_orientation_angle = -90
+							max_orientation_angle = 90
+							initializer = sol_bnd_fallen
+						}
+					}
+					random_system = {
+						limit = { has_star_flag = nme }
+						save_event_target_as = nme
+						spawn_system = {
+							min_distance >= 10
+							max_distance <= 20
+							min_orientation_angle = 90
+							max_orientation_angle = 180
+							initializer = sol_nhs_fallen
+						}
+					}
+					random_system = {
+						limit = {
+							has_star_flag = sagittarius_a
+						}
+						isolate_system = yes
+						save_event_target_as = sagittarius_a
+					}
+					random_system = {
+						limit = { has_star_flag = bnd }
+						save_event_target_as = bnd
+					}
+					random_system = {
+						limit = { has_star_flag = nhs }
+						save_event_target_as = nhs
+					}
+				}
+				every_system = {
+					limit = { has_star_flag = fallen_sol_system }
+					isolate_system = yes
+				}
+				event_target:sol = {
+					add_hyperlane = {
+						from = event_target:sol
+						to = event_target:tlx
+					}
+					add_hyperlane = {
+						from = event_target:nme
+						to = event_target:sol
+					}
+				}
+				event_target:sagittarius_a = {
+					add_hyperlane = {
+						from = event_target:sol
+						to = event_target:sagittarius_a
+					}
+				}
+				event_target:bnd = {
+					add_hyperlane = {
+						from = event_target:bnd
+						to = event_target:tlx
+					}
+				}
+				event_target:nme = {
+					add_hyperlane = {
+						from = event_target:nme
+						to = event_target:nhs
+					}
+					spawn_system = {
+						initializer = epsilon_eridani
+						min_distance >= 10
+						max_distance <= 20
+					}
+				}
+				random_system = {
+					limit = {
+						has_star_flag = une_gateway_route
+					}
+					add_hyperlane = {
+						from = this
+						to = event_target:nme
+					}
+				}
+				set_spawn_system_batch = end
 			}
 		}
 	}
 }
-
+# Egalitarian
 fallen_empire_7 = {
 	graphical_culture = "fallen_empire_06"
 	initializer = "fallen_6"
-	
-	possible = {
-		is_crises_allowed = no
+
+	weight_modifier = {
+		base = 100
+		modifier = {
+			factor = 0
+			any_country = { has_origin = origin_fallen_empire_06 }
+		}
 	}
 	
 	create_country_effect = {
@@ -518,8 +758,13 @@ fallen_empire_7 = {
 				ethic = ethic_fanatic_egalitarian
 			}			
 			flag = random
+			origin = "origin_fallen_empire_06"
 			effect = {
-				set_country_flag = fallen_empire_7
+                set_country_flag = fallen_empire_7
+                set_country_flag = get_machine
+				set_country_flag = get_hive_mind
+				set_country_flag = machine_computer_repressed_completed
+				set_timed_country_flag = { flag = game_start_job days = 90 }
 				add_resource = {
 					minerals = 10000
 					energy = 10000	
@@ -549,6 +794,10 @@ fallen_empire_7 = {
 fallen_machine_empire = {
 	graphical_culture = "fallen_machine_empire_01"
 	initializer = "fix_fallen_machine"
+
+	weight_modifier = {
+		base = 100
+	}
 	
 	possible = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
@@ -581,6 +830,7 @@ fallen_machine_empire = {
 				ethic = ethic_gestalt_consciousness
 			}			
 			flag = random
+			origin = "origin_fallen_empire"
 			effect = {
 				set_country_flag = fallen_empire_machine
 				add_resource = {
@@ -611,6 +861,8 @@ fallen_machine_empire = {
 				#add_global_ship_design = "NAME_Theta"
 				#add_global_ship_design = "NAME_Tau"
 				#add_global_ship_design = "NAME_Sigma"
+				#add_global_ship_design = "NAME_Upsilon"
+				#add_global_ship_design = "NAME_FE_Starbase"
 			}
 		}
 	}

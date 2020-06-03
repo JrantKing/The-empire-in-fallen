@@ -1,6 +1,340 @@
 # Pick a Patron to contact
 namespace = utopia
 
+# The Shroud Lobby
+country_event = {
+	id = utopia.3000
+	title = "utopia.3000.name"
+	desc = {
+		text = utopia.3000.intro.desc
+		trigger = { has_country_flag = shroud_intro }
+	}
+	desc = {
+		text = utopia.3000.1.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.2.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.3.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.4.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.5.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.6.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.7.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.8.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.9.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.10.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.11.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.12.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.13.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.14.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.15.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.16.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.17.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.18.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	desc = {
+		text = utopia.3000.19.desc
+		trigger = { NOT = { has_country_flag = shroud_intro } }
+	}
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			from = { is_country_type = shroud }
+			has_country_flag = shroud_intro
+		}
+		NOR = { 
+			has_country_flag = shroud_diplomacy_engaged
+			has_modifier = shroud_cooldown
+			has_modifier = shroud_precog_cooldown
+		}
+	}
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+			if = {
+				limit = { has_country_flag = shroud_intro }
+				remove_country_flag = shroud_intro
+			}
+		}
+	}
+
+	option = {
+		name = "utopia.3000.a"
+		#custom_tooltip = "venture.shroud.tooltip"
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 1000 }
+		}
+
+
+		add_resource = { energy = -1000 }
+
+		hidden_effect = {
+			random_list = {
+				10 = { 
+					if = {
+						limit = { NOT = { has_country_flag = shroud_vision_1 } }
+						country_event = { id = utopia.3100 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = { 
+							count_owned_ship = {
+								limit = { is_ship_size = psionic_avatar }
+								count < 1
+							}
+							count_armies = {
+								limit = { army_type = shroud_army }
+								count < 1
+							}
+						}
+						country_event = { id = utopia.3110 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = { NOT = { has_country_flag = shroud_vision_3 } }
+						country_event = { id = utopia.3120 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = { NOT = { has_country_flag = shroud_vision_4 } }
+						country_event = { id = utopia.3130 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = { NOT = { has_country_flag = shroud_vision_5 } }
+						country_event = { id = utopia.3140 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = {
+							any_country = {
+								is_country_type = fallen_empire
+								NOT = { has_ethic = ethic_gestalt_consciousness }
+								has_communications = root
+								NOT = { is_at_war_with = root }
+								NOT = { is_same_value = root }
+							}
+							NOT = { has_country_flag = shroud_fallen_empire }
+						}
+						country_event = { id = utopia.3150 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = { NOT = { has_technology = tech_psionic_shield } }
+						country_event = { id = utopia.3170 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = { NOT = { has_technology = tech_precognition_interface } }
+						country_event = { id = utopia.3180 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = {
+					if = {
+						limit = { NOT = { has_technology = tech_psi_jump_drive_1 } }
+						country_event = { id = utopia.3160 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}				
+				10 = {
+					if = {
+						limit = { 
+							NOR = { 
+								has_country_flag = shroud_vision_10
+								any_owned_leader = {
+									OR = {
+										has_trait = leader_trait_admiral_chosen
+										has_trait = leader_trait_general_chosen
+										has_trait = leader_trait_governor_chosen
+										has_trait = leader_trait_ruler_chosen
+										has_trait = leader_trait_scientist_chosen
+									}
+								}
+							} 
+
+						}
+						country_event = { id = utopia.3190 }
+					}
+					else = { country_event = { id = utopia.3200 } }
+				}
+				20 = {
+					if = {
+						limit = { 
+							NOT = { 
+								has_country_flag = has_shroud_patron
+							} 
+
+						}
+						country_event = { id = utopia.3300 }
+					}				
+					else = { country_event = { id = utopia.3200 } }
+				}
+				10 = { country_event = { id = utopia.3200 } }
+			}
+			if = {
+				limit = { 
+					has_relic = r_zro_crystal
+				}
+				add_modifier = {
+					modifier = "shroud_cooldown"
+					days = 900
+				}
+			}				
+			else = {
+				add_modifier = {
+					modifier = "shroud_cooldown"
+					days = 1800
+				}
+			}				
+		}
+	}
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
+# Vision 6 - Fallen Empire
+country_event = {
+	id = utopia.3150
+	title = "utopia.3000.name"
+	desc = "utopia.3150.desc"
+	diplomatic = yes
+	force_open = yes
+	
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = shroud_diplomacy_engaged
+		random_country = {
+			limit = {
+				NOT = { has_ethic = ethic_fanatic_communism }
+				is_country_type = fallen_empire
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { is_at_war_with = root }
+				has_communications = root
+				NOT = { is_same_value = root }
+			}
+			save_event_target_as = fallen_empire
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = shroud_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = "utopia.3150.a"
+		custom_tooltip = "shroud.unknown.chances.medium"
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = { id = utopia.3151 }
+				}
+				40 = {
+					modifier = {
+						factor = 0.5
+						has_relic = r_zro_crystal
+					}
+					country_Event = { id = utopia.3152 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "exit.shroud"
+		custom_tooltip = "exit.shroud.tooltip"
+		default_hide_option = yes
+	}
+}
+
 # The End of the Cycle: Reckoning
 country_event = {
 	id = utopia.3320
@@ -183,7 +517,7 @@ country_event = {
 					owner = { NOT = { has_country_flag = end_of_the_cycle_reckoning } }
 				}
 				owner = {
-					#set_country_flag = end_of_the_cycle_reckoning
+					set_country_flag = end_of_the_cycle_reckoning
 					set_country_flag = end_of_cycle_lost_planets
 					country_event = { id = utopia.3321 }
 				}			
@@ -248,7 +582,7 @@ country_event = {
 				limit = {
 					NOT = { has_country_flag = end_of_the_cycle_reckoning }
 				}
-				#set_country_flag = end_of_the_cycle_reckoning
+				set_country_flag = end_of_the_cycle_reckoning
 				country_event = { id = utopia.3321 }		
 			}			
 		}

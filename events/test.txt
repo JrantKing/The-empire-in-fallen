@@ -12,7 +12,7 @@ country_event = {
 				portrait = random
 				class = NEWMAN
 				homeworld = this
-				trait = random
+				traits = random
 			}
 			random_owned_pop = { change_species = last_created }
 		}
@@ -24,6 +24,31 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	immediate = {
+		create_fleet = {
+			name = random
+			settings = {
+				can_disband = no
+			}
+			effect = {
+				set_owner = root
+				create_ship = {
+					name = random
+					design = NAME_Harmony
+					graphical_culture = fallen_empire_06
+				}
+				set_location = {
+					target = event_target:tar_planet
+					distance = 0.01
+					angle = 0
+				}
+				queue_actions = {
+					destroy_planet = {
+						skip_rules = yes
+						target = event_target:tar_planet
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -42,11 +67,19 @@ planet_event = {
 	}
 }
 
-country_event = {
+fleet_event = {
 	id = teif_test.3
 	is_triggered_only = yes
-	hide_window = yes
+	hide_window = no
 	immediate = {
-		every_owned_pop = { set_pop_faction =  }
+	}
+	option = {
+		name = OK
+		queue_actions = {
+			destroy_planet = {
+				skip_rules = yes
+				target = event_target:tar_planet
+			}
+		}
 	}
 }

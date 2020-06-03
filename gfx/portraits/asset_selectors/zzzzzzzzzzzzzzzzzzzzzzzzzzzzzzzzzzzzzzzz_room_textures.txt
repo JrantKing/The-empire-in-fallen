@@ -25,6 +25,7 @@ room_selector = {
 		"personality_fanatic_befrienders_room" 		= { always = yes }
 		"personality_hive_mind_room" 				= { always = yes }
 		"machine_room"								= { always = yes }
+		"lithoid_room"								= { local_has_dlc = "Lithoids Species Pack" }
 		"personality_fallen_empire_machine_room"	= { always = yes }
 		"personality_fallen_empire_blue_room"		= { always = yes }
 		"personality_fallen_empire_cyan_room"		= { always = yes }
@@ -37,6 +38,7 @@ room_selector = {
 	#leader scope
 	ruler = {
 		"default_room"								= { always = no }
+		"lithoid_room"								= { exists = owner owner = { lithoids_portrait = yes NOT = { is_fallen_empire = yes } } }
 		"personality_hegemonic_imperialists_room" 	= { exists = owner owner = { has_ai_personality = hegemonic_imperialists } }
 		"personality_federation_builders_room" 		= { exists = owner owner = { has_ai_personality = federation_builders } }
 		"personality_democratic_crusaders_room" 	= { exists = owner owner = { has_ai_personality = democratic_crusaders } }
@@ -52,14 +54,14 @@ room_selector = {
 		"personality_peaceful_traders_room" 		= { exists = owner owner = { has_ai_personality = peaceful_traders } }
 		"personality_xenophobic_isolationists_room" = { exists = owner owner = { has_ai_personality = xenophobic_isolationists } }
 		"personality_ruthless_capitalists_room" 	= { exists = owner owner = { has_ai_personality = ruthless_capitalists } }
-		"personality_honorbound_warriors_room" 		= { exists = owner owner = { has_ai_personality = honorbound_warriors } }
+		"personality_honorbound_warriors_room" 		= { exists = owner owner = { OR = { has_ai_personality = honorbound_warriors has_ai_personality = gestalt_exterminators } } }
 		"personality_fanatic_befrienders_room" 		= { exists = owner owner = { has_ai_personality = fanatic_befrienders } }	
 		"personality_hive_mind_room" 				= { exists = owner owner = { has_authority = auth_hive_mind } }	
 		"machine_room"								= { exists = owner owner = { has_authority = auth_machine_intelligence is_fallen_machine_empire = no } }
 		"personality_fallen_empire_machine_room" = { exists = owner owner = { is_fallen_machine_empire = yes } }
 		"personality_fallen_empire_blue_room" = { exists = owner owner = { OR = { has_ai_personality = teif_fallen_empire_egalitarian has_ai_personality = awakened_teif_fallen_empire_egalitarian has_ai_personality = awakened_teif_fallen_empire_egalitarian_crisis_fighter has_ai_personality = awakened_teif_fallen_empire_egalitarian_normal } } }
 		"personality_fallen_empire_cyan_room" = { exists = owner owner = { OR = { has_ai_personality = fallen_empire_materialist has_ai_personality = awakened_fallen_empire_materialist has_ai_personality = awakened_fallen_empire_materialist_crisis_fighter has_ai_personality = awakened_fallen_empire_materialist_normal } } }
-		"personality_fallen_empire_red_room" = { exists = owner owner = { OR = { has_ai_personality = fallen_empire_xenophobe has_ai_personality = awakened_fallen_empire_xenophobe has_ai_personality = awakened_fallen_empire_militarist has_ai_personality = awakened_teif_fallen_empire_egalitarian_attacked } } }
+		"personality_fallen_empire_red_room" = { exists = owner owner = { OR = { has_ai_personality = fallen_empire_xenophobe has_ai_personality = awakened_fallen_empire_xenophobe has_ai_personality = awakened_teif_fallen_empire_militarist has_ai_personality = awakened_teif_fallen_empire_egalitarian_attacked } } }
 		"personality_fallen_empire_purple_room" = { exists = owner owner = { OR = { has_ai_personality = fallen_empire_spiritualist has_ai_personality = awakened_fallen_empire_spiritualist } } }
 		"personality_fallen_empire_yellow_room" = { exists = owner owner = { OR = { has_ai_personality = fallen_empire_xenophile has_ai_personality = awakened_fallen_empire_xenophile has_ai_personality = awakened_fallen_empire_xenophile_crisis_fighter has_ai_personality = awakened_fallen_empire_xenophile_normal } } }
 		"personality_fallen_empire_white_room" = { exists = owner owner = { OR = { has_ai_personality = teif_fallen_empire_authoritarian has_ai_personality = awakened_teif_fallen_empire_authoritarian has_ai_personality = awakened_teif_fallen_empire_authoritarian_crisis_fighter has_ai_personality = awakened_teif_fallen_empire_authoritarian_normal } } }

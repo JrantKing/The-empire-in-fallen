@@ -1,0 +1,18 @@
+ap_the_flesh_is_weak = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	planet_pops_robotics_upkeep_mult = -0.10
+	planet_pop_assembly_mult = 0.33
+}
+
+the_road_not_taken = {
+	custom_tooltip = the_road_not_taken_custom_tooltip
+	ship_ftl_jumpdrive_range_mult = -100000
+	ship_jumpdrive_cooldown_mult = 100000
+	ship_windup_mult = 100000
+	ships_upkeep_mult = -100
+	ship_sensor_range_add = -100
+	ship_hyperlane_range_add = -100
+	ship_weapon_damage = -0.4
+	force_disparity_fire_rate_mult = 80
+	army_defense_damage_mult = 10
+}

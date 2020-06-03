@@ -201,6 +201,9 @@
  NAME_C2: "C2"
  NAME_Taciturn: "Taciturn"
  NAME_Reticent: "Reticent"
+ NAME_Cybrex_Core: "Final Bastion"
+ NAME_Cybrex_Station_1: "Vigil One"
+ NAME_Cybrex_Station_2: "Vigil Two"
  NAME_Warrior_Freehold: "Warrior Freehold"
  NAME_Void_Dwelling: "Void Dwelling"
  NAME_Outrider: "Outrider"
@@ -217,8 +220,6 @@
  NAME_House_Fire_Eater: "House Fire Eater"
  NAME_House_Icerunner: "House Icerunner"
  NAME_Marauder_Starbase: "Void Home"
-
-# NEW
  NAME_Cybrex_Core: "Final Bastion"
  NAME_Cybrex_Station_1: "Vigil One"
  NAME_Cybrex_Station_2: "Vigil Two"
@@ -236,11 +237,14 @@
  NAME_CARAVANEER_DESTROYER_RACKET: "Super-Clanker"
  NAME_AI_STARBASE: "AI Starbase"
  NAME_Swarm_Starbase: "Swarm Starbase"
+ NAME_Pirate_Transport: "Pirate Transport"
+
  # MOD
  NAME_Liberty: "Liberty"
  NAME_Freedom: "Freedom"
  NAME_Equality: "Equality"
  NAME_Harmony: "Harmony"
+ NAME_Ruling: "Ruling"
  NAME_Bright: "Bright"
  NAME_Justice: "Justice"
  NAME_Stellar: "Stellar"
@@ -255,5 +259,17 @@
  NAME_Pianeta: "Pianeta"
  NAME_Selina: "Selina"
  NAME_Shininess: "Shininess"
- NAME_Null: "预留位置"
- NAME_Null_station: "预留位置防御空间站"
+ #
+ NAME_Libertarian: "Libertarian"
+ 
+ # FE Large station
+ NAME_Upsilon: "Upsilon"
+ NAME_Obscurer: "Obscurer"
+ NAME_Bulwark: "Bulwark"
+ NAME_Grinder: "Grinder"
+ NAME_Sentinel: "Sentinel"
+ 
+ #
+ NAME_trnt_Cruiser: "Early Space Cruiser"
+ NAME_trnt_Carrier: "Early Space Carrier"
+ NAME_trnt_Battleship: "Early Space Battleship"

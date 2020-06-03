@@ -3,4 +3,8 @@ spriteTypes = {
 		name = "GFX_megastructure_star_pressure_controller"
 		textureFile = "gfx/interface/planetview/star_pressure_controller.dds"
 	}
+	spriteType = {
+		name = "GFX_megastructure_une_gate"
+		textureFile = "gfx/interface/planetview/une_gate.dds"
+	}
 }

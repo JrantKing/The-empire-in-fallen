@@ -1,5 +1,5 @@
 civic_synthetic_evolution = {
-	planet_pop_assembly_mult = 0.33
+	planet_pop_assembly_mult = 0.10
 	planet_pops_robotics_upkeep_mult = -0.10
 	planet_jobs_robotic_produces_mult = 0.10
 	ROBOT_species_trait_points_add = 1
@@ -8,6 +8,13 @@ civic_synthetic_evolution = {
 
 civic_evolutionary_mastery = {
 	BIOLOGICAL_species_trait_points_add = 6
+	modify_species_cost_mult = -0.5
+	
+	icon = "gfx/interface/icons/modifiers/mod_resource_society_research_mult.dds"
+	icon_frame = 1
+}
+
+civic_evolutionary_mastery_cost = {
 	modify_species_cost_mult = -0.5
 	
 	icon = "gfx/interface/icons/modifiers/mod_resource_society_research_mult.dds"

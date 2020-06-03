@@ -1,18 +1,43 @@
+NInterface = {
+	NUM_DISTRICT_BOXES_TO_SHOW = 1 # How many district boxes will be shown before we show " 12/20" instead
+}
 NGameplay = {
+	MID_GAME_START_DEFAULT = 100
+	MID_GAME_START_MAX = 400
+	MID_GAME_START_MIN = 1
+	END_GAME_START_DEFAULT = 200
+	END_GAME_START_MAX = 800
+	END_GAME_START_MIN = 10
+	START_YEAR_SLIDER_INTERVAL = 1
 	ASCENSION_PERKS_SLOTS				= 41
 	INSULT_COOLDOWN_DAYS				= 0 	# How often can you send insults?
-	#MAX_PLANET_BUILDING_SLOTS			= 199
-	#POPS_BRANCH_OFFICE_BUILDING_SLOTS	= 25
-	#MAX_PLANET_BRANCH_OFFICE_BUILDING_SLOTS	 = 40
+	TECH_COST_DEFAULT = 1.0
+	TECH_COST_MIN = 0.25
+	TECH_COST_MAX = 10.00
+	TECH_COST_SLIDER_INTERVAL = 0.05
+	RANDOM_START_DISTANCE = 50
 	BASE_PLANET_BUILDING_SLOTS				= 2
+	#ALLOW_EMPIRE_DESIGN_CHEATS = yes
+	# Not used for crisis faction, mainly for FEs/AEs
+	SCALED_DIFFICULTY_MAX_GALAXY_SIZE = 10	# At this galaxy size, the full scaled difficulty modifier is applied
+	SCALED_DIFFICULTY_GALAXY_SIZE_MULT = 0.75	# How much does galaxy size impact difficulty scaling
+	SCALED_DIFFICULTY_HABITABLE_PLANETS_MULT = 0	# How much does amount of habitable planets impact difficulty scaling
+	FALLEN_EMPIRE_REPEATABLE_TECHS  = 20
+	RELATIVE_POWER_SUPERIOR			= 2.0
+	RELATIVE_POWER_OVERWHELMING		= 3.0
+	FTL_MAGNET_DISTANCE = 50	# The distance at which ships will warp in when caught by an FTL snare
 }
 NSpecies = {
-	HOMEWORLD_HABITABILITY				= 0.0		# Habitability on homeworld is increased by this value
+	#HOMEWORLD_HABITABILITY				= 0.2
 }
 NGraphics = {
 	GALAXY_DUST_ROTATION_SPEED			= 0.100
 	GALAXY_NEBULA_DUST_ROTATION_SPEED	= 0.100
 }
-NAI = {
-	FALLEN_EMPIRE_FLEET_SIZE 			= 250		# Fallen empires will have fleets of max this size
+NPop = {
+	#BASE_POP_ASSEMBLY					= 1		# Base assembly rate of pops
+}
+NEconomy = {
+	#TRADITION_COST_RESOURCES			= { "unity" "influence" } # Resource for tradition cost
+	#TRADITION_COST_AMOUNTS				= { 300 0.01 }	# Tradition base cost
 }

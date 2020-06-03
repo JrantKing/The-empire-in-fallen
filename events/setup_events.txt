@@ -1,0 +1,344 @@
+namespace = setup_events
+
+country_event = {
+	id = setup_events.0
+	title = ""
+	desc = ""	
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_country_type = default
+	}
+	immediate = {
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_desert } }
+			give_technology = { tech = tech_colonial_pc_desert message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_arid } }
+			give_technology = { tech = tech_colonial_pc_arid message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_savannah } }
+			give_technology = { tech = tech_colonial_pc_savannah message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_tropical } }
+			give_technology = { tech = tech_colonial_pc_tropical message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_continental } }
+			give_technology = { tech = tech_colonial_pc_continental message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_ocean } }
+			give_technology = { tech = tech_colonial_pc_ocean message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_tundra } }
+			give_technology = { tech = tech_colonial_pc_tundra message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_arctic } }
+			give_technology = { tech = tech_colonial_pc_arctic message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_alpine } }
+			give_technology = { tech = tech_colonial_pc_alpine message = no }
+		}
+		if = {
+			limit = { any_owned_planet = { is_planet_class = pc_nuked } }
+			give_technology = { tech = tech_colonial_pc_nuked message = no }
+		}
+		if = {
+			limit = { is_egalitarian = yes }
+			give_technology = { tech = tech_reachtoUtopia message = no }
+		}
+	}
+}
+
+country_event = {
+	id = setup_events.1
+	is_triggered_only = yes
+	hide_window = yes
+	fire_only_once = yes
+	
+	immediate = {
+		every_playable_country = {
+			limit = { is_ai = yes }
+			if = {
+				limit = { has_country_flag = urras_orangutan }
+				#change_government = { civics = { civic = civic_beacon_of_liberty civic = civic_idealistic_foundation } }
+				modify_species = { base = none ideal_planet_class = pc_continental }
+				solar_system = {
+					every_system_planet = {
+						limit = { is_planet_class = pc_arctic }
+						change_pc = pc_gaia
+						reroll_planet = yes
+						clear_blockers = yes
+						start_colony = {
+							owner = prevprev
+							species = prevprev
+						}
+						set_name = "NAME_TauCeti_F"
+					}
+				}
+				set_country_flag = huixingguance
+				set_variable = {
+					which = "stability_num"
+					value = 3
+				}
+				set_6_stability = yes
+			}
+			if = {
+				limit = { has_country_flag = freesia }
+				change_government = { civics = { civic = civic_efficient_bureaucracy civic = civic_byzantine_bureaucracy } }
+				set_country_flag = huixingguance
+				set_variable = {
+					which = "stability_num"
+					value = 3
+				}
+				set_6_stability = yes
+			}
+			if = {
+				limit = { has_country_flag = sasa }
+				change_government = { civics = { civic = civic_technocracy civic = civic_meritocracy } }
+				set_country_flag = huixingguance
+				set_variable = {
+					which = "stability_num"
+					value = 3
+				}
+				set_6_stability = yes
+			}
+			if = {
+				limit = { has_country_flag = synthetic_empire }
+				set_country_flag = huixingguance
+				set_variable = {
+					which = "stability_num"
+					value = 3
+				}
+				set_6_stability = yes
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					any_owned_planet = {
+						has_planet_flag = sanctuary_primitive
+					}
+				}
+			}
+			event_target:sanctuary = {
+				set_faction_hostility = {
+					target = prev
+					set_hostile = no
+					set_neutral = no
+					set_friendly = yes
+				}	
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = setup_events.2
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = {
+			is_ai = yes
+			has_country_flag = synthetic_empire
+		}
+	}
+	immediate = {
+		add_building = building_robot_assembly_plant
+	}
+}
+
+country_event = {
+	id = setup_events.3
+	hide_window = yes
+	mean_time_to_happen = { months = 1 }
+	trigger = {
+		is_ai = yes
+		any_relation = {
+			AND = {
+				is_country_type = shroud
+				has_communications = root
+			}
+		}
+		resource_stockpile_compare = { resource = energy value >= 1000 }
+		NOR = { 
+			has_country_flag = shroud_diplomacy_engaged
+			has_modifier = shroud_cooldown
+			has_modifier = shroud_precog_cooldown
+		}
+	}
+	immediate = {
+		random_list = {
+			10 = { 
+				if = {
+					limit = { NOT = { has_country_flag = shroud_vision_1 } }
+					country_event = { id = utopia.3100 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = { 
+						count_owned_ship = {
+							limit = { is_ship_size = psionic_avatar }
+							count < 1
+						}
+						count_armies = {
+							limit = { army_type = shroud_army }
+							count < 1
+						}
+					}
+					country_event = { id = utopia.3110 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_country_flag = shroud_vision_3 } }
+					country_event = { id = utopia.3120 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_country_flag = shroud_vision_4 } }
+					country_event = { id = utopia.3130 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_country_flag = shroud_vision_5 } }
+					country_event = { id = utopia.3140 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = {
+						any_country = {
+							is_country_type = fallen_empire
+							NOT = { has_ethic = ethic_gestalt_consciousness }
+							has_communications = root
+							NOT = { is_at_war_with = root }
+							NOT = { is_same_value = root }
+						}
+						NOT = { has_country_flag = shroud_fallen_empire }
+					}
+					country_event = { id = utopia.3150 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_technology = tech_psionic_shield } }
+					country_event = { id = utopia.3170 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_technology = tech_precognition_interface } }
+					country_event = { id = utopia.3180 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = {
+				if = {
+					limit = { NOT = { has_technology = tech_psi_jump_drive_1 } }
+					country_event = { id = utopia.3160 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}				
+			10 = {
+				if = {
+					limit = { 
+						NOR = { 
+							has_country_flag = shroud_vision_10
+							any_owned_leader = {
+								OR = {
+									has_trait = leader_trait_admiral_chosen
+									has_trait = leader_trait_general_chosen
+									has_trait = leader_trait_governor_chosen
+									has_trait = leader_trait_ruler_chosen
+									has_trait = leader_trait_scientist_chosen
+								}
+							}
+						} 
+
+					}
+					country_event = { id = utopia.3190 }
+				}
+				else = { country_event = { id = utopia.3200 } }
+			}
+			20 = {
+				if = {
+					limit = { 
+						NOT = { 
+							has_country_flag = has_shroud_patron
+						} 
+
+					}
+					country_event = { id = utopia.3300 }
+				}				
+				else = { country_event = { id = utopia.3200 } }
+			}
+			10 = { country_event = { id = utopia.3200 } }
+		}
+		if = {
+			limit = { 
+				has_relic = r_zro_crystal
+			}
+			add_modifier = {
+				modifier = "shroud_cooldown"
+				days = 900
+			}
+		}				
+		else = {
+			add_modifier = {
+				modifier = "shroud_cooldown"
+				days = 1800
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = setup_events.4
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		original_owner = yes
+	}
+	trigger = {
+		has_modifier = recently_conquered
+	}
+	immediate = {
+		remove_modifier = recently_conquered
+	}
+}
+
+planet_event = {
+	id = setup_events.5
+	hide_window = yes
+	is_triggered_only = yes
+	pre_triggers = {
+		original_owner = no
+	}
+	trigger = {
+		NOT = { mid_game_years_passed > 0 }
+	}
+	immediate = {
+		add_modifier = {
+			modifier = recently_conquered
+			days = 7200
+		}
+	}
+}

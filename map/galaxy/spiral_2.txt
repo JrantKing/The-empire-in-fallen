@@ -1,6 +1,6 @@
 # SPIRAL WITH 2 ARMS
 
-core_radius_perc = 0.15				# Core radius is 30% of the galaxy radius
+core_radius_perc = 0.3				# Core radius is 30% of the galaxy radius
 
 arms = {
 	tightness_winding = 1.1			# Tightness of winding

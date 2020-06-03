@@ -1,0 +1,88 @@
+modifer_defensive_focus = {
+	icon = "gfx/interface/icons/agenda.dds"
+	shipclass_military_station_build_cost_mult = -0.15
+	shipclass_military_station_damage_mult = 0.25
+	shipclass_military_station_hull_mult = 0.25
+}
+
+modifer_naval_focus = {
+	icon = "gfx/interface/icons/agenda.dds"
+	starbase_shipyard_build_cost_mult = -0.10
+	ships_upkeep_mult = -0.05
+	starbase_shipyard_build_speed_mult = 0.20
+}
+
+modifer_industrial = {
+	icon = "gfx/interface/icons/agenda.dds"
+	planet_jobs_minerals_produces_mult = 0.10
+}
+
+modifer_science = {
+	icon = "gfx/interface/icons/agenda.dds"
+	all_technology_research_speed = 0.10
+}
+
+modifer_finanical = {
+	icon = "gfx/interface/icons/agenda.dds"
+	planet_jobs_energy_produces_mult = 0.10
+}
+
+modifer_welfare = {
+	icon = "gfx/interface/icons/agenda.dds"
+	pop_growth_speed = 0.10
+	pop_happiness = 0.05
+}
+
+# Faction-related agendas
+modifer_expansionist_overtures = {
+	icon = "gfx/interface/icons/agenda.dds"
+	country_claim_influence_cost_mult = -0.1
+}
+
+modifer_national_purity = { # Reduced immigration attraction, influence bonus
+	icon = "gfx/interface/icons/agenda.dds"
+	pop_ethic_xenophobe_attraction_mult = 0.20
+	country_influence_produces_mult = 0.10
+}
+
+modifer_public_debates = {
+	icon = "gfx/interface/icons/agenda.dds"
+	pop_ethics_shift_speed_mult = 0.5
+}
+
+modifer_import_export = {
+# Food bonus, trust growth bonus
+	icon = "gfx/interface/icons/agenda.dds"
+	country_trade_fee = -0.05
+	trade_value_mult = 0.05
+}
+
+modifer_native_privilege = {
+	# Xenophobe ethics attraction, reduced unrest
+	icon = "gfx/interface/icons/agenda.dds"
+	pop_ethic_xenophobe_attraction_mult = 0.20
+	pop_citizen_happiness = 0.05
+}
+
+modifer_skill_development = {
+	# leader skill gain
+	icon = "gfx/interface/icons/agenda.dds"
+	species_leader_exp_gain = 0.25
+}
+
+modifer_slave_optimization = {
+	# Slave output bonus
+	icon = "gfx/interface/icons/agenda.dds"
+	planet_jobs_slave_produces_mult = 0.10
+}
+
+modifer_selective_nostalgia = { # Unity production modifier
+	icon = "gfx/interface/icons/agenda.dds"
+	planet_jobs_unity_produces_mult = 0.10
+}
+
+
+modifer_xeno_outreach = { # Xenophile ethics attraction, immigration attraction?
+	icon = "gfx/interface/icons/agenda.dds"
+	pop_ethic_xenophile_attraction_mult = 0.10
+}

@@ -54,7 +54,7 @@ war_name_parts_list = {
 war_name_parts_list = {
 	key = "galatron_war_names"
 	parts = {
-		"銀創争霸" = 1
+		"银河之星争夺战" = 1
 	}
 }
 
@@ -266,7 +266,7 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <war_names>"
+	format = "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <conquest_war_names>"
 }
 
 # Conquest - Defender Federation
@@ -287,7 +287,7 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <war_names>"
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <conquest_war_names>"
 }
 
 # Conquest - Corporate Attacker, No Federations
@@ -356,9 +356,9 @@ war_name_format = {
 				using_war_goal = {
 					type = wg_megacorp_subjugate
 					owner = attacker
-				}				
+				}
 			}
-            attacker = {
+			attacker = {
 				has_federation = yes
 			}
 			defender = {
@@ -383,9 +383,9 @@ war_name_format = {
 				using_war_goal = {
 					type = wg_megacorp_subjugate
 					owner = attacker
-				}				
+				}
 			}
-            attacker = {
+			attacker = {
 				has_federation = no
 			}
 			defender = {
@@ -652,13 +652,17 @@ war_name_format = {
 			add = 999
 			OR = {
 				using_war_goal = {
+					type = wg_renegade_containment
+					owner = attacker
+				}
+				using_war_goal = {
 					type = wg_end_threat
 					owner = attacker
 				}
 				using_war_goal = {
 					type = wg_end_threat_swarm
 					owner = attacker
-				}				
+				}
 			}
             attacker = {
 				has_federation = no
@@ -679,13 +683,17 @@ war_name_format = {
 			add = 999
 			OR = {
 				using_war_goal = {
+					type = wg_renegade_containment
+					owner = attacker
+				}
+				using_war_goal = {
 					type = wg_end_threat
 					owner = attacker
 				}
 				using_war_goal = {
 					type = wg_end_threat_swarm
 					owner = attacker
-				}				
+				}
 			}
 			attacker = {
 				has_federation = yes
@@ -942,7 +950,7 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <fe_stop_ai_war_names>"
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <fe_stop_ai_names_war_names>"
 }
 
 # Fallen Empire Stop AI - Defender Federation
@@ -963,7 +971,7 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <fe_stop_ai_war_names>"
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <fe_stop_ai_names_war_names>"
 }
 
 ### FALLEN EMPIRE CLEANSE HOLY WORLDS WARS

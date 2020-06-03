@@ -11,7 +11,7 @@ gov_representative_democracy_democratic = {
 	}
 
 	weight = {
-		base = 1000000
+		base = 100000
 	}
 }
 
@@ -28,7 +28,7 @@ gov_awakened_ascendancy_democratic = {
 	}
 
 	weight = {
-		base = 1000000
+		base = 100000
 	}
 }
 
@@ -41,6 +41,22 @@ gov_teif_stagnant_ascendancy = {
 	possible = {
 		has_valid_civic = civic_fallen_start_leadership
 		has_valid_civic = civic_fallen_start
+	}
+
+	weight = {
+		base = 100000
+	}
+}
+
+gov_teif_global_unification = {
+	ruler_title = RT_SECRETARY
+	ruler_title_female = RT_SECRETARY_FEMALE
+	
+	should_force_rename = yes
+
+	possible = {
+		is_country_type = primitive
+		has_origin = origin_the_road_not_taken
 	}
 
 	weight = {

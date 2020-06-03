@@ -1,0 +1,785 @@
+namespace = ancient_war
+########## Galactic war ##########
+# Ancient awakens Timer
+country_event = {
+	id = ancient_war.19
+	hide_window = yes
+	trigger = {
+		count_country = {
+			count >= 2
+			limit = {
+				OR = {
+					has_country_flag = fallen_empire_1
+					has_country_flag = fallen_empire_3
+					has_country_flag = fallen_empire_7
+				}
+			}
+		}
+		count_country = {
+			count >= 2
+			limit = {
+				OR = {
+					has_country_flag = fallen_empire_2
+					has_country_flag = fallen_empire_4
+					has_country_flag = fallen_empire_5
+				}
+			}
+		}
+		has_global_flag = galactic_war_happened
+		end_game_years_passed >= 0
+		NOT = { has_global_flag = ancient_war_fire_timer }
+	}
+	mean_time_to_happen = {
+		months = 5
+	}
+	immediate = {
+		set_global_flag = ancient_war_fire_timer
+		# Attacker Leader
+		random_country = {
+			limit = {
+				is_country_type = fallen_empire
+				NOT = { has_country_flag = guardians_of_the_galaxy }
+				OR = {
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_fanatic_authoritarian
+				}
+				OR = {
+					has_country_flag = fallen_empire_2
+					has_country_flag = fallen_empire_4
+					has_country_flag = fallen_empire_5
+				}
+			}
+			set_country_flag = GW_leader
+			set_timed_country_flag = { flag = GW_awake_timer days = 365 }
+			set_timed_country_flag = { flag = GW_awake_timer_2 days = 1095 }
+		}
+		# Defender Leader
+		random_country = {
+			limit = {
+				is_country_type = fallen_empire
+				NOT = { has_country_flag = guardians_of_the_galaxy }
+				OR = {
+					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_fanatic_egalitarian
+				}
+				OR = {
+					has_country_flag = fallen_empire_1
+					has_country_flag = fallen_empire_3
+					has_country_flag = fallen_empire_7
+				}
+			}
+			set_country_flag = GW_leader
+			set_timed_country_flag = { flag = GW_awake_timer days = 365 }
+			set_timed_country_flag = { flag = GW_awake_timer_2 days = 1095 }
+		}
+	}
+}
+
+# Ancient defender or attacker awakens / Notify Player
+country_event = {
+	id = ancient_war.20
+	hide_window = yes
+	trigger = {
+		is_country_type = fallen_empire
+		NOT = { has_country_flag = guardians_of_the_galaxy }
+		has_global_flag = galactic_war_happened
+		has_country_flag = GW_leader
+		NOT = { has_country_flag = awakens }
+		OR = {
+			has_country_flag = fallen_empire_1
+			has_country_flag = fallen_empire_2
+			has_country_flag = fallen_empire_3
+			has_country_flag = fallen_empire_4
+			has_country_flag = fallen_empire_5
+			has_country_flag = fallen_empire_7
+		}
+		NOT = { has_country_flag = war_in_heaven_timer }
+		end_game_years_passed >= 0
+	}
+	mean_time_to_happen = {
+		years = 1
+		modifier = {
+			factor = 0.01
+			NOT = { has_country_flag = GW_awake_timer_2 }
+		}
+	}
+	immediate = {
+		set_country_flag = awakens
+		set_country_type = awakened_fallen_empire
+		set_country_flag = ai_no_leave_fed
+		change_government = {
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+			}
+		}
+		every_playable_country = {
+			set_timed_country_flag = { flag = ai_no_wars days = 3600 }
+			set_timed_country_flag = { flag = ai_no_leave_fed days = 3600 }
+		}
+		remove_country_flag = GW_leader
+		add_awakened_fallen_empire_fleet_small = yes
+		add_resource = {
+			minerals = 20000
+			energy = 5000
+			influence = 1000
+		}
+		if = {
+			limit = {
+				NOT = { any_country = { has_country_flag = GW_defender_leader } }
+			}
+			set_country_flag = GW_defender_leader
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_country_flag = GW_defender_leader
+					NOT = { is_same_value = ROOT }
+				}
+			}
+			set_country_flag = GW_attacker_leader
+		}
+		if = {
+			limit = {
+				any_country = {
+					is_country_type = awakened_fallen_empire
+					has_country_flag = GW_defender_leader
+				}
+				any_country = {
+					is_country_type = awakened_fallen_empire
+					has_country_flag = GW_attacker_leader
+				}
+			}
+			random_country = {
+				limit = {
+					is_country_type = awakened_fallen_empire
+					has_country_flag = GW_defender_leader
+				}
+				save_global_event_target_as = defender_leader
+			}
+			random_country = {
+				limit = {
+					is_country_type = awakened_fallen_empire
+					has_country_flag = GW_attacker_leader
+				}
+				save_global_event_target_as = attacker_leader
+			}
+			every_playable_country = {
+				limit = { is_ai = no }
+				country_event = { id = ancient_war.26 days = 30 }
+			}
+		}
+		# Establish communications / notify
+		every_playable_country = {
+			if = {
+				limit = { NOT = { has_communications = root } }
+				establish_communications_no_message = root	
+				root = { save_event_target_as = contact_empire }
+				country_event = { id = action.1 }				
+			}
+			if = {
+				limit = {
+					is_ai = no
+					ROOT = { has_country_flag = GW_defender_leader }
+				}
+				country_event = { id = fallen_empires_awakening.2 }
+			}
+			if = {
+				limit = {
+					is_ai = no
+					ROOT = { has_country_flag = GW_attacker_leader }
+				}
+				country_event = { id = ancient_war.1 }
+			}
+		}
+	}
+}
+
+# # Ancient Ally awakens
+country_event = {
+	id = ancient_war.21
+	hide_window = yes
+	trigger = {
+		NOT = { has_country_flag = guardians_of_the_galaxy }
+		is_country_type = fallen_empire
+		OR = {
+			has_country_flag = fallen_empire_1
+			has_country_flag = fallen_empire_2
+			has_country_flag = fallen_empire_3
+			has_country_flag = fallen_empire_4
+			has_country_flag = fallen_empire_5
+			has_country_flag = fallen_empire_7
+		}
+		exists = event_target:attacker_leader
+		exists = event_target:defender_leader
+		end_game_years_passed >= 0
+	}
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 2
+			count_country = {
+				count = 2
+				limit = { is_country_type = awakened_fallen_empire }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			count_country = {
+				count = 3
+				limit = { is_country_type = awakened_fallen_empire }
+			}
+		}
+		modifier = {
+			factor = 1
+			count_country = {
+				count = 4
+				limit = { is_country_type = awakened_fallen_empire }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			count_country = {
+				count >= 5
+				limit = { is_country_type = awakened_fallen_empire }
+			}
+		}
+	}
+	immediate = {
+		set_country_type = awakened_fallen_empire
+		change_government = {
+			civics = {
+				civic = civic_revanchist_fervor
+				civic = civic_ancient_caches_of_technology
+			}
+		}
+		add_resource = {
+			minerals = 20000
+			energy = 5000
+			influence = 1000
+		}
+		# Add some more fleet
+		add_awakened_fallen_empire_fleet_small = yes
+		# Join alliance
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = fallen_empire_1
+					has_country_flag = fallen_empire_3
+					has_country_flag = fallen_empire_7
+				}
+			}
+			if = {
+				limit = {
+					event_target:attacker_leader = {
+						OR = {
+							has_country_flag = fallen_empire_1
+							has_country_flag = fallen_empire_3
+							has_country_flag = fallen_empire_7
+						}
+					}
+				}
+				join_alliance = {
+					name = NAME_Alliance
+					who = event_target:attacker_leader
+					override_requirements = yes
+				}
+				every_playable_country = {
+					limit = { is_ai = no }
+					country_event = { id = ancient_war.22 }
+				}
+			}
+			else = {
+				join_alliance = {
+					name = NAME_Entente
+					who = event_target:defender_leader
+					override_requirements = yes
+				}
+				every_playable_country = {
+					limit = { is_ai = no }
+					country_event = { id = ancient_war.23 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = fallen_empire_2
+					has_country_flag = fallen_empire_4
+					has_country_flag = fallen_empire_5
+				}
+			}
+			if = {
+				limit = {
+					event_target:attacker_leader = {
+						OR = {
+							has_country_flag = fallen_empire_2
+							has_country_flag = fallen_empire_4
+							has_country_flag = fallen_empire_5
+						}
+					}
+				}
+				join_alliance = {
+					name = NAME_Alliance
+					who = event_target:attacker_leader
+					override_requirements = yes
+				}
+				every_playable_country = {
+					limit = { is_ai = no }
+					country_event = { id = ancient_war.22 }
+				}
+			}
+			else = {
+				join_alliance = {
+					name = NAME_Entente
+					who = event_target:defender_leader
+					override_requirements = yes
+				}
+				every_playable_country = {
+					limit = { is_ai = no }
+					country_event = { id = ancient_war.23 }
+				}
+			}
+		}
+		set_country_flag = ai_no_leave_fed
+		# Establish communications / notify
+		every_playable_country = {
+			if = {
+				limit = { NOT = { has_communications = root } }
+				establish_communications_no_message = root	
+				root = { save_event_target_as = contact_empire }
+				country_event = { id = action.1 }				
+			}
+		}
+	}
+}
+
+# Notify Player Ancient Ally attacker leader
+country_event = {
+	id = ancient_war.22
+	title = ancient_war.22.name
+	desc = ancient_war.22.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	location = from
+	is_triggered_only = yes
+	option = {
+		name = ancient_war.22.a
+	}
+	option = {
+		name = ancient_war.22.b
+	}
+}
+
+# Notify Player Ancient Ally defender leader
+country_event = {
+	id = ancient_war.23
+	title = ancient_war.22.name
+	desc = ancient_war.23.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	location = from
+	is_triggered_only = yes
+	option = {
+		name = ancient_war.22.a
+	}
+	option = {
+		name = ancient_war.22.b
+	}
+}
+
+# Galactic war broke out
+country_event = {
+	id = ancient_war.24
+	hide_window = yes
+	trigger = {
+		end_game_years_passed >= 0
+		NOT = { has_global_flag = galactic_war_on_going }
+		is_country_type = awakened_fallen_empire
+		has_country_flag = GW_attacker_leader
+		has_global_flag = GW_checked
+		NOT = {
+			any_country = {
+				is_ai = no
+				NOT = { has_country_flag = GW_checked_join }
+			}
+		}
+		
+		NOT = {
+			any_country = {
+				NOT = { has_country_flag = guardians_of_the_galaxy }
+				OR = {
+					has_country_flag = fallen_empire_1
+					has_country_flag = fallen_empire_2
+					has_country_flag = fallen_empire_3
+					has_country_flag = fallen_empire_4
+					has_country_flag = fallen_empire_5
+					has_country_flag = fallen_empire_7
+				}
+				has_federation = no
+			}
+		}
+	}
+	mean_time_to_happen = {
+		years = 1
+	}
+	immediate = {
+		set_global_flag = galactic_war_on_going
+		# attacker declare war vs defender
+		event_target:attacker_leader = {
+			declare_war = {
+				target = event_target:defender_leader
+				name = "NAME_The_War_in_Galaxy"
+				attacker_war_goal = wg_war_in_galaxy
+			}
+		}
+		# War Nonaligned League
+		every_playable_country = {
+			limit = {
+				is_country_type = default
+				is_federation_leader = yes
+			}
+			event_target:attacker_leader = {
+				declare_war = {
+					target = PREV
+					name = "NAME_The_War_in_Galaxy"
+					attacker_war_goal = wg_war_in_galaxy
+				}
+			}
+			event_target:defender_leader = {
+				declare_war = {
+					target = PREV
+					name = "NAME_The_War_in_Galaxy"
+					attacker_war_goal = wg_war_in_galaxy
+				}
+			}
+		}
+		# War with homicidal
+		every_playable_country = {
+			limit = {
+				is_country_type = default
+				has_federation = no
+				is_subject = no
+			}
+			event_target:attacker_leader = {
+				declare_war = {
+					target = PREV
+					name = "NAME_The_War_in_Galaxy"
+					attacker_war_goal = wg_war_in_galaxy
+				}
+			}
+			event_target:defender_leader = {
+				declare_war = {
+					target = PREV
+					name = "NAME_The_War_in_Galaxy"
+					attacker_war_goal = wg_war_in_galaxy
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				has_country_flag = galactic_war_nonaligned_league_leader
+			}
+			save_event_target_as = nonaligned_league_leader
+		}
+		# Subject join overlord's war
+		every_playable_country = {
+			every_subject = {
+				join_war = overlord
+			}
+		}
+		# add opinion modifier with each other
+		every_playable_country = {
+			limit = {
+				OR = {
+					is_in_federation_with = event_target:defender_leader
+					is_in_federation_with = event_target:attacker_leader
+					is_same_value = event_target:defender_leader
+					is_same_value = event_target:attacker_leader
+				}
+			}
+			every_playable_country = {
+				limit = {
+					OR = {
+						is_in_federation_with = event_target:nonaligned_league_leader
+						is_same_value = event_target:nonaligned_league_leader
+					}
+				}
+				add_opinion_modifier = {
+					who = PREV
+					modifier = opinion_non_aligned_league_fe
+				}
+			}
+		}
+		every_playable_country = {
+			limit = {
+				OR = {
+					is_in_federation_with = event_target:nonaligned_league_leader
+					is_same_value = event_target:nonaligned_league_leader
+				}
+			}
+			every_playable_country = {
+				limit = {
+					OR = {
+						is_in_federation_with = event_target:defender_leader
+						is_in_federation_with = event_target:attacker_leader
+						is_same_value = event_target:defender_leader
+						is_same_value = event_target:attacker_leader
+					}
+				}
+				add_opinion_modifier = {
+					who = PREV
+					modifier = opinion_non_aligned_league_fe
+				}
+			}
+		}
+		every_playable_country = {
+			limit = {
+				NOR = {
+					is_in_federation_with = event_target:defender_leader
+					is_in_federation_with = event_target:attacker_leader
+					is_same_value = event_target:defender_leader
+					is_same_value = event_target:attacker_leader
+				}
+			}
+			remove_country_flag = ai_no_leave_fed
+		}
+		every_playable_country = {
+			remove_country_flag = ai_no_wars
+		}
+	}
+}
+
+# Find a Nonaligned League Leader & Join alliance
+country_event = {
+	id = ancient_war.25
+	hide_window = yes
+	trigger = {
+		end_game_years_passed >= 0
+		has_global_flag = galactic_war_happened
+		NOT = { has_global_flag = galactic_war_nonaligned_league }
+		count_country = {
+			limit = {
+				is_country_type = awakened_fallen_empire
+				OR = {
+					has_country_flag = GW_defender_leader
+					has_country_flag = GW_attacker_leader
+				}
+			}
+			count > 1
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	immediate = {
+		set_global_flag = galactic_war_nonaligned_league
+		random_country = {
+			limit = {
+				is_country_type = default
+				is_homicidal = no
+				is_subject = no
+				is_at_war = no
+				count_country = {
+					limit = { is_country_type = default }
+					count > 1
+				}
+				NOT = {
+					any_country = {
+						is_country_type = default
+						is_at_war = no
+						relative_power = {
+							who = PREV
+							category = all
+							value >= superior
+						}
+					}
+				}
+			}
+			set_country_flag = galactic_war_nonaligned_league_leader
+			set_country_flag = galactic_war_nonaligned_league_join
+			set_timed_country_flag = {
+				flag = ai_no_leave_fed
+				days = 2920
+			}
+			save_event_target_as = leader
+		}
+		if = {
+			limit = { NOT = { exists = event_target:leader } }
+			set_global_flag = no_leader
+		}
+		else = {
+			every_country = {
+				limit = {
+					is_country_type = default
+					is_subject = no
+					is_homicidal = no
+					NOT = { is_same_value = event_target:leader }
+					is_at_war = no
+				}
+				set_country_flag = galactic_war_nonaligned_league_join
+				set_timed_country_flag = {
+					flag = ai_no_leave_fed
+					days = 2920
+				}
+				join_alliance = {
+					name = NAME_League_of_Non-Aligned_Powers
+					who = event_target:leader
+					override_requirements = yes
+				}
+				hidden_effect = {
+					prev.federation = {
+						set_federation_flag = non_aligned_league
+						if = {
+							limit = {
+								has_federation_perk = cohesion_join_1
+							}
+							add_cohesion = 50
+						}
+						else = { add_cohesion = 100 }
+						add_federation_experience = 4200 #level 3 with some breathing room
+					}
+				}
+			}
+			# Non Aligned add opinion modifier with each other
+			every_playable_country = {
+				limit = {
+					is_in_federation_with = event_target:leader
+					NOT = { is_same_value = event_target:leader }
+				}
+				add_opinion_modifier = {
+					who = event_target:leader
+					modifier = opinion_non_aligned_league
+				}
+				event_target:leader = {
+					add_opinion_modifier = {
+						who = PREV
+						modifier = opinion_non_aligned_league
+					}
+				}
+				every_playable_country = {
+					limit = {
+						is_in_federation_with = event_target:leader
+						NOT = { is_same_value = PREV }
+						NOT = { is_same_value = event_target:leader }
+					}
+					add_opinion_modifier = {
+						who = PREV
+						modifier = opinion_non_aligned_league
+					}
+				}
+			}
+		}
+	}
+}
+
+# Notify Find a Nonaligned League Leader & Join alliance
+country_event = {
+	id = ancient_war.26
+	title = ancient_war.26.name
+	desc = ancient_war.26.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	is_triggered_only = yes
+	option = {
+		name = TERRIBLE
+	}
+	option = {
+		name = OK
+	}
+}
+
+# Awakens Player join Ally
+country_event = {
+	id = ancient_war.27
+	title = ancient_war.27.name
+	desc = ancient_war.27.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	trigger = {
+		end_game_years_passed >= 0
+		has_global_flag = galactic_war_nonaligned_league
+		NOT = { has_country_flag = GW_check_join }
+		is_ai = no
+		any_country = {
+			is_country_type = awakened_fallen_empire
+			has_country_flag = GW_defender_leader
+		}
+		any_country = {
+			is_country_type = awakened_fallen_empire
+			has_country_flag = GW_attacker_leader
+		}
+	}
+	mean_time_to_happen = {
+		months = 3
+	}
+	immediate = {
+		set_global_flag = GW_checked
+		set_country_flag = GW_check_join
+	}
+	option = {
+		name = ancient_war.27.a
+		trigger = {
+			is_country_type = awakened_fallen_empire
+		}
+		hidden_effect = {
+			join_alliance = {
+				who = event_target:defender_leader
+				override_requirements = yes
+			}
+		}
+	}
+	option = {
+		name = ancient_war.27.b
+		trigger = {
+			is_country_type = awakened_fallen_empire
+		}
+		hidden_effect = {
+			join_alliance = {
+				who = event_target:attacker_leader
+				override_requirements = yes
+			}
+		}
+	}
+	option = {
+		name = ancient_war.27.c
+		trigger = {
+			is_fallen_empire = yes
+		}
+	}
+	option = {
+		name = ancient_war.27.d
+		trigger = {
+			is_country_type = default
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = ancient_war.27.e
+		trigger = {
+			is_country_type = default
+			has_valid_civic = civic_fanatic_purifiers
+		}
+	}
+	option = {
+		name = ancient_war.27.f
+		trigger = {
+			is_country_type = default
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+	option = {
+		name = ancient_war.27.g
+		trigger = {
+			is_country_type = default
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+	after = {
+		hidden_effect = {
+			set_country_flag = GW_checked_join
+		}
+	}
+}

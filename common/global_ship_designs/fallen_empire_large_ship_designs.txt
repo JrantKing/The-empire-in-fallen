@@ -83,7 +83,7 @@ ship_design = {
 		}		
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 	required_component="BATTLESHIP_SHIP_THRUSTER_5"
@@ -179,7 +179,7 @@ ship_design = {
 		}		
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_3"
+	required_component="teif_JUMP_DRIVE_3"
 	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 	required_component="BATTLESHIP_SHIP_THRUSTER_5"
@@ -380,7 +380,7 @@ ship_design = {
 		}			
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 	required_component="BATTLESHIP_SHIP_THRUSTER_5"
@@ -477,7 +477,7 @@ ship_design = {
 		}			
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 	required_component="BATTLESHIP_SHIP_THRUSTER_5"
@@ -574,8 +574,8 @@ ship_design = {
 		}			
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_3"
-	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
+	required_component="teif_JUMP_DRIVE_3"
+	required_component="COMBAT_COMPUTER_ARTILLERY_AUTONOMOUS"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 	required_component="BATTLESHIP_SHIP_THRUSTER_5"
 	required_component="fallen_energy_core_4"
@@ -671,7 +671,7 @@ ship_design = {
 		}			
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_LINE_PRECOG"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 	required_component="BATTLESHIP_SHIP_THRUSTER_5"
@@ -767,7 +767,7 @@ ship_design = {
 			}
 		}
 		required_component="SENSOR_4"
-		required_component="JUMP_DRIVE_3"
+		required_component="teif_JUMP_DRIVE_3"
 		required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 		required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 		required_component="BATTLESHIP_SHIP_THRUSTER_5"
@@ -861,7 +861,7 @@ ship_design = {
 		}
 	}
 	required_component="SENSOR_4"
-	required_component="JUMP_DRIVE_2"
+	required_component="teif_JUMP_DRIVE_2"
 	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
 	required_component="BATTLESHIP_SHIP_THRUSTER_5"

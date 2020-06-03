@@ -1,0 +1,327 @@
+get_random_agenda = {
+    random_list = {
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_militarist
+            }
+            modifier = {
+                factor = 2
+                has_ethic = ethic_fanatic_militarist
+            }
+            modifier = {
+                factor = 1.5
+                exists = ruler
+                ruler = { pre_ruler_leader_class = admiral }
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = { pre_ruler_leader_class = general }
+            }
+            add_modifier = {
+                modifier = modifer_defensive_focus
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_militarist
+            }
+            modifier = {
+                factor = 2
+                has_ethic = ethic_fanatic_militarist
+            }
+            modifier = {
+                factor = 1.5
+                exists = ruler
+                ruler = { pre_ruler_leader_class = admiral }
+            }
+            add_modifier = {
+                modifier = modifer_naval_focus
+                days = -1
+            }
+        }
+        100 = {
+            add_modifier = {
+                modifier = modifer_industrial
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                 has_ethic = ethic_materialist
+            }
+            modifier = {
+                factor = 2
+                has_ethic = ethic_fanatic_materialist
+            }
+            modifier = {
+                factor = 1.5
+                exists = ruler
+                ruler = { pre_ruler_leader_class = scientist }
+            }
+            add_modifier = {
+                modifier = modifer_science
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                exists = ruler
+                ruler = { pre_ruler_leader_class = governor }
+            }
+            add_modifier = {
+                modifier = modifer_finanical
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_pacifist
+            }
+            modifier = {
+                factor = 2
+                has_ethic = ethic_fanatic_pacifist
+            }
+            add_modifier = {
+                modifier = modifer_welfare
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_fanatic_militarist
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = imperialist }
+                }
+            }
+            modifier = {
+                factor = 0
+                num_communications < 1
+            }
+            add_modifier = {
+                modifier = modifer_expansionist_overtures
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_fanatic_xenophobe
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = isolationist }
+                }
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    has_ethic = ethic_xenophile
+                    has_ethic = ethic_fanatic_xenophile
+                }
+            }
+            add_modifier = {
+                modifier = modifer_national_purity
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_fanatic_egalitarian
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = progressive }
+                }
+            }
+            modifier = {
+                factor = 0
+                mid_game_years_passed < 0
+            }
+            add_modifier = {
+                modifier = modifer_public_debates
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_fanatic_pacifist
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = prosperity }
+                }
+            }
+            add_modifier = {
+                modifier = modifer_import_export
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                OR = {
+                    has_ethic = ethic_fanatic_pacifist
+                    has_ethic = ethic_pacifist
+                }
+                OR = {
+                    has_ethic = ethic_fanatic_xenophobe
+                    has_ethic = ethic_xenophobe
+                }
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = supremacist }
+                }
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    has_ethic = ethic_xenophile
+                    has_ethic = ethic_fanatic_xenophile
+                }
+            }
+            add_modifier = {
+                modifier = modifer_native_privilege
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_fanatic_materialist
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = technologist }
+                }
+            }
+            add_modifier = {
+                modifier = modifer_skill_development
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_fanatic_authoritarian
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = totalitarian }
+                }
+            }
+            modifier = {
+                factor = 0
+                has_policy_flag = slavery_not_allowed
+            }
+            add_modifier = {
+                modifier = modifer_slave_optimization
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                has_ethic = ethic_fanatic_spiritualist
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = traditionalist }
+                }
+            }
+            add_modifier = {
+                modifier = modifer_selective_nostalgia
+                days = -1
+            }
+        }
+        100 = {
+            modifier = {
+                factor = 1.5
+                OR = {
+                    has_ethic = ethic_fanatic_xenophile
+                    has_ethic = ethic_xenophile
+                }
+            }
+            modifier = {
+                factor = 2
+                exists = ruler
+                ruler = {
+                    exists = pop_faction
+                    pop_faction = { is_pop_faction_type = xenoist }
+                }                
+            }
+            modifier = {
+                factor = 0.5
+                OR = {
+                    has_ethic = ethic_xenophobe
+                    has_ethic = ethic_fanatic_xenophobe
+                }
+            }
+            modifier = {
+                factor = 0
+                num_communications < 3
+            }
+            add_modifier = {
+                modifier = modifer_xeno_outreach
+                days = -1
+            }
+        }
+    }
+}
+
+remove_agenda = {
+    switch = {
+        trigger = has_modifier
+        modifer_defensive_focus = { remove_modifier = modifer_defensive_focus }
+        modifer_naval_focus = { remove_modifier = modifer_naval_focus }
+        modifer_industrial = { remove_modifier = modifer_industrial }
+        modifer_science = { remove_modifier = modifer_science }
+        modifer_finanical = { remove_modifier = modifer_finanical }
+        modifer_welfare = { remove_modifier = modifer_welfare }
+        modifer_expansionist_overtures = { remove_modifier = modifer_expansionist_overtures }
+        modifer_national_purity = { remove_modifier = modifer_national_purity }
+        modifer_public_debates = { remove_modifier = modifer_public_debates }
+        modifer_import_export = { remove_modifier = modifer_import_export }
+        modifer_native_privilege = { remove_modifier = modifer_native_privilege }
+        modifer_skill_development = { remove_modifier = modifer_skill_development }
+        modifer_slave_optimization = { remove_modifier = modifer_slave_optimization }
+        modifer_selective_nostalgia = { remove_modifier = modifer_selective_nostalgia }
+        modifer_xeno_outreach = { remove_modifier = modifer_xeno_outreach }
+    }
+}

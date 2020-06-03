@@ -10,10 +10,28 @@ planet_event = {
 				exists = owner
 				owner = {
 					is_country_type = fallen_empire
-					has_country_flag = fallen_empire_6
+					has_ethic = ethic_fanatic_communism
 				}
-			}
-			from.owner = { save_event_target_as = attacker }
+            }
+            from.owner = { save_event_target_as = attacker }
+            owner = {
+                every_system_within_border = {
+                    every_fleet_in_system = {
+                        limit = {
+                            exists = owner
+                            owner = { is_at_war_with = root.owner }
+                        }
+                        destroy_fleet = THIS
+                        owner = {
+                            add_static_war_exhaustion = {
+                                attacker = root.owner
+                                location = prev.solar_system
+                                value_for_planet_destruction = 0.1
+                            }
+                        }
+                    }
+                }
+            }
 			every_country = {
 				limit = {
 					is_ai = no
@@ -29,7 +47,6 @@ planet_event = {
 				}
 			}
 		}
-		set_planet_flag = be_attacked
 	}
 }
 
@@ -39,6 +56,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		remove_country_flag = guardians_of_the_galaxy
 		change_country_flag = { icon = { category = human file = flag_human_9.dds } background = { category = backgrounds file = 00_solid.dds } colors = { red black } }
 		every_system_within_border = {
 			every_fleet_in_system = {
@@ -58,24 +76,22 @@ country_event = {
 				civic = civic_idealistic_foundation
 				civic = civic_beacon_of_liberty
 			}
-		}
-		random_owned_pop = {
-			limit = { is_robot_pop = yes }
-			species = {
-				set_citizenship_type = {
-					type = citizenship_full
-					country = root
-				}
-				set_living_standard = {
-					type = living_standard_utopian
-					country = root
-				}
-			}
-		}
+        }
+        every_owned_pop_species = {
+            limit = { is_species_class = ROBOT }
+            set_citizenship_type = {
+                type = citizenship_full
+                country = root
+            }
+            set_living_standard = {
+                type = living_standard_utopian
+                country = root
+            }
+        }
 		set_name = "地球联合国"
 		add_resource = {
 			minerals = 9999999
-			energy = 9999999	
+			energy = 9999999
 			alloys = 9999999
 			food = 9999999
 			influence = 9999999
@@ -135,7 +151,7 @@ country_event = {
 		city_level = event_target:fallen_empire_6
 		room = event_target:fallen_empire_6.ruler
 	}
-	show_sound = event_super_explosion
+	show_sound = event_the_response
 	is_triggered_only = yes
 	diplomatic = yes
 	option = {
@@ -170,7 +186,7 @@ country_event = {
 		city_level = event_target:fallen_empire_6
 		room = event_target:fallen_empire_6.ruler
 	}
-	show_sound = event_super_explosion
+	show_sound = event_the_response
 	is_triggered_only = yes
 	diplomatic = yes
 	option = {

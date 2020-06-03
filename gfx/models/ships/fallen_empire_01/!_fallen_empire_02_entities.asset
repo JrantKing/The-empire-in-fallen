@@ -381,17 +381,17 @@ entity = {
 
 entity = {
 	name = "fallen_empire_02_destroyer_bow_L1_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_destroyer_bow_M1S2_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_destroyer_bow_S3_entity"
-	pdxmesh = ""
+	
 }
 
 # STERN
@@ -537,17 +537,17 @@ entity = {
 
 entity = {
 	name = "fallen_empire_02_cruiser_bow_L1_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_cruiser_bow_M1S2_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_cruiser_bow_M2_entity"
-	pdxmesh = ""
+	
 }
 
 # MID
@@ -743,12 +743,12 @@ entity = {
 # STERN
 entity = {
 	name = "fallen_empire_02_cruiser_stern_M1_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_cruiser_stern_S2_entity"
-	pdxmesh = ""
+	
 }
 ##################         	 CRUISER           ########################
 ##################         	 BATTLESHIP           ########################
@@ -782,22 +782,22 @@ entity = {
 # BOW
 entity = {
 	name = "fallen_empire_02_battleship_bow_L1M1S2_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_bow_L1S4_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_bow_L2_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_bow_M1S2SHB_entity"
-	pdxmesh = ""
+	
 	locator = {
 		name = "strike_craft_locator_01"
 		rotation = { 0 0 0 }
@@ -806,17 +806,17 @@ entity = {
 
 entity = {
 	name = "fallen_empire_02_battleship_bow_M2S4_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_bow_M3S2_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_bow_XL1_entity"
-	pdxmesh = ""
+	
 	
 	# XL weapon windup locator names: xl_windup_1-10
 }
@@ -1097,41 +1097,41 @@ entity = {
 
 entity = {
 	name = "fallen_empire_02_battleship_stern_L1_entity"
-	pdxmesh = ""
+	
 
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_stern_M1S2_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_stern_M2_entity"
-	pdxmesh = ""
+	
 
 }
 
 entity = {
 	name = "fallen_empire_02_battleship_stern_S4_entity"
-	pdxmesh = ""
+	
 }
 
 ##################         	 TITAN           ########################
 
 entity = {
 	name = "fallen_empire_02_titan_bow_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_titan_mid_entity"
-	pdxmesh = ""
+	
 }
 
 entity = {
 	name = "fallen_empire_02_titan_stern_entity"
-	pdxmesh = ""
+	
 }
 
 ###################################################################################
@@ -2417,7 +2417,7 @@ entity = {
 
 entity = {
 	name = "fallen_empire_02_military_station_section_heavy_entity"
-	pdxmesh = ""	
+		
 	scale = 0.1
 	
 	locator = { name = "large_gun_01" position = { 0 0 0 } }
@@ -2429,7 +2429,7 @@ entity = {
 
 entity = {
 	name = "fallen_empire_02_military_station_section_medium_entity"
-	pdxmesh = ""	
+		
 	scale = 0.1
 	locator = { name = "medium_gun_01" position = { 0 0 0 } }
 	locator = { name = "medium_gun_02" position = { 0 0 0 } }
@@ -2442,7 +2442,7 @@ entity = {
 
 entity = {
 	name = "fallen_empire_02_military_station_section_light_entity"
-	pdxmesh = ""	
+		
 	scale = 0.1
 	locator = { name = "small_gun_01" position = { 0 0 0 } }
 	locator = { name = "small_gun_02" position = { 0 0 0 } }

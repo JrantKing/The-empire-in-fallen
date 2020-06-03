@@ -1,0 +1,62 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_sector_type_fe_military"
+		texturefile = "gfx/interface/buttons/sector_military.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_type_fe_military_selected"
+		texturefile = "gfx/interface/buttons/sector_military_selected.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_jump_drive_2"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_jump_drive_2.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ship_part_jump_drive_3"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_jump_drive_3.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_p_selection_planet"
+		texturefile = "gfx/interface/frontend/p_selection_planet.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_evt_shielded_earth"
+		texturefile = "gfx/event_pictures/shielded_earth.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_origin_fallen_empire"
+		texturefile = "gfx/event_pictures/origins/origin_fallen_empire.dds"
+		#masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_origin_ringworld_start"
+		texturefile = "gfx/event_pictures/origins/origin_ringworld_start.dds"
+		#masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_origin_the_road_not_taken"
+		texturefile = "gfx/event_pictures/origins/origin_the_road_not_taken.dds"
+		#masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_origin_the_last_of_us"
+		texturefile = "gfx/event_pictures/origins/origin_the_last_of_us.dds"
+		#masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+}

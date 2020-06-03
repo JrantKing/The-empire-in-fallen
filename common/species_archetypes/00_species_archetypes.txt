@@ -9,19 +9,18 @@
 #	inherit_traits_from = { BIOLOGICAL ROBOT } 
 #}
 
-@robot_trait_points = 0
-@robot_max_traits = 4
+@robot_trait_points = 1
+@robot_max_traits = 5
 @machine_trait_points = 1
-@machine_max_traits = 5
+@machine_max_traits = 6
 @species_trait_points = 2
-@species_max_traits = 5
+@species_max_traits = 6
 
 BIOLOGICAL = {
 	species_trait_points = @species_trait_points
 	species_max_traits = @species_max_traits
 }
 ROBOT = {
-	inherit_traits_from = { MACHINE ROBOT }
 	species_trait_points = @robot_trait_points
 	species_max_traits = @robot_max_traits
 }
@@ -32,5 +31,8 @@ MACHINE = {
 PRESAPIENT = {
 	species_trait_points = @species_trait_points
 	species_max_traits = @species_max_traits
+}
+LITHOID = {
+	inherit_trait_points_from = BIOLOGICAL
 }
 OTHER = {}

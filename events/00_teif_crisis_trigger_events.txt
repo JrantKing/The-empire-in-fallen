@@ -6,6 +6,29 @@
 
 namespace = crisis_trigger
 
+# event = {
+# 	id = crisis_trigger.1
+# 	hide_window = yes
+
+# 	is_triggered_only = yes
+
+# 	trigger = {
+# 		is_crises_allowed = yes
+# 		end_game_years_passed >= 0
+# 		NOT = { has_global_flag = galactic_crisis_happened }
+# 	}
+
+# 	immediate = {
+# 		random_country = {
+# 			limit = { is_country_type = global_event } # global_event country is always around
+# 			country_event = { id = crisis.10 days = 200 random = 800 }
+# 			country_event = { id = crisis.1000 days = 200 random = 800 }
+# 			country_event = { id = crisis.2005 days = 200 random = 800 }
+# 			set_global_flag = galactic_crisis_happened
+# 		}
+# 	}
+# }
+
 event = {
 	id = crisis_trigger.1
 	hide_window = yes
@@ -49,13 +72,14 @@ event = {
 							10 = {
 								modifier = {
 									factor = 0
-									NOT = {
+									NOR = {
+										is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
 										any_country = {
 											is_country_type = default
 											OR = {
 												has_technology = "tech_psi_jump_drive_1"
 												has_technology = "tech_jump_drive_1"
-												has_technology = "tech_jump_drive_2"
+												has_technology = "tech_teif_jump_drive_2"
 											}							
 										}						
 									}
@@ -75,17 +99,21 @@ event = {
 									}
 								}
 								modifier = {
+									factor = 2
+									is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+								}
+								modifier = {
 									factor = 1
 									any_country = {
 										is_country_type = default
-										has_technology = "tech_jump_drive_2"
+										has_technology = "tech_teif_jump_drive_2"
 									}
 								}		
 								modifier = {
 									factor = 0.50
 									any_country = {
 										is_country_type = default
-										has_technology = "tech_jump_drive_3"
+										has_technology = "tech_teif_jump_drive_3"
 									}
 								}
 								country_event = { id = crisis.1000 days = 200 random = 800 }
@@ -99,6 +127,7 @@ event = {
 									NOT = {
 										any_country = {
 											is_country_type = default
+											has_technology = tech_synthetic_workers
 											any_owned_pop = {
 												has_trait = trait_mechanical
 											}
@@ -161,7 +190,6 @@ event = {
 								country_event = { id = crisis.2005 days = 200 random = 800 }
 								set_global_flag = galactic_crisis_happened
 							}
-							
 
 							### Nothing
 							120 = {}
@@ -203,10 +231,6 @@ event = {
 			else = {
 				random_list = {
 					30 = {
-						modifier = {
-							factor = 2
-							end_game_years_passed >= 60
-						}
 						modifier = {
 							factor = 3
 							end_game_years_passed >= 80

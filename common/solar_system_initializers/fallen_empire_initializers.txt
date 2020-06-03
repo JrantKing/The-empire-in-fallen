@@ -221,6 +221,7 @@ fallen_1_2 = {
 			add_building = building_ancient_palace
 			add_building = building_master_archive
 			add_building = building_fe_stronghold
+			add_building = building_fe_stronghold
 			add_building = building_fe_dome
 			add_building = building_fe_dome
 			add_building = building_class_4_singularity
@@ -338,7 +339,7 @@ fallen_2 = {
 		orbit_distance = 20
 		class = pc_gaia
 		orbit_angle = { min = 90 max = 270 }
-		size = 31
+		size = 30
 		deposit_blockers = none
 		modifiers = none
 
@@ -378,11 +379,15 @@ fallen_2 = {
 			}
 			while = {
 				count = 8
-				add_district = district_mining
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_mining
+				}
 			}
 			while = {
 				count = 8
-				add_district = district_farming
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_farming
+				}
 			}
 			while = {
 				count = 115
@@ -444,17 +449,22 @@ fallen_2 = {
 			add_building = building_class_4_singularity	
 			add_building = building_nano_forge
 			add_building = building_nano_forge
+			add_building = building_dimensional_fabricator
 			while = {
 				count = 12
 				add_district = district_city
 			}
 			while = {
 				count = 5
-				add_district = district_mining
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_mining
+				}
 			}
 			while = {
 				count = 5
-				add_district = district_farming
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_farming
+				}
 			}			
 			while = {
 				count = 68
@@ -506,18 +516,30 @@ fallen_2 = {
 		initializer = "fallen_orbitals_2"
 	}
 	neighbor_system = {
-		distance = { min = 30 max = 100 }
+		trigger = {
+			NOT = { exists = event_target:holy_planet_1 }
+		}
+		distance = { min = 80 max = 200 }
 		initializer = "fallen_holy_01"
 	}
 	neighbor_system = {
-		distance = { min = 50 max = 150 }
+		trigger = {
+			NOT = { exists = event_target:holy_planet_2 }
+		}
+		distance = { min = 120 max = 250 }
 		initializer = "fallen_holy_02"
 	}
 	neighbor_system = {
+		trigger = {
+			NOT = { exists = event_target:holy_planet_3 }
+		}
 		distance = { min = 80 max = 200 }
 		initializer = "fallen_holy_03"
 	}
 	neighbor_system = {
+		trigger = {
+			NOT = { exists = event_target:holy_planet_4 }
+		}
 		distance = { min = 120 max = 250 }
 		initializer = "fallen_holy_04"
 	}
@@ -683,6 +705,7 @@ fallen_3 = {
 				add_building = building_fe_dome
 				add_building = building_dimensional_fabricator
 				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
 				add_building = building_nano_forge
 				add_building = building_nano_forge
 				add_building = building_nano_forge
@@ -731,6 +754,7 @@ fallen_3 = {
 				add_building = building_affluence_center
 				add_building = building_nourishment_center
 				add_building = building_nourishment_center
+				add_building = building_dimensional_fabricator
 				while = {
 					count = 12
 					add_district = district_city
@@ -753,7 +777,9 @@ fallen_3 = {
 
 	neighbor_system = {
 		distance = { min = 0 max = 50 }
-		initializer = "fallen_xeno_zoo"
+		trigger = {
+			NOT = { any_system = { has_star_flag = fe_xeno_zoo } }
+		}
 	}
 	neighbor_system = {
 		distance = { min = 0 max = 50 }
@@ -909,6 +935,7 @@ fallen_4 = {
 				add_building = building_dimensional_fabricator
 				add_building = building_dimensional_fabricator
 				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
 				add_building = building_nano_forge
 				add_building = building_nano_forge
 				add_building = building_nano_forge
@@ -995,6 +1022,7 @@ fallen_4 = {
 
 fallen_col_1 = {
 	class = "rl_standard_stars"
+	flags = { fallen_col_1 }
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 50
@@ -1034,6 +1062,8 @@ fallen_col_1 = {
 		}
 	}
 
+	change_orbit = 10
+
 	planet = {
 		count = 1
 		orbit_distance = 20
@@ -1051,26 +1081,59 @@ fallen_col_1 = {
 				create_fe_fringe_colony = yes
 			}
 			else = { create_fe_spiritualist_fringe_colony = yes }
-			if = {
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+            add_building = building_dimensional_fabricator
+            if = {
 				limit = { root = { is_fallen_empire_egalitarian = yes } }
 				random_list = {
 					1 = {
-						add_district = district_generator
-						add_district = district_generator
-						add_district = district_mining
-						add_district = district_farming
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_generator
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_mining
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 4
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
+						random_list = {
+							1 = { add_building = building_affluence_center }
+							1 = { add_building = building_nano_forge }
+							1 = { add_building = building_dimensional_fabricator }
+						}
 					}
 					1 = {
-						add_district = district_generator
-						add_district = district_mining
-						add_district = district_mining
-						add_district = district_farming
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_mining
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_generator
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 2
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
 					}
 				}
 			}
-			add_building = building_affluence_center
-			add_building = building_nano_forge
-			add_building = building_dimensional_fabricator
 		}
 
 		change_orbit = @base_moon_distance
@@ -1123,6 +1186,7 @@ fallen_col_1 = {
 
 fallen_col_2 = {
 	class = "rl_standard_stars"
+	flags = { fallen_col_2 }
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 115
@@ -1137,7 +1201,7 @@ fallen_col_2 = {
 		has_ring = no
 	}
 
-	change_orbit = 50
+	change_orbit = 60
 
 	planet = {
 		count = 1
@@ -1156,26 +1220,59 @@ fallen_col_2 = {
 				create_fe_fringe_colony = yes
 			}
 			else = { create_fe_spiritualist_fringe_colony = yes }
-			if = {
+			add_building = building_affluence_center
+			add_building = building_nano_forge
+            add_building = building_dimensional_fabricator
+            if = {
 				limit = { root = { is_fallen_empire_egalitarian = yes } }
 				random_list = {
 					1 = {
-						add_district = district_generator
-						add_district = district_generator
-						add_district = district_mining
-						add_district = district_farming
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_generator
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_mining
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 4
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
+						random_list = {
+							1 = { add_building = building_affluence_center }
+							1 = { add_building = building_nano_forge }
+							1 = { add_building = building_dimensional_fabricator }
+						}
 					}
 					1 = {
-						add_district = district_generator
-						add_district = district_mining
-						add_district = district_mining
-						add_district = district_farming
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_mining
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_generator
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 2
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
 					}
 				}
 			}
-			add_building = building_affluence_center
-			add_building = building_nano_forge
-			add_building = building_dimensional_fabricator
 		}
 
 		change_orbit = @base_moon_distance
@@ -1203,7 +1300,7 @@ fallen_col_2 = {
 		}
 	}
 
-	change_orbit = 25
+	change_orbit = 15
 
 	planet = {
 		count = { min = 2 max = 3 }
@@ -1260,7 +1357,7 @@ fallen_col_2 = {
 
 fallen_orbitals_1 = {
 	class = "rl_standard_stars"
-
+	flags = { fallen_orbitals_1 }
 	planet = {
 		count = 1
 		class = star
@@ -1303,25 +1400,61 @@ fallen_orbitals_1 = {
 			add_building = building_affluence_center
 			add_building = building_nano_forge
 			add_building = building_dimensional_fabricator
-			random_list = {
-				1 = {
-					add_district = district_generator
-					add_district = district_generator
-					add_district = district_mining
-					add_district = district_farming
-				}
-				1 = {
-					add_district = district_generator
-					add_district = district_mining
-					add_district = district_mining
-					add_district = district_farming
+			if = {
+				limit = { root = { is_fallen_empire_egalitarian = yes } }
+				random_list = {
+					1 = {
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_generator
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_mining
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 4
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
+						random_list = {
+							1 = { add_building = building_affluence_center }
+							1 = { add_building = building_nano_forge }
+							1 = { add_building = building_dimensional_fabricator }
+						}
+					}
+					1 = {
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_mining
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_generator
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 2
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
+					}
 				}
 			}
 		}
 	
 		if = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					is_owned_by = root
 				}
 			}	
@@ -1348,7 +1481,7 @@ fallen_orbitals_1 = {
 
 fallen_orbitals_2 = {
 	class = "rl_standard_stars"
-
+	flags = { fallen_orbitals_2 }
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 95
@@ -1419,16 +1552,49 @@ fallen_orbitals_2 = {
 				limit = { root = { is_fallen_empire_egalitarian = yes } }
 				random_list = {
 					1 = {
-						add_district = district_generator
-						add_district = district_generator
-						add_district = district_mining
-						add_district = district_farming
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_generator
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_mining
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 4
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
+						random_list = {
+							1 = { add_building = building_affluence_center }
+							1 = { add_building = building_nano_forge }
+							1 = { add_building = building_dimensional_fabricator }
+						}
 					}
 					1 = {
-						add_district = district_generator
-						add_district = district_mining
-						add_district = district_mining
-						add_district = district_farming
+						while = {
+							count = 2
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_mining
+							}
+						}
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_generator
+						}
+                        add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+                        while = {
+                            count = 2
+                            create_pop = {
+                                species = event_target:synthetic_species
+                            }
+                        }
 					}
 				}
 			}
@@ -1436,7 +1602,7 @@ fallen_orbitals_2 = {
 
 		if = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					is_owned_by = root
 				}
 			}	
@@ -1560,7 +1726,7 @@ fallen_shielded_1 = {
 	planet = {
 		count = 1
 		orbit_distance = 20
-		class = random_colonizable
+		class = rl_habitable_normal
 		orbit_angle = { min = 90 max = 270 }
 		size = 16
 		modifiers = none
@@ -1645,7 +1811,7 @@ fallen_shielded_2 = {
 	planet = {
 		count = 1
 		orbit_distance = 20
-		class = random_colonizable
+		class = rl_habitable_normal
 		orbit_angle = { min = 90 max = 270 }
 		size = 16
 		modifiers = none
@@ -1731,7 +1897,7 @@ fallen_shielded_3 = {
 	planet = {
 		count = 1
 		orbit_distance = 20
-		class = random_colonizable
+		class = random_non_colonizable
 		orbit_angle = { min = 90 max = 270 }
 		size = 16
 		modifiers = none
@@ -1794,7 +1960,7 @@ fallen_shielded_3 = {
 fallen_holy_01 = {
 	class = "rl_standard_stars"
 
-	flags = { holy_system_1 }
+	#flags = { holy_system_1 }
 
 	planet = {
 		count = 1
@@ -1812,15 +1978,13 @@ fallen_holy_01 = {
 		orbit_distance = 30
 		class = "pc_gaia"
 		orbit_angle = { min = 90 max = 270 }
-		size = 18
-		name = "NAME_Walled_Garden"
+		size = { min = 10 max = 25 }
+		#name = "NAME_Walled_Garden"
 		deposit_blockers = none
+		flags = {  }
 		init_effect = {
 			prevent_anomaly = yes
-			add_modifier = {
-				modifier = "holy_planet"
-				days = -1
-			}
+			save_global_event_target_as = holy_planet_1
 		}
 	}
 
@@ -1843,7 +2007,7 @@ fallen_holy_01 = {
 			30 = {
 				random_system_planet = {
 					limit = { is_star = yes }
-					create_broken_fe_outpost = yes
+					#create_broken_fe_outpost = yes
 				}
 			}
 			70 = {}
@@ -1859,7 +2023,7 @@ fallen_holy_02 = {
 		radius = 95
 	}
 
-	flags = { holy_system_2 }
+	#flags = { holy_system_2 }
 
 	planet = {
 		count = 1
@@ -1892,15 +2056,13 @@ fallen_holy_02 = {
 		orbit_distance = 25
 		class = "pc_gaia"
 		orbit_angle = { min = 90 max = 270 }
-		size = 14
-		name = "NAME_Emerald_Mausoleum"
+		size = { min = 10 max = 25 }
+		#name = "NAME_Emerald_Mausoleum"
 		deposit_blockers = none
+		flags = {  }
 		init_effect = {
 			prevent_anomaly = yes
-			add_modifier = {
-				modifier = "holy_planet"
-				days = -1
-			}
+			save_global_event_target_as = holy_planet_2
 		}
 	}
 
@@ -1923,7 +2085,7 @@ fallen_holy_02 = {
 			30 = {
 				random_system_planet = {
 					limit = { is_star = yes }
-					create_broken_fe_outpost = yes
+					#create_broken_fe_outpost = yes
 				}
 			}
 			70 = {}
@@ -1952,17 +2114,15 @@ fallen_holy_03 = {
 		count = 1
 		orbit_distance = 10
 		class = "pc_gaia"
-		name = "NAME_Pristine_Jewel"
+		#name = "NAME_Pristine_Jewel"
 		deposit_blockers = none
 		orbit_angle = { min = 90 max = 270 }
-		size = 10
+		size = { min = 10 max = 25 }
+		flags = {  }
 
 		init_effect = {
 			prevent_anomaly = yes
-			add_modifier = {
-				modifier = "holy_planet"
-				days = -1
-			}
+			save_global_event_target_as = holy_planet_3
 		}
 	}
 
@@ -1996,7 +2156,7 @@ fallen_holy_03 = {
 			30 = {
 				random_system_planet = {
 					limit = { is_star = yes }
-					create_broken_fe_outpost = yes
+					#create_broken_fe_outpost = yes
 				}
 			}
 			70 = {}
@@ -2012,7 +2172,7 @@ fallen_holy_04 = {
 		radius = 120
 	}
 
-	flags = { holy_system_4 }
+	#flags = { holy_system_4 }
 
 	planet = {
 		count = 1
@@ -2029,17 +2189,15 @@ fallen_holy_04 = {
 		count = 1
 		orbit_distance = 10
 		class = "pc_gaia"
-		name = "NAME_Prophets_Retreat"
+		#name = "NAME_Prophets_Retreat"
 		deposit_blockers = none
 		orbit_angle = { min = 90 max = 270 }
-		size = 25
+		size = { min = 10 max = 25 }
+		flags = {  }
 
 		init_effect = {
 			prevent_anomaly = yes
-			add_modifier = {
-				modifier = "holy_planet"
-				days = -1
-			}
+			save_global_event_target_as = holy_planet_4
 		}
 	}
 
@@ -2064,7 +2222,7 @@ fallen_holy_04 = {
 			30 = {
 				random_system_planet = {
 					limit = { is_star = yes }
-					create_broken_fe_outpost = yes
+					#create_broken_fe_outpost = yes
 				}
 			}
 			70 = {}
@@ -2100,7 +2258,7 @@ fallen_xeno_zoo = {
 		name = "NAME_The_Preserve"
 		orbit_angle = { min = 90 max = 270 }
 		size = 20
-
+		flags = { fe_the_preserve }
 		orbit_angle = 60
 		orbit_distance = 0
 		deposit_blockers = none
@@ -2110,15 +2268,9 @@ fallen_xeno_zoo = {
 			set_planet_flag = fallen_empire_world
 			prevent_anomaly = yes
 			set_owner = ROOT
-			set_planet_flag = fe_the_preserve
 			add_building = building_fe_xeno_zoo
-			
-			while = {
-				count = 2
-				create_pop = {
-					species = owner_main_species
-				}
-			}
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
 
 			while = {
 				count = 5

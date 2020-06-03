@@ -8,3 +8,8 @@ fe_librobot_task_chain = {
 		}
 	}
 }
+
+fe_holy_planet_location_chain = {
+	picture = GFX_evt_gaia
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"	
+}

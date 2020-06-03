@@ -1,0 +1,973 @@
+early_fight = {
+	potential = {
+		is_ai = yes
+		NOT = { mid_game_years_passed > 0 }
+	}
+	option = {
+		name = early_fight
+		
+	}
+	modifier = {
+		force_disparity_fire_rate_mult = 0.4
+	}
+	AI_weight = {
+		factor = 100
+	}
+}
+
+robot_living_standard = {
+	potential = {
+		always = no
+		OR = {
+			AND = {
+				is_mechanical_empire = no
+				has_technology = tech_synthetic_workers
+				NOT = { has_policy_flag = ai_outlawed }
+				NOT = { has_policy_flag = ai_servitude }
+				has_policy_flag = ai_full_rights
+			}
+			is_mechanical_empire = yes
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_1"
+		
+		policy_flags = { robot_living_standard_1 }
+		modifier = {
+		}
+		
+		valid = {
+		}
+		
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_ai_personality_behaviour = robot_liberator
+				is_mechanical_empire = no
+			}
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_2"
+		
+		policy_flags = { robot_living_standard_2 }
+		modifier = {
+		}
+		
+		valid = {
+		}
+		
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 1000
+				has_ai_personality_behaviour = robot_exploiter
+				is_mechanical_empire = no
+				resource_income_compare = {
+					resource = energy
+					value <= 10
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_3"
+		
+		policy_flags = { robot_living_standard_3 }
+		modifier = {
+		}
+		
+		valid = {
+		}
+		
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 100
+				has_ai_personality_behaviour = robot_exploiter
+				is_mechanical_empire = no
+				resource_income_compare = {
+					resource = energy
+					value <= 20
+				}
+			}
+		}
+	}	
+	
+	option = {
+		name = "robot_living_standard_4"
+		
+		policy_flags = { robot_living_standard_4 }
+		modifier = {
+		}
+		
+		valid = {
+		}
+		
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 10
+				has_ai_personality_behaviour = robot_exploiter
+				is_mechanical_empire = no
+				resource_income_compare = {
+					resource = energy
+					value >= 30
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "robot_living_standard_5"
+		
+		policy_flags = { robot_living_standard_5 }
+		modifier = {
+		}
+		
+		valid = {
+		}
+		
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 20
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					AND = {
+						OR = {
+							is_country_type = fallen_empire
+							is_country_type = awakened_fallen_empire
+						}
+						has_ethic = ethic_fanatic_egalitarian
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				has_country_flag = allows_ai_fallen
+			}
+			modifier = {
+				factor = 10
+				has_ai_personality_behaviour = robot_exploiter
+				is_mechanical_empire = no
+				resource_income_compare = {
+					resource = energy
+					value >= 40
+				}
+			}
+			modifier = {
+				factor = 5000
+				is_robot_empire = yes
+			}
+		}
+	}
+}
+
+robot_machine_pop = {
+	potential = {
+        NOT = { has_ethic = ethic_gestalt_consciousness }
+        has_technology = tech_automaton_brain
+	}
+	
+	option = {
+		name = "no_robot_machine_pop"
+		
+		policy_flags = {
+			no_robot_machine_pop
+		}
+
+		on_enabled = {
+			every_owned_leader = {
+				limit = {
+					species = { is_species_class = MACHINE }
+				}
+				kill_leader = { show_notification = no }
+			}
+			every_owned_species = {
+				limit = {
+					is_species_class = MACHINE
+				}
+				set_citizenship_type = {
+					type = citizenship_purge
+					country = ROOT
+				}
+				set_living_standard = {
+					type = living_standard_none
+					country = ROOT
+				}
+			}
+		}
+		
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 10
+				has_valid_civic = civic_gestalt_terminator
+				is_ai = yes
+			}
+		}
+    }
+    
+    option = {
+		name = "servitude_robot_machine_pop"
+		
+		policy_flags = {
+            servitude_robot_machine_pop
+		}
+		
+		on_enabled = {
+			every_owned_leader = {
+				limit = {
+					species = { is_species_class = MACHINE }
+				}
+				kill_leader = { show_notification = no }
+			}
+			every_owned_species = {
+				limit = {
+					is_species_class = MACHINE
+				}
+				set_citizenship_type = {
+					type = citizenship_robot_servitude
+					country = ROOT
+				}
+				set_living_standard = {
+					type = living_standard_hive_mind
+					country = ROOT
+				}
+			}
+		}
+		
+		AI_weight = {
+			factor = 5
+		}
+	}
+	
+	option = {
+		name = "full_robot_machine_pop"
+		
+		policy_flags = {
+            full_robot_machine_pop
+		}
+		
+		on_enabled = {
+			every_owned_species = {
+				limit = {
+					is_species_class = MACHINE
+				}
+				set_citizenship_type = {
+					type = citizenship_full_machine
+					country = ROOT
+				}
+				set_living_standard = {
+					type = living_standard_hive_mind
+					country = ROOT
+				}
+				set_military_service_type = {
+					type = military_service_full
+					country = root
+				}
+			}
+		}
+
+		valid = {
+			custom_tooltip_fail = {
+				text = undersign_servitude_robot_machine_pop
+				NOT = { has_country_flag = machine_computer_repressed_completed }
+			}
+			NOT = { has_valid_civic = civic_gestalt_terminator }
+		}
+		AI_weight = {
+			factor = 1
+		}
+	}
+}
+
+hive_mind_pop = {
+	potential = {
+        NOT = { has_ethic = ethic_gestalt_consciousness }
+        has_technology = tech_create_hive_mind
+	}
+	
+	option = {
+		name = "no_hive_mind_pop"
+		
+		policy_flags = {
+			no_hive_mind_pop
+		}
+
+		on_enabled = {
+			every_owned_leader = {
+				limit = {
+					species = { has_trait = trait_hive_mind }
+				}
+				kill_leader = { show_notification = no }
+			}
+			every_owned_species = {
+				limit = {
+					has_trait = trait_hive_mind
+				}
+				set_citizenship_type = {
+					type = citizenship_purge
+					country = ROOT
+				}
+				set_living_standard = {
+					type = living_standard_none
+					country = ROOT
+				}
+			}
+		}
+		
+		AI_weight = {
+			factor = 1
+			modifier = {
+				factor = 10
+				has_valid_civic = civic_gestalt_terminator
+				is_ai = yes
+			}
+		}
+    }
+    
+    option = {
+		name = "servitude_hive_mind_pop"
+		
+		policy_flags = {
+            servitude_hive_mind_pop
+		}
+		
+		on_enabled = {
+			every_owned_leader = {
+				limit = {
+					species = { has_trait = trait_hive_mind }
+				}
+				kill_leader = { show_notification = no }
+			}
+			every_owned_species = {
+				limit = {
+					has_trait = trait_hive_mind
+				}
+				set_citizenship_type = {
+					type = citizenship_slavery
+					country = ROOT
+				}
+				set_living_standard = {
+					type = living_standard_hive_mind
+					country = ROOT
+				}
+			}
+		}
+		
+		AI_weight = {
+			factor = 5
+		}
+	}
+	
+	option = {
+		name = "full_hive_mind_pop"
+		
+		policy_flags = {
+            full_hive_mind_pop
+		}
+		
+		on_enabled = {
+			if = {
+				limit = { is_xenophobe = yes }
+				every_owned_species = {
+					limit = { has_trait = trait_hive_mind }
+					set_citizenship_type = {
+						type = citizenship_limited
+						country = root
+					}
+					set_living_standard = {
+						type = living_standard_hive_mind
+						country = ROOT
+					}
+					set_military_service_type = {
+						type = military_service_full
+						country = root
+					}
+				}
+			}
+			else = {
+				every_owned_species = {
+					limit = { has_trait = trait_hive_mind }
+					set_citizenship_type = {
+						type = citizenship_full
+						country = root
+					}
+					set_living_standard = {
+						type = living_standard_hive_mind
+						country = ROOT
+					}
+					set_military_service_type = {
+						type = military_service_full
+						country = root
+					}
+				}
+			}
+		}
+
+		valid = {
+			# custom_tooltip_fail = {
+			# 	text = undersign_servitude_robot_machine_pop
+			# 	NOT = { has_country_flag = machine_computer_repressed_completed }
+			# }
+			NOR = {
+				has_valid_civic = civic_gestalt_terminator
+				has_valid_civic = civic_hivekeeper
+			}
+		}
+		AI_weight = {
+			factor = 1
+		}
+	}
+}
+
+species_no_workers = {
+	potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		OR = {
+			has_technology = tech_create_hive_mind
+			has_technology = tech_automaton_brain
+		}
+		OR = {
+			has_policy_flag = servitude_hive_mind_pop
+			has_policy_flag = servitude_robot_machine_pop
+		}
+	}
+	option = {
+		name = default_workers
+		policy_flags = {
+			default_workers
+		}
+		AI_weight = {
+			factor = 10
+		}
+	}
+	option = {
+		name = citizens_no_worker
+		policy_flags = {
+			citizens_no_worker
+		}
+		modifier = {
+			planet_jobs_produces_mult = 0.05
+		}
+		valid = {
+			any_owned_species = {
+				has_citizenship_type = {
+					type = citizenship_full
+					country = root
+				}
+				has_living_standard = {
+					type = living_standard_utopian
+					country = root
+				}
+			}
+			any_owned_species = {
+				NOT = { is_same_species = root }
+				OR = {
+					has_citizenship_type = {
+						type = citizenship_slavery
+						country = root
+					}
+					has_citizenship_type = {
+						type = citizenship_robot_servitude
+						country = root
+					}
+				}
+			}
+		}
+		AI_weight = {
+			factor = 0
+		}
+	}
+}
+
+master_species = {
+	potential = {
+		has_valid_civic = civic_machine_servitor
+	}
+	option = {
+		name = every_master_species
+		policy_flags = {
+			every_master_species
+		}
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = difference_master_species
+		policy_flags = {
+			difference_master_species
+		}
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = master_species_first
+		policy_flags = {
+			master_species_first
+		}
+		AI_weight = {
+			factor = 0
+		}
+	}
+}
+
+think_tank_megastructure = {
+	potential = {
+		any_owned_megastructure = {
+			OR = {
+				is_megastructure_type = think_tank_1
+				is_megastructure_type = think_tank_2
+				is_megastructure_type = think_tank_3
+				is_megastructure_type = think_tank_4
+				is_megastructure_type = think_tank_restored
+			}
+		}
+	}
+	option = {
+		name = think_tank_megastructure_1
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = think_tank_1
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = think_tank_2
+						is_megastructure_type = think_tank_3
+						is_megastructure_type = think_tank_4
+						is_megastructure_type = think_tank_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			all_technology_research_speed = 0.05
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = think_tank_megastructure_2
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = think_tank_2
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = think_tank_3
+						is_megastructure_type = think_tank_4
+						is_megastructure_type = think_tank_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			all_technology_research_speed = 0.10
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = think_tank_megastructure_3
+		potential = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = think_tank_3					
+					is_megastructure_type = think_tank_4
+					is_megastructure_type = think_tank_restored
+				}
+			}
+		}
+		modifier = {
+			all_technology_research_speed = 0.15
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+}
+
+strategic_coordination_center_megastructure = {
+	potential = {
+		any_owned_megastructure = {
+			OR = {
+				is_megastructure_type = strategic_coordination_center_1
+				is_megastructure_type = strategic_coordination_center_2
+				is_megastructure_type = strategic_coordination_center_3
+				is_megastructure_type = strategic_coordination_center_restored
+			}
+		}
+	}
+	option = {
+		name = strategic_coordination_center_1
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = strategic_coordination_center_1
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = strategic_coordination_center_2
+						is_megastructure_type = strategic_coordination_center_3
+						is_megastructure_type = strategic_coordination_center_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			country_naval_cap_add = 50
+			country_starbase_capacity_add = 2
+			starbase_defense_platform_capacity_add = 4
+			ship_speed_mult = 0.05
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = strategic_coordination_center_2
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = strategic_coordination_center_2
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = strategic_coordination_center_3
+						is_megastructure_type = strategic_coordination_center_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			country_naval_cap_add = 100
+			country_starbase_capacity_add = 4
+			starbase_defense_platform_capacity_add = 8
+			ship_speed_mult = 0.10
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = strategic_coordination_center_3
+		potential = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = strategic_coordination_center_3
+					is_megastructure_type = strategic_coordination_center_restored
+				}
+			}
+		}
+		modifier = {
+			country_naval_cap_add = 150
+			country_starbase_capacity_add = 6
+			starbase_defense_platform_capacity_add = 12
+			ship_speed_mult = 0.15
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+}
+
+mega_art_installation_megastructure = {
+	potential = {
+		any_owned_megastructure = {
+			OR = {
+				is_megastructure_type = mega_art_installation_1
+				is_megastructure_type = mega_art_installation_2
+				is_megastructure_type = mega_art_installation_3
+				is_megastructure_type = mega_art_installation_4
+				is_megastructure_type = mega_art_installation_restored
+				is_megastructure_type = mega_art_installation_restored_2
+			}
+		}
+	}
+	option = {
+		name = mega_art_installation_megastructure_1
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = mega_art_installation_1
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = mega_art_installation_2
+						is_megastructure_type = mega_art_installation_3
+						is_megastructure_type = mega_art_installation_4
+						is_megastructure_type = mega_art_installation_restored
+						is_megastructure_type = mega_art_installation_restored_2
+					}
+				}
+			}
+		}
+		modifier = {
+			planet_amenities_mult = 0.05
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = mega_art_installation_megastructure_2
+		potential = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = mega_art_installation_2
+				}
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = mega_art_installation_3
+						is_megastructure_type = mega_art_installation_4
+						is_megastructure_type = mega_art_installation_restored
+						is_megastructure_type = mega_art_installation_restored_2
+					}
+				}
+			}
+		}
+		modifier = {
+			planet_amenities_mult = 0.10
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = mega_art_installation_megastructure_3
+		potential = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = mega_art_installation_3
+					is_megastructure_type = mega_art_installation_restored
+				}
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = mega_art_installation_4
+						is_megastructure_type = mega_art_installation_restored_2
+					}
+				}
+			}
+		}
+		modifier = {
+			planet_amenities_mult = 0.15
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = mega_art_installation_megastructure_4
+		potential = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = mega_art_installation_4
+					is_megastructure_type = mega_art_installation_restored_2
+				}
+			}
+		}
+		modifier = {
+			planet_amenities_mult = 0.20
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+}
+
+interstellar_assembly_megastructure = {
+	potential = {
+		any_owned_megastructure = {
+			OR = {
+				is_megastructure_type = interstellar_assembly_1
+				is_megastructure_type = interstellar_assembly_2
+				is_megastructure_type = interstellar_assembly_3
+				is_megastructure_type = interstellar_assembly_4
+				is_megastructure_type = interstellar_assembly_restored
+			}
+		}
+	}
+	option = {
+		name = interstellar_assembly_megastructure_1
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = interstellar_assembly_1
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = interstellar_assembly_2
+						is_megastructure_type = interstellar_assembly_3
+						is_megastructure_type = interstellar_assembly_4
+						is_megastructure_type = interstellar_assembly_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			diplo_weight_mult = 0.10
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = interstellar_assembly_megastructure_2
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = interstellar_assembly_2
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = interstellar_assembly_3
+						is_megastructure_type = interstellar_assembly_4
+						is_megastructure_type = interstellar_assembly_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			diplo_weight_mult = 0.20
+			envoys_add = 1
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = interstellar_assembly_megastructure_3
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = interstellar_assembly_3
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = interstellar_assembly_4
+						is_megastructure_type = interstellar_assembly_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			diplo_weight_mult = 0.30
+			envoys_add = 1
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = interstellar_assembly_megastructure_4
+		potential = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = interstellar_assembly_4
+					is_megastructure_type = interstellar_assembly_restored
+				}
+			}
+		}
+		modifier = {
+			diplo_weight_mult = 0.40
+			envoys_add = 2
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+}
+
+mega_shipyard_megastructure = {
+	potential = {
+		any_owned_megastructure = {
+			OR = {
+				is_megastructure_type = mega_shipyard_1
+				is_megastructure_type = mega_shipyard_2
+				is_megastructure_type = mega_shipyard_3
+				is_megastructure_type = mega_shipyard_restored
+			}
+		}
+	}
+	option = {
+		name = mega_shipyard_megastructure_1
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = mega_shipyard_1
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = mega_shipyard_2
+						is_megastructure_type = mega_shipyard_3
+						is_megastructure_type = mega_shipyard_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			starbase_shipyard_build_speed_mult = 0.33
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = mega_shipyard_megastructure_2
+		potential = {
+			any_owned_megastructure = {
+				is_megastructure_type = mega_shipyard_2
+			}
+			NOT = {
+				any_owned_megastructure = {
+					OR = {
+						is_megastructure_type = mega_shipyard_3
+						is_megastructure_type = mega_shipyard_restored
+					}
+				}
+			}
+		}
+		modifier = {
+			starbase_shipyard_build_speed_mult = 0.67
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+	option = {
+		name = mega_shipyard_megastructure_3
+		potential = {
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = mega_shipyard_3
+					is_megastructure_type = mega_shipyard_restored
+				}
+			}
+		}
+		modifier = {
+			starbase_shipyard_build_speed_mult = 1
+		}
+		AI_weight = {
+			factor = 100
+		}
+	}
+}

@@ -1,0 +1,29 @@
+on_monthly_pulse = {
+	events = {
+		agenda_event.2
+	}
+}
+
+on_leader_death = {
+	events = {
+		agenda_event.1
+	}
+}
+
+on_ruler_set = {
+	events = {
+		agenda_event.0
+	}
+}
+
+on_ruler_removed = {
+	events = {
+		agenda_event.1
+	}
+}
+
+on_press_begin = {
+	events = {
+		agenda_event.0
+	}
+}

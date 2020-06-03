@@ -95,3 +95,159 @@ war_name_format = {
 	}
 	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <fe_stop_atrocities_ai_war_names>"
 }
+
+# Protection - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_end_threat_gestalt
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_end_threat_assimilation_gestalt
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_end_threat_cleansing_gestalt
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_end_threat_absorption_gestalt
+					owner = attacker
+				}
+			}
+            attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <protection_war_names>"
+}
+# Protection - Attacker Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_end_threat_gestalt
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_end_threat_assimilation_gestalt
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_end_threat_cleansing_gestalt
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_end_threat_absorption_gestalt
+					owner = attacker
+				}			
+			}
+			attacker = {
+				has_federation = yes
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <protection_war_names>"
+}
+
+# Absorption - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_absorption_gestalt_terminator
+                owner = attacker
+            }
+            attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <absorption_war_names>"
+}
+
+# Absorption - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_absorption_gestalt_terminator
+                owner = attacker
+            }
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <absorption_war_names>"
+}
+
+
+# Cleansing Exterminators - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_cleansing_gestalt_terminator
+                owner = attacker
+            }
+            attacker = {
+				has_federation = no
+				has_valid_civic = civic_machine_terminator
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <cleansing_ext_war_names>"
+}
+
+# Cleansing Exterminators - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+                type = wg_cleansing_gestalt_terminator
+                owner = attacker
+            }
+			attacker = {
+				has_federation = no
+				has_valid_civic = civic_machine_terminator
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <cleansing_ext_war_names>"
+}

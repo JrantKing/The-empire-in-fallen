@@ -1,0 +1,1710 @@
+namespace = teif_origin
+
+# Setup Fallen Empire Capital
+planet_event = {
+	id = teif_origin.0
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				has_planet_flag = special_start_planet
+				exists = owner
+				owner = { is_country_type = default }
+			}
+			if = {
+				limit = { NOT = { exists = event_target:global_event_country } }
+				create_country = {
+					name = "NAME_global_event_country"
+					type = global_event
+					effect = {
+						save_global_event_target_as = global_event_country
+						give_technology = { tech = tech_adaptive_combat_algorithms message = no }
+						give_technology = { tech = tech_biomechanics message = no }
+						give_technology = { tech = tech_robomodding_m message = no }
+						give_technology = { tech = tech_binary_motivators message = no }
+						give_technology = { tech = tech_nanite_assemblers message = no }
+						give_technology = { tech = tech_micro_replicators message = no }
+						give_technology = { tech = tech_self_assembling_components message = no }
+					}
+				}
+			}
+			# Materialist
+			if = {
+				limit = { owner = { has_ethic = ethic_fanatic_materialist has_origin = origin_fallen_empire_01 } }
+				set_name = "NAME_Great_Nexus"
+				root.owner = {
+					every_owned_fleet = { delete_fleet = this }
+					random_list = {
+						10 = { set_name = "[root.owner.GetSpeciesName]管理会" }
+						10 = { set_name = "[root.owner.GetSpeciesName]保存会" }
+						10 = { set_name = "[root.owner.GetSpeciesName]纪录会" }
+					}
+					#set_country_flag = fallen_empire_1
+					set_country_flag = get_machine
+					set_country_flag = get_hive_mind
+					set_country_flag = machine_computer_repressed_completed
+					create_ship_design = { design = "NAME_Enforcer" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Savant" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Scholar" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Sage" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Cloaker" }
+					add_ship_design = last_created_design
+					shift_ethic = ethic_fanatic_communism
+					country_remove_ethic = ethic_fanatic_communism
+					country_add_ethic = ethic_fanatic_materialist
+					set_country_type = fallen_empire
+					change_government = {
+						authority = auth_imperial
+						civics = {
+							civic = civic_lethargic_leadership
+							civic = civic_empire_in_decline
+						}
+					}
+					copy_techs_from = { target = event_target:global_event_country }
+					give_technology = { message = no tech = tech_pk_shielder }
+					if = {
+						limit = {
+							NOR = {
+								graphical_culture = fallen_empire_01
+								graphical_culture = fallen_empire_02
+								graphical_culture = fallen_empire_03
+								graphical_culture = fallen_empire_04
+								graphical_culture = fallen_empire_05
+								graphical_culture = fallen_empire_06
+								graphical_culture = fallen_empire_07
+								graphical_culture = fallen_empire_08
+								graphical_culture = fallen_empire_09
+								graphical_culture = fallen_empire_10
+								graphical_culture = fallen_empire_11
+								graphical_culture = fallen_empire_12
+								graphical_culture = fallen_machine_empire_01
+								graphical_culture = fallen_machine_empire_02
+							}
+						}
+						set_graphical_culture = fallen_empire_02
+					}
+					set_city_graphical_culture = fallen_empire_02
+					create_species = {
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+						traits = {
+							trait = "trait_cybernetic"
+						}
+					}
+					every_owned_leader = { change_species = last_created_species }
+					every_owned_leader = {
+						limit = { NOT = { leader_class = ruler } }
+						kill_leader = { show_notification = no }
+					}
+					change_dominant_species = { species = last_created_species }
+					remove_negetive_trait = yes
+					create_fe_servant_robots = yes
+					last_created_species = { save_event_target_as = fe_servants }
+					set_policy = {
+						policy = artificial_intelligence_policy
+						option = ai_servitude
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_machine_pop
+						option = servitude_robot_machine_pop
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_pop_policy
+						option = robot_pops_allowed
+						cooldown = no
+					}
+				}
+				solar_system = {
+					create_fe_home_citadel = yes
+					closest_system = {
+						min_steps = 1
+						max_steps = 3
+						limit = { any_system_planet = { has_planet_flag = fallen_empire_world } }
+						create_fe_citadel = yes
+						random_system_planet = {
+							limit = { has_planet_flag = fallen_empire_world NOT = { is_same_value = root } }
+							set_owner = root.owner
+							while = {
+								count = 35
+								create_pop = {
+									species = owner_main_species
+								}
+							}
+							while = {
+								count = 35
+								create_pop = {
+									species = event_target:fe_servants
+								}
+							}
+						}
+					}
+				}
+				while = {
+					count = 94
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					# 2.6.3 = 93
+					# 2.6.2 = 94
+					count = 93
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root.owner
+						species = event_target:fe_servants
+						type = "machine_assault_2"
+					}
+				}
+				change_pc = pc_city
+				set_planet_entity = {
+					entity = "city_planet_entity"
+					graphical_culture = root.owner
+				}
+				root.owner = { every_owned_pop = { pop_change_ethic = ethic_materialist } }
+			}
+			# Spiritualist
+			if = {
+				limit = { owner = { has_ethic = ethic_fanatic_spiritualist has_origin = origin_fallen_empire_02 } }
+				set_name = "NAME_Celestial_Throne"
+				root.owner = {
+					set_country_flag = researched_tech_telepathy
+					set_country_flag = civic_transcendence
+					give_technology = { tech = tech_psionic_theory message = no }
+					give_technology = { tech = tech_telepathy message = no }
+					give_technology = { tech = tech_holographic_rituals message = no }
+					give_technology = { tech = tech_consecration_fields message = no }
+					give_technology = { tech = tech_transcendent_faith message = no }
+					give_technology = { tech = tech_psi_jump_drive_1 message = no }
+					give_technology = { tech = tech_psionic_shield message = no }
+					give_technology = { tech = tech_psionic_barrier message = no }
+					every_owned_fleet = { delete_fleet = this }
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]保护者" }
+						10 = { set_name = "[This.GetSpeciesName]守望者" }
+						10 = { set_name = "[This.GetSpeciesName]守护者" }
+					}
+					#set_country_flag = fallen_empire_2
+					set_country_flag = get_machine
+					set_country_flag = get_hive_mind
+					set_country_flag = machine_computer_repressed_completed
+					create_ship_design = { design = "NAME_Cleanser" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Eternal" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Avatar" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Zealot" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Faith" }
+					add_ship_design = last_created_design
+					shift_ethic = ethic_fanatic_communism
+					country_remove_ethic = ethic_fanatic_communism
+					country_add_ethic = ethic_fanatic_spiritualist
+					set_country_type = fallen_empire
+					change_government = {
+						authority = auth_imperial
+						civics = {
+							civic = civic_lethargic_leadership
+							civic = civic_empire_in_decline
+						}
+					}
+					copy_techs_from = { target = event_target:global_event_country }
+					give_technology = { message = no tech = tech_pk_neutron }
+					if = {
+						limit = {
+							NOR = {
+								graphical_culture = fallen_empire_01
+								graphical_culture = fallen_empire_02
+								graphical_culture = fallen_empire_03
+								graphical_culture = fallen_empire_04
+								graphical_culture = fallen_empire_05
+								graphical_culture = fallen_empire_06
+								graphical_culture = fallen_empire_07
+								graphical_culture = fallen_empire_08
+								graphical_culture = fallen_empire_09
+								graphical_culture = fallen_empire_10
+								graphical_culture = fallen_empire_11
+								graphical_culture = fallen_empire_12
+								graphical_culture = fallen_machine_empire_01
+								graphical_culture = fallen_machine_empire_02
+							}
+						}
+						set_graphical_culture = fallen_empire_01
+					}
+					set_city_graphical_culture = fallen_empire_01
+					create_species = {
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+						traits = {
+							trait = "trait_psionic"
+						}
+					}
+					every_owned_leader = { change_species = last_created_species }
+					every_owned_leader = {
+						limit = { NOT = { leader_class = ruler } }
+						kill_leader = { show_notification = no }
+					}
+					change_dominant_species = { species = last_created_species }
+					remove_negetive_trait = yes
+					create_fe_servant_robots = yes
+				}
+				solar_system = {
+					create_fe_home_citadel = yes
+					random_system_planet = {
+						limit = {
+							is_planet_class = pc_gaia
+							NOT = { is_same_value = root }
+						}
+						set_owner = root.owner
+						while = {
+							count = 68
+							create_pop = {
+								species = owner_main_species
+							}
+						}
+					}
+				}
+				while = {
+					count = 115
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root.owner
+						species = root.owner
+						type = "psionic_army"
+					}
+				}
+				change_pc = pc_gaia
+				root.owner = { every_owned_pop = { pop_change_ethic = ethic_spiritualist } }
+			}
+			# Xenophile
+			if = {
+				limit = { owner = { has_ethic = ethic_fanatic_xenophile has_origin = origin_fallen_empire_03 } }
+				set_name = "NAME_Cradle"
+				root.owner = {
+					every_owned_fleet = { delete_fleet = this }
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]始祖星族" }
+						10 = { set_name = "[This.GetSpeciesName]先锋星族" }
+						10 = { set_name = "[This.GetSpeciesName]古代星族" }
+					}
+					#set_country_flag = fallen_empire_3
+					set_country_flag = get_machine
+					set_country_flag = get_hive_mind
+					set_country_flag = machine_computer_repressed_completed
+					create_ship_design = { design = "NAME_Adjuster" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Keeper" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Custodian" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Warden" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Watcher" }
+					add_ship_design = last_created_design
+					shift_ethic = ethic_fanatic_communism
+					country_remove_ethic = ethic_fanatic_communism
+					country_add_ethic = ethic_fanatic_xenophile
+					set_country_type = fallen_empire
+					change_government = {
+						authority = auth_imperial
+						civics = {
+							civic = civic_lethargic_leadership
+							civic = civic_empire_in_decline
+						}
+					}
+					copy_techs_from = { target = event_target:global_event_country }
+					give_technology = { message = no tech = tech_pk_shielder }
+					if = {
+						limit = {
+							NOR = {
+								graphical_culture = fallen_empire_01
+								graphical_culture = fallen_empire_02
+								graphical_culture = fallen_empire_03
+								graphical_culture = fallen_empire_04
+								graphical_culture = fallen_empire_05
+								graphical_culture = fallen_empire_06
+								graphical_culture = fallen_empire_07
+								graphical_culture = fallen_empire_08
+								graphical_culture = fallen_empire_09
+								graphical_culture = fallen_empire_10
+								graphical_culture = fallen_empire_11
+								graphical_culture = fallen_empire_12
+								graphical_culture = fallen_machine_empire_01
+								graphical_culture = fallen_machine_empire_02
+							}
+						}
+						set_graphical_culture = fallen_empire_03
+					}
+					set_city_graphical_culture = fallen_empire_03
+					create_species = {
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+					}
+					every_owned_leader = { change_species = last_created_species }
+					every_owned_leader = {
+						limit = { NOT = { leader_class = ruler } }
+						kill_leader = { show_notification = no }
+					}
+					change_dominant_species = { species = last_created_species }
+					remove_negetive_trait = yes
+					create_fe_servant_robots = yes
+					last_created_species = { save_event_target_as = fe_servants }
+					set_policy = {
+						policy = artificial_intelligence_policy
+						option = ai_outlawed
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_machine_pop
+						option = servitude_robot_machine_pop
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_pop_policy
+						option = robot_pops_allowed
+						cooldown = no
+					}
+				}
+				solar_system = {
+					create_fe_home_citadel = yes
+					random_system_planet = {
+						limit = {
+							has_planet_flag = brother
+						}
+						remove_planet_flag = brother
+						set_owner = root.owner
+						while = {
+							count = 18
+							create_pop = {
+								species = owner_main_species
+							}
+						}
+						while = {
+							count = 18
+							create_pop = {
+								species = event_target:fe_servants
+							}
+						}
+					}
+					random_system_planet = {
+						limit = {
+							has_planet_flag = mother
+						}
+						remove_planet_flag = mother
+						set_owner = root.owner
+						while = {
+							count = 27
+							create_pop = {
+								species = owner_main_species
+							}
+						}
+						while = {
+							count = 27
+							create_pop = {
+								species = event_target:fe_servants
+							}
+						}
+					}
+					closest_system = {
+						min_steps = 1
+						max_steps = 3
+						limit = { any_system_planet = { has_planet_flag = fe_the_preserve } }
+						create_fe_citadel = yes
+						random_system_planet = {
+							limit = { has_planet_flag = fe_the_preserve }
+							set_owner = root.owner
+							while = {
+								count = 2
+								create_pop = {
+									species = owner_main_species
+								}
+							}
+						}
+					}
+				}
+				while = {
+					count = 52
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					# 2.6.3 = 51
+					# 2.6.2 = 52
+					count = 51
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root.owner
+						species = root.owner
+						type = "gene_warrior_army"
+					}
+				}
+				change_pc = pc_gaia
+				root.owner = { every_owned_pop = { pop_change_ethic = ethic_xenophile } }
+			}
+			# Xenophobe
+			if = {
+				limit = { owner = { has_ethic = ethic_fanatic_xenophobe has_origin = origin_fallen_empire_04 } }
+				set_name = "NAME_The_Core"
+				root.owner = {
+					every_owned_fleet = { delete_fleet = this }
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]碎片文明" }
+						10 = { set_name = "[This.GetSpeciesName]遗留文明" }
+						10 = { set_name = "[This.GetSpeciesName]遗迹文明" }
+					}
+					#set_country_flag = fallen_empire_4
+					set_country_flag = get_machine
+					set_country_flag = get_hive_mind
+					set_country_flag = machine_computer_repressed_completed
+					create_ship_design = { design = "NAME_Reaper" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Imperium" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Supremacy" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Glory" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Devastator" }
+					add_ship_design = last_created_design
+					shift_ethic = ethic_fanatic_communism
+					country_remove_ethic = ethic_fanatic_communism
+					country_add_ethic = ethic_fanatic_xenophobe
+					set_country_type = fallen_empire
+					change_government = {
+						authority = auth_imperial
+						civics = {
+							civic = civic_lethargic_leadership
+							civic = civic_empire_in_decline
+						}
+					}
+					copy_techs_from = { target = event_target:global_event_country }
+					give_technology = { message = no tech = tech_pk_cracker }
+					if = {
+						limit = {
+							NOR = {
+								graphical_culture = fallen_empire_01
+								graphical_culture = fallen_empire_02
+								graphical_culture = fallen_empire_03
+								graphical_culture = fallen_empire_04
+								graphical_culture = fallen_empire_05
+								graphical_culture = fallen_empire_06
+								graphical_culture = fallen_empire_07
+								graphical_culture = fallen_empire_08
+								graphical_culture = fallen_empire_09
+								graphical_culture = fallen_empire_10
+								graphical_culture = fallen_empire_11
+								graphical_culture = fallen_empire_12
+								graphical_culture = fallen_machine_empire_01
+								graphical_culture = fallen_machine_empire_02
+							}
+						}
+						set_graphical_culture = fallen_empire_04
+					}
+					set_city_graphical_culture = fallen_empire_04
+					create_species = {
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+					}
+					every_owned_leader = { change_species = last_created_species }
+					every_owned_leader = {
+						limit = { NOT = { leader_class = ruler } }
+						kill_leader = { show_notification = no }
+					}
+					change_dominant_species = { species = last_created_species }
+					remove_negetive_trait = yes
+					create_fe_servant_robots = yes
+					create_fe_servant_species = yes
+					last_created_species = { save_event_target_as = fe_servants }
+				}
+				solar_system = {
+					create_fe_home_citadel = yes
+					random_system_planet = {
+						limit = {
+							is_planet_class = pc_gaia
+							NOT = { is_same_value = root }
+						}
+						set_owner = root.owner
+						while = {
+							count = 33
+							create_pop = {
+								species = owner_main_species
+							}
+						}
+						while = {
+							count = 33
+							create_pop = {
+								species = event_target:fe_servants
+							}
+						}
+					}
+					closest_system = {
+						min_steps = 1
+						max_steps = 3
+						limit = { has_star_flag = fallen_shielded_1 }
+						create_fe_outpost = yes
+					}
+					closest_system = {
+						min_steps = 1
+						max_steps = 3
+						limit = { has_star_flag = fallen_shielded_2 }
+						create_fe_outpost = yes
+					}
+					closest_system = {
+						min_steps = 1
+						max_steps = 3
+						limit = { has_star_flag = fallen_shielded_3 }
+						create_fe_outpost = yes
+					}
+				}
+				while = {
+					count = 62
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					count = 62
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root.owner
+						species = root.owner
+						type = "xenomorph_army"
+					}
+				}
+				change_pc = pc_gaia
+				root.owner = { every_owned_pop = { pop_change_ethic = ethic_xenophobe } }
+			}
+			# Authoritarian
+			if = {
+				limit = { owner = { has_ethic = ethic_fanatic_authoritarian has_origin = origin_fallen_empire_05 } }
+				set_name = "NAME_The_Imperial_Throne"
+				root.owner = {
+					every_owned_fleet = { delete_fleet = this }
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]沉寂皇族" }
+						10 = { set_name = "[This.GetSpeciesName]僻静皇族" }
+						10 = { set_name = "[This.GetSpeciesName]边陲皇族" }
+					}
+					#set_country_flag = fallen_empire_5
+					set_country_flag = get_machine
+					set_country_flag = get_hive_mind
+					set_country_flag = machine_computer_repressed_completed
+					create_ship_design = { design = "NAME_Giant" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Flare" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Pianeta" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Selina" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Dwarf" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Enforcer" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Savant" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Scholar" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Sage" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Cloaker" }
+					add_ship_design = last_created_design
+					shift_ethic = ethic_fanatic_communism
+					country_remove_ethic = ethic_fanatic_communism
+					country_add_ethic = ethic_fanatic_authoritarian
+					set_country_type = fallen_empire
+					change_government = {
+						authority = auth_imperial
+						civics = {
+							civic = civic_lethargic_leadership
+							civic = civic_empire_in_decline
+						}
+					}
+					copy_techs_from = { target = event_target:global_event_country }
+					give_technology = { message = no tech = tech_pk_cracker }
+					if = {
+						limit = {
+							NOR = {
+								graphical_culture = fallen_empire_01
+								graphical_culture = fallen_empire_02
+								graphical_culture = fallen_empire_03
+								graphical_culture = fallen_empire_04
+								graphical_culture = fallen_empire_05
+								graphical_culture = fallen_empire_06
+								graphical_culture = fallen_empire_07
+								graphical_culture = fallen_empire_08
+								graphical_culture = fallen_empire_09
+								graphical_culture = fallen_empire_10
+								graphical_culture = fallen_empire_11
+								graphical_culture = fallen_empire_12
+								graphical_culture = fallen_machine_empire_01
+								graphical_culture = fallen_machine_empire_02
+							}
+						}
+						set_graphical_culture = fallen_empire_05
+					}
+					set_city_graphical_culture = fallen_empire_05
+					create_species = {
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+					}
+					every_owned_leader = { change_species = last_created_species }
+					every_owned_leader = {
+						limit = { NOT = { leader_class = ruler } }
+						kill_leader = { show_notification = no }
+					}
+					change_dominant_species = { species = last_created_species }
+					remove_negetive_trait = yes
+					create_fe_servant_robots = yes
+					last_created_species = { save_event_target_as = fe_servants }
+					set_policy = {
+						policy = robot_machine_pop
+						option = servitude_robot_machine_pop
+						cooldown = no
+					}
+				}
+				solar_system = {
+					create_fe_home_citadel = yes
+					random_system_planet = {
+						limit = {
+							is_planet_class = pc_gaia
+							NOT = { is_same_value = root }
+						}
+						set_owner = root.owner
+						while = {
+							count = 33
+							create_pop = {
+								species = owner_main_species
+							}
+						}
+						while = {
+							count = 33
+							create_pop = {
+								species = event_target:fe_servants
+							}
+						}
+					}
+				}
+				while = {
+					count = 62
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					# 2.6.3 = 61
+					# 2.6.2 = 62
+					count = 61
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root
+						species = root
+						type = "xenomorph_army"
+					}
+				}
+				change_pc = pc_gaia
+				root.owner = { every_owned_pop = { pop_change_ethic = ethic_authoritarian } }
+			}
+			# Egalitarian
+			if = {
+				limit = { owner = { has_ethic = ethic_fanatic_egalitarian has_origin = origin_fallen_empire_06 } }
+				set_name = "NAME_The_Liberal_Caipital"
+				root.owner = {
+					every_owned_fleet = { delete_fleet = this }
+					random_list = {
+						10 = { set_name = "[This.GetSpeciesName]自由邦" }
+						10 = { set_name = "[This.GetSpeciesName]乌托邦" }
+						10 = { set_name = "[This.GetSpeciesName]文明邦" }
+					}
+					#set_country_flag = fallen_empire_6
+					set_country_flag = get_machine
+					set_country_flag = get_hive_mind
+					set_country_flag = machine_computer_repressed_completed
+					create_ship_design = { design = "NAME_Justice" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Liberation" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Freeborn" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Equalities" }
+					add_ship_design = last_created_design
+					create_ship_design = { design = "NAME_Shininess" }
+					add_ship_design = last_created_design
+					shift_ethic = ethic_fanatic_communism
+					country_remove_ethic = ethic_fanatic_communism
+					country_add_ethic = ethic_fanatic_egalitarian
+					set_country_type = fallen_empire
+					change_government = {
+						authority = auth_imperial
+						civics = {
+							civic = civic_lethargic_leadership
+							civic = civic_empire_in_decline
+						}
+					}
+					copy_techs_from = { target = event_target:global_event_country }
+					give_technology = { message = no tech = tech_pk_shielder }
+					if = {
+						limit = {
+							NOR = {
+								graphical_culture = fallen_empire_01
+								graphical_culture = fallen_empire_02
+								graphical_culture = fallen_empire_03
+								graphical_culture = fallen_empire_04
+								graphical_culture = fallen_empire_05
+								graphical_culture = fallen_empire_06
+								graphical_culture = fallen_empire_07
+								graphical_culture = fallen_empire_08
+								graphical_culture = fallen_empire_09
+								graphical_culture = fallen_empire_10
+								graphical_culture = fallen_empire_11
+								graphical_culture = fallen_empire_12
+								graphical_culture = fallen_machine_empire_01
+								graphical_culture = fallen_machine_empire_02
+							}
+						}
+						set_graphical_culture = fallen_empire_06
+					}
+					set_city_graphical_culture = fallen_empire_06
+					create_species = {
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+					}
+					every_owned_leader = { change_species = last_created_species }
+					every_owned_leader = {
+						limit = { NOT = { leader_class = ruler } }
+						kill_leader = { show_notification = no }
+					}
+					change_dominant_species = { species = last_created_species }
+					set_policy = {
+						policy = artificial_intelligence_policy
+						option = ai_full_rights
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_machine_pop
+						option = servitude_robot_machine_pop
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_pop_policy
+						option = robot_pops_allowed
+						cooldown = no
+					}
+					remove_negetive_trait = yes
+					create_species = {
+						name = "NAME_Synthetic"
+						plural = "NAME_Synthetics"
+						class = ROBOT
+						namelist = this
+						portrait = "default_robot"
+						traits = {
+							trait = "trait_mechanical"
+						}
+						
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_hum_robot = yes }
+								}			
+								change_species_portrait = sd_hum_robot
+							}
+						}
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_mam_robot = yes }
+								}			
+								change_species_portrait = sd_mam_robot
+							}
+						}		
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_rep_robot = yes }
+								}			
+								change_species_portrait = sd_rep_robot
+							}
+						}
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_avi_robot = yes }
+								}			
+								change_species_portrait = sd_avi_robot
+							}
+						}
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_art_robot = yes }
+								}			
+								change_species_portrait = sd_art_robot
+							}
+						}
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_mol_robot = yes }
+								}			
+								change_species_portrait = sd_mol_robot
+							}
+						}
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_fun_robot = yes }
+								}			
+								change_species_portrait = sd_fun_robot
+							}
+						}
+						effect = {
+							if = {
+								limit = {
+									root.owner = { use_robot_portrait_sd_pla_robot = yes }
+								}			
+								change_species_portrait = sd_pla_robot
+							}
+						}
+						effect = {
+							if = {
+								limit = {
+									root.owner = {
+										OR = {
+											is_species_class = LITHOID
+											species_portrait = lith_machine
+										}
+									}
+								}			
+								change_species_portrait = lith_machine
+							}
+						}
+					}
+					last_created_species = { save_event_target_as = synthetic_species }
+					create_fe_servant_robots = yes
+					last_created_species = { save_event_target_as = fe_servants }
+				}
+				solar_system = {
+					create_fe_home_citadel = yes
+					random_system_planet = {
+						limit = {
+							is_planet_class = pc_city
+							NOT = { is_same_value = root }
+						}
+						set_owner = root.owner
+						while = {
+							count = 50
+							create_pop = {
+								species = owner_main_species
+							}
+						}
+						while = {
+							count = 20
+							create_pop = {
+								species = event_target:synthetic_species
+							}
+						}
+						while = {
+							count = 20
+							create_pop = {
+								species = event_target:fe_servants
+							}
+						}
+					}
+				}
+				while = {
+					count = 34
+					create_pop = {
+						species = owner_main_species
+					}
+				}
+				while = {
+					# 2.6.3 = 55
+					# 2.6.2 = 56
+					count = 55
+					create_pop = {
+						species = event_target:fe_servants
+					}
+				}
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root.owner
+						species = root.owner
+						type = "xenomorph_army"
+					}
+				}
+				change_pc = pc_gaia
+				root.owner = { every_owned_pop = { pop_change_ethic = ethic_egalitarian } }
+			}
+			setup_origin_fallen_empire_init = yes
+		}
+	}
+}
+
+country_event = {
+	id = teif_origin.1
+	is_triggered_only = yes
+	hide_window = yes
+	fire_only_once = yes
+	immediate = {
+		every_playable_country = {
+			limit = {
+				is_fallen_empire = yes
+			}
+			every_owned_pop = {
+				set_living_standard = {
+					type = living_standard_utopian
+					country = root
+					cooldown = no
+				}
+			}
+			if = {
+				limit = { is_fallen_empire_xenophobe = yes }
+				country_event = { id = teif_origin.2 days = 1 }
+			}
+			if = {
+				limit = { species = { NOT = { species_portrait = human } } }
+				modify_species = {
+					species = this
+					base = none
+				}
+			}
+			else_if = {
+				limit = {
+					exists = event_target:fallen_empire_6
+					species = { species_portrait = human }
+				}
+				modify_species = {
+					species = this
+					base = event_target:fallen_human_pop
+				}
+				every_owned_leader = { change_species = last_created_species }
+			}
+			else_if = {
+				limit = {
+					NOT = { exists = event_target:fallen_empire_6 }
+					species = { species_portrait = human }
+				}
+				modify_species = {
+					species = this
+					base = event_target:no_unoe_human_species
+				}
+				every_owned_leader = { change_species = last_created_species }
+			}
+			capital_scope = { remove_planet_flag = special_start_planet }
+		}
+	}
+}
+
+country_event = {
+	id = teif_origin.2
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		root.species = {
+			switch = {
+				trigger = has_trait
+				"trait_pc_desert_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_desert_preference } } } }
+				"trait_pc_arid_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_arid_preference } } } }
+				"trait_pc_savannah_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_savannah_preference } } } }
+				"trait_pc_tropical_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_tropical_preference } } } }
+				"trait_pc_continental_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_continental_preference } } } }
+				"trait_pc_ocean_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_ocean_preference } } } }
+				"trait_pc_arctic_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_arctic_preference } } } }
+				"trait_pc_tundra_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_tundra_preference } } } }
+				"trait_pc_alpine_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_alpine_preference } } } }
+				"trait_pc_nuked_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_nuked_preference } } } }
+				"trait_pc_gaia_preference" = { root = { every_owned_pop = { limit = { NOT = { is_same_species = root } } modify_species = { species = this base = none add_trait = trait_pc_gaia_preference } } } }
+			}
+		}
+		last_created_species = {
+			set_citizenship_type = {
+				type = citizenship_slavery
+				cooldown = no
+				country = ROOT
+			}
+			set_slavery_type = {
+				type = slavery_domestic
+				cooldown = no
+				country = ROOT
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				is_species_class = MACHINE
+			}
+			kill_pop = yes
+		}
+	}
+}
+
+planet_event = {
+	id = teif_origin.3
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		owner = { has_origin = origin_the_road_not_taken }
+	}
+	immediate = {
+		planet_event = { id = teif_origin.4 days = 1 }
+		owner = {
+			create_ship_design = { design = NAME_trnt_Battleship }
+			add_ship_design = last_created_design
+			create_ship_design = { design = NAME_trnt_Carrier }
+			add_ship_design = last_created_design
+			create_ship_design = { design = NAME_trnt_Cruiser }
+			add_ship_design = last_created_design
+			every_owned_fleet = {
+				limit = {
+					OR = {
+						is_ship_class = shipclass_military
+						is_ship_class = shipclass_starbase
+						is_ship_class = shipclass_science_ship
+					}
+				}
+				delete_fleet = this
+			}
+			capital_scope = {
+				remove_all_districts = yes
+				remove_all_buildings = yes
+			}
+			set_country_type = teif_primitive
+			capital_scope = {
+				solar_system = {
+					create_starbase = {
+						size = starbase_outpost
+						owner = root.owner
+					}
+				}
+			}
+			set_country_type = primitive
+			set_primitive_age = early_space_age
+			set_country_flag = early_space_age
+			add_modifier = {
+				modifier = the_road_not_taken
+				days = -1
+			}
+			every_owned_leader = {
+				limit = {
+					NOT = { leader_class = ruler }
+				}
+				kill_leader = { show_notification = no }
+			}
+		}
+		solar_system = {
+			every_system_planet = {
+				limit = { 
+					has_deposit_for = shipclass_mining_station 
+					has_mining_station = no
+				}
+				create_mining_station = {
+					owner = root.owner
+				}
+			}
+			every_system_planet = {
+				limit = { 
+					has_deposit_for = shipclass_research_station 
+					has_research_station = no
+				}
+				create_research_station = {
+					owner = root.owner
+				}
+			}
+			if = {
+				limit = {
+					any_system_planet = {
+						colonizeable_planet = yes
+						NOT = { is_same_value = root }
+					}
+				}
+				random_system_planet = {
+					limit = {
+						NOT = { is_same_value = root }
+						colonizeable_planet = yes
+					}
+					set_owner = root.owner
+					add_modifier = {
+						modifier = planet_luxuries_boost
+						days = 14400
+					}
+					reroll_planet = yes
+					clear_blockers = yes
+					while = {
+						count = 6
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_generator
+						}
+					}
+					while = {
+						count = 16
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_city
+						}
+					}
+					while = {
+						count = 1
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_mining
+						}
+					}
+					while = {
+						count = 2
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+					}
+					if = {
+						limit = {
+							num_free_districts = { type = district_generator value < 0 }
+						}
+						while = {
+							limit = {
+								num_free_districts = { type = district_generator value > 0 }
+							}
+							add_deposit = d_searing_desert
+						}
+					}
+					if = {
+						limit = {
+							num_free_districts = { type = district_farming value < 0 }
+						}
+						while = {
+							limit = {
+								num_free_districts = { type = district_mining value > 0 }
+							}
+							add_deposit = d_lush_jungle
+						}
+					}
+					if = {
+						limit = {
+							num_free_districts = { type = district_mining value < 0 }
+						}
+						while = {
+							limit = {
+								num_free_districts = { type = district_mining value > 0 }
+							}
+							add_deposit = d_ore_rich_caverns
+						}
+					}
+					add_building = building_system_capital
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_hall_judgment
+					add_building = building_hall_judgment
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_bureaucratic_2
+					add_building = building_mineral_purification_hub
+					add_building = building_energy_nexus
+					add_building = building_research_lab_3
+					add_building = building_food_processing_center
+					add_building = building_fe_dome
+					while = {
+						count = 70
+						create_pop = {
+							species = owner_main_species
+						}
+					}
+					check_planet_employment = yes
+				}
+			}
+			else = {
+				random_system_planet = {
+					limit = {
+						NOR = {
+							is_asteroid = yes
+							is_star = yes
+							is_planet_class = pc_gas_giant
+						}
+					}
+					if = {
+						limit = { planet_size > 25 }
+						set_planet_size = 25
+						capital_scope = {
+							set_planet_size = 25
+						}
+					}
+					if = {
+						limit = { planet_size < 16 }
+						set_planet_size = 16
+						random_list = {
+							1 = { change_planet_size = 2 }
+							1 = { change_planet_size = 3 }
+							1 = { change_planet_size = 4 }
+							1 = { change_planet_size = 5 }
+							1 = { change_planet_size = 6 }
+							1 = { change_planet_size = 7 }
+							1 = { change_planet_size = 8 }
+							1 = { change_planet_size = 9 }
+							1 = { change_planet_size = 10 }
+						}
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_desert } }
+						change_pc = pc_desert
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_arid } }
+						change_pc = pc_arid
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_savannah } }
+						change_pc = pc_savannah
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_tropical } }
+						change_pc = pc_tropical
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_continental } }
+						change_pc = pc_continental
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_ocean } }
+						change_pc = pc_ocean
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_alpine } }
+						change_pc = pc_alpine
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_nuked } }
+						change_pc = pc_nuked
+					}
+					if = {
+						limit = { root.owner = { ideal_planet_class = pc_gaia } }
+						change_pc = pc_gaia
+					}
+					reroll_planet = yes
+					clear_blockers = yes
+					set_owner = root.owner
+					add_modifier = {
+						modifier = planet_luxuries_boost
+						days = 14400
+					}
+					while = {
+						count = 6
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_generator
+						}
+					}
+					while = {
+						count = 16
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_city
+						}
+					}
+					while = {
+						count = 1
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_mining
+						}
+					}
+					while = {
+						count = 2
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_farming
+						}
+					}
+					if = {
+						limit = {
+							num_free_districts = { type = district_generator value < 0 }
+						}
+						while = {
+							limit = {
+								num_free_districts = { type = district_generator value > 0 }
+							}
+							add_deposit = d_searing_desert
+						}
+					}
+					if = {
+						limit = {
+							num_free_districts = { type = district_farming value < 0 }
+						}
+						while = {
+							limit = {
+								num_free_districts = { type = district_mining value > 0 }
+							}
+							add_deposit = d_lush_jungle
+						}
+					}
+					if = {
+						limit = {
+							num_free_districts = { type = district_mining value < 0 }
+						}
+						while = {
+							limit = {
+								num_free_districts = { type = district_mining value > 0 }
+							}
+							add_deposit = d_ore_rich_caverns
+						}
+					}
+					add_building = building_system_capital
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_nano_forge
+					add_building = building_hall_judgment
+					add_building = building_hall_judgment
+					add_building = building_dimensional_fabricator
+					add_building = building_dimensional_fabricator
+					add_building = building_bureaucratic_2
+					add_building = building_mineral_purification_hub
+					add_building = building_energy_nexus
+					add_building = building_research_lab_3
+					add_building = building_food_processing_center
+					add_building = building_fe_dome
+					while = {
+						count = 70
+						create_pop = {
+							species = owner_main_species
+						}
+					}
+					check_planet_employment = yes
+				}
+			}
+		}
+		add_modifier = {
+			modifier = prosp_uni_mod
+			days = -1
+		}
+		add_modifier = {
+			modifier = planet_luxuries_boost
+			days = 14400
+		}
+		clear_blockers = yes
+		add_building = building_system_capital
+		add_building = building_affluence_center
+		add_building = building_nourishment_center
+		add_building = building_dimensional_fabricator
+		add_building = building_dimensional_fabricator
+		add_building = building_dimensional_fabricator
+		add_building = building_class_4_singularity
+		add_building = building_nano_forge
+		add_building = building_fe_dome
+		add_building = building_hall_judgment
+		add_building = building_hall_judgment
+		add_building = building_food_processing_center
+		add_building = building_bureaucratic_2
+		add_building = building_mineral_purification_hub
+		add_building = building_energy_nexus
+		add_building = building_research_lab_3
+		while = {
+			count = 6
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_generator
+			}
+		}
+		while = {
+			count = 8
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_city
+			}
+		}
+		while = {
+			count = 2
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_mining
+			}
+		}
+		while = {
+			count = 5
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_farming
+			}
+		}
+		if = {
+			limit = {
+				num_free_districts = { type = district_generator value < 0 }
+			}
+			while = {
+				limit = {
+					num_free_districts = { type = district_generator value > 0 }
+				}
+				add_deposit = d_searing_desert
+			}
+		}
+		if = {
+			limit = {
+				num_free_districts = { type = district_farming value < 0 }
+			}
+			while = {
+				limit = {
+					num_free_districts = { type = district_mining value > 0 }
+				}
+				add_deposit = d_lush_jungle
+			}
+		}
+		if = {
+			limit = {
+				num_free_districts = { type = district_mining value < 0 }
+			}
+			while = {
+				limit = {
+					num_free_districts = { type = district_mining value > 0 }
+				}
+				add_deposit = d_ore_rich_caverns
+			}
+		}
+		while = {
+			limit = { num_pops < 70 }
+			create_pop = {
+				species = owner_main_species
+			}
+		}
+		every_owned_pop = {
+			clear_pop_category = yes
+			unemploy_pop = yes
+		}
+		check_planet_employment = yes
+		while = {
+			count = 1
+			create_fleet = {
+				effect = {
+					set_owner = root.owner
+					while = {
+						count = 4
+						create_ship = {
+							name = random
+							design = NAME_trnt_Battleship
+							graphical_culture = root.owner
+						}
+					}
+					while = {
+						count = 5
+						create_ship = {
+							name = random
+							design = NAME_trnt_Carrier
+							graphical_culture = root.owner
+						}
+					}
+					while = {
+						count = 17
+						create_ship = {
+							name = random
+							design = NAME_trnt_Cruiser
+							graphical_culture = root.owner
+						}
+					}
+					set_location = {
+						target = root
+					}
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = teif_origin.4
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		planet_event = { id = teif_origin.5 days =1 }
+		solar_system = {
+			starbase = {
+				set_starbase_size = starbase_citadel
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = teif_origin.5
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		solar_system = {
+			starbase = {
+				set_starbase_module = {
+					slot = 0
+					module = shipyard
+				}
+				set_starbase_module = {
+					slot = 1
+					module = trading_hub
+				}
+				set_starbase_module = {
+					slot = 2
+					module = gun_battery
+				}
+				set_starbase_module = {
+					slot = 3
+					module = gun_battery
+				}
+				set_starbase_module = {
+					slot = 4
+					module = gun_battery
+				}
+				set_starbase_module = {
+					slot = 5
+					module = gun_battery
+				}
+				set_starbase_building = {
+					slot = 0
+					building = crew_quarters
+				}
+				set_starbase_building = {
+					slot = 1
+					building = target_uplink_computer
+				}
+				set_starbase_building = {
+					slot = 2
+					building = disruption_field
+				}
+				set_starbase_building = {
+					slot = 3
+					building = communications_jammer
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = teif_origin.6
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = { has_origin = origin_the_last_of_us }
+			random_owned_pop = {
+				limit = {
+					is_species_class = MACHINE
+				}
+				kill_pop = yes
+			}
+			set_country_flag = get_machine
+			give_technology = { tech = tech_powered_exoskeletons message = no }
+			give_technology = { tech = tech_robotic_workers message = no }
+			give_technology = { tech = tech_droid_workers message = no }
+			give_technology = { tech = tech_automaton_brain message = no }
+			set_policy = {
+				policy = robot_machine_pop
+				option = full_robot_machine_pop
+				cooldown = no
+			}
+			every_owned_leader = {
+				limit = {
+					NOT = { leader_class = ruler }
+				}
+				kill_leader = { show_notification = no }
+			}
+			every_pool_leader = {
+				kill_leader = { show_notification = no }
+			}
+			random_galaxy_species = {
+				limit = {
+					has_species_flag = mechanical_species@root
+				}
+				save_event_target_as = mechanical_species
+			}
+			create_leader = {
+				class = governor
+				species = event_target:mechanical_species
+				leader_age_min = 20
+				leader_age_max = 50
+			}
+			random_owned_sector = {
+				assign_leader = last_created_leader
+			}
+			create_leader = {
+				class = scientist
+				sub_type = survey
+				name = random
+				species = event_target:mechanical_species
+				leader_age_min = 20
+				leader_age_max = 50
+			}
+			random_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_science_ship
+				}
+				assign_leader = last_created_leader
+			}
+			create_leader = {
+				class = scientist
+				sub_type = physics	
+				species = event_target:mechanical_species
+				leader_age_min = 20
+				leader_age_max = 50
+			}
+			create_leader = {
+				class = scientist
+				sub_type = society
+				species = event_target:mechanical_species
+				leader_age_min = 20
+				leader_age_max = 50
+			}
+			create_leader = {
+				class = scientist
+				sub_type = engineering
+				species = event_target:mechanical_species
+				leader_age_min = 20
+				leader_age_max = 50
+			}
+		}
+	}
+}

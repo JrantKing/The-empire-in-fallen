@@ -1154,34 +1154,34 @@ empire_name_parts_list = {
 		"毁灭国" = 1
 		"掠夺国" = 1
 		"血腥国" = 1
-		"消灭国"
-		"灭种国"
-		"扑杀国"
-		"抢夺国"
-		"净化国"
-		"清理国"
-		"狂战国"
-		"骸骨国"
-		"血腥国"
-		"屠夫国"
-		"死谜国"
-		"荒原国"
-		"掠夺国"
-		"惩罚国"
-		"铁血国"
-		"选择国"
-		"死亡怪物国"
-		"十字军国"
-		"宰杀国"
-		"克星国"
-		"星际猎手国"
-		"安乐死者国"
-		"寂静国"
-		"死亡王国"
-		"抉择国"
-		"泯灭国"
-		"杀手国"
-		"收割国"
+		"消灭国" = 1
+		"灭种国" = 1
+		"扑杀国" = 1
+		"抢夺国" = 1
+		"净化国" = 1
+		"清理国" = 1
+		"狂战国" = 1
+		"骸骨国" = 1
+		"血腥国" = 1
+		"屠夫国" = 1
+		"死谜国" = 1
+		"荒原国" = 1
+		"掠夺国" = 1
+		"惩罚国" = 1
+		"铁血国" = 1
+		"选择国" = 1
+		"死亡怪物国" = 1
+		"十字军国" = 1
+		"宰杀国" = 1
+		"克星国" = 1
+		"星际猎手国" = 1
+		"安乐死者国" = 1
+		"寂静国" = 1
+		"死亡王国" = 1
+		"抉择国" = 1
+		"泯灭国" = 1
+		"杀手国" = 1
+		"收割国" = 1
 	}
 }
 
@@ -1218,8 +1218,8 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "communal_parity"
 	parts = {
-		人民公社 = 6
-		合作社 = 6
+		"人民公社" = 6
+		"合作社" = 6
 		"人民共和国" = 6
 		"人民联合国" = 3
 		"公众联邦" = 3
@@ -1305,6 +1305,7 @@ empire_name_parts_list = {
 	}
 }
 
+
 # Bandit Kingdom
 empire_name_parts_list = {
 	key = "bandit_kingdom"
@@ -1338,6 +1339,7 @@ empire_name_parts_list = {
 		"机械智慧"
 		"精明机人"
 	}
+
 }
 
 # Machine Intelligence
@@ -5221,6 +5223,7 @@ empire_name_format = {
 	noun = "[This.GetSpeciesName]"
 	prefix_format = "<free_khanate_names_1_1> [This.GetSpeciesName] <free_khanate_names_1_2>"
 }
+
 
 ### FALLEN EMPIRE NAMES
 

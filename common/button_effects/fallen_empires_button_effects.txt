@@ -18,10 +18,22 @@ tech_view_research_new_select_button_effect = {
 	}
 }
 
-disband_megastructure_effect = {
-	effect = {
-		#this = {
-			set_megastructure_flag = 123
+tech_view_upgrade_button_effect = {
+	potential = {
+		#from = {
+			exists = root
+			ROOT = { is_fallen_empire = yes }
 		#}
+		#log = "[This.GetName]"
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = fallen_empires_technology_button_disable
+			always = no
+		}
+	}
+
+	effect = {
+		log = ""
 	}
 }

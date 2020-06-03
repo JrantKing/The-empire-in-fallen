@@ -50,6 +50,253 @@ country_event = {
 	}
 }
 
+# A Cybernetic Revolution
+country_event = {
+	id = utopia.2501
+	title = "utopia.2501.name"
+	desc = "utopia.2501.desc"
+	picture = GFX_evt_cybernetics
+	show_sound = event_the_flesh_is_weak
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = flesh_weakened
+		random_owned_pop = {
+			limit = { is_same_species = root }
+			create_cybernetic_species_mod = yes
+		}
+		change_dominant_species = { species = last_created }
+		
+		while = {
+			limit = {
+				any_owned_pop = {
+					is_sapient = yes
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+							has_trait = leader_trait_curator
+						}
+					}
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					is_sapient = yes
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+							has_trait = leader_trait_curator
+						}
+					}
+				}
+				create_cybernetic_species_mod = yes
+			}
+		}
+		
+		while = {
+			limit = {
+				any_owned_leader = {
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+							has_trait = leader_trait_curator
+						}
+					}
+				}
+			}
+			random_owned_leader = {
+				limit = {
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+							has_trait = leader_trait_curator
+						}
+					}
+				}
+				create_cybernetic_species_mod = yes
+			}
+		}
+		
+		while = {
+			limit = {
+				any_pool_leader = {
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+						}
+					}
+				}
+			}
+			random_pool_leader = {
+				limit = {
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+						}
+					}
+				}
+				create_cybernetic_species_mod = yes
+			}
+		}
+		
+		while = {
+			limit = {
+				any_owned_army = {
+					exists = species
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+						}
+					}
+				}
+			}
+			random_owned_army = {
+				limit = {
+					exists = species
+					species = {
+						NOR = {
+							has_trait = trait_cybernetic
+		  					has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+							has_trait = trait_hive_mind
+						}
+					}
+				}
+				create_cybernetic_species_mod = yes
+			}
+		}
+
+		every_owned_ship = {
+			limit = {
+				is_ship_class = shipclass_colonizer
+				species = {
+					NOR = {
+						has_trait = trait_cybernetic
+	  					has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+						has_trait = trait_hive_mind
+					}
+				}
+			}
+			create_cybernetic_species_mod = yes
+		}
+
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_admiral_cyborg
+					has_trait = leader_trait_general_cyborg
+					has_trait = leader_trait_governor_cyborg
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_ruler_cyborg
+					has_trait = leader_trait_curator
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+		}
+		
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_admiral_cyborg
+					has_trait = leader_trait_general_cyborg
+					has_trait = leader_trait_governor_cyborg
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_ruler_cyborg
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+		}
+
+		observer_event = { id = observer.55 }
+		every_country = {
+			limit = {
+				is_ai = no
+				NOT = { is_same_value = root }
+				has_communications = root
+			}
+			country_event = { id = utopia.2505 days = 5 }
+		}
+	}
+	
+	option = {
+		name = "utopia.2501.a"
+		custom_tooltip = CYBORG_ASSIMILATION_CITIZENSHIP_ENABLED
+	}
+}
+
 # The Synthetic Age
 country_event = {
 	id = utopia.2551
@@ -65,11 +312,13 @@ country_event = {
 		set_country_flag = synthetic_age
 		owner_species = { save_event_target_as = species_homeworld }
 		give_technology = { tech = tech_bio_reactor message = no }
+		
 		create_species = {
 			is_mod = yes
 			name = this
 			namelist = this
 			plural = this
+			adjective = this
 			class = "ROBOT"
 			#portrait = "default_robot"
 			portrait = this
@@ -316,6 +565,106 @@ country_event = {
 		name = "utopia.2551.a"
 		custom_tooltip = SYNTH_ASSIMILATION_CITIZENSHIP_ENABLED
 		custom_tooltip = MACHINE_CITIZENSHIP_ENABLED
+	}
+}
+
+# New Leaders Get Synthetic Trait (Should also work on "normal" Synthetics)
+country_event = {
+	id = utopia.2560
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_regular_empire = yes
+		has_technology = tech_synthetic_leaders
+		from = {
+			species = { has_trait = trait_mechanical }
+		}
+	}
+
+	immediate = {
+		from = {
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_synthetic
+				add_ruler_trait = leader_trait_ruler_synthetic
+				break = yes
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_synthetic
+				add_ruler_trait = leader_trait_ruler_synthetic
+				break = yes
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_synthetic
+				add_ruler_trait = leader_trait_ruler_synthetic
+				break = yes
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_synthetic
+				add_ruler_trait = leader_trait_ruler_synthetic
+				break = yes
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_synthetic
+				add_ruler_trait = leader_trait_ruler_synthetic
+				break = yes
+			}
+		}
+	}
+}
+
+# Ruler gets normal class trait if one hasn't been assigned
+country_event = {
+	id = utopia.2561
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_regular_empire = yes
+		has_technology = tech_synthetic_leaders
+		from = {
+			species = { has_trait = trait_mechanical }
+			NOR = {
+				has_trait = leader_trait_admiral_synthetic
+				has_trait = leader_trait_general_synthetic
+				has_trait = leader_trait_governor_synthetic
+				has_trait = leader_trait_scientist_synthetic
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_synthetic
+				remove_trait = leader_trait_admiral_cyborg
+				break = yes
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_synthetic
+				remove_trait = leader_trait_general_cyborg
+				break = yes
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_synthetic
+				remove_trait = leader_trait_governor_cyborg
+				break = yes
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_synthetic
+				remove_trait = leader_trait_scientist_cyborg
+				break = yes
+			}
+		}
 	}
 }
 

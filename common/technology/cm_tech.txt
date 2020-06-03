@@ -14,20 +14,20 @@ tech_lost = {
 	}
 }
 
-#tech_lostbuild = {
-#	cost = 20000
-#	area = engineering
-#	tier = 3
-#	category = { industry }
-#	ai_update_type = all
-#	weight = 0
-#	is_rare = yes
-#	is_reverse_engineerable = no
-#	
-#	weight_modifier = {
-#		factor = 0
-#	}
-#}
+tech_lostbuild = {
+	cost = 20000
+	area = engineering
+	tier = 3
+	category = { industry }
+	ai_update_type = all
+	weight = 0
+	is_rare = yes
+	is_reverse_engineerable = no
+	potential = { always = no }
+	weight_modifier = {
+		factor = 0
+	}
+}
 
 tech_reachtoUtopia = {
 	cost = 8000
@@ -49,17 +49,13 @@ tech_reachtoUtopia = {
 		country_resource_max_add = 100000
 	}
 	potential = {
-		OR = {
-			NOT = {
-				AND = {
-					has_authority = auth_machine_intelligence
-					is_country_type = default
-				}
-			}
-			AND = {
-				is_authoritarian = no
-				is_country_type = default
-			}
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		is_authoritarian = no
+	}
+	prereqfor_desc = {
+		feature = {
+			title = feature_utopian
+			desc = feature_utopian_desc
 		}
 	}
 	weight_modifier = {
@@ -134,4 +130,852 @@ tech_planet_traits = {
 	weight_modifier = {
 		factor = 0
 	}
+}
+
+tech_colonial_pc_alpine = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "alpine_surveyed"
+				any_planet_within_border = { is_planet_class = pc_alpine }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_arctic
+				ideal_planet_class = pc_tundra
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_arid
+					ideal_planet_class = pc_desert
+					ideal_planet_class = pc_savannah
+					ideal_planet_class = pc_continental
+					ideal_planet_class = pc_ocean
+					ideal_planet_class = pc_tropical
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_alpine_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_alpine
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_arctic
+				ideal_planet_class = pc_tundra
+			}
+		}
+	}
+}
+
+tech_colonial_pc_arctic = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "arctic_surveyed"
+				any_planet_within_border = { is_planet_class = pc_arctic }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_alpine
+				ideal_planet_class = pc_tundra
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_arid
+					ideal_planet_class = pc_desert
+					ideal_planet_class = pc_savannah
+					ideal_planet_class = pc_continental
+					ideal_planet_class = pc_ocean
+					ideal_planet_class = pc_tropical
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_alpine_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_arctic
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_alpine
+				ideal_planet_class = pc_tundra
+			}
+		}
+	}
+}
+
+tech_colonial_pc_arid = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "arid_surveyed"
+				any_planet_within_border = { is_planet_class = pc_arid }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_savannah
+				ideal_planet_class = pc_desert
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_alpine
+					ideal_planet_class = pc_arctic
+					ideal_planet_class = pc_tundra
+					ideal_planet_class = pc_continental
+					ideal_planet_class = pc_ocean
+					ideal_planet_class = pc_tropical
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_arid_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_arid
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		factor = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_savannah
+				ideal_planet_class = pc_desert
+			}
+		}
+	}
+}
+
+tech_colonial_pc_continental = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "continental_surveyed"
+				any_planet_within_border = { is_planet_class = pc_continental }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_tropical
+				ideal_planet_class = pc_ocean
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_alpine
+					ideal_planet_class = pc_arctic
+					ideal_planet_class = pc_tundra
+					ideal_planet_class = pc_arid
+					ideal_planet_class = pc_desert
+					ideal_planet_class = pc_savannah
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_continental_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_continental
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_tropical
+				ideal_planet_class = pc_ocean
+			}
+		}
+	}
+}
+
+tech_colonial_pc_desert = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "desert_surveyed"
+				any_planet_within_border = { is_planet_class = pc_desert }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = { #for those who are only one step away in ideal planet class
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_arid
+				ideal_planet_class = pc_savannah
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_continental
+					ideal_planet_class = pc_ocean
+					ideal_planet_class = pc_tropical
+					ideal_planet_class = pc_alpine
+					ideal_planet_class = pc_arctic
+					ideal_planet_class = pc_tundra
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_desert_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_desert
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_arid
+				ideal_planet_class = pc_savannah
+			}
+		}
+	}
+}
+
+tech_colonial_pc_nuked = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_3" }
+	weight = @tier3weight1
+	is_rare = yes
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "nuked_surveyed"
+				any_planet_within_border = { is_planet_class = pc_nuked }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				any_owned_pop = {
+					OR = {
+						has_trait = trait_pc_nuked_preference
+						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+						has_trait = trait_survivor
+					}
+				}
+				any_planet_within_border = {
+					is_planet_class = pc_nuked
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}
+
+tech_colonial_pc_ocean = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "ocean_surveyed"
+				any_planet_within_border = { is_planet_class = pc_ocean }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_continental
+				ideal_planet_class = pc_tropical
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_alpine
+					ideal_planet_class = pc_arctic
+					ideal_planet_class = pc_tundra
+					ideal_planet_class = pc_arid
+					ideal_planet_class = pc_desert
+					ideal_planet_class = pc_savannah
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_ocean_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_ocean
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_continental
+				ideal_planet_class = pc_tropical
+			}
+		}
+	}
+}
+
+tech_colonial_pc_savannah = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "savannah_surveyed"
+				any_planet_within_border = { is_planet_class = pc_savannah }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_arid
+				ideal_planet_class = pc_desert
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_alpine
+					ideal_planet_class = pc_arctic
+					ideal_planet_class = pc_tundra
+					ideal_planet_class = pc_continental
+					ideal_planet_class = pc_ocean
+					ideal_planet_class = pc_tropical
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_savannah_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_savannah
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_arid
+				ideal_planet_class = pc_desert
+			}
+		}
+	}
+}
+
+tech_colonial_pc_tropical = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "tropical_surveyed"
+				any_planet_within_border = { is_planet_class = pc_tropical }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_continental
+				ideal_planet_class = pc_ocean
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_alpine
+					ideal_planet_class = pc_arctic
+					ideal_planet_class = pc_tundra
+					ideal_planet_class = pc_arid
+					ideal_planet_class = pc_desert
+					ideal_planet_class = pc_savannah
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_tropical_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_tropical
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_continental
+				ideal_planet_class = pc_ocean
+			}
+		}
+	}
+}
+
+tech_colonial_pc_tundra = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { new_worlds }
+	prerequisites = { "tech_colonization_1" }
+	weight = @tier2weight1
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = {
+				has_country_flag = "tundra_surveyed"
+				any_planet_within_border = { is_planet_class = pc_tundra }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				ideal_planet_class = pc_alpine
+				ideal_planet_class = pc_arctic
+			}
+		}
+		modifier = { #deny those who are too far away in ideal planet class, except if they have a Pop in the Empire that prefers that planet-type. Robots can live anywhere
+			factor = 0
+			AND = {
+				OR = {
+					ideal_planet_class = pc_arid
+					ideal_planet_class = pc_desert
+					ideal_planet_class = pc_savannah
+					ideal_planet_class = pc_continental
+					ideal_planet_class = pc_ocean
+					ideal_planet_class = pc_tropical
+				}
+				NOR = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_tundra_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					any_planet_within_border = {
+						is_planet_class = pc_tundra
+					}
+				}
+			}
+		}
+	}
+	
+	weight_groups = {
+		colonization
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				ideal_planet_class = pc_alpine
+				ideal_planet_class = pc_arctic
+			}
+		}
+	}
+}
+
+tech_create_hive_mind = {
+	cost = @tier4cost2
+	area = society
+	tier = 4
+	category = { biology }
+	prerequisites = { "tech_psionic_theory" "tech_gene_tailoring" "tech_epigenetic_triggers" }
+	weight = @tier4weight2
+	is_rare = yes
+	is_dangerous = yes
+	potential = {
+		NOT = { has_ethic = "ethic_gestalt_consciousness" }
+    }
+	prereqfor_desc = {
+		feature = {
+			title = feature_hive_mind
+			desc = feature_hive_mind_desc
+		}
+		diplo_action = {
+			title = feature_create_hive_mind
+            desc = feature_create_hive_mind_desc
+		}
+        resource = {
+            title = unlock_policy_hive_mind
+            desc = unlock_policy_hive_mind_desc
+        }
+    }
+}
+
+tech_space_defense_station_2 = {
+	icon = "old_tech_icons/tech_space_defense_station_2"
+	cost = @tier2cost2
+	area = engineering
+	tier = 2
+	category = { voidcraft }		
+	prerequisites = { "tech_starbase_3" }
+	is_rare = yes
+	weight = 0
+}
+
+tech_space_defense_station_3 = {
+	icon = "old_tech_icons/tech_space_defense_station_3"
+	cost = @tier3cost3
+	area = engineering
+	tier = 3
+	category = { voidcraft }		
+	prerequisites = { "tech_starbase_4" }
+	is_rare = yes
+	weight = 0
 }

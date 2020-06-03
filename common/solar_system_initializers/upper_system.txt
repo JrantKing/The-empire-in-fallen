@@ -8,6 +8,7 @@ guardians_upper_horror = {
 			add = 100
 		}
 		modifier = {
+			add = -1000
 			is_fe_cluster = yes
 		}
 	}

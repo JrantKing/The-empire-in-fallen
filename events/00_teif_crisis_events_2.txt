@@ -2,7 +2,7 @@
 #
 # Crisis Events II
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -100,6 +100,8 @@ country_event = {
 						create_ship_design = { design = "NAME_Void_Shaper" }
 						add_ship_design = last_created_design
 						create_ship_design = { design = "NAME_Unbidden_Anchor" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Unbidden_Starbase" }
 						add_ship_design = last_created_design
 						save_global_event_target_as = extradimensionals
 						establish_communications_no_message = event_target:portal_holder_1
@@ -256,15 +258,15 @@ country_event = {
 	hide_window = yes
 	fire_only_once = yes
 	is_triggered_only = yes
-	#trigger = {
-	#	is_country_type = extradimensional
-	#	NOT = { has_global_flag = extradimensional_second_portal }
-	#	galaxy_percentage > 0.15
-	#}
+	# trigger = {
+	# 	is_country_type = extradimensional
+	# 	NOT = { has_global_flag = extradimensional_second_portal }
+	# 	galaxy_percentage > 0.15
+	# }
 
-	#mean_time_to_happen = {
-	#	months = 12
-	#}
+	# mean_time_to_happen = {
+	# 	months = 12
+	# }
 
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_3
@@ -274,10 +276,7 @@ country_event = {
 			limit = {
 				NOT = {
 					any_country = {
-						OR = {
-							is_country_type = fallen_empire
-							is_country_type = awakened_fallen_empire
-						}
+						is_fallen_empire = yes
 						any_system_within_border = {
 							is_same_value = prev
 						}
@@ -323,6 +322,8 @@ country_event = {
 						create_ship_design = { design = "NAME_Void_Former" }
 						add_ship_design = last_created_design
 						create_ship_design = { design = "NAME_Aberrant_Anchor" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Unbidden_Starbase" }
 						add_ship_design = last_created_design
 						establish_communications_no_message = event_target:portal_holder_1
 						set_faction_hostility = {
@@ -504,8 +505,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 				}
 			}
 			country_event = { id = crisis.1112 }
@@ -538,19 +538,23 @@ country_event = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 				}
 				country_event = { id = crisis.1116 }
 			}
 			FROM = { save_event_target_as = portal_killer }
+			if = {
+				limit = {
+					from = { is_ai = no }
+				}
+				country_event = { id = crisis.1250 days = 10 random = 10 }
+			}
 			every_country = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 					has_communications = FROM
 				}
@@ -563,8 +567,7 @@ country_event = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 				}
 				add_modifier = {
@@ -578,8 +581,7 @@ country_event = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 				}
 				country_event = { id = crisis.1117 }
@@ -665,6 +667,8 @@ country_event = {
 						add_ship_design = last_created_design
 						create_ship_design = { design = "NAME_Vehement_Anchor" }
 						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Unbidden_Starbase" }
+							add_ship_design = last_created_design
 						establish_communications_no_message = event_target:portal_holder_1
 						set_faction_hostility = {
 							target = event_target:portal_holder_1
@@ -840,19 +844,23 @@ country_event = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 				}
 				country_event = { id = crisis.1216 }
 			}
 			FROM = { save_event_target_as = portal_killer }
+			if = {
+				limit = {
+					from = { is_ai = no }
+				}
+				country_event = { id = crisis.1250 days = 10 random = 10 }
+			}
 			every_country = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 					has_communications = FROM
 				}
@@ -865,8 +873,7 @@ country_event = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 				}
 				add_modifier = {
@@ -880,8 +887,7 @@ country_event = {
 				limit = {
 					OR = {
 						is_country_type = default
-						is_country_type = fallen_empire
-						is_country_type = awakened_fallen_empire
+						is_fallen_empire = yes
 					}
 				}
 				country_event = { id = crisis.1217 }
@@ -987,7 +993,9 @@ event = {
 				}
 				destroy_country = yes
 			}
-			check_crisis_exists = yes
+			event_target:global_event_country = {
+				country_event = { id = fallenhuman.12 days = 10 }
+			}
 		}
 	}
 }
@@ -1002,14 +1010,14 @@ country_event = {
 	trigger = {
 		# Must only trigger if portal is still alive
 		OR = {
-			count_owned_ships = {
+			count_owned_ship = {
 				limit = { is_ship_size = dimensional_portal_ed }
 				count > 0
 			}
 			any_country = {
 				AND = {
 					is_country_type = portal_holder
-					count_owned_ships = {
+					count_owned_ship = {
 						limit = { is_ship_size = dimensional_portal_ed }
 						count > 0
 					}
@@ -1320,14 +1328,14 @@ ship_event = {
 			}
 			# Must only trigger if portal is still alive
 			OR = {
-				count_owned_ships = {
+				count_owned_ship = {
 					limit = { is_ship_size = dimensional_portal_ed }
 					count > 0
 				}
 				any_country = {
 					AND = {
 						is_country_type = portal_holder
-						count_owned_ships = {
+						count_owned_ship = {
 							limit = { is_ship_size = dimensional_portal_ed }
 							count > 0
 						}
@@ -1659,16 +1667,21 @@ country_event = {
 
 	immediate = {
 		observer_event = { id = observer.40 }
-		every_country = {
-			limit = {
-				OR = {
-					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+		# Crisis reward is handled through Galactic Focus if the community exists
+		if = {
+			limit = { NOT = { has_global_flag = galactic_community_formed } }
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_fallen_empire = yes
+					}
 				}
+				country_event = { id = crisis.1271 }
 			}
-			country_event = { id = crisis.1271 }
 		}
+
+		set_global_flag = extradimensional_invasion_defeated
 	}
 }
 
@@ -1801,10 +1814,7 @@ country_event = {
 	option = {
 		name = crisis.1271.c
 		trigger = {
-			OR = {
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
-			}
+			is_fallen_empire = yes
 		}
 		add_monthly_resource_mult = {
 			resource = unity

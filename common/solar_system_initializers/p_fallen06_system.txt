@@ -56,7 +56,7 @@ fallen_6 = {
 
 			create_cluster = {
 				id = fe6_cluster
-				radius = 140
+				radius = 200
 				center = this.solar_system
 			}
 
@@ -84,25 +84,29 @@ fallen_6 = {
 			add_building = building_nano_forge
 			while = {
 				count = 2
-				add_district = district_city
 				add_deposit = d_rich_mountain
+			}
+			while = {
+				count = 2
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_city
+				}
 			}
 			while = {
 				count = 5
 				add_deposit = d_rich_mountain
 			}
+			
 			while = {
 				count = 15
-				add_district = district_mining
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_mining
+				}
 			}
 			while = {
 				count = 8
-				add_district = district_farming
-			}
-			while = {
-				count = 24
-				create_pop = {
-					species = owner_main_species
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_farming
 				}
 			}
 			create_fallen_empire_starting_navy = yes
@@ -115,87 +119,106 @@ fallen_6 = {
 					type = "xenomorph_army"
 				}
 			}
-			root = {
-				create_species = {
-					name = "NAME_Synthetic"
-					plural = "NAME_Synthetics"
-					class = ROBOT
-					namelist = this
-					portrait = "default_robot"
-					traits = {
-						trait = "trait_mechanical"
-					}
-					
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_hum_robot = yes }
-							}			
-							change_species_portrait = sd_hum_robot
-						}
-					}
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_mam_robot = yes }
-							}			
-							change_species_portrait = sd_mam_robot
-						}
-					}		
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_rep_robot = yes }
-							}			
-							change_species_portrait = sd_rep_robot
-						}
-					}
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_avi_robot = yes }
-							}			
-							change_species_portrait = sd_avi_robot
-						}
-					}
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_art_robot = yes }
-							}			
-							change_species_portrait = sd_art_robot
-						}
-					}
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_mol_robot = yes }
-							}			
-							change_species_portrait = sd_mol_robot
-						}
-					}
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_fun_robot = yes }
-							}			
-							change_species_portrait = sd_fun_robot
-						}
-					}
-					effect = {
-						if = {
-							limit = {
-								root = { use_robot_portrait_sd_pla_robot = yes }
-							}			
-							change_species_portrait = sd_pla_robot
-						}
+			root = { create_fe_servant_robots = yes }
+			last_created_species = { save_event_target_as = fe_servants }
+			create_species = {
+				name = "NAME_Synthetic"
+				plural = "NAME_Synthetics"
+				class = ROBOT
+				namelist = this
+				portrait = "default_robot"
+				traits = {
+					trait = "trait_mechanical"
+				}
+				
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_hum_robot = yes }
+						}			
+						change_species_portrait = sd_hum_robot
 					}
 				}
-				set_built_species = last_created_species
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_mam_robot = yes }
+						}			
+						change_species_portrait = sd_mam_robot
+					}
+				}		
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_rep_robot = yes }
+						}			
+						change_species_portrait = sd_rep_robot
+					}
+				}
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_avi_robot = yes }
+						}			
+						change_species_portrait = sd_avi_robot
+					}
+				}
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_art_robot = yes }
+						}			
+						change_species_portrait = sd_art_robot
+					}
+				}
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_mol_robot = yes }
+						}			
+						change_species_portrait = sd_mol_robot
+					}
+				}
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_fun_robot = yes }
+						}			
+						change_species_portrait = sd_fun_robot
+					}
+				}
+				effect = {
+					if = {
+						limit = {
+							root = { use_robot_portrait_sd_pla_robot = yes }
+						}			
+						change_species_portrait = sd_pla_robot
+					}
+				}
+				effect = {
+					if = {
+						limit = {
+							root = {
+								OR = {
+									is_species_class = LITHOID
+									species_portrait = lith_machine
+								}
+							}
+						}			
+						change_species_portrait = lith_machine
+					}
+				}
 			}
-			last_created_species = { save_event_target_as = fe_servants }
+			last_created_species = { save_event_target_as = synthetic_species }
+			
 			while = {
-				count = 46
+				count = 34
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			while = {
+				count = 56
 				create_pop = {
 					species = event_target:fe_servants
 				}
@@ -217,7 +240,7 @@ fallen_6 = {
 				set_planet_flag = fallen_empire_world
 				prevent_anomaly = yes
 				set_owner = root
-				set_controller = root			
+				set_controller = root
 			
 				add_building = building_ancient_palace
 				add_building = building_affluence_center
@@ -237,11 +260,15 @@ fallen_6 = {
 				add_building = building_class_4_singularity
 				while = {
 					count = 10
-					add_district = district_arcology_housing
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_arcology_housing
+					}
 				}
 				while = {
 					count = 2
-					add_district = district_arcology_leisure
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_arcology_leisure
+					}
 				}			
 				while = {
 					count = 50
@@ -250,6 +277,12 @@ fallen_6 = {
 					}
 				}
 				while = {
+					count = 20
+					create_pop = {
+						species = event_target:synthetic_species
+					}
+                }
+                while = {
 					count = 20
 					create_pop = {
 						species = event_target:fe_servants

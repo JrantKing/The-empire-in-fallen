@@ -1,6 +1,349 @@
 namespace = stability
 
 country_event = {
+	id = stability.995
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "agenda_window"
+	title = ""
+	desc =  ""
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "stability.996.escape"
+		custom_gui = "agenda_option"	
+	}
+	
+	option = {
+		name = "stability.995.random"
+		custom_gui = "agenda_option"
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_150
+				has_resource = { type = influence amount > 149 }
+			}
+		}
+		remove_agenda = yes
+		custom_tooltip = get_random_agenda
+		hidden_effect = {
+        	get_random_agenda = yes
+			add_resource = {
+				influence = -150
+			}
+		}
+	}
+
+	option = {
+		name = "stability.995.defensive_focus"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_defensive_focus } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_defensive_focus days = -1 }
+	}
+
+	option = {
+		name = "stability.995.naval_focus"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_naval_focus } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_naval_focus days = -1 }
+	}
+
+	option = {
+		name = "stability.995.industrial"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_industrial } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_industrial days = -1 }
+	}
+
+	option = {
+		name = "stability.995.science"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_science } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_science days = -1 }
+	}
+
+	option = {
+		name = "stability.995.finanical"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_finanical } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_finanical days = -1 }
+	}
+
+	option = {
+		name = "stability.995.welfare"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_welfare } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_welfare days = -1 }
+	}
+
+	option = {
+		name = "stability.995.expansionist_overtures"
+		custom_gui = "agenda_option"
+		trigger = {
+			num_communications > 0
+			NOT = { has_modifier = modifer_expansionist_overtures }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_expansionist_overtures days = -1 }
+	}
+
+	option = {
+		name = "stability.995.national_purity"
+		custom_gui = "agenda_option"
+		trigger = {
+			is_xenophile = no
+			NOT = { has_modifier = modifer_national_purity }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_national_purity days = -1 }
+	}
+
+	option = {
+		name = "stability.995.public_debates"
+		custom_gui = "agenda_option"
+		trigger = {
+			mid_game_years_passed >= 0
+			NOT = { has_modifier = modifer_national_purity }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_public_debates days = -1 }
+	}
+
+	option = {
+		name = "stability.995.import_export"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_import_export } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_import_export days = -1 }
+	}
+
+	option = {
+		name = "stability.995.native_privilege"
+		custom_gui = "agenda_option"
+		trigger = {
+			is_xenophile = no
+			NOT = { has_modifier = modifer_native_privilege }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_native_privilege days = -1 }
+	}
+
+	option = {
+		name = "stability.995.skill_development"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_skill_development } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_skill_development days = -1 }
+	}
+
+	option = {
+		name = "stability.995.slave_optimization"
+		custom_gui = "agenda_option"
+		trigger = {
+			NOT = { has_policy_flag = slavery_not_allowed }
+			NOT = { has_modifier = modifer_slave_optimization }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_slave_optimization days = -1 }
+	}
+
+	option = {
+		name = "stability.995.selective_nostalgia"
+		custom_gui = "agenda_option"
+		trigger = { NOT = { has_modifier = modifer_selective_nostalgia } }
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_selective_nostalgia days = -1 }
+	}
+
+	option = {
+		name = "stability.995.xeno_outreach"
+		custom_gui = "agenda_option"
+		trigger = {
+			num_communications > 2
+			NOT = { has_modifier = modifer_xeno_outreach }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = no_influence_300
+				has_resource = { type = influence amount > 299 }
+			}
+		}
+		hidden_effect = {
+			add_resource = {
+				influence = -300
+			}
+		}
+		remove_agenda = yes
+		add_modifier = { modifier = modifer_xeno_outreach days = -1 }
+	}
+
+	after = {
+		hidden_effect = { remove_country_flag = had_agenda_enter }
+	}
+}
+
+country_event = {
 	id = stability.996
 	is_triggered_only = yes
 	diplomatic = yes
@@ -537,8 +880,8 @@ country_event = {
 		trigger = {
 			switch = {
 				trigger = has_ethic
-				ethic_fanatic_egalitarian = { text = country.1010.desc.ind }
-				ethic_fanatic_authoritarian = { text = country.1010.desc.coll }
+				ethic_fanatic_egalitarian = { text = stability.1010.desc.ind }
+				ethic_fanatic_authoritarian = { text = stability.1010.desc.coll }
 			}
 		}
 	}
@@ -699,8 +1042,15 @@ country_event = {
 	picture = GFX_evt_alien_propaganda
 	
 	trigger = {
+		is_country_type = default
 		has_authority = auth_imperial
 		exists = heir
+		heir = {
+			NOR = {
+				has_ruler_trait = leader_trait_ruler_synthetic
+				has_ruler_trait = leader_trait_ruler_chosen
+			}
+		}
 	}
 	mean_time_to_happen = {
 		months = 2400
@@ -714,7 +1064,7 @@ country_event = {
 	option = {
 		name = "stability.1018.a"
 		trigger = {
-			energy > 0
+			has_resource = { type = energy amount > 0 }
 		}
 		hidden_effect = {
 			add_monthly_resource_mult = {

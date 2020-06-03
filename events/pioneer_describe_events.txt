@@ -26,10 +26,10 @@ country_event = {
 			limit = { has_country_flag = fallen_empire_3 }
 			save_event_target_as = fallen_empire_3
 		}
-		random_country = {
-			limit = { has_country_flag = fallen_empire_6 }
-			save_event_target_as = fallen_empire_6
-		}
+		# random_country = {
+		# 	limit = { has_ethic = ethic_fanatic_communism }
+		# 	save_event_target_as = fallen_empire_6
+		# }
 		random_country = {
 			limit = { is_country_type = ai_empire }
 			save_event_target_as = contingency
@@ -176,10 +176,10 @@ country_event = {
 			limit = { has_country_flag = fallen_empire_5 }
 			save_event_target_as = fallen_empire_5
 		}
-		random_country = {
-			limit = { has_country_flag = fallen_empire_6 }
-			save_event_target_as = fallen_empire_6
-		}
+		# random_country = {
+		# 	limit = { has_ethic = ethic_fanatic_communism }
+		# 	save_event_target_as = fallen_empire_6
+		# }
 		random_country = {
 			limit = { has_country_flag = fallen_empire_machine }
 			save_event_target_as = fallen_empire_machine

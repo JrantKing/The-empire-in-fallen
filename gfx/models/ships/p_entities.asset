@@ -1,4 +1,71 @@
 entity = {
+	name = "une_wormhole_station_entity"
+	locator = { name = "root" position = { 0 0 0 } }
+	attach = { root = "une_wormhole_station_entity_effect" }
+	scale = 2
+}
+
+entity = {
+	name = "une_wormhole_station_entity_effect"
+	pdxmesh = "abandoned_wormhole_station_01_mesh"
+	default_state = "idle" 
+	state = { name = "idle" animation = "idle" looping = yes
+		event = { time = 0 particle = "une_wormhole_station_core_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" animation = "death" looping = no
+		event = { time = 0.0 node = "explosion_generator_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 0.2 node = "explosion_generator_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		
+		event = { time = 0.5 node = "explosion_ring_up_5" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 0.8 node = "explosion_ring_up_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.1 node = "explosion_ring_up_4" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.4 node = "explosion_ring_up_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.4 node = "explosion_ring_up_3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.6 node = "explosion_ring_up_6" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		
+		event = { time = 0.8 node = "explosion_ring_down_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.2 node = "explosion_ring_down_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.25 node = "explosion_ring_down_5" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.7 node = "explosion_ring_down_3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.0 node = "explosion_ring_down_4" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.7 node = "explosion_ring_down_6" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		
+		event = { time = 2.9 node = "explosion_generator_1" particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.9 node = "explosion_generator_2" particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes }
+	}
+}
+
+entity = {
+	name = "deactivated_une_wormhole_station_entity"
+	pdxmesh = "abandoned_wormhole_station_01_mesh"
+	
+	default_state = "idle" 
+	state = { name = "idle" animation = "idle" animation_speed = 0 }
+	state = { name = "death" animation = "death"
+		event = { time = 0.0 node = "explosion_generator_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 0.2 node = "explosion_generator_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		
+		event = { time = 0.5 node = "explosion_ring_up_5" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 0.8 node = "explosion_ring_up_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.1 node = "explosion_ring_up_4" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.4 node = "explosion_ring_up_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.4 node = "explosion_ring_up_3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.6 node = "explosion_ring_up_6" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		
+		event = { time = 0.8 node = "explosion_ring_down_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.2 node = "explosion_ring_down_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.25 node = "explosion_ring_down_5" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 1.7 node = "explosion_ring_down_3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.0 node = "explosion_ring_down_4" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.7 node = "explosion_ring_down_6" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes }
+		
+		event = { time = 2.9 node = "explosion_generator_1" particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes }
+		event = { time = 2.9 node = "explosion_generator_2" particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes }
+	}
+	scale = 2
+}
+
+entity = {
 	name = "unoe_ancient_battlefield_entity"
 	
 		locator = { name = "debris_large"			position = { 0 30 0 } } # X Y Z, Y = depth

@@ -1,0 +1,40 @@
+star_program_megastructures = {
+	entity = "construction_platform_entity"
+	#entity = ""
+	portrait = "GFX_megastructure_star_pressure_controller"
+	place_entity_on_planet_plane = no
+	show_galactic_map_icon = no
+	potential = {
+		always = no
+	}
+	resources = {
+		category = megastructures
+	}
+	placement_rules = {
+		planet = {
+			
+		}
+	}
+	build_time = 0
+	on_build_start = {
+		set_star_flag = building_star_program
+	}
+	on_build_cancel = {
+		remove_star_flag = building_star_program
+	}
+	on_build_complete = {
+		remove_star_flag = building_star_program
+		fromfrom.planet = {
+			set_planet_flag = has_megastructure
+			set_planet_flag = has_megastructure_star_program
+		}
+		# create_ambient_object = {
+		# 	type = star_pressure_controller
+		# 	use_3d_location = yes
+		# 	location = fromfrom
+		# 	entity_scale_to_size = yes
+		# 	entity_offset = { min = 0 max = 0 }
+		# 	scale = 0.125
+		# }
+	}
+}

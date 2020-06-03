@@ -1,0 +1,118 @@
+namespace = hive_mind
+
+# Get Machine Species
+country_event = {
+	id = hive_mind.0
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+		has_technology = tech_create_hive_mind
+		NOT = { has_country_flag = get_hive_mind }
+		any_owned_planet = {
+			is_capital = yes
+		}
+	}
+
+	immediate = {
+        set_country_flag = get_hive_mind
+        set_policy = {
+            policy = hive_mind_pop
+            option = servitude_hive_mind_pop
+            cooldown = no
+        }
+        random_owned_planet = {
+            limit = {
+                is_capital = yes
+            }
+            save_event_target_as = capital
+        }
+		create_species = {
+			name = random
+			class = random_non_machine
+			namelist = random
+			portrait = random
+			homeworld = event_target:capital
+			traits = {
+				trait = trait_hive_mind
+			}
+			effect = {
+				save_event_target_as = hive_mind_species
+			}
+		}
+		last_created_species = { set_species_flag = syncretic_species@root }
+		if = {
+			limit = {
+				is_ai = no
+			}
+			event_target:hive_mind_species = {
+				rename_species = {
+					prompt_country = root
+					name_list = hive_mind_names
+				}
+			}
+		}
+		last_created_species = {
+			set_citizenship_type = {
+				type = citizenship_slavery
+				country = root
+			}
+			set_slavery_type = {
+				type = slavery_domestic
+				country = root
+			}
+		}
+		capital_scope = {
+			create_pop = {
+				species = last_created_species
+			}
+		}
+	}
+}
+
+country_event = {
+	id = hive_mind.1
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		any_playable_country = { has_valid_civic = civic_hivekeeper }
+	}
+	immediate = {
+		every_playable_country = {
+			limit = { has_valid_civic = civic_hivekeeper }
+			random_owned_pop_species = {
+				limit = { has_species_flag = secend_species_hive }
+				set_citizenship_type = {
+					country = prev
+					type = citizenship_slavery
+					cooldown = no
+				}
+				set_slavery_type = {
+					type = slavery_domestic
+					country = prev
+					cooldown = no
+				}
+				remove_species_flag = secend_species_hive
+			}
+			every_owned_pop_species = {
+				limit = { has_species_flag = secend_species_hive_livestock }
+				set_citizenship_type = {
+					country = prev
+					type = citizenship_slavery
+					cooldown = no
+				}
+				set_slavery_type = {
+					type = slavery_livestock
+					country = prev
+					cooldown = no
+				}
+				remove_species_flag = secend_species_hive_livestock
+			}
+		}
+	}
+}

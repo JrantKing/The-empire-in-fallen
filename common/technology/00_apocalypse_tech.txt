@@ -116,6 +116,10 @@ tech_pk_cracker = {
 	weight_modifier = {
 		factor = 0.50
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 0.20
 			NOR = {
 				research_leader = {
@@ -154,7 +158,7 @@ tech_pk_shielder = {
 	tier = 5
 	is_rare = yes
 	is_reverse_engineerable = no
-	category = { voidcraft }
+	category = { field_manipulation }
 	prerequisites = { "tech_colossus" }
 	ai_update_type = military
 	weight = @tier5weight3
@@ -167,19 +171,23 @@ tech_pk_shielder = {
 	weight_modifier = {
 		factor = 0.50
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 0.20
 			NOR = {
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_maniacal"
 				}
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_curator"
 				}
 				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_expertise_voidcraft"
+					area = physics
+					has_trait = "leader_trait_expertise_field_manipulation"
 				}
 			}			
 		}
@@ -209,7 +217,7 @@ tech_pk_neutron = {
 	tier = 5
 	is_rare = yes
 	is_reverse_engineerable = no
-	category = { voidcraft }
+	category = { particles }
 	prerequisites = { "tech_colossus" }
 	ai_update_type = military
 	weight = @tier5weight3
@@ -224,19 +232,23 @@ tech_pk_neutron = {
 	weight_modifier = {
 		factor = 0.50
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 0.20
 			NOR = {
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_maniacal"
 				}
 				research_leader = {
-					area = engineering
+					area = physics
 					has_trait = "leader_trait_curator"
 				}
 				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_expertise_voidcraft"
+					area = physics
+					has_trait = "leader_trait_expertise_particles"
 				}
 			}			
 		}
@@ -279,6 +291,10 @@ tech_pk_nanobots = {
 	
 	weight_modifier = {
 		factor = 0.50
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
 		modifier = {
 			factor = 0.20
 			NOR = {

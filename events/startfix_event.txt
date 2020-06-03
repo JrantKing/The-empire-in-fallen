@@ -1,14 +1,15 @@
 namespace = startfix
 
-event = {
+country_event = {
 	id = startfix.0
 	hide_window = yes
 	is_triggered_only = yes
 	fire_only_once = yes
 	
 	immediate = {
-		event_target:global_event_country = {
-			country_event = { id = startfix.1 days = 100 }
+		random_country = {
+			limit = { is_country_type = global_event }
+			#country_event = { id = startfix.1 days = 100 }
 			country_event = { id = fallen_start.3 days = 1 }
 		}
 	}
@@ -52,13 +53,25 @@ country_event = {
 					}
 					starbase = {
 						set_starbase_size = starbase_citadel
-						set_starbase_building = { slot = 0 building = target_uplink_computer }
-						set_starbase_building = { slot = 1 building = defense_grid }
-						set_starbase_building = { slot = 2 building = colossus_yards }
-						set_starbase_building = { slot = 3 building = titan_yards }
+						fleet = {
+							fleet_event = {
+								id = startfix.4 days = 2
+							}
+						}
 						while = {
 							count = 10
 							create_fallen_empire_platform = yes
+						}
+						if = {
+							limit = { owner = { has_ethic = ethic_fanatic_communism } }
+							while = {
+								count = 2
+								create_ship = {
+									name = random
+									design = "NAME_Ruling"
+									graphical_culture = owner
+								}
+							}
 						}
 					}
 				}
@@ -92,13 +105,25 @@ country_event = {
 					}
 					starbase = {
 						set_starbase_size = starbase_citadel
-						set_starbase_building = { slot = 0 building = crew_quarters }
-						set_starbase_building = { slot = 1 building = command_center }
-						set_starbase_building = { slot = 2 building = target_uplink_computer }
-						set_starbase_building = { slot = 3 building = listening_post }
+						fleet = {
+							fleet_event = {
+								id = startfix.5 days = 2
+							}
+						}
 						while = {
 							count = 4
 							create_fallen_empire_platform = yes
+						}
+						if = {
+							limit = { owner = { has_ethic = ethic_fanatic_communism } }
+							while = {
+								count = 2
+								create_ship = {
+									name = random
+									design = "NAME_Ruling"
+									graphical_culture = owner
+								}
+							}
 						}
 					}
 				}
@@ -134,6 +159,7 @@ country_event = {
 				limit = { 
 					has_deposit_for = shipclass_mining_station 
 					has_mining_station = no
+					is_star = no
 				}
 				create_mining_station = {
 					owner = prev
@@ -143,11 +169,132 @@ country_event = {
 				limit = { 
 					has_deposit_for = shipclass_research_station 
 					has_research_station = no
+					is_star = no
 				}
 				create_research_station = {
 					owner = prev
 				}
 			}
+		}
+	}
+}
+
+event = {
+	id = startfix.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:fallen_empire_6 = {
+			set_spawn_system_batch = begin
+			no_scope = {
+				spawn_system = {
+					initializer = sagittarius_a_system
+					min_distance >= 0
+					max_distance <= 0
+					min_orientation_angle = 0
+					max_orientation_angle = 0
+				}
+				spawn_system = {
+					min_distance >= 10
+					max_distance <= 20
+					min_orientation_angle = 0
+					max_orientation_angle = 359
+					initializer = sol_fallen
+				}
+				random_system = {
+					limit = { has_star_flag = sol }
+					save_event_target_as = sol
+					spawn_system = {
+						min_distance >= 10
+						max_distance <= 20
+						min_orientation_angle = -45
+						max_orientation_angle = 45
+						initializer = sol_bnd_fallen
+					}
+					spawn_system = {
+						min_distance >= 10
+						max_distance <= 20
+						min_orientation_angle = 135
+						max_orientation_angle = 225
+						initializer = sol_nme_fallen
+					}
+				}
+				random_system = {
+					limit = { has_star_flag = bnd }
+					save_event_target_as = bnd
+					spawn_system = {
+						min_distance >= 10
+						max_distance <= 20
+						min_orientation_angle = -90
+						max_orientation_angle = 90
+						initializer = sol_tlx_fallen
+					}
+				}
+				random_system = {
+					limit = { has_star_flag = nme }
+					save_event_target_as = nme
+					spawn_system = {
+						min_distance >= 10
+						max_distance <= 20
+						min_orientation_angle = 90
+						max_orientation_angle = 180
+						initializer = sol_nhs_fallen
+					}
+				}
+				random_system = {
+					limit = {
+						has_star_flag = sagittarius_a
+					}
+					save_event_target_as = sagittarius_a
+				}
+				random_system = {
+					limit = { has_star_flag = tlx }
+					save_event_target_as = tlx
+				}
+				random_system = {
+					limit = { has_star_flag = nhs }
+					save_event_target_as = nhs
+				}
+			}
+			every_system = {
+				limit = { has_star_flag = fallen_sol_system }
+				isolate_system = yes
+			}
+			event_target:sol = {
+				add_hyperlane = {
+					from = event_target:sol
+					to = event_target:bnd
+				}
+				add_hyperlane = {
+					from = event_target:sol
+					to = event_target:nme
+				}
+			}
+			event_target:sagittarius_a = {
+				add_hyperlane = {
+					from = event_target:sol
+					to = event_target:sagittarius_a
+				}
+			}
+			event_target:bnd = {
+				add_hyperlane = {
+					from = event_target:bnd
+					to = event_target:tlx
+				}
+			}
+			event_target:nme = {
+				add_hyperlane = {
+					from = event_target:nme
+					to = event_target:nhs
+				}
+				spawn_system = {
+					initializer = epsilon_eridani
+					min_distance >= 10
+					max_distance <= 20
+				}
+			}
+			set_spawn_system_batch = end
 		}
 	}
 }
@@ -182,16 +329,15 @@ country_event = {
 					module = "shipyard"			
 					module = "hangar_bay"
 					module = "gun_battery"
-					module = "gun_battery"	
-					building = "target_uplink_computer"
-					building = "defense_grid"
+					module = "gun_battery"
 				}
 				starbase = {
 					set_starbase_size = starbase_citadel
-					set_starbase_building = { slot = 0 building = target_uplink_computer }
-					set_starbase_building = { slot = 1 building = defense_grid }
-					set_starbase_building = { slot = 2 building = colossus_yards }
-					set_starbase_building = { slot = 3 building = titan_yards }
+					fleet = {
+						fleet_event = {
+							id = startfix.4 days = 2
+						}
+					}
 					while = {
 						count = 10
 						create_fallen_empire_platform = yes
@@ -222,16 +368,15 @@ country_event = {
 					module = "shipyard"			
 					module = "hangar_bay"
 					module = "gun_battery"
-					module = "gun_battery"	
-					building = "target_uplink_computer"
-					building = "defense_grid"
+					module = "gun_battery"
 				}
 				starbase = {
 					set_starbase_size = starbase_citadel
-					set_starbase_building = { slot = 0 building = crew_quarters }
-					set_starbase_building = { slot = 1 building = command_center }
-					set_starbase_building = { slot = 2 building = target_uplink_computer }
-					set_starbase_building = { slot = 3 building = listening_post }
+					fleet = {
+						fleet_event = {
+							id = startfix.5 days = 2
+						}
+					}
 					while = {
 						count = 4
 						create_fallen_empire_platform = yes
@@ -270,6 +415,7 @@ country_event = {
 			limit = { 
 				has_deposit_for = shipclass_mining_station 
 				has_mining_station = no
+				is_star = no
 			}
 			create_mining_station = {
 				owner = prev
@@ -279,10 +425,39 @@ country_event = {
 			limit = { 
 				has_deposit_for = shipclass_research_station 
 				has_research_station = no
+				is_star = no
 			}
 			create_research_station = {
 				owner = prev
 			}
+		}
+	}
+}
+
+fleet_event = {
+	id = startfix.4
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		starbase = {
+			set_starbase_building = { slot = 0 building = target_uplink_computer }
+			set_starbase_building = { slot = 1 building = defense_grid }
+			set_starbase_building = { slot = 2 building = colossus_yards }
+			set_starbase_building = { slot = 3 building = titan_yards }			
+		}
+	}
+}
+
+fleet_event = {
+	id = startfix.5
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		starbase = {
+			set_starbase_building = { slot = 0 building = crew_quarters }
+			set_starbase_building = { slot = 1 building = command_center }
+			set_starbase_building = { slot = 2 building = target_uplink_computer }
+			set_starbase_building = { slot = 3 building = listening_post }		
 		}
 	}
 }

@@ -3,7 +3,7 @@ utility_component_template = {
 	size = small
 	icon = "GFX_ship_part_border_extruder_2"
 	icon_frame = 1
-	power = 260
+	power = 1565
 	#cost = 0
 	
 	size_restriction = { large_ship_fallen_empire }
@@ -20,7 +20,7 @@ utility_component_template = {
 	size = small
 	icon = "GFX_ship_part_border_extruder_1"
 	icon_frame = 1
-	power = 173
+	power = 745
 	#cost = 0
 	
 	size_restriction = { small_ship_fallen_empire }
@@ -37,10 +37,9 @@ utility_component_template = {
 	size = small
 	icon = "GFX_ship_part_border_extruder_2"
 	icon_frame = 1
-	power = 2040
+	power = 4235
 	#cost = 0
 	
-	#class_restriction = { shipclass_outpost_station }
 	size_restriction = { massive_ship_fallen_empire }
 	
 	component_set = "FALLEN_ENERGY_CORE"
@@ -55,7 +54,7 @@ utility_component_template = {
 	size = small
 	icon = "GFX_ship_part_border_extruder_1"
 	icon_frame = 1
-	power = 625
+	power = 1605
 	#cost = 0
 	
 	size_restriction = { military_station_small_fallen_empire }
@@ -68,38 +67,53 @@ utility_component_template = {
 }
 
 utility_component_template = {
-	key = "THE_UPPER_SHIELD"
-	size = large
-	icon = "GFX_ship_part_enigmatic_shield"
+	key = "fallen_energy_core_5"
+	size = small
+	icon = "GFX_ship_part_border_extruder_2"
 	icon_frame = 1
-	power = -70
-	cost = 70
-	hidden = yes
-	modifier = {
+	power = 7215
+	#cost = 0
 	
+	size_restriction = { military_station_large_fallen_empire }
+	
+	component_set = "FALLEN_ENERGY_CORE"
+	
+	ai_weight = {
+		weight = 1
 	}
-	#prerequisites = { "tech_enigmatic_deflector" }
-	component_set = "THE_UPPER_SHIELD"
 }
+
 utility_component_template = {
-	key = "THE_UPPER_POWER_CORE"
-	size = large
-	icon = "GFX_ship_part_enigmatic_power_core"
-	icon_frame = 1
-	power = 160
-	cost = 140
-	hidden = yes
-	#prerequisites = { "tech_enigmatic_power_core"  }
-	component_set = "THE_UPPER_POWER_CORE"
-}
-utility_component_template = {
-	key = "THE_UPPER_ARMOR"
-	size = large
-	icon = "GFX_ship_part_dragon_armor"
+	key = "ENIGMATIC_DISRUPTION_FIELD_test"
+	size = medium
+	icon = "GFX_ship_part_enigmatic_disruption_field"
 	icon_frame = 1
 	power = 0
-	cost = 48
 	hidden = yes
-	#prerequisites = { "tech_dragon_armor" }
-	component_set = "THE_UPPER_ARMOR"
+	ftl_magnet = yes
+	ftl_inhibitor = yes
+	
+	component_set = "ENIGMATIC_DISRUPTION_FIELD"
+	
+	hostile_aura = {
+		name = "aura_ftl_inhibitor"
+		system_wide = yes
+		
+		stack_info = {			#A ship can only be affected by one aura of a certain id. If multiple auras have the same ID the one with the highest priority will be applied.
+			id = hostile_inhibitor_aura
+			priority = 100
+		}
+		
+		modifier = {
+			ship_fire_rate_mult = -0.20
+			ship_emergency_ftl_min_days_mult = 1
+		}
+		
+		graphics = {
+			ship_effect = {
+				entity = "ship_aura_negative_entity"
+				dynamic_scale = no
+			}
+		}
+	}
 }
